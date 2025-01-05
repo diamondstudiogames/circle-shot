@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7vnr4k6hi7cm"]
+
+[ext_resource type="Texture2D" uid="uid://ujhiaedcexu1" path="res://game/skins/videogames/mita/mita.png" id="1_bvsjt"]
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_nbedm"]
+
+[node name="Mita" type="Sprite2D"]
+texture = ExtResource("1_bvsjt")
+script = ExtResource("1_nbedm")
+metadata/_custom_type_script = ExtResource("1_nbedm")

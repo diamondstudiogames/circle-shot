@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemsDB" load_steps=50 format=3 uid="uid://pwq1e7l2ckos"]
+[gd_resource type="Resource" script_class="ItemsDB" load_steps=51 format=3 uid="uid://pwq1e7l2ckos"]
 
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_yrpvj"]
 [ext_resource type="Resource" uid="uid://i4s2m4jgbyvc" path="res://game/events/royale/royale.tres" id="2_8tgde"]
@@ -42,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://7if1k7f67oki" path="res://game/skins/standard/clown/clown.tres" id="29_hy3nc"]
 [ext_resource type="Resource" uid="uid://q5725b0xhqyh" path="res://game/skins/horny/boykisser/boykisser.tres" id="30_8506t"]
 [ext_resource type="Resource" uid="uid://hu6l0jeaxqhw" path="res://game/skins/videogames/pixel/pixel.tres" id="31_dyje7"]
+[ext_resource type="Resource" uid="uid://by8nwy5xvoa8" path="res://game/skins/videogames/mita/mita.tres" id="32_j2sk8"]
 [ext_resource type="Resource" uid="uid://connpgqem0b21" path="res://game/weapons/guns/i_need_more_bullets/i_need_more_bullets.tres" id="33_wgeog"]
 [ext_resource type="Resource" uid="uid://bqki86tfflf7n" path="res://game/weapons/grenades/flashbang/flashbang.tres" id="36_240aq"]
 [ext_resource type="Resource" uid="uid://h2a4hucar1wo" path="res://game/weapons/melee/lightsaber/lightsaber.tres" id="36_tm20e"]
@@ -53,7 +54,7 @@
 [resource]
 script = ExtResource("2_y7sof")
 events = Array[ExtResource("1_yrpvj")]([ExtResource("2_8tgde"), ExtResource("3_2oage"), ExtResource("4_8506t")])
-skins = Array[ExtResource("3_c4k52")]([ExtResource("4_kr1x8"), ExtResource("5_3l44y"), ExtResource("6_etdf3"), ExtResource("7_7vr63"), ExtResource("8_yhh8f"), ExtResource("9_jevbu"), ExtResource("10_2k6xx"), ExtResource("11_bvpy1"), ExtResource("12_oy32e"), ExtResource("13_o4wj6"), ExtResource("14_rknbs"), ExtResource("15_c1d01"), ExtResource("19_bkemq"), ExtResource("20_nbhfx"), ExtResource("22_tu5xb"), ExtResource("23_wv8kv"), ExtResource("24_tbr3x"), ExtResource("26_g26gg"), ExtResource("30_8506t"), ExtResource("29_hy3nc"), ExtResource("31_dyje7")])
+skins = Array[ExtResource("3_c4k52")]([ExtResource("4_kr1x8"), ExtResource("5_3l44y"), ExtResource("6_etdf3"), ExtResource("7_7vr63"), ExtResource("8_yhh8f"), ExtResource("9_jevbu"), ExtResource("10_2k6xx"), ExtResource("11_bvpy1"), ExtResource("12_oy32e"), ExtResource("13_o4wj6"), ExtResource("14_rknbs"), ExtResource("15_c1d01"), ExtResource("19_bkemq"), ExtResource("20_nbhfx"), ExtResource("22_tu5xb"), ExtResource("23_wv8kv"), ExtResource("24_tbr3x"), ExtResource("26_g26gg"), ExtResource("30_8506t"), ExtResource("29_hy3nc"), ExtResource("31_dyje7"), ExtResource("32_j2sk8")])
 weapons_light = Array[ExtResource("16_uslwp")]([ExtResource("20_wegr4"), ExtResource("21_43s3b"), ExtResource("42_2b02j")])
 weapons_heavy = Array[ExtResource("16_uslwp")]([ExtResource("17_7vx3p"), ExtResource("21_qy8k3"), ExtResource("18_hjrvg"), ExtResource("19_5dl73"), ExtResource("33_wgeog"), ExtResource("37_oq0s5"), ExtResource("39_p8lge")])
 weapons_support = Array[ExtResource("16_uslwp")]([ExtResource("25_wbuqy"), ExtResource("26_xy8s6"), ExtResource("36_240aq"), ExtResource("44_kifgh")])

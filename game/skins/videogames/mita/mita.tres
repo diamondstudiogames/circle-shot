@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://by8nwy5xvoa8"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_iiyws"]
+
+[resource]
+script = ExtResource("1_iiyws")
+name = "Mita"
+brief_description = "Мита из MiSide теперь в CS! Бегите, ЖеноФобы!!!"
+rarity = 1
+id = "861"
+scene_path = "uid://c7vnr4k6hi7cm"
+image_path = "uid://ijen7jsgkmxw"
+metadata/_custom_type_script = ExtResource("1_iiyws")
