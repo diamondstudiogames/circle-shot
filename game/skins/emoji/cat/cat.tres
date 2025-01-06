@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://58mkx5h3v4ou"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_51011"]
+
+[resource]
+script = ExtResource("1_51011")
+name = "cat"
+brief_description = "Что за кошатина?!"
+rarity = 1
+id = "BaCatina"
+scene_path = "uid://c4n2pkxv1n3or"
+image_path = "uid://cmugf7intv1pv"
+metadata/_custom_type_script = ExtResource("1_51011")

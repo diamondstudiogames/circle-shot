@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dggscprffe03c"]
+
+[ext_resource type="Texture2D" uid="uid://bay2sg8h4sobs" path="res://game/skins/emoji/nerd/nerd.png" id="1_2bfm2"]
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_fm32v"]
+
+[node name="Nerd" type="Sprite2D"]
+texture = ExtResource("1_2bfm2")
+script = ExtResource("1_fm32v")
+metadata/_custom_type_script = ExtResource("1_fm32v")

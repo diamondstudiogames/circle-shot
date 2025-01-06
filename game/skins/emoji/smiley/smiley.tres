@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://b2spxbj1bogeo"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_av13w"]
+
+[resource]
+script = ExtResource("1_av13w")
+name = "smiley"
+brief_description = "Просто смайлик"
+rarity = 1
+id = ":)"
+scene_path = "uid://dppbbkplpjj3o"
+image_path = "uid://cyrr2jvua7aa"
+metadata/_custom_type_script = ExtResource("1_av13w")

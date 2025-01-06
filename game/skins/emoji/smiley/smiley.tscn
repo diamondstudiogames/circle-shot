@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dppbbkplpjj3o"]
+
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_7vuvv"]
+[ext_resource type="Texture2D" uid="uid://dxl26e8pf4tp3" path="res://game/skins/emoji/smiley/smiley.png" id="1_c7xf6"]
+
+[node name="Smiley" type="Sprite2D"]
+texture = ExtResource("1_c7xf6")
+script = ExtResource("1_7vuvv")
+metadata/_custom_type_script = ExtResource("1_7vuvv")

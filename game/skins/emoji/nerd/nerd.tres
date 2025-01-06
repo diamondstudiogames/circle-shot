@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://c23q3ut3jlaqc"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_63i54"]
+
+[resource]
+script = ExtResource("1_63i54")
+name = "nerd"
+brief_description = "Эмодзи в очках"
+rarity = 1
+id = "Yes_im_nerd"
+scene_path = "uid://dggscprffe03c"
+image_path = "uid://c48mukegdbi8m"
+metadata/_custom_type_script = ExtResource("1_63i54")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4n2pkxv1n3or"]
+
+[ext_resource type="Texture2D" uid="uid://1ay0qquwo5j4" path="res://game/skins/emoji/cat/cat.png" id="1_7vduq"]
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_n6use"]
+
+[node name="Cat" type="Sprite2D"]
+texture = ExtResource("1_7vduq")
+script = ExtResource("1_n6use")
+metadata/_custom_type_script = ExtResource("1_n6use")
