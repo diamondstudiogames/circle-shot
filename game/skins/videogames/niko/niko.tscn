@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh3n3un5i122b"]
+
+[ext_resource type="Texture2D" uid="uid://bo7tmcmbiwygj" path="res://game/skins/videogames/niko/niko.png" id="1_g7mfa"]
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_jqy8n"]
+
+[node name="Niko" type="Sprite2D"]
+texture = ExtResource("1_g7mfa")
+script = ExtResource("1_jqy8n")
+metadata/_custom_type_script = ExtResource("1_jqy8n")

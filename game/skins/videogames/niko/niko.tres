@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://7qu5tvslwa5x"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_uupf4"]
+
+[resource]
+script = ExtResource("1_uupf4")
+name = "Niko"
+brief_description = "Hello Niko from OneShot"
+rarity = 2
+id = "Im_not_a_cat!"
+scene_path = "uid://dh3n3un5i122b"
+image_path = "uid://cp55rvnqppfi"
+metadata/_custom_type_script = ExtResource("1_uupf4")
