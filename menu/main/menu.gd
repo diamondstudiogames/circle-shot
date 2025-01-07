@@ -87,3 +87,7 @@ func _on_name_dialog_name_accepted() -> void:
 
 func _on_update_dialog_confirmed() -> void:
 	OS.shell_open("https://t.me/dsgames31")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

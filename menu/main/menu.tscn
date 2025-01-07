@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4wb77emq8t5p"]
+[gd_scene load_steps=15 format=3 uid="uid://4wb77emq8t5p"]
 
 [ext_resource type="Script" uid="uid://6mjcp2pfoqs6" path="res://menu/main/menu.gd" id="1_6hvox"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="1_m6h1l"]
@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://c3x171iwlnadt" path="res://menu/main/icons/inventory.png" id="6_ts3g1"]
 [ext_resource type="Texture2D" uid="uid://b0j3g7rkerkdm" path="res://menu/theme/icons/help.png" id="7_aw44p"]
 [ext_resource type="PackedScene" uid="uid://cuewsvjjnyl40" path="res://menu/main/name_dialog.tscn" id="10_yw6bl"]
+[ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="12_k1ro1"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_k1ro1"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_wm4e1"]
+events = [SubResource("InputEventAction_k1ro1")]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -243,6 +250,20 @@ unresizable = true
 ok_button_text = "Скачать"
 cancel_button_text = "Позже"
 
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 64.0
+grow_horizontal = 0
+shortcut = SubResource("Shortcut_wm4e1")
+shortcut_in_tooltip = false
+icon = ExtResource("12_k1ro1")
+
 [connection signal="pressed" from="ButtonsContainer/PlayButtonsContainer/PlayNetwork" to="." method="_on_play_network_pressed"]
 [connection signal="pressed" from="ButtonsContainer/MiscButtonsContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="ButtonsContainer/MiscButtonsContainer/About" to="About" method="popup_centered"]
@@ -251,3 +272,4 @@ cancel_button_text = "Позже"
 [connection signal="close_requested" from="About" to="About" method="hide"]
 [connection signal="pressed" from="About/MarginContainer/VBoxContainer/Close" to="About" method="hide"]
 [connection signal="confirmed" from="UpdateDialog" to="." method="_on_update_dialog_confirmed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
