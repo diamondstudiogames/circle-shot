@@ -1,7 +1,7 @@
 class_name Console
 extends Node
 
-## Внутриигровая консоль.
+## Внутриигровая консоль. 
 
 ## Размер буфера ввода.
 const BUFFER_SIZE: int = 16384
@@ -11,23 +11,23 @@ const BUFFER_SIZE: int = 16384
 var command_processors: Array[Callable]
 ## Список функций, которые выполняет этот класс, когда пользователем была введена команда "help".
 var help_processors: Array[Callable]
+## Поток, с которым идёт работа вручную (требуется для исправления багов на Windows)
+var command_thread: Thread
 
 
 func _ready() -> void:
-	WorkerThreadPool.add_task(_command_thread)
+	command_thread = Thread.new()
+	command_thread.start(_command_thread_func)
 
-
-func _command_thread() -> void:
+func _command_thread_func() -> void:
 	while true:
 		var command: String = OS.read_string_from_stdin(BUFFER_SIZE)
-		_process_command.call_deferred(command)
+		if not command.is_empty():
+			_process_command.call_deferred(command)
+		OS.delay_msec(100)
 
 
 func _process_command(command_str: String) -> void:
-	if command_str.is_empty():
-		push_error("Empty command.")
-		return
-	
 	var command: PackedStringArray = command_str.split(' ')
 	if command[0] == "help" and command.size() == 1:
 		print("Help")
