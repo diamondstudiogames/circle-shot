@@ -326,14 +326,15 @@ func _on_player_damaged(who: int, by: int) -> void:
 func _on_player_killed(who: int, by: int) -> void:
 	var message_text: String
 	if by > 0:
-		message_text = "[color=#%s]%s[/color] убивает игрока [color=#%s]%s[/color]!" % [
+		message_text = "[outline_size=4][color=#%s]%s[/color][/outline_size] убивает игрока \
+[outline_size=4][color=#%s]%s[/color][/outline_size]!" % [
 			Entity.TEAM_COLORS[players_teams[by]].to_html(false),
 			players_names[by],
 			Entity.TEAM_COLORS[players_teams[who]].to_html(false),
 			players_names[who],
 		]
 	else:
-		message_text = "[color=#%s]%s[/color] умирает!" % [
+		message_text = "[outline_size=4][color=#%s]%s[/color][/outline_size] умирает!" % [
 			Entity.TEAM_COLORS[players_teams[who]].to_html(false),
 			players_names[who],
 		]
@@ -362,10 +363,8 @@ func _on_player_tree_exiting(player: Player) -> void:
 
 
 func _on_peer_disconnected(id: int) -> void:
-	var message_text: String = "[color=#%s]%s[/color] отключается!" % [
-		Entity.TEAM_COLORS[players_teams[id]].to_html(false),
-		players_names[id],
-	]
+	var message_text: String = "[outline_size=4][color=#%s]%s[/color][/outline_size] отключается!" \
+			% [Entity.TEAM_COLORS[players_teams[id]].to_html(false), players_names[id]]
 	_event_ui.chat.post_message.rpc("> " + message_text)
 	if id in players:
 		players[id].queue_free()

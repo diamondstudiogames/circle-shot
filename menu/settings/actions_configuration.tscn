@@ -44,6 +44,7 @@ layout_mode = 2
 
 [node name="MoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft"]
 layout_mode = 2
@@ -66,6 +67,7 @@ icon = ExtResource("2_h33al")
 
 [node name="MoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight"]
 layout_mode = 2
@@ -88,6 +90,7 @@ icon = ExtResource("2_h33al")
 
 [node name="MoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp"]
 layout_mode = 2
@@ -110,6 +113,7 @@ icon = ExtResource("2_h33al")
 
 [node name="MoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown"]
 layout_mode = 2
@@ -132,6 +136,7 @@ icon = ExtResource("2_h33al")
 
 [node name="Sneak" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak"]
 layout_mode = 2
@@ -154,6 +159,7 @@ icon = ExtResource("2_h33al")
 
 [node name="Shoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot"]
 layout_mode = 2
@@ -176,6 +182,7 @@ icon = ExtResource("2_h33al")
 
 [node name="ShowAim" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim"]
 layout_mode = 2
@@ -198,6 +205,7 @@ icon = ExtResource("2_h33al")
 
 [node name="Reload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload"]
 layout_mode = 2
@@ -220,6 +228,7 @@ icon = ExtResource("2_h33al")
 
 [node name="AdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton"]
 layout_mode = 2
@@ -242,6 +251,7 @@ icon = ExtResource("2_h33al")
 
 [node name="WeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight"]
 layout_mode = 2
@@ -264,6 +274,7 @@ icon = ExtResource("2_h33al")
 
 [node name="WeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy"]
 layout_mode = 2
@@ -286,6 +297,7 @@ icon = ExtResource("2_h33al")
 
 [node name="WeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport"]
 layout_mode = 2
@@ -308,6 +320,7 @@ icon = ExtResource("2_h33al")
 
 [node name="WeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee"]
 layout_mode = 2
@@ -330,6 +343,7 @@ icon = ExtResource("2_h33al")
 
 [node name="WeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional"]
 layout_mode = 2
@@ -352,6 +366,7 @@ icon = ExtResource("2_h33al")
 
 [node name="NextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon"]
 layout_mode = 2
@@ -374,6 +389,7 @@ icon = ExtResource("2_h33al")
 
 [node name="PreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon"]
 layout_mode = 2
@@ -396,6 +412,7 @@ icon = ExtResource("2_h33al")
 
 [node name="ShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons"]
 layout_mode = 2
@@ -418,6 +435,7 @@ icon = ExtResource("2_h33al")
 
 [node name="UseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill"]
 layout_mode = 2
@@ -440,6 +458,7 @@ icon = ExtResource("2_h33al")
 
 [node name="Chat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat"]
 layout_mode = 2
@@ -462,6 +481,7 @@ icon = ExtResource("2_h33al")
 
 [node name="CloseChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat"]
 layout_mode = 2
@@ -484,6 +504,7 @@ icon = ExtResource("2_h33al")
 
 [node name="Fullscreen" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen"]
 layout_mode = 2

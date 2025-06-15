@@ -705,7 +705,7 @@ horizontal_scroll_mode = 0
 [node name="ItemsGrid" type="GridContainer" parent="ItemSelector/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 columns = 3
 script = ExtResource("11_ncktp")
 metadata/_custom_type_script = "uid://cq43botg0qg0m"

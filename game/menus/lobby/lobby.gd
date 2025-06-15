@@ -194,13 +194,15 @@ func request_admin_action(id: int, action: AdminAction) -> void:
 				var ip: String = (multiplayer.multiplayer_peer as ENetMultiplayerPeer).get_peer(
 						id).get_remote_address()
 				_game.banned_ips.append(ip)
-				message = "> [color=green]%s[/color] банит игрока [color=red]%s[/color]!"
+				message = "[outline_size=4][color=green]%s[/color][/outline_size] банит игрока \
+[outline_size=4][color=red]%s[/color][/outline_size]!"
 			else:
 				print_verbose("Accepted kick request. Kicking: %d." % id)
-				message = "> [color=green]%s[/color] выгоняет игрока [color=red]%s[/color]!"
+				message = "[outline_size=4][color=green]%s[/color][/outline_size] выгоняет игрока \
+[outline_size=4][color=red]%s[/color][/outline_size]!"
 			
 			(multiplayer as SceneMultiplayer).disconnect_peer(id)
-			_chat.post_message.rpc(message % [players[admin_id], players[id]])
+			_chat.post_message.rpc("> " + message % [players[admin_id], players[id]])
 			_unregister_player(id)
 		AdminAction.TRANSFER_ADMIN_RIGHTS:
 			print_verbose("Accepted transfer admin rights request. New admin: %d." % id)
@@ -308,7 +310,8 @@ func _register_new_player(player_name: String) -> void:
 	players[sender_id] = player_name
 	_add_player_entry.rpc(sender_id, player_name)
 	
-	_chat.post_message.rpc("> [color=green]%s[/color] подключается!" % player_name)
+	_chat.post_message.rpc(
+			"> [outline_size=4][color=green]%s[/color][/outline_size] подключается!" % player_name)
 	_chat.players_names[sender_id] = player_name
 	var new_team: int
 	for i in 10:
@@ -827,7 +830,7 @@ func _on_game_started() -> void:
 func _on_game_ended() -> void:
 	show()
 	process_mode = Node.PROCESS_MODE_INHERIT
-	if multiplayer.is_server():
+	if multiplayer.is_server() and Globals.get_setting_bool("broadcast"):
 		($BroadcastTimer as Timer).start()
 		($UpdateBroadcastTimer as Timer).start()
 
@@ -847,7 +850,8 @@ func _on_peer_connected(id: int) -> void:
 func _on_peer_disconnected(id: int) -> void:
 	if not multiplayer.is_server():
 		return
-	_chat.post_message.rpc("> [color=green]%s[/color] отключается!" % players[id])
+	_chat.post_message.rpc(
+			"> [outline_size=4][color=green]%s[/color][/outline_size] отключается!" % players[id])
 	_unregister_player(id)
 
 

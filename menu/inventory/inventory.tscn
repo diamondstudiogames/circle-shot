@@ -135,6 +135,7 @@ horizontal_scroll_mode = 0
 
 [node name="ItemsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/Main/Selection/ScrollContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("4_76jyk")

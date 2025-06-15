@@ -86,13 +86,14 @@ func _request_post_message(message: String) -> void:
 		])
 		message = message.left(MAX_MESSAGE_LENGTH)
 	if sender_id in players_teams:
-		message = "[color=#%s]%s[/color]: %s" % [
+		message = "[outline_size=4][color=#%s]%s[/color][/outline_size]: %s" % [
 			Entity.TEAM_COLORS[players_teams[sender_id]].to_html(false),
 			players_names[sender_id],
 			message,
 		]
 	else:
-		message = "[color=red]%s[/color]: %s" % [players_names[sender_id], message]
+		message = "[outline_size=4][color=red]%s[/color][/outline_size]: %s" \
+				% [players_names[sender_id], message]
 	post_message.rpc(message)
 
 

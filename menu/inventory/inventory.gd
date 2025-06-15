@@ -236,8 +236,8 @@ func _on_show_items_pressed() -> void:
 		ItemsDB.Item.SKINS_LINE:
 			_skins_line_filter = _selected_item_idx
 			(%Filters/SkinsFilter as OptionButton).select(_selected_item_idx + 1)
-			(%Filters/MainFilter as OptionButton).select(1)
-			_on_main_filter_item_selected(1)
+			(%Filters/MainFilter as OptionButton).select(2)
+			_on_main_filter_item_selected(2)
 		ItemsDB.Item.EVENT:
 			(%Description as CanvasItem).hide()
 			(%NothingSelected as CanvasItem).show()
@@ -249,6 +249,6 @@ func _on_show_items_pressed() -> void:
 			_update_items_grid()
 			_show_item(ItemsDB.Item.EVENT, _event_map_filter)
 		ItemsDB.Item.SKIN:
-			(%Filters/MainFilter as OptionButton).select(4)
-			_on_main_filter_item_selected(4)
+			(%Filters/MainFilter as OptionButton).select(3)
+			_on_main_filter_item_selected(3)
 			_show_item(ItemsDB.Item.SKINS_LINE, _find_skins_line_idx(_selected_item_idx))
