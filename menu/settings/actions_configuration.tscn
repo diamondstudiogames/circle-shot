@@ -10,6 +10,7 @@ oversampling_override = 1.0
 title = "Настройка действий"
 position = Vector2i(0, 28)
 size = Vector2i(720, 640)
+wrap_controls = true
 transient = true
 exclusive = true
 unresizable = true
@@ -32,6 +33,7 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
@@ -262,7 +264,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
-text = "Дополнительная кнопка оружия"
+text = "Доп. кнопка оружия"
 
 [node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container"]
 layout_mode = 2
@@ -549,6 +551,535 @@ layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
+[node name="CMoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Двигаться влево"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CMoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Двигаться вправо"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CMoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Двигаться вверх"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CMoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Двигаться вниз"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CAimLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Прицеливаться влево"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CAimRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Прицеливаться вправо"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CAimUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Прицеливаться вверх"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CAimDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Прицеливаться вниз"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CShoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Стрелять"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CInteract" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Взаимодействие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CReload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Перезарядиться"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CAdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Доп. кнопка оружия"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CWeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Лёгкое оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CWeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Тяжёлое оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CWeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Оружие поддержки"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CWeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Ближнее оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CWeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Дополнительное оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CNextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Следующее оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CPreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Предыдущее оружие"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Показать оружия"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CUseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Использовать навык"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Открыть чат"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
+[node name="CCloseChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_type_variation = &"HeaderSmall"
+text = "Закрыть чат"
+
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_h33al")
+
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -600,6 +1131,29 @@ cancel_button_text = "Отмена"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container/Add" to="." method="add_action_event" binds= [&"chat"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat/Container/Add" to="." method="add_action_event" binds= [&"close_chat"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container/Add" to="." method="add_action_event" binds= [&"fullscreen"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container/Add" to="." method="add_action_event" binds= [&"c_move_left"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container/Add" to="." method="add_action_event" binds= [&"c_move_right"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container/Add" to="." method="add_action_event" binds= [&"c_move_up"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container/Add" to="." method="add_action_event" binds= [&"c_move_down"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container/Add" to="." method="add_action_event" binds= [&"c_aim_left"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container/Add" to="." method="add_action_event" binds= [&"c_aim_right"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container/Add" to="." method="add_action_event" binds= [&"c_aim_up"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container/Add" to="." method="add_action_event" binds= [&"c_aim_down"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container/Add" to="." method="add_action_event" binds= [&"c_shoot"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container/Add" to="." method="add_action_event" binds= [&"c_interact"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container/Add" to="." method="add_action_event" binds= [&"c_reload"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container/Add" to="." method="add_action_event" binds= [&"c_additional_button"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container/Add" to="." method="add_action_event" binds= [&"c_weapon_light"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container/Add" to="." method="add_action_event" binds= [&"c_weapon_heavy"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container/Add" to="." method="add_action_event" binds= [&"c_weapon_support"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container/Add" to="." method="add_action_event" binds= [&"c_weapon_melee"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container/Add" to="." method="add_action_event" binds= [&"c_weapon_additional"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container/Add" to="." method="add_action_event" binds= [&"c_next_weapon"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container/Add" to="." method="add_action_event" binds= [&"c_previous_weapon"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container/Add" to="." method="add_action_event" binds= [&"c_show_weapons"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container/Add" to="." method="add_action_event" binds= [&"c_use_skill"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container/Add" to="." method="add_action_event" binds= [&"c_chat"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container/Add" to="." method="add_action_event" binds= [&"c_close_chat"]]
 [connection signal="pressed" from="VBoxContainer/Buttons/Discard" to="." method="_on_discard_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="canceled" from="EventSelector" to="." method="_on_event_selector_canceled"]

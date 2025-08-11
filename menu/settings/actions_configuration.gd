@@ -55,14 +55,22 @@ func remove_action_event(action: StringName, event_idx: int) -> void:
 				remove_action_event)
 		(events_container.get_child(i).get_node(^"Remove") as BaseButton).pressed.connect(
 				remove_action_event.bind(action, i))
+	
+	if not action in _pending_actions:
+		_pending_actions.append(action)
+	($VBoxContainer/Buttons/Save as BaseButton).disabled = false
+	($VBoxContainer/Buttons/Discard as BaseButton).disabled = false
 
 
 func _load_keys_from_map() -> void:
 	_action_events.clear()
-	
+	for action: PanelContainer in %Actions.get_children():
+		action.hide()
 	for action: StringName in InputMap.get_actions():
 		if action.begins_with("ui_"):
 			continue
+		
+		(%Actions.get_node(action.to_pascal_case()) as CanvasItem).show()
 		var events_container: VBoxContainer = %Actions.get_node(
 				action.to_pascal_case()).get_node(^"Container/Events")
 		for child: Node in events_container.get_children():
@@ -80,6 +88,16 @@ func _load_keys_from_map() -> void:
 			if key:
 				encoded_event.type = Globals.EncodedInputEventType.KEY
 				encoded_event.value = key.keycode
+			var jb := event as InputEventJoypadButton
+			if jb:
+				encoded_event.type = Globals.EncodedInputEventType.JOYPAD_BUTTON
+				encoded_event.value = jb.button_index
+			var jm := event as InputEventJoypadMotion
+			if jm:
+				encoded_event.type = Globals.EncodedInputEventType.JOYPAD_MOTION
+				encoded_event.value = jm.axis * 2
+				if jm.axis_value > 0.0:
+					encoded_event.value += 1
 			
 			if action in _action_events:
 				_action_events[action].append(encoded_event)
@@ -91,7 +109,6 @@ func _load_keys_from_map() -> void:
 
 
 func _set_event_candidate(encoded_event: EncodedInputEvent) -> void:
-	_waiting_for_input = false
 	_event_candidate = encoded_event
 	($EventSelector as AcceptDialog).dialog_text = _encoded_input_event_as_text(encoded_event)
 	($EventSelector as AcceptDialog).get_ok_button().show()
@@ -122,17 +139,32 @@ func _on_event_selector_window_input(event: InputEvent) -> void:
 	
 	var recognized := false
 	
-	var mb := event as InputEventMouseButton
-	if mb and mb.button_index != MOUSE_BUTTON_NONE:
-		recognized = true
-		new_event.type = Globals.EncodedInputEventType.MOUSE_BUTTON
-		new_event.value = mb.button_index
-	
-	var key := event as InputEventKey
-	if key:
-		recognized = true
-		new_event.type = Globals.EncodedInputEventType.KEY
-		new_event.value = key.keycode
+	if Globals.get_controls_int("input_method") == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		var mb := event as InputEventMouseButton
+		if mb and mb.button_index != MOUSE_BUTTON_NONE:
+			recognized = true
+			new_event.type = Globals.EncodedInputEventType.MOUSE_BUTTON
+			new_event.value = mb.button_index
+		
+		var key := event as InputEventKey
+		if key:
+			recognized = true
+			new_event.type = Globals.EncodedInputEventType.KEY
+			new_event.value = key.keycode
+	elif Globals.get_controls_int("input_method") == Globals.InputMethod.CONTROLLER:
+		var jb := event as InputEventJoypadButton
+		if jb:
+			recognized = true
+			new_event.type = Globals.EncodedInputEventType.JOYPAD_BUTTON
+			new_event.value = jb.button_index
+		
+		var jm := event as InputEventJoypadMotion
+		if jm and absf(jm.axis_value) > 0.5:
+			recognized = true
+			new_event.type = Globals.EncodedInputEventType.JOYPAD_MOTION
+			new_event.value = jm.axis * 2
+			if jm.axis_value > 0.0:
+				new_event.value += 1
 	
 	if not recognized:
 		return
@@ -149,6 +181,7 @@ func _on_event_selector_window_input(event: InputEvent) -> void:
 							"Эта кнопка занята другим действием."
 				return
 	
+	_waiting_for_input = false
 	_set_event_candidate.call_deferred(new_event)
 
 

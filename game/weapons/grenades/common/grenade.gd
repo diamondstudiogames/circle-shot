@@ -65,9 +65,14 @@ func _physics_process(_delta: float) -> void:
 		shoot(player.entity_input.aim_direction)
 
 
+func _initialize() -> void:
+	_reload_indicator_progress.visible = player.is_local()
+
+
 func _make_current() -> void:
 	if ammo_in_stock > 0 and not _reloading:
 		_anim.play(&"equip")
+		_anim.advance(0.0)
 		block_shooting()
 		await _anim.animation_finished
 		unblock_shooting()

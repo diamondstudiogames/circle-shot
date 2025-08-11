@@ -26,7 +26,10 @@ func _process(_delta: float) -> void:
 				_border_check.is_colliding() else Color.WHITE
 	
 	if _reload_indicator.visible:
-		_reload_indicator.value = 1.0 - _reload_timer.time_left / _reload_timer.wait_time
+		if player.is_local():
+			_reload_indicator.value = 1.0 - _reload_timer.time_left / _reload_timer.wait_time
+		else:
+			_reload_indicator.value = 0.0
 
 
 func _physics_process(_delta: float) -> void:
@@ -76,6 +79,7 @@ func _shoot(success := false) -> void:
 
 func _make_current() -> void:
 	_anim.play(&"equip")
+	_anim.advance(0.0)
 	if ammo_in_stock > 0 and not _reloading:
 		block_shooting()
 		await _anim.animation_finished

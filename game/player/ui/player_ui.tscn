@@ -91,6 +91,7 @@ _data = {
 }
 
 [node name="PlayerUI" type="Control"]
+process_priority = -10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

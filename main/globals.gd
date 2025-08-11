@@ -10,6 +10,8 @@ enum InputMethod {
 	KEYBOARD_AND_MOUSE = 0,
 	## Касаниями.
 	TOUCH = 1,
+	## Игровым контроллером.
+	CONTROLLER = 2,
 }
 ## Перечисление с допустимыми типами событий для действия при использовании
 ## [enum InputMethod.KEYBOARD_AND_MOUSE].
@@ -18,6 +20,10 @@ enum EncodedInputEventType {
 	KEY = 0,
 	## События типа [InputEventMouseButton].
 	MOUSE_BUTTON = 1,
+	## События типа [InputEventJoypadButton].
+	JOYPAD_BUTTON = 2,
+	## События типа [InputEventJoypadMotion].
+	JOYPAD_MOTION = 3,
 }
 ## Путь к файлу сохранения.
 const SAVE_FILE_PATH := "user://save.cfg"
@@ -56,11 +62,13 @@ var data_file: ConfigFile
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	if not OS.has_feature("pc"):
+		set_process_input(false)
 
 
 func _input(event: InputEvent) -> void:
-	if OS.has_feature("pc") and event.is_action(&"fullscreen") \
-			and event.is_pressed() and save_file:
+	if save_file and get_controls_int("input_method") == InputMethod.KEYBOARD_AND_MOUSE \
+			and event.is_action(&"fullscreen") and event.is_pressed():
 		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
 		apply_settings()
 
@@ -254,6 +262,8 @@ func setup_controls_settings() -> void:
 	var default_input_method: InputMethod = InputMethod.KEYBOARD_AND_MOUSE
 	if DisplayServer.is_touchscreen_available():
 		default_input_method = InputMethod.TOUCH
+	if not Input.get_connected_joypads().is_empty():
+		default_input_method = InputMethod.CONTROLLER
 	set_controls_int("input_method", get_controls_int("input_method", default_input_method))
 	set_controls_bool("follow_mouse", get_controls_bool("follow_mouse", true))
 	set_controls_bool("always_show_aim", get_controls_bool("always_show_aim", false))
@@ -262,6 +272,7 @@ func setup_controls_settings() -> void:
 	set_controls_float("aim_deadzone", get_controls_float("aim_deadzone", 0.15))
 	set_controls_float("aim_zone", get_controls_float("aim_zone", 0.5))
 	set_controls_float("joysticks_alpha", get_controls_float("joysticks_alpha", 1.0))
+	set_controls_float("deadzone", get_controls_float("deadzone", 0.2))
 	
 	InputMap.load_from_project_settings()
 	for action: StringName in InputMap.get_actions():
@@ -282,6 +293,16 @@ func setup_controls_settings() -> void:
 			if key:
 				encoded_input_event_type = EncodedInputEventType.KEY
 				encoded_input_event_value = key.keycode
+			var jb := event as InputEventJoypadButton
+			if jb:
+				encoded_input_event_type = EncodedInputEventType.JOYPAD_BUTTON
+				encoded_input_event_value = jb.button_index
+			var jm := event as InputEventJoypadMotion
+			if jm:
+				encoded_input_event_type = EncodedInputEventType.JOYPAD_MOTION
+				encoded_input_event_value = jm.axis * 2
+				if jm.axis_value > 0.0:
+					encoded_input_event_value += 1
 			
 			encoded_input_event_types.append(encoded_input_event_type)
 			encoded_input_event_values.append(encoded_input_event_value)
@@ -398,12 +419,22 @@ func apply_settings() -> void:
 func apply_controls_settings() -> void:
 	Input.emulate_touch_from_mouse = get_controls_int("input_method") == InputMethod.TOUCH
 	
-	if get_controls_int("input_method") != InputMethod.KEYBOARD_AND_MOUSE:
+	if get_controls_int("input_method") == InputMethod.TOUCH:
 		return
+	InputMap.load_from_project_settings()
 	for action: StringName in InputMap.get_actions():
 		if action.begins_with("ui_"):
 			continue
+		if action.begins_with("c_"):
+			if get_controls_int("input_method") != InputMethod.CONTROLLER:
+				InputMap.erase_action(action)
+				continue
+		else:
+			if get_controls_int("input_method") != InputMethod.KEYBOARD_AND_MOUSE:
+				InputMap.erase_action(action)
+				continue
 		InputMap.action_erase_events(action)
+		InputMap.action_set_deadzone(action, get_controls_float("deadzone"))
 		
 		var encoded_input_event_types: Array[EncodedInputEventType] = \
 				get_controls_variant("action_%s_event_types" % action, [] as Array[int])
@@ -421,6 +452,15 @@ func apply_controls_settings() -> void:
 					var mb := InputEventMouseButton.new()
 					mb.button_index = encoded_input_event_values[i] as MouseButton
 					event = mb
+				EncodedInputEventType.JOYPAD_BUTTON:
+					var jb := InputEventJoypadButton.new()
+					jb.button_index = encoded_input_event_values[i] as JoyButton
+					event = jb
+				EncodedInputEventType.JOYPAD_MOTION:
+					var jm := InputEventJoypadMotion.new()
+					jm.axis = int(encoded_input_event_values[i] / 2.0) as JoyAxis
+					jm.axis_value = -1.0 if encoded_input_event_values[i] % 2 == 0 else 1.0
+					event = jm
 			
 			InputMap.action_add_event(action, event)
 #endregion

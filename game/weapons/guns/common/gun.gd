@@ -91,6 +91,7 @@ func _initialize() -> void:
 func _make_current() -> void:
 	block_shooting()
 	_anim.play(&"equip")
+	_anim.advance(0.0)
 	
 	var anim_name: StringName = await _anim.animation_finished
 	if anim_name != &"equip":

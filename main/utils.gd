@@ -55,6 +55,159 @@ static func encoded_input_event_as_text(type: Globals.EncodedInputEventType, val
 					return "Колесо вправо"
 				MOUSE_BUTTON_WHEEL_UP:
 					return "Колесо вверх"
+		Globals.EncodedInputEventType.JOYPAD_MOTION:
+			match int(value / 2.0):
+				JOY_AXIS_LEFT_X:
+					return "Левый стик влево" if value % 2 == 0 else "Левый стик вправо"
+				JOY_AXIS_LEFT_Y:
+					return "Левый стик вверх" if value % 2 == 0 else "Левый стик вниз"
+				JOY_AXIS_RIGHT_X:
+					return "Правый стик влево" if value % 2 == 0 else "Правый стик вправо"
+				JOY_AXIS_RIGHT_Y:
+					return "Правый стик вверх" if value % 2 == 0 else  "Правый стик вниз"
+				JOY_AXIS_TRIGGER_LEFT:
+					return "Левый триггер"
+				JOY_AXIS_TRIGGER_RIGHT:
+					return "Правый триггер"
+		Globals.EncodedInputEventType.JOYPAD_BUTTON:
+			const GAMEPAD_SCHEME_XBOX: int = 0
+			const GAMEPAD_SCHEME_PLAYSTATION: int = 1
+			const GAMEPAD_SCHEME_NINTENDO: int = 2
+			const GAMEPAD_SCHEME_UNKNOWN: int = 3
+			const SCHEME_IDENTIFIERS: Dictionary[int, Array] = {
+				GAMEPAD_SCHEME_NINTENDO: ["nintendo", "joy-con", "gamecube"],
+				GAMEPAD_SCHEME_PLAYSTATION: ["sony", "playstation", "dualshock",
+					"ps1", "ps2", "ps3", "ps4", "ps5"],
+				GAMEPAD_SCHEME_XBOX: ["xbox", "microsoft"]
+			}
+			
+			var gamepad_scheme: int = GAMEPAD_SCHEME_UNKNOWN
+			var connected_devices: Array[int] = Input.get_connected_joypads()
+			if not connected_devices.is_empty():
+				var gamepad_name: String = Input.get_joy_name(connected_devices[0])
+				for scheme: int in SCHEME_IDENTIFIERS:
+					for scheme_term: String in SCHEME_IDENTIFIERS[scheme]:
+						if gamepad_name.containsn(scheme_term):
+							gamepad_scheme = scheme
+							break
+			
+			match value:
+				JOY_BUTTON_DPAD_UP:
+					return "D-Pad вверх"
+				JOY_BUTTON_DPAD_DOWN:
+					return "D-Pad вниз"
+				JOY_BUTTON_DPAD_LEFT:
+					return "D-Pad влево"
+				JOY_BUTTON_DPAD_RIGHT:
+					return "D-Pad вправо"
+				JOY_BUTTON_TOUCHPAD:
+					return "Тачпад"
+				JOY_BUTTON_PADDLE1:
+					return "Paddle 1"
+				JOY_BUTTON_PADDLE2:
+					return "Paddle 2"
+				JOY_BUTTON_PADDLE3:
+					return "Paddle 3"
+				JOY_BUTTON_PADDLE4:
+					return "Paddle 4"
+				
+				JOY_BUTTON_MISC1:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "Микрофон"
+						GAMEPAD_SCHEME_XBOX:
+							return "Поделиться"
+						GAMEPAD_SCHEME_NINTENDO:
+							return "Захват"
+					return "Misc 1"
+				JOY_BUTTON_LEFT_STICK:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "L3"
+						GAMEPAD_SCHEME_XBOX:
+							return "L/LS"
+					return "Левый стик"
+				JOY_BUTTON_RIGHT_STICK:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "R3"
+						GAMEPAD_SCHEME_XBOX:
+							return "R/RS"
+					return "Правый стик"
+				JOY_BUTTON_LEFT_SHOULDER:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "L1"
+						GAMEPAD_SCHEME_XBOX:
+							return "LB"
+					return "Левый бампер"
+				JOY_BUTTON_RIGHT_SHOULDER:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "R1"
+						GAMEPAD_SCHEME_XBOX:
+							return "RB"
+					return "Правый бампер"
+				JOY_BUTTON_START:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "Настройки"
+						GAMEPAD_SCHEME_XBOX:
+							return "Меню"
+						GAMEPAD_SCHEME_NINTENDO:
+							return '+'
+					return "Старт"
+				JOY_BUTTON_GUIDE:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "Playstation"
+						GAMEPAD_SCHEME_XBOX, GAMEPAD_SCHEME_NINTENDO:
+							return "Домой"
+					return "Управление"
+				JOY_BUTTON_BACK:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return "Выбор"
+						GAMEPAD_SCHEME_NINTENDO:
+							return '-'
+					return "Назад"
+				
+				JOY_BUTTON_A:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_NINTENDO:
+							return 'B'
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return '⨯'
+						GAMEPAD_SCHEME_XBOX:
+							return 'A'
+					return "Нижнее действие"
+				JOY_BUTTON_B:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_NINTENDO:
+							return 'A'
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return '○'
+						GAMEPAD_SCHEME_XBOX:
+							return 'B'
+					return "Правое действие"
+				JOY_BUTTON_X:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_NINTENDO:
+							return 'Y'
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return '□'
+						GAMEPAD_SCHEME_XBOX:
+							return 'X'
+					return "Левое действие"
+				JOY_BUTTON_Y:
+					match gamepad_scheme:
+						GAMEPAD_SCHEME_NINTENDO:
+							return 'X'
+						GAMEPAD_SCHEME_PLAYSTATION:
+							return '△'
+						GAMEPAD_SCHEME_XBOX:
+							return 'Y'
+					return "Верхнее действие"
 	return "НЕИЗВЕСТНО"
 
 

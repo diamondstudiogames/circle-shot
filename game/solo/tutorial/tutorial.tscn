@@ -80,7 +80,7 @@ texts = Array[String](["Добро пожаловать в Circle Shot!
 Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size] для передвижения.
 Зажми [font_size=20][color=orange]%s[/color][/font_size], чтобы красться.", "Добро пожаловать в Circle Shot!
 Используй [font_size=20][color=orange]Джойстик движения[/color][/font_size] в левой нижней части экрана для передвижения.
-Чем ближе ручка джойстика к его центру, тем медленнее движется игрок.", "Подойди к оружию и подбери его с помощью [font_size=20][color=orange]%s[/color][/font_size].", "Подойди к оружию и подбери его с помощью [font_size=20][color=orange]Кнопки взаимодействия[/color][/font_size].", "Кажется, ты потратил все патроны. Держи ещё.", "Используй [font_size=20][color=orange]%s[/color][/font_size], чтобы показать линию прицела, и [font_size=20][color=orange]%s[/color][/font_size], чтобы стрелять.
+Чем ближе ручка джойстика к его центру, тем медленнее движется игрок.", "Подойди к оружию и подбери его с помощью [font_size=20][color=orange]%s[/color][/font_size].", "Подойди к оружию и подбери его с помощью [font_size=20][color=orange]Кнопки взаимодействия[/color][/font_size].", "Кажется, ты потратил все патроны. Держи ещё.", "Используй [font_size=20][color=orange]%s[/color][/font_size], чтобы показать линию прицела, и [font_size=20][color=orange]%s[/color][/font_size], чтобы стрелять. Прицеливание осуществляется мышью.
 Уничтожь манекен!", "Используй [font_size=20][color=orange]Джойстик прицеливания[/color][/font_size], чтобы целиться, и [font_size=20][color=orange]Зону стрельбы[/color][/font_size] в левом верхнем углу, чтобы стрелять.
 Уничтожь манекен!", "Молодец!
 Оружие автоматически перезаряжается, если магазин оказался пуст.
@@ -104,7 +104,8 @@ texts = Array[String](["Добро пожаловать в Circle Shot!
 Используй навык, нажав на [font_size=20][color=orange]Кнопку с иконкой навыка[/color][/font_size].", "Молодец!
 Между использованиями навыка есть откат, не забывай про него!", "Теперь ты знаешь основы Circle Shot.
 Рекомендуем посетить настройки, там можно много что поменять, в том числе управление.
-Удачи в боях!"])
+Удачи в боях!", "Добро пожаловать в Circle Shot!
+Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size] для передвижения.", "Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size], чтобы прицеливаться, и [font_size=20][color=orange]%s[/color][/font_size], чтобы стрелять. Уничтожь манекен!"])
 entity_scenes = Array[PackedScene]([ExtResource("3_tsy3l"), ExtResource("4_xeb43")])
 
 [node name="AimVirtualJoystick" parent="UI/Main/PlayerUI/Controller/TouchControls" index="1"]

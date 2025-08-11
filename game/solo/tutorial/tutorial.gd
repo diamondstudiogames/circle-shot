@@ -41,14 +41,21 @@ func _initialize() -> void:
 	match _input_method:
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[0] % [
-				_action_as_string("move_up"),
 				_action_as_string("move_left"),
-				_action_as_string("move_down"),
 				_action_as_string("move_right"),
+				_action_as_string("move_up"),
+				_action_as_string("move_down"),
 				_action_as_string("sneak"),
 			])
 		Globals.InputMethod.TOUCH:
 			show_text(texts[1])
+		Globals.InputMethod.CONTROLLER:
+			show_text(texts[25] % [
+				_action_as_string("c_move_left"),
+				_action_as_string("c_move_right"),
+				_action_as_string("c_move_up"),
+				_action_as_string("c_move_down"),
+			])
 
 
 func show_text(text: String) -> void:
@@ -117,12 +124,22 @@ func _check_conditions() -> void:
 			show_text(texts[6])
 			($UI/Main/PlayerUI/Controller/TouchControls/AimVirtualJoystick as CanvasItem).show()
 			($UI/Main/PlayerUI/%ShootAreaHint as CanvasItem).show()
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[26] % [
+				_action_as_string("c_aim_left"),
+				_action_as_string("c_aim_right"),
+				_action_as_string("c_aim_up"),
+				_action_as_string("c_aim_down"),
+				_action_as_string("c_shoot"),
+			])
 	if _enemies_killed == 1 and _conditions_met == 1:
 		_conditions_met += 1
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[7] % [_action_as_string("reload")])
 		elif _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[8])
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[7] % [_action_as_string("c_reload")])
 		$Map/Gates/Gate.queue_free()
 	if _picked_up_items == 2 and _conditions_met == 2:
 		_conditions_met += 1
@@ -130,6 +147,8 @@ func _check_conditions() -> void:
 			show_text(texts[11] % [_action_as_string("weapon_heavy")])
 		elif _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[12])
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[11] % [_action_as_string("c_weapon_heavy")])
 	if _enemies_killed == 4 and _conditions_met == 3:
 		_conditions_met += 1
 		$Map/Gates/Gate2.queue_free()
@@ -141,6 +160,8 @@ func _check_conditions() -> void:
 			await get_tree().process_frame
 			await get_tree().process_frame
 			get_tree().paused = true
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[13] % [_action_as_string("c_show_weapons")])
 	if _enemies_killed == 8 and _picked_up_items == 4 and _conditions_met == 4:
 		_conditions_met += 1
 		$Map/Gates/Gate3.queue_free()
@@ -148,6 +169,8 @@ func _check_conditions() -> void:
 			show_text(texts[18] % [_action_as_string("additional_button")])
 		elif _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[19])
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[18] % [_action_as_string("c_additional_button")])
 	if _picked_up_items == 5 and _conditions_met == 5:
 		_conditions_met += 1
 		_player.damage(50)
@@ -156,6 +179,8 @@ func _check_conditions() -> void:
 			show_text(texts[21] % [_action_as_string("use_skill")])
 		elif _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[22])
+		elif _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[21] % [_action_as_string("c_use_skill")])
 	if _skill_used == 1 and _conditions_met == 6:
 		_conditions_met += 1
 		$Map/Gates/Gate4.queue_free()
@@ -200,7 +225,12 @@ func _on_trigger_body_entered(body: Node2D, source: Area2D, idx: int) -> void:
 			show_text(texts[2] % _action_as_string("interact"))
 		0 when _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[3])
-		1 when _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		0 when _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[2] % _action_as_string("c_interact"))
+		1 when _input_method in [
+			Globals.InputMethod.KEYBOARD_AND_MOUSE,
+			Globals.InputMethod.CONTROLLER,
+		]:
 			show_text(texts[9])
 		1 when _input_method == Globals.InputMethod.TOUCH:
 			show_text(texts[10])
@@ -218,6 +248,11 @@ func _on_trigger_body_entered(body: Node2D, source: Area2D, idx: int) -> void:
 				show_text(texts[16])
 			else:
 				show_text(texts[17])
+		2 when _input_method == Globals.InputMethod.CONTROLLER:
+			show_text(texts[15] % [
+				_action_as_string("c_weapon_support"),
+				_action_as_string("c_weapon_melee"),
+			])
 		3:
 			show_text(texts[20])
 		4:

@@ -38,6 +38,8 @@ var _touch_timer := 0.0
 var _touch_start_position: Vector2
 var _weapon_selection_tween: Tween
 
+var _window_focused: bool
+
 var _health_immediate_bar_tween: Tween
 var _health_bar_tween: Tween
 
@@ -87,8 +89,9 @@ func _ready() -> void:
 			_aim_max_zone = Globals.get_controls_float("aim_zone") * smallest_side / 2
 			_aim_zone = _aim_max_zone - _aim_deadzone
 			
-			# Сбрасываю состояние ввода во избежании неприятных ситуаций из-за потери управления
-			get_window().focus_exited.connect(_reset_keyboard_and_mouse_inputs)
+			_window_focused = get_window().has_focus()
+			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
+			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
 		Globals.InputMethod.TOUCH:
 			_joystick_fire = Globals.get_controls_bool("joystick_fire")
 			if _joystick_fire:
@@ -117,6 +120,14 @@ func _ready() -> void:
 				($Controller/TouchControls/ShootAreaAnchor as Control).set_anchors_preset(
 						Control.PRESET_TOP_RIGHT, true)
 				_shoot_area.position.x = -_shoot_area.position.x
+		Globals.InputMethod.CONTROLLER:
+			($Controller/TouchControls as CanvasItem).hide()
+			($Controller/Skill/TouchScreenButton as CanvasItem).hide()
+			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).hide()
+			
+			_window_focused = get_window().has_focus()
+			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
+			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
 
 
 func _process(delta: float) -> void:
@@ -129,6 +140,8 @@ func _process(delta: float) -> void:
 			_process_touch_input_method(delta)
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			_process_keyboard_and_mouse_input_method()
+		Globals.InputMethod.CONTROLLER when _window_focused:
+			_process_controller_input()
 
 
 func _input(event: InputEvent) -> void:
@@ -353,6 +366,52 @@ func _process_keyboard_and_mouse_input_method() -> void:
 	_player.entity_input.turn_with_aim = _follow_mouse or _showing_aim
 
 
+func _process_controller_input() -> void:
+	_player.entity_input.move_direction = Input.get_vector(&"c_move_left", &"c_move_right",
+			&"c_move_up", &"c_move_down")
+	
+	var aim_vector: Vector2 = Input.get_vector(&"c_aim_left", &"c_aim_right",
+			&"c_aim_up", &"c_aim_down")
+	var aim_vector_length: float = aim_vector.length()
+	if aim_vector_length >= MIN_AIM_DIRECTION_LENGTH:
+		_player.player_input.showing_aim = true
+		_player.entity_input.turn_with_aim = true
+		_player.entity_input.aim_direction = aim_vector.normalized() * \
+				(aim_vector_length * (1.0 - MIN_AIM_DIRECTION_LENGTH) + MIN_AIM_DIRECTION_LENGTH)
+	else:
+		_player.player_input.showing_aim = false
+		_player.entity_input.turn_with_aim = false
+	
+	_player.player_input.shooting = Input.is_action_pressed(&"c_shoot")
+	_player.player_input.interacting = Input.is_action_pressed(&"c_interact")
+	
+	if Input.is_action_just_pressed(&"c_show_weapons"):
+		if ($Controller/WeaponSelection as CanvasItem).visible:
+			close_weapon_selection()
+		else:
+			open_weapon_selection()
+	if Input.is_action_just_pressed(&"c_weapon_light"):
+		select_weapon(Weapon.Type.LIGHT)
+	if Input.is_action_just_pressed(&"c_weapon_heavy"):
+		select_weapon(Weapon.Type.HEAVY)
+	if Input.is_action_just_pressed(&"c_weapon_support"):
+		select_weapon(Weapon.Type.SUPPORT)
+	if Input.is_action_just_pressed(&"c_weapon_melee"):
+		select_weapon(Weapon.Type.MELEE)
+	if Input.is_action_just_pressed(&"c_weapon_additional") and _player.equip_data[6] != -1:
+		select_weapon(Weapon.Type.ADDITIONAL)
+	if Input.is_action_just_pressed(&"c_reload"):
+		reload()
+	if Input.is_action_just_pressed(&"c_additional_button"):
+		additional_button()
+	if Input.is_action_just_pressed(&"c_use_skill"):
+		use_skill()
+	if Input.is_action_just_pressed(&"c_next_weapon"):
+		select_next_weapon()
+	if Input.is_action_just_pressed(&"c_previous_weapon"):
+		select_previous_weapon()
+
+
 func _reset_keyboard_and_mouse_inputs() -> void:
 	_moving_left = false
 	_moving_right = false
@@ -361,6 +420,14 @@ func _reset_keyboard_and_mouse_inputs() -> void:
 	_shooting = false
 	_showing_aim = false
 	_interacting = false
+
+
+func _reset_controller_inputs() -> void:
+	_player.entity_input.move_direction = Vector2.ZERO
+	_player.entity_input.turn_with_aim = false
+	_player.player_input.showing_aim = false
+	_player.player_input.shooting = false
+	_player.player_input.interacting = false
 
 
 func _update_skill() -> void:
@@ -429,14 +496,17 @@ func _on_player_health_changed(old_value: int, new_value: int) -> void:
 		_health_immediate_bar_tween.tween_interval(0.3)
 		_health_immediate_bar_tween.tween_property(_health_immediate_bar, ^":value", new_value, 0.5)
 		
-		var change_ratio: float = (old_value - new_value) / float(_player.max_health)
 		if _vibration_enabled:
-			Input.vibrate_handheld(
-					MIN_VIBRATION_DURATION_MS +
-					roundi((MAX_VIBRATION_DURATION_MS - MIN_VIBRATION_DURATION_MS) * change_ratio),
-					MIN_VIBRATION_AMPLITUDE +
-					roundi((MAX_VIBRATION_AMPLITUDE - MIN_VIBRATION_AMPLITUDE) * change_ratio)
-			)
+			var change_ratio: float = (old_value - new_value) / float(_player.max_health)
+			var vibration_duration_ms: int = MIN_VIBRATION_DURATION_MS + \
+					roundi((MAX_VIBRATION_DURATION_MS - MIN_VIBRATION_DURATION_MS) * change_ratio)
+			var vibration_amplitude: float = MIN_VIBRATION_AMPLITUDE + \
+					(MAX_VIBRATION_AMPLITUDE - MIN_VIBRATION_AMPLITUDE) * change_ratio
+			Input.vibrate_handheld(vibration_duration_ms, vibration_amplitude)
+			for device: int in Input.get_connected_joypads():
+				Input.start_joy_vibration(device, 0.0, vibration_amplitude,
+						vibration_duration_ms / 1000.0)
+				break
 	elif new_value > old_value:
 		if is_instance_valid(_health_bar_tween):
 			_health_bar_tween.kill()
@@ -459,6 +529,10 @@ func _on_player_died() -> void:
 	_tint_anim.play(&"death")
 	if _vibration_enabled:
 		Input.vibrate_handheld(MAX_VIBRATION_DURATION_MS, MAX_VIBRATION_AMPLITUDE)
+		for device: int in Input.get_connected_joypads():
+			Input.start_joy_vibration(device, 0.0, MAX_VIBRATION_AMPLITUDE,
+					MAX_VIBRATION_DURATION_MS / 1000.0)
+			break
 
 
 func _on_player_weapon_changed(_to: Weapon.Type) -> void:
@@ -561,3 +635,13 @@ func _on_local_player_created(player: Player) -> void:
 func _on_single_shot_timer_timeout() -> void:
 	if is_instance_valid(_player):
 		_player.player_input.shooting = false
+
+
+func _on_window_focus_changed(focus: bool) -> void:
+	_window_focused = focus
+	if not focus:
+		# Сброс состояни ввода во избежании неприятных ситуаций из-за потери управления
+		if input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			_reset_keyboard_and_mouse_inputs()
+		elif input_method == Globals.InputMethod.CONTROLLER and is_instance_valid(_player):
+			_reset_controller_inputs()

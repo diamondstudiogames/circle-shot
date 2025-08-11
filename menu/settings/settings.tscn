@@ -39,8 +39,9 @@ Forward Mobile - современный метод отрисовки, одна�
 Может не совпадать с текущим в случае отсутствии поддержки. Изменяйте, если знаете, что делаете.", "Устанавливает ограничение количества кадров в секунду. Не может превышать частоту обновления экрана.", "Настраивает направление переката.
 Движение - перекат будет выполняться в сторону (последнего) движения.
 Прицел - перекат будет выполняться в сторону прицела.", "Настраивает тип управления.
-Касания - управления джойстиками и кнопками на экране. Предназначено для управления на телефонах.
-Клавитура и мышь - управления с клавиатуры и прицеливание с помощью мыши. Предназначено для ПК, однако может использоваться и на телефонах, если подключены физические устройства ввода.", "Если включено, прицел всегда смотрит в сторону мыши.
+Касания - управление джойстиками и кнопками на экране. Предназначено для управления на телефонах.
+Клавитура и мышь - управление с клавиатуры и прицеливание с помощью мыши. Предназначено для ПК, однако может использоваться и на телефонах, если подключены физические устройства ввода.
+Контроллер - управление игровым контроллером.", "Если включено, прицел всегда смотрит в сторону мыши.
 Если отключено, прицел повернётся в сторону мыши при нажатии действия ПОКАЗАТЬ ПРИЦЕЛ.", "Включает загрузку пользовательских треков.
 Максимум одновременно загруженых треков - 20.
 Максимальный размер трека - 10 МБ. Если трек имеет больший размер, он не будет загружен.
@@ -737,6 +738,7 @@ size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 
 [node name="Sound" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -990,7 +992,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1014,11 +1015,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
-item_count = 2
+item_count = 3
 popup/item_0/text = "Клавиатура + Мышь"
 popup/item_0/id = 0
 popup/item_1/text = "Касания"
 popup/item_1/id = 0
+popup/item_2/text = "Контроллер"
+popup/item_2/id = 2
 
 [node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting"]
 custom_minimum_size = Vector2(48, 0)
@@ -1116,6 +1119,7 @@ custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
+text = "x0.20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1295,6 +1299,65 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Настроить управление..."
 icon = ExtResource("14_wy2dx")
+
+[node name="ControllerSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Deadzone" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Мёртвая зона джойстиков"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeadzoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_force_pass_scroll_events = false
+min_value = 0.10000000000582077
+max_value = 0.5
+step = 0.01
+value = 0.10000000000582077
+
+[node name="DeadzoneValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "0.10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_xh6xh")
+expand_icon = true
+
+[node name="ConfigureActions" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Настроить действия..."
+icon = ExtResource("14_wy2dx")
+
+[node name="ConnectedJoypads" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+horizontal_alignment = 1
 
 [node name="HelpDialog" type="AcceptDialog" parent="."]
 title = "Помощь по настройке"
@@ -1477,6 +1540,9 @@ icon = ExtResource("12_g4yas")
 [node name="ActionsConfiguration" parent="." instance_placeholder="res://menu/settings/actions_configuration.tscn"]
 visible = false
 
+[node name="UpdateConnectedJoypadsTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Title/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/General" to="." method="show_section" binds= ["General"]]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/Network" to="." method="show_section" binds= ["Network"]]
@@ -1546,6 +1612,8 @@ visible = false
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode/Setting/Help" to="." method="show_help" binds= [9]]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting/JoysticksAlphaSlider" to="." method="_on_joysticks_alpha_slider_value_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/ConfigureControls" to="." method="_on_configure_controls_pressed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting/DeadzoneSlider" to="." method="_on_deadzone_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/ConfigureActions" to="." method="_on_configure_actions_pressed"]
 [connection signal="confirmed" from="ResetSettingsDialog" to="." method="_on_reset_settings_dialog_confirmed"]
 [connection signal="confirmed" from="ResetControlsDialog" to="." method="_on_reset_controls_dialog_confirmed"]
 [connection signal="close_requested" from="ManageSaveDialog" to="ManageSaveDialog" method="hide"]
@@ -1561,5 +1629,6 @@ visible = false
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Export" to="." method="_on_export_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Import" to="." method="_on_import_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/DeleteData" to="ManageSaveDialog/Dialogs/EraseDataDialog" method="popup_centered"]
+[connection signal="timeout" from="UpdateConnectedJoypadsTimer" to="." method="_update_connected_joypads"]
 
 [editable path="ManageSaveDialog/Dialogs/NameDialog"]

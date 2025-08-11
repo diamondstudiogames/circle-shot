@@ -30,6 +30,7 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="PresetsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]

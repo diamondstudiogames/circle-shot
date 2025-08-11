@@ -8,8 +8,11 @@ enum RendereringMethod {
 const AIM_VISUAL_MAX_SIZE := 360.0
 
 @export_multiline var help_messages: Array[String]
+
 var _override_file := ConfigFile.new()
+var _should_apply_controls_settings := false
 var _save_import_path: String
+
 @onready var _aim_visual: ColorRect = %AimVisual
 
 
@@ -87,9 +90,11 @@ func _ready() -> void:
 	(%AlwaysAimCheck as BaseButton).set_pressed_no_signal(
 			Globals.get_controls_bool("always_show_aim"))
 	(%JoysticksAlphaSlider as Range).value = Globals.get_controls_float("joysticks_alpha")
+	(%DeadzoneSlider as Range).value = Globals.get_controls_float("deadzone")
 	
 	_update_aim_visual_size()
 	get_window().size_changed.connect(_update_aim_visual_size)
+	_update_connected_joypads()
 	
 	# Инфа о сохранении
 	(%SaveInfo/Name as Label).text = Globals.get_string("player_name")
@@ -146,7 +151,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action(&"fullscreen") and event.is_pressed():
+	if Globals.get_controls_int("input_method") == Globals.InputMethod.KEYBOARD_AND_MOUSE \
+			and event.is_action(&"fullscreen") and event.is_pressed():
 		(%FullscreenCheck as BaseButton).set_pressed_no_signal(
 				Globals.get_setting_bool("fullscreen"))
 
@@ -155,6 +161,8 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST when visible:
 			_on_quit_pressed()
+		NOTIFICATION_EXIT_TREE when _should_apply_controls_settings:
+			Globals.apply_controls_settings()
 
 
 func show_section(section_name: String) -> void:
@@ -184,11 +192,14 @@ func remove_recursive(path: String) -> void:
 func _toggle_input_method_settings_visibility(method: Globals.InputMethod) -> void:
 	(%KeyboardSettings as CanvasItem).hide()
 	(%TouchSettings as CanvasItem).hide()
+	(%ControllerSettings as CanvasItem).hide()
 	match method:
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			(%KeyboardSettings as CanvasItem).show()
 		Globals.InputMethod.TOUCH:
 			(%TouchSettings as CanvasItem).show()
+		Globals.InputMethod.CONTROLLER:
+			(%ControllerSettings as CanvasItem).show()
 
 
 func _update_aim_visual_size() -> void:
@@ -220,6 +231,21 @@ func _show_played_time() -> void:
 		played_time = "%d:%02d:%02d" % [hours, mins, secs]
 	
 	(%SaveInfo/PlayedTime as Label).text = "Проведено времени в игре: %s" % played_time
+
+
+func _update_connected_joypads() -> void:
+	var text: String
+	var connected_joypads: Array[int] = Input.get_connected_joypads()
+	if connected_joypads.is_empty():
+		text = "Нет подключённых контроллеров"
+	else:
+		text = "Подключённые контроллеры:\n"
+		for device: int in connected_joypads:
+			text += Input.get_joy_name(device)
+			text += '\n'
+		if connected_joypads.size() > 1:
+			text += "Подключено больше одного контроллера.\nИспользован будет первый из них."
+	(%ConnectedJoypads as Label).text = text
 
 
 func _on_request_permissions_result(permission: String, granted: bool, lambda: Callable) -> void:
@@ -578,6 +604,12 @@ func _on_always_aim_check_toggled(toggled_on: bool) -> void:
 func _on_joysticks_alpha_slider_value_changed(value: float) -> void:
 	Globals.set_controls_float("joysticks_alpha", value)
 	(%AlphaValue as Label).text = "%d%%" % roundi(value * 100)
+
+
+func _on_deadzone_slider_value_changed(value: float) -> void:
+	Globals.set_controls_float("deadzone", value)
+	(%DeadzoneValue as Label).text = "%.2f" % value
+	_should_apply_controls_settings = true
 
 
 func _on_aim_visual_draw() -> void:

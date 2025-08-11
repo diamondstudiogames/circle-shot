@@ -12,12 +12,12 @@ signal local_player_created(player: Player)
 ## Издаётся, когда была установлена команда локального игрока через [method set_local_team].
 signal local_team_set(team: int)
 
-## Интенсивность вибрации при нанесении урона.
-const HIT_VIBRATION_INTENSITY := 0.07
+## Амплитуда вибрации при нанесении урона.
+const HIT_VIBRATION_AMPLITUDE := 0.07
 ## Длительность вибрации при нанесении урона.
 const HIT_VIBRATION_DURATION_MS: int = 100
-## Интенсивность вибрации при убийстве.
-const KILL_VIBRATION_INTENSITY := 0.15
+## Амплитуда вибрации при убийстве.
+const KILL_VIBRATION_AMPLITUDE := 0.15
 ## Длительность вибрации при убийстве.
 const KILL_VIBRATION_DURATION_MS: int = 300
 
@@ -114,7 +114,11 @@ func _register_hit(where: Vector2) -> void:
 		return
 	
 	if _vibration_enabled:
-		Input.vibrate_handheld(HIT_VIBRATION_DURATION_MS, HIT_VIBRATION_INTENSITY)
+		Input.vibrate_handheld(HIT_VIBRATION_DURATION_MS, HIT_VIBRATION_AMPLITUDE)
+		for device: int in Input.get_connected_joypads():
+			Input.start_joy_vibration(device, HIT_VIBRATION_AMPLITUDE, 0.0,
+					HIT_VIBRATION_DURATION_MS / 1000.0)
+			break
 	var marker: Node2D = _hit_marker_scene.instantiate()
 	marker.position = where
 	$Vfx.add_child(marker)
@@ -127,7 +131,11 @@ func _register_kill(where: Vector2) -> void:
 		return
 	
 	if _vibration_enabled:
-		Input.vibrate_handheld(KILL_VIBRATION_DURATION_MS, KILL_VIBRATION_INTENSITY)
+		Input.vibrate_handheld(KILL_VIBRATION_DURATION_MS, KILL_VIBRATION_AMPLITUDE)
+		for device: int in Input.get_connected_joypads():
+			Input.start_joy_vibration(device, KILL_VIBRATION_AMPLITUDE, 0.0,
+					KILL_VIBRATION_DURATION_MS / 1000.0)
+			break
 	var marker: Node2D = _kill_marker_scene.instantiate()
 	marker.position = where
 	$Vfx.add_child(marker)

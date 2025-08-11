@@ -193,7 +193,7 @@ func show_loot(loot: Array[String]) -> void:
 						item_rarity != ItemsDB.Rarity.SECRET)
 				_anim.get_animation(&"equip").track_set_enabled(1,
 						item_rarity == ItemsDB.Rarity.SECRET)
-				_anim.seek(0.0, true)
+				_anim.seek(0.0, true) # сначала задаём значение трекам, потом только воспроизводим
 				
 				match item_rarity:
 					ItemsDB.Rarity.COMMON, ItemsDB.Rarity.RARE:
