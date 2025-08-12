@@ -11,7 +11,7 @@ stats = Dictionary[String, String]({
 "ammo_total": "3",
 "damage": "1",
 "reload_time": "17",
-"stun_duration": "3"
+"stun_duration": "2.5"
 })
 damage_text = "Ослепляет"
 ammo_text = "{ammo_total} шт."

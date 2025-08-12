@@ -242,7 +242,7 @@ func _get_rewards() -> Dictionary[String, int]:
 	return {}
 
 
-func _on_player_killed(by: int, player: Player) -> void:
+func _on_player_killed(by: int, _remained_health: int, player: Player) -> void:
 	var message_text: String
 	if by > 0:
 		_increment_players_kills.rpc_id(by)

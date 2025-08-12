@@ -8,12 +8,14 @@ extends CharacterBody2D
 
 ## Издаётся, когда сущность меняет своё здоровье. В аргументах есть старое и новое здоровье.
 signal health_changed(old_value: int, new_value: int)
-## Издаётся при получении урона. [param by] содержит ID сущности, нанёсшей урон.[br]
+## Издаётся при получении урона. [param by] содержит ID сущности, нанёсшей урон.
+## а [param amount] - количество нанесённого урона.[br]
 ## [b]Примечание[/b]: этот сигнал издаётся только на сервере.
-signal damaged(by: int)
-## Издаётся при смерти. [param by] содержит ID сущности, совершившей убийство.[br]
+signal damaged(by: int, amount: int)
+## Издаётся при смерти. [param by] содержит ID сущности, совершившей убийство,
+## а [param remained_health] - количество оставшегося на момент смерти здоровья.[br]
 ## [b]Примечание[/b]: этот сигнал издаётся только на сервере.
-signal killed(by: int)
+signal killed(by: int, remained_health: int)
 ## Издаётся при смерти.
 signal died
 ## Издаётся, когда сущность оказывается безоружна.
@@ -356,9 +358,9 @@ func damage(amount: int, by: int = 0) -> void:
 	var new_health: int = clampi(current_health - maxi(roundi(amount * defense_multiplier), 1),
 			0, max_health)
 	if new_health <= 0:
-		killed.emit(by)
+		killed.emit(by, current_health)
 	else:
-		damaged.emit(by)
+		damaged.emit(by, current_health - new_health)
 	set_health.rpc(new_health)
 
 

@@ -153,7 +153,7 @@ func _local_player_created(player: Player) -> void:
 	($Camera as SmartCamera).pan_to_target(player.camera_target, 0.3)
 
 
-func _on_entity_damaged(by: int, entity: Entity) -> void:
+func _on_entity_damaged(by: int, _amount: int, entity: Entity) -> void:
 	if by in players:
 		var hit_position: Vector2 = entity.global_position
 		if not _queued_hits.any(func(hit: Hit) -> bool:
@@ -161,7 +161,7 @@ func _on_entity_damaged(by: int, entity: Entity) -> void:
 			_queued_hits.append(Hit.new(by, hit_position, false))
 
 
-func _on_entity_killed(by: int, entity: Entity) -> void:
+func _on_entity_killed(by: int, _remained_health: int, entity: Entity) -> void:
 	if by in players:
 		var kill_position: Vector2 = entity.global_position
 		var should_add := true
@@ -173,6 +173,7 @@ func _on_entity_killed(by: int, entity: Entity) -> void:
 		if should_add:
 			_queued_hits.append(Hit.new(by, kill_position, true))
 	
+	entities.erase(entity.id)
 	if entity is Player:
 		players.erase(entity.id)
 

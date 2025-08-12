@@ -125,7 +125,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8b4pb"]
-radius = 560.0
+radius = 480.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3qk41"]
 properties/0/path = NodePath(".:position")
@@ -300,7 +300,7 @@ libraries = {
 [node name="Explosion" type="Sprite2D" parent="." index="1"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 2
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("3_c5i60")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Explosion" index="0"]
@@ -309,8 +309,9 @@ max_distance = 4800.0
 bus = &"SFX"
 
 [node name="Attack" type="Node2D" parent="Explosion" index="1"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.455, 0.455)
 script = ExtResource("3_nxt1r")
+stun_duration = 2.5
 damage = 1
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"

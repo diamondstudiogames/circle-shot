@@ -228,7 +228,7 @@ position = Vector2(-32, -32)
 position = Vector2(104, 0)
 
 [node name="ReloadTimer" parent="." index="3"]
-wait_time = 18.0
+wait_time = 25.0
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {

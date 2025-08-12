@@ -46,39 +46,68 @@ func update_selected() -> void:
 
 
 func _validate_selected_equip() -> void:
+	var changed := false
+	
 	if not selected_skin in Globals.items_db.skins_by_id \
-			or Globals.items_db.skins_by_id[selected_skin] in Globals.items_db.other_skins:
+			or Globals.items_db.skins_by_id[selected_skin] in Globals.items_db.other_skins \
+			or not Globals.items_db.has_equip_item(selected_skin, ItemsDB.Item.SKIN):
 		push_warning("Incorrect selected skin: %s. Reverting to default." % selected_skin)
 		selected_skin = Globals.items_db.default_skin
+		changed = true
+	
 	if not selected_skill in Globals.items_db.skills_by_id \
-			or Globals.items_db.skills_by_id[selected_skill] in Globals.items_db.other_skills:
+			or Globals.items_db.skills_by_id[selected_skill] in Globals.items_db.other_skills \
+			or not Globals.items_db.has_equip_item(selected_skill, ItemsDB.Item.SKILL):
 		push_warning("Incorrect selected skill: %s. Reverting to default." % selected_skill)
 		selected_skill = Globals.items_db.default_skill
+		changed = true
 	
-	if not selected_light_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_light_weapon] \
-			in Globals.items_db.weapons_light:
+	if (
+			not selected_light_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_light_weapon]
+			in Globals.items_db.weapons_light
+			or not Globals.items_db.has_equip_item(selected_light_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected light weapon: %s. Reverting to default."
 				% selected_light_weapon)
 		selected_light_weapon = Globals.items_db.default_light_weapon
-	if not selected_heavy_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_heavy_weapon] \
-			in Globals.items_db.weapons_heavy:
+		changed = true
+	
+	if (
+			not selected_heavy_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_heavy_weapon]
+			in Globals.items_db.weapons_heavy
+			or not Globals.items_db.has_equip_item(selected_heavy_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected heavy weapon: %s. Reverting to default."
 				% selected_heavy_weapon)
 		selected_heavy_weapon = Globals.items_db.default_heavy_weapon
-	if not selected_support_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_support_weapon] \
-			in Globals.items_db.weapons_support:
+		changed = true
+	
+	if (
+			not selected_support_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_support_weapon]
+			in Globals.items_db.weapons_support
+			or not Globals.items_db.has_equip_item(selected_support_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected support weapon: %s. Reverting to default."
 				% selected_support_weapon)
 		selected_support_weapon = Globals.items_db.default_support_weapon
-	if not selected_melee_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_melee_weapon] \
-			in Globals.items_db.weapons_melee:
+		changed = true
+	
+	if (
+			not selected_melee_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_melee_weapon]
+			in Globals.items_db.weapons_melee
+			or not Globals.items_db.has_equip_item(selected_melee_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected melee weapon: %s. Reverting to default."
 				% selected_melee_weapon)
 		selected_melee_weapon = Globals.items_db.default_melee_weapon
+		changed = true
+	
+	if changed:
+		_save_selected_equip()
 
 
 func _save_selected_equip() -> void:

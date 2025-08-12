@@ -83,7 +83,7 @@ func spawn_player(teleport := true) -> void:
 	]
 	player.equip_data.append(-1)
 	player.name = "Player%d" % player.id
-	player.killed.connect(_on_player_killed.unbind(1))
+	player.died.connect(_on_player_died)
 	
 	if teleport:
 		($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
@@ -101,8 +101,8 @@ func spawn_enemy(type: EnemyType, position: Vector2, health: int, damage_multipl
 	enemy.name += str(enemy.id)
 	enemy.max_health = health
 	enemy.damage_multiplier = damage_multiplier
-	enemy.health_changed.connect(_on_enemy_health_changed)
-	enemy.died.connect(_on_enemy_died.bind(enemy))
+	enemy.damaged.connect(_on_enemy_damaged)
+	enemy.killed.connect(_on_enemy_killed)
 	$Entities.add_child(enemy, true)
 
 
@@ -391,19 +391,20 @@ func _set_default_enemies_data() -> void:
 	enemies_data.append(enemy_data)
 
 
-func _on_enemy_health_changed(old_value: int, new_value: int) -> void:
-	if old_value > new_value:
-		damaged += old_value - new_value
+func _on_enemy_damaged(by: int, amount: int) -> void:
+	if by == MultiplayerPeer.TARGET_PEER_SERVER:
+		damaged += amount
 		stats_changed.emit()
 
 
-func _on_enemy_died(mob: Entity) -> void:
-	damaged += mob.current_health
-	kills += 1
-	stats_changed.emit()
+func _on_enemy_killed(by: int, remained_health: int) -> void:
+	if by == MultiplayerPeer.TARGET_PEER_SERVER:
+		damaged += remained_health
+		kills += 1
+		stats_changed.emit()
 
 
-func _on_player_killed() -> void:
+func _on_player_died() -> void:
 	deaths += 1
 	stats_changed.emit()
 	($RespawnTimer as Timer).start()

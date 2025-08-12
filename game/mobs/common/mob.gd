@@ -39,8 +39,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if multiplayer.is_server() and is_instance_valid(target):
-		_process_logic()
+	if multiplayer.is_server():
+		if is_instance_valid(target):
+			_process_logic()
+		else:
+			_process_logic_no_target()
 	
 	super(delta)
 
@@ -80,6 +83,12 @@ func _filter_entities(entity: Entity) -> bool:
 
 ## Виртуальный метод для логики данного моба. Вызывается только на сервере.
 func _process_logic() -> void:
+	pass
+
+
+## Виртуальный метод для логики данного моба. Работает вместо [method _process_logic] в случае
+## отсутствия цели. Вызывается только на сервере.
+func _process_logic_no_target() -> void:
 	pass
 
 

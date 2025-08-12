@@ -16,6 +16,10 @@ func _process_logic() -> void:
 _TS_pass
 
 
+func _process_logic_no_target() -> void:
+_TS_pass
+
+
 func _target_updated() -> void:
 _TS_pass
 

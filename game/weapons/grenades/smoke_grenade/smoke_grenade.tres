@@ -11,18 +11,18 @@ stats = Dictionary[String, String]({
 "ammo_total": "2",
 "diameter": "13",
 "duration": "9.2",
-"reload_time": "18"
+"reload_time": "25"
 })
 damage_text = "Создаёт дым"
 ammo_text = "{ammo_total} шт."
-description = "Диаметр облака дыма: [color=red]{diameter} бл.[/color]
+description = "[color=deep_sky_blue]Дым накладывает невидимость[/color]
+Диаметр облака дыма: [color=red]{diameter} бл.[/color]
 Длительность: [color=red]{duration} с[/color]
-[color=deep_sky_blue]Дым накладывает невидимость[/color]
 
 Количество: [color=blue]{ammo_total} шт.[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
-Граната, позволяющая скрыть свою позицию в облаке дыма. Не оказывает влияния на противников."
+Граната, позволяющая скрыть позицию в облаке дыма и союзников, и врагов."
 scene_path = "uid://c5swv4a3luh8f"
 image_path = "uid://blxo5eej36ufg"
 spawnable_scenes_paths = Array[String](["uid://3cta5u3qtmvj"])

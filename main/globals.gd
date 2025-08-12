@@ -260,7 +260,7 @@ func setup_settings() -> void:
 ## Устанавливает настройки управления по умолчанию, если их ещё нет.
 func setup_controls_settings() -> void:
 	var default_input_method: InputMethod = InputMethod.KEYBOARD_AND_MOUSE
-	if DisplayServer.is_touchscreen_available():
+	if DisplayServer.is_touchscreen_available() and not Input.emulate_touch_from_mouse:
 		default_input_method = InputMethod.TOUCH
 	if not Input.get_connected_joypads().is_empty():
 		default_input_method = InputMethod.CONTROLLER

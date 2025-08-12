@@ -34,6 +34,8 @@ func _validate_preset() -> void:
 	if Globals.get_string("preset_%d_name" % idx).is_empty():
 		return
 	
+	var changed := false
+	
 	var data: Array[String] = Globals.get_variant("preset_%d_data" % idx, [] as Array[String])
 	var selected_skill: String = data[0]
 	var selected_light_weapon: String = data[1]
@@ -42,43 +44,65 @@ func _validate_preset() -> void:
 	var selected_melee_weapon: String = data[4]
 	
 	if not selected_skill in Globals.items_db.skills_by_id \
-			or Globals.items_db.skills_by_id[selected_skill] in Globals.items_db.other_skills:
+			or Globals.items_db.skills_by_id[selected_skill] in Globals.items_db.other_skills \
+			or not Globals.items_db.has_equip_item(selected_skill, ItemsDB.Item.SKILL):
 		push_warning("Incorrect selected skill %s in preset %d. Reverting to default." 
 				% [selected_skill, idx])
 		selected_skill = Globals.items_db.default_skill
+		changed = true
 	
-	if not selected_light_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_light_weapon] \
-			in Globals.items_db.weapons_light:
+	if (
+			not selected_light_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_light_weapon]
+			in Globals.items_db.weapons_light
+			or not Globals.items_db.has_equip_item(selected_light_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected light weapon %s in preset %d. Reverting to default."
 				% [selected_light_weapon, idx])
 		selected_light_weapon = Globals.items_db.default_light_weapon
-	if not selected_heavy_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_heavy_weapon] \
-			in Globals.items_db.weapons_heavy:
+		changed = true
+	
+	if (
+			not selected_heavy_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_heavy_weapon]
+			in Globals.items_db.weapons_heavy
+			or not Globals.items_db.has_equip_item(selected_heavy_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected heavy weapon %s in preset %d. Reverting to default."
 				% [selected_heavy_weapon, idx])
 		selected_heavy_weapon = Globals.items_db.default_heavy_weapon
-	if not selected_support_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_support_weapon] \
-			in Globals.items_db.weapons_support:
+		changed = true
+	
+	if (
+			not selected_support_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_support_weapon]
+			in Globals.items_db.weapons_support
+			or not Globals.items_db.has_equip_item(selected_support_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected support weapon %s in preset %d. Reverting to default."
 				% [selected_support_weapon, idx])
 		selected_support_weapon = Globals.items_db.default_support_weapon
-	if not selected_melee_weapon in Globals.items_db.weapons_by_id \
-			or not Globals.items_db.weapons_by_id[selected_melee_weapon] \
-			in Globals.items_db.weapons_melee:
+		changed = true
+	
+	if (
+			not selected_melee_weapon in Globals.items_db.weapons_by_id
+			or not Globals.items_db.weapons_by_id[selected_melee_weapon]
+			in Globals.items_db.weapons_melee
+			or not Globals.items_db.has_equip_item(selected_melee_weapon, ItemsDB.Item.WEAPON)
+	):
 		push_warning("Incorrect selected melee weapon %s in preset %d. Reverting to default."
 				% [selected_melee_weapon, idx])
 		selected_melee_weapon = Globals.items_db.default_melee_weapon
+		changed = true
 	
-	Globals.set_variant("preset_%d_data" % idx, [
-		selected_skill,
-		selected_light_weapon,
-		selected_heavy_weapon,
-		selected_support_weapon,
-		selected_melee_weapon,
-	] as Array[String])
+	if changed:
+		Globals.set_variant("preset_%d_data" % idx, [
+			selected_skill,
+			selected_light_weapon,
+			selected_heavy_weapon,
+			selected_support_weapon,
+			selected_melee_weapon,
+		] as Array[String])
 
 
 func _on_add_pressed() -> void:
