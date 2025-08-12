@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx6l0rbdhofox"]
 
-[ext_resource type="Texture2D" uid="uid://cle50d5e6ge01" path="res://game/skins/videogames/tenna/hearts.png" id="1_6ejuu"]
+[ext_resource type="Texture2D" uid="uid://cle50d5e6ge01" path="res://game/skins/videogames/tenna/heart.png" id="1_6ejuu"]
 
 [sub_resource type="Gradient" id="Gradient_bfbq1"]
 offsets = PackedFloat32Array(0, 0.125, 0.5, 0.75)

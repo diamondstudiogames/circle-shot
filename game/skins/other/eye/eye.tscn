@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcpo4w32ylfu6"]
+
+[ext_resource type="Texture2D" uid="uid://bql8a7y2r76qm" path="res://game/skins/other/eye/eye.png" id="1_ocv3b"]
+[ext_resource type="Script" uid="uid://cfwey52timsxu" path="res://game/skins/other/eye/eye.gd" id="2_ty1wa"]
+[ext_resource type="PackedScene" uid="uid://drs0wo6shfmf8" path="res://game/skins/other/eye/eye_death_vfx.tscn" id="3_ty1wa"]
+
+[node name="Eye" type="Sprite2D"]
+texture = ExtResource("1_ocv3b")
+script = ExtResource("2_ty1wa")
+custom_death_vfx_scene = ExtResource("3_ty1wa")
+metadata/_custom_type_script = "uid://nr21pnmv3b1n"

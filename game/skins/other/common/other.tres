@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkinsLineData" load_steps=9 format=3 uid="uid://xrtm2bdu2cgo"]
+[gd_resource type="Resource" script_class="SkinsLineData" load_steps=10 format=3 uid="uid://xrtm2bdu2cgo"]
 
 [ext_resource type="Script" uid="uid://d3vgfmq2fcba3" path="res://game/player/equip/skins_line_data.gd" id="1_se3rb"]
 [ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="2_mhw2g"]
@@ -8,11 +8,12 @@
 [ext_resource type="Resource" uid="uid://dfghiiow5re4y" path="res://game/skins/other/ruble/ruble.tres" id="6_u1y12"]
 [ext_resource type="Resource" uid="uid://blr2mf2jfbpgy" path="res://game/skins/other/yuy/yuy.tres" id="7_xfewp"]
 [ext_resource type="Resource" uid="uid://cijq7830afnbd" path="res://game/skins/other/tralalero_tralala/tralalero_tralala.tres" id="8_lnac6"]
+[ext_resource type="Resource" uid="uid://dh7twodl83l3m" path="res://game/skins/other/eye/eye.tres" id="9_a0afm"]
 
 [resource]
 script = ExtResource("1_se3rb")
 name = "Разные"
 brief_description = "Самые разные скины."
 image_path = "uid://ccp0avcndsqp6"
-skins = Array[ExtResource("2_mhw2g")]([ExtResource("3_gudkv"), ExtResource("4_a0afm"), ExtResource("5_b1o8u"), ExtResource("6_u1y12"), ExtResource("7_xfewp"), ExtResource("8_lnac6")])
+skins = Array[ExtResource("2_mhw2g")]([ExtResource("3_gudkv"), ExtResource("4_a0afm"), ExtResource("5_b1o8u"), ExtResource("6_u1y12"), ExtResource("7_xfewp"), ExtResource("8_lnac6"), ExtResource("9_a0afm")])
 metadata/_custom_type_script = "uid://d3vgfmq2fcba3"

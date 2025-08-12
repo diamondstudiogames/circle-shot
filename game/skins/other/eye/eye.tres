@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://dh7twodl83l3m"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_rs8v4"]
+
+[resource]
+script = ExtResource("1_rs8v4")
+name = "Глаз"
+rarity = 2
+id = "eye"
+brief_description = "Он смотрит за тобой..."
+custom_death_vfx = true
+custom_animations = true
+scene_path = "uid://dcpo4w32ylfu6"
+image_path = "uid://u5v8b2ibb78k"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

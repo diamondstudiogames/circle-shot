@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cle50d5e6ge01"
-path="res://.godot/imported/hearts.png-6dbe0be25850d668e88d14c0974d2a16.ctex"
+uid="uid://bql8a7y2r76qm"
+path="res://.godot/imported/eye.png-8742bc90c94b5c900659e20fc4400a8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/skins/videogames/tenna/hearts.png"
-dest_files=["res://.godot/imported/hearts.png-6dbe0be25850d668e88d14c0974d2a16.ctex"]
+source_file="res://game/skins/other/eye/eye.png"
+dest_files=["res://.godot/imported/eye.png-8742bc90c94b5c900659e20fc4400a8c.ctex"]
 
 [params]
 
