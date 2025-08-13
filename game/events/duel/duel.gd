@@ -14,6 +14,8 @@ signal round_ended(team_won: int)
 @export var coins_for_won_round: int = 40
 ## Сколько монет получает игрок за проигранный раунд.
 @export var coins_for_lost_round: int = 20
+## Сколько нужно нанести урона, чтобы получить монету.
+@export var damage_for_coin: int = 10
 
 ## Количество раундов, выигранных красной командой.
 var red_rounds_won: int = 0
@@ -103,7 +105,8 @@ func _get_rewards() -> Dictionary[String, int]:
 	
 	rewards["Результаты раундов"] = won_rounds * coins_for_won_round \
 			+ lost_rounds * coins_for_lost_round
-	rewards["Убийства"] = players_kills * coins_for_kill
+	rewards["Убийства"] = kills * coins_for_kill
+	rewards["Нанесённый урон"] = roundi(damaged / float(damage_for_coin))
 	return rewards
 
 

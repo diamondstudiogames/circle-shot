@@ -11,6 +11,8 @@ extends Node
 signal local_player_created(player: Player)
 ## Издаётся, когда была установлена команда локального игрока через [method set_local_team].
 signal local_team_set(team: int)
+## Издаётся, когда какая-либо статистика (нанесённый урон и/или убийства) меняется.
+signal stats_changed
 
 ## Амплитуда вибрации при нанесении урона.
 const HIT_VIBRATION_AMPLITUDE := 0.07
@@ -30,6 +32,10 @@ const KILL_VIBRATION_DURATION_MS: int = 300
 var local_player: Player
 ## Команда локального игрока.
 var local_team: int = -1
+## Сколько игрок нанёс урона за эту сессию.
+var damaged: int = 0
+## Сколько игрок убил сущностей за эту сессию.
+var kills: int = 0
 ## Список кэшированных сцен.
 var cached_scenes: Array[PackedScene]
 ## Словарь формата <ID игрока> - <объект игрока>.
@@ -46,7 +52,7 @@ var _kill_marker_scene: PackedScene = load("uid://blhm6uka1p287")
 func _ready() -> void:
 	Globals.main.menu_music.process_mode = Node.PROCESS_MODE_DISABLED
 	if multiplayer.is_server():
-		get_tree().process_frame.connect(_on_process_frame)
+		get_tree().process_frame.connect(_flush_queued_hits)
 	
 	_vibration_enabled = Globals.get_setting_bool("vibration")
 	if Globals.get_setting_bool("minimap"):
@@ -108,10 +114,16 @@ func cleanup() -> void:
 
 
 @rpc("unreliable", "call_local", "authority", 6)
-func _register_hit(where: Vector2) -> void:
+func _register_hit(where: Vector2, amount: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
+	damaged += amount
+	stats_changed.emit()
+	
+	var marker: Node2D = _hit_marker_scene.instantiate()
+	marker.position = where
+	$Vfx.add_child(marker)
 	
 	if _vibration_enabled:
 		Input.vibrate_handheld(HIT_VIBRATION_DURATION_MS, HIT_VIBRATION_AMPLITUDE)
@@ -119,16 +131,20 @@ func _register_hit(where: Vector2) -> void:
 			Input.start_joy_vibration(device, HIT_VIBRATION_AMPLITUDE, 0.0,
 					HIT_VIBRATION_DURATION_MS / 1000.0)
 			break
-	var marker: Node2D = _hit_marker_scene.instantiate()
-	marker.position = where
-	$Vfx.add_child(marker)
 
 
 @rpc("reliable", "call_local", "authority", 6)
-func _register_kill(where: Vector2) -> void:
+func _register_kill(where: Vector2, damaged_amount: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
+	damaged += damaged_amount
+	kills += 1
+	stats_changed.emit()
+	
+	var marker: Node2D = _kill_marker_scene.instantiate()
+	marker.position = where
+	$Vfx.add_child(marker)
 	
 	if _vibration_enabled:
 		Input.vibrate_handheld(KILL_VIBRATION_DURATION_MS, KILL_VIBRATION_AMPLITUDE)
@@ -136,9 +152,17 @@ func _register_kill(where: Vector2) -> void:
 			Input.start_joy_vibration(device, KILL_VIBRATION_AMPLITUDE, 0.0,
 					KILL_VIBRATION_DURATION_MS / 1000.0)
 			break
-	var marker: Node2D = _kill_marker_scene.instantiate()
-	marker.position = where
-	$Vfx.add_child(marker)
+
+
+func _flush_queued_hits() -> void:
+	for hit: Hit in _queued_hits:
+		if hit.by != MultiplayerPeer.TARGET_PEER_SERVER and not hit.by in multiplayer.get_peers():
+			continue
+		if hit.fatal:
+			_register_kill.rpc_id(hit.by, hit.where, hit.amount)
+		else:
+			_register_hit.rpc_id(hit.by, hit.where, hit.amount)
+	_queued_hits.clear()
 
 
 ## Метод для переопределения. Вызывается сразу после [method Node._ready] и на клиенте,
@@ -153,38 +177,35 @@ func _local_player_created(player: Player) -> void:
 	($Camera as SmartCamera).pan_to_target(player.camera_target, 0.3)
 
 
-func _on_entity_damaged(by: int, _amount: int, entity: Entity) -> void:
-	if by in players:
+func _on_entity_damaged(by: int, amount: int, entity: Entity) -> void:
+	if by == MultiplayerPeer.TARGET_PEER_SERVER or by in multiplayer.get_peers():
 		var hit_position: Vector2 = entity.global_position
-		if not _queued_hits.any(func(hit: Hit) -> bool:
-				return hit.by == by and hit.where.is_equal_approx(hit_position)):
-			_queued_hits.append(Hit.new(by, hit_position, false))
+		var should_add := true
+		for hit: Hit in _queued_hits:
+			if hit.by == by and hit.where.is_equal_approx(hit_position):
+				hit.amount += amount
+				should_add = false
+				break
+		if should_add:
+			_queued_hits.append(Hit.new(by, hit_position, amount, false))
 
 
-func _on_entity_killed(by: int, _remained_health: int, entity: Entity) -> void:
-	if by in players:
+func _on_entity_killed(by: int, remained_health: int, entity: Entity) -> void:
+	if by == MultiplayerPeer.TARGET_PEER_SERVER or by in multiplayer.get_peers():
 		var kill_position: Vector2 = entity.global_position
 		var should_add := true
 		for hit: Hit in _queued_hits:
 			if hit.by == by and hit.where.is_equal_approx(kill_position):
 				hit.fatal = true
+				hit.amount += remained_health
 				should_add = false
 				break
 		if should_add:
-			_queued_hits.append(Hit.new(by, kill_position, true))
+			_queued_hits.append(Hit.new(by, kill_position, remained_health, true))
 	
 	entities.erase(entity.id)
 	if entity is Player:
 		players.erase(entity.id)
-
-
-func _on_process_frame() -> void:
-	for hit: Hit in _queued_hits:
-		if hit.fatal:
-			_register_kill.rpc_id(hit.by, hit.where)
-		else:
-			_register_hit.rpc_id(hit.by, hit.where)
-	_queued_hits.clear()
 
 
 func _on_entities_child_entered_tree(node: Node) -> void:
@@ -216,9 +237,11 @@ func _on_entities_child_exiting_tree(node: Node) -> void:
 class Hit:
 	var by: int
 	var where: Vector2
+	var amount: int
 	var fatal: bool
 	
-	func _init(by_value: int, where_value: Vector2, fatal_value: bool) -> void:
+	func _init(by_value: int, where_value: Vector2, amount_value: int, fatal_value: bool) -> void:
 		by = by_value
 		where = where_value
 		fatal = fatal_value
+		amount = amount_value

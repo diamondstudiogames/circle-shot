@@ -28,6 +28,8 @@ extends Event
 @export var coins_for_first_place_per_player: int = 5
 ## Количество монет, которое получит игрок за каждое убийство.
 @export var coins_for_kill: int = 8
+## Сколько нужно нанести урона, чтобы получить монету.
+@export var damage_for_coin: int = 10
 
 ## Массив с ID живых игроков.
 var alive_players: Array[int]
@@ -109,7 +111,8 @@ func _get_rewards() -> Dictionary[String, int]:
 			+ coins_for_first_place_per_player * _places
 	rewards["Место"] = coins_for_last_place + roundi((coins_for_first_place - coins_for_last_place)
 			* (1.0 - (_place_got - 1) / float(_places - 1)))
-	rewards["Убийства"] = players_kills * coins_for_kill
+	rewards["Убийства"] = kills * coins_for_kill
+	rewards["Нанесённый урон"] = roundi(damaged / float(damage_for_coin))
 	return rewards
 
 

@@ -28,8 +28,6 @@ enum EnemyType {
 	ROBOT_SWORD = 3,
 }
 
-## Издаётся, когда какая-либо статистика (нанесённый урон и/или убийства) меняется.
-signal stats_changed
 ## Издаётся, когда карта была изменена.
 signal map_changed
 
@@ -46,10 +44,6 @@ const MAP_SIZE := Vector2i(50, 50)
 ## Сопоставление типов врагов и их иконок.
 @export var enemies_icons: Dictionary[EnemyType, Texture2D]
 
-## Сколько игрок нанёс урон за эту сессию тренировок.
-var damaged: int = 0
-## Сколько игрок убил врагов за эту сессию тренировок.
-var kills: int = 0
 ## Сколько игрок умер за эту сессию тренировок.
 var deaths: int = 0
 ## Массив с данными об врагах.
@@ -391,17 +385,12 @@ func _set_default_enemies_data() -> void:
 	enemies_data.append(enemy_data)
 
 
-func _on_enemy_damaged(by: int, amount: int) -> void:
-	if by == MultiplayerPeer.TARGET_PEER_SERVER:
-		damaged += amount
-		stats_changed.emit()
+func _on_enemy_damaged(_by: int, _amount: int) -> void:
+	stats_changed.emit()
 
 
-func _on_enemy_killed(by: int, remained_health: int) -> void:
-	if by == MultiplayerPeer.TARGET_PEER_SERVER:
-		damaged += remained_health
-		kills += 1
-		stats_changed.emit()
+func _on_enemy_killed(_by: int, _remained_health: int) -> void:
+	stats_changed.emit()
 
 
 func _on_player_died() -> void:

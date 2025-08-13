@@ -574,7 +574,7 @@ func _authenticate_callback(peer: int, data: PackedByteArray) -> void:
 
 func _on_peer_authenticating(peer: int) -> void:
 	if multiplayer.is_server():
-		print_verbose("Authenticating peer: %d." % peer)
+		print_verbose("Authenticating peer %d." % peer)
 		return
 	if peer != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_warning("Unexpected authenticating message! Peer: %d" % peer)
@@ -592,9 +592,9 @@ func _on_peer_authentication_failed(peer: int) -> void:
 		return
 	
 	($ConnectingDialog as Window).hide()
-	show_error("Невозможно аутентифицироваться!")
-	push_warning("Authentication failed: %d." % peer)
 	close()
+	show_error("Невозможно аутентифицироваться!")
+	push_warning("Authentication failed for peer %d." % peer)
 
 
 func _on_connected_to_server() -> void:
@@ -610,9 +610,9 @@ func _on_connected_to_server() -> void:
 
 func _on_connection_failed() -> void:
 	($ConnectingDialog as Window).hide()
+	close()
 	show_error("Невозможно подключиться к серверу!")
 	push_warning("Connection failed.")
-	close()
 
 
 func _on_peer_connected(id: int) -> void:
@@ -634,9 +634,9 @@ func _on_peer_disconnected(id: int) -> void:
 
 
 func _on_server_disconnected() -> void:
+	close()
 	show_error("Разорвано соединение с сервером!")
 	push_warning("Disconnected from server.")
-	close()
 
 
 func _on_event_ended() -> void:

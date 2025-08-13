@@ -10,13 +10,15 @@ extends Event
 
 @export_group("Rewards")
 ## Количество монет, которое получит игрок при победе.
-@export var coins_for_win: int = 80
+@export var coins_for_win: int = 70
 ## Количество монет, которое получит игрок при ничье.
-@export var coins_for_draw: int = 60
+@export var coins_for_draw: int = 55
 ## Количество монет, которое получит игрок при поражении.
-@export var coins_for_defeat: int = 40
+@export var coins_for_defeat: int = 35
 ## Количество монет, которое получит игрок за каждое убийство.
 @export var coins_for_kill: int = 5
+## Сколько нужно нанести урона, чтобы получить монету.
+@export var damage_for_coin: int = 20
 
 ## Количество убийств, сделанных красной командой.
 var red_kills: int = 0
@@ -122,7 +124,8 @@ func _get_rewards() -> Dictionary[String, int]:
 	else:
 		result_coins = coins_for_defeat
 	rewards["Результат"] = result_coins
-	rewards["Убийства"] = players_kills * coins_for_kill
+	rewards["Убийства"] = kills * coins_for_kill
+	rewards["Нанесённый урон"] = roundi(damaged / float(damage_for_coin))
 	return rewards
 
 

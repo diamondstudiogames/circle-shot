@@ -161,10 +161,11 @@ ammo_box_spawn_interval_per_player = 1.5
 weapon_box_spawn_interval_base = 50.0
 weapon_box_spawn_interval_per_player = 10.0
 weapon_data = ExtResource("4_0ce5t")
-coins_for_last_place = 20
-coins_for_first_place_base = 40
+coins_for_last_place = 15
+coins_for_first_place_base = 30
 coins_for_first_place_per_player = 5
 coins_for_kill = 8
+damage_for_coin = 12
 spawn_point_randomness = 0.0
 metadata/_edit_horizontal_guides_ = []
 

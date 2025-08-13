@@ -15,8 +15,6 @@ signal ended
 ## Определяет максимум случайного расстояния от заданной точки появления.
 @export var spawn_point_randomness := 40.0
 
-## Количество убийств игроков, совершённых локальным игроком.
-var players_kills: int = 0
 ## Началось ли событие.
 var was_started := false
 ## Количество тиков в момент создания события. Используется для корректировки анимации начала.
@@ -166,14 +164,6 @@ func _start() -> void:
 	print_verbose("Event started.")
 
 
-@rpc("reliable", "call_local", "authority", 6)
-func _increment_players_kills() -> void:
-	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
-		push_error("This method must be called only by server.")
-		return
-	players_kills += 1
-
-
 func _setup() -> void:
 	_make_teams()
 	event_ui.chat.players_names = players_names
@@ -245,7 +235,6 @@ func _get_rewards() -> Dictionary[String, int]:
 func _on_player_killed(by: int, _remained_health: int, player: Player) -> void:
 	var message_text: String
 	if by > 0:
-		_increment_players_kills.rpc_id(by)
 		message_text = "[outline_size=4][color=#%s]%s[/color][/outline_size] убивает игрока \
 [outline_size=4][color=#%s]%s[/color][/outline_size]!" % [
 			Entity.TEAM_COLORS[players_teams[by]].to_html(false),

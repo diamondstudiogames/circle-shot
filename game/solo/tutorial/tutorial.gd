@@ -8,7 +8,6 @@ var _prev_joystick_fire: bool
 var _player: Player
 
 var _picked_up_items: int = 0
-var _enemies_killed: int = 0
 var _skill_used: int = 0
 var _conditions_met: int = 0
 
@@ -36,6 +35,7 @@ func _initialize() -> void:
 	for spawn_point: Marker2D in $Map/DummySpawnPoints.get_children():
 		spawn_dummy(spawn_point.global_position)
 	spawn_player()
+	stats_changed.connect(_on_stats_changed)
 	
 	_input_method = Globals.get_controls_int("input_method") as Globals.InputMethod
 	match _input_method:
@@ -89,7 +89,6 @@ func spawn_dummy(where: Vector2) -> void:
 	enemy.team = 1
 	enemy.id = -randi()
 	enemy.name += str(enemy.id)
-	enemy.died.connect(_on_enemy_died)
 	$Entities.add_child(enemy, true)
 
 
@@ -132,7 +131,7 @@ func _check_conditions() -> void:
 				_action_as_string("c_aim_down"),
 				_action_as_string("c_shoot"),
 			])
-	if _enemies_killed == 1 and _conditions_met == 1:
+	if kills == 1 and _conditions_met == 1:
 		_conditions_met += 1
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[7] % [_action_as_string("reload")])
@@ -149,7 +148,7 @@ func _check_conditions() -> void:
 			show_text(texts[12])
 		elif _input_method == Globals.InputMethod.CONTROLLER:
 			show_text(texts[11] % [_action_as_string("c_weapon_heavy")])
-	if _enemies_killed == 4 and _conditions_met == 3:
+	if kills == 4 and _conditions_met == 3:
 		_conditions_met += 1
 		$Map/Gates/Gate2.queue_free()
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
@@ -162,7 +161,7 @@ func _check_conditions() -> void:
 			get_tree().paused = true
 		elif _input_method == Globals.InputMethod.CONTROLLER:
 			show_text(texts[13] % [_action_as_string("c_show_weapons")])
-	if _enemies_killed == 8 and _picked_up_items == 4 and _conditions_met == 4:
+	if kills == 8 and _picked_up_items == 4 and _conditions_met == 4:
 		_conditions_met += 1
 		$Map/Gates/Gate3.queue_free()
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
@@ -187,8 +186,7 @@ func _check_conditions() -> void:
 		show_text(texts[23])
 
 
-func _on_enemy_died() -> void:
-	_enemies_killed += 1
+func _on_stats_changed() -> void:
 	_check_conditions()
 
 

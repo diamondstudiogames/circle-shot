@@ -19,6 +19,8 @@ extends Event
 @export var coins_for_flag_captured: int = 12
 ## Количество монет, которое получит игрок за каждое убийство.
 @export var coins_for_kill: int = 5
+## Сколько нужно нанести урона, чтобы получить монету.
+@export var damage_for_coin: int = 10
 
 ## Количество флагов, захваченных красной командой.
 var red_flags_captured: int = 0
@@ -130,7 +132,8 @@ func _get_rewards() -> Dictionary[String, int]:
 		result_coins = coins_for_defeat
 	rewards["Результат"] = result_coins
 	rewards["Захваченные флаги"] = flags_captured * coins_for_flag_captured
-	rewards["Убийства"] = players_kills * coins_for_kill
+	rewards["Убийства"] = kills * coins_for_kill
+	rewards["Нанесённый урон"] = roundi(damaged / float(damage_for_coin))
 	return rewards
 
 
