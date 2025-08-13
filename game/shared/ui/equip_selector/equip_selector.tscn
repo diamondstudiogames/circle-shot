@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://mlbaavhyud5j"]
+[gd_scene load_steps=4 format=3 uid="uid://mlbaavhyud5j"]
 
 [ext_resource type="Script" uid="uid://bp1xq77n83bjo" path="res://game/shared/ui/equip_selector/equip_selector.gd" id="1_ex6i3"]
 [ext_resource type="Script" uid="uid://cq43botg0qg0m" path="res://menu/items_grid/items_grid.gd" id="2_5y7db"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="2_hh3qv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebxl3"]
-bg_color = Color(0, 0, 0, 0.1254902)
-corner_detail = 1
-anti_aliasing = false
 
 [node name="EquipSelector" type="GridContainer"]
 offset_right = 788.0
@@ -65,7 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="LightWeapon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -116,7 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="HeavyWeapon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -166,7 +161,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="SupportWeapon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -217,7 +212,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="MeleeWeapon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -268,7 +263,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="Skill" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -319,7 +314,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_type_variation = &"FlatButton"
+theme_type_variation = &"LightFlatButton"
 
 [node name="ItemSelector" type="Window" parent="."]
 auto_translate_mode = 1
@@ -358,7 +353,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-theme_override_styles/focus = SubResource("StyleBoxFlat_ebxl3")
 text = "Вернуться к линейкам"
 icon = ExtResource("2_hh3qv")
 

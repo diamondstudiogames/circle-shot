@@ -287,6 +287,7 @@ text = "Ежедневные предложения"
 
 [node name="DailyOffersContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1

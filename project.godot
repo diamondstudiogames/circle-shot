@@ -62,7 +62,7 @@ window/handheld/orientation=4
 
 [editor]
 
-script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "tscn")
+script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "tscn", "tres")
 
 [editor_overrides]
 

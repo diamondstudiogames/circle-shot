@@ -30,6 +30,7 @@ vertical_alignment = 1
 [node name="TeamActions" type="MenuButton" parent="."]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
+focus_mode = 2
 theme_type_variation = &"FlatMenuButton"
 icon = ExtResource("2_gs5xi")
 flat = false
@@ -48,6 +49,7 @@ popup/item_2/id = 2
 [node name="AdminActions" type="MenuButton" parent="."]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
+focus_mode = 2
 theme_type_variation = &"FlatMenuButton"
 icon = ExtResource("3_1hnn2")
 flat = false

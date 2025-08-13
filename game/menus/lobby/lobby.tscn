@@ -207,6 +207,8 @@ icon = ExtResource("3_pddfd")
 
 [node name="ChangeMap" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel"]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../ControlButtons/Leave")
+focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Сменить карту..."
 icon = ExtResource("4_4kry5")
 

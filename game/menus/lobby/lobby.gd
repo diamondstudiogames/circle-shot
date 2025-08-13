@@ -301,6 +301,7 @@ func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> v
 				&"font_color", Color.CORNFLOWER_BLUE)
 		admin_actions.disabled = true
 		admin_actions.self_modulate = Color.TRANSPARENT
+		admin_actions.focus_mode = Control.FOCUS_NONE
 	if id == MultiplayerPeer.TARGET_PEER_SERVER:
 		# Сервер нельзя выгнать/забанить
 		admin_actions.get_popup().set_item_disabled(0, true)
