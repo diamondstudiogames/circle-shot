@@ -15,8 +15,6 @@ extends Event
 @export var weapon_box_spawn_interval_base := 50.0
 ## Увеличение интервала появления подбираемых оружий за каждого живого игрока.
 @export var weapon_box_spawn_interval_per_player := 10.0
-## Данные подбираемого оружия.
-@export var weapon_data: WeaponData
 
 @export_group("Rewards")
 ## Количество монет, которое получит игрок за последнее место.
@@ -44,7 +42,7 @@ var _place_got: int
 
 var _heal_box_scene: PackedScene = load("uid://bysyaaj2r7stt")
 var _ammo_box_scene: PackedScene = load("uid://bdtqr6mv231py")
-var _weapon_box_scene: PackedScene = load("uid://bbfq36qds2oip")
+var _weapon_box_scene: PackedScene = load("uid://d0d83mi7scscc")
 var _poison_smokes_scene: PackedScene = load("uid://cr1m37xm3w88w")
 
 @onready var _spawn_points: Array[Node] = $Map/SpawnPoints.get_children()
@@ -116,18 +114,6 @@ func _get_rewards() -> Dictionary[String, int]:
 	return rewards
 
 
-## Устанавливает у игрока с ID [param to] оружие [member weapon_data].
-@rpc("authority", "call_local", "reliable", 5)
-func equip_weapon(to: int) -> void:
-	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
-		push_error("This method must be called only by server.")
-		return
-	for player: Player in get_tree().get_nodes_in_group(&"player"):
-		if player.id == to:
-			player.set_weapon(Weapon.Type.ADDITIONAL, weapon_data)
-			break
-
-
 @rpc("reliable", "call_local", "authority", 3)
 func _kill_player(who: int, killer: int = 0) -> void:
 	alive_players.erase(who)
@@ -151,7 +137,7 @@ func _show_winner(winner: int, winner_name: String) -> void:
 
 func _spawn_heal_box() -> void:
 	var spawn_position: Vector2 = (_heal_box_points[_heal_box_counter] as Node2D).global_position
-	var heal_box: Area2D = _heal_box_scene.instantiate()
+	var heal_box: Node2D = _heal_box_scene.instantiate()
 	heal_box.position = spawn_position
 	heal_box.name += str(randi())
 	$Other.add_child(heal_box, true)
@@ -163,7 +149,7 @@ func _spawn_heal_box() -> void:
 
 func _spawn_ammo_box() -> void:
 	var spawn_position: Vector2 = (_ammo_box_points[_ammo_box_counter] as Node2D).global_position
-	var ammo_box: Area2D = _ammo_box_scene.instantiate()
+	var ammo_box: Node2D = _ammo_box_scene.instantiate()
 	ammo_box.position = spawn_position
 	ammo_box.name += str(randi())
 	$Other.add_child(ammo_box, true)
@@ -176,7 +162,7 @@ func _spawn_ammo_box() -> void:
 func _spawn_weapon() -> void:
 	var spawn_position: Vector2 = \
 			(_weapon_box_points[_weapon_box_counter] as Node2D).global_position
-	var weapon_box: Area2D = _weapon_box_scene.instantiate()
+	var weapon_box: Node2D = _weapon_box_scene.instantiate()
 	weapon_box.position = spawn_position
 	weapon_box.name += str(randi())
 	$Other.add_child(weapon_box, true)

@@ -52,7 +52,7 @@ var _kill_marker_scene: PackedScene = load("uid://blhm6uka1p287")
 func _ready() -> void:
 	Globals.main.menu_music.process_mode = Node.PROCESS_MODE_DISABLED
 	if multiplayer.is_server():
-		get_tree().process_frame.connect(_flush_queued_hits)
+		get_tree().physics_frame.connect(_flush_queued_hits)
 	
 	_vibration_enabled = Globals.get_setting_bool("vibration")
 	if Globals.get_setting_bool("minimap"):

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyqg11st1fbal"]
+[gd_scene load_steps=5 format=3 uid="uid://dyqg11st1fbal"]
 
 [ext_resource type="Script" uid="uid://b0mxaxk65mlbn" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.gd" id="1_y6mm5"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="2_x6tjd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_upxl4"]
 radius = 240.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y6mm5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
 
 [node name="PickableEquipItem" type="Node2D"]
 script = ExtResource("1_y6mm5")
@@ -19,5 +24,8 @@ shape = SubResource("CircleShape2D_upxl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_y6mm5")
 
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]

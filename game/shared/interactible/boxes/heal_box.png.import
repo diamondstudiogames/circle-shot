@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddgp6giu670fh"
-path="res://.godot/imported/ammo_box.png-26375072cb55c9b37bc93a67d62bc5ad.ctex"
+uid="uid://cfvgxcjlq04na"
+path="res://.godot/imported/heal_box.png-145d2d89216b2c8190ea06b0c23acba6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/royale/boxes/ammo_box.png"
-dest_files=["res://.godot/imported/ammo_box.png-26375072cb55c9b37bc93a67d62bc5ad.ctex"]
+source_file="res://game/shared/interactible/boxes/heal_box.png"
+dest_files=["res://.godot/imported/heal_box.png-145d2d89216b2c8190ea06b0c23acba6.ctex"]
 
 [params]
 

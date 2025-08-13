@@ -20,6 +20,7 @@ enum EquipType {
 
 
 func _ready() -> void:
+	reset_physics_interpolation()
 	var image_path: String
 	match equip_type:
 		EquipType.SKIN:

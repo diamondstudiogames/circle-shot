@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dipiyhno23nai"
-path="res://.godot/imported/weapon_box.png-ded46dc4c936967e279580017d746161.ctex"
+uid="uid://ddgp6giu670fh"
+path="res://.godot/imported/ammo_box.png-961fb7b82a3a2b302ffda2c0c055ff01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/royale/boxes/weapon_box.png"
-dest_files=["res://.godot/imported/weapon_box.png-ded46dc4c936967e279580017d746161.ctex"]
+source_file="res://game/shared/interactible/boxes/ammo_box.png"
+dest_files=["res://.godot/imported/ammo_box.png-961fb7b82a3a2b302ffda2c0c055ff01.ctex"]
 
 [params]
 

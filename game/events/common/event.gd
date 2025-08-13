@@ -129,13 +129,15 @@ func end_event(victory: bool) -> void:
 		($DefeatMusic as AudioStreamPlayer).play()
 	
 	if not Globals.headless:
+		# Ждём пока вся информация прилетит
+		($ShowRewardsTimer as Timer).start()
+		await ($ShowRewardsTimer as Timer).timeout
+		
 		var rewards: Dictionary[String, int] = _get_rewards()
 		var coins_got: int = rewards.values().reduce(
 				func(accum: int, num: int) -> int: return accum + num)
 		Globals.set_int("coins", Globals.get_int("coins") + coins_got)
 		
-		($ShowRewardsTimer as Timer).start()
-		await ($ShowRewardsTimer as Timer).timeout
 		event_ui.show_rewards(rewards, coins_got)
 
 

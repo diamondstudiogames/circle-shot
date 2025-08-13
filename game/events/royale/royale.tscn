@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://yfpyfv6boyao"]
+[gd_scene load_steps=19 format=3 uid="uid://yfpyfv6boyao"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_5uf7s"]
 [ext_resource type="Script" uid="uid://btgre7bv1b6d3" path="res://game/events/royale/royale.gd" id="2_d2r5a"]
 [ext_resource type="PackedScene" uid="uid://dn7oblc2lhvef" path="res://game/weapons/guns/bazooka/bazooka.tscn" id="3_vu7pc"]
-[ext_resource type="Resource" uid="uid://co7e50nsbbr5q" path="res://game/weapons/guns/bazooka/bazooka.tres" id="4_0ce5t"]
 [ext_resource type="Script" uid="uid://x5ehyotfquq8" path="res://game/events/royale/royale_ui.gd" id="6_q5vxn"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="7_oyafe"]
-[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/events/royale/boxes/ammo_box.tscn" id="7_v5hkh"]
+[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="7_v5hkh"]
 [ext_resource type="Texture2D" uid="uid://ix82y4qydhql" path="res://menu/theme/icons/right.png" id="8_ub7jk"]
-[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/events/royale/boxes/heal_box.tscn" id="9_b3a1j"]
+[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="9_b3a1j"]
 [ext_resource type="PackedScene" uid="uid://b4h27swncrquh" path="res://game/events/common/poison_smokes/poison_smokes.tscn" id="10_583pe"]
-[ext_resource type="PackedScene" uid="uid://bbfq36qds2oip" path="res://game/events/royale/boxes/weapon_box.tscn" id="11_tcex7"]
+[ext_resource type="PackedScene" uid="uid://d0d83mi7scscc" path="res://game/events/royale/weapon_box_royale.tscn" id="10_scmca"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -160,7 +159,6 @@ ammo_box_spawn_interval_base = 15.0
 ammo_box_spawn_interval_per_player = 1.5
 weapon_box_spawn_interval_base = 50.0
 weapon_box_spawn_interval_per_player = 10.0
-weapon_data = ExtResource("4_0ce5t")
 coins_for_last_place = 15
 coins_for_first_place_base = 30
 coins_for_first_place_per_player = 5
@@ -170,7 +168,7 @@ spawn_point_randomness = 0.0
 metadata/_edit_horizontal_guides_ = []
 
 [node name="OtherSpawner" parent="." index="6"]
-_spawnable_scenes = PackedStringArray("uid://bdtqr6mv231py", "uid://bysyaaj2r7stt", "uid://bbfq36qds2oip")
+_spawnable_scenes = PackedStringArray("uid://bdtqr6mv231py", "uid://bysyaaj2r7stt", "uid://d0d83mi7scscc")
 
 [node name="HealBoxSpawnTimer" type="Timer" parent="." index="7"]
 wait_time = 15.0
@@ -308,7 +306,7 @@ text = "Каждый сам
 за себя!"
 
 [node name="ResourcePreloaderRoyale" type="ResourcePreloader" parent="." index="16"]
-resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes", "weapon_box"), [ExtResource("7_v5hkh"), ExtResource("3_vu7pc"), ExtResource("9_b3a1j"), ExtResource("10_583pe"), ExtResource("11_tcex7")]]
+resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes", "weapon_box_royale"), [ExtResource("7_v5hkh"), ExtResource("3_vu7pc"), ExtResource("9_b3a1j"), ExtResource("10_583pe"), ExtResource("10_scmca")]]
 
 [connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="timeout" from="HealBoxSpawnTimer" to="." method="_on_heal_box_spawn_timer_timeout"]
