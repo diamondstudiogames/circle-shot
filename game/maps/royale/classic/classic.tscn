@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://dtui0y2krx3gd"]
 
-[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/base_map.tscn" id="1_w4b8o"]
+[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/map_royale.tscn" id="1_w4b8o"]
 [ext_resource type="TileSet" uid="uid://b2sv5fnlc14qj" path="res://game/locations/classic/tile_set.tres" id="2_woywd"]
 
 [node name="Map" instance=ExtResource("1_w4b8o")]

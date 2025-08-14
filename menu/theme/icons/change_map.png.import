@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://eyfsi3j0o04s"
-path="res://.godot/imported/change_map.png-9895c6f9f855ef73759c1f9e6f35a22f.ctex"
+path="res://.godot/imported/change_map.png-e9b14b31a261864385b6c7fad88e6446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/menus/lobby/icons/change_map.png"
-dest_files=["res://.godot/imported/change_map.png-9895c6f9f855ef73759c1f9e6f35a22f.ctex"]
+source_file="res://menu/theme/icons/change_map.png"
+dest_files=["res://.godot/imported/change_map.png-e9b14b31a261864385b6c7fad88e6446.ctex"]
 
 [params]
 

@@ -1,0 +1,555 @@
+[gd_scene load_steps=14 format=3 uid="uid://bv5flcglplthg"]
+
+[ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
+[ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
+[ext_resource type="Script" uid="uid://cvncfjveetr3u" path="res://game/solo/challenges/common/challenge_ui.gd" id="3_kh7n0"]
+[ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="4_uf786"]
+[ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="5_54rqx"]
+[ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="6_iuf22"]
+
+[sub_resource type="Animation" id="Animation_ki4so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ty3n7"]
+resource_name = "Defeat"
+length = 6.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.2, 1.4, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_knbec"]
+resource_name = "Victory"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4.5, 6.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8n4b"]
+_data = {
+&"RESET": SubResource("Animation_ki4so"),
+&"defeat": SubResource("Animation_ty3n7"),
+&"victory": SubResource("Animation_knbec")
+}
+
+[sub_resource type="Animation" id="Animation_atj0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tint:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Go:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Main:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Main:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4bxhi"]
+resource_name = "Intro"
+length = 5.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tint:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.25098), Color(0, 0, 0, 0.25098), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.75, 3.25, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Go:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.75, 4.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Main:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Main:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctugk"]
+_data = {
+&"RESET": SubResource("Animation_atj0b"),
+&"intro": SubResource("Animation_4bxhi")
+}
+
+[node name="Challenge" instance=ExtResource("1_f45ha")]
+script = ExtResource("2_kh7n0")
+
+[node name="UI" parent="." index="8"]
+script = ExtResource("3_kh7n0")
+
+[node name="Quit" type="Button" parent="UI/Main" index="2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 72.0
+grow_horizontal = 0
+focus_mode = 0
+icon = ExtResource("4_uf786")
+
+[node name="RewardsPanel" type="PanelContainer" parent="UI/Main" index="3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -51.0
+offset_right = 200.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main/RewardsPanel" index="0"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Rewards" type="VBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderMedium"
+text = "Награды"
+
+[node name="Total" type="HBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Итого:"
+
+[node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "0"
+
+[node name="CoinSmall" type="TextureRect" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_54rqx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GameEnd" type="Label" parent="UI/Main" index="4"]
+self_modulate = Color(1, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.00003
+offset_top = -220.0
+offset_right = 400.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(400, 60)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "ПОРАЖЕНИЕ!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_n8n4b")
+}
+
+[node name="Intro" type="Control" parent="UI" index="1"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Tint" type="ColorRect" parent="UI/Intro" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Title" type="Label" parent="UI/Intro" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -40.0
+offset_right = 400.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(400, 40)
+theme_type_variation = &"LabelOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 48
+text = "ИГРА"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="UI/Intro/Title" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"LabelOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+text = "Описание"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="UI/Intro" index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -64.0
+offset_right = 160.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(160, 64)
+theme_type_variation = &"HeaderMediumOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+text = "Описание 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Go" type="Label" parent="UI/Intro" index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -80.0
+offset_right = 480.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(480, 80)
+theme_type_variation = &"LabelOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 80
+text = "ВПЕРЁД!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_ctugk")
+}
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2"]
+oversampling_override = 1.0
+title = "Выход"
+size = Vector2i(462, 112)
+unresizable = true
+ok_button_text = "Выйти"
+dialog_text = "Ты действительно хочешь выйти из испытания?"
+cancel_button_text = "Отмена"
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10"]
+bus = &"Music"
+
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource("6_iuf22")
+bus = &"Music"
+
+[node name="ShowRewardsTimer" type="Timer" parent="." index="14"]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="pressed" from="UI/Main/Quit" to="UI/QuitDialog" method="popup_centered"]

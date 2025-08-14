@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://doideugejj20p"]
 
-[ext_resource type="PackedScene" uid="uid://b8i427otkde7x" path="res://game/events/duel/base_map.tscn" id="1_vj4q2"]
+[ext_resource type="PackedScene" uid="uid://b8i427otkde7x" path="res://game/events/duel/map_duel.tscn" id="1_vj4q2"]
 [ext_resource type="Script" uid="uid://d0ix6o2dlscsm" path="res://game/maps/duel/dance_floor/dance_floor.gd" id="2_fyera"]
 [ext_resource type="AudioStream" uid="uid://plfl2ahxodwq" path="res://game/locations/dance_floor/music.ogg" id="2_vdwal"]
 [ext_resource type="TileSet" uid="uid://bke8fbeyrf4lw" path="res://game/locations/dance_floor/tile_set.tres" id="3_fyera"]

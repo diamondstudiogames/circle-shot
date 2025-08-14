@@ -21,11 +21,12 @@ var _item_small_scene: PackedScene = preload("uid://c07pym82q5utt")
 ## Очищает существующие предметы и отображает новые того типа, который указан в [param type].
 ## Опционально можно предоставить индекс в базе данных в [param selected_idx],
 ## чтобы выделить зелёным выбранный предмет.[br]
-## Чтобы показать скины из определённой линейки, оружия определённого типа или
-## карты определённого события, используйте [method list_skins_line], [method list_weapons_by_type]
-## или [method list_maps_of_event] соответственно.[br]
+## Чтобы показать скины из определённой линейки, оружия определённого типа,
+## карты определённого события или карты определённого испытания, используйте
+## [method list_skins_line], [method list_weapons_by_type], [method list_maps_of_event]
+## или [method list_maps_of_challenge] соответственно.[br]
 ## Если [param hide_locked] равен [code]false[/code], неразблокированные предметы будут показаны,
-## но затемнены. Не применяется к событиям.
+## но затемнены. Не применяется к событиям и испытаниям.
 func list_items(type: ItemsDB.Item, selected_idx: int = -1, hide_locked := true) -> void:
 	for child: Node in get_children():
 		child.queue_free()
@@ -40,6 +41,25 @@ func list_items(type: ItemsDB.Item, selected_idx: int = -1, hide_locked := true)
 				item.texture = load(event.image_path)
 				(item.get_node(^"Container/Name") as Label).text = event.name
 				(item.get_node(^"Container/Description") as Label).text = event.brief_description
+				(item.get_node(^"Click") as BaseButton).pressed.connect(
+						_on_item_pressed.bind(type, counter))
+				add_child(item)
+				
+				if selected_idx == counter:
+					(item.get_node(^"Container/Name") as Label).add_theme_color_override(
+							&"font_color", Color.GREEN)
+					(item.get_node(^"Click") as Control).grab_focus()
+					has_selected = true
+				counter += 1
+		ItemsDB.Item.CHALLENGE:
+			columns = 1
+			var counter: int = 0
+			for challenge: ChallengeData in Globals.items_db.challenges:
+				var item: TextureRect = _item_big_scene.instantiate()
+				item.texture = load(challenge.image_path)
+				(item.get_node(^"Container/Name") as Label).text = challenge.name
+				(item.get_node(^"Container/Description") as Label).text = \
+						challenge.brief_description
 				(item.get_node(^"Click") as BaseButton).pressed.connect(
 						_on_item_pressed.bind(type, counter))
 				add_child(item)
@@ -180,7 +200,7 @@ func list_items(type: ItemsDB.Item, selected_idx: int = -1, hide_locked := true)
 					(item.get_node(^"Click") as Control).grab_focus()
 					has_selected = true
 		ItemsDB.Item.MAP:
-			push_error("Use list_maps_of_event() instead.")
+			push_error("Use list_maps_of_event() or list_maps_of_challenge() instead.")
 		_:
 			push_error("Invalid type specified: %d." % type)
 	
@@ -202,6 +222,39 @@ func list_maps_of_event(event_idx: int, selected_idx: int = -1) -> void:
 	var counter: int = 0
 	var has_selected := false
 	for map: MapData in Globals.items_db.events[event_idx].maps:
+		var item: TextureRect = _item_big_scene.instantiate()
+		item.texture = load(map.image_path)
+		(item.get_node(^"Container/Name") as Label).text = map.name
+		(item.get_node(^"Container/Description") as Label).text = map.brief_description
+		(item.get_node(^"Click") as BaseButton).pressed.connect(
+				_on_item_pressed.bind(ItemsDB.Item.MAP, counter))
+		add_child(item)
+		
+		if selected_idx == counter:
+			(item.get_node(^"Container/Name") as Label).add_theme_color_override(
+					&"font_color", Color.GREEN)
+			(item.get_node(^"Click") as Control).grab_focus()
+			has_selected = true
+		counter += 1
+	
+	if not has_selected and get_child_count() > 0:
+		# фокусим первое для удобства
+		await get_tree().process_frame # ждём queue_free вьбымфзкицуокфдывсзщйио
+		(get_child(0).get_node(^"Click") as BaseButton).grab_focus()
+	items_listed.emit(ItemsDB.Item.MAP)
+
+
+## Очищает существующие предметы и отображает карты испытания, индекс которого указан
+## в [param challenge_idx]. Опционально можно предоставить индекс в базе данных в
+## [param selected_idx], чтобы выделить зелёным выбранную карту.
+func list_maps_of_challenge(challenge_idx: int, selected_idx: int = -1) -> void:
+	for child: Node in get_children():
+		child.queue_free()
+	
+	columns = 1
+	var counter: int = 0
+	var has_selected := false
+	for map: MapData in Globals.items_db.challenges[challenge_idx].maps:
 		var item: TextureRect = _item_big_scene.instantiate()
 		item.texture = load(map.image_path)
 		(item.get_node(^"Container/Name") as Label).text = map.name

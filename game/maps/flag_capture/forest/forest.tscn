@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://2f01wk6dh2vy"]
 
-[ext_resource type="PackedScene" uid="uid://dxj0uhqrp8ivp" path="res://game/events/flag_capture/base_map.tscn" id="1_pkkbt"]
+[ext_resource type="PackedScene" uid="uid://dxj0uhqrp8ivp" path="res://game/events/flag_capture/map_flag_capture.tscn" id="1_pkkbt"]
 [ext_resource type="Shader" uid="uid://jfbv4srgoh02" path="res://game/locations/river/water.gdshader" id="2_qkoj2"]
 [ext_resource type="Texture2D" uid="uid://dl1tjq48egrhv" path="res://game/locations/river/noise.tres" id="3_rg6o0"]
 [ext_resource type="TileSet" uid="uid://cqtubyifhoudw" path="res://game/locations/river/tile_set.tres" id="4_w3kfo"]

@@ -216,21 +216,23 @@ func load_default_map() -> void:
 	map_changed.emit()
 
 
-## Загружает карту с индексом [param map_idx] события с индексом [param event_idx].
-func load_map(event_idx: int, map_idx: int) -> void:
+## Загружает карту с индексом [param map_idx] события (или испытания, если [param challenge] равен
+## [code]true[/code]) с индексом [param event_challenge_idx].
+func load_map(event_challenge_idx: int, map_idx: int, challenge: bool) -> void:
 	cleanup()
 	await get_tree().process_frame
 	if _current_map:
 		remove_child(_current_map)
 		_current_map.queue_free()
 	
-	var map_scene: PackedScene = load(Globals.items_db.events[event_idx].maps[map_idx].scene_path)
+	var map_scene_path: String
+	if challenge:
+		map_scene_path = Globals.items_db.challenges[event_challenge_idx].maps[map_idx].scene_path
+	else:
+		map_scene_path = Globals.items_db.events[event_challenge_idx].maps[map_idx].scene_path
+	var map_scene: PackedScene = load(map_scene_path)
 	var map: Map = map_scene.instantiate()
 	_spawn_point = map.get_node(^"SoloSpawnPoint")
-	add_child(map)
-	_current_map = map
-	
-	spawn_player()
 	
 	var tracks_to_play: Array[AudioStream]
 	if not map.custom_tracks.is_empty():
@@ -242,12 +244,16 @@ func load_map(event_idx: int, map_idx: int) -> void:
 			tracks_to_play.append_array(map.custom_tracks)
 	else:
 		tracks_to_play = tracks
+	map.custom_tracks.clear() # предотвращем смену треков самой карте
 	
 	if not tracks_to_play.is_empty():
 		($Music as AudioStreamPlayer).stream = tracks_to_play.pick_random()
 		($Music as AudioStreamPlayer).play()
 		($Music as AudioStreamPlayer).stream_paused = not can_process()
 	
+	add_child(map)
+	_current_map = map
+	spawn_player()
 	map_changed.emit()
 
 

@@ -1,5 +1,5 @@
 class_name Royale
-extends Event
+extends Evnt
 
 ## Событие "Королевская битва".
 
@@ -182,9 +182,9 @@ func _check_for_end() -> void:
 	($HealBoxSpawnTimer as Timer).stop()
 	($AmmoBoxSpawnTimer as Timer).stop()
 	($WeaponBoxSpawnTimer as Timer).stop()
-	await get_tree().create_timer(6.5).timeout
+	await get_tree().create_timer(6.5, false).timeout
 	cleanup()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	end.rpc()
 
 

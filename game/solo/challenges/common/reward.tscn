@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cghfpr0gbxb2e"]
+
+[ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="1_ad3mv"]
+
+[node name="Reward" type="HBoxContainer"]
+
+[node name="Reason" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "20"
+
+[node name="CoinSmall" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_ad3mv")
+expand_mode = 1
+stretch_mode = 5

@@ -3,7 +3,7 @@ extends Map
 var _lightning_bolt_scene: PackedScene = preload("uid://dm2xehxg7nb8e")
 
 func _initialize() -> void:
-	if event and multiplayer.is_server():
+	if world is Event and multiplayer.is_server():
 		($LightningBoltTimer as Timer).start()
 
 

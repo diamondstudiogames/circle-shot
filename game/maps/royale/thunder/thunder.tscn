@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://butikarflm2dk"]
 
-[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/base_map.tscn" id="1_febxg"]
+[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/map_royale.tscn" id="1_febxg"]
 [ext_resource type="AudioStream" uid="uid://b65w8s4k3i8wn" path="res://game/maps/royale/thunder/music.ogg" id="2_avvsy"]
 [ext_resource type="TileSet" uid="uid://bfuvtcsfh7tn8" path="res://game/locations/town/tile_set.tres" id="2_csrsn"]
 [ext_resource type="Script" uid="uid://d161fwal4eoat" path="res://game/maps/royale/thunder/thunder.gd" id="2_t3884"]

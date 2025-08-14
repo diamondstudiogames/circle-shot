@@ -10,8 +10,8 @@ func _initialize() -> void:
 	if Globals.get_setting_bool("low_graphics"):
 		RenderingServer.set_default_clear_color(background_color)
 	
-	if event:
-		var duel: Duel = event
+	var duel := world as Duel
+	if duel:
 		duel.round_started.connect(_on_round_started)
 		duel.round_ended.connect(_on_round_ended)
 	else:

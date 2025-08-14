@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://dmsegw3n4aewv"]
 
-[ext_resource type="PackedScene" uid="uid://c338frelp27wo" path="res://game/events/teamfight/base_map.tscn" id="1_i4hlo"]
+[ext_resource type="PackedScene" uid="uid://c338frelp27wo" path="res://game/events/teamfight/map_teamfight.tscn" id="1_i4hlo"]
 [ext_resource type="Shader" uid="uid://jfbv4srgoh02" path="res://game/locations/river/water.gdshader" id="2_0h4ab"]
 [ext_resource type="TileSet" uid="uid://cqtubyifhoudw" path="res://game/locations/river/tile_set.tres" id="2_jfxit"]
 [ext_resource type="PackedScene" uid="uid://c0d6rp3f2oyo7" path="res://game/locations/river/crab.tscn" id="3_qhdro"]

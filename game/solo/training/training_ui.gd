@@ -4,6 +4,8 @@ extends CanvasLayer
 var _selected_event: int = -1
 var _selected_map: int = -1
 var _selecting_event: int
+var _selecting_challenge: int
+var _maps_of_challenge: bool
 
 var _prev_map_data: PackedByteArray
 var _prev_enemies_data: Array[Dictionary]
@@ -32,9 +34,9 @@ func _change_map() -> void:
 	(%TrainingMap/Manage as CanvasItem).hide()
 	(%TrainingMap/CantEdit as CanvasItem).show()
 	(%MapPreview as CanvasItem).hide()
-	
+	# TODO нормально
 	await get_tree().process_frame
-	await _training.load_map(_selected_event, _selected_map)
+	await _training.load_map(_selected_event, _selected_map, _maps_of_challenge)
 	(%CurrentMap as Label).text = Globals.items_db.events[_selected_event].maps[_selected_map].name
 
 

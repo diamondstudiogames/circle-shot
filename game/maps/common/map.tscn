@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dp6wxqvjukdht"]
 
-[ext_resource type="Script" uid="uid://btu1g3prgu2l8" path="res://game/events/common/map.gd" id="1_h66jf"]
-[ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="2_h66jf"]
+[ext_resource type="Script" uid="uid://btu1g3prgu2l8" path="res://game/maps/common/map.gd" id="1_j26c2"]
+[ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="2_3vl75"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h66jf"]
 normal = Vector2(1, 0)
@@ -15,12 +15,12 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_akg1l"]
 
 [node name="Map" type="Node2D"]
-script = ExtResource("1_h66jf")
+script = ExtResource("1_j26c2")
 metadata/_custom_type_script = "uid://btu1g3prgu2l8"
 
 [node name="Minimap" type="Node" parent="."]
 
-[node name="MinimapTiles" parent="Minimap" instance=ExtResource("2_h66jf")]
+[node name="MinimapTiles" parent="Minimap" instance=ExtResource("2_3vl75")]
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 9

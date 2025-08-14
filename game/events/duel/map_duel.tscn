@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8i427otkde7x"]
 
-[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/events/common/base_map.tscn" id="1_xn3rg"]
+[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_xn3rg"]
 
 [node name="Map" instance=ExtResource("1_xn3rg")]
 metadata/_edit_vertical_guides_ = [-2400.0, 2400.0]

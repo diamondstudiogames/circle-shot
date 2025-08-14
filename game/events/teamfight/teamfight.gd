@@ -175,9 +175,9 @@ func _end_event() -> void:
 	else:
 		_show_winner.rpc(-1)
 	freeze_players.rpc()
-	await get_tree().create_timer(6.5).timeout
+	await get_tree().create_timer(6.5, false).timeout
 	cleanup()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	end.rpc()
 
 

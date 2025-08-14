@@ -19,6 +19,8 @@ enum Item {
 	WEAPON = 4,
 	## Линейка скинов.
 	SKINS_LINE = 5,
+	## Испытание.
+	CHALLENGE = 6,
 }
 ## Редкость некоторых предметов.
 enum Rarity {
@@ -57,6 +59,8 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 
 ## Массив событий.
 @export var events: Array[EventData]
+## Массив испытаний.
+@export var challenges: Array[ChallengeData]
 
 @export_group("Equip")
 ## Массив линеек скинов.

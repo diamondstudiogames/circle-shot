@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://5qd5jb876wl3"]
 
-[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/base_map.tscn" id="1_v7a06"]
+[ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/map_royale.tscn" id="1_v7a06"]
 [ext_resource type="AudioStream" uid="uid://b3sk5qthdc64l" path="res://game/locations/underwater/music.ogg" id="2_y2khx"]
 [ext_resource type="TileSet" uid="uid://w18oqn8ga70s" path="res://game/locations/underwater/tile_set.tres" id="3_wbckg"]
 [ext_resource type="Texture2D" uid="uid://bbh2swg8h7714" path="res://game/locations/underwater/textures/big_seaweed.png" id="4_xsfyv"]

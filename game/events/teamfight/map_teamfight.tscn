@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxj0uhqrp8ivp"]
+[gd_scene load_steps=2 format=3 uid="uid://c338frelp27wo"]
 
-[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/events/common/base_map.tscn" id="1_5ed8r"]
+[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_4hcn7"]
 
-[node name="Map" instance=ExtResource("1_5ed8r")]
+[node name="Map" instance=ExtResource("1_4hcn7")]
 metadata/_edit_vertical_guides_ = [-4000.0, 4000.0]
-metadata/_edit_horizontal_guides_ = [-3200.0, 3200.0]
+metadata/_edit_horizontal_guides_ = [-4000.0, 4000.0]
 
 [node name="Left" parent="Borders" index="0"]
 position = Vector2(-4000, 0)
@@ -13,10 +13,10 @@ position = Vector2(-4000, 0)
 position = Vector2(4000, 0)
 
 [node name="Up" parent="Borders" index="2"]
-position = Vector2(0, -3200)
+position = Vector2(0, -4000)
 
 [node name="Down" parent="Borders" index="3"]
-position = Vector2(0, 3200)
+position = Vector2(0, 4000)
 
 [node name="SpawnPoints0" type="Node2D" parent="." index="3"]
 
@@ -61,11 +61,3 @@ gizmo_extents = 76.0
 [node name="4" type="Marker2D" parent="SpawnPoints1" index="4"]
 position = Vector2(359, 218)
 gizmo_extents = 76.0
-
-[node name="RedFlag" type="Marker2D" parent="." index="5"]
-position = Vector2(-156, -61)
-gizmo_extents = 160.0
-
-[node name="BlueFlag" type="Marker2D" parent="." index="6"]
-position = Vector2(113, 55)
-gizmo_extents = 160.0
