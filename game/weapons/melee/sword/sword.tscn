@@ -215,7 +215,7 @@ _data = {
 }
 
 [node name="Sword" instance=ExtResource("1_f8krw")]
-damage = 65
+damage = 60
 shoot_interval = 1.1
 speed_multiplier_when_current = 1.05
 

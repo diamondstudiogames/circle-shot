@@ -301,9 +301,9 @@ _data = {
 }
 
 [node name="Machete" instance=ExtResource("1_bkewi")]
-damage = 33
+damage = 32
 shoot_interval = 1.1
-speed_multiplier_when_current = 1.08
+speed_multiplier_when_current = 1.07
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
 visible = false
