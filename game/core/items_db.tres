@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ItemsDB" load_steps=50 format=3 uid="uid://pwq1e7l2ckos"]
+[gd_resource type="Resource" script_class="ItemsDB" load_steps=52 format=3 uid="uid://pwq1e7l2ckos"]
 
+[ext_resource type="Script" uid="uid://btj6q66tc1cd6" path="res://game/solo/challenges/common/challenge_data.gd" id="1_l7qpn"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_yrpvj"]
 [ext_resource type="Resource" uid="uid://i4s2m4jgbyvc" path="res://game/events/royale/royale.tres" id="2_8tgde"]
+[ext_resource type="Resource" uid="uid://b1mu8giegldb" path="res://game/solo/challenges/robot_madness/robot_madness.tres" id="2_v4b4t"]
 [ext_resource type="Script" uid="uid://cqt1cymdlwoj4" path="res://game/core/items_db.gd" id="2_y7sof"]
 [ext_resource type="Resource" uid="uid://dn5s2j1175lhl" path="res://game/events/teamfight/teamfight.tres" id="3_2oage"]
-[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="3_c4k52"]
 [ext_resource type="Script" uid="uid://iwsanxyoxs5s" path="res://game/player/equip/skill_data.gd" id="3_x8mha"]
 [ext_resource type="Resource" uid="uid://cjvcw10uo3jyq" path="res://game/events/duel/duel.tres" id="4_8506t"]
 [ext_resource type="Resource" uid="uid://ccsednjhd5m3o" path="res://game/skills/potion/potion.tres" id="4_hfvvw"]
@@ -12,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://kjcrf01t8c2l" path="res://game/skills/dodge/dodge.tres" id="6_2wp4d"]
 [ext_resource type="Resource" uid="uid://co7e50nsbbr5q" path="res://game/weapons/guns/bazooka/bazooka.tres" id="7_ekpuy"]
 [ext_resource type="Resource" uid="uid://cfid5aoydu81s" path="res://game/skills/energy_drink/energy_drink.tres" id="8_6c1k5"]
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="9_l3v78"]
 [ext_resource type="Resource" uid="uid://e73a6p47fqmi" path="res://game/skills/diamond_bullet/diamond_bullet.tres" id="10_fvueb"]
 [ext_resource type="Resource" uid="uid://ccm47j21hpmyx" path="res://game/skills/beartrap/beartrap.tres" id="11_85cop"]
 [ext_resource type="Resource" uid="uid://wx68f4o4qijn" path="res://game/skills/invisibility_bomb/invisibility_bomb.tres" id="12_qhkdj"]
@@ -53,6 +55,7 @@
 [resource]
 script = ExtResource("2_y7sof")
 events = Array[ExtResource("1_yrpvj")]([ExtResource("2_8tgde"), ExtResource("3_2oage"), ExtResource("4_8506t"), ExtResource("5_nkeqj")])
+challenges = Array[ExtResource("1_l7qpn")]([ExtResource("2_v4b4t")])
 skins_lines = Array[ExtResource("18_2b02j")]([ExtResource("19_j2sk8"), ExtResource("20_l7qpn"), ExtResource("21_v4b4t"), ExtResource("22_l3v78"), ExtResource("23_vyn0d"), ExtResource("24_puq8a")])
 skills_normal = Array[ExtResource("3_x8mha")]([ExtResource("4_hfvvw"), ExtResource("8_6c1k5"), ExtResource("6_2wp4d"), ExtResource("10_fvueb"), ExtResource("12_qhkdj"), ExtResource("11_85cop"), ExtResource("16_i6gqg")])
 weapons_light = Array[ExtResource("16_uslwp")]([ExtResource("20_wegr4"), ExtResource("21_43s3b"), ExtResource("42_2b02j"), ExtResource("49_0uki1"), ExtResource("55_dkk74"), ExtResource("61_wn3y5")])

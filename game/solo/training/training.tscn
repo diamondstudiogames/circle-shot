@@ -712,6 +712,41 @@ ok_button_text = "Выйти"
 dialog_text = "Ты действительно хочешь выйти из тренировки?"
 cancel_button_text = "Отмена"
 
+[node name="SelectMap" type="Window" parent="UI" index="4"]
+process_mode = 2
+oversampling_override = 1.0
+title = "Выбрать карту из..."
+size = Vector2i(288, 80)
+visible = false
+
+[node name="Background" type="ColorRect" parent="UI/SelectMap" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SelectMap" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="MapFromEvent" type="Button" parent="UI/SelectMap/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "События"
+
+[node name="MapFromChallenge" type="Button" parent="UI/SelectMap/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Испытания"
+
 [node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12"]
 resources = [PackedStringArray("default_map", "spikes"), [ExtResource("3_36lnl"), ExtResource("42_npibf")]]
 
@@ -731,7 +766,7 @@ one_shot = true
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/TeleportToSpawn" to="UI" method="_on_teleport_to_spawn_pressed"]
 [connection signal="items_changed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/EquipSelector" to="UI" method="_on_equip_selector_items_changed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Presets" to="UI/Menu/PresetManager" method="popup_centered"]
-[connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap/SelectMap" to="UI" method="_on_select_map_pressed"]
+[connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap/SelectMap" to="UI/SelectMap" method="popup_centered"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap/ReturnToTraining" to="UI" method="_on_return_to_training_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies/DestroyEnemies" to="UI" method="_on_destroy_enemies_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies/RespawnEnemies" to="UI" method="_on_respawn_enemies_pressed"]
@@ -769,4 +804,7 @@ one_shot = true
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/DeleteEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
 [connection signal="pressed" from="UI/Guide/PanelContainer/VBoxContainer/Header/CloseGuide" to="UI" method="_on_close_guide_pressed"]
 [connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
+[connection signal="close_requested" from="UI/SelectMap" to="UI/SelectMap" method="hide"]
+[connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromEvent" to="UI" method="_on_map_from_event_pressed"]
+[connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromChallenge" to="UI" method="_on_map_from_challenge_pressed"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

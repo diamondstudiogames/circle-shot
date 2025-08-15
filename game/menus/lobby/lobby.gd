@@ -626,9 +626,11 @@ func _do_broadcast() -> void:
 
 
 func _validate_selected_environment() -> void:
+	var changed := false
 	if selected_event < 0 or selected_event >= Globals.items_db.events.size():
 		push_warning("Incorrect selected event: %d. Reverting to default." % selected_event)
 		selected_event = 0
+		changed = true
 	if selected_map < 0 or selected_map >= Globals.items_db.events[selected_event].maps.size():
 		push_warning("Incorrect selected map for event %d: %d. Reverting to default." % [
 			selected_event,
@@ -643,8 +645,10 @@ func _validate_selected_environment() -> void:
 				selected_maps[event_idx],
 			])
 			selected_maps[event_idx] = 0
+			changed = true
 	
-	_save_selected_environment()
+	if changed:
+		_save_selected_environment()
 
 
 func _save_selected_environment() -> void:

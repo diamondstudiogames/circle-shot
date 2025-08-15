@@ -86,7 +86,7 @@ func load_event(event_idx: int, map_idx: int) -> Event:
 	set_process(true)
 	var success: bool = await loaded
 	if not success:
-		push_error("Failed loading of event and map.")
+		push_error("Failed loading of event and/or map.")
 		finish_load(false)
 		return null
 	
@@ -94,7 +94,7 @@ func load_event(event_idx: int, map_idx: int) -> Event:
 	var event_scene: PackedScene = ResourceLoader.load_threaded_get(event_path)
 	var map_scene: PackedScene = ResourceLoader.load_threaded_get(map_path)
 	var event: Event = event_scene.instantiate()
-	var map: Node2D = map_scene.instantiate()
+	var map: Map = map_scene.instantiate()
 	event.add_child(map)
 	
 	set_process(false)
@@ -102,6 +102,64 @@ func load_event(event_idx: int, map_idx: int) -> Event:
 	_status_text.text = "Ожидание других игроков..."
 	print_verbose("Done loading event.")
 	return event
+
+
+## Загружает испытание и карту по [param challenge_idx] и [param map_idx] соответственно. Возвращает
+## [Challenge], если загрузка прошла удачно, иначе возвращает [code]null[/code].[br]
+## [b]Внимание[/b]: этот метод - [b]корутина[/b], так что Вам необходимо подождать его с помощью
+## [code]await[/code].
+func load_challenge(challenge_idx: int, map_idx: int) -> Challenge:
+	_anim.play(&"start_load")
+	_status_text.text = "Загрузка испытания и карты..."
+	_requested_paths.clear()
+	_loaded_paths.clear()
+	
+	var challenge_path: String = Globals.items_db.challenges[challenge_idx].scene_path
+	print_verbose("Requesting load for challenge %s." % challenge_path)
+	var err: Error = ResourceLoader.load_threaded_request(
+			challenge_path, "", false, ResourceLoader.CACHE_MODE_REPLACE_DEEP)
+	if err != OK:
+		push_error("Load request for challenge %s failed with error: %s." % [
+			challenge_path,
+			error_string(err),
+		])
+		finish_load(false)
+		return null
+	_requested_paths.append(challenge_path)
+	
+	var map_path: String = Globals.items_db.challenges[challenge_idx].maps[map_idx].scene_path
+	print_verbose("Requesting load for map %s." % map_path)
+	err = ResourceLoader.load_threaded_request(
+			map_path, "", false, ResourceLoader.CACHE_MODE_IGNORE_DEEP)
+	if err != OK:
+		push_error("Load request for map %s failed with error: %s." % [
+			map_path,
+			error_string(err),
+		])
+		finish_load(false)
+		return null
+	_requested_paths.append(map_path)
+	
+	set_process(true)
+	var success: bool = await loaded
+	if not success:
+		push_error("Failed loading of challenge and/or map.")
+		finish_load(false)
+		return null
+	
+	print_verbose("Done loading resources.")
+	var challenge_scene: PackedScene = ResourceLoader.load_threaded_get(challenge_path)
+	var map_scene: PackedScene = ResourceLoader.load_threaded_get(map_path)
+	var challenge: Challenge = challenge_scene.instantiate()
+	var map: Map = map_scene.instantiate()
+	challenge.add_child(map)
+	
+	set_process(false)
+	_bar.value = 100.0
+	_status_text.text = "Ожидание..."
+	print_verbose("Done loading challenge.")
+	return challenge
+
 
 ## Загружает мир по данному [param path]. Возвращает [World], если загрузка прошла удачно,
 ## иначе возвращает [code]null[/code].[br]
@@ -138,7 +196,7 @@ func load_world(path: String) -> World:
 	
 	set_process(false)
 	_bar.value = 100.0
-	_status_text.text = "Загрузка завершена."
+	_status_text.text = "Ожидание..."
 	print_verbose("Done loading world.")
 	return world
 

@@ -1,5 +1,5 @@
 class_name Royale
-extends Evnt
+extends Event
 
 ## Событие "Королевская битва".
 

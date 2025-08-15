@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqk1mut8esnd7"]
+
+[ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_rn47e"]
+
+[node name="Challenge" instance=ExtResource("1_rn47e")]
+
+[node name="Title" parent="UI/Intro" index="1"]
+text = "РУБКА РОБОТОВ"
+
+[node name="Description" parent="UI/Intro/Title" index="0"]
+text = "Выживи в бесконечных волнах роботов!"
+
+[node name="Text" parent="UI/Intro" index="2"]
+text = "Продержись как
+можно дольше!"
+
+[connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]

@@ -36,8 +36,8 @@ var local_team: int = -1
 var damaged: int = 0
 ## Сколько игрок убил сущностей за эту сессию.
 var kills: int = 0
-## Список кэшированных сцен.
-var cached_scenes: Array[PackedScene]
+## Список кэшированных ресурсов.
+var cached_resources: Array[Resource]
 ## Словарь формата <ID игрока> - <объект игрока>.
 var players: Dictionary[int, Player]
 ## Словарь формата <ID сущности> - <объект сущности>.

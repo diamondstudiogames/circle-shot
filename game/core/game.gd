@@ -258,7 +258,7 @@ func set_players_teams(players_teams: Dictionary[int, int]) -> void:
 			_players_teams[id] = players_teams[id]
 
 
-## Загружает мир по данному [param path] и [param map_id].
+## Загружает мир по данному [param path].
 func load_solo_world(path: String) -> void:
 	state = State.SOLO_LOADING
 	world = await _loader.load_world(path)
@@ -267,6 +267,33 @@ func load_solo_world(path: String) -> void:
 		push_error("Loading failed.")
 		state = State.CLOSED
 		return
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	add_child(world)
+	_loader.finish_load(true)
+	started.emit()
+	state = State.SOLO
+
+
+## Загружает испытание по данному [param challenge_idx] и [param map_idx].
+func load_challenge(challenge_idx: int, map_idx: int, equip_data: Array[int] = []) -> void:
+	state = State.SOLO_LOADING
+	world = await _loader.load_challenge(challenge_idx, map_idx)
+	if not is_instance_valid(world):
+		show_error("Ошибка при загрузке испытания!")
+		push_error("Loading failed.")
+		state = State.CLOSED
+		return
+	
+	var equip_scenes: Array[PackedScene] = await _loader.preload_equip(
+			equip_data.slice(0, 1), equip_data.slice(1, 2), equip_data.slice(2))
+	if equip_scenes.is_empty():
+		show_error("Ошибка при предзагрузке экипировки!")
+		push_error("Preload equip failed.")
+		state = State.CLOSED
+		world.queue_free()
+		return
+	world.cached_resources.append_array(equip_scenes)
+	
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	add_child(world)
 	_loader.finish_load(true)
@@ -359,7 +386,7 @@ func _preload_equip(skins: Array[int], skills: Array[int], weapons: Array[int]) 
 		if state != State.CLOSED:
 			close()
 		return
-	world.cached_scenes.append_array(equip_scenes)
+	world.cached_resources.append_array(equip_scenes)
 	closed.connect(_loader.finish_load.bind(false), CONNECT_ONE_SHOT)
 	if multiplayer.is_server() and Globals.headless:
 		_players_not_ready.erase(MultiplayerPeer.TARGET_PEER_SERVER)

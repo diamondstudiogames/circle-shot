@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp68q5xemqd01"
-path="res://.godot/imported/play.png-0de901c340969b5e67c1415c0bcdef96.ctex"
+uid="uid://3xe2spc8vvda"
+path="res://.godot/imported/image.png-9147aa668c278862f2667740439f4845.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/menus/lobby/icons/play.png"
-dest_files=["res://.godot/imported/play.png-0de901c340969b5e67c1415c0bcdef96.ctex"]
+source_file="res://game/solo/challenges/robot_madness/maps/polygon/image.png"
+dest_files=["res://.godot/imported/image.png-9147aa668c278862f2667740439f4845.ctex"]
 
 [params]
 

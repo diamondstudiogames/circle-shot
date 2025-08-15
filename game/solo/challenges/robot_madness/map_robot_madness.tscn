@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguahtshkr11v"]
+
+[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_c2b18"]
+
+[node name="Map" instance=ExtResource("1_c2b18")]
+
+[node name="Left" parent="Borders" index="0"]
+position = Vector2(-4000, 0)
+
+[node name="Right" parent="Borders" index="1"]
+position = Vector2(4000, 0)
+
+[node name="Up" parent="Borders" index="2"]
+position = Vector2(0, -4000)
+
+[node name="Down" parent="Borders" index="3"]
+position = Vector2(0, 4000)
+
+[node name="RobotsSpawnPoints" type="Node2D" parent="." index="3"]
+
+[node name="0" type="Marker2D" parent="RobotsSpawnPoints" index="0"]
+position = Vector2(-172, -453)
+gizmo_extents = 160.0
+
+[node name="1" type="Marker2D" parent="RobotsSpawnPoints" index="1"]
+position = Vector2(39, -421)
+gizmo_extents = 160.0
+
+[node name="2" type="Marker2D" parent="RobotsSpawnPoints" index="2"]
+position = Vector2(221, -378)
+gizmo_extents = 160.0
+
+[node name="3" type="Marker2D" parent="RobotsSpawnPoints" index="3"]
+position = Vector2(346, -287)
+gizmo_extents = 160.0
+
+[node name="4" type="Marker2D" parent="RobotsSpawnPoints" index="4"]
+position = Vector2(428, -119)
+gizmo_extents = 160.0
+
+[node name="5" type="Marker2D" parent="RobotsSpawnPoints" index="5"]
+position = Vector2(388, 55)
+gizmo_extents = 160.0
+
+[node name="6" type="Marker2D" parent="RobotsSpawnPoints" index="6"]
+position = Vector2(303, 140)
+gizmo_extents = 160.0
+
+[node name="7" type="Marker2D" parent="RobotsSpawnPoints" index="7"]
+position = Vector2(183, 251)
+gizmo_extents = 160.0
+
+[node name="8" type="Marker2D" parent="RobotsSpawnPoints" index="8"]
+position = Vector2(14, 336)
+gizmo_extents = 160.0
+
+[node name="9" type="Marker2D" parent="RobotsSpawnPoints" index="9"]
+position = Vector2(-195, 265)
+gizmo_extents = 160.0
+
+[node name="10" type="Marker2D" parent="RobotsSpawnPoints" index="10"]
+position = Vector2(-361, 179)
+gizmo_extents = 160.0
+
+[node name="11" type="Marker2D" parent="RobotsSpawnPoints" index="11"]
+position = Vector2(-499, 58)
+gizmo_extents = 160.0
+
+[node name="12" type="Marker2D" parent="RobotsSpawnPoints" index="12"]
+position = Vector2(-541, -121)
+gizmo_extents = 160.0
+
+[node name="13" type="Marker2D" parent="RobotsSpawnPoints" index="13"]
+position = Vector2(-526, -295)
+gizmo_extents = 160.0
+
+[node name="14" type="Marker2D" parent="RobotsSpawnPoints" index="14"]
+position = Vector2(-358, -388)
+gizmo_extents = 160.0

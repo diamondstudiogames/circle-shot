@@ -2,10 +2,10 @@ extends CanvasLayer
 
 
 var _selected_event: int = -1
+var _selected_challenge: int = -1
 var _selected_map: int = -1
 var _selecting_event: int
 var _selecting_challenge: int
-var _maps_of_challenge: bool
 
 var _prev_map_data: PackedByteArray
 var _prev_enemies_data: Array[Dictionary]
@@ -34,10 +34,16 @@ func _change_map() -> void:
 	(%TrainingMap/Manage as CanvasItem).hide()
 	(%TrainingMap/CantEdit as CanvasItem).show()
 	(%MapPreview as CanvasItem).hide()
-	# TODO нормально
+	
 	await get_tree().process_frame
-	await _training.load_map(_selected_event, _selected_map, _maps_of_challenge)
-	(%CurrentMap as Label).text = Globals.items_db.events[_selected_event].maps[_selected_map].name
+	if _selected_event >= 0:
+		await _training.load_map(_selected_event, _selected_map, false)
+		(%CurrentMap as Label).text = \
+				Globals.items_db.events[_selected_event].maps[_selected_map].name
+	elif _selected_challenge >= 0:
+		await _training.load_map(_selected_challenge, _selected_map, true)
+		(%CurrentMap as Label).text = \
+				Globals.items_db.challenges[_selected_challenge].maps[_selected_map].name
 
 
 func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
@@ -48,11 +54,24 @@ func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 			_selecting_event = idx
 			_items_grid.list_maps_of_event(_selecting_event,
 					_selected_map if _selected_event == _selecting_event else -1)
+		ItemsDB.Item.CHALLENGE:
+			_item_selector.title = "Выбор карты"
+			_item_selector.show()
+			_selecting_challenge = idx
+			_items_grid.list_maps_of_challenge(_selecting_challenge,
+					_selected_map if _selected_challenge == _selecting_challenge else -1)
 		ItemsDB.Item.MAP:
 			if _selecting_event == _selected_event and _selected_map == idx:
 				return
+			elif _selecting_challenge == _selected_challenge and _selected_map == idx:
+				return
 			_selected_map = idx
-			_selected_event = _selecting_event
+			if _selecting_event >= 0:
+				_selected_event = _selecting_event
+				_selected_challenge = -1
+			elif _selecting_challenge >= 0:
+				_selected_event = -1
+				_selected_challenge = _selecting_challenge
 			_change_map()
 
 
@@ -122,9 +141,21 @@ func _on_return_to_training_pressed() -> void:
 	(%CurrentMap as Label).text = "Тренировка"
 
 
-func _on_select_map_pressed() -> void:
+func _on_map_from_event_pressed() -> void:
+	($SelectMap as Window).hide()
+	_selecting_event = -1
+	_selecting_challenge = -1
 	_items_grid.list_items(ItemsDB.Item.EVENT, _selected_event)
 	_item_selector.title = "Выбор события"
+	_item_selector.popup_centered()
+
+
+func _on_map_from_challenge_pressed() -> void:
+	($SelectMap as Window).hide()
+	_selecting_event = -1
+	_selecting_challenge = -1
+	_items_grid.list_items(ItemsDB.Item.CHALLENGE, _selected_challenge)
+	_item_selector.title = "Выбор испытания"
 	_item_selector.popup_centered()
 
 

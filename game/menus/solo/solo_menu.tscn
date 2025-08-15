@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://behtxlo4s5s3"]
+[gd_scene load_steps=12 format=3 uid="uid://behtxlo4s5s3"]
 
 [ext_resource type="Script" uid="uid://dkaftynok7hlv" path="res://game/menus/solo/solo_menu.gd" id="1_cxrwa"]
 [ext_resource type="Texture2D" uid="uid://bu318tyxjskrf" path="res://game/menus/solo/background.png" id="2_upj1m"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://tspwihdtsmtv" path="res://game/menus/solo/icons/story.png" id="4_wtg2m"]
 [ext_resource type="Texture2D" uid="uid://c27ihlifw8d57" path="res://game/menus/solo/icons/challenges.png" id="5_4ufvw"]
 [ext_resource type="Texture2D" uid="uid://dm4cuk0jf2iqf" path="res://game/menus/solo/icons/training.png" id="6_4ulqr"]
+[ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="8_7q66i"]
+[ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="9_be2i2"]
+[ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="10_muk5r"]
+[ext_resource type="Texture2D" uid="uid://eyfsi3j0o04s" path="res://menu/theme/icons/change_map.png" id="11_y0c3c"]
 
 [node name="SoloMenu" type="Control"]
 layout_mode = 3
@@ -94,7 +98,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/icon_max_width = 160
-disabled = true
 text = "Испытания"
 icon = ExtResource("5_4ufvw")
 icon_alignment = 1
@@ -113,6 +116,137 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="Challenges" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -192.0
+offset_right = 406.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Challenges"]
+layout_mode = 2
+
+[node name="Title" type="HBoxContainer" parent="Challenges/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Challenges/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="Challenges/VBoxContainer/Title"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Испытания"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitChallenges" type="Button" parent="Challenges/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+icon = ExtResource("3_q0x0n")
+
+[node name="Environment" type="HBoxContainer" parent="Challenges/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Challenge" type="TextureRect" parent="Challenges/VBoxContainer/Environment"]
+unique_name_in_owner = true
+self_modulate = Color(0.752941, 0.752941, 0.752941, 1)
+custom_minimum_size = Vector2(392, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="Challenges/VBoxContainer/Environment/Challenge"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Challenges/VBoxContainer/Environment/Challenge/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"HeaderMediumOutlined"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Challenges/VBoxContainer/Environment/Challenge/Container"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"LabelOutlined"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Map" type="TextureRect" parent="Challenges/VBoxContainer/Environment"]
+unique_name_in_owner = true
+self_modulate = Color(0.752941, 0.752941, 0.752941, 1)
+custom_minimum_size = Vector2(392, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+
+[node name="Container" type="VBoxContainer" parent="Challenges/VBoxContainer/Environment/Map"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Challenges/VBoxContainer/Environment/Map/Container"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"HeaderMediumOutlined"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Challenges/VBoxContainer/Environment/Map/Container"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"LabelOutlined"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="EquipSelector" parent="Challenges/VBoxContainer" instance=ExtResource("8_7q66i")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Challenges/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="StartChallenge" type="Button" parent="Challenges/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Начать!"
+icon = ExtResource("9_be2i2")
+
+[node name="ChangeChallenge" type="Button" parent="Challenges/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Сменить испытание..."
+icon = ExtResource("10_muk5r")
+
+[node name="ChangeMap" type="Button" parent="Challenges/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Сменить карту..."
+icon = ExtResource("11_y0c3c")
+
 [node name="TutorialDialog" type="ConfirmationDialog" parent="."]
 oversampling_override = 1.0
 title = "Обучение"
@@ -126,4 +260,8 @@ cancel_button_text = "Отмена"
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Story" to="." method="_on_story_pressed"]
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Challenges" to="." method="_on_challenges_pressed"]
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Training" to="." method="_on_training_pressed"]
+[connection signal="pressed" from="Challenges/VBoxContainer/Title/QuitChallenges" to="." method="_on_quit_challenges_pressed"]
+[connection signal="pressed" from="Challenges/VBoxContainer/Buttons/StartChallenge" to="." method="_on_start_challenge_pressed"]
+[connection signal="pressed" from="Challenges/VBoxContainer/Buttons/ChangeChallenge" to="." method="_on_change_challenge_pressed"]
+[connection signal="pressed" from="Challenges/VBoxContainer/Buttons/ChangeMap" to="." method="_on_change_map_pressed"]
 [connection signal="confirmed" from="TutorialDialog" to="." method="_on_tutorial_dialog_confirmed"]
