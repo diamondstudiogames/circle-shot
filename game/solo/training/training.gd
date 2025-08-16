@@ -44,8 +44,6 @@ const MAP_SIZE := Vector2i(50, 50)
 ## Сопоставление типов врагов и их иконок.
 @export var enemies_icons: Dictionary[EnemyType, Texture2D]
 
-## Сколько игрок умер за эту сессию тренировок.
-var deaths: int = 0
 ## Массив с данными об врагах.
 var enemies_data: Array[EnemyData]
 
@@ -58,6 +56,10 @@ var _spikes_scene: PackedScene = load("uid://davg83gsduoyq")
 
 func _initialize() -> void:
 	load_default_map()
+
+
+func _local_player_died() -> void:
+	($RespawnTimer as Timer).start()
 
 
 ## Создаёт игрока.
@@ -77,7 +79,6 @@ func spawn_player(teleport := true) -> void:
 	]
 	player.equip_data.append(-1)
 	player.name = "Player%d" % player.id
-	player.died.connect(_on_player_died)
 	
 	if teleport:
 		($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
@@ -397,12 +398,6 @@ func _on_enemy_damaged(_by: int, _amount: int) -> void:
 
 func _on_enemy_killed(_by: int, _remained_health: int) -> void:
 	stats_changed.emit()
-
-
-func _on_player_died() -> void:
-	deaths += 1
-	stats_changed.emit()
-	($RespawnTimer as Timer).start()
 
 
 func _on_respawn_timer_timeout() -> void:

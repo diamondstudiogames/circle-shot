@@ -50,6 +50,8 @@ func show_rewards(rewards: Dictionary[String, int], total: int) -> void:
 	tween.tween_interval(0.4)
 	tween.tween_method(func(val: int) -> void: (%Rewards/Total/Count as Label).text = str(val),
 			0, total, 1.0)
+	tween.tween_interval(3.5)
+	tween.tween_property($Main/RewardsPanel as CanvasItem, ^":modulate", Color.TRANSPARENT, 0.4)
 
 
 func _on_quit_dialog_confirmed() -> void:

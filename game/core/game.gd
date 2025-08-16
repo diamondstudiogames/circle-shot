@@ -407,7 +407,7 @@ func _send_ready() -> void:
 	_check_players_ready()
 
 
-@rpc("call_local", "reliable", "authority", 1)
+@rpc("call_local", "reliable", "authority") # нулевой канал чтобы заспавнились игроки корректно
 func _start_event(players_names: Dictionary[int, String],
 		players_equip_data: Dictionary[int, Array]) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:

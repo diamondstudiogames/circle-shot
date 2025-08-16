@@ -109,6 +109,10 @@ func _get_spawn_point(id: int) -> Vector2:
 	return pos
 
 
+func _local_player_died() -> void:
+	_flag_capture_ui.show_comeback(comeback_time)
+
+
 func _player_killed(_by: int, player: Player) -> void:
 	_respawn_player(player.id)
 
@@ -204,14 +208,6 @@ func _end_event() -> void:
 	cleanup()
 	await get_tree().create_timer(0.5, false).timeout
 	end.rpc()
-
-
-func _on_local_player_died() -> void:
-	_flag_capture_ui.show_comeback(comeback_time)
-
-
-func _on_local_player_created(player: Player) -> void:
-	player.died.connect(_on_local_player_died)
 
 
 func _on_match_timer_timeout() -> void:

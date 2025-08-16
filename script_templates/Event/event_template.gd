@@ -34,6 +34,10 @@ _TS_return # пишите логику здесь
 _TS_#pass
 
 
+#func _local_player_died() -> void:
+_TS_#pass
+
+
 #func _player_killed(by: int, player: Player) -> void:
 _TS_#pass
 

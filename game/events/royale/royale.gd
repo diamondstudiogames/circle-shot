@@ -37,6 +37,7 @@ var _heal_box_counter: int = 0
 var _ammo_box_counter: int = 0
 var _weapon_box_counter: int = 0
 
+var _ended := false
 var _places: int
 var _place_got: int
 
@@ -173,8 +174,9 @@ func _spawn_weapon() -> void:
 
 
 func _check_for_end() -> void:
-	if alive_players.size() != 1:
+	if alive_players.size() != 1 or _ended:
 		return
+	_ended = true
 	var winner_id: int = alive_players[0]
 	var winner_name: String = players_names[winner_id]
 	_show_winner.rpc(winner_id, winner_name)

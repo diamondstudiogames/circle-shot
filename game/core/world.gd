@@ -32,16 +32,20 @@ const KILL_VIBRATION_DURATION_MS: int = 300
 var local_player: Player
 ## Команда локального игрока.
 var local_team: int = -1
+
 ## Сколько игрок нанёс урона за эту сессию.
 var damaged: int = 0
 ## Сколько игрок убил сущностей за эту сессию.
 var kills: int = 0
-## Список кэшированных ресурсов.
-var cached_resources: Array[Resource]
+## Сколько раз игрок умер за эту сессию.
+var deaths: int = 0
+
 ## Словарь формата <ID игрока> - <объект игрока>.
 var players: Dictionary[int, Player]
 ## Словарь формата <ID сущности> - <объект сущности>.
 var entities: Dictionary[int, Entity]
+## Список кэшированных ресурсов.
+var cached_resources: Array[Resource]
 
 var _vibration_enabled: bool
 var _queued_hits: Array[Hit]
@@ -86,6 +90,7 @@ func _exit_tree() -> void:
 
 ## Задаёт локального игрока.
 func set_local_player(player: Player) -> void:
+	player.died.connect(_on_local_player_died)
 	local_player = player
 	local_player_created.emit(player)
 	set_local_team(player.team)
@@ -177,6 +182,11 @@ func _local_player_created(player: Player) -> void:
 	($Camera as SmartCamera).pan_to_target(player.camera_target, 0.3)
 
 
+## Метод для переопределения. Вызывается в момент смерти локального игрока.
+func _local_player_died() -> void:
+	pass
+
+
 func _on_entity_damaged(by: int, amount: int, entity: Entity) -> void:
 	if by == MultiplayerPeer.TARGET_PEER_SERVER or by in multiplayer.get_peers():
 		var hit_position: Vector2 = entity.global_position
@@ -232,6 +242,12 @@ func _on_entities_child_exiting_tree(node: Node) -> void:
 	entities.erase(entity.id)
 	if entity is Player:
 		players.erase(entity.id)
+
+
+func _on_local_player_died() -> void:
+	deaths += 1
+	stats_changed.emit()
+	_local_player_died()
 
 
 class Hit:

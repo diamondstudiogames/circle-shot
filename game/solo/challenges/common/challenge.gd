@@ -9,7 +9,7 @@ extends World
 
 ## Издаётся, когда испытание началось (т. е. после вызова [method _start]).
 signal started
-## Началось ли событие.
+## Началось ли испытание.
 var was_started := false
 var _player_skill_vars: Array[int]
 ## Ссылка на [ChallengeUI].

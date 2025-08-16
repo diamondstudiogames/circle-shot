@@ -137,10 +137,10 @@ _data = {
 
 [node name="Event" instance=ExtResource("1_k4cdx")]
 script = ExtResource("2_e8nkp")
-coins_for_kill = 10
-coins_for_won_round = 20
-coins_for_lost_round = 10
-damage_for_coin = 10
+coins_for_kill = 5
+coins_for_won_round = 18
+coins_for_lost_round = 9
+damage_for_coin = 20
 spawn_point_randomness = 0.0
 
 [node name="UI" parent="." index="8"]
