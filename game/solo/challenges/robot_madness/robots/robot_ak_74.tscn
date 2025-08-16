@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk6jaxvarkom5"]
+
+[ext_resource type="PackedScene" uid="uid://hxoxmba176ju" path="res://game/mobs/robot/variants/robot_ak_74.tscn" id="1_ks30b"]
+
+[node name="RobotAK74" instance=ExtResource("1_ks30b")]
+vision_distance = 8000.0

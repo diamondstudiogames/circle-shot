@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://og3p4elihjx0"]
+
+[ext_resource type="PackedScene" uid="uid://cae62v5ywqo8a" path="res://game/mobs/robot/variants/robot_sword.tscn" id="1_4x1x3"]
+
+[node name="RobotSword" instance=ExtResource("1_4x1x3")]
+vision_distance = 8000.0

@@ -1,8 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqk1mut8esnd7"]
+[gd_scene load_steps=14 format=3 uid="uid://dqk1mut8esnd7"]
 
 [ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_rn47e"]
+[ext_resource type="Script" uid="uid://cxdq57uwj6vti" path="res://game/solo/challenges/robot_madness/robot_madness.gd" id="2_1mb6w"]
+[ext_resource type="Script" uid="uid://ubgn7lq0sdh7" path="res://game/solo/challenges/robot_madness/robot_madness_ui.gd" id="2_sxbbv"]
+[ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_nllva"]
+[ext_resource type="PackedScene" uid="uid://bk6jaxvarkom5" path="res://game/solo/challenges/robot_madness/robots/robot_ak_74.tscn" id="4_5xvln"]
+[ext_resource type="PackedScene" uid="uid://c03fti11oe1v0" path="res://game/solo/challenges/robot_madness/robots/robot_p_350.tscn" id="5_leind"]
+[ext_resource type="PackedScene" uid="uid://og3p4elihjx0" path="res://game/solo/challenges/robot_madness/robots/robot_sword.tscn" id="6_yej0p"]
+[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="8_leind"]
+[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="9_yej0p"]
+
+[sub_resource type="Curve" id="Curve_nllva"]
+_limits = [0.0, 4.0, 0.0, 300.0]
+_data = [Vector2(0, 0.4), 0.0, 0.010143361, 0, 0, Vector2(300, 2), 0.019198135, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_5xvln"]
+_limits = [0.0, 4.0, 0.0, 300.0]
+_data = [Vector2(0, 0.4), 0.0, 0.0036387232, 0, 0, Vector2(300, 2.4), 0.019759972, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_yej0p"]
+_limits = [0.0, 1.0, 0.0, 300.0]
+_data = [Vector2(0, 0.4), 0.0, 0.0032734808, 0, 0, Vector2(180, 0.90000004), 0.00321059, 0.0, 0, 0, Vector2(300, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_leind"]
+_limits = [0.0, 10.0, 0.0, 200.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(100, 3), 0.0, 0.0, 0, 0, Vector2(200, 8), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
 
 [node name="Challenge" instance=ExtResource("1_rn47e")]
+script = ExtResource("2_1mb6w")
+damage_multiplier_curve = SubResource("Curve_nllva")
+health_multiplier_curve = SubResource("Curve_5xvln")
+speed_multiplier_curve = SubResource("Curve_yej0p")
+spawn_interval_curve = SubResource("Curve_leind")
+points_for_heal_box = 30
+points_for_ammo_box = 60
+seconds_survived_for_coin = 2.0
+points_for_coin = 5.0
+points_for_speed_multiplier_base = 9.0
+points_for_damage_multiplier_base = 18.0
+points_for_health_base = 0.08000000000174623
+entity_scenes = Array[PackedScene]([ExtResource("3_nllva"), ExtResource("4_5xvln"), ExtResource("5_leind"), ExtResource("6_yej0p")])
+
+[node name="Camera" parent="." index="7"]
+position = Vector2(-1280, -720)
+
+[node name="UI" parent="." index="8"]
+script = ExtResource("2_sxbbv")
+
+[node name="Stats" type="Label" parent="UI/Main" index="3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 16.0
+offset_right = 124.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderSmallOutlined"
+text = "Нанесено урона: 0
+Очки: 0
+Времени прожито: 00:00"
+horizontal_alignment = 1
 
 [node name="Title" parent="UI/Intro" index="1"]
 text = "РУБКА РОБОТОВ"
@@ -14,4 +81,18 @@ text = "Выживи в бесконечных волнах роботов!"
 text = "Продержись как
 можно дольше!"
 
+[node name="Camera" parent="MinimapViewport" index="0"]
+position = Vector2(-1280, -720)
+
+[node name="SurvivedTimer" type="Timer" parent="." index="15"]
+
+[node name="SpawnTimer" type="Timer" parent="." index="16"]
+one_shot = true
+
+[node name="ResourcePreloaderRobotMadness" type="ResourcePreloader" parent="." index="17"]
+resources = [PackedStringArray("ammo_box", "heal_box"), [ExtResource("8_leind"), ExtResource("9_yej0p")]]
+
+[connection signal="stats_changed" from="." to="." method="_on_stats_changed"]
 [connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
+[connection signal="timeout" from="SurvivedTimer" to="." method="_on_survived_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -199,10 +199,10 @@ func load_default_map() -> void:
 			nav_polygon.border_size = 160.0
 			
 			var nav_region := NavigationRegion2D.new()
-			nav_region.name = "NavigationRegion2D%d" % ((y + 2) * 5 + x + 3)
+			nav_region.name = &"NavigationRegion2D"
 			nav_region.position = Vector2((chunk_size.x - 320.0) * x, (chunk_size.y - 320.0) * y)
 			nav_region.navigation_polygon = nav_polygon
-			_current_map.get_node(^"NavigationRegions").add_child(nav_region)
+			_current_map.get_node(^"NavigationRegions").add_child(nav_region, true)
 			
 			nav_region.bake_navigation_polygon(false)
 	

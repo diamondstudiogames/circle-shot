@@ -54,7 +54,6 @@ func spawn_player() -> void:
 	player.name = "Player%d" % player.id
 	_customize_player(player)
 	$Entities.add_child(player)
-	player.died.connect(_player_died.bind(player))
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 	if not was_started:
 		player.block_weapon_usage()
@@ -122,12 +121,6 @@ func _finish_start() -> void:
 
 ## Может быть переопределён для настройки игрока ДО добавления в сцену.
 func _customize_player(_player: Player) -> void:
-	pass
-
-
-## Метод для переопределения. Вызывается при смерти игрока. В [param _player]
-## содержится объект умершего игрока.
-func _player_died(_player: Player) -> void:
 	pass
 
 

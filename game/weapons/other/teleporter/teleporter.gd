@@ -62,8 +62,8 @@ func _shoot(success := false) -> void:
 		unblock_shooting()
 		return
 	
-	_show_teleport_vfx(player.global_position, false)
 	if multiplayer.is_server():
+		_show_teleport_vfx.rpc(player.global_position, false)
 		player.teleport_to.rpc(destination)
 		_show_teleport_vfx.rpc(destination)
 	

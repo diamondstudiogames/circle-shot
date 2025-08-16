@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://d34clwylstij8"]
 
-[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_25vmg"]
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_xeipc"]
 
 [resource]
-script = ExtResource("1_25vmg")
-name = "Полигон"
+script = ExtResource("1_xeipc")
+name = "Последний полигон"
 brief_description = "Здесь испытывают на прочность..."
 scene_path = "uid://b0biwmbdu6qab"
 image_path = "uid://3xe2spc8vvda"

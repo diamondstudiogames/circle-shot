@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://yw3tn27vxvlr"]
 
 [ext_resource type="PackedScene" uid="uid://c338frelp27wo" path="res://game/events/teamfight/map_teamfight.tscn" id="1_4q00e"]
-[ext_resource type="TileSet" uid="uid://uybikecgv65" path="res://game/maps/teamfight/polygon/tile_set.tres" id="2_jklmv"]
+[ext_resource type="TileSet" uid="uid://uybikecgv65" path="res://game/locations/polygon/tile_set.tres" id="2_jklmv"]
 
 [node name="Map" instance=ExtResource("1_4q00e")]
 

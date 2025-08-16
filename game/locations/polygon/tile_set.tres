@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=10 format=3 uid="uid://uybikecgv65"]
 
-[ext_resource type="Texture2D" uid="uid://cbdwtbdsjt3mp" path="res://game/maps/teamfight/polygon/hole_tiles.png" id="1_c51o8"]
-[ext_resource type="Texture2D" uid="uid://4cr2njwdotxw" path="res://game/maps/teamfight/polygon/tiles.png" id="2_bi733"]
+[ext_resource type="Texture2D" uid="uid://cbdwtbdsjt3mp" path="res://game/locations/polygon/hole_tiles.png" id="1_c51o8"]
+[ext_resource type="Texture2D" uid="uid://4cr2njwdotxw" path="res://game/locations/polygon/tiles.png" id="2_bi733"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_e4gaf"]
 tile_data = PackedInt32Array(0, 196609, 0, 65536, 196609, 1, 131072, 196609, 2, 1, 262145, 0, 65537, 262145, 1, 131073, 262145, 2, 2, 327681, 0, 65538, 327681, 1, 131074, 327681, 2)

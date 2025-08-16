@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_wn8m5"]
 [ext_resource type="Script" uid="uid://btj6q66tc1cd6" path="res://game/solo/challenges/common/challenge_data.gd" id="2_l3dr5"]
-[ext_resource type="Resource" uid="uid://d34clwylstij8" path="res://game/solo/challenges/robot_madness/maps/polygon/polygon.tres" id="2_nf30t"]
+[ext_resource type="Resource" uid="uid://d34clwylstij8" path="res://game/solo/challenges/robot_madness/maps/last_polygon/last_polygon.tres" id="2_nf30t"]
 
 [resource]
 script = ExtResource("2_l3dr5")

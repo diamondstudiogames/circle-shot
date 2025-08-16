@@ -5,16 +5,16 @@
 [node name="Map" instance=ExtResource("1_c2b18")]
 
 [node name="Left" parent="Borders" index="0"]
-position = Vector2(-4000, 0)
+position = Vector2(-3200, 0)
 
 [node name="Right" parent="Borders" index="1"]
-position = Vector2(4000, 0)
+position = Vector2(3200, 0)
 
 [node name="Up" parent="Borders" index="2"]
-position = Vector2(0, -4000)
+position = Vector2(0, -3200)
 
 [node name="Down" parent="Borders" index="3"]
-position = Vector2(0, 4000)
+position = Vector2(0, 3200)
 
 [node name="RobotsSpawnPoints" type="Node2D" parent="." index="3"]
 
@@ -77,3 +77,5 @@ gizmo_extents = 160.0
 [node name="14" type="Marker2D" parent="RobotsSpawnPoints" index="14"]
 position = Vector2(-358, -388)
 gizmo_extents = 160.0
+
+[node name="NavigationRegions" type="Node2D" parent="." index="4"]
