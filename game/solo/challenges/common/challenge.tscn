@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv5flcglplthg"]
+[gd_scene load_steps=16 format=3 uid="uid://bv5flcglplthg"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
 [ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
 [ext_resource type="Script" uid="uid://cvncfjveetr3u" path="res://game/solo/challenges/common/challenge_ui.gd" id="3_kh7n0"]
+[ext_resource type="Texture2D" uid="uid://brk630h1wdh40" path="res://menu/theme/icons/pause.png" id="4_iuf22"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="4_uf786"]
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="5_54rqx"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="6_iuf22"]
+[ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_v85pp"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -323,7 +325,7 @@ script = ExtResource("2_kh7n0")
 [node name="UI" parent="." index="8"]
 script = ExtResource("3_kh7n0")
 
-[node name="Quit" type="Button" parent="UI/Main" index="2"]
+[node name="Pause" type="Button" parent="UI/Main" index="2"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -334,7 +336,7 @@ offset_right = -16.0
 offset_bottom = 72.0
 grow_horizontal = 0
 focus_mode = 0
-icon = ExtResource("4_uf786")
+icon = ExtResource("4_iuf22")
 
 [node name="RewardsPanel" type="PanelContainer" parent="UI/Main" index="3"]
 visible = false
@@ -532,14 +534,43 @@ libraries = {
 &"": SubResource("AnimationLibrary_ctugk")
 }
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2"]
+[node name="PauseDialog" type="Window" parent="UI" index="2"]
+process_mode = 2
 oversampling_override = 1.0
-title = "Выход"
-size = Vector2i(462, 112)
+title = "Игра приостановлена"
+size = Vector2i(320, 160)
+visible = false
 unresizable = true
-ok_button_text = "Выйти"
-dialog_text = "Ты действительно хочешь выйти из испытания?"
-cancel_button_text = "Отмена"
+
+[node name="Background" type="ColorRect" parent="UI/PauseDialog" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseDialog" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="UI/PauseDialog/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Продолжить испытание"
+icon = ExtResource("6_v85pp")
+
+[node name="Quit" type="Button" parent="UI/PauseDialog/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = " Выйти из испытания"
+icon = ExtResource("4_uf786")
 
 [node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10"]
 bus = &"Music"
@@ -552,4 +583,7 @@ bus = &"Music"
 wait_time = 1.2
 one_shot = true
 
-[connection signal="pressed" from="UI/Main/Quit" to="UI/QuitDialog" method="popup_centered"]
+[connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]
+[connection signal="close_requested" from="UI/PauseDialog" to="UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Resume" to="UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Quit" to="UI" method="_on_quit_pressed"]

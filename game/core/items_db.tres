@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://kjcrf01t8c2l" path="res://game/skills/dodge/dodge.tres" id="6_2wp4d"]
 [ext_resource type="Resource" uid="uid://co7e50nsbbr5q" path="res://game/weapons/guns/bazooka/bazooka.tres" id="7_ekpuy"]
 [ext_resource type="Resource" uid="uid://cfid5aoydu81s" path="res://game/skills/energy_drink/energy_drink.tres" id="8_6c1k5"]
-[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="9_l3v78"]
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="9_l7qpn"]
 [ext_resource type="Resource" uid="uid://e73a6p47fqmi" path="res://game/skills/diamond_bullet/diamond_bullet.tres" id="10_fvueb"]
 [ext_resource type="Resource" uid="uid://ccm47j21hpmyx" path="res://game/skills/beartrap/beartrap.tres" id="11_85cop"]
 [ext_resource type="Resource" uid="uid://wx68f4o4qijn" path="res://game/skills/invisibility_bomb/invisibility_bomb.tres" id="12_qhkdj"]

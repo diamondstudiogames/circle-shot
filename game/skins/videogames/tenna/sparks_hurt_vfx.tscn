@@ -19,7 +19,6 @@ metadata/_snap_count = 8
 [node name="Particles" type="CPUParticles2D" parent="."]
 z_index = 1
 material = SubResource("CanvasItemMaterial_ti1ec")
-emitting = false
 amount = 5
 texture = ExtResource("1_jx8w5")
 lifetime = 0.5

@@ -11,27 +11,27 @@
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="9_yej0p"]
 
 [sub_resource type="Curve" id="Curve_nllva"]
-_limits = [0.0, 4.0, 0.0, 300.0]
-_data = [Vector2(0, 0.4), 0.0, 0.010143361, 0, 0, Vector2(300, 2), 0.019198135, 0.0, 0, 0]
+_limits = [0.0, 2.0, 0.0, 300.0]
+_data = [Vector2(0, 0.4), 0.0, 0.010143361, 0, 0, Vector2(300, 1.8000001), 0.015866244, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_5xvln"]
-_limits = [0.0, 4.0, 0.0, 300.0]
-_data = [Vector2(0, 0.4), 0.0, 0.0036387232, 0, 0, Vector2(300, 2.4), 0.019759972, 0.0, 0, 0]
-point_count = 2
+_limits = [0.0, 2.0, 0.0, 300.0]
+_data = [Vector2(0, 0.4), 0.0, 0.0036387232, 0, 0, Vector2(180, 0.8), 0.0, 0.0, 0, 0, Vector2(300, 2), 0.019759972, 0.0, 0, 0]
+point_count = 3
 metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_yej0p"]
 _limits = [0.0, 1.0, 0.0, 300.0]
-_data = [Vector2(0, 0.4), 0.0, 0.0032734808, 0, 0, Vector2(180, 0.90000004), 0.00321059, 0.0, 0, 0, Vector2(300, 1), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.4), 0.0, 0.0032734808, 0, 0, Vector2(120, 0.5), 0.0002789891, 0.0002789891, 0, 0, Vector2(180, 0.8), 0.00321059, 0.0, 0, 0, Vector2(300, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_leind"]
 _limits = [0.0, 10.0, 0.0, 200.0]
-_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(100, 3), 0.0, 0.0, 0, 0, Vector2(200, 8), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(200, 10), 0.07310934, 0.0, 0, 0]
+point_count = 2
 metadata/_snap_enabled = true
 
 [node name="Challenge" instance=ExtResource("1_rn47e")]
@@ -41,12 +41,13 @@ health_multiplier_curve = SubResource("Curve_5xvln")
 speed_multiplier_curve = SubResource("Curve_yej0p")
 spawn_interval_curve = SubResource("Curve_leind")
 points_for_heal_box = 30
-points_for_ammo_box = 60
-seconds_survived_for_coin = 2.0
-points_for_coin = 5.0
-points_for_speed_multiplier_base = 9.0
-points_for_damage_multiplier_base = 18.0
-points_for_health_base = 0.08000000000174623
+points_for_ammo_box = 65
+seconds_survived_for_coin = 7.5
+points_for_coin = 8.5
+damage_for_coin = 70.0
+points_for_speed_multiplier_base = 6.5
+points_for_damage_multiplier_base = 11.0
+points_for_health_base = 0.05000000000291038
 entity_scenes = Array[PackedScene]([ExtResource("3_nllva"), ExtResource("4_5xvln"), ExtResource("5_leind"), ExtResource("6_yej0p")])
 
 [node name="Camera" parent="." index="7"]
@@ -93,6 +94,5 @@ one_shot = true
 resources = [PackedStringArray("ammo_box", "heal_box"), [ExtResource("8_leind"), ExtResource("9_yej0p")]]
 
 [connection signal="stats_changed" from="." to="." method="_on_stats_changed"]
-[connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
 [connection signal="timeout" from="SurvivedTimer" to="." method="_on_survived_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

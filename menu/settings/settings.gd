@@ -148,6 +148,8 @@ func _ready() -> void:
 	if "--disable-update-check" in OS.get_cmdline_user_args():
 		(%UpdatesCheck.get_parent().get_parent() as CanvasItem).hide()
 		(%BetasCheck.get_parent().get_parent() as CanvasItem).hide()
+	
+	Globals.apply_settings() # применяем настройки если что-то поменялось
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -538,7 +540,6 @@ func _on_custom_tracks_check_toggled(toggled_on: bool, update_menu_music := true
 	Globals.set_setting_bool("custom_tracks", toggled_on)
 	if Globals.get_setting_bool("menu_tracks") and update_menu_music:
 		Globals.main.update_menu_music()
-	Globals.apply_settings()
 
 
 func _on_official_tracks_check_toggled(toggled_on: bool) -> void:

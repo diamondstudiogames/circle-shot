@@ -20,8 +20,10 @@ extends Challenge
 @export_group("Rewards")
 ## Сколько нужно выжить в секундах, чтобы получить монету.
 @export var seconds_survived_for_coin := 2.0
-## Сколько монет получит игрок за убийство.
+## Сколько нужно получить очков, чтобы получить монету.
 @export var points_for_coin := 5.0
+## Сколько нужно нанести урона, чтобы получить монету.
+@export var damage_for_coin := 50.0
 ## Сколько очков получит игрок за убийство, умножённое на [member Entity.speed_mulitplier] жертвы.
 @export var points_for_speed_multiplier_base := 8.0
 ## Сколько очков получит игрок за убийство, умножённое на [member Entity.damage_mulitplier] жертвы.
@@ -69,6 +71,7 @@ func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
 	rewards["Прожито времени"] = roundi(time_survived / seconds_survived_for_coin)
 	rewards["Очки"] = roundi(points / points_for_coin)
+	rewards["Нанесённый урон"] = roundi(damaged / damage_for_coin)
 	return rewards
 
 

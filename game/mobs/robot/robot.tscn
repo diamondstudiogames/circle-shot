@@ -88,10 +88,6 @@ aim_angle_rotation_weight = 0.1
 optimal_distance = 480.0
 min_distance = 240.0
 shoot_distance = 640.0
-find_target_min_time = 0.9
-find_target_max_time = 1.1
-update_target_min_time = 0.3
-update_target_max_time = 0.4
 death_vfx_scene = ExtResource("3_1jhyj")
 
 [node name="CollisionShape2D" parent="." index="2"]

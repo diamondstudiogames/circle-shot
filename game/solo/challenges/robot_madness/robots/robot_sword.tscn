@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://cae62v5ywqo8a" path="res://game/mobs/robot/variants/robot_sword.tscn" id="1_4x1x3"]
 
 [node name="RobotSword" instance=ExtResource("1_4x1x3")]
-vision_distance = 8000.0
+shoot_interval = 1.1999999999970896
+vision_distance = 9000.0

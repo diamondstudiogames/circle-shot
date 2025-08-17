@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://bxac6tcgijv2e" path="res://game/mobs/robot/variants/robot_p350.tscn" id="1_aja02"]
 
 [node name="RobotP350" instance=ExtResource("1_aja02")]
-vision_distance = 8000.0
+shoot_interval = 0.6000000000058208
+vision_distance = 9000.0

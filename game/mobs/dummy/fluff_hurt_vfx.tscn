@@ -17,7 +17,6 @@ point_count = 2
 [node name="Particles" type="CPUParticles2D" parent="."]
 z_index = 1
 material = SubResource("CanvasItemMaterial_5qjhu")
-emitting = false
 amount = 5
 texture = ExtResource("1_5qjhu")
 lifetime = 0.5

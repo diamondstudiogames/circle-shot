@@ -6,6 +6,7 @@ var _type_to_list := ItemsDB.Item.WEAPON
 var _weapon_type_filter := Weapon.Type.INVALID # все
 var _skins_line_filter: int = -1 # все
 var _event_map_filter: int = -1 # пока никакое
+var _challenge_map_filter: int = -1 # пока никакое
 
 var _selected_item_type := ItemsDB.Item.EVENT
 var _selected_item_idx: int = -1
@@ -33,8 +34,11 @@ func _update_items_grid() -> void:
 		_items_grid.list_weapons_by_type(_weapon_type_filter, -1, _hide_locked)
 	elif _type_to_list == ItemsDB.Item.SKIN and _skins_line_filter >= 0:
 		_items_grid.list_skins_line(_skins_line_filter, -1, _hide_locked)
-	elif _type_to_list == ItemsDB.Item.MAP and _event_map_filter >= 0:
-		_items_grid.list_maps_of_event(_event_map_filter)
+	elif _type_to_list == ItemsDB.Item.MAP:
+		if _event_map_filter >= 0:
+			_items_grid.list_maps_of_event(_event_map_filter)
+		elif _challenge_map_filter >= 0:
+			_items_grid.list_maps_of_challenge(_challenge_map_filter)
 	else:
 		_items_grid.list_items(_type_to_list, -1, _hide_locked)
 
@@ -61,6 +65,8 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			description += "\nМинимум игроков: [color=red]%d[/color]" % event.min_players
 			description += "\nМаксимум игроков: [color=red]%d[/color]" % event.max_players
 			description += "\nДелитель игроков: [color=red]%d[/color]" % event.players_divider
+			description += "\nКомандное: [color=%s]%s[/color]" % \
+					(["lime_green", "Да"] if event.team_event else ["red", "Нет"])
 			description += '\n'
 			description += "\nКоличество карт: [color=lime_green]%d[/color]" % event.maps.size()
 			
@@ -69,18 +75,41 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			
 			(%Description/ShowItems as CanvasItem).show()
 			(%Description/ShowItems as Button).text = "Просмотреть карты"
+		ItemsDB.Item.CHALLENGE:
+			var challenge: ChallengeData = Globals.items_db.challenges[idx]
+			item_name = challenge.name
+			description = "[center]%s[/center]" % challenge.brief_description
+			description += '\n'
+			description += "\nКоличество карт: [color=lime_green]%d[/color]" % challenge.maps.size()
+			
+			(%Description/BigItem as CanvasItem).show()
+			(%Description/BigItem as TextureRect).texture = load(challenge.image_path)
+			
+			(%Description/ShowItems as CanvasItem).show()
+			(%Description/ShowItems as Button).text = "Просмотреть карты"
 		ItemsDB.Item.MAP:
-			var map: MapData = Globals.items_db.events[_event_map_filter].maps[idx]
+			var map: MapData
+			if _event_map_filter >= 0:
+				map = Globals.items_db.events[_event_map_filter].maps[idx]
+			elif _challenge_map_filter >= 0:
+				map = Globals.items_db.challenges[_challenge_map_filter].maps[idx]
 			item_name = map.name
 			description = "[center]%s[/center]" % map.brief_description
-			description += "\n\nСобытие: [color=red]%s[/color]" \
-					% Globals.items_db.events[_event_map_filter].name
+			if _event_map_filter >= 0:
+				description += "\n\nСобытие: [color=red]%s[/color]" \
+						% Globals.items_db.events[_event_map_filter].name
+			elif _challenge_map_filter >= 0:
+				description += "\n\nИспытание: [color=red]%s[/color]" \
+						% Globals.items_db.challenges[_challenge_map_filter].name
 			
 			(%Description/BigItem as CanvasItem).show()
 			(%Description/BigItem as TextureRect).texture = load(map.image_path)
 			
 			(%Description/ShowItems as CanvasItem).show()
-			(%Description/ShowItems as Button).text = "Просмотреть событие"
+			if _event_map_filter >= 0:
+				(%Description/ShowItems as Button).text = "Просмотреть событие"
+			elif _challenge_map_filter >= 0:
+				(%Description/ShowItems as Button).text = "Просмотреть испытание"
 		ItemsDB.Item.SKIN:
 			var skin: SkinData = Globals.items_db.skins[idx]
 			item_name = skin.name
@@ -235,6 +264,8 @@ func _on_main_filter_item_selected(index: int) -> void:
 			(%OnlyUnlocked as CanvasItem).show()
 		4:
 			_type_to_list = ItemsDB.Item.EVENT
+		5:
+			_type_to_list = ItemsDB.Item.CHALLENGE
 	
 	_update_items_grid()
 
@@ -267,12 +298,25 @@ func _on_show_items_pressed() -> void:
 			(%Description as CanvasItem).hide()
 			(%NothingSelected as CanvasItem).show()
 			_event_map_filter = _selected_item_idx
+			_challenge_map_filter = -1
+			_type_to_list = ItemsDB.Item.MAP
+		ItemsDB.Item.CHALLENGE:
+			(%Description as CanvasItem).hide()
+			(%NothingSelected as CanvasItem).show()
+			_event_map_filter = -1
+			_challenge_map_filter = _selected_item_idx
 			_type_to_list = ItemsDB.Item.MAP
 			_update_items_grid()
 		ItemsDB.Item.MAP:
-			_type_to_list = ItemsDB.Item.EVENT
+			if _event_map_filter >= 0:
+				_type_to_list = ItemsDB.Item.EVENT
+			elif _challenge_map_filter >= 0:
+				_type_to_list = ItemsDB.Item.CHALLENGE
 			_update_items_grid()
-			_show_item(ItemsDB.Item.EVENT, _event_map_filter)
+			if _event_map_filter >= 0:
+				_show_item(ItemsDB.Item.EVENT, _event_map_filter)
+			elif _challenge_map_filter >= 0:
+				_show_item(ItemsDB.Item.CHALLENGE, _challenge_map_filter)
 		ItemsDB.Item.SKIN:
 			(%Filters/MainFilter as OptionButton).select(3)
 			_on_main_filter_item_selected(3)

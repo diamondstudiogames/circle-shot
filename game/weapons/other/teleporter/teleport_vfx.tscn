@@ -16,7 +16,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0.682434, 1, 0.664062, 1)
 [node name="TeleportVfx" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
 amount = 80
 one_shot = true
 explosiveness = 1.0

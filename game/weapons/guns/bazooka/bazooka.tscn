@@ -331,7 +331,7 @@ _data = {
 
 [node name="Bazooka" instance=ExtResource("1_nkfev")]
 script = ExtResource("2_s1h1q")
-to_aim_time = 0.40000000000873115
+to_aim_time = 0.4000000000087311
 projectile_scene = ExtResource("2_wudyk")
 spread_base = 3.0
 spread_walk = 5.0
