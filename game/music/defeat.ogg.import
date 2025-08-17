@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/defeat.ogg-75af9c7a6333c46ffa2ba7ef9d9703fe.o
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
