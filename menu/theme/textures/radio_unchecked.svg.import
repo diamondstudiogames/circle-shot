@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://dl7ynyk8x2qf"
-path="res://.godot/imported/radio_unchecked.svg-11c22da1375f8f67ff06bf7043aad4fe.svgtex"
+path="res://.godot/imported/radio_unchecked.svg-11c22da1375f8f67ff06bf7043aad4fe.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/radio_unchecked.svg"
-dest_files=["res://.godot/imported/radio_unchecked.svg-11c22da1375f8f67ff06bf7043aad4fe.svgtex"]
+dest_files=["res://.godot/imported/radio_unchecked.svg-11c22da1375f8f67ff06bf7043aad4fe.dpitex"]
 
 [params]
 

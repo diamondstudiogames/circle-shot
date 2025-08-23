@@ -383,7 +383,7 @@ func _open_box(type: String) -> String:
 			reward = "weapon:" + (reward_data as WeaponData).id
 		if reward_secret:
 			reward = '?' + reward
-	if reward_in_coins:
+	if reward_in_coins and not reward_secret:
 		increase_chances = false
 		reward = "coins:" + str(_get_coins_compensation(reward_rarity, type)) 
 	

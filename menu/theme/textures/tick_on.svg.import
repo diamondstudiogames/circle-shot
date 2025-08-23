@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://blcr2cbti1c5d"
-path="res://.godot/imported/tick_on.svg-31a8d08df1df37281ac59afbefdfc242.svgtex"
+path="res://.godot/imported/tick_on.svg-31a8d08df1df37281ac59afbefdfc242.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/tick_on.svg"
-dest_files=["res://.godot/imported/tick_on.svg-31a8d08df1df37281ac59afbefdfc242.svgtex"]
+dest_files=["res://.godot/imported/tick_on.svg-31a8d08df1df37281ac59afbefdfc242.dpitex"]
 
 [params]
 

@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://daejvrss7wnft"
-path="res://.godot/imported/tick_on_disabled.svg-686197a2fd7e9557bfe1533ccd6002e6.svgtex"
+path="res://.godot/imported/tick_on_disabled.svg-686197a2fd7e9557bfe1533ccd6002e6.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/tick_on_disabled.svg"
-dest_files=["res://.godot/imported/tick_on_disabled.svg-686197a2fd7e9557bfe1533ccd6002e6.svgtex"]
+dest_files=["res://.godot/imported/tick_on_disabled.svg-686197a2fd7e9557bfe1533ccd6002e6.dpitex"]
 
 [params]
 

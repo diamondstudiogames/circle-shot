@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bi3fgnx03xvhu"
-path="res://.godot/imported/slider_fg.svg-b9d352df9b8b29cbf8071bf6b67751be.svgtex"
+path="res://.godot/imported/slider_fg.svg-b9d352df9b8b29cbf8071bf6b67751be.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/slider_fg.svg"
-dest_files=["res://.godot/imported/slider_fg.svg-b9d352df9b8b29cbf8071bf6b67751be.svgtex"]
+dest_files=["res://.godot/imported/slider_fg.svg-b9d352df9b8b29cbf8071bf6b67751be.dpitex"]
 
 [params]
 

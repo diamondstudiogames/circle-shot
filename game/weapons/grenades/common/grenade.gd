@@ -157,7 +157,7 @@ func get_ammo_text() -> String:
 
 
 func _calculate_spread() -> float:
-	return spread_walk * clampf((player.get_real_velocity().length() / player.speed
+	return spread_base + spread_walk * clampf((player.get_real_velocity().length() / player.speed
 			- spread_walk_ratio) / (1.0 - spread_walk_ratio), 0.0, 1.0)
 
 

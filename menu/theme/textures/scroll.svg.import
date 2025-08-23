@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://b07bjttu6sfjo"
-path="res://.godot/imported/scroll.svg-e8392378199c3b59186da1fe65952e02.svgtex"
+path="res://.godot/imported/scroll.svg-e8392378199c3b59186da1fe65952e02.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/scroll.svg"
-dest_files=["res://.godot/imported/scroll.svg-e8392378199c3b59186da1fe65952e02.svgtex"]
+dest_files=["res://.godot/imported/scroll.svg-e8392378199c3b59186da1fe65952e02.dpitex"]
 
 [params]
 

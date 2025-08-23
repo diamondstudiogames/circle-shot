@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://bqf2ht0lj03so"
-path="res://.godot/imported/check_on_disabled.svg-77e9d9e3ec9621bc8e5f79f104afa63d.svgtex"
+path="res://.godot/imported/check_on_disabled.svg-77e9d9e3ec9621bc8e5f79f104afa63d.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/check_on_disabled.svg"
-dest_files=["res://.godot/imported/check_on_disabled.svg-77e9d9e3ec9621bc8e5f79f104afa63d.svgtex"]
+dest_files=["res://.godot/imported/check_on_disabled.svg-77e9d9e3ec9621bc8e5f79f104afa63d.dpitex"]
 
 [params]
 

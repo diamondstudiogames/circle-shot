@@ -24,7 +24,7 @@ func _make_visible(visible: bool) -> void:
 
 
 func _get_plugin_name() -> String:
-	return "Server"
+	return "Сервер"
 
 
 func _get_plugin_icon() -> Texture2D:

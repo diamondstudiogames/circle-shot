@@ -1,14 +1,14 @@
 [remap]
 
 importer="svg"
-type="SVGTexture"
+type="DPITexture"
 uid="uid://b477qiraadl1y"
-path="res://.godot/imported/panel.svg-f2f4f89cfaec18f9dde413409c8cad8f.svgtex"
+path="res://.godot/imported/panel.svg-f2f4f89cfaec18f9dde413409c8cad8f.dpitex"
 
 [deps]
 
 source_file="res://menu/theme/textures/panel.svg"
-dest_files=["res://.godot/imported/panel.svg-f2f4f89cfaec18f9dde413409c8cad8f.svgtex"]
+dest_files=["res://.godot/imported/panel.svg-f2f4f89cfaec18f9dde413409c8cad8f.dpitex"]
 
 [params]
 
