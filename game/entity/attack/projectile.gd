@@ -19,6 +19,8 @@ signal destroyed(where: Vector2)
 @export var hit_vfx_scene: PackedScene
 ## Эффект попадания снаряда в стену.
 @export var hit_wall_vfx_scene: PackedScene
+## Путь до узла, которому будет задан цвет команды в шейдере обводки.
+@export_node_path("CanvasItem") var team_outline_node_path: NodePath = ^"Sprite2D"
 
 ## Направление движения снаряда. Устанавливается в [method Node._ready] из [member Node2D.rotation].
 var direction: Vector2
@@ -28,6 +30,10 @@ var _destroyed := false
 func _ready() -> void:
 	reset_physics_interpolation()
 	direction = Vector2.from_angle(rotation)
+	
+	var team_outline_node: CanvasItem = get_node_or_null(team_outline_node_path)
+	if team_outline_node:
+		team_outline_node.set_instance_shader_parameter(&"outline_color", Entity.TEAM_COLORS[team])
 
 
 func _physics_process(delta: float) -> void:

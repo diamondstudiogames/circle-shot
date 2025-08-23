@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://v7wu6nntnt6q"]
+
+[ext_resource type="Shader" uid="uid://cfro4bv3g07li" path="res://game/shared/shaders/outline.gdshader" id="1_x7kiw"]
+
+[resource]
+shader = ExtResource("1_x7kiw")
+shader_parameter/outline_width = 1.0

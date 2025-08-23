@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://swhkj1uha3un"]
+[gd_scene load_steps=7 format=3 uid="uid://swhkj1uha3un"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_7rg4a"]
 [ext_resource type="PackedScene" uid="uid://cimmedlt134ub" path="res://game/weapons/throwable/kunai/kunai_hit_vfx.tscn" id="2_k173f"]
 [ext_resource type="Texture2D" uid="uid://dsi5shyxok7n3" path="res://game/weapons/throwable/kunai/kunai.png" id="2_u7dvy"]
 [ext_resource type="PackedScene" uid="uid://bcoer7ynu34mu" path="res://game/weapons/throwable/kunai/kunai_hit_wall_vfx.tscn" id="3_7cos4"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="3_k173f"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="4_n2ahb"]
 
 [node name="KunaiProjectile" instance=ExtResource("1_7rg4a")]
 speed = 2900.0
@@ -13,6 +14,7 @@ hit_wall_vfx_scene = ExtResource("3_7cos4")
 damage = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+material = ExtResource("4_n2ahb")
 texture = ExtResource("2_u7dvy")
 offset = Vector2(32, -1)
 

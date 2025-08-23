@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://1durulsrwk7o"]
+[gd_scene load_steps=7 format=3 uid="uid://1durulsrwk7o"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_44t64"]
 [ext_resource type="Script" uid="uid://bnxsaaaegknaa" path="res://game/weapons/guns/common/bullet.gd" id="1_fc6k8"]
 [ext_resource type="PackedScene" uid="uid://d5ag68upkkaq" path="res://game/weapons/guns/common/bullet_hit_vfx.tscn" id="2_jsg66"]
 [ext_resource type="Texture2D" uid="uid://cyro3oroia5l6" path="res://game/weapons/guns/common/bullet.png" id="2_u82m3"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="3_gkcmb"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="5_yfgo4"]
 
 [node name="Bullet" instance=ExtResource("1_44t64")]
 script = ExtResource("1_fc6k8")
@@ -22,6 +23,7 @@ metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 z_index = -1
+material = ExtResource("5_yfgo4")
 texture = ExtResource("2_u82m3")
 offset = Vector2(-96, 0)
 

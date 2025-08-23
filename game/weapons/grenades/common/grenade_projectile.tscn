@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://8yrjqan0dqfx"]
+[gd_scene load_steps=9 format=3 uid="uid://8yrjqan0dqfx"]
 
 [ext_resource type="Script" uid="uid://c6kbejk8ckmtp" path="res://game/weapons/grenades/common/grenade_projectile.gd" id="1_am5bm"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="2_51d20"]
 
 [sub_resource type="Animation" id="Animation_ce6xc"]
 length = 0.001
@@ -15,34 +16,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5wrsa"]
-resource_name = "Rotation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,6 +58,34 @@ tracks/1/keys = {
 "values": [Vector2(-1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_5wrsa"]
+resource_name = "Rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y41ys"]
 _data = {
 &"RESET": SubResource("Animation_ce6xc"),
@@ -105,6 +106,9 @@ properties/1/replication_mode = 0
 properties/2/path = NodePath(".:direction")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:team")
+properties/3/spawn = true
+properties/3/replication_mode = 0
 
 [node name="GrenadeProjectile" type="AnimatableBody2D"]
 collision_layer = 4
@@ -114,6 +118,7 @@ script = ExtResource("1_am5bm")
 metadata/_custom_type_script = "uid://c6kbejk8ckmtp"
 
 [node name="Grenade" type="Sprite2D" parent="."]
+material = ExtResource("2_51d20")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Grenade"]
 libraries = {

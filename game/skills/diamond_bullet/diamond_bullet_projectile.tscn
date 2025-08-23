@@ -43,7 +43,7 @@ width_curve = SubResource("Curve_6mcm8")
 default_color = Color(0, 0.362305, 0.828125, 1)
 gradient = SubResource("Gradient_axsq5")
 
-[node name="Bullet" type="Sprite2D" parent="." index="4"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
 position = Vector2(-16, 0)
 rotation = 1.5708
 texture = ExtResource("3_axsq5")

@@ -22,6 +22,8 @@ func _ready() -> void:
 	_current_speed = speed
 	($Grenade/AnimationPlayer as AnimationPlayer).play(
 			&"rotation" if direction.x > 0.0 else &"inverted_rotation")
+	($Grenade as CanvasItem).set_instance_shader_parameter(&"outline_color",
+			Entity.TEAM_COLORS[team])
 
 
 func _physics_process(delta: float) -> void:

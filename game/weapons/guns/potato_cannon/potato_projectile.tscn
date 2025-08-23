@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://di4m7kkgyhvic"]
+[gd_scene load_steps=8 format=3 uid="uid://di4m7kkgyhvic"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_nkaf5"]
 [ext_resource type="Script" uid="uid://b4mh8vsrr5j" path="res://game/weapons/guns/potato_cannon/potato_projectile.gd" id="2_3d77g"]
 [ext_resource type="Texture2D" uid="uid://bblojw22axgbu" path="res://game/weapons/guns/potato_cannon/potato.png" id="2_41yuf"]
 [ext_resource type="PackedScene" uid="uid://bkgghno3wrpwo" path="res://game/weapons/guns/potato_cannon/potato_hit_vfx.tscn" id="3_3d77g"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_41yuf"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="4_gkuv7"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gkuv7"]
 properties/0/path = NodePath(".:rotation")
@@ -40,6 +41,7 @@ replication_config = SubResource("SceneReplicationConfig_gkuv7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 z_index = -1
+material = ExtResource("4_gkuv7")
 texture = ExtResource("2_41yuf")
 
 [node name="RayDetector" type="RayCast2D" parent="." index="3"]
