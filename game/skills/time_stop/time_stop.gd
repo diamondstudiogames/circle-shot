@@ -34,5 +34,5 @@ func _end_time_stop() -> void:
 
 
 func _on_time_stop_use_tree_exiting() -> void:
-	if not is_queued_for_deletion():
+	if not is_queued_for_deletion() and multiplayer.has_multiplayer_peer():
 		_end_time_stop.rpc()

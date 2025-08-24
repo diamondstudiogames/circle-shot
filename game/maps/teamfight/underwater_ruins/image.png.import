@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5o28d22vfcq2"
-path="res://.godot/imported/image.png-1b30e008f4580903dd0e9f17392f5ca1.ctex"
+uid="uid://bey1hfaqa7m8d"
+path="res://.godot/imported/image.png-f69a515010dec138816f3ecbe3423a8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/maps/royale/underwater/image.png"
-dest_files=["res://.godot/imported/image.png-1b30e008f4580903dd0e9f17392f5ca1.ctex"]
+source_file="res://game/maps/teamfight/underwater_ruins/image.png"
+dest_files=["res://.godot/imported/image.png-f69a515010dec138816f3ecbe3423a8a.ctex"]
 
 [params]
 

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="EventData" load_steps=5 format=3 uid="uid://dn5s2j1175lhl"]
+[gd_resource type="Resource" script_class="EventData" load_steps=6 format=3 uid="uid://dn5s2j1175lhl"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_d4e2q"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_066hq"]
 [ext_resource type="Resource" uid="uid://brqjqke8notbq" path="res://game/maps/teamfight/polygon/polygon.tres" id="2_nhpwv"]
 [ext_resource type="Resource" uid="uid://7pom80c82ejy" path="res://game/maps/teamfight/river/river.tres" id="3_ejupg"]
+[ext_resource type="Resource" uid="uid://bnec58kw617d0" path="res://game/maps/teamfight/underwater_ruins/underwater_ruins.tres" id="4_pcem4"]
 
 [resource]
 script = ExtResource("2_066hq")
@@ -14,5 +15,5 @@ players_divider = 2
 team_event = true
 scene_path = "uid://d2iraf4bc27ee"
 image_path = "uid://crqlredjtnixv"
-maps = Array[ExtResource("1_d4e2q")]([ExtResource("2_nhpwv"), ExtResource("3_ejupg")])
+maps = Array[ExtResource("1_d4e2q")]([ExtResource("2_nhpwv"), ExtResource("3_ejupg"), ExtResource("4_pcem4")])
 metadata/_custom_type_script = "uid://df3h1g4gqr0xh"

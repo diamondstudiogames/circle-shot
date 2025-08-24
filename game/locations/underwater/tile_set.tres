@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://w18oqn8ga70s"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://w18oqn8ga70s"]
 
 [ext_resource type="Texture2D" uid="uid://b8d1kl6ki038n" path="res://game/locations/underwater/textures/main_tiles.png" id="1_npekb"]
 [ext_resource type="Texture2D" uid="uid://bsrb3xhoxaaqu" path="res://game/locations/underwater/textures/decoration_tiles.png" id="2_do65p"]
@@ -21,6 +21,9 @@ tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 1, 327681, 2, 65537
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_m5hid"]
 tile_data = PackedInt32Array(0, 131073, 2, 65536, 131073, 3, 1, 196609, 2, 65537, 196609, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ncr47"]
+tile_data = PackedInt32Array(0, 262145, 0, 65536, 262145, 1, 1, 327681, 0, 65537, 327681, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6n5a1"]
 texture = ExtResource("1_npekb")
@@ -189,3 +192,4 @@ pattern_2 = SubResource("TileMapPattern_kfju1")
 pattern_3 = SubResource("TileMapPattern_6n5a1")
 pattern_4 = SubResource("TileMapPattern_rdv5n")
 pattern_5 = SubResource("TileMapPattern_m5hid")
+pattern_6 = SubResource("TileMapPattern_ncr47")
