@@ -8,6 +8,7 @@ aim_camera_distance = 128.0
 metadata/_custom_type_script = "uid://bqt2qhk5ev2vc"
 
 [node name="Ammo" type="Marker2D" parent="."]
+position = Vector2(32, 32)
 
 [node name="ThrowPivot" type="Marker2D" parent="."]
 

@@ -5,9 +5,9 @@ extends Melee
 @export var damage_both: int
 
 var _current_combo: int = 0
-@onready var _pivot: Node2D = $Pivot
-@onready var _pivot2: Node2D = $Pivot2
-@onready var _sparks_pivot: Node2D = $SparksPivot
+@onready var _pivot: Node2D = $Visual/Pivot
+@onready var _pivot2: Node2D = $Visual/Pivot2
+@onready var _sparks_pivot: Node2D = $Visual/SparksPivot
 @onready var _timer: Timer = $Timer
 @onready var _shape_detector: ShapeDetector = $Attack/ShapeDetector
 @onready var _attack_polygon: Polygon2D = $AttackPolygon
@@ -17,10 +17,10 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_LOCAL_TRANSFORM_CHANGED:
 		_pivot.rotation = rotation
 		_pivot2.rotation = rotation
+		_sparks_pivot.rotation = rotation
 		_shape_detector.rotation = rotation
 		_aim.rotation = rotation
 		_attack_polygon.rotation = rotation
-		_sparks_pivot.rotation = rotation
 		set_notify_local_transform(false)
 		rotation = 0.0
 		set_notify_local_transform(true)

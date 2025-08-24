@@ -23,6 +23,7 @@ var _reloading := false
 var _no_ammo := false
 
 @onready var _anim: AnimationPlayer = $AnimationPlayer
+@onready var _visual: Node2D = $Visual
 @onready var _throw_point: Marker2D = $ThrowPivot/ThrowPoint
 @onready var _throw_pivot: Marker2D = $ThrowPivot
 
@@ -96,8 +97,8 @@ func _shoot(throw_direction := Vector2.ZERO) -> void:
 		return
 	
 	var animation: Animation = _anim.get_animation(&"throw")
-	animation.track_set_key_value(0, 0, _throw_pivot.position)
-	animation.track_set_key_value(0, 1, to_local(_throw_point.global_position))
+	animation.track_set_key_value(0, 0, _visual.to_local(_throw_pivot.global_position))
+	animation.track_set_key_value(0, 1, _visual.to_local(_throw_point.global_position))
 	_anim.play(&"throw")
 	anim_name = await _anim.animation_finished
 	player.unblock_turning()

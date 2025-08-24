@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbu2je8ylxhxd"]
+
+[ext_resource type="Texture2D" uid="uid://dcei15hn601wa" path="res://game/weapons/melee/skewers/visual/skewer.png" id="1_je3dc"]
+[ext_resource type="Texture2D" uid="uid://di262r2a0v0l4" path="res://game/weapons/melee/skewers/visual/skewer2.png" id="2_t104j"]
+[ext_resource type="Texture2D" uid="uid://b2ky8874eajh0" path="res://game/weapons/melee/skewers/visual/spark.png" id="3_6mqhj"]
+
+[sub_resource type="Curve" id="Curve_0mdr0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.83, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.454668), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_erost"]
+offsets = PackedFloat32Array(0.605839, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(-16, 16)
+
+[node name="Skewer" type="Sprite2D" parent="Pivot"]
+texture = ExtResource("1_je3dc")
+offset = Vector2(56, 0)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot"]
+remote_path = NodePath("../../../Attack/RayDetector")
+update_position = false
+update_scale = false
+
+[node name="Pivot2" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(16, -16)
+
+[node name="Skewer2" type="Sprite2D" parent="Pivot2"]
+texture = ExtResource("2_t104j")
+offset = Vector2(56, 0)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot2"]
+remote_path = NodePath("../../../Attack/RayDetector2")
+update_position = false
+update_scale = false
+
+[node name="SparksPivot" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Sparks" type="CPUParticles2D" parent="SparksPivot"]
+position = Vector2(200, 0)
+emitting = false
+amount = 4
+texture = ExtResource("3_6mqhj")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(0, 8)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 400.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_0mdr0")
+color_ramp = SubResource("Gradient_erost")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SparksPivot"]
+remote_path = NodePath("../../../Attack/SparksRayDetector")
+update_position = false
+update_scale = false

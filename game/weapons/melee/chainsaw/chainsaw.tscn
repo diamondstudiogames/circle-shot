@@ -1,273 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqptp3tatgmn"]
+[gd_scene load_steps=8 format=3 uid="uid://dqptp3tatgmn"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_dte4u"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="2_738d3"]
 [ext_resource type="Script" uid="uid://cv0wldn6wh548" path="res://game/weapons/melee/chainsaw/chainsaw.gd" id="2_oth0h"]
-[ext_resource type="AudioStream" uid="uid://852l2260wl4s" path="res://game/weapons/melee/chainsaw/equip.wav" id="3_tuafg"]
-[ext_resource type="Texture2D" uid="uid://etjpy7svargd" path="res://game/weapons/melee/chainsaw/saw0.png" id="6_oth0h"]
-[ext_resource type="AudioStream" uid="uid://db3rw2nf23m2j" path="res://game/weapons/melee/chainsaw/attack.ogg" id="7_4nu05"]
-[ext_resource type="Texture2D" uid="uid://cscat0ajsghte" path="res://game/weapons/melee/chainsaw/saw1.png" id="7_yhynl"]
-[ext_resource type="AudioStream" uid="uid://biktvjio6nme8" path="res://game/weapons/melee/chainsaw/idle.ogg" id="8_oth0h"]
+[ext_resource type="PackedScene" uid="uid://b7pcslhod2s4m" path="res://game/weapons/melee/chainsaw/visual/chainsaw_visual.tscn" id="3_eqtrk"]
+[ext_resource type="AnimationLibrary" uid="uid://ckh16qdbknjnf" path="res://game/weapons/melee/chainsaw/visual/chainsaw_animations.tres" id="5_wy0b7"]
+[ext_resource type="AudioStream" uid="uid://db3rw2nf23m2j" path="res://game/weapons/melee/chainsaw/visual/attack.ogg" id="6_wy0b7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqtrk"]
 radius = 20.0
-
-[sub_resource type="Animation" id="Animation_yhynl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Saw:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Saw:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Saw:speed_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Attack/ShapeDetector:enabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AttackSfx:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_6bemp"]
-resource_name = "Attack"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Saw:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, -3), Vector2(-6, -5), Vector2(-5, 7), Vector2(7, 5), Vector2(6, -7), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Saw:speed_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Attack/ShapeDetector:enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_oth0h"]
-resource_name = "Equip"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Saw:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-9, 11), Vector2(2, -6)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Saw:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.568174, -0.373289]
-}
-
-[sub_resource type="Animation" id="Animation_tuafg"]
-resource_name = "Idle"
-length = 4.0
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Saw:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(-1.333, 1.667), Vector2(2.333, -0.667), Vector2(-1.333, -1), Vector2(1.667, 1.333), Vector2(-1.667, 1.333), Vector2(1.667, -1.655), Vector2(-0.333, -2.667), Vector2(2.333, -0.667), Vector2(-1.333, 1), Vector2(1, 1), Vector2(-1.333, 1.667), Vector2(2.333, -0.667), Vector2(-1.333, -1), Vector2(1.667, 1.333), Vector2(-1.667, 1.333), Vector2(1.667, -1.655), Vector2(-0.333, -2.667), Vector2(2.333, -0.667), Vector2(-1.333, 1), Vector2(1, 1), Vector2(-1.333, 1.667), Vector2(2.333, -0.667), Vector2(-1.333, -1), Vector2(1.667, 1.333), Vector2(-1.667, 1.333), Vector2(1.667, -1.655), Vector2(-0.333, -2.667), Vector2(2.333, -0.667), Vector2(-1.333, 1), Vector2(1, 1), Vector2(-1.333, 1.667), Vector2(2.333, -0.667), Vector2(-1.333, -1), Vector2(1.667, 1.333), Vector2(-1.667, 1.333), Vector2(1.667, -1.655), Vector2(-0.333, -2.667), Vector2(2.333, -0.667), Vector2(-1.333, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Saw:speed_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AttackSfx:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sfx")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("8_oth0h")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/3/use_blend = true
-
-[sub_resource type="Animation" id="Animation_5u7gp"]
-resource_name = "PostEquip"
-length = 0.65
-step = 0.025
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Saw:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2, -6), Vector2(-1, -8), Vector2(1, -5), Vector2(-9, -2), Vector2(-8, 5), Vector2(-3, 6), Vector2(5, 1), Vector2(-1, -8), Vector2(1, -5), Vector2(-9, -2), Vector2(-8, 5), Vector2(-3, 6), Vector2(5, 1), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Saw:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.373289, 0.0]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_tuafg")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bemp"]
-_data = {
-&"RESET": SubResource("Animation_yhynl"),
-&"attack": SubResource("Animation_6bemp"),
-&"equip": SubResource("Animation_oth0h"),
-&"idle": SubResource("Animation_tuafg"),
-&"post_equip": SubResource("Animation_5u7gp")
-}
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tuafg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_oth0h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_yhynl")
-}],
-"loop": true,
-"name": &"normal",
-"speed": 10.0
-}]
 
 [node name="Chainsaw" instance=ExtResource("1_dte4u")]
 script = ExtResource("2_oth0h")
@@ -277,7 +18,11 @@ to_aim_time = 0.6
 speed_multiplier_when_current = 1.12
 shoot_on_joystick_release = false
 
-[node name="Attack" parent="." index="0"]
+[node name="Visual" parent="." index="0" instance=ExtResource("3_eqtrk")]
+position = Vector2(32, 32)
+
+[node name="Attack" parent="." index="1"]
+position = Vector2(32, 32)
 damage_interval = 0.2
 
 [node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
@@ -290,29 +35,17 @@ collision_mask = 75
 script = ExtResource("2_738d3")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-&"": SubResource("AnimationLibrary_6bemp")
+&"": ExtResource("5_wy0b7")
 }
 next/attack = &"idle"
 
-[node name="Saw" type="AnimatedSprite2D" parent="." index="2"]
-sprite_frames = SubResource("SpriteFrames_tuafg")
-animation = &"normal"
-autoplay = "normal"
-frame_progress = 0.0622681
-speed_scale = 0.0
-offset = Vector2(64, -8)
-
 [node name="AttackSfx" type="AudioStreamPlayer2D" parent="." index="3"]
-stream = ExtResource("7_4nu05")
+stream = ExtResource("6_wy0b7")
 max_distance = 2880.0
 bus = &"SFX"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="." index="4"]
-max_distance = 2240.0
-bus = &"SFX"
-
-[node name="Aim" type="Node2D" parent="." index="5"]
+[node name="Aim" type="Node2D" parent="." index="4"]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

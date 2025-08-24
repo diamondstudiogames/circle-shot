@@ -4,6 +4,7 @@ extends Gun
 @export var single_shoot_interval := 0.5
 @export var single_ammo_per_shot: int = 1
 @export var single_projectile_scene: PackedScene
+
 var _in_single_mode := false
 
 @onready var _default_shoot_interval: float = shoot_interval
@@ -14,7 +15,7 @@ var _in_single_mode := false
 @onready var _shooting_sfx: AudioStreamPlayer2D = $ShootingSfx
 @onready var _switch_sfx: AudioStreamPlayer2D = $SwitchSfx
 @onready var _switch_single_sfx: AudioStreamPlayer2D = $SwitchSingleSfx
-@onready var _aim_device: Sprite2D = $Base/Aim
+@onready var _aim_device: Sprite2D = $Visual/Base/Aim
 
 
 func _shoot() -> void:

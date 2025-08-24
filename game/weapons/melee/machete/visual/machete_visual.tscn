@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://1k2lyqd7wxl2"]
+
+[ext_resource type="Texture2D" uid="uid://q3ap1lbdnty5" path="res://game/weapons/melee/machete/visual/machete.png" id="1_y7y1m"]
+
+[node name="Visual" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+rotation = -0.261799
+texture = ExtResource("1_y7y1m")
+offset = Vector2(112, 0)

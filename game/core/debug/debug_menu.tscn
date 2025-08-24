@@ -5,7 +5,11 @@
 [node name="DebugMenu" type="Window"]
 oversampling_override = 1.0
 title = "Меню отладки"
-size = Vector2i(960, 440)
+position = Vector2i(0, 28)
+size = Vector2i(960, 456)
+transient = true
+exclusive = true
+unresizable = true
 script = ExtResource("1_4t3ub")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -183,6 +187,32 @@ custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Выдать"
 
+[node name="TimeScale" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Скорость игры"
+horizontal_alignment = 2
+
+[node name="TimeScaleSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/TimeScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+min_value = 0.09999999999126884
+max_value = 5.0
+step = 0.09999999999126884
+value = 0.9999999999126988
+
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale"]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "x1.0"
+horizontal_alignment = 1
+
 [node name="Forget" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -215,6 +245,7 @@ text = "Текущий день"
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/GetControls/GetControls" to="." method="_on_get_controls_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/SetControls/SetControls" to="." method="_on_set_controls_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ReceiveLoot/ReceiveLoot" to="." method="_on_receive_loot_pressed"]
+[connection signal="value_changed" from="ScrollContainer/VBoxContainer/TimeScale/TimeScaleSlider" to="." method="_on_time_scale_slider_value_changed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Forget/ForgetOnlineOffers" to="." method="_on_forget_online_offers_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Forget/ForgetPromocodes" to="." method="_on_forget_promocodes_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/Forget/ForgetUnlockedItems" to="." method="_on_forget_unlocked_items_pressed"]

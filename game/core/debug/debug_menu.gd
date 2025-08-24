@@ -50,6 +50,11 @@ func _on_receive_loot_pressed() -> void:
 	Globals.main.receive_loot(loot)
 
 
+func _on_time_scale_slider_value_changed(value: float) -> void:
+	Engine.time_scale = value
+	(%TimeScale/Value as Label).text = "x%.1f" % value
+
+
 func _on_forget_online_offers_pressed() -> void:
 	Globals.set_variant("used_online_offers", [] as Array[int])
 

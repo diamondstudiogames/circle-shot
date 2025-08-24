@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq4p2jglel6kk"]
+
+[ext_resource type="Texture2D" uid="uid://23oj05orcymg" path="res://game/weapons/melee/sword/visual/sword.png" id="1_0cmx7"]
+
+[node name="Visual" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 24)
+rotation = -0.261799
+texture = ExtResource("1_0cmx7")
+offset = Vector2(108, 0)

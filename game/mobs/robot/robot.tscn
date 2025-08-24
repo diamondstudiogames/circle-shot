@@ -108,4 +108,3 @@ libraries = {
 }
 
 [node name="Weapon" type="Node2D" parent="Visual" index="3"]
-position = Vector2(32, 32)

@@ -7,13 +7,13 @@ var _reloading := false
 var _no_ammo := false
 var _teleport_vfx_scene: PackedScene = preload("uid://2p44r4a1hf7")
 
-@onready var _buttons: Node2D = $Base/Buttons
+@onready var _buttons: Node2D = $Visual/Base/Buttons
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _aim: Sprite2D = $Aim
 @onready var _collision_check: ShapeCast2D = $CollisionCheck
 @onready var _border_check: RayCast2D = $BorderCheck
 @onready var _reload_timer: Timer = $ReloadTimer
-@onready var _reload_indicator: TextureProgressBar = $Base/ReloadIndicator
+@onready var _reload_indicator: TextureProgressBar = $Visual/Base/ReloadIndicator
 
 
 func _process(_delta: float) -> void:

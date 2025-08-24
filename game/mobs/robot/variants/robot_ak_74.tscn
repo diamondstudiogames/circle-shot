@@ -1,189 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://hxoxmba176ju"]
+[gd_scene load_steps=6 format=3 uid="uid://hxoxmba176ju"]
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_76374"]
 [ext_resource type="Script" uid="uid://c23b7s034omw" path="res://game/mobs/robot/variants/robot_ak_74.gd" id="2_76374"]
 [ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="3_o76jr"]
-[ext_resource type="Texture2D" uid="uid://c3d0qn8bq5v37" path="res://game/weapons/guns/ak_74/magazine.png" id="4_74y4o"]
-[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="5_0o5vw"]
-[ext_resource type="Texture2D" uid="uid://b43o2h304pj0x" path="res://game/weapons/guns/ak_74/base.png" id="5_cx4un"]
-[ext_resource type="Texture2D" uid="uid://n0nan1cx7se1" path="res://game/weapons/guns/ak_74/shutter.png" id="6_0o5vw"]
-[ext_resource type="Texture2D" uid="uid://djpleqaaaxipo" path="res://game/weapons/guns/common/rifle_sleeve.png" id="8_4up4w"]
-
-[sub_resource type="Gradient" id="Gradient_v6ju7"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Animation" id="Animation_r6b3d"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/Shoot:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Magazine:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon/Magazine:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Magazine:rotation")
-tracks/5/interp = 3
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Magazine:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(85, 9)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Magazine:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Weapon/Shutter:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_as8bw"]
-resource_name = "Shoot"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/Shoot:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.0623164, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/Shutter:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-16, 0), Vector2(0, 0)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/Sleeve")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"restart"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oie5k"]
-_data = {
-&"RESET": SubResource("Animation_r6b3d"),
-&"shoot": SubResource("Animation_as8bw")
-}
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="4_ked2n"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/ak_74/visual/ak_74_animations.tres" id="5_q1a7n"]
 
 [node name="RobotAK74" instance=ExtResource("1_76374")]
 script = ExtResource("2_76374")
@@ -197,62 +18,15 @@ min_distance = 320.0
 shoot_distance = 1280.0
 speed = 560.0
 
-[node name="Weapon" parent="Visual" index="3"]
-position = Vector2(16, 32)
+[node name="Visual" parent="Visual/Weapon" index="0" instance=ExtResource("4_ked2n")]
+position = Vector2(16, 31)
 
-[node name="Magazine" type="Sprite2D" parent="Visual/Weapon" index="0"]
-visible = false
-position = Vector2(85, 9)
-texture = ExtResource("4_74y4o")
-offset = Vector2(60, 8)
-region_enabled = true
-region_rect = Rect2(128, 48, 56, 64)
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon" index="1"]
+position = Vector2(210, 0)
 
-[node name="Weapon" type="Sprite2D" parent="Visual/Weapon" index="1"]
-texture = ExtResource("5_cx4un")
-offset = Vector2(54, -12)
-
-[node name="Shutter" type="Sprite2D" parent="Visual/Weapon/Weapon" index="0"]
-texture = ExtResource("6_0o5vw")
-offset = Vector2(64, -40)
-region_enabled = true
-region_rect = Rect2(152, 24, 16, 16)
-
-[node name="Shoot" type="Sprite2D" parent="Visual/Weapon/Weapon" index="1"]
-visible = false
-show_behind_parent = true
-position = Vector2(214, -31)
-scale = Vector2(1, -1)
-texture = ExtResource("5_0o5vw")
-
-[node name="Magazine" type="Sprite2D" parent="Visual/Weapon/Weapon" index="2"]
-show_behind_parent = true
-texture = ExtResource("4_74y4o")
-offset = Vector2(60, 8)
-region_enabled = true
-region_rect = Rect2(128, 48, 56, 64)
-
-[node name="Sleeve" type="CPUParticles2D" parent="Visual/Weapon/Weapon" index="3"]
-position = Vector2(54, -38)
-emitting = false
-amount = 1
-texture = ExtResource("8_4up4w")
-lifetime = 0.15
-one_shot = true
-direction = Vector2(0, -1)
-gravity = Vector2(0, 98)
-initial_velocity_min = 256.0
-initial_velocity_max = 256.0
-angular_velocity_min = -720.0
-angular_velocity_max = 720.0
-color_ramp = SubResource("Gradient_v6ju7")
-
-[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon" index="2"]
-position = Vector2(194, -31)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon" index="2"]
 libraries = {
-&"": SubResource("AnimationLibrary_oie5k")
+&"": ExtResource("5_q1a7n")
 }
 
 [node name="ShootTimesTimer" type="Timer" parent="." index="11"]

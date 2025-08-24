@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8mtoflrhtnpw"]
+
+[ext_resource type="Texture2D" uid="uid://boiyd7ssqfvxg" path="res://game/weapons/guns/flamethrower/projectile/fire_hit.png" id="1_pupgo"]
+
+[sub_resource type="Curve" id="Curve_jsl6s"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 119.314), 0.0, -223.86, 0, 0, Vector2(1, -7.71436), 12.9381, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_wslne"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FireHitVfx" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+amount = 4
+texture = ExtResource("1_pupgo")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 120.0
+damping_min = 80.0
+damping_max = 80.0
+angle_min = -1.0
+angle_max = 1.0
+angle_curve = SubResource("Curve_jsl6s")
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_wslne")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="ready" from="CPUParticles2D" to="CPUParticles2D" method="restart"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 
 
 func _shoot() -> void:
+	_weapon.rotation = _calculate_aim_angle()
 	for i: int in shoot_times:
 		if is_disarmed():
 			return

@@ -5,6 +5,7 @@
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_in83w")
 metadata/_custom_type_script = "uid://dbmve8krfurnb"
+metadata/_edit_horizontal_guides_ = [-32.0]
 
 [node name="ShootPoint" type="Marker2D" parent="."]
 

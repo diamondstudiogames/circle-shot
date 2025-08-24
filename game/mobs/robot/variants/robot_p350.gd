@@ -17,6 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func _shoot() -> void:
+	_weapon.rotation = _calculate_aim_angle()
 	_weapon_anim.play(&"shoot")
 	_weapon_anim.seek(0.0)
 	

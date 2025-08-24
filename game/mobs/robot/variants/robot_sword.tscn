@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_q230f"]
 [ext_resource type="Script" uid="uid://cs787jtyc4e86" path="res://game/mobs/robot/variants/robot_sword.gd" id="2_q230f"]
 [ext_resource type="PackedScene" uid="uid://c4cr4b5wn24yt" path="res://game/weapons/guns/p350/p350_bullet.tscn" id="3_rlnr8"]
-[ext_resource type="Texture2D" uid="uid://23oj05orcymg" path="res://game/weapons/melee/sword/sword.png" id="4_mr4ka"]
+[ext_resource type="Texture2D" uid="uid://23oj05orcymg" path="res://game/weapons/melee/sword/visual/sword.png" id="4_mr4ka"]
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="5_kmk06"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="6_q230f"]
 

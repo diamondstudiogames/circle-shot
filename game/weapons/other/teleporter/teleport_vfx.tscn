@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://2p44r4a1hf7"]
 
-[ext_resource type="AudioStream" uid="uid://b2ynpfbj32tyc" path="res://game/weapons/other/teleporter/teleport.wav" id="1_wx1d4"]
+[ext_resource type="AudioStream" uid="uid://b2ynpfbj32tyc" path="res://game/weapons/other/teleporter/visual/teleport.wav" id="1_wx1d4"]
 
 [sub_resource type="Curve" id="Curve_0hlmb"]
 _data = [Vector2(0, 1), 0.0, -2.52642, 0, 1, Vector2(0.156667, 0.604195), -2.52642, 0.0, 1, 0, Vector2(0.976667, 0.0148849), -1.29905, 0.0, 0, 0]

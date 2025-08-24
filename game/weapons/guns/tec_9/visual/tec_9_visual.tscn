@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4ou1m6cytjr6"]
+
+[ext_resource type="Texture2D" uid="uid://cmq88qr3jt2e0" path="res://game/weapons/guns/tec_9/visual/magazine.png" id="1_e7mhs"]
+[ext_resource type="Texture2D" uid="uid://rchpfy7psnx6" path="res://game/weapons/guns/tec_9/visual/base.png" id="2_kq4de"]
+[ext_resource type="Texture2D" uid="uid://utcr6j15v7uw" path="res://game/weapons/guns/tec_9/visual/shutter.png" id="3_53t6j"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_yqrk6"]
+[ext_resource type="Texture2D" uid="uid://p7lc2resallt" path="res://game/weapons/guns/common/gun_sleeve.png" id="5_g87wb"]
+
+[sub_resource type="Gradient" id="Gradient_w2l4h"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Magazine" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_e7mhs")
+offset = Vector2(46, 10)
+region_enabled = true
+region_rect = Rect2(64, 32, 24, 72)
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_kq4de")
+offset = Vector2(42, -14)
+region_enabled = true
+region_rect = Rect2(0, 0, 144, 88)
+
+[node name="Shutter" type="Sprite2D" parent="Base"]
+texture = ExtResource("3_53t6j")
+offset = Vector2(50, -46)
+region_enabled = true
+region_rect = Rect2(72, 0, 16, 24)
+
+[node name="Magazine" type="Sprite2D" parent="Base"]
+show_behind_parent = true
+texture = ExtResource("1_e7mhs")
+offset = Vector2(46, 10)
+region_enabled = true
+region_rect = Rect2(64, 32, 24, 72)
+
+[node name="Shoot" type="Sprite2D" parent="Base"]
+visible = false
+show_behind_parent = true
+position = Vector2(126, -37)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_yqrk6")
+
+[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+position = Vector2(33, -42)
+emitting = false
+amount = 1
+texture = ExtResource("5_g87wb")
+lifetime = 0.4
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 128.0
+initial_velocity_max = 128.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color_ramp = SubResource("Gradient_w2l4h")

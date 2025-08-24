@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7pcslhod2s4m"]
+
+[ext_resource type="Texture2D" uid="uid://etjpy7svargd" path="res://game/weapons/melee/chainsaw/visual/saw0.png" id="1_t58ug"]
+[ext_resource type="Texture2D" uid="uid://cscat0ajsghte" path="res://game/weapons/melee/chainsaw/visual/saw1.png" id="2_m0wtk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuafg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t58ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m0wtk")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 10.0
+}]
+
+[node name="Visual" type="Node2D"]
+
+[node name="Saw" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tuafg")
+animation = &"normal"
+autoplay = "normal"
+frame_progress = 0.0622681
+speed_scale = 0.0
+offset = Vector2(64, -8)
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+max_distance = 2240.0
+bus = &"SFX"

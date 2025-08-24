@@ -1,16 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://4q0rrm6arbyx"]
+[gd_scene load_steps=13 format=3 uid="uid://4q0rrm6arbyx"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_57777"]
 [ext_resource type="Script" uid="uid://demdf41slbc0a" path="res://game/weapons/guns/sniper_rifle/sniper_rifle.gd" id="2_ir31q"]
 [ext_resource type="PackedScene" uid="uid://cm0sqwulviy72" path="res://game/weapons/guns/sniper_rifle/sniper_bullet.tscn" id="2_stbvt"]
-[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="3_nfw2e"]
-[ext_resource type="Texture2D" uid="uid://dg0aqjkd64hom" path="res://game/weapons/guns/sniper_rifle/base.png" id="4_5tdas"]
-[ext_resource type="Texture2D" uid="uid://hvi0c3ih0v8d" path="res://game/weapons/guns/sniper_rifle/magazine.png" id="5_i4xf8"]
-[ext_resource type="Texture2D" uid="uid://0rsk8vwsw5pp" path="res://game/weapons/guns/sniper_rifle/shutter.png" id="6_jds1y"]
-[ext_resource type="Texture2D" uid="uid://djpleqaaaxipo" path="res://game/weapons/guns/common/rifle_sleeve.png" id="8_y68u3"]
-[ext_resource type="Shader" uid="uid://c5rcnc4qtas64" path="res://game/weapons/guns/sniper_rifle/blur.gdshader" id="9_8tnl3"]
-[ext_resource type="Texture2D" uid="uid://baoopah0qlhcl" path="res://game/weapons/guns/sniper_rifle/aim.png" id="9_cpvii"]
-[ext_resource type="Texture2D" uid="uid://dvsmjyu7l8xev" path="res://game/weapons/guns/sniper_rifle/aim_point.png" id="9_guo3n"]
+[ext_resource type="PackedScene" uid="uid://d27xngh76umsj" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_visual.tscn" id="4_b0etb"]
+[ext_resource type="AnimationLibrary" uid="uid://c148d0ilnvh12" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_animations.tres" id="6_nrirq"]
+[ext_resource type="Shader" uid="uid://c5rcnc4qtas64" path="res://game/weapons/guns/sniper_rifle/aim/blur.gdshader" id="9_8tnl3"]
+[ext_resource type="Texture2D" uid="uid://baoopah0qlhcl" path="res://game/weapons/guns/sniper_rifle/aim/aim.png" id="9_cpvii"]
+[ext_resource type="Texture2D" uid="uid://dvsmjyu7l8xev" path="res://game/weapons/guns/sniper_rifle/aim/aim_point.png" id="9_guo3n"]
 
 [sub_resource type="Curve" id="Curve_uvvkn"]
 _limits = [0.0, 20.0, 0.0, 2.0]
@@ -26,384 +23,6 @@ point_count = 2
 _limits = [-12.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -12), 0.0, 0.0, 0, 0]
 point_count = 1
-
-[sub_resource type="Gradient" id="Gradient_e3cwf"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Animation" id="Animation_pk7gt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/Shoot:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/Shutter:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon/Magazine:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Magazine:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Magazine:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Magazine:self_modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Magazine:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_daweh"]
-resource_name = "Equip"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 16), Vector2(0, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.13017, -0.270728]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/Shutter:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.65, 0.8, 0.95),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-16, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_jn7sa"]
-resource_name = "PostEquip"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -8), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.270728, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kpkmr"]
-resource_name = "PostReload"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [5.95157, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_dae75"]
-resource_name = "Reload"
-length = 2.8
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2, 2.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 6.02139, 6.02139, 5.95157]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/Magazine:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Magazine:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.261799]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Magazine:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Magazine:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.75, 0.9, 1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Magazine:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9, 1.3, 1.65, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 48), Vector2(-75, 16), Vector2(-34, 48), Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Weapon/Shutter:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.35, 2.5, 2.55, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-16, 0), Vector2(-16, 0), Vector2(0, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Weapon:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.35, 2.5, 2.55, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-3, 2), Vector2(-3, 2), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_pwqt3"]
-resource_name = "Shoot"
-length = 1.35
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/Shoot:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.6, 0.8, 0.95, 1.05, 1.35),
-"transitions": PackedFloat32Array(0.5, 0.5, 1, 2, 1, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-32, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-7.99999, 0), Vector2(-8, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon:rotation")
-tracks/2/interp = 3
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.6),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
-"update": 0,
-"values": [0.0, -0.523599, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/Shutter:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.95, 1.05, 1.35),
-"transitions": PackedFloat32Array(1, 1, 1, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-16, 0), Vector2(-16, 0), Vector2(0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon/Sleeve")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"restart"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c0bv"]
-_data = {
-&"RESET": SubResource("Animation_pk7gt"),
-&"equip": SubResource("Animation_daweh"),
-&"post_equip": SubResource("Animation_jn7sa"),
-&"post_reload": SubResource("Animation_kpkmr"),
-&"reload": SubResource("Animation_dae75"),
-&"shoot": SubResource("Animation_pwqt3")
-}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bfp"]
 shader = ExtResource("9_8tnl3")
@@ -433,53 +52,11 @@ speed_multiplier_when_current = 0.9
 aim_camera_distance = 0.0
 shoot_on_joystick_release = true
 
-[node name="Magazine" type="Sprite2D" parent="." index="0"]
-visible = false
-show_behind_parent = true
-texture = ExtResource("5_i4xf8")
-offset = Vector2(44, 4)
-region_enabled = true
-region_rect = Rect2(104, 104, 40, 24)
+[node name="Visual" parent="." index="0" instance=ExtResource("4_b0etb")]
+position = Vector2(16, 22)
 
-[node name="Weapon" type="Sprite2D" parent="." index="1"]
-texture = ExtResource("4_5tdas")
-offset = Vector2(112, -16)
-
-[node name="Shoot" type="Sprite2D" parent="Weapon" index="0"]
-visible = false
-show_behind_parent = true
-position = Vector2(316, -23)
-texture = ExtResource("3_nfw2e")
-
-[node name="Shutter" type="Sprite2D" parent="Weapon" index="1"]
-texture = ExtResource("6_jds1y")
-offset = Vector2(72, -24)
-region_enabled = true
-region_rect = Rect2(144, 80, 16, 16)
-
-[node name="Magazine" type="Sprite2D" parent="Weapon" index="2"]
-show_behind_parent = true
-texture = ExtResource("5_i4xf8")
-offset = Vector2(44, 4)
-region_enabled = true
-region_rect = Rect2(104, 104, 40, 24)
-
-[node name="Sleeve" type="CPUParticles2D" parent="Weapon" index="3"]
-position = Vector2(61, -24)
-emitting = false
-amount = 1
-texture = ExtResource("8_y68u3")
-one_shot = true
-direction = Vector2(0, -1)
-gravity = Vector2(0, 196)
-initial_velocity_min = 128.0
-initial_velocity_max = 128.0
-angular_velocity_min = -360.0
-angular_velocity_max = 360.0
-color_ramp = SubResource("Gradient_e3cwf")
-
-[node name="ShootPoint" parent="." index="2"]
-position = Vector2(296, -22)
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(312, 0)
 
 [node name="Aim" parent="ShootPoint" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -508,17 +85,17 @@ collide_with_areas = true
 [node name="EndAim" type="Marker2D" parent="ShootPoint" index="4"]
 position = Vector2(960, 0)
 
-[node name="AimPoint" type="Sprite2D" parent="." index="3"]
+[node name="AimPoint" type="Sprite2D" parent="." index="2"]
 z_index = 1
-position = Vector2(296, -22)
+position = Vector2(312, 0)
 texture = ExtResource("9_guo3n")
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-&"": SubResource("AnimationLibrary_1c0bv")
+&"": ExtResource("6_nrirq")
 }
 
-[node name="Aim" type="CanvasLayer" parent="." index="5"]
+[node name="Aim" type="CanvasLayer" parent="." index="4"]
 visible = false
 
 [node name="Base" type="Control" parent="Aim" index="0"]

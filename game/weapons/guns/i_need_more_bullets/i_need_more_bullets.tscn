@@ -1,17 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://tpvpkv3eid7i"]
+[gd_scene load_steps=13 format=3 uid="uid://tpvpkv3eid7i"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_av5tx"]
 [ext_resource type="Script" uid="uid://7xncka5pgh3i" path="res://game/weapons/guns/i_need_more_bullets/i_need_more_bullets.gd" id="2_a8qdj"]
-[ext_resource type="AudioStream" uid="uid://btyf0why553e7" path="res://game/weapons/guns/i_need_more_bullets/sfx/equip.wav" id="2_s2bv5"]
-[ext_resource type="Texture2D" uid="uid://cgesfo7e4s3ua" path="res://game/weapons/guns/i_need_more_bullets/gun.png" id="3_4v22u"]
-[ext_resource type="AudioStream" uid="uid://cs10xsax2mt6s" path="res://game/weapons/guns/i_need_more_bullets/sfx/single_shot.wav" id="3_gssxa"]
-[ext_resource type="PackedScene" uid="uid://ll80nn6exap3" path="res://game/weapons/guns/i_need_more_bullets/single_need_bullet.tscn" id="3_vt8b5"]
-[ext_resource type="Texture2D" uid="uid://cxtrp8qu6t7cn" path="res://game/weapons/guns/i_need_more_bullets/magazine.png" id="4_7epqc"]
-[ext_resource type="PackedScene" uid="uid://bh8r5gsd6ghjm" path="res://game/weapons/guns/i_need_more_bullets/need_bullet.tscn" id="4_f0y0x"]
-[ext_resource type="AudioStream" uid="uid://dbdcdmwfdu77b" path="res://game/weapons/guns/i_need_more_bullets/sfx/reload.wav" id="4_mlykw"]
+[ext_resource type="PackedScene" uid="uid://ll80nn6exap3" path="res://game/weapons/guns/i_need_more_bullets/projectiles/single_need_bullet.tscn" id="3_vt8b5"]
+[ext_resource type="PackedScene" uid="uid://bh8r5gsd6ghjm" path="res://game/weapons/guns/i_need_more_bullets/projectiles/need_bullet.tscn" id="4_f0y0x"]
+[ext_resource type="PackedScene" uid="uid://djoqpyhdpphsu" path="res://game/weapons/guns/i_need_more_bullets/visual/i_need_more_bullets_visual.tscn" id="5_fm2ea"]
+[ext_resource type="AnimationLibrary" uid="uid://cp21h0h8q700b" path="res://game/weapons/guns/i_need_more_bullets/visual/i_need_more_bullets_animations.tres" id="6_71kn8"]
 [ext_resource type="AudioStream" uid="uid://dmga2aoukx48n" path="res://game/weapons/guns/i_need_more_bullets/sfx/switch_single.wav" id="8_2rkf8"]
 [ext_resource type="AudioStream" uid="uid://cb7drxrleuutq" path="res://game/weapons/guns/i_need_more_bullets/sfx/switch.wav" id="8_g15ve"]
-[ext_resource type="Texture2D" uid="uid://5ss0ntgl5ida" path="res://game/weapons/guns/i_need_more_bullets/aim.png" id="12_si2f5"]
 [ext_resource type="AudioStream" uid="uid://ch7njkaenmssq" path="res://game/weapons/guns/i_need_more_bullets/sfx/shooting.ogg" id="13_sudsl"]
 
 [sub_resource type="Curve" id="Curve_wj8nx"]
@@ -30,340 +26,6 @@ _limits = [-8.0, 0.0, 0.0, 2.0]
 _data = [Vector2(0, -8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(2, -8), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
-
-[sub_resource type="Animation" id="Animation_7gqo2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base/Magazine:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Base/Magazine:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Base/Magazine:rotation")
-tracks/4/interp = 3
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_x0rqv"]
-resource_name = "Equip"
-length = 1.1
-step = 0.05
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sfx")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("2_s2bv5")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-14, 21), Vector2(7, -9), Vector2(6, -6)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base:rotation")
-tracks/2/interp = 4
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.541248, -0.204099, 6.10264]
-}
-
-[sub_resource type="Animation" id="Animation_ejvsm"]
-resource_name = "PostEquip"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(6, -6), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [6.10264, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_rndj6"]
-resource_name = "PostReload"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-5, 5), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 4
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [6.12435, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_x4ipw"]
-resource_name = "Reload"
-length = 2.65
-step = 0.05
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sfx")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_mlykw")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 1.85, 2, 2.2, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-8, 8), Vector2(-8, 8), Vector2(-8, 8), Vector2(-8, 8), Vector2(-16, 12), Vector2(-5, 5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base:rotation")
-tracks/2/interp = 4
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 1.7, 1.75, 1.85, 2.2, 2.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.17227, 6.11092, 6.11092, 6.11092, 6.04546, 6.04546, 6.12435]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Base/Magazine:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Base/Magazine:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.2, 1.5, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 2, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 48), Vector2(-94, -27), Vector2(-36.1547, 21.115), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Base/Magazine:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.2, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.238108, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_gcooj"]
-resource_name = "Shoot"
-length = 0.18
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:rotation")
-tracks/0/interp = 4
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.18),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.101071, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sudsl"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("3_gssxa")
-
-[sub_resource type="Animation" id="Animation_np4wt"]
-resource_name = "SingleShot"
-length = 0.9
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:rotation")
-tracks/0/interp = 4
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.85),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 5.8663, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15, 0.85),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(-16, 0), Vector2(0, 0)]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SingleShotSfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": SubResource("AudioStreamRandomizer_sudsl")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohb8l"]
-_data = {
-&"RESET": SubResource("Animation_7gqo2"),
-&"equip": SubResource("Animation_x0rqv"),
-&"post_equip": SubResource("Animation_ejvsm"),
-&"post_reload": SubResource("Animation_rndj6"),
-&"reload": SubResource("Animation_x4ipw"),
-&"shoot": SubResource("Animation_gcooj"),
-&"single_shot": SubResource("Animation_np4wt")
-}
 
 [node name="INeedMoreBullets" instance=ExtResource("1_av5tx")]
 script = ExtResource("2_a8qdj")
@@ -386,58 +48,34 @@ ammo_total = 96
 speed_multiplier_when_current = 0.96
 aim_camera_distance = 240.0
 
-[node name="ShootPoint" parent="." index="0"]
-position = Vector2(236, -34)
+[node name="Visual" parent="." index="0" instance=ExtResource("5_fm2ea")]
+position = Vector2(16, 34)
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(252, 0)
+
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-&"": SubResource("AnimationLibrary_ohb8l")
+&"": ExtResource("6_71kn8")
 }
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="." index="2"]
-max_distance = 1600.0
-bus = &"SFX"
+[node name="ShootingTimer" type="Timer" parent="." index="3"]
+process_callback = 0
+one_shot = true
 
-[node name="SwitchSfx" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="SwitchSfx" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource("8_g15ve")
 max_distance = 1600.0
 bus = &"SFX"
 
-[node name="SwitchSingleSfx" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="SwitchSingleSfx" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource("8_2rkf8")
 max_distance = 1600.0
 bus = &"SFX"
-
-[node name="Base" type="Sprite2D" parent="." index="5"]
-texture = ExtResource("3_4v22u")
-offset = Vector2(96, -20)
-
-[node name="Magazine" type="Sprite2D" parent="Base" index="0"]
-show_behind_parent = true
-texture = ExtResource("4_7epqc")
-offset = Vector2(54, 5)
-region_enabled = true
-region_rect = Rect2(88, 88, 40, 24)
-
-[node name="Aim" type="Sprite2D" parent="Base" index="1"]
-visible = false
-show_behind_parent = true
-texture = ExtResource("12_si2f5")
-offset = Vector2(30, -59)
-region_enabled = true
-region_rect = Rect2(40, 16, 88, 40)
 
 [node name="ShootingSfx" type="AudioStreamPlayer2D" parent="." index="6"]
 stream = ExtResource("13_sudsl")
 max_distance = 2560.0
 bus = &"SFX"
-
-[node name="SingleShotSfx" type="AudioStreamPlayer2D" parent="." index="7"]
-max_distance = 3040.0
-bus = &"SFX"
-
-[node name="ShootingTimer" type="Timer" parent="." index="8"]
-process_callback = 0
-one_shot = true
 
 [connection signal="timeout" from="ShootingTimer" to="ShootingSfx" method="stop"]

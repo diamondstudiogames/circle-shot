@@ -1,141 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw483364uyeyn"]
+[gd_scene load_steps=5 format=3 uid="uid://dw483364uyeyn"]
 
-[ext_resource type="Texture2D" uid="uid://c6hbriu7of77e" path="res://game/weapons/melee/knife/knife.png" id="1_8am4s"]
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_n4krj"]
+[ext_resource type="PackedScene" uid="uid://da324c6cjnhfc" path="res://game/weapons/melee/knife/visual/knife_visual.tscn" id="2_ei8cw"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_2ry8l"]
-
-[sub_resource type="Animation" id="Animation_wr7i3"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Attack/RayDetector:enabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_4ld36"]
-resource_name = "Attack"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(120, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Attack/RayDetector:enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_ei8cw"]
-resource_name = "Equip"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 24), Vector2(0, -16), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.375129, -0.4241150082346213, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_hhcf2"]
-resource_name = "PostEquip"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.4241150082346213, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pgyr4"]
-_data = {
-&"RESET": SubResource("Animation_wr7i3"),
-&"attack": SubResource("Animation_4ld36"),
-&"equip": SubResource("Animation_ei8cw"),
-&"post_equip": SubResource("Animation_hhcf2")
-}
+[ext_resource type="AnimationLibrary" uid="uid://d33bsb3qmkra5" path="res://game/weapons/melee/knife/visual/knife_animations.tres" id="4_hhcf2"]
 
 [node name="Knife" instance=ExtResource("1_n4krj")]
 damage = 55
@@ -144,21 +12,20 @@ to_aim_time = 0.2
 speed_multiplier_when_current = 1.15
 shoot_on_joystick_release = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
-texture = ExtResource("1_8am4s")
-offset = Vector2(44, 0)
+[node name="Visual" parent="." index="0" instance=ExtResource("2_ei8cw")]
+position = Vector2(32, 32)
 
 [node name="Aim" type="Line2D" parent="." index="1"]
 visible = false
 z_index = 10
-position = Vector2(116, 0)
-points = PackedVector2Array(0, 0, 96, 0)
+position = Vector2(148, 0)
+points = PackedVector2Array(0, 0, 120, 0)
 width = 24.0
 default_color = Color(1, 1, 1, 0.376471)
 
 [node name="Outline" type="Line2D" parent="Aim" index="0"]
 show_behind_parent = true
-points = PackedVector2Array(0, 0, 96, 0)
+points = PackedVector2Array(0, 0, 120, 0)
 width = 28.0
 default_color = Color(0, 0, 0, 0.188235)
 
@@ -166,6 +33,7 @@ default_color = Color(0, 0, 0, 0.188235)
 position = Vector2(116, 0)
 
 [node name="RayDetector" type="RayCast2D" parent="Attack" index="0"]
+position = Vector2(32, 0)
 enabled = false
 target_position = Vector2(120, 0)
 collision_mask = 75
@@ -175,5 +43,5 @@ metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
-&"": SubResource("AnimationLibrary_pgyr4")
+&"": ExtResource("4_hhcf2")
 }

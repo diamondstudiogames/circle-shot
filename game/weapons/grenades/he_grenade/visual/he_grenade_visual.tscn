@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctbp0s06lem6h"]
+
+[ext_resource type="Texture2D" uid="uid://bnh5m4plset21" path="res://game/weapons/grenades/he_grenade/visual/base.png" id="1_pd3oo"]
+[ext_resource type="Texture2D" uid="uid://bfb2evb4rb35v" path="res://game/weapons/grenades/he_grenade/visual/tick.png" id="2_3odkp"]
+
+[node name="Visual" type="Node2D"]
+
+[node name="Grenade" type="Sprite2D" parent="."]
+texture = ExtResource("1_pd3oo")
+
+[node name="Tick" type="Sprite2D" parent="Grenade"]
+texture = ExtResource("2_3odkp")

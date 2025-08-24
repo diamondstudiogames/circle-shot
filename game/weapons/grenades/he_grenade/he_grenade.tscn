@@ -1,203 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkem1fmo3lqym"]
+[gd_scene load_steps=6 format=3 uid="uid://dkem1fmo3lqym"]
 
 [ext_resource type="PackedScene" uid="uid://b5t5tgu043bm" path="res://game/weapons/grenades/common/grenade.tscn" id="1_hpr4b"]
 [ext_resource type="Script" uid="uid://b07k4rbxi80tj" path="res://game/weapons/grenades/he_grenade/he_grenade.gd" id="2_4fwk7"]
-[ext_resource type="Texture2D" uid="uid://bnh5m4plset21" path="res://game/weapons/grenades/he_grenade/base.png" id="2_4mvux"]
-[ext_resource type="PackedScene" uid="uid://dixl482dlx0y5" path="res://game/weapons/grenades/he_grenade/he_grenade_projectile.tscn" id="3_47sof"]
-[ext_resource type="Texture2D" uid="uid://bfb2evb4rb35v" path="res://game/weapons/grenades/he_grenade/tick.png" id="3_cdc72"]
-
-[sub_resource type="Animation" id="Animation_tlngu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Grenade/Tick:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Grenade:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Grenade:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Grenade/Tick:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Grenade:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_hh5j0"]
-resource_name = "Equip"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Grenade:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-32, 24), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Grenade:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.769569, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Grenade:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_8jvrf"]
-resource_name = "Throw"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Grenade/Tick:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-42, 13)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Grenade/Tick:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Grenade:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-32, -32)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Grenade:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.785398]
-}
-
-[sub_resource type="Animation" id="Animation_2vql0"]
-resource_name = "PostThrow"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Grenade:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-32, -32), Vector2(64, -32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Grenade:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.785398, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4ym2"]
-_data = {
-&"RESET": SubResource("Animation_tlngu"),
-&"equip": SubResource("Animation_hh5j0"),
-&"pre_throw": SubResource("Animation_8jvrf"),
-&"throw": SubResource("Animation_2vql0")
-}
+[ext_resource type="PackedScene" uid="uid://dixl482dlx0y5" path="res://game/weapons/grenades/he_grenade/projectile/he_grenade_projectile.tscn" id="3_47sof"]
+[ext_resource type="PackedScene" uid="uid://ctbp0s06lem6h" path="res://game/weapons/grenades/he_grenade/visual/he_grenade_visual.tscn" id="4_la5b5"]
+[ext_resource type="AnimationLibrary" uid="uid://c8bfsskilnnwu" path="res://game/weapons/grenades/he_grenade/visual/he_grenade_animations.tres" id="7_8rkml"]
 
 [node name="HEGrenade" instance=ExtResource("1_hpr4b")]
 script = ExtResource("2_4fwk7")
@@ -207,21 +14,10 @@ projectile_damping = 600.0
 projectile_explosion_time = 1.75
 speed_multiplier_when_current = 0.98
 
-[node name="Grenade" type="Sprite2D" parent="." index="0"]
-visible = false
-texture = ExtResource("2_4mvux")
+[node name="Visual" parent="." index="0" instance=ExtResource("4_la5b5")]
+position = Vector2(32, 32)
 
-[node name="Tick" type="Sprite2D" parent="Grenade" index="0"]
-texture = ExtResource("3_cdc72")
-
-[node name="Grenade" type="Sprite2D" parent="ReloadIndicator/Visual" index="0"]
-texture = ExtResource("2_4mvux")
-
-[node name="Tick" type="Sprite2D" parent="ReloadIndicator/Visual/Grenade" index="0"]
-texture = ExtResource("3_cdc72")
-
-[node name="ThrowPivot" parent="." index="2"]
-position = Vector2(-32, -32)
+[node name="Visual" parent="ReloadIndicator/Visual" index="0" instance=ExtResource("4_la5b5")]
 
 [node name="ThrowPoint" parent="ThrowPivot" index="0"]
 position = Vector2(104, 0)
@@ -231,5 +27,5 @@ wait_time = 15.0
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {
-&"": SubResource("AnimationLibrary_v4ym2")
+&"": ExtResource("7_8rkml")
 }

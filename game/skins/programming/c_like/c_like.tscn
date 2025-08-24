@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c1mt2q646tmyh" path="res://game/skins/programming/c_like/vfx/patch_heal_vfx.tscn" id="10_8kk3g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wsgo3"]
-resource_local_to_scene = true
 shader = ExtResource("1_icbet")
 shader_parameter/shift_glitch_texture = ExtResource("2_hw111")
 

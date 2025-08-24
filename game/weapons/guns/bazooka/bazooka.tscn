@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn7oblc2lhvef"]
+[gd_scene load_steps=9 format=3 uid="uid://dn7oblc2lhvef"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_nkfev"]
 [ext_resource type="Script" uid="uid://bpxt0o6sq23rd" path="res://game/weapons/guns/bazooka/bazooka.gd" id="2_s1h1q"]
-[ext_resource type="PackedScene" uid="uid://cqhttq0m4j1p6" path="res://game/weapons/guns/bazooka/bazooka_rocket.tscn" id="2_wudyk"]
-[ext_resource type="Texture2D" uid="uid://dmtomxf1ssuyk" path="res://game/weapons/guns/bazooka/rocket.png" id="3_s1h1q"]
-[ext_resource type="Texture2D" uid="uid://c0vko0rruh36w" path="res://game/weapons/guns/bazooka/base.png" id="4_wudyk"]
+[ext_resource type="PackedScene" uid="uid://cqhttq0m4j1p6" path="res://game/weapons/guns/bazooka/projectile/bazooka_rocket.tscn" id="2_wudyk"]
+[ext_resource type="PackedScene" uid="uid://bjbu88a7f4mv6" path="res://game/weapons/guns/bazooka/visual/bazooka_visual.tscn" id="4_wudyk"]
+[ext_resource type="AnimationLibrary" uid="uid://mkiushk7ni1l" path="res://game/weapons/guns/bazooka/visual/bazooka_animations.tres" id="5_wcct1"]
 
 [sub_resource type="Curve" id="Curve_s1h1q"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
@@ -17,317 +17,6 @@ point_count = 1
 [sub_resource type="Curve" id="Curve_wcct1"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
 point_count = 1
-
-[sub_resource type="Animation" id="Animation_wcct1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base/Rocket:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rocket:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Rocket:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Rocket:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Rocket:z_index")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_wudyk"]
-resource_name = "Equip"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(3, 17), Vector2(-6, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(0.812252, 1),
-"update": 0,
-"values": [0.881593, -0.235342]
-}
-
-[sub_resource type="Animation" id="Animation_e3ftk"]
-resource_name = "PostEquip"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-6, -8), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(-1.23114, 1),
-"update": 0,
-"values": [-0.235342, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_8k5vi"]
-resource_name = "PostReload"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-8, -7), Vector2(-14, -10), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.324326, 0.324326, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_n6wbp"]
-resource_name = "Reload"
-length = 1.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rocket:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-8, -7)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.324326]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rocket:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.55, 0.9, 1.05, 1.1499999, 1.25),
-"transitions": PackedFloat32Array(1, 1, 1, 0.812252, 1.36604, 1.36604, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-37, 85), Vector2(-5.00001, 34), Vector2(41, 25), Vector2(13, 6), Vector2(13, 6), Vector2(-8, -7)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Rocket:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.55, 0.9, 1.05, 1.1499999, 1.25),
-"transitions": PackedFloat32Array(1, 1, 1, 0.812252, 1.36604, 1.36604, 1),
-"update": 0,
-"values": [0.0, -1.35537, -0.935444, -0.305559, 0.272984, 0.272984, 0.324326]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Rocket:z_index")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.65000004),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, -1, 0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Base/Rocket:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_y32q5"]
-resource_name = "Shoot"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base/Rocket:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.7),
-"transitions": PackedFloat32Array(1, 0.5, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-12, -6), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.7),
-"transitions": PackedFloat32Array(1, 0.5, 1),
-"update": 0,
-"values": [0.0, -0.534958, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o3ou"]
-_data = {
-&"RESET": SubResource("Animation_wcct1"),
-&"equip": SubResource("Animation_wudyk"),
-&"post_equip": SubResource("Animation_e3ftk"),
-&"post_reload": SubResource("Animation_8k5vi"),
-&"reload": SubResource("Animation_n6wbp"),
-&"shoot": SubResource("Animation_y32q5")
-}
 
 [node name="Bazooka" instance=ExtResource("1_nkfev")]
 script = ExtResource("2_s1h1q")
@@ -344,30 +33,13 @@ ammo_total = 5
 speed_multiplier_when_current = 0.89
 shoot_on_joystick_release = true
 
-[node name="Rocket" type="Sprite2D" parent="." index="0"]
-visible = false
-texture = ExtResource("3_s1h1q")
-offset = Vector2(144, -26)
-region_enabled = true
-region_rect = Rect2(208, 8, 80, 48)
+[node name="Visual" parent="." index="0" instance=ExtResource("4_wudyk")]
+position = Vector2(16, 26)
 
-[node name="Base" type="Sprite2D" parent="." index="1"]
-texture = ExtResource("4_wudyk")
-offset = Vector2(8, 0)
-region_enabled = true
-region_rect = Rect2(0, 8, 224, 100)
-
-[node name="Rocket" type="Sprite2D" parent="Base" index="0"]
-texture = ExtResource("3_s1h1q")
-offset = Vector2(144, -26)
-region_enabled = true
-region_rect = Rect2(208, 8, 80, 48)
-
-[node name="ShootPoint" parent="." index="2"]
-position = Vector2(109, -26)
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(141, 0)
 
 [node name="Aim" parent="ShootPoint" index="0"]
-visible = true
 width = 32.0
 
 [node name="SpreadLeft" parent="ShootPoint/Aim" index="0"]
@@ -379,7 +51,7 @@ position = Vector2(0, 16)
 [node name="Outline" parent="ShootPoint/Aim" index="2"]
 width = 36.0
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-&"": SubResource("AnimationLibrary_4o3ou")
+&"": ExtResource("5_wcct1")
 }

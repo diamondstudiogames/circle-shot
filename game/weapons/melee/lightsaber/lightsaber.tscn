@@ -1,305 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm8ppjrpqe84c"]
+[gd_scene load_steps=7 format=3 uid="uid://bm8ppjrpqe84c"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_lf8ps"]
 [ext_resource type="Script" uid="uid://tt81xgnn1gh4" path="res://game/weapons/melee/lightsaber/lightsaber.gd" id="2_1b7xu"]
-[ext_resource type="Texture2D" uid="uid://dvcfkurmahh83" path="res://game/weapons/melee/lightsaber/base.png" id="2_xa745"]
-[ext_resource type="Texture2D" uid="uid://cfwfho4bv0paq" path="res://game/weapons/melee/lightsaber/light.png" id="3_1b7xu"]
-[ext_resource type="Texture2D" uid="uid://cpd3d53o0hohg" path="res://game/weapons/melee/lightsaber/blade.png" id="4_4txxk"]
+[ext_resource type="PackedScene" uid="uid://c7hx81gtlrsg" path="res://game/weapons/melee/lightsaber/visual/lightsaber_visual.tscn" id="3_xa745"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="5_0d2ml"]
+[ext_resource type="AnimationLibrary" uid="uid://riwh1e1dp52x" path="res://game/weapons/melee/lightsaber/visual/lightsaber_animations.tres" id="5_1b7xu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vqjv"]
 radius = 104.0
-
-[sub_resource type="Animation" id="Animation_0d2ml"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.261799]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 24)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AttackPolygon:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AttackPolygon:polygon")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Attack/ShapeDetector:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Base/Light:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-72, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Base/Light:region_rect")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(400, 0, 0, 128)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Base/Blade:region_rect")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(400, 0, 0, 128)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Base/Blade:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-72, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xa745"]
-resource_name = "Attack"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.35, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [-0.261799, -1.27689, 1.25367, 1.25367, -0.261799]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AttackPolygon:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AttackPolygon:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [PackedVector2Array(102, -192, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 320, -36, 307, -100, 271, -169, 221, -233, 148, -239, 153, -204), PackedVector2Array(102, -192, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 70, 36, 236, 209, 278, 138, 317, 52, 320, -36, 307, -100, 271, -169, 221, -233, 148, -239, 153, -204), PackedVector2Array(173, -112, 117, -122, 109, -77, 83, -83, 67, -49, 84, -8, 70, 36, 35, 66, 103, 290, 183, 255, 236, 209, 278, 138, 317, 52, 320, -36, 307, -100, 271, -169, 225, -205, 205, -164, 157, -170), PackedVector2Array(221, -17, 192, 11, 144, -15, 115, 25, 84, -2, 70, 36, 35, 66, 103, 290, 183, 255, 236, 209, 291, 133, 320, 32, 291, -25, 257, 8)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Attack/ShapeDetector:enabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Attack/ShapeDetector2:enabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_1b7xu"]
-resource_name = "Equip"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 24), Vector2(39, -25)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.683145, -0.867888]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Base/Light:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-72, 0), Vector2(-72, 0), Vector2(64, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Base/Light:region_rect")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Rect2(400, 0, 0, 128), Rect2(400, 0, 0, 128), Rect2(129, 0, 271, 128)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Base/Blade:region_rect")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Rect2(400, 0, 0, 128), Rect2(400, 0, 0, 128), Rect2(129, 0, 271, 128)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Base/Blade:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-72, 0), Vector2(-72, 0), Vector2(64, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4txxk"]
-resource_name = "PostEquip"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Base:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(39, -25), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Base:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [-0.867429, -0.261799]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j08rb"]
-_data = {
-&"RESET": SubResource("Animation_0d2ml"),
-&"attack": SubResource("Animation_xa745"),
-&"equip": SubResource("Animation_1b7xu"),
-&"post_equip": SubResource("Animation_4txxk")
-}
 
 [node name="Lightsaber" instance=ExtResource("1_lf8ps")]
 script = ExtResource("2_1b7xu")
@@ -310,35 +18,15 @@ speed_multiplier_when_current = 1.08
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
 visible = false
-position = Vector2(-20, 0)
+position = Vector2(12, 0)
 polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)
 
-[node name="Base" type="Sprite2D" parent="." index="1"]
-position = Vector2(0, 24)
-rotation = -0.261799
-texture = ExtResource("2_xa745")
-offset = Vector2(120, 0)
-
-[node name="Light" type="Sprite2D" parent="Base" index="0"]
-self_modulate = Color(1, 0, 0, 1)
-show_behind_parent = true
-position = Vector2(-72, 0)
-texture = ExtResource("3_1b7xu")
-offset = Vector2(120, 0)
-region_enabled = true
-region_rect = Rect2(400, 0, 0, 128)
-
-[node name="Blade" type="Sprite2D" parent="Base" index="1"]
-show_behind_parent = true
-position = Vector2(-72, 0)
-texture = ExtResource("4_4txxk")
-offset = Vector2(120, 0)
-region_enabled = true
-region_rect = Rect2(400, 0, 0, 128)
+[node name="Visual" parent="." index="1" instance=ExtResource("3_xa745")]
+position = Vector2(32, 32)
 
 [node name="Aim" type="Line2D" parent="." index="2"]
 z_index = 10
-position = Vector2(108, 0)
+position = Vector2(140, 0)
 points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
 closed = true
 width = 8.0
@@ -350,6 +38,9 @@ points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192,
 closed = true
 width = 12.0
 default_color = Color(0, 0, 0, 0.188235)
+
+[node name="Attack" parent="." index="3"]
+position = Vector2(32, 0)
 
 [node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
 position = Vector2(124, -144)
@@ -373,5 +64,5 @@ metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {
-&"": SubResource("AnimationLibrary_j08rb")
+&"": ExtResource("5_1b7xu")
 }

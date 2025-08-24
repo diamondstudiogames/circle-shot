@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c45vuv36c8f6"]
+
+[ext_resource type="Texture2D" uid="uid://cd26opdvjp5t5" path="res://game/weapons/guns/i_need_more_bullets/projectiles/single_bullet.png" id="1_e3ilg"]
+
+[sub_resource type="Gradient" id="Gradient_p26lk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="SingleNeedBulletHitVfx" type="Node2D"]
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2(-48, 0)
+amount = 1
+texture = ExtResource("1_e3ilg")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 128.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+color_ramp = SubResource("Gradient_p26lk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="ready" from="Particles" to="Particles" method="restart"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
