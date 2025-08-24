@@ -4,4 +4,4 @@
 
 [resource]
 shader = ExtResource("1_x7kiw")
-shader_parameter/outline_width = 1.0
+shader_parameter/outline_width = 1.5

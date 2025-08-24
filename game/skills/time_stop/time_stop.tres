@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://drou74fj0mwge"]
+
+[ext_resource type="Script" uid="uid://iwsanxyoxs5s" path="res://game/player/equip/skill_data.gd" id="1_sn864"]
+
+[resource]
+script = ExtResource("1_sn864")
+name = "Остановка времени"
+rarity = 4
+id = "theworld"
+stats = Dictionary[String, String]({
+"count": "1",
+"duration": "2"
+})
+brief_description = "Останавливает время"
+usage_text = "{count} исп."
+description = "[color=deep_sky_blue]Останавливает время[/color]
+Длительность: [color=red]{duration} с[/color]
+
+Количество использований: [color=blue]{count}[/color]
+
+Остановив время, ты можешь победить кого угодно! Главное успеть..."
+scene_path = "uid://bwq1qen03wqeq"
+image_path = "uid://dwm3nasnono8o"
+spawnable_scenes_paths = Array[String](["uid://bquhtboou21kv"])
+metadata/_custom_type_script = "uid://iwsanxyoxs5s"

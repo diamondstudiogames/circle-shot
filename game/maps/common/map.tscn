@@ -23,6 +23,7 @@ metadata/_custom_type_script = "uid://btu1g3prgu2l8"
 [node name="MinimapTiles" parent="Minimap" instance=ExtResource("2_3vl75")]
 
 [node name="Borders" type="StaticBody2D" parent="."]
+disable_mode = 2
 collision_layer = 9
 collision_mask = 0
 

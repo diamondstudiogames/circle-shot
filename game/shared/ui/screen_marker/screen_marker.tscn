@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bu8773an3ub8v" path="res://game/shared/ui/screen_marker/screen_marker.gd" id="1_pse65"]
 
 [node name="ScreenMarker" type="Node2D"]
+process_mode = 1
 physics_interpolation_mode = 2
 script = ExtResource("1_pse65")
 
