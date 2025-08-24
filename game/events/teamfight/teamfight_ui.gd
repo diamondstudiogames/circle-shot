@@ -1,12 +1,15 @@
 class_name TeamfightUI
 extends EventUI
 
+## Интерфейс события "Командный бой".
 
+## Устанавливает счёт команд (т.е. количество убийств).
 func set_kills(red: int, blue: int) -> void:
 	($Main/RedCount as Label).text = str(red)
 	($Main/BlueCount as Label).text = str(blue)
 
 
+## Показывает победившую команду. [code]-1[/code] означает ничью.
 func show_winner(team: int) -> void:
 	if team < 0:
 		($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"draw")
@@ -17,10 +20,12 @@ func show_winner(team: int) -> void:
 			Entity.TEAM_COLORS[team])
 
 
+## Устанавливает время на таймере сверху.
 func set_time(time: int) -> void:
 	($Main/Timer as Label).text = "%d:%02d" % [floori(time / 60.0), time % 60]
 
 
+## Запускает таймер возвращения после смерти длительностью [param time].
 func show_comeback(time: int) -> void:
 	var comeback: Label = $Main/Comeback
 	comeback.show()

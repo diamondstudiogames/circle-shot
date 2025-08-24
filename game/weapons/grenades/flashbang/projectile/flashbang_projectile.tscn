@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwq3twijmmpig"]
+[gd_scene load_steps=19 format=3 uid="uid://dwq3twijmmpig"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_ua7bf"]
 [ext_resource type="Texture2D" uid="uid://bah0mhat58x6x" path="res://game/weapons/grenades/flashbang/visual/base.png" id="2_nfc8c"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bin43crd5xi3g" path="res://game/weapons/grenades/flashbang/projectile/explosion_friendly.wav" id="3_x712o"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="4_7cy3p"]
 [ext_resource type="AudioStream" uid="uid://dnce4ljo741pg" path="res://game/weapons/grenades/flashbang/projectile/explosion.wav" id="4_hj380"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_kamxo"]
 
 [sub_resource type="Animation" id="Animation_rf2x3"]
 length = 0.001
@@ -300,6 +301,7 @@ libraries = {
 [node name="Explosion" type="Sprite2D" parent="." index="1"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 2
+material = ExtResource("4_kamxo")
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("3_c5i60")
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://5tg4rjorsisy"]
+[gd_scene load_steps=8 format=3 uid="uid://5tg4rjorsisy"]
 
 [ext_resource type="Texture2D" uid="uid://ij32vnio3bu3" path="res://game/weapons/guns/m4a1/visual/magazine.png" id="1_x7nm8"]
 [ext_resource type="Texture2D" uid="uid://c5e2xvyalwhqn" path="res://game/weapons/guns/m4a1/visual/base.png" id="2_plmw2"]
 [ext_resource type="Texture2D" uid="uid://xurmhjulrd2i" path="res://game/weapons/guns/m4a1/visual/shutter.png" id="3_v1q7b"]
 [ext_resource type="Texture2D" uid="uid://djpleqaaaxipo" path="res://game/weapons/guns/common/rifle_sleeve.png" id="4_0fl83"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="5_harfm"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="5_jjtr2"]
 
 [sub_resource type="Gradient" id="Gradient_1bgpl"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -54,6 +55,7 @@ color_ramp = SubResource("Gradient_1bgpl")
 [node name="Shoot" type="Sprite2D" parent="Weapon"]
 visible = false
 show_behind_parent = true
+material = ExtResource("5_jjtr2")
 position = Vector2(261, -35)
 scale = Vector2(0.5, -0.5)
 texture = ExtResource("5_harfm")

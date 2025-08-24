@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://comvmvk0q8dbr"]
+[gd_scene load_steps=8 format=3 uid="uid://comvmvk0q8dbr"]
 
 [ext_resource type="Texture2D" uid="uid://cnvhq3b7cvpp0" path="res://game/weapons/guns/desert_eagle/visual/magazine.png" id="1_w1dk6"]
 [ext_resource type="Texture2D" uid="uid://2frquwbosh7u" path="res://game/weapons/guns/desert_eagle/visual/base.png" id="2_dyb3e"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_dyb3e"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="3_v5h4u"]
 [ext_resource type="Texture2D" uid="uid://cf6ipnt88aj0r" path="res://game/weapons/guns/desert_eagle/visual/shutter.png" id="4_do8yp"]
 [ext_resource type="Texture2D" uid="uid://p7lc2resallt" path="res://game/weapons/guns/common/gun_sleeve.png" id="5_k652k"]
@@ -33,6 +34,7 @@ region_rect = Rect2(16, 40, 40, 64)
 [node name="Shoot" type="Sprite2D" parent="Base"]
 visible = false
 show_behind_parent = true
+material = ExtResource("3_dyb3e")
 position = Vector2(154, -50)
 texture = ExtResource("3_v5h4u")
 

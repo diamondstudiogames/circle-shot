@@ -1,12 +1,15 @@
 class_name FlagCaptureUI
 extends EventUI
 
+## Интерфейс события "Захват флага".
 
+## Устанавливает счёт команд (т.е. количество захваченных флагов).
 func set_flags(red: int, blue: int) -> void:
 	($Main/RedCount as Label).text = str(red)
 	($Main/BlueCount as Label).text = str(blue)
 
 
+## Показывает победившую команду. [code]-1[/code] означает ничью.
 func show_winner(team: int) -> void:
 	if team < 0:
 		($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"draw")
@@ -17,6 +20,7 @@ func show_winner(team: int) -> void:
 			Entity.TEAM_COLORS[team])
 
 
+## Показывает команду, захватившую флаг.
 func show_flag_captured(blue: bool) -> void:
 	($Main/FlagCaptured/AnimationPlayer as AnimationPlayer).play(&"flag_captured")
 	($Main/FlagCaptured/AnimationPlayer as AnimationPlayer).seek(0.0)
@@ -25,10 +29,12 @@ func show_flag_captured(blue: bool) -> void:
 			Entity.TEAM_COLORS[int(blue)])
 
 
+## Устанавливает время на таймере сверху.
 func set_time(time: int) -> void:
 	($Main/Timer as Label).text = "%d:%02d" % [floori(time / 60.0), time % 60]
 
 
+## Запускает таймер возвращения после смерти длительностью [param time].
 func show_comeback(time: int) -> void:
 	var comeback: Label = $Main/Comeback
 	comeback.show()

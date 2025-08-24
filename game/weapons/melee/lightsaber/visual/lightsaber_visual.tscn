@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7hx81gtlrsg"]
+[gd_scene load_steps=5 format=3 uid="uid://c7hx81gtlrsg"]
 
 [ext_resource type="Texture2D" uid="uid://dvcfkurmahh83" path="res://game/weapons/melee/lightsaber/visual/base.png" id="1_u0trr"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_bwhec"]
 [ext_resource type="Texture2D" uid="uid://cfwfho4bv0paq" path="res://game/weapons/melee/lightsaber/visual/light.png" id="2_k6w0n"]
 [ext_resource type="Texture2D" uid="uid://cpd3d53o0hohg" path="res://game/weapons/melee/lightsaber/visual/blade.png" id="3_bwhec"]
 
@@ -15,6 +16,7 @@ offset = Vector2(120, 0)
 [node name="Light" type="Sprite2D" parent="Base"]
 self_modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
+material = ExtResource("2_bwhec")
 position = Vector2(-72, 0)
 texture = ExtResource("2_k6w0n")
 offset = Vector2(120, 0)
@@ -23,6 +25,7 @@ region_rect = Rect2(400, 0, 0, 128)
 
 [node name="Blade" type="Sprite2D" parent="Base"]
 show_behind_parent = true
+material = ExtResource("2_bwhec")
 position = Vector2(-72, 0)
 texture = ExtResource("3_bwhec")
 offset = Vector2(120, 0)

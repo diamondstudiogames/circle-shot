@@ -4,16 +4,21 @@ extends EventUI
 var _spectating_player: Player
 var _alive_players: Array[Player]
 
+## Устанавливает количество живых игроков.
 func set_alive_players(count: int) -> void:
 	($Main/PlayerCounter as Label).text = str(count)
 
 
+## Показывает победителя. [param won] - победил ли локальный игрок, [param winner_name] - имя
+## победителя.
 func show_winner(won: bool, winner_name: String) -> void:
 	($Main/GameEnd as Label).text = "ТЫ ПОБЕДИЛ!!!" if won else "ПОБЕДИТЕЛЬ: %s" % winner_name
 	($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"victory")
 	($Main/SpectatorMenu as CanvasItem).hide()
 
 
+## Убивает игрока. Используется для функции наблюдения. [param alive_players] это список живых
+## игроков, [param which] - ID убитого, [param killer] - ID убийцы.
 func kill_player(alive_players: Array[int], which: int, killer: int) -> void:
 	if Globals.headless:
 		return
@@ -34,17 +39,20 @@ func kill_player(alive_players: Array[int], which: int, killer: int) -> void:
 	_set_player_to_spectate(randi() % _alive_players.size())
 
 
+## Показывает поражение.
 func show_defeat() -> void:
 	($Main/GameEnd as Label).text = "ПОРАЖЕНИЕ!"
 	($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"defeat")
 	($Main/SpectatorMenu as CanvasItem).show()
 
 
+## Перейти к следующему игроку при наблюдении.
 func next_player() -> void:
 	var new_id: int = (_alive_players.find(_spectating_player) + 1) % _alive_players.size()
 	_set_player_to_spectate(new_id)
 
 
+## Перейти к предыдущему игроку при наблюдении.
 func previous_player() -> void:
 	var new_id: int = (_alive_players.find(_spectating_player) + _alive_players.size() - 1) \
 			% _alive_players.size()

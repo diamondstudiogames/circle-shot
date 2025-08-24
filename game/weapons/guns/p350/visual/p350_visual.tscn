@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://hco5h5lftad6"]
+[gd_scene load_steps=8 format=3 uid="uid://hco5h5lftad6"]
 
 [ext_resource type="Texture2D" uid="uid://b20ow4fkfx07c" path="res://game/weapons/guns/p350/visual/magazine.png" id="1_pq4h5"]
 [ext_resource type="Texture2D" uid="uid://btrkyxv6ft11g" path="res://game/weapons/guns/p350/visual/base.png" id="2_atbhr"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_fmbxn"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="3_vfo8i"]
 [ext_resource type="Texture2D" uid="uid://t7d0mqq0rq2r" path="res://game/weapons/guns/p350/visual/shutter.png" id="4_7on2q"]
 [ext_resource type="Texture2D" uid="uid://p7lc2resallt" path="res://game/weapons/guns/common/gun_sleeve.png" id="5_8p3l8"]
@@ -26,6 +27,7 @@ offset = Vector2(36, -8)
 [node name="Shoot" type="Sprite2D" parent="Base"]
 visible = false
 show_behind_parent = true
+material = ExtResource("3_fmbxn")
 position = Vector2(115, -33)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_vfo8i")

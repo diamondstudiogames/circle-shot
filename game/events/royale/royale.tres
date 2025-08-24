@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://b6lbtimr5h2h4" path="res://game/maps/royale/classic/classic.tres" id="1_j8k4y"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_x4pw4"]
 [ext_resource type="Resource" uid="uid://bwdhlwdrv1a5w" path="res://game/maps/royale/space/space.tres" id="4_2fwnc"]
-[ext_resource type="Resource" uid="uid://bv8o5y5sy8or2" path="res://game/maps/royale/underwater/underwater.tres" id="5_7ikd7"]
+[ext_resource type="Resource" uid="uid://bv8o5y5sy8or2" path="res://game/maps/royale/underwater_world/underwater_world.tres" id="5_7ikd7"]
 [ext_resource type="Resource" uid="uid://cq76r0krsilke" path="res://game/maps/royale/thunder/thunder.tres" id="6_racpl"]
 
 [resource]

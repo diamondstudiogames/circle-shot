@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dq6lpemfo4iff"]
+[gd_scene load_steps=17 format=3 uid="uid://dq6lpemfo4iff"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_vnids"]
 [ext_resource type="Script" uid="uid://d3dtb5f5fe825" path="res://game/weapons/grenades/molotov/projectile/molotov_projectile.gd" id="2_i84gj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="5_l5qjx"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="6_lx3vu"]
 [ext_resource type="Texture2D" uid="uid://de3oey0cdwrtj" path="res://game/weapons/grenades/molotov/projectile/burned_ground.png" id="7_y3is2"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="8_gwkkj"]
 [ext_resource type="Texture2D" uid="uid://c06fb7sw4545m" path="res://game/weapons/grenades/molotov/projectile/fire.png" id="8_wwvx1"]
 [ext_resource type="Texture2D" uid="uid://bmcxqenhlyp2f" path="res://game/weapons/grenades/molotov/projectile/explode.png" id="9_py4wg"]
 
@@ -708,6 +709,7 @@ damping = 600.0
 texture = ExtResource("3_eo4on")
 
 [node name="Flame" type="Sprite2D" parent="Grenade" index="1"]
+material = ExtResource("8_gwkkj")
 position = Vector2(15, -15)
 texture = ExtResource("4_gsgy7")
 
@@ -825,6 +827,7 @@ z_index = -4
 
 [node name="Fire" type="Sprite2D" parent="Explosion/Fire1" index="0"]
 self_modulate = Color(1, 1, 1, 0.792157)
+material = ExtResource("8_gwkkj")
 position = Vector2(-531, 8.99999)
 rotation = 1.23123
 scale = Vector2(2, 2)
@@ -832,6 +835,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire7" type="Sprite2D" parent="Explosion/Fire1" index="1"]
 self_modulate = Color(1, 1, 1, 0.901961)
+material = ExtResource("8_gwkkj")
 position = Vector2(514, 221)
 rotation = 2.22661
 scale = Vector2(2, 2)
@@ -839,6 +843,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire10" type="Sprite2D" parent="Explosion/Fire1" index="2"]
 self_modulate = Color(1, 1, 1, 0.839216)
+material = ExtResource("8_gwkkj")
 position = Vector2(232, 511)
 rotation = -2.76275
 scale = Vector2(2, 2)
@@ -846,6 +851,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire2" type="Sprite2D" parent="Explosion/Fire1" index="3"]
 self_modulate = Color(1, 1, 1, 0.882353)
+material = ExtResource("8_gwkkj")
 position = Vector2(-391, -430)
 rotation = 0.307988
 scale = Vector2(2, 2)
@@ -853,6 +859,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire5" type="Sprite2D" parent="Explosion/Fire1" index="4"]
 self_modulate = Color(1, 1, 1, 0.94902)
+material = ExtResource("8_gwkkj")
 position = Vector2(487, -233)
 rotation = 2.63158
 scale = Vector2(2, 2)
@@ -860,6 +867,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire3" type="Sprite2D" parent="Explosion/Fire1" index="5"]
 self_modulate = Color(1, 1, 1, 0.905882)
+material = ExtResource("8_gwkkj")
 position = Vector2(92, -512)
 rotation = -2.84862
 scale = Vector2(2, 2)
@@ -867,6 +875,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire8" type="Sprite2D" parent="Explosion/Fire1" index="6"]
 self_modulate = Color(1, 1, 1, 0.835294)
+material = ExtResource("8_gwkkj")
 position = Vector2(-241, 486)
 rotation = 2.27029
 scale = Vector2(2, 2)
@@ -877,6 +886,7 @@ modulate = Color(1, 1, 1, 0)
 z_index = -4
 
 [node name="Fire" type="Sprite2D" parent="Explosion/Fire0" index="0"]
+material = ExtResource("8_gwkkj")
 position = Vector2(-137, -161)
 rotation = -1.43232
 scale = Vector2(2, 2)
@@ -884,6 +894,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire2" type="Sprite2D" parent="Explosion/Fire0" index="1"]
 self_modulate = Color(1, 1, 1, 0.729412)
+material = ExtResource("8_gwkkj")
 position = Vector2(202, -74)
 rotation = 2.28808
 scale = Vector2(2, 2)
@@ -891,6 +902,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire6" type="Sprite2D" parent="Explosion/Fire0" index="2"]
 self_modulate = Color(1, 1, 1, 0.894118)
+material = ExtResource("8_gwkkj")
 position = Vector2(153, 233)
 rotation = -3.12932
 scale = Vector2(2, 2)
@@ -898,6 +910,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Fire3" type="Sprite2D" parent="Explosion/Fire0" index="3"]
 self_modulate = Color(1, 1, 1, 0.819608)
+material = ExtResource("8_gwkkj")
 position = Vector2(-164, 196)
 rotation = -0.320615
 scale = Vector2(2, 2)
@@ -905,6 +918,7 @@ texture = ExtResource("8_wwvx1")
 
 [node name="Explode" type="Sprite2D" parent="Explosion" index="5"]
 visible = false
+material = ExtResource("8_gwkkj")
 texture = ExtResource("9_py4wg")
 
 [node name="ExtinguishArea" type="Area2D" parent="." index="6"]

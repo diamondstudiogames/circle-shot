@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbu2je8ylxhxd"]
+[gd_scene load_steps=7 format=3 uid="uid://cbu2je8ylxhxd"]
 
 [ext_resource type="Texture2D" uid="uid://dcei15hn601wa" path="res://game/weapons/melee/skewers/visual/skewer.png" id="1_je3dc"]
 [ext_resource type="Texture2D" uid="uid://di262r2a0v0l4" path="res://game/weapons/melee/skewers/visual/skewer2.png" id="2_t104j"]
 [ext_resource type="Texture2D" uid="uid://b2ky8874eajh0" path="res://game/weapons/melee/skewers/visual/spark.png" id="3_6mqhj"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_t104j"]
 
 [sub_resource type="Curve" id="Curve_0mdr0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.83, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.454668), 0.0, 0.0, 0, 0]
@@ -43,11 +44,12 @@ update_scale = false
 z_index = -1
 
 [node name="Sparks" type="CPUParticles2D" parent="SparksPivot"]
+material = ExtResource("3_t104j")
 position = Vector2(200, 0)
 emitting = false
 amount = 4
 texture = ExtResource("3_6mqhj")
-lifetime = 0.4
+lifetime = 0.34
 one_shot = true
 explosiveness = 0.9
 local_coords = true

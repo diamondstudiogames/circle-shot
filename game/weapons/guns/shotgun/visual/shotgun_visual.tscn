@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhgrnfcb8xlai"]
+[gd_scene load_steps=7 format=3 uid="uid://dhgrnfcb8xlai"]
 
 [ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotgun/visual/ammo.png" id="1_1jnd5"]
 [ext_resource type="Texture2D" uid="uid://cln1si1eynqrx" path="res://game/weapons/guns/shotgun/visual/base.png" id="2_1s2h2"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_1s2h2"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="3_d5hbu"]
 [ext_resource type="Texture2D" uid="uid://b4lr212g17v0p" path="res://game/weapons/guns/shotgun/visual/shutter.png" id="4_kga5u"]
 
@@ -23,6 +24,7 @@ offset = Vector2(56, 0)
 [node name="Shoot" type="Sprite2D" parent="Base"]
 visible = false
 show_behind_parent = true
+material = ExtResource("3_1s2h2")
 position = Vector2(195, -16)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_d5hbu")

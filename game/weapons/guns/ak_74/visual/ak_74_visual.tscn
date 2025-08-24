@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://byp5ygduynmvg"]
+[gd_scene load_steps=8 format=3 uid="uid://byp5ygduynmvg"]
 
 [ext_resource type="Texture2D" uid="uid://c3d0qn8bq5v37" path="res://game/weapons/guns/ak_74/visual/magazine.png" id="1_ws2p6"]
 [ext_resource type="Texture2D" uid="uid://b43o2h304pj0x" path="res://game/weapons/guns/ak_74/visual/base.png" id="2_74mcq"]
 [ext_resource type="Texture2D" uid="uid://n0nan1cx7se1" path="res://game/weapons/guns/ak_74/visual/shutter.png" id="3_bbg40"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_74mcq"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_hxdut"]
 [ext_resource type="Texture2D" uid="uid://djpleqaaaxipo" path="res://game/weapons/guns/common/rifle_sleeve.png" id="5_lofxv"]
 
@@ -32,6 +33,7 @@ region_rect = Rect2(152, 24, 16, 16)
 [node name="Shoot" type="Sprite2D" parent="Weapon"]
 visible = false
 show_behind_parent = true
+material = ExtResource("4_74mcq")
 position = Vector2(214, -31)
 scale = Vector2(1, -1)
 texture = ExtResource("4_hxdut")
