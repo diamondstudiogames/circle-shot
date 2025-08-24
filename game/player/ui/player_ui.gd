@@ -73,7 +73,7 @@ var _health_bar_tween: Tween
 
 
 func _ready() -> void:
-	input_method = Globals.get_controls_int("input_method") as Globals.InputMethod
+	input_method = Globals.get_current_input_method() as Globals.InputMethod
 	_vibration_enabled = Globals.get_setting_bool("vibration")
 	
 	match input_method:

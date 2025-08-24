@@ -3,7 +3,7 @@ extends Node
 @export var id: String
 
 func _ready() -> void:
-	if Globals.get_controls_int("input_method") != Globals.InputMethod.TOUCH:
+	if Globals.get_current_input_method() != Globals.InputMethod.TOUCH:
 		return
 	
 	var parent: Control = get_parent()

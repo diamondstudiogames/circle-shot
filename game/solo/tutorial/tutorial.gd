@@ -37,7 +37,7 @@ func _initialize() -> void:
 	spawn_player()
 	stats_changed.connect(_on_stats_changed)
 	
-	_input_method = Globals.get_controls_int("input_method") as Globals.InputMethod
+	_input_method = Globals.get_current_input_method() as Globals.InputMethod
 	match _input_method:
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[0] % [

@@ -19,7 +19,7 @@ var _reward_scene: PackedScene = preload("uid://b1ipe4g6uueie")
 
 
 func _ready() -> void:
-	_input_method = Globals.get_controls_int("input_method") as Globals.InputMethod
+	_input_method = Globals.get_current_input_method() as Globals.InputMethod
 	($QuitDialog as AcceptDialog).dialog_text = "Ты действительно хочешь покинуть игру?"
 	if multiplayer.is_server():
 		($QuitDialog as AcceptDialog).dialog_text += "\nВнимание: ты являешься ХОСТОМ! \

@@ -8,10 +8,12 @@ extends Node
 enum InputMethod {
 	## Клавиатура и мышь.
 	KEYBOARD_AND_MOUSE = 0,
-	## Касаниями.
+	## Касания.
 	TOUCH = 1,
-	## Игровым контроллером.
+	## Игровой контроллер.
 	CONTROLLER = 2,
+	## Автоматически выбирать метод ввода.
+	AUTO = 3,
 }
 ## Перечисление с допустимыми типами событий для действия при использовании
 ## [enum InputMethod.KEYBOARD_AND_MOUSE].
@@ -59,6 +61,8 @@ var save_file: ConfigFile
 ## перед использованием!
 var data_file: ConfigFile
 
+var _previous_input_method := InputMethod.AUTO
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -67,7 +71,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if save_file and get_controls_int("input_method") == InputMethod.KEYBOARD_AND_MOUSE \
+	if save_file and get_current_input_method() == InputMethod.KEYBOARD_AND_MOUSE \
 			and event.is_action(&"fullscreen") and event.is_pressed():
 		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
 		apply_settings()
@@ -259,12 +263,7 @@ func setup_settings() -> void:
 
 ## Устанавливает настройки управления по умолчанию, если их ещё нет.
 func setup_controls_settings() -> void:
-	var default_input_method: InputMethod = InputMethod.KEYBOARD_AND_MOUSE
-	if DisplayServer.is_touchscreen_available() and not Input.emulate_touch_from_mouse:
-		default_input_method = InputMethod.TOUCH
-	if not Input.get_connected_joypads().is_empty():
-		default_input_method = InputMethod.CONTROLLER
-	set_controls_int("input_method", get_controls_int("input_method", default_input_method))
+	set_controls_int("input_method", get_controls_int("input_method", InputMethod.AUTO))
 	set_controls_bool("follow_mouse", get_controls_bool("follow_mouse", true))
 	set_controls_bool("always_show_aim", get_controls_bool("always_show_aim", false))
 	set_controls_bool("joystick_fire", get_controls_bool("joystick_fire", false))
@@ -417,20 +416,21 @@ func apply_settings() -> void:
 
 ## Применяет настройки управления.
 func apply_controls_settings() -> void:
-	Input.emulate_touch_from_mouse = get_controls_int("input_method") == InputMethod.TOUCH
+	var input_method: InputMethod = get_current_input_method(false)
+	Input.emulate_touch_from_mouse = input_method == InputMethod.TOUCH
 	
-	if get_controls_int("input_method") == InputMethod.TOUCH:
+	if input_method == InputMethod.TOUCH:
 		return
 	InputMap.load_from_project_settings()
 	for action: StringName in InputMap.get_actions():
 		if action.begins_with("ui_"):
 			continue
 		if action.begins_with("c_"):
-			if get_controls_int("input_method") != InputMethod.CONTROLLER:
+			if input_method != InputMethod.CONTROLLER:
 				InputMap.erase_action(action)
 				continue
 		else:
-			if get_controls_int("input_method") != InputMethod.KEYBOARD_AND_MOUSE:
+			if input_method != InputMethod.KEYBOARD_AND_MOUSE:
 				InputMap.erase_action(action)
 				continue
 		InputMap.action_erase_events(action)
@@ -463,6 +463,27 @@ func apply_controls_settings() -> void:
 					event = jm
 			
 			InputMap.action_add_event(action, event)
+
+
+## Возвращает текущий метод ввода. Если [param update_settings] равен [code]true[/code] и текущий
+## метод ввода - автоматический, то этот метод также вызовет [method apply_controls_settings], если
+## автоматически определённый метод ввода поменялся с прошлого вызова этого метода.
+func get_current_input_method(update_settings := true) -> InputMethod:
+	if get_controls_int("input_method") != InputMethod.AUTO:
+		return get_controls_int("input_method") as InputMethod
+	
+	var input_method: InputMethod = InputMethod.TOUCH
+	if DisplayServer.has_hardware_keyboard():
+		input_method = InputMethod.KEYBOARD_AND_MOUSE
+	if not Input.get_connected_joypads().is_empty():
+		input_method = InputMethod.CONTROLLER
+	
+	if input_method != _previous_input_method:
+		_previous_input_method = input_method
+		if update_settings:
+			apply_controls_settings()
+	
+	return input_method
 #endregion
 
 

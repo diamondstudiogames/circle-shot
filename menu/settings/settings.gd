@@ -94,7 +94,7 @@ func _ready() -> void:
 	
 	_update_aim_visual_size()
 	get_window().size_changed.connect(_update_aim_visual_size)
-	_update_connected_joypads()
+	_update_input_methods()
 	
 	# Инфа о сохранении
 	(%SaveInfo/Name as Label).text = Globals.get_string("player_name")
@@ -195,6 +195,7 @@ func _toggle_input_method_settings_visibility(method: Globals.InputMethod) -> vo
 	(%KeyboardSettings as CanvasItem).hide()
 	(%TouchSettings as CanvasItem).hide()
 	(%ControllerSettings as CanvasItem).hide()
+	(%AutoSettings as CanvasItem).hide()
 	match method:
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			(%KeyboardSettings as CanvasItem).show()
@@ -202,6 +203,9 @@ func _toggle_input_method_settings_visibility(method: Globals.InputMethod) -> vo
 			(%TouchSettings as CanvasItem).show()
 		Globals.InputMethod.CONTROLLER:
 			(%ControllerSettings as CanvasItem).show()
+		Globals.InputMethod.AUTO:
+			(%AutoSettings as CanvasItem).show()
+	_update_input_methods()
 
 
 func _update_aim_visual_size() -> void:
@@ -235,7 +239,10 @@ func _show_played_time() -> void:
 	(%SaveInfo/PlayedTime as Label).text = "Проведено времени в игре: %s" % played_time
 
 
-func _update_connected_joypads() -> void:
+func _update_input_methods() -> void:
+	(%InputMethod as Label).text = "Определённый тип управления: %s" \
+			% (%InputOptions as OptionButton).get_item_text(Globals.get_current_input_method())
+	
 	var text: String
 	var connected_joypads: Array[int] = Input.get_connected_joypads()
 	if connected_joypads.is_empty():

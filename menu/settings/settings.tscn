@@ -41,7 +41,8 @@ Forward Mobile - современный метод отрисовки, одна�
 Прицел - перекат будет выполняться в сторону прицела.", "Настраивает тип управления.
 Касания - управление джойстиками и кнопками на экране. Предназначено для управления на телефонах.
 Клавитура и мышь - управление с клавиатуры и прицеливание с помощью мыши. Предназначено для ПК, однако может использоваться и на телефонах, если подключены физические устройства ввода.
-Контроллер - управление игровым контроллером.", "Если включено, прицел всегда смотрит в сторону мыши.
+Контроллер - управление игровым контроллером.
+Автоматически - выбирает один из указанных выше типов управления на основе подключённых устройств.", "Если включено, прицел всегда смотрит в сторону мыши.
 Если отключено, прицел повернётся в сторону мыши при нажатии действия ПОКАЗАТЬ ПРИЦЕЛ.", "Включает загрузку пользовательских треков.
 Максимум одновременно загруженых треков - 20.
 Максимальный размер трека - 10 МБ. Если трек имеет больший размер, он не будет загружен.
@@ -1015,13 +1016,15 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
-item_count = 3
+item_count = 4
 popup/item_0/text = "Клавиатура + Мышь"
 popup/item_0/id = 0
 popup/item_1/text = "Касания"
 popup/item_1/id = 0
 popup/item_2/text = "Контроллер"
 popup/item_2/id = 2
+popup/item_3/text = "Автоматически"
+popup/item_3/id = 3
 
 [node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting"]
 custom_minimum_size = Vector2(48, 0)
@@ -1359,6 +1362,22 @@ layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 horizontal_alignment = 1
 
+[node name="AutoSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InputMethod" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Чтобы изменить настройки, выбери нужный тип управления"
+horizontal_alignment = 1
+
 [node name="HelpDialog" type="AcceptDialog" parent="."]
 title = "Помощь по настройке"
 size = Vector2i(800, 120)
@@ -1540,7 +1559,7 @@ icon = ExtResource("12_g4yas")
 [node name="ActionsConfiguration" parent="." instance_placeholder="res://menu/settings/actions_configuration.tscn"]
 visible = false
 
-[node name="UpdateConnectedJoypadsTimer" type="Timer" parent="."]
+[node name="UpdateInputMethodsTimer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Title/Quit" to="." method="_on_quit_pressed"]
@@ -1629,6 +1648,6 @@ autostart = true
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Export" to="." method="_on_export_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Import" to="." method="_on_import_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/DeleteData" to="ManageSaveDialog/Dialogs/EraseDataDialog" method="popup_centered"]
-[connection signal="timeout" from="UpdateConnectedJoypadsTimer" to="." method="_update_connected_joypads"]
+[connection signal="timeout" from="UpdateInputMethodsTimer" to="." method="_update_input_methods"]
 
 [editable path="ManageSaveDialog/Dialogs/NameDialog"]
