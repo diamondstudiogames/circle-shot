@@ -198,7 +198,8 @@ func _on_edit_map_pressed() -> void:
 	get_viewport().gui_snap_controls_to_pixels = false
 	
 	_prev_map_data = Globals.get_variant("custom_training_map", PackedByteArray())
-	_prev_enemies_data = Globals.get_variant("custom_training_enemies", [{}] as Array[Dictionary])
+	_prev_enemies_data = Globals.get_variant("custom_training_map_enemies",
+			[{}] as Array[Dictionary])
 
 
 func _on_close_map_editor_pressed() -> void:
@@ -207,7 +208,7 @@ func _on_close_map_editor_pressed() -> void:
 	get_viewport().gui_snap_controls_to_pixels = true
 	
 	if _prev_map_data != Globals.get_variant("custom_training_map", PackedByteArray()) \
-			or _prev_enemies_data != Globals.get_variant("custom_training_enemies", [{}]):
+			or _prev_enemies_data != Globals.get_variant("custom_training_map_enemies", [{}]):
 		(%CurrentMap as Label).text = "Загрузка карты..."
 		await get_tree().process_frame
 		await _training.load_default_map()

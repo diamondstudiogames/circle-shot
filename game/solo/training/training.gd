@@ -87,8 +87,10 @@ func spawn_player(teleport := true) -> void:
 
 
 ## Создаёт врага с типом [param type] в позиции [param position] с максимальным здоровьем в
-## [param health] ОЗ и множителем урона в [param damage_multiplier].
-func spawn_enemy(type: EnemyType, position: Vector2, health: int, damage_multiplier: float) -> void:
+## [param health] ОЗ, множителем урона в [param damage_multiplier]
+## и множителем скорости в [param speed_multiplier].
+func spawn_enemy(type: EnemyType, position: Vector2, health: int,
+		damage_multiplier: float, speed_multiplier: float) -> void:
 	var enemy: Entity = entity_scenes[1 + type].instantiate()
 	enemy.position = position
 	enemy.team = 1
@@ -96,6 +98,7 @@ func spawn_enemy(type: EnemyType, position: Vector2, health: int, damage_multipl
 	enemy.name += str(enemy.id)
 	enemy.max_health = health
 	enemy.damage_multiplier = damage_multiplier
+	enemy.speed_multiplier = speed_multiplier
 	enemy.damaged.connect(_on_enemy_damaged)
 	enemy.killed.connect(_on_enemy_killed)
 	$Entities.add_child(enemy, true)
@@ -146,20 +149,22 @@ func load_default_map() -> void:
 						spikes_parent.add_child(spikes)
 	
 	enemies_data.clear()
-	if Globals.get_variant("custom_training_enemies", [{}]) == [{}]:
+	if Globals.get_variant("custom_training_map_enemies", [{}]) == [{}]:
 		_set_default_enemies_data()
 	else:
 		var enemies_data_dicts: Array[Dictionary] = \
-				Globals.get_variant("custom_training_enemies", [] as Array[Dictionary])
+				Globals.get_variant("custom_training_map_enemies", [] as Array[Dictionary])
 		
 		for dict: Dictionary in enemies_data_dicts:
 			var type: EnemyType = dict["type"]
 			var coords: Vector2i = dict["coords"]
 			var health: int = dict["health"]
 			var damage_multiplier: float = dict["damage_multiplier"]
+			var speed_multiplier: float = dict["speed_multiplier"]
 			var enemy_data := EnemyData.new(type, coords)
 			enemy_data.health = health
 			enemy_data.damage_multiplier = damage_multiplier
+			enemy_data.speed_multiplier = speed_multiplier
 			enemies_data.append(enemy_data)
 	
 	for enemy_data: EnemyData in enemies_data:
@@ -368,7 +373,8 @@ func enemies_respawn() -> void:
 	for enemy_data: EnemyData in enemies_data:
 		var position := Vector2(enemy_data.coords - Vector2i.ONE * 25) * 160
 		position += Vector2.ONE * 80
-		spawn_enemy(enemy_data.type, position, enemy_data.health, enemy_data.damage_multiplier)
+		spawn_enemy(enemy_data.type, position, enemy_data.health,
+				enemy_data.damage_multiplier, enemy_data.speed_multiplier)
 
 
 ## Сбрасывает счётчики ([member damaged], [member kills] и [member deaths]).
@@ -415,6 +421,8 @@ class EnemyData:
 	var health: int = 100
 	## Множитель урона врага.
 	var damage_multiplier := 1.0
+	## Множитель урона скорости врага.
+	var speed_multiplier := 1.0
 	## Координаты врага в целых числах, где 0 - левый верхний угол карты.
 	var coords: Vector2i
 	

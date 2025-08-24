@@ -1,6 +1,5 @@
 class_name RobotMadnessUI
 extends ChallengeUI
-
 ## Интерфейс испытания "Рубка роботов".
 
 @onready var _stats_label: Label = $Main/Stats

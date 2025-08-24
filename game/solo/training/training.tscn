@@ -520,7 +520,7 @@ cancel_button_text = "Отмена"
 [node name="EditEnemy" type="Window" parent="UI/Menu/PanelContainer/MapEditor" index="4"]
 oversampling_override = 1.0
 title = "Редактирование врага"
-size = Vector2i(480, 224)
+size = Vector2i(560, 272)
 visible = false
 transient = true
 exclusive = true
@@ -601,13 +601,43 @@ theme_type_variation = &"HeaderSmall"
 text = "x1.0"
 horizontal_alignment = 1
 
-[node name="SaveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="2"]
+[node name="SpeedMultiplier" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "Множитель скорости"
+
+[node name="SpeedSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.09999999999126884
+max_value = 2.0
+step = 0.09999999999126884
+value = 0.9999999999126988
+
+[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="1"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "x1.0"
+horizontal_alignment = 1
+
+[node name="SaveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Сохранить"
 icon = ExtResource("20_j183o")
 
-[node name="Buttons" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="3"]
+[node name="Buttons" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="4"]
 layout_mode = 2
 alignment = 1
 
@@ -798,6 +828,7 @@ one_shot = true
 [connection signal="close_requested" from="UI/Menu/PanelContainer/MapEditor/EditEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
 [connection signal="value_changed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health/HealthSlider/Slider" to="UI/Menu/PanelContainer/MapEditor" method="_on_health_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier/DamageSlider/Slider" to="UI/Menu/PanelContainer/MapEditor" method="_on_damage_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider/Slider" to="UI/Menu/PanelContainer/MapEditor" method="_on_speed_slider_value_changed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SaveEnemy" to="UI/Menu/PanelContainer/MapEditor" method="_on_save_enemy_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SaveEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/MoveEnemy" to="UI/Menu/PanelContainer/MapEditor" method="_on_move_enemy_pressed"]

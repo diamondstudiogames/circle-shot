@@ -62,6 +62,7 @@ func _initialize() -> void:
 		var new_enemy_data := Training.EnemyData.new(enemy_data.type, enemy_data.coords)
 		new_enemy_data.health = enemy_data.health
 		new_enemy_data.damage_multiplier = enemy_data.damage_multiplier
+		new_enemy_data.speed_multiplier = enemy_data.speed_multiplier
 		_enemies_data.append(new_enemy_data)
 	
 	_update_enemies()
@@ -206,6 +207,7 @@ func _update_enemies() -> void:
 func _edit_enemy(idx: int) -> void:
 	(%HealthSlider/Slider as Range).value = _enemies_data[idx].health
 	(%DamageSlider/Slider as Range).value = _enemies_data[idx].damage_multiplier
+	(%SpeedSlider/Slider as Range).value = _enemies_data[idx].speed_multiplier
 	
 	($EditEnemy as Window).popup_centered()
 	_editing_enemy_idx = idx
@@ -232,9 +234,10 @@ func _on_save_pressed() -> void:
 			"type": enemy_data.type,
 			"health": enemy_data.health,
 			"damage_multiplier": enemy_data.damage_multiplier,
+			"speed_multiplier": enemy_data.speed_multiplier,
 			"coords": enemy_data.coords,
 		})
-	Globals.set_variant("custom_training_enemies", enemies_data_array)
+	Globals.set_variant("custom_training_map_enemies", enemies_data_array)
 	_status.text = "Изменения сохранены."
 
 
@@ -243,7 +246,7 @@ func _on_reset_dialog_confirmed() -> void:
 		_cancel_move_enemy()
 	
 	Globals.set_variant("custom_training_map", PackedByteArray())
-	Globals.set_variant("custom_training_enemies", [{}] as Array[Dictionary])
+	Globals.set_variant("custom_training_map_enemies", [{}] as Array[Dictionary])
 	($Header/CloseMapEditor as BaseButton).pressed.emit()
 	_status.text = "Сброшено до варианта карты по умолчанию."
 
@@ -399,6 +402,10 @@ func _on_damage_slider_value_changed(value: float) -> void:
 	(%DamageSlider/Value as Label).text = "x%.1f" % value
 
 
+func _on_speed_slider_value_changed(value: float) -> void:
+	(%SpeedSlider/Value as Label).text = "x%.1f" % value
+
+
 func _on_delete_enemy_pressed() -> void:
 	_enemies_data.remove_at(_editing_enemy_idx)
 	_update_enemies()
@@ -407,6 +414,7 @@ func _on_delete_enemy_pressed() -> void:
 func _on_save_enemy_pressed() -> void:
 	_enemies_data[_editing_enemy_idx].health = int((%HealthSlider/Slider as Range).value)
 	_enemies_data[_editing_enemy_idx].damage_multiplier = (%DamageSlider/Slider as Range).value
+	_enemies_data[_editing_enemy_idx].speed_multiplier = (%SpeedSlider/Slider as Range).value
 
 
 func _on_move_enemy_pressed() -> void:
