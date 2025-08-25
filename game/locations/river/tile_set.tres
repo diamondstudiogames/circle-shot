@@ -1,21 +1,22 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cqtubyifhoudw"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://cqtubyifhoudw"]
 
 [ext_resource type="Texture2D" uid="uid://dr3gkvc3kct5j" path="res://game/locations/river/fence.png" id="1_sv5dq"]
 [ext_resource type="Texture2D" uid="uid://b0tjnwaa51lsv" path="res://game/locations/river/floor_tiles.png" id="2_jc3us"]
 [ext_resource type="Texture2D" uid="uid://b0ppb2f5o052p" path="res://game/locations/river/water.png" id="3_hoh82"]
+[ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/locations/river/water.tres" id="3_jc3us"]
 [ext_resource type="Texture2D" uid="uid://omfdhfar6rqn" path="res://game/locations/river/wall_tiles.png" id="4_mbd53"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_df546"]
 tile_data = PackedInt32Array(0, 131075, 0, 65536, 131075, 1, 1, 196611, 0, 65537, 196611, 1)
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_w2u7q"]
-tile_data = PackedInt32Array(0, 3, 2, 65536, 3, 3, 131072, 3, 4, 1, 65539, 2, 65537, 65539, 3, 131073, 65539, 4, 2, 131075, 2, 65538, 131075, 3, 131074, 131075, 4)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_e64b4"]
-tile_data = PackedInt32Array(0, 196611, 3, 65536, 196611, 4, 1, 262147, 3, 65537, 262147, 4)
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_8um5f"]
 tile_data = PackedInt32Array(0, 196611, 2, 65536, 262147, 0, 1, 262147, 2, 65537, 262147, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_jc3us"]
+tile_data = PackedInt32Array(0, 3, 0, 65536, 3, 1, 1, 65539, 0, 65537, 65539, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mbd53"]
+tile_data = PackedInt32Array(0, 196611, 3, 65536, 196611, 4, 1, 262147, 3, 65537, 262147, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpl6s"]
 texture = ExtResource("1_sv5dq")
@@ -316,6 +317,7 @@ texture_region_size = Vector2i(160, 160)
 texture = ExtResource("3_hoh82")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
+0:0/0/material = ExtResource("3_jc3us")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e64b4"]
 texture = ExtResource("4_mbd53")
@@ -393,6 +395,6 @@ sources/2 = SubResource("TileSetAtlasSource_w2u7q")
 sources/0 = SubResource("TileSetAtlasSource_dpl6s")
 sources/3 = SubResource("TileSetAtlasSource_e64b4")
 pattern_0 = SubResource("TileMapPattern_df546")
-pattern_1 = SubResource("TileMapPattern_w2u7q")
-pattern_2 = SubResource("TileMapPattern_e64b4")
-pattern_3 = SubResource("TileMapPattern_8um5f")
+pattern_1 = SubResource("TileMapPattern_8um5f")
+pattern_2 = SubResource("TileMapPattern_jc3us")
+pattern_3 = SubResource("TileMapPattern_mbd53")
