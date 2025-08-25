@@ -33,10 +33,6 @@ extends Event
 var alive_players: Array[int]
 
 var _spawn_counter: int = 0
-var _heal_box_counter: int = 0
-var _ammo_box_counter: int = 0
-var _weapon_box_counter: int = 0
-
 var _ended := false
 var _places: int
 var _place_got: int
@@ -47,18 +43,12 @@ var _weapon_box_scene: PackedScene = load("uid://d0d83mi7scscc")
 var _poison_smokes_scene: PackedScene = load("uid://cr1m37xm3w88w")
 
 @onready var _spawn_points: Array[Node] = $Map/SpawnPoints.get_children()
-@onready var _heal_box_points: Array[Node] = $Map/HealPoints.get_children()
-@onready var _ammo_box_points: Array[Node] = $Map/AmmoPoints.get_children()
-@onready var _weapon_box_points: Array[Node] = $Map/WeaponBoxPoints.get_children()
 @onready var _royale_ui: RoyaleUI = $UI
 
 
 func _initialize() -> void:
 	if multiplayer.is_server():
 		_spawn_points.shuffle()
-		_heal_box_points.shuffle()
-		_ammo_box_points.shuffle()
-		_weapon_box_points.shuffle()
 	alive_players = players_names.keys()
 	_royale_ui.set_alive_players(alive_players.size())
 
@@ -136,41 +126,55 @@ func _show_winner(winner: int, winner_name: String) -> void:
 	_royale_ui.show_winner(winner == multiplayer.get_unique_id(), winner_name)
 
 
+func _get_box_spawn_point() -> Vector2:
+	var game_zone: float = maxf(320.0, ($PoisonSmokes/Right as Node2D).global_position.x - 240.0)
+	var test_shape := RectangleShape2D.new()
+	test_shape.size = Vector2.ONE * 76
+	while true:
+		var value_x: float = ease(randf(), 1.5)
+		if randi() % 2 == 1:
+			value_x *= -1
+		var value_y: float = ease(randf(), 1.5)
+		if randi() % 2 == 1:
+			value_y *= -1
+		var point := Vector2(value_x * game_zone, value_y * game_zone)
+		point = point.snappedf(160.0) + Vector2.ONE * 80.0
+		
+		var parameters := PhysicsShapeQueryParameters2D.new()
+		parameters.collide_with_areas = true
+		parameters.collision_mask = 49 # World, Fence и Items
+		parameters.shape = test_shape
+		parameters.transform = Transform2D(0.0, point)
+		var results: Array[Dictionary] = PhysicsServer2D.space_get_direct_state(
+				get_viewport().find_world_2d().space).intersect_shape(parameters, 1)
+		if results.is_empty():
+			return point
+	
+	return Vector2()
+
+
 func _spawn_heal_box() -> void:
-	var spawn_position: Vector2 = (_heal_box_points[_heal_box_counter] as Node2D).global_position
+	var spawn_position: Vector2 = _get_box_spawn_point()
 	var heal_box: Node2D = _heal_box_scene.instantiate()
 	heal_box.position = spawn_position
 	heal_box.name += str(randi())
 	$Other.add_child(heal_box, true)
-	_heal_box_counter += 1
-	if _heal_box_counter == _heal_box_points.size():
-		_heal_box_counter = 0
-		_heal_box_points.shuffle()
 
 
 func _spawn_ammo_box() -> void:
-	var spawn_position: Vector2 = (_ammo_box_points[_ammo_box_counter] as Node2D).global_position
+	var spawn_position: Vector2 = _get_box_spawn_point()
 	var ammo_box: Node2D = _ammo_box_scene.instantiate()
 	ammo_box.position = spawn_position
 	ammo_box.name += str(randi())
 	$Other.add_child(ammo_box, true)
-	_ammo_box_counter += 1
-	if _ammo_box_counter == _ammo_box_points.size():
-		_ammo_box_counter = 0
-		_ammo_box_points.shuffle()
 
 
-func _spawn_weapon() -> void:
-	var spawn_position: Vector2 = \
-			(_weapon_box_points[_weapon_box_counter] as Node2D).global_position
+func _spawn_weapon_box() -> void:
+	var spawn_position: Vector2 = _get_box_spawn_point()
 	var weapon_box: Node2D = _weapon_box_scene.instantiate()
 	weapon_box.position = spawn_position
 	weapon_box.name += str(randi())
 	$Other.add_child(weapon_box, true)
-	_weapon_box_counter += 1
-	if _weapon_box_counter == _weapon_box_points.size():
-		_weapon_box_counter = 0
-		_weapon_box_points.shuffle()
 
 
 func _check_for_end() -> void:
@@ -184,9 +188,12 @@ func _check_for_end() -> void:
 	($HealBoxSpawnTimer as Timer).stop()
 	($AmmoBoxSpawnTimer as Timer).stop()
 	($WeaponBoxSpawnTimer as Timer).stop()
-	await get_tree().create_timer(6.5, false).timeout
+	
+	_event_timer.start(6.5)
+	await _event_timer.timeout
 	cleanup()
-	await get_tree().create_timer(0.5, false).timeout
+	_event_timer.start(0.5)
+	await _event_timer.timeout
 	end.rpc()
 
 
@@ -202,7 +209,7 @@ func _on_ammo_box_spawn_timer_timeout() -> void:
 			+ ammo_box_spawn_interval_per_player * alive_players.size())
 
 
-func _on_weapon_spawn_timer_timeout() -> void:
-	_spawn_weapon()
+func _on_weapon_box_spawn_timer_timeout() -> void:
+	_spawn_weapon_box()
 	($WeaponBoxSpawnTimer as Timer).start(weapon_box_spawn_interval_base
 			+ weapon_box_spawn_interval_per_player * alive_players.size())

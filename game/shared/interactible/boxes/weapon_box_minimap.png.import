@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk76lmnl8rml0"
-path="res://.godot/imported/marker.png-f2de75872fcf58bc3dd3e19a5f617662.ctex"
+uid="uid://dspcfy4d4kxaq"
+path="res://.godot/imported/weapon_box_minimap.png-835d24b046e67a32ae12ff052c7eedd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/shared/ui/minimap/marker.png"
-dest_files=["res://.godot/imported/marker.png-f2de75872fcf58bc3dd3e19a5f617662.ctex"]
+source_file="res://game/shared/interactible/boxes/weapon_box_minimap.png"
+dest_files=["res://.godot/imported/weapon_box_minimap.png-835d24b046e67a32ae12ff052c7eedd2.ctex"]
 
 [params]
 

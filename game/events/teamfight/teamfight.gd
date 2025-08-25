@@ -165,7 +165,14 @@ func _show_winner(team: int) -> void:
 
 
 func _respawn_player(id: int) -> void:
-	await get_tree().create_timer(comeback_time, false).timeout
+	var comeback_timer := Timer.new()
+	comeback_timer.one_shot = true
+	comeback_timer.name = "ComebackTimer%d" % id
+	add_child(comeback_timer)
+	
+	comeback_timer.start(comeback_time)
+	await comeback_timer.timeout
+	comeback_timer.queue_free()
 	if _time_remained > 0 and id in players_names:
 		spawn_player(id)
 
@@ -182,9 +189,11 @@ func _end_event() -> void:
 	else:
 		_show_winner.rpc(-1)
 	freeze_players.rpc()
-	await get_tree().create_timer(6.5, false).timeout
+	_event_timer.start(6.5)
+	await _event_timer.timeout
 	cleanup()
-	await get_tree().create_timer(0.5, false).timeout
+	_event_timer.start(0.5)
+	await _event_timer.timeout
 	end.rpc()
 
 

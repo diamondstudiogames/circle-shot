@@ -403,6 +403,8 @@ text = "Побеждай противников на счёт!"
 text = "Побеждает команда
 с наибольшим счётом!"
 
+[node name="ComebackTimer" type="Timer" parent="UI" index="3"]
+
 [node name="MatchTimer" type="Timer" parent="." index="15"]
 
 [connection signal="local_player_created" from="." to="." method="_on_local_player_created"]

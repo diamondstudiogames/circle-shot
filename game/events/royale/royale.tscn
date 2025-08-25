@@ -171,15 +171,12 @@ metadata/_edit_horizontal_guides_ = []
 _spawnable_scenes = PackedStringArray("uid://bdtqr6mv231py", "uid://bysyaaj2r7stt", "uid://d0d83mi7scscc")
 
 [node name="HealBoxSpawnTimer" type="Timer" parent="." index="7"]
-wait_time = 15.0
 one_shot = true
 
 [node name="AmmoBoxSpawnTimer" type="Timer" parent="." index="8"]
-wait_time = 15.0
 one_shot = true
 
 [node name="WeaponBoxSpawnTimer" type="Timer" parent="." index="9"]
-wait_time = 15.0
 one_shot = true
 
 [node name="UI" parent="." index="11"]
@@ -311,6 +308,6 @@ resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes
 [connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="timeout" from="HealBoxSpawnTimer" to="." method="_on_heal_box_spawn_timer_timeout"]
 [connection signal="timeout" from="AmmoBoxSpawnTimer" to="." method="_on_ammo_box_spawn_timer_timeout"]
-[connection signal="timeout" from="WeaponBoxSpawnTimer" to="." method="_on_weapon_spawn_timer_timeout"]
+[connection signal="timeout" from="WeaponBoxSpawnTimer" to="." method="_on_weapon_box_spawn_timer_timeout"]
 [connection signal="pressed" from="UI/Main/SpectatorMenu/Previous" to="UI" method="previous_player"]
 [connection signal="pressed" from="UI/Main/SpectatorMenu/Next" to="UI" method="next_player"]

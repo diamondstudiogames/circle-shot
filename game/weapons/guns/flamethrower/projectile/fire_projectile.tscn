@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b70ishj7g21cw" path="res://game/weapons/guns/flamethrower/projectile/fire_projectile.png" id="2_sll50"]
 [ext_resource type="Script" uid="uid://d3jenegyngmbp" path="res://game/weapons/guns/flamethrower/projectile/fire_projectile.gd" id="2_x8sdb"]
 [ext_resource type="PackedScene" uid="uid://b8mtoflrhtnpw" path="res://game/weapons/guns/flamethrower/projectile/fire_hit_vfx.tscn" id="3_x8sdb"]
-[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="4_xfubw"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="4_xfubw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sll50"]
 radius = 32.0

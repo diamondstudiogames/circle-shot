@@ -534,6 +534,8 @@ text = "Принеси флаг противника на свою базу!"
 text = "Захвати как можно
 больше флагов!"
 
+[node name="ComebackTimer" type="Timer" parent="UI" index="3"]
+
 [node name="MatchTimer" type="Timer" parent="." index="12"]
 
 [node name="FlagZoneRed" type="Area2D" parent="." index="13"]

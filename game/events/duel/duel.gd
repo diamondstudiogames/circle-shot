@@ -167,11 +167,14 @@ func _end_round(win_team: int, winner: int, ends := false) -> void:
 	if not multiplayer.is_server():
 		return
 	
-	await get_tree().create_timer(3.5, false).timeout
+	_event_timer.start(3.5)
+	await _event_timer.timeout
 	if ends:
-		await get_tree().create_timer(3.0, false).timeout
+		_event_timer.start(3.0)
+		await _event_timer.timeout
 	cleanup()
-	await get_tree().create_timer(0.5, false).timeout
+	_event_timer.start(0.5)
+	await _event_timer.timeout
 	if ends:
 		end.rpc()
 	elif current_round < 3:

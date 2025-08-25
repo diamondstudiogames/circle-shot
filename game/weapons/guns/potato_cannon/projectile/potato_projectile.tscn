@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bblojw22axgbu" path="res://game/weapons/guns/potato_cannon/projectile/potato.png" id="2_41yuf"]
 [ext_resource type="PackedScene" uid="uid://bkgghno3wrpwo" path="res://game/weapons/guns/potato_cannon/projectile/potato_hit_vfx.tscn" id="3_3d77g"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_41yuf"]
-[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="4_gkuv7"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="4_gkuv7"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gkuv7"]
 properties/0/path = NodePath(".:rotation")

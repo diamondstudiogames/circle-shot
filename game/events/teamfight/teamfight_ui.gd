@@ -31,9 +31,11 @@ func show_comeback(time: int) -> void:
 	comeback.show()
 	
 	var countdown: int = time
+	($ComebackTimer as Timer).start()
 	while countdown > 0:
 		comeback.text = "Возвращение через %d..." % countdown
-		await get_tree().create_timer(1.0, false).timeout
+		await ($ComebackTimer as Timer).timeout
 		countdown -= 1
+	($ComebackTimer as Timer).stop()
 	
 	comeback.hide()

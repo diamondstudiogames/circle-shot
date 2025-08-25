@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_7dcoq"]
 [ext_resource type="PackedScene" uid="uid://csv5dwyvt57x6" path="res://game/weapons/guns/bazooka/projectile/explosion_vfx.tscn" id="3_jrmds"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="5_jrmds"]
-[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="5_oxn8s"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="5_oxn8s"]
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="6_wxhwr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgst8"]

@@ -583,6 +583,9 @@ bus = &"Music"
 wait_time = 1.2
 one_shot = true
 
+[node name="ChallengeTimer" type="Timer" parent="." index="15"]
+one_shot = true
+
 [connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]
 [connection signal="close_requested" from="UI/PauseDialog" to="UI" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Resume" to="UI" method="_on_resume_pressed"]

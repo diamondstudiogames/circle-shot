@@ -14,6 +14,7 @@ var was_started := false
 var _player_skill_vars: Array[int]
 ## Ссылка на [ChallengeUI].
 @onready var challenge_ui: ChallengeUI = $UI
+@onready var _challenge_timer: Timer = $ChallengeTimer
 
 
 func _ready() -> void:
@@ -21,7 +22,8 @@ func _ready() -> void:
 	
 	spawn_player()
 	challenge_ui.show_intro()
-	await get_tree().create_timer(5.0, false).timeout
+	_challenge_timer.start(5.0)
+	await _challenge_timer.timeout
 	_start()
 
 
@@ -89,7 +91,8 @@ func end_challenge(victory: bool) -> void:
 	Globals.set_int("coins", Globals.get_int("coins") + coins_got)
 	challenge_ui.show_rewards(rewards, coins_got)
 	
-	await get_tree().create_timer(5.5, false).timeout
+	_challenge_timer.start(5.5)
+	await _challenge_timer.timeout
 	print_verbose("Challenge ended.")
 	Globals.main.game.close()
 

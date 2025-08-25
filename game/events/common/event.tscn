@@ -467,6 +467,9 @@ bus = &"Music"
 wait_time = 1.2
 one_shot = true
 
+[node name="EventTimer" type="Timer" parent="." index="15"]
+one_shot = true
+
 [connection signal="pressed" from="UI/Main/Leave" to="UI/QuitDialog" method="popup_centered"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI" method="_on_chat_toggled"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI/Main/ChatPanel" method="_on_chat_toggled"]

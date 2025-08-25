@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cdpr5xerct73v" path="res://game/entity/health_bar/health_bar_empty.png" id="5_2rju8"]
 [ext_resource type="Script" uid="uid://c8umd4t3k47q2" path="res://game/entity/health_bar/health_bar.gd" id="6_ikluj"]
 [ext_resource type="Texture2D" uid="uid://ccnfac6sqp01y" path="res://game/entity/health_bar/health_bar.png" id="7_8qsf0"]
-[ext_resource type="Texture2D" uid="uid://bk76lmnl8rml0" path="res://game/shared/ui/minimap/marker.png" id="8_8qsf0"]
+[ext_resource type="Texture2D" uid="uid://bk76lmnl8rml0" path="res://game/entity/minimap_marker.png" id="8_8qsf0"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_c2pj3"]
 properties/0/path = NodePath(".:move_direction")

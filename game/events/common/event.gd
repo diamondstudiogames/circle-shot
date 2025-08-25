@@ -31,6 +31,8 @@ var _players_skill_vars: Dictionary[int, Array]
 ## Ссылка на [EventUI].
 @onready var event_ui: EventUI = $UI
 
+@onready var _event_timer: Timer = $EventTimer
+
 
 func _ready() -> void:
 	super()
@@ -174,8 +176,8 @@ func _setup() -> void:
 		spawn_player(player_id)
 	_finish_setup()
 	
-	await get_tree().create_timer(5.0 - (Time.get_ticks_msec() - created_ticks_msec)
-			/ 1000.0, false).timeout
+	_event_timer.start(5.0 - (Time.get_ticks_msec() - created_ticks_msec) / 1000.0)
+	await _event_timer.timeout
 	_start.rpc()
 
 

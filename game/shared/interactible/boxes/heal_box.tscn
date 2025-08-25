@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bysyaaj2r7stt"]
+[gd_scene load_steps=13 format=3 uid="uid://bysyaaj2r7stt"]
 
 [ext_resource type="Script" uid="uid://eougcwp7idwe" path="res://game/shared/interactible/boxes/heal_box.gd" id="1_x66ik"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="2_4jmpv"]
 [ext_resource type="Texture2D" uid="uid://cfvgxcjlq04na" path="res://game/shared/interactible/boxes/heal_box.png" id="2_ltmr7"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/default_minimap_marker.tscn" id="4_frulv"]
+[ext_resource type="Texture2D" uid="uid://uxb0wvg74nxg" path="res://game/shared/interactible/boxes/heal_box_minimap.png" id="5_5yl2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4r2mq"]
 radius = 128.0
@@ -213,5 +215,12 @@ next/spawn = &"idle"
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_mxk3j")
 
+[node name="DefaultMinimapMarker" parent="." instance=ExtResource("4_frulv")]
+
+[node name="Visual" parent="DefaultMinimapMarker/MinimapMarker" index="0"]
+texture = ExtResource("5_5yl2a")
+
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+
+[editable path="DefaultMinimapMarker"]

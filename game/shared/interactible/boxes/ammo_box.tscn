@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdtqr6mv231py"]
+[gd_scene load_steps=13 format=3 uid="uid://bdtqr6mv231py"]
 
 [ext_resource type="Script" uid="uid://51x4i2i5lwge" path="res://game/shared/interactible/boxes/ammo_box.gd" id="1_4kl7u"]
 [ext_resource type="Texture2D" uid="uid://ddgp6giu670fh" path="res://game/shared/interactible/boxes/ammo_box.png" id="2_equak"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="2_fkb2o"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/default_minimap_marker.tscn" id="4_08lu2"]
+[ext_resource type="Texture2D" uid="uid://c1hj4lhw74dme" path="res://game/shared/interactible/boxes/ammo_box_minimap.png" id="5_dkmff"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nyxe"]
 radius = 128.0
@@ -213,5 +215,12 @@ next/spawn = &"idle"
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_mxk3j")
 
+[node name="DefaultMinimapMarker" parent="." instance=ExtResource("4_08lu2")]
+
+[node name="Visual" parent="DefaultMinimapMarker/MinimapMarker" index="0"]
+texture = ExtResource("5_dkmff")
+
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+
+[editable path="DefaultMinimapMarker"]

@@ -210,7 +210,7 @@ func close() -> void:
 	if is_instance_valid(world):
 		world.process_mode = Node.PROCESS_MODE_DISABLED # Чтобы _process не вызывались
 		world.queue_free()
-		print_verbose("Event deleted.")
+		print_verbose("World deleted.")
 	
 	if state != State.CONNECTING: # Комната ещё не создана, нечего закрывать
 		state = State.CLOSED # Не можем установить раньше - перезапишем текущее

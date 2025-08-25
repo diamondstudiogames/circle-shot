@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dqllqb6q5suym" path="res://game/weapons/throwable/snowballs/snowball_projectile.gd" id="2_otbqe"]
 [ext_resource type="PackedScene" uid="uid://bokci0xbkadne" path="res://game/weapons/throwable/snowballs/snowball_hit_vfx.tscn" id="3_ebg44"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_ya4yh"]
-[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/outline.tres" id="4_yr4ee"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="4_yr4ee"]
 
 [sub_resource type="Animation" id="Animation_otbqe"]
 length = 0.001

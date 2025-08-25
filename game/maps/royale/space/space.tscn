@@ -297,109 +297,7 @@ position = Vector2(1243, -23)
 [node name="9" parent="SpawnPoints" index="9"]
 position = Vector2(-1173, -1)
 
-[node name="0" parent="HealPoints" index="0"]
-position = Vector2(-4948, 1791)
-
-[node name="1" parent="HealPoints" index="1"]
-position = Vector2(-4959, -1874)
-
-[node name="2" parent="HealPoints" index="2"]
-position = Vector2(-2097, -4963)
-
-[node name="3" parent="HealPoints" index="3"]
-position = Vector2(2274, -4921)
-
-[node name="4" parent="HealPoints" index="4"]
-position = Vector2(4956, -2119)
-
-[node name="5" parent="HealPoints" index="5"]
-position = Vector2(4960, 1616)
-
-[node name="6" parent="HealPoints" index="6"]
-position = Vector2(2091, 4960)
-
-[node name="7" parent="HealPoints" index="7"]
-position = Vector2(-2021, 4962)
-
-[node name="8" parent="HealPoints" index="8"]
-position = Vector2(-2650, 2343)
-
-[node name="9" parent="HealPoints" index="9"]
-position = Vector2(2359, 2729)
-
-[node name="10" parent="HealPoints" index="10"]
-position = Vector2(2736, -2365)
-
-[node name="11" parent="HealPoints" index="11"]
-position = Vector2(-2375, -2716)
-
-[node name="12" parent="HealPoints" index="12"]
-position = Vector2(-1, -3124)
-
-[node name="13" parent="HealPoints" index="13"]
-position = Vector2(3181, 14)
-
-[node name="14" parent="HealPoints" index="14"]
-position = Vector2(3, 3115)
-
-[node name="15" parent="HealPoints" index="15"]
-position = Vector2(-3164, 3)
-
-[node name="16" parent="HealPoints" index="16"]
-position = Vector2(792, -835)
-
-[node name="17" parent="HealPoints" index="17"]
-position = Vector2(935, 656)
-
-[node name="18" parent="HealPoints" index="18"]
-position = Vector2(-810, 746)
-
-[node name="19" parent="HealPoints" index="19"]
-position = Vector2(-625, -862)
-
-[node name="0" parent="AmmoPoints" index="0"]
-position = Vector2(-1976, 11)
-
-[node name="1" parent="AmmoPoints" index="1"]
-position = Vector2(1961, 24)
-
-[node name="2" parent="AmmoPoints" index="2"]
-position = Vector2(-4, -2161)
-
-[node name="3" parent="AmmoPoints" index="3"]
-position = Vector2(0, 2038)
-
-[node name="4" parent="AmmoPoints" index="4"]
-position = Vector2(0, 1069)
-
-[node name="5" parent="AmmoPoints" index="5"]
-position = Vector2(0, -1186)
-
-[node name="6" parent="AmmoPoints" index="6"]
-position = Vector2(1530, 2671)
-
-[node name="7" parent="AmmoPoints" index="7"]
-position = Vector2(2652, -1405)
-
-[node name="8" parent="AmmoPoints" index="8"]
-position = Vector2(-2674, 1386)
-
-[node name="9" parent="AmmoPoints" index="9"]
-position = Vector2(-1374, -2676)
-
-[node name="0" parent="WeaponBoxPoints" index="0"]
-position = Vector2(-2663, -1398)
-
-[node name="1" parent="WeaponBoxPoints" index="1"]
-position = Vector2(2671, 1333)
-
-[node name="2" parent="WeaponBoxPoints" index="2"]
-position = Vector2(3, 1506)
-
-[node name="3" parent="WeaponBoxPoints" index="3"]
-position = Vector2(-4, -1680)
-
-[node name="BackgroundParallax" type="Parallax2D" parent="." index="7"]
+[node name="BackgroundParallax" type="Parallax2D" parent="." index="4"]
 visibility_layer = 4
 z_index = -6
 scroll_scale = Vector2(0.2, 0.2)
@@ -413,7 +311,7 @@ texture = ExtResource("2_p6x1d")
 centered = false
 region_rect = Rect2(0, 0, 1280, 720)
 
-[node name="TileMapLayers" type="Node2D" parent="." index="8"]
+[node name="TileMapLayers" type="Node2D" parent="." index="5"]
 
 [node name="Floor" type="TileMapLayer" parent="TileMapLayers" index="0"]
 z_index = -5
@@ -436,7 +334,7 @@ libraries = {
 }
 autoplay = "color"
 
-[node name="Core" type="StaticBody2D" parent="." index="9"]
+[node name="Core" type="StaticBody2D" parent="." index="6"]
 z_index = -2
 disable_mode = 2
 collision_layer = 16
@@ -449,7 +347,7 @@ shape = SubResource("RectangleShape2D_kru3a")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_h260c")
 
-[node name="Robots" type="Node2D" parent="." index="10"]
+[node name="Robots" type="Node2D" parent="." index="7"]
 z_index = -4
 
 [node name="RobotPath" type="Path2D" parent="Robots" index="0"]

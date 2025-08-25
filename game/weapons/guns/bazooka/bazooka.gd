@@ -3,7 +3,7 @@ extends Gun
 
 func _make_current() -> void:
 	super()
-	($Base/Rocket as Node2D).visible = ammo > 0
+	($Visual/Base/Rocket as Node2D).visible = ammo > 0
 
 
 func _unmake_current() -> void:
