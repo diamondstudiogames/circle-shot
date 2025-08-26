@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bquhtboou21kv"]
+[gd_scene load_steps=15 format=3 uid="uid://bquhtboou21kv"]
 
 [ext_resource type="Script" uid="uid://cbh6hltsi7geu" path="res://game/skills/time_stop/use/time_stop_use.gd" id="1_jqo2k"]
 [ext_resource type="Shader" uid="uid://ckhd0fkc4skop" path="res://game/skills/time_stop/use/screen_grayscale.gdshader" id="2_f1txa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://o8shc4saqaax" path="res://game/skills/time_stop/use/time_stop_distortion.png" id="4_5cywq"]
 [ext_resource type="Texture2D" uid="uid://bn6gr1g17mwx6" path="res://game/skills/time_stop/use/circle.png" id="5_v7akx"]
 [ext_resource type="AudioStream" uid="uid://csa6n1fmbiw7n" path="res://game/skills/time_stop/use/clock_ticking.ogg" id="6_2ml2w"]
+[ext_resource type="Texture2D" uid="uid://csf7rhlt5wedy" path="res://game/skills/time_stop/use/cloud.png" id="7_fwlg7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txiu0"]
 shader = ExtResource("2_f1txa")
@@ -99,7 +100,19 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.8784314)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParallaxClouds:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_n3k8j"]
@@ -188,7 +201,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.8784314)]
 }
 tracks/7/type = "method"
 tracks/7/imported = false
@@ -218,6 +231,18 @@ tracks/8/keys = {
 "method": &"stop_time"
 }]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ParallaxClouds:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_v7akx"]
 resource_name = "time_stop_end"
@@ -233,7 +258,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0.8784314), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -288,6 +313,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [-12.5, 0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxClouds:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4rex0"]
 _data = {
@@ -311,6 +348,7 @@ copy_mode = 2
 
 [node name="Gray" type="ColorRect" parent="BackBufferCopy"]
 visible = false
+modulate = Color(1, 1, 1, 0.8784314)
 material = SubResource("ShaderMaterial_txiu0")
 anchors_preset = 8
 anchor_left = 0.5
@@ -332,6 +370,35 @@ instance_shader_parameters/screen_zoom = 2.0
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("5_v7akx")
 
+[node name="ParallaxClouds" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+repeat_size = Vector2(1280, 720)
+repeat_times = 3
+
+[node name="Cloud" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(232, 158)
+texture = ExtResource("7_fwlg7")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(652, 349)
+texture = ExtResource("7_fwlg7")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(924, 150)
+texture = ExtResource("7_fwlg7")
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(1051, 536)
+texture = ExtResource("7_fwlg7")
+
+[node name="Cloud5" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(476, 603)
+texture = ExtResource("7_fwlg7")
+
+[node name="Cloud6" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(121, 407)
+texture = ExtResource("7_fwlg7")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2ml2w")
 pitch_scale = 2.0
@@ -347,7 +414,7 @@ autoplay = "time_stop"
 
 [node name="DurationTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 2.0
+wait_time = 1.9999999999999998
 one_shot = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
