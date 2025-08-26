@@ -109,6 +109,7 @@ gravity = Vector2(0, 98)
 color_ramp = SubResource("Gradient_bfbq1")
 
 [node name="Weapons" type="Node2D" parent="Visual" index="2"]
+position = Vector2(32, 32)
 
 [node name="Light" type="Node" parent="Visual/Weapons" index="0"]
 

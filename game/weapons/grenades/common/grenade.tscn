@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://uhm74338rvh5"
 
 [node name="ReloadIndicator" type="Node2D" parent="."]
 visible = false
-position = Vector2(-48, 32)
+position = Vector2(-80, 0)
 
 [node name="Visual" type="Node2D" parent="ReloadIndicator"]
 modulate = Color(0.627451, 0.627451, 0.627451, 0.627451)
@@ -38,6 +38,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("2_kms28")
 
 [node name="ThrowPivot" type="Marker2D" parent="."]
+position = Vector2(-32, -32)
 
 [node name="ThrowPoint" type="Marker2D" parent="ThrowPivot"]
 

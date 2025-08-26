@@ -18,13 +18,14 @@ min_distance = 320.0
 shoot_distance = 1280.0
 speed = 560.0
 
-[node name="Visual" parent="Visual/Weapon" index="0" instance=ExtResource("4_ked2n")]
-position = Vector2(16, 31)
+[node name="AK74" type="Node2D" parent="Visual/Weapon" index="0"]
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon" index="1"]
-position = Vector2(210, 0)
+[node name="Visual" parent="Visual/Weapon/AK74" index="0" instance=ExtResource("4_ked2n")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon" index="2"]
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1"]
+position = Vector2(194, -32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2"]
 libraries = {
 &"": ExtResource("5_q1a7n")
 }

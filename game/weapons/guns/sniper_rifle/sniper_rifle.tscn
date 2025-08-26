@@ -53,10 +53,9 @@ aim_camera_distance = 0.0
 shoot_on_joystick_release = true
 
 [node name="Visual" parent="." index="0" instance=ExtResource("4_b0etb")]
-position = Vector2(16, 22)
 
 [node name="ShootPoint" parent="." index="1"]
-position = Vector2(312, 0)
+position = Vector2(296, -22)
 
 [node name="Aim" parent="ShootPoint" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -87,7 +86,7 @@ position = Vector2(960, 0)
 
 [node name="AimPoint" type="Sprite2D" parent="." index="2"]
 z_index = 1
-position = Vector2(312, 0)
+position = Vector2(296, -22)
 texture = ExtResource("9_guo3n")
 
 [node name="AnimationPlayer" parent="." index="3"]

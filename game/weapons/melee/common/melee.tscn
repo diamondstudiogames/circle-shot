@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="2_wwru6"]
 
 [node name="Melee" type="Node2D"]
+position = Vector2(-32, -32)
 script = ExtResource("1_cpujk")
 ammo_per_load = 1
 ammo_total = 0

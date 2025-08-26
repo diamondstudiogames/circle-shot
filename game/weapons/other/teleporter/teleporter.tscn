@@ -19,7 +19,6 @@ shoot_on_joystick_release = true
 metadata/_custom_type_script = "uid://btu7i28e5iysh"
 
 [node name="Visual" parent="." instance=ExtResource("2_y710c")]
-position = Vector2(32, 32)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

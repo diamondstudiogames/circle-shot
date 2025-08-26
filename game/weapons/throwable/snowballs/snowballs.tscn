@@ -28,7 +28,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8, 20)]
+"values": [Vector2(-24, -12)]
 }
 
 [sub_resource type="Animation" id="Animation_lvpje"]
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(8, 11), Vector2(8, 20)]
+"values": [Vector2(-24, -21), Vector2(-24, -12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_008ih"]
@@ -78,11 +78,11 @@ ammo_total = 32
 speed_multiplier_when_current = 1.03
 
 [node name="Ammo" parent="." index="0"]
-position = Vector2(8, 20)
+position = Vector2(-24, -12)
 rotation = 0.392699
 
 [node name="ThrowPivot" parent="." index="1"]
-position = Vector2(0, -16)
+position = Vector2(-32, -48)
 
 [node name="ThrowPoint" parent="ThrowPivot" index="0"]
 position = Vector2(96, 0)

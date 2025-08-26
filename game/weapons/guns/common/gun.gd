@@ -70,6 +70,8 @@ func _process(_delta: float) -> void:
 			var spread: float = _calculate_spread()
 			_aim_spread_left.rotation_degrees = -spread
 			_aim_spread_right.rotation_degrees = spread
+	
+	_update_rotation_position()
 
 
 func _physics_process(delta: float) -> void:
@@ -77,6 +79,7 @@ func _physics_process(delta: float) -> void:
 	if multiplayer.is_server() and can_shoot() and player.player_input.shooting \
 			and ammo >= ammo_per_shot and _shoot_timer <= 0.0:
 		_update_rotation()
+		_update_rotation_position()
 		shoot()
 	if player.is_local() and can_reload() and ammo < ammo_per_shot:
 		player.try_reload_weapon()
@@ -168,6 +171,21 @@ func _player_disarmed() -> void:
 		_anim.play(&"RESET")
 
 
+## Вычисляет позицию оружия так, чтобы линия прицела в точности соответствовала направлению
+## прицеливания. [param gun_rotation] - поворот оружия, [param shoot_point_y] - Y координата точки
+## стрельбы относительно оружия, [param weapon_point] - точка относительно центра сущности, за
+## которую держится оружие.
+static func calculate_gun_position(gun_rotation: float, shoot_point_y: float,
+		weapon_point: Vector2) -> Vector2:
+	var gun_position := Vector2()
+	gun_position.y = (-weapon_point.y - shoot_point_y) * (0.5 - absf(gun_rotation) / PI) * 2
+	if gun_rotation > 0.0:
+		gun_position.x = (-weapon_point.x + shoot_point_y) * (gun_rotation / PI * 2)
+	elif gun_rotation < 0.0:
+		gun_position.x = (weapon_point.x + shoot_point_y) * (gun_rotation / PI * 2)
+	return gun_position
+
+
 func reload() -> void:
 	_turn_tween = create_tween()
 	_turn_tween.tween_property(self, ^":rotation", 0.0, to_aim_time)
@@ -217,6 +235,10 @@ func _calculate_spread() -> float:
 
 func _update_rotation() -> void:
 	rotation = _calculate_aim_angle() + deg_to_rad(_calculate_recoil())
+
+
+func _update_rotation_position() -> void:
+	position = calculate_gun_position(rotation, _shoot_point.position.y, Vector2.ONE * 32)
 
 
 func _create_projectile() -> void:

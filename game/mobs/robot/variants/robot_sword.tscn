@@ -21,23 +21,26 @@ optimal_distance = 0.0
 min_distance = 0.0
 shoot_distance = 440.0
 
-[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon" index="0"]
+[node name="Sword" type="Node2D" parent="Visual/Weapon" index="0"]
+position = Vector2(-32, -32)
+
+[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon/Sword" index="0"]
 visible = false
 position = Vector2(32, 0)
 color = Color(0.67451, 0.67451, 0.67451, 1)
 polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)
 
-[node name="Visual" parent="Visual/Weapon" index="1" instance=ExtResource("4_kmk06")]
+[node name="Visual" parent="Visual/Weapon/Sword" index="1" instance=ExtResource("4_kmk06")]
 position = Vector2(32, 32)
 
-[node name="Attack" type="Node2D" parent="Visual/Weapon" index="2"]
+[node name="Attack" type="Node2D" parent="Visual/Weapon/Sword" index="2"]
 position = Vector2(32, 0)
 script = ExtResource("5_kmk06")
 damage = 45
 damage_interval = 0.7
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Sword/Attack" index="0"]
 position = Vector2(144, -120)
 enabled = false
 shape = SubResource("CircleShape2D_dgkd5")
@@ -47,7 +50,7 @@ collision_mask = 75
 script = ExtResource("6_q230f")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Sword/Attack" index="1"]
 position = Vector2(144, 120)
 enabled = false
 shape = SubResource("CircleShape2D_dgkd5")
@@ -57,7 +60,7 @@ collision_mask = 75
 script = ExtResource("6_q230f")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Sword" index="3"]
 libraries = {
 &"": ExtResource("7_q230f")
 }

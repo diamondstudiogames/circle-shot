@@ -4,20 +4,21 @@ extends StandardMob
 @export var projectile_scene: PackedScene
 @export var spread := 3.0
 
-@onready var _weapon: Node2D = $Visual/Weapon
-@onready var _shoot_point: Marker2D = $Visual/Weapon/ShootPoint
-@onready var _weapon_anim: AnimationPlayer = $Visual/Weapon/AnimationPlayer
+@onready var _weapon: Node2D = $Visual/Weapon/P350
+@onready var _weapon_parent: Node2D = $Visual/Weapon
+@onready var _shoot_point: Marker2D = $Visual/Weapon/P350/ShootPoint
+@onready var _weapon_anim: AnimationPlayer = $Visual/Weapon/P350/AnimationPlayer
 
 @onready var _hurt_anim: AnimationPlayer = $Visual/AnimationPlayer
 
 
 func _process(_delta: float) -> void:
 	if not is_disarmed():
-		_weapon.rotation = _calculate_aim_angle()
+		_update_weapon()
 
 
 func _shoot() -> void:
-	_weapon.rotation = _calculate_aim_angle()
+	_update_weapon()
 	_weapon_anim.play(&"shoot")
 	_weapon_anim.seek(0.0)
 	
@@ -31,6 +32,12 @@ func _shoot() -> void:
 		projectile.who = id
 		projectile.name += str(randi())
 		_projectiles_parent.add_child(projectile, true)
+
+
+func _update_weapon() -> void:
+	_weapon.rotation = _calculate_aim_angle()
+	_weapon.position = Gun.calculate_gun_position(_weapon.rotation,
+			_shoot_point.position.y, _weapon_parent.position)
 
 
 func _health_changed(old_value: int, new_value: int) -> void:

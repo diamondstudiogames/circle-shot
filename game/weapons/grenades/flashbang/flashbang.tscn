@@ -16,7 +16,6 @@ speed_multiplier_when_current = 0.99
 aim_camera_distance = 240.0
 
 [node name="Visual" parent="." index="0" instance=ExtResource("4_7x6mt")]
-position = Vector2(32, 32)
 
 [node name="Visual" parent="ReloadIndicator/Visual" index="0" instance=ExtResource("4_7x6mt")]
 

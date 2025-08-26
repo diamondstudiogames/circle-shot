@@ -49,10 +49,9 @@ speed_multiplier_when_current = 0.96
 aim_camera_distance = 240.0
 
 [node name="Visual" parent="." index="0" instance=ExtResource("5_fm2ea")]
-position = Vector2(16, 34)
 
 [node name="ShootPoint" parent="." index="1"]
-position = Vector2(252, 0)
+position = Vector2(236, -34)
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

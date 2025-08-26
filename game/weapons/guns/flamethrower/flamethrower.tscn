@@ -35,10 +35,9 @@ speed_multiplier_when_current = 0.93
 aim_camera_distance = 180.0
 
 [node name="Visual" parent="." index="0" instance=ExtResource("3_y3qts")]
-position = Vector2(16, 15)
 
 [node name="ShootPoint" parent="." index="1"]
-position = Vector2(237, 0)
+position = Vector2(221, -15)
 
 [node name="Aim" parent="ShootPoint" index="0"]
 points = PackedVector2Array(0, 0, 960, 0)

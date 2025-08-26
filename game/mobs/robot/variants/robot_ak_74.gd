@@ -5,9 +5,10 @@ extends StandardMob
 @export var shoot_times: int = 3
 @export var spread := 3.0
 
-@onready var _weapon: Node2D = $Visual/Weapon
-@onready var _shoot_point: Marker2D = $Visual/Weapon/ShootPoint
-@onready var _weapon_anim: AnimationPlayer = $Visual/Weapon/AnimationPlayer
+@onready var _weapon: Node2D = $Visual/Weapon/AK74
+@onready var _weapon_parent: Node2D = $Visual/Weapon
+@onready var _shoot_point: Marker2D = $Visual/Weapon/AK74/ShootPoint
+@onready var _weapon_anim: AnimationPlayer = $Visual/Weapon/AK74/AnimationPlayer
 @onready var _shoot_times_timer: Timer = $ShootTimesTimer
 
 @onready var _hurt_anim: AnimationPlayer = $Visual/AnimationPlayer
@@ -15,11 +16,11 @@ extends StandardMob
 
 func _process(_delta: float) -> void:
 	if not is_disarmed():
-		_weapon.rotation = _calculate_aim_angle()
+		_update_weapon()
 
 
 func _shoot() -> void:
-	_weapon.rotation = _calculate_aim_angle()
+	_update_weapon()
 	for i: int in shoot_times:
 		if is_disarmed():
 			return
@@ -39,6 +40,12 @@ func _shoot() -> void:
 		
 		_shoot_times_timer.start()
 		await _shoot_times_timer.timeout
+
+
+func _update_weapon() -> void:
+	_weapon.rotation = _calculate_aim_angle()
+	_weapon.position = Gun.calculate_gun_position(_weapon.rotation,
+			_shoot_point.position.y, _weapon_parent.position)
 
 
 func _health_changed(old_value: int, new_value: int) -> void:

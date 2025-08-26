@@ -39,10 +39,9 @@ ammo_total = 65
 speed_multiplier_when_current = 0.98
 
 [node name="Visual" parent="." index="0" instance=ExtResource("3_m4i6i")]
-position = Vector2(16, 33)
 
 [node name="ShootPoint" parent="." index="1"]
-position = Vector2(115, 0)
+position = Vector2(99, -33)
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {

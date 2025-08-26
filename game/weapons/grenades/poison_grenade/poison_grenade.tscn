@@ -17,7 +17,6 @@ ammo_total = 2
 speed_multiplier_when_current = 0.98
 
 [node name="Visual" parent="." index="0" instance=ExtResource("4_ltg4r")]
-position = Vector2(32, 32)
 
 [node name="Visual" parent="ReloadIndicator/Visual" index="0" instance=ExtResource("4_ltg4r")]
 
