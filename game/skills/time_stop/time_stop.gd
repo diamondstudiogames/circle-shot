@@ -1,6 +1,6 @@
 extends Skill
 
-var _use_scene: PackedScene = preload("uid://bquhtboou21kv")
+var _use_scene: PackedScene = load("uid://bquhtboou21kv")
 @onready var _timer: Timer = $Timer
 
 func _use() -> void:
@@ -25,6 +25,16 @@ func _use() -> void:
 	player.unmake_immobile()
 	player.unblock_weapon_usage()
 	player.unblock_turning()
+
+
+func _player_disarmed() -> void:
+	if is_equal_approx(_timer.wait_time, 0.5): # тайм стоп ещё не начался
+		_timer.paused = true
+
+
+func _player_armed() -> void:
+	if is_equal_approx(_timer.wait_time, 0.5):
+		_timer.paused = false
 
 
 @rpc("reliable", "authority", "call_local", 3)

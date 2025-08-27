@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7yeuewjt5nf4"]
 
-[ext_resource type="Texture2D" uid="uid://nj1ie48xpwpg" path="res://game/skills/invisibility_bomb/invisibility_bomb.png" id="1_ib0px"]
+[ext_resource type="Texture2D" uid="uid://nj1ie48xpwpg" path="res://game/skills/invisibility_bomb/invisibility_bomb.png" id="1_bdcay"]
 
 [sub_resource type="Animation" id="Animation_lsqcc"]
 length = 0.001
@@ -126,12 +126,12 @@ _data = {
 &"use": SubResource("Animation_vjva6")
 }
 
-[node name="UseEffect" type="Node2D"]
+[node name="InvisibilityBombUseVfx" type="Node2D"]
 
 [node name="Bomb" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-18, -24)
-texture = ExtResource("1_ib0px")
+texture = ExtResource("1_bdcay")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

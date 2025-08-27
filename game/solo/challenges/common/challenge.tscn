@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv5flcglplthg"]
+[gd_scene load_steps=17 format=3 uid="uid://bv5flcglplthg"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
 [ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="5_54rqx"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="6_iuf22"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_v85pp"]
+[ext_resource type="PackedScene" uid="uid://cghfpr0gbxb2e" path="res://game/solo/challenges/common/reward.tscn" id="9_v85pp"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -579,11 +580,14 @@ bus = &"Music"
 stream = ExtResource("6_iuf22")
 bus = &"Music"
 
-[node name="ShowRewardsTimer" type="Timer" parent="." index="14"]
+[node name="ResourcePreloaderChallenge" type="ResourcePreloader" parent="." index="14"]
+resources = [PackedStringArray("reward"), [ExtResource("9_v85pp")]]
+
+[node name="ShowRewardsTimer" type="Timer" parent="." index="15"]
 wait_time = 1.2
 one_shot = true
 
-[node name="ChallengeTimer" type="Timer" parent="." index="15"]
+[node name="ChallengeTimer" type="Timer" parent="." index="16"]
 one_shot = true
 
 [connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]

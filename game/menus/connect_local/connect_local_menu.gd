@@ -2,7 +2,7 @@ extends Control
 
 
 var _udp := UDPServer.new()
-var _local_lobby_entry_scene: PackedScene = preload("uid://bs4vk7wdu27eo")
+var _local_lobby_entry_scene: PackedScene = load("uid://bs4vk7wdu27eo")
 @onready var _game: Game = get_parent()
 @onready var _address_edit: LineEdit = %AddressEdit
 @onready var _lobbies_container: VBoxContainer = %LobbiesContainer

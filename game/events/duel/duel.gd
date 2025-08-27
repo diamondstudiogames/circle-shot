@@ -24,7 +24,7 @@ var blue_rounds_won: int = 0
 ## Текущий раунд, от 0 до 2. 3 означает конец игры.
 var current_round: int = 0
 
-var _poison_smokes_scene: PackedScene = preload("uid://cp5ag64gc1s3k")
+var _poison_smokes_scene: PackedScene = load("uid://cp5ag64gc1s3k")
 
 @onready var _duel_ui: DuelUI = $UI
 

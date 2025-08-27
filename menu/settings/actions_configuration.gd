@@ -9,7 +9,7 @@ var _editing_action_event_idx: int
 var _event_candidate: EncodedInputEvent
 var _pending_actions: Array[StringName]
 
-var _action_event_scene: PackedScene = preload("uid://b8cprl60iu2or")
+var _action_event_scene: PackedScene = load("uid://b8cprl60iu2or")
 
 
 func _ready() -> void:

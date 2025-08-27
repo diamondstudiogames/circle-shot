@@ -1,14 +1,14 @@
 extends Skill
 
 @export var heal_amount: int = 60
-var _use_effect_scene: PackedScene = preload("uid://c1jxj44vodfa7")
+var _use_vfx_scene: PackedScene = load("uid://c1jxj44vodfa7")
 @onready var _timer: Timer = $Timer
 
 func _use() -> void:
-	var use_effect: Node2D = _use_effect_scene.instantiate()
-	player.visual.add_child(use_effect)
+	var use_vfx: Node2D = _use_vfx_scene.instantiate()
+	player.visual.add_child(use_vfx)
 	if player.is_local():
-		(use_effect.get_node(^"Tint/AnimationPlayer") as AnimationPlayer).play(&"tint")
+		(use_vfx.get_node(^"Tint/AnimationPlayer") as AnimationPlayer).play(&"tint")
 	
 	block_cooldown()
 	player.block_weapon_usage()
@@ -36,12 +36,12 @@ func _can_use() -> bool:
 
 
 func _player_disarmed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_DISABLED
+	if player.visual.has_node(^"PotionUseVfx"):
+		player.visual.get_node(^"PotionUseVfx").process_mode = Node.PROCESS_MODE_DISABLED
 	_timer.paused = true
 
 
 func _player_armed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_INHERIT
+	if player.visual.has_node(^"PotionUseVfx"):
+		player.visual.get_node(^"PotionUseVfx").process_mode = Node.PROCESS_MODE_INHERIT
 	_timer.paused = false

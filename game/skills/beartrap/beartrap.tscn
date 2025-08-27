@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2fdo1s1ybj4x"]
+[gd_scene load_steps=4 format=3 uid="uid://b2fdo1s1ybj4x"]
 
 [ext_resource type="Script" uid="uid://b80372sl7b41w" path="res://game/skills/beartrap/beartrap.gd" id="1_tm3gs"]
 [ext_resource type="PackedScene" uid="uid://bj2tr5ocunuo7" path="res://game/skills/beartrap/beartrap_trap.tscn" id="2_7g1ey"]
+[ext_resource type="PackedScene" uid="uid://dxfkmwyd21cng" path="res://game/skills/beartrap/beartrap_use_vfx.tscn" id="3_7g1ey"]
 
 [node name="Beartrap" type="Node2D"]
 script = ExtResource("1_tm3gs")
@@ -13,5 +14,8 @@ metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 process_callback = 0
 wait_time = 0.7
 one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("beartrap_use_vfx"), [ExtResource("3_7g1ey")]]
 
 [connection signal="timeout" from="PlaceTimer" to="." method="_on_place_timer_timeout"]

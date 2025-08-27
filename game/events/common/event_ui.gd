@@ -9,7 +9,7 @@ extends CanvasLayer
 @export var messages_visible_time := 3.0
 
 var _input_method: Globals.InputMethod
-var _reward_scene: PackedScene = preload("uid://b1ipe4g6uueie")
+var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 
 ## Чат.
 @onready var chat: Chat = $Main/ChatPanel

@@ -51,8 +51,8 @@ var _items_offer_icons: Dictionary[String, Texture2D] = {
 	"equip_box": load("uid://dx36ekj6pm8tr"),
 	"equip_elite_box": load("uid://1e2hpb4yqrq3"),
 }
-var _offer_scene: PackedScene = preload("uid://dn1f63651tgy0")
-var _offer_item_scene: PackedScene = preload("uid://dbnx3sb61pp2")
+var _offer_scene: PackedScene = load("uid://dn1f63651tgy0")
+var _offer_item_scene: PackedScene = load("uid://dbnx3sb61pp2")
 @onready var _purchase_dialog: ConfirmationDialog = $Purchase
 
 

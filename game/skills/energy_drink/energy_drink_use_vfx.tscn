@@ -162,7 +162,7 @@ _data = {
 &"use": SubResource("Animation_fgkox")
 }
 
-[node name="UseEffect" type="Node2D"]
+[node name="EnergyDrinkUseVfx" type="Node2D"]
 show_behind_parent = true
 
 [node name="Base" type="Sprite2D" parent="."]

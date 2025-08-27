@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://u5a0m6y2qb4l"]
+[gd_scene load_steps=12 format=3 uid="uid://u5a0m6y2qb4l"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_k4cdx"]
 [ext_resource type="Script" uid="uid://bs0sbptlo8o08" path="res://game/events/duel/duel.gd" id="2_e8nkp"]
 [ext_resource type="Script" uid="uid://d4h2h03h8byl7" path="res://game/events/duel/duel_ui.gd" id="4_jj4yx"]
 [ext_resource type="Texture2D" uid="uid://it2o6dxy7bxm" path="res://game/events/duel/round_light.png" id="6_weffi"]
+[ext_resource type="PackedScene" uid="uid://cp5ag64gc1s3k" path="res://game/events/duel/poison_smokes_duel.tscn" id="7_i2vyj"]
 [ext_resource type="Texture2D" uid="uid://cuddy8wmbcol1" path="res://game/events/duel/round_heavy.png" id="7_leh4n"]
 [ext_resource type="Texture2D" uid="uid://bdvbqf2u7e463" path="res://game/events/duel/round_melee.png" id="8_ompgj"]
 
@@ -245,3 +246,6 @@ text = "Победи противника 2 раза!"
 [node name="Text" parent="UI/Intro" index="2"]
 text = "Каждый раунд
 новое оружие!"
+
+[node name="ResourcePreloaderDuel" type="ResourcePreloader" parent="." index="16"]
+resources = [PackedStringArray("poison_smokes_duel"), [ExtResource("7_i2vyj")]]

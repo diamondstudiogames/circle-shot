@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3nsak46hbo2c"]
+[gd_scene load_steps=14 format=3 uid="uid://d3nsak46hbo2c"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6dq27"]
 [ext_resource type="Script" uid="uid://ciktx11hqv3ox" path="res://game/events/common/event.gd" id="1_kxt6o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://buk2lt6westdi" path="res://game/events/common/event_ui.gd" id="4_10cmx"]
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="8_nrcab"]
 [ext_resource type="Texture2D" uid="uid://dwtddg0cmagg1" path="res://game/shared/ui/chat/chat_send.png" id="9_2uw6w"]
+[ext_resource type="PackedScene" uid="uid://b1ipe4g6uueie" path="res://game/events/common/reward.tscn" id="10_w1x71"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="12_jddfk"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="13_j0bsh"]
 [ext_resource type="Texture2D" uid="uid://d14nbphg5o3a" path="res://game/shared/ui/chat/chat.png" id="14_05fx8"]
@@ -463,11 +464,14 @@ bus = &"Music"
 stream = ExtResource("12_jddfk")
 bus = &"Music"
 
-[node name="ShowRewardsTimer" type="Timer" parent="." index="14"]
+[node name="ResourcePreloaderEvent" type="ResourcePreloader" parent="." index="14"]
+resources = [PackedStringArray("reward"), [ExtResource("10_w1x71")]]
+
+[node name="ShowRewardsTimer" type="Timer" parent="." index="15"]
 wait_time = 1.2
 one_shot = true
 
-[node name="EventTimer" type="Timer" parent="." index="15"]
+[node name="EventTimer" type="Timer" parent="." index="16"]
 one_shot = true
 
 [connection signal="pressed" from="UI/Main/Leave" to="UI/QuitDialog" method="popup_centered"]

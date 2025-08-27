@@ -1,11 +1,11 @@
 extends Skill
 
 @export var trap_scene: PackedScene
-var _use_effect_scene: PackedScene = preload("uid://dxfkmwyd21cng")
+var _use_vfx_scene: PackedScene = preload("uid://dxfkmwyd21cng")
 
 func _use() -> void:
-	var use_effect: Node2D = _use_effect_scene.instantiate()
-	player.visual.add_child(use_effect)
+	var use_vfx: Node2D = _use_vfx_scene.instantiate()
+	player.visual.add_child(use_vfx)
 	block_cooldown()
 	($PlaceTimer as Timer).start()
 
@@ -24,12 +24,12 @@ func _on_place_timer_timeout() -> void:
 
 
 func _player_disarmed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_DISABLED
+	if player.visual.has_node(^"BeartrapUseVfx"):
+		player.visual.get_node(^"BeartrapUseVfx").process_mode = Node.PROCESS_MODE_DISABLED
 	($PlaceTimer as Timer).paused = true
 
 
 func _player_armed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_INHERIT
+	if player.visual.has_node(^"BeartrapUseVfx"):
+		player.visual.get_node(^"BeartrapUseVfx").process_mode = Node.PROCESS_MODE_INHERIT
 	($PlaceTimer as Timer).paused = false

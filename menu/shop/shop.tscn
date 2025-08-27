@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bj723c8k8la6y"]
+[gd_scene load_steps=35 format=3 uid="uid://bj723c8k8la6y"]
 
 [ext_resource type="Script" uid="uid://dfbi48lj1pb8n" path="res://menu/shop/shop.gd" id="1_4yet2"]
 [ext_resource type="Texture2D" uid="uid://c3kh0ourvde3l" path="res://menu/shop/background.png" id="2_cyj7w"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://dx36ekj6pm8tr" path="res://menu/shop/boxes/equip_box_offer.png" id="17_i3jto"]
 [ext_resource type="Texture2D" uid="uid://1e2hpb4yqrq3" path="res://menu/shop/boxes/equip_elite_box_offer.png" id="18_6dce8"]
 [ext_resource type="Texture2D" uid="uid://u3uysy5do7nd" path="res://menu/shop/boxes/skin_box_offer.png" id="19_1ovia"]
+[ext_resource type="PackedScene" uid="uid://dn1f63651tgy0" path="res://menu/shop/offer.tscn" id="20_1ovia"]
 [ext_resource type="Texture2D" uid="uid://bagp5s7stcybl" path="res://menu/shop/boxes/skin_elite_box_offer.png" id="20_ix43u"]
+[ext_resource type="PackedScene" uid="uid://dbnx3sb61pp2" path="res://menu/shop/offer_item.tscn" id="21_ix43u"]
 
 [sub_resource type="Gradient" id="Gradient_rwxlr"]
 interpolation_mode = 2
@@ -864,7 +866,7 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [PackedStringArray("coins_offer", "equip_box_offer", "equip_elite_box_offer", "skin_box_offer", "skin_elite_box_offer"), [ExtResource("16_200u0"), ExtResource("17_i3jto"), ExtResource("18_6dce8"), ExtResource("19_1ovia"), ExtResource("20_ix43u")]]
+resources = [PackedStringArray("coins_offer", "equip_box_offer", "equip_elite_box_offer", "offer", "offer_item", "skin_box_offer", "skin_elite_box_offer"), [ExtResource("16_200u0"), ExtResource("17_i3jto"), ExtResource("18_6dce8"), ExtResource("20_1ovia"), ExtResource("21_ix43u"), ExtResource("19_1ovia"), ExtResource("20_ix43u")]]
 
 [node name="UpdateDayTimer" type="Timer" parent="."]
 autostart = true

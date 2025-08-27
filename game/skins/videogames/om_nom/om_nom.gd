@@ -1,8 +1,8 @@
 extends PlayerSkin
 
 
-var _heal_sfx: AudioStream = preload("uid://bjevk1ku6ayn4")
-var _hurt_sfx: AudioStream = preload("uid://1n8dth4b0keb")
+var _heal_sfx: AudioStream = load("uid://bjevk1ku6ayn4")
+var _hurt_sfx: AudioStream = load("uid://1n8dth4b0keb")
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _sfx: AudioStreamPlayer2D = $Sfx
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhlky5iu0nax1"]
+[gd_scene load_steps=3 format=3 uid="uid://bhlky5iu0nax1"]
 
 [ext_resource type="Script" uid="uid://dkit3tw1kg7a5" path="res://game/skills/energy_drink/energy_drink.gd" id="1_mig33"]
+[ext_resource type="PackedScene" uid="uid://c7rmbgdh6weme" path="res://game/skills/energy_drink/energy_drink_use_vfx.tscn" id="2_s2xr4"]
 
 [node name="EnergyDrink" type="Node2D"]
 script = ExtResource("1_mig33")
@@ -13,3 +14,6 @@ metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("energy_drink_use_vfx"), [ExtResource("2_s2xr4")]]

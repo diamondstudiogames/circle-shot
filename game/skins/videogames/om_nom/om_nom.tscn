@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://by25lps52y7b8"]
+[gd_scene load_steps=13 format=3 uid="uid://by25lps52y7b8"]
 
 [ext_resource type="Script" uid="uid://ctwb6fmflwjd7" path="res://game/skins/videogames/om_nom/om_nom.gd" id="1_sclsk"]
 [ext_resource type="Texture2D" uid="uid://1rlnras1a0rl" path="res://game/skins/videogames/om_nom/om_nom.png" id="1_y2een"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b1x0uggdpxxj3" path="res://game/skins/videogames/om_nom/om_nom_sad.png" id="3_vf7ua"]
 [ext_resource type="PackedScene" uid="uid://crovxcvb7k87" path="res://game/skins/videogames/om_nom/vfx/sleeping_death_vfx.tscn" id="4_8edma"]
 [ext_resource type="PackedScene" uid="uid://uhjrp3sgu1op" path="res://game/skins/videogames/om_nom/vfx/candy_heal_vfx.tscn" id="4_26urt"]
+[ext_resource type="AudioStream" uid="uid://bjevk1ku6ayn4" path="res://game/skins/videogames/om_nom/heal.wav" id="7_7hynd"]
+[ext_resource type="AudioStream" uid="uid://1n8dth4b0keb" path="res://game/skins/videogames/om_nom/hurt.wav" id="8_w8fek"]
 
 [sub_resource type="Animation" id="Animation_26urt"]
 length = 0.001
@@ -114,3 +116,6 @@ bus = &"SFX"
 libraries = {
 &"": SubResource("AnimationLibrary_vf7ua")
 }
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("heal", "hurt"), [ExtResource("7_7hynd"), ExtResource("8_w8fek")]]

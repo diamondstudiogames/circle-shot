@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://butikarflm2dk"]
+[gd_scene load_steps=13 format=4 uid="uid://butikarflm2dk"]
 
 [ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/map_royale.tscn" id="1_febxg"]
 [ext_resource type="AudioStream" uid="uid://b65w8s4k3i8wn" path="res://game/maps/royale/thunder/music.ogg" id="2_avvsy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://bsgnbg6y5scle" path="res://game/locations/town/puddle.gdshader" id="4_avvsy"]
 [ext_resource type="Texture2D" uid="uid://bn7ct6fksjhk0" path="res://game/locations/town/distortion_noise.tres" id="5_j8xtu"]
 [ext_resource type="Texture2D" uid="uid://cq4wkqw3aqb4h" path="res://game/maps/royale/thunder/rain.png" id="7_w08tx"]
+[ext_resource type="PackedScene" uid="uid://dm2xehxg7nb8e" path="res://game/maps/royale/thunder/lightning_bolt.tscn" id="8_t7x5y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j8xtu"]
 shader = ExtResource("4_avvsy")
@@ -119,5 +120,8 @@ sprite_frames = SubResource("SpriteFrames_fd8bd")
 autoplay = "default"
 frame_progress = 0.288022
 centered = false
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." index="7"]
+resources = [PackedStringArray("lightning_bolt"), [ExtResource("8_t7x5y")]]
 
 [connection signal="timeout" from="LightningBoltTimer" to="." method="_on_lightning_bolt_timer_timeout"]

@@ -286,7 +286,7 @@ _data = {
 &"tint": SubResource("Animation_fik3q")
 }
 
-[node name="UseEffect" type="Node2D"]
+[node name="PotionUseVfx" type="Node2D"]
 show_behind_parent = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

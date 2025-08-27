@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmwb81du1kbtm"]
+[gd_scene load_steps=22 format=3 uid="uid://cmwb81du1kbtm"]
 
 [ext_resource type="Script" uid="uid://ce7fr2qft005n" path="res://game/menus/lobby/lobby.gd" id="1_jtfrr"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="2_6xr3g"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="13_jqaxo"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="13_yfygw"]
 [ext_resource type="Texture2D" uid="uid://ix82y4qydhql" path="res://menu/theme/icons/right.png" id="14_mgd0l"]
+[ext_resource type="PackedScene" uid="uid://dj0mx5ui2wu4n" path="res://game/menus/lobby/player_entry.tscn" id="18_yfygw"]
 
 [sub_resource type="Animation" id="Animation_5k1w6"]
 length = 0.001
@@ -368,6 +369,9 @@ wait_time = 10.0
 [node name="CountdownTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/StartEvent" to="." method="_on_start_event_pressed"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/ChangeEvent" to="." method="_on_change_event_pressed"]

@@ -59,7 +59,7 @@ var admin_id: int = -1
 var _broadcast_lobby_id: int = 0
 var _udp_peers: Array[PacketPeerUDP]
 var _client_timers: Dictionary[int, Timer]
-var _player_entry_scene: PackedScene = preload("uid://dj0mx5ui2wu4n")
+var _player_entry_scene: PackedScene = load("uid://dj0mx5ui2wu4n")
 
 ## Ссылка на [EquipSelector].
 @onready var equip_selector: EquipSelector = %EquipSelector

@@ -5,7 +5,7 @@ extends Weapon
 
 var _reloading := false
 var _no_ammo := false
-var _teleport_vfx_scene: PackedScene = preload("uid://2p44r4a1hf7")
+var _teleport_vfx_scene: PackedScene = load("uid://2p44r4a1hf7")
 
 @onready var _buttons: Node2D = $Visual/Base/Buttons
 @onready var _anim: AnimationPlayer = $AnimationPlayer

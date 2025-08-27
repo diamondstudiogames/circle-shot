@@ -102,7 +102,7 @@ _data = {
 &"place": SubResource("Animation_7g1ey")
 }
 
-[node name="UseEffect" type="Node2D"]
+[node name="BeartrapUseVfx" type="Node2D"]
 
 [node name="Trap" type="Sprite2D" parent="."]
 z_index = -1

@@ -8,13 +8,13 @@ extends Skill
 @export var shake_amplitude := 32.0
 @export var shake_duration := 0.6
 
-var _use_effect_scene: PackedScene = preload("uid://c7rmbgdh6weme")
+var _use_vfx_scene: PackedScene = load("uid://c7rmbgdh6weme")
 @onready var _timer: Timer = $Timer
 
 
 func _use() -> void:
-	var use_effect: Node2D = _use_effect_scene.instantiate()
-	player.visual.add_child(use_effect)
+	var use_vfx: Node2D = _use_vfx_scene.instantiate()
+	player.visual.add_child(use_vfx)
 	
 	block_cooldown()
 	player.block_weapon_usage()
@@ -35,14 +35,14 @@ func _use() -> void:
 
 
 func _player_disarmed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_DISABLED
+	if player.visual.has_node(^"EnergyDrinkUseVfx"):
+		player.visual.get_node(^"EnergyDrinkUseVfx").process_mode = Node.PROCESS_MODE_DISABLED
 	if is_equal_approx(_timer.wait_time, 1.25): # эффект ещё не наложен
 		_timer.paused = true
 
 
 func _player_armed() -> void:
-	if player.visual.has_node(^"UseEffect"):
-		player.visual.get_node(^"UseEffect").process_mode = Node.PROCESS_MODE_INHERIT
+	if player.visual.has_node(^"EnergyDrinkUseVfx"):
+		player.visual.get_node(^"EnergyDrinkUseVfx").process_mode = Node.PROCESS_MODE_INHERIT
 	if is_equal_approx(_timer.wait_time, 1.25):
 		_timer.paused = false

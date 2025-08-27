@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm8g3yu8l3tdi"]
+[gd_scene load_steps=3 format=3 uid="uid://cm8g3yu8l3tdi"]
 
 [ext_resource type="Script" uid="uid://3sba7goistkj" path="res://game/skills/invisibility_bomb/invisibility_bomb.gd" id="1_v0q2m"]
+[ext_resource type="PackedScene" uid="uid://7yeuewjt5nf4" path="res://game/skills/invisibility_bomb/invisibility_bomb_use_vfx.tscn" id="2_8tk0t"]
 
 [node name="InvisibilityBomb" type="Node2D"]
 script = ExtResource("1_v0q2m")
@@ -11,3 +12,6 @@ metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("invisibility_bomb_use"), [ExtResource("2_8tk0t")]]

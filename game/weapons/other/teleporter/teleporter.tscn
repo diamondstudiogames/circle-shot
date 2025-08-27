@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjunrr6nv2rhr"]
+[gd_scene load_steps=7 format=3 uid="uid://cjunrr6nv2rhr"]
 
 [ext_resource type="Script" uid="uid://dca2v3ej3y82n" path="res://game/weapons/other/teleporter/teleporter.gd" id="1_cvmrr"]
 [ext_resource type="PackedScene" uid="uid://c4fixd76g5fv8" path="res://game/weapons/other/teleporter/visual/teleporter_visual.tscn" id="2_y710c"]
 [ext_resource type="AnimationLibrary" uid="uid://drudmqihwd7ay" path="res://game/weapons/other/teleporter/visual/teleporter_animations.tres" id="3_skiv7"]
+[ext_resource type="PackedScene" uid="uid://2p44r4a1hf7" path="res://game/weapons/other/teleporter/teleport_vfx.tscn" id="5_skiv7"]
 [ext_resource type="Texture2D" uid="uid://beh735ahnn4gt" path="res://game/weapons/other/teleporter/aim.png" id="8_6ye5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pom7"]
@@ -50,5 +51,8 @@ visible = false
 top_level = true
 z_index = 10
 texture = ExtResource("8_6ye5t")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("teleport_vfx"), [ExtResource("5_skiv7")]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_cooldown_timer_timeout"]

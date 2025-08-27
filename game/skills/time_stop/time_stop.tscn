@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwq1qen03wqeq"]
+[gd_scene load_steps=7 format=3 uid="uid://bwq1qen03wqeq"]
 
 [ext_resource type="Script" uid="uid://ccun1200d7vc7" path="res://game/skills/time_stop/time_stop.gd" id="1_45d6b"]
 [ext_resource type="Texture2D" uid="uid://yjgux3x3rwvd" path="res://game/skills/time_stop/sandglass.png" id="2_eymk3"]
+[ext_resource type="PackedScene" uid="uid://bquhtboou21kv" path="res://game/skills/time_stop/use/time_stop_use.tscn" id="3_dn08h"]
 
 [sub_resource type="Animation" id="Animation_k1p6s"]
 length = 0.001
@@ -81,3 +82,6 @@ texture = ExtResource("2_eymk3")
 libraries = {
 &"": SubResource("AnimationLibrary_ad5w5")
 }
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("time_stop_use"), [ExtResource("3_dn08h")]]

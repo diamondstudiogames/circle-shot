@@ -2,7 +2,7 @@ class_name ChallengeUI
 extends CanvasLayer
 ## Интерфейс испытания.
 
-var _reward_scene: PackedScene = preload("uid://cghfpr0gbxb2e")
+var _reward_scene: PackedScene = load("uid://cghfpr0gbxb2e")
 ## Ссылка на [Challenge].
 @onready var challenge: Challenge = get_parent()
 
