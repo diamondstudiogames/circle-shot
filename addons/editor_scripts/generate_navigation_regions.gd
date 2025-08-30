@@ -3,11 +3,11 @@ extends EditorScript
 
 # Этот скрипт генерирует чанки в виде NavigationRegion2D как дочерние к выбранному узлу.
 
-# количество чанков по одной оси, должно быть нечётным TODO добавить и чётные
-const CHUNKS_PER_AXIS: int = 4
+# количество чанков по одной оси, должно быть нечётным
+const CHUNKS_PER_AXIS: int = 5
 # размер карты в блоках
-const MAP_SIZE := Vector2i(40, 40)
-# рамзер блока
+const MAP_SIZE := Vector2i(50, 50)
+# размер блока
 const BLOCK_SIZE := 160.0
 
 # настройки navigationpolygon
@@ -15,6 +15,7 @@ const PARSED_GEOMETRY_TYPE := NavigationPolygon.PARSED_GEOMETRY_STATIC_COLLIDERS
 const PARSED_COLLISION_MASK: int = 17
 const SOURCE_GEOMETRY_MODE := NavigationPolygon.SOURCE_GEOMETRY_GROUPS_WITH_CHILDREN
 const SOURCE_GEOMETRY_GROUP_NAME := &"navigation_polygon_source"
+const NAVIGATION_LAYERS: int = 1
 const AGENT_RADIUS := 77.0
 
 
@@ -51,6 +52,7 @@ func _run() -> void:
 			
 			var nav_region := NavigationRegion2D.new()
 			nav_region.name = &"NavigationRegion2D"
+			nav_region.navigation_layers = NAVIGATION_LAYERS
 			nav_region.position = Vector2((chunk_size.x - BLOCK_SIZE * 2) * x,
 					(chunk_size.y - BLOCK_SIZE * 2) * y)
 			if CHUNKS_PER_AXIS % 2 == 0:

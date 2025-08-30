@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cew1aw8ebea66"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_yijkc"]
+
+[node name="BigShot" instance=ExtResource("1_yijkc")]
+
+[node name="Info" parent="." index="4"]
+visible = false

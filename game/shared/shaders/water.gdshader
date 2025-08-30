@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D dist_texture: repeat_enable;
+uniform sampler2D dist_texture: repeat_enable, filter_linear;
 uniform float distortion = 0.1;
 uniform float time_multiplier = 1.0;
 varying flat vec4 modulate;

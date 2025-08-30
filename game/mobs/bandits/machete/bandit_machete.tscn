@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bs3r1j6hyqj1r"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_dr40c"]
+[ext_resource type="Texture2D" uid="uid://cx0ry0tacjsdp" path="res://game/mobs/bandits/machete/bandit_machete.png" id="2_a03xr"]
+[ext_resource type="Script" uid="uid://d247ian7ff71a" path="res://game/mobs/bandits/machete/bandit_machete.gd" id="2_s6k58"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="3_iv065"]
+[ext_resource type="PackedScene" uid="uid://1k2lyqd7wxl2" path="res://game/weapons/melee/machete/visual/machete_visual.tscn" id="3_s6k58"]
+[ext_resource type="PackedScene" uid="uid://de46wnkbixfrs" path="res://game/mobs/bandits/machete/bandit_machete_death_vfx.tscn" id="4_iv065"]
+[ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="5_sx6jm"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="6_fwcmn"]
+[ext_resource type="AnimationLibrary" uid="uid://dpfuv00sqw1le" path="res://game/weapons/melee/machete/visual/machete_animations.tres" id="6_iv065"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6k58"]
+radius = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t77qk"]
+radius = 96.0
+
+[node name="BanditMachete" instance=ExtResource("1_dr40c")]
+script = ExtResource("2_s6k58")
+shoot_interval = 1.0999999999912689
+aim_angle_rotation_weight = 0.06999999999999999
+optimal_distance = 0.0
+min_distance = 0.0
+shoot_distance = 440.0
+hurt_vfx_scene = ExtResource("3_iv065")
+death_vfx_scene = ExtResource("4_iv065")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_s6k58")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("2_a03xr")
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="Machete" type="Node2D" parent="Visual/Weapon" index="0"]
+position = Vector2(-32, -32)
+
+[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon/Machete" index="0"]
+visible = false
+color = Color(0.67451, 0.67451, 0.67451, 1)
+polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)
+
+[node name="Visual" parent="Visual/Weapon/Machete" index="1" instance=ExtResource("3_s6k58")]
+position = Vector2(32, 32)
+
+[node name="Attack" type="Node2D" parent="Visual/Weapon/Machete" index="2"]
+visible = false
+script = ExtResource("5_sx6jm")
+damage = 32
+damage_interval = 0.7
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Machete/Attack" index="0"]
+position = Vector2(144, -120)
+enabled = false
+shape = SubResource("CircleShape2D_t77qk")
+target_position = Vector2(40, 120)
+max_results = 1
+collision_mask = 75
+script = ExtResource("6_fwcmn")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Machete/Attack" index="1"]
+position = Vector2(144, 120)
+enabled = false
+shape = SubResource("CircleShape2D_t77qk")
+target_position = Vector2(40, -120)
+max_results = 1
+collision_mask = 75
+script = ExtResource("6_fwcmn")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Machete" index="3"]
+libraries = {
+&"": ExtResource("6_iv065")
+}

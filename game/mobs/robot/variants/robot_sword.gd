@@ -1,9 +1,6 @@
 extends StandardMob
 
 
-@export var projectile_scene: PackedScene
-@export var spread := 3.0
-
 @onready var _weapon: Node2D = $Visual/Weapon/Sword
 @onready var _weapon_anim: AnimationPlayer = $Visual/Weapon/Sword/AnimationPlayer
 @onready var _attack: Attack = $Visual/Weapon/Sword/Attack

@@ -21,6 +21,7 @@ metadata/_custom_type_script = "uid://btu1g3prgu2l8"
 [node name="Minimap" type="Node" parent="."]
 
 [node name="MinimapTiles" parent="Minimap" instance=ExtResource("2_3vl75")]
+metadata/_edit_lock_ = true
 
 [node name="Borders" type="StaticBody2D" parent="."]
 disable_mode = 2

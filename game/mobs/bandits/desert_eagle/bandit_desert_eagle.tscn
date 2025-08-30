@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgeykg6bg2lct"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_3biik"]
+[ext_resource type="Script" uid="uid://dx62a4ohyvywr" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.gd" id="2_35jx5"]
+[ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/desert_eagle/desert_eagle_bullet.tscn" id="3_oqbp5"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="4_vq4yh"]
+[ext_resource type="PackedScene" uid="uid://utk6gbpl5c13" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle_death_vfx.tscn" id="5_35jx5"]
+[ext_resource type="Texture2D" uid="uid://t0h1t1ow6ltq" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.png" id="6_35jx5"]
+[ext_resource type="PackedScene" uid="uid://comvmvk0q8dbr" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_visual.tscn" id="7_3aoq5"]
+[ext_resource type="AnimationLibrary" uid="uid://b1n6fg1mit1ui" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_animations.tres" id="8_fq7fg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpxwc"]
+radius = 76.0
+
+[node name="BanditDesertEagle" instance=ExtResource("1_3biik")]
+script = ExtResource("2_35jx5")
+projectile_scene = ExtResource("3_oqbp5")
+spread = 2.0
+shoot_interval = 0.8000000000029104
+aim_angle_rotation_weight = 0.08
+optimal_distance = 640.0
+min_distance = 320.0
+shoot_distance = 960.0
+speed = 576.0
+hurt_vfx_scene = ExtResource("4_vq4yh")
+death_vfx_scene = ExtResource("5_35jx5")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_wpxwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("6_35jx5")
+offset = Vector2(-6, -4)
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="DesertEagle" type="Node2D" parent="Visual/Weapon" index="0"]
+
+[node name="Visual" parent="Visual/Weapon/DesertEagle" index="0" instance=ExtResource("7_3aoq5")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/DesertEagle" index="1"]
+position = Vector2(134, -50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/DesertEagle" index="2"]
+libraries = {
+&"": ExtResource("8_fq7fg")
+}

@@ -15,7 +15,7 @@ shoot_interval = 0.8000000000029104
 aim_angle_rotation_weight = 0.06
 optimal_distance = 800.0
 min_distance = 320.0
-shoot_distance = 1280.0
+shoot_distance = 1120.0
 speed = 560.0
 
 [node name="AK74" type="Node2D" parent="Visual/Weapon" index="0"]

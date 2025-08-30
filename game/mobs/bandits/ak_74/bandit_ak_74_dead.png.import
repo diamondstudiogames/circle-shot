@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvobau1ynrbgp"
-path="res://.godot/imported/decorations_tiles.png-bdd06490fa48cb612aa7d45e9e5ef525.ctex"
+uid="uid://drdmmix0ndmug"
+path="res://.godot/imported/bandit_ak_74_dead.png-0e1ea2c057c0d2386cc1fa279d1f76ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/locations/town/decorations_tiles.png"
-dest_files=["res://.godot/imported/decorations_tiles.png-bdd06490fa48cb612aa7d45e9e5ef525.ctex"]
+source_file="res://game/mobs/bandits/ak_74/bandit_ak_74_dead.png"
+dest_files=["res://.godot/imported/bandit_ak_74_dead.png-0e1ea2c057c0d2386cc1fa279d1f76ed.ctex"]
 
 [params]
 

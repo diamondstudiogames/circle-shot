@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dr3gkvc3kct5j" path="res://game/locations/river/fence.png" id="1_sv5dq"]
 [ext_resource type="Texture2D" uid="uid://b0tjnwaa51lsv" path="res://game/locations/river/floor_tiles.png" id="2_jc3us"]
 [ext_resource type="Texture2D" uid="uid://b0ppb2f5o052p" path="res://game/locations/river/water.png" id="3_hoh82"]
-[ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/locations/river/water.tres" id="3_jc3us"]
+[ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/shared/shaders/materials/water.tres" id="3_jc3us"]
 [ext_resource type="Texture2D" uid="uid://omfdhfar6rqn" path="res://game/locations/river/wall_tiles.png" id="4_mbd53"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_df546"]

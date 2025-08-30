@@ -42,6 +42,7 @@ var _shoot_timer := 0.0
 
 func _ready() -> void:
 	entity_input.turn_with_aim = true
+	_shoot_timer = shoot_interval
 	super()
 
 
@@ -66,10 +67,11 @@ func _process_logic() -> void:
 	entity_input.aim_direction = Vector2.from_angle(
 			lerp_angle(aim_angle, direction_to_target_angle, aim_angle_rotation_weight))
 	
-	_shoot_timer -= get_physics_process_delta_time()
-	if _shoot_timer <= 0.0 and _shooting and not is_disarmed():
-		_do_shoot.rpc(_get_shoot_args())
-		_shoot_timer = shoot_interval
+	if not is_disarmed():
+		_shoot_timer -= get_physics_process_delta_time()
+		if _shoot_timer <= 0.0 and _shooting:
+			_do_shoot.rpc(_get_shoot_args())
+			_shoot_timer = shoot_interval
 
 
 func _target_updated() -> void:

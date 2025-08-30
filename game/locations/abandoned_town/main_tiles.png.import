@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyj5tfmgj6n4s"
-path="res://.godot/imported/main_tiles.png-cc7b9dfe88cb2ebf69a64a561c5ba35a.ctex"
+path="res://.godot/imported/main_tiles.png-14b706a4e811f54799177654d1fa9c69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/locations/town/main_tiles.png"
-dest_files=["res://.godot/imported/main_tiles.png-cc7b9dfe88cb2ebf69a64a561c5ba35a.ctex"]
+source_file="res://game/locations/abandoned_town/main_tiles.png"
+dest_files=["res://.godot/imported/main_tiles.png-14b706a4e811f54799177654d1fa9c69.ctex"]
 
 [params]
 

@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://df4g3enk2qk84"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_ufx3i"]
+[ext_resource type="Script" uid="uid://c1scbdhsl2wlu" path="res://game/mobs/bandits/bazooka/bandit_bazooka.gd" id="2_h3xnw"]
+[ext_resource type="PackedScene" uid="uid://bdwe08hp3gif2" path="res://game/mobs/bandits/bazooka/big_blood_hurt_vfx.tscn" id="2_r73io"]
+[ext_resource type="Texture2D" uid="uid://dg0476yq0e8ba" path="res://game/mobs/bandits/bazooka/bandit_bazooka.png" id="2_vvl6l"]
+[ext_resource type="PackedScene" uid="uid://cqhttq0m4j1p6" path="res://game/weapons/guns/bazooka/projectile/bazooka_rocket.tscn" id="3_ji05r"]
+[ext_resource type="PackedScene" uid="uid://bjbu88a7f4mv6" path="res://game/weapons/guns/bazooka/visual/bazooka_visual.tscn" id="3_r73io"]
+[ext_resource type="PackedScene" uid="uid://c108o2l7aigvy" path="res://game/mobs/bandits/bazooka/bandit_bazooka_death_vfx.tscn" id="5_y3rgh"]
+[ext_resource type="AnimationLibrary" uid="uid://mkiushk7ni1l" path="res://game/weapons/guns/bazooka/visual/bazooka_animations.tres" id="7_ji05r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h3xnw"]
+radius = 116.0
+
+[node name="BanditBazooka" instance=ExtResource("1_ufx3i")]
+script = ExtResource("2_h3xnw")
+projectile_scene = ExtResource("3_ji05r")
+spread = 2.5
+shoot_interval = 3.0
+aim_angle_rotation_weight = 0.15000000000000002
+optimal_distance = 800.0
+min_distance = 240.0
+shoot_distance = 1120.0
+speed = 512.0
+max_health = 150
+hurt_vfx_scene = ExtResource("2_r73io")
+death_vfx_scene = ExtResource("5_y3rgh")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_h3xnw")
+
+[node name="MinimapNotifier" parent="Minimap" index="0"]
+rect = Rect2(-160, -160, 320, 320)
+
+[node name="Info" parent="." index="4"]
+position = Vector2(0, -152)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("2_vvl6l")
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(48, 48)
+
+[node name="Bazooka" type="Node2D" parent="Visual/Weapon" index="0"]
+
+[node name="Visual" parent="Visual/Weapon/Bazooka" index="0" instance=ExtResource("3_r73io")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/Bazooka" index="1"]
+position = Vector2(125, -26)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Bazooka" index="2"]
+libraries = {
+&"": ExtResource("7_ji05r")
+}
+next/reload = &"post_reload"
+next/shoot = &"reload"

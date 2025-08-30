@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxwulr0r8admc"
-path="res://.godot/imported/shift_glitch_texture.png-2f4bdde8d3c3b4b917b5c19c74577e2b.ctex"
+uid="uid://e2dx71idc84v"
+path="res://.godot/imported/pool_borders_tiles.png-4ed7566d7e68eef740857007f3b358d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/shared/shaders/materials/shift_glitch_texture.png"
-dest_files=["res://.godot/imported/shift_glitch_texture.png-2f4bdde8d3c3b4b917b5c19c74577e2b.ctex"]
+source_file="res://game/locations/city/pool_borders_tiles.png"
+dest_files=["res://.godot/imported/pool_borders_tiles.png-4ed7566d7e68eef740857007f3b358d1.ctex"]
 
 [params]
 

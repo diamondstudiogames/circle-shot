@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceq2ne4vqrn0a"]
+
+[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_r8ik0"]
+
+[node name="Map" instance=ExtResource("1_r8ik0")]
+metadata/_edit_vertical_guides_ = [-4000.0, 4000.0]
+metadata/_edit_horizontal_guides_ = [-4000.0, 4000.0]
+
+[node name="Left" parent="Borders" index="0"]
+position = Vector2(-4000, 0)
+
+[node name="Right" parent="Borders" index="1"]
+position = Vector2(4000, 0)
+
+[node name="Up" parent="Borders" index="2"]
+position = Vector2(0, -4000)
+
+[node name="Down" parent="Borders" index="3"]
+position = Vector2(0, 4000)
+
+[node name="NavigationRegions" type="Node2D" parent="." index="2"]
+
+[node name="BigShotSpawnPoint" type="Marker2D" parent="." index="4"]
+gizmo_extents = 80.0

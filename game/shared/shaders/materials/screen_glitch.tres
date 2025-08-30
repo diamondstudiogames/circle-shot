@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dw1gg5e3lm6td"]
 
 [ext_resource type="Shader" uid="uid://euf8ig7f36pe" path="res://game/shared/shaders/screen_glitch.gdshader" id="1_qn5oi"]
-[ext_resource type="Texture2D" uid="uid://dxwulr0r8admc" path="res://game/shared/shaders/materials/shift_glitch_texture.png" id="2_yaa5e"]
+[ext_resource type="Texture2D" uid="uid://dxwulr0r8admc" path="res://game/shared/shaders/textures/shift_glitch_texture.png" id="2_yaa5e"]
 
 [resource]
 shader = ExtResource("1_qn5oi")

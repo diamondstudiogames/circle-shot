@@ -13,7 +13,7 @@ spread = 3.0
 aim_angle_rotation_weight = 0.06999999999999999
 optimal_distance = 640.0
 min_distance = 320.0
-shoot_distance = 1040.0
+shoot_distance = 960.0
 speed = 600.0
 
 [node name="P350" type="Node2D" parent="Visual/Weapon" index="0"]

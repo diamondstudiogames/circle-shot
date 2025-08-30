@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cae62v5ywqo8a"]
+[gd_scene load_steps=8 format=3 uid="uid://cae62v5ywqo8a"]
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_q230f"]
 [ext_resource type="Script" uid="uid://cs787jtyc4e86" path="res://game/mobs/robot/variants/robot_sword.gd" id="2_q230f"]
-[ext_resource type="PackedScene" uid="uid://c4cr4b5wn24yt" path="res://game/weapons/guns/p350/p350_bullet.tscn" id="3_rlnr8"]
 [ext_resource type="PackedScene" uid="uid://dq4p2jglel6kk" path="res://game/weapons/melee/sword/visual/sword_visual.tscn" id="4_kmk06"]
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="5_kmk06"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="6_q230f"]
@@ -13,8 +12,6 @@ radius = 96.0
 
 [node name="RobotSword" instance=ExtResource("1_q230f")]
 script = ExtResource("2_q230f")
-projectile_scene = ExtResource("3_rlnr8")
-spread = 3.0
 shoot_interval = 1.1000000000058208
 aim_angle_rotation_weight = 0.06999999999999999
 optimal_distance = 0.0

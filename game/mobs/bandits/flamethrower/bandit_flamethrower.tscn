@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgyrcxqehcj6h"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_6osx2"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="2_56hdh"]
+[ext_resource type="Texture2D" uid="uid://02i01bhrlnxp" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.png" id="2_i6voi"]
+[ext_resource type="Script" uid="uid://l5bb6pn0uqk2" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.gd" id="2_ld84a"]
+[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/flamethrower/projectile/fire_projectile.tscn" id="3_nkwvn"]
+[ext_resource type="PackedScene" uid="uid://cepajywaefu1v" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower_death_vfx.tscn" id="3_uluc6"]
+[ext_resource type="PackedScene" uid="uid://bs5rd3ge5oubt" path="res://game/weapons/guns/flamethrower/visual/flamethrower_visual.tscn" id="6_nkwvn"]
+[ext_resource type="AnimationLibrary" uid="uid://dm3tlql2nim6v" path="res://game/weapons/guns/flamethrower/visual/flamethrower_animations.tres" id="8_sye6l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56hdh"]
+radius = 76.0
+
+[node name="BanditFlamethrower" instance=ExtResource("1_6osx2")]
+script = ExtResource("2_ld84a")
+projectile_scene = ExtResource("3_nkwvn")
+shoot_times = 8
+spread = 30.0
+shoot_interval = 1.5
+aim_angle_rotation_weight = 0.06999999999999999
+optimal_distance = 400.0
+min_distance = 160.0
+shoot_distance = 640.0
+speed = 528.0
+hurt_vfx_scene = ExtResource("2_56hdh")
+death_vfx_scene = ExtResource("3_uluc6")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_56hdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("2_i6voi")
+offset = Vector2(-12, 0)
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="Flamethrower" type="Node2D" parent="Visual/Weapon" index="0"]
+
+[node name="Visual" parent="Visual/Weapon/Flamethrower" index="0" instance=ExtResource("6_nkwvn")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/Flamethrower" index="1"]
+position = Vector2(221, -15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Flamethrower" index="2"]
+libraries = {
+&"": ExtResource("8_sye6l")
+}
+
+[node name="ShootTimesTimer" type="Timer" parent="." index="11"]
+process_callback = 0
+wait_time = 0.12
+one_shot = true

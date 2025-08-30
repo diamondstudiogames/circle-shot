@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlghpmw10r6ee"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_jhv3f"]
+[ext_resource type="Script" uid="uid://dw227fbxby0w3" path="res://game/mobs/bandits/ak_74/bandit_ak_74.gd" id="2_54hhr"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="2_sdrlc"]
+[ext_resource type="Texture2D" uid="uid://41l01i8thbg8" path="res://game/mobs/bandits/ak_74/bandit_ak_74.png" id="3_54hhr"]
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="3_sdrlc"]
+[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="3_wpxwc"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/ak_74/visual/ak_74_animations.tres" id="4_54hhr"]
+[ext_resource type="PackedScene" uid="uid://db4n5160rqb1v" path="res://game/mobs/bandits/ak_74/bandit_ak_74_death_vfx.tscn" id="5_fiqpf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpxwc"]
+radius = 76.0
+
+[node name="BanditAK74" instance=ExtResource("1_jhv3f")]
+script = ExtResource("2_54hhr")
+projectile_scene = ExtResource("3_wpxwc")
+shoot_times = 3
+spread = 5.0
+shoot_interval = 0.8000000000029104
+aim_angle_rotation_weight = 0.06999999999999999
+optimal_distance = 800.0
+min_distance = 320.0
+shoot_distance = 1120.0
+speed = 560.0
+hurt_vfx_scene = ExtResource("2_sdrlc")
+death_vfx_scene = ExtResource("5_fiqpf")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_wpxwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("3_54hhr")
+offset = Vector2(-6, -6)
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="AK74" type="Node2D" parent="Visual/Weapon" index="0"]
+
+[node name="Visual" parent="Visual/Weapon/AK74" index="0" instance=ExtResource("3_sdrlc")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1"]
+position = Vector2(194, -32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2"]
+libraries = {
+&"": ExtResource("4_54hhr")
+}
+
+[node name="ShootTimesTimer" type="Timer" parent="." index="11"]
+process_callback = 0
+wait_time = 0.16999999999999998
+one_shot = true

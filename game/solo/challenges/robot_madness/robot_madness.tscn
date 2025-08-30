@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ubgn7lq0sdh7" path="res://game/solo/challenges/robot_madness/robot_madness_ui.gd" id="2_sxbbv"]
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_nllva"]
 [ext_resource type="PackedScene" uid="uid://bk6jaxvarkom5" path="res://game/solo/challenges/robot_madness/robots/robot_ak_74.tscn" id="4_5xvln"]
-[ext_resource type="PackedScene" uid="uid://c03fti11oe1v0" path="res://game/solo/challenges/robot_madness/robots/robot_p_350.tscn" id="5_leind"]
+[ext_resource type="PackedScene" uid="uid://c03fti11oe1v0" path="res://game/solo/challenges/robot_madness/robots/robot_p350.tscn" id="5_leind"]
 [ext_resource type="PackedScene" uid="uid://og3p4elihjx0" path="res://game/solo/challenges/robot_madness/robots/robot_sword.tscn" id="6_yej0p"]
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="8_leind"]
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="9_yej0p"]
@@ -30,7 +30,7 @@ metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_leind"]
 _limits = [0.0, 15.0, 0.0, 200.0]
-_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(200, 15), 0.07310934, 0.0, 0, 0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(200, 15), 0.13388728, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 

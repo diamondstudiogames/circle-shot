@@ -4,7 +4,7 @@
 class_name <NewEventName>
 extends _BASE_
 
-@onready var <new_event_name>_ui: <NewEventName>UI = $UI
+@onready var _<new_event_name>_ui: <NewEventName>UI = $UI
 
 func _initialize() -> void:
 _TS_pass

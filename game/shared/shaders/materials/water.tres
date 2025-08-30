@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6ou8d8mcdjfn"]
+
+[ext_resource type="Shader" uid="uid://jfbv4srgoh02" path="res://game/shared/shaders/water.gdshader" id="1_uq0yp"]
+[ext_resource type="Texture2D" uid="uid://dl1tjq48egrhv" path="res://game/shared/shaders/textures/water_distortion_noise.tres" id="2_e00jw"]
+
+[resource]
+shader = ExtResource("1_uq0yp")
+shader_parameter/dist_texture = ExtResource("2_e00jw")
+shader_parameter/distortion = 0.05000000000291038
+shader_parameter/time_multiplier = 0.1999999999970896

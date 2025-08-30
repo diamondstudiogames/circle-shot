@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://bp2mr8jwarhu5"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_ac33g"]
+
+[resource]
+script = ExtResource("1_ac33g")
+name = "Криминальный город"
+brief_description = "Опасные сражения в городе преступников."
+scene_path = "uid://3ea8c6l8g4n5"
+image_path = "uid://d6p7i4i0wimh"
+metadata/_custom_type_script = "uid://c2mew3f2rwarc"
