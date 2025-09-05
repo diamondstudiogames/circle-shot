@@ -115,7 +115,7 @@ func _shoot(throw_direction := Vector2.ZERO) -> void:
 		projectile.position = _throw_point.global_position
 		var spread: float = deg_to_rad(_calculate_spread())
 		projectile.direction = throw_direction.normalized().rotated(randf_range(-spread, spread))
-		projectile.speed *= minf(throw_direction.length(), 1.0)
+		projectile.speed *= throw_direction.length()
 		projectile.team = player.team
 		_customize_projectile(projectile)
 		projectile.name += str(randi())
@@ -129,14 +129,12 @@ func _can_reload() -> bool:
 
 
 func _player_disarmed() -> void:
-	if _anim.is_playing() and _anim.current_animation != &"equip": # нет смысла пропускать
-		_anim.pause()
+	_anim.process_mode = Node.PROCESS_MODE_DISABLED
 	_reload_timer.paused = true
 
 
 func _player_armed() -> void:
-	if _anim.current_animation != &"equip":
-		_anim.play()
+	_anim.process_mode = Node.PROCESS_MODE_INHERIT
 	_reload_timer.paused = false
 
 

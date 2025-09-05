@@ -1,25 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqjtplbpilvlh"]
+[gd_scene load_steps=7 format=3 uid="uid://bqjtplbpilvlh"]
 
 [ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_jgay5"]
 [ext_resource type="Script" uid="uid://bcgwabyht0p1b" path="res://game/solo/challenges/big_shot_hunting/big_shot_hunting.gd" id="2_13yc1"]
 [ext_resource type="Script" uid="uid://bwtctbm2ksfjv" path="res://game/solo/challenges/big_shot_hunting/big_shot_hunting_ui.gd" id="3_h2e7t"]
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_ova4e"]
-[ext_resource type="PackedScene" uid="uid://cew1aw8ebea66" path="res://game/mobs/big_shot/big_shot.tscn" id="4_rxmsv"]
-[ext_resource type="PackedScene" uid="uid://dlghpmw10r6ee" path="res://game/mobs/bandits/ak_74/bandit_ak_74.tscn" id="5_ova4e"]
-[ext_resource type="PackedScene" uid="uid://bgeykg6bg2lct" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.tscn" id="6_rxmsv"]
-[ext_resource type="PackedScene" uid="uid://bs3r1j6hyqj1r" path="res://game/mobs/bandits/machete/bandit_machete.tscn" id="7_5bwsk"]
-[ext_resource type="PackedScene" uid="uid://cgyrcxqehcj6h" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.tscn" id="8_y30hd"]
-[ext_resource type="PackedScene" uid="uid://df4g3enk2qk84" path="res://game/mobs/bandits/bazooka/bandit_bazooka.tscn" id="9_81ati"]
+[ext_resource type="PackedScene" uid="uid://bxh8jmlt24h14" path="res://game/solo/challenges/big_shot_hunting/mobs/big_shot.tscn" id="4_ova4e"]
+[ext_resource type="PackedScene" uid="uid://6cqtx3ewy2xd" path="res://game/shared/ui/boss_health_bar/boss_health_bar.tscn" id="6_ova4e"]
 
 [node name="Challenge" instance=ExtResource("1_jgay5")]
 script = ExtResource("2_13yc1")
-entity_scenes = Array[PackedScene]([ExtResource("3_ova4e"), ExtResource("4_rxmsv"), ExtResource("5_ova4e"), ExtResource("6_rxmsv"), ExtResource("7_5bwsk"), ExtResource("8_y30hd"), ExtResource("9_81ati")])
+coins_for_win = 30
+coins_for_kill = 2
+damage_for_coin = 50.0
+entity_scenes = Array[PackedScene]([ExtResource("3_ova4e"), ExtResource("4_ova4e")])
 
 [node name="Camera" parent="." index="7"]
 position = Vector2(-1280, -720)
 
 [node name="UI" parent="." index="8"]
 script = ExtResource("3_h2e7t")
+
+[node name="BossHealthBar" parent="UI/Main" index="5" instance=ExtResource("6_ova4e")]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 64.0
+grow_horizontal = 2
 
 [node name="Title" parent="UI/Intro" index="1"]
 text = "БОЛЬШАЯ ШИШКА"

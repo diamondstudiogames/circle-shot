@@ -36,9 +36,6 @@ var state: State
 var _shooting := false
 var _shoot_timer := 0.0
 
-@warning_ignore("unused_private_class_variable") # Для дочерних классов
-@onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
-
 
 func _ready() -> void:
 	entity_input.turn_with_aim = true
@@ -62,10 +59,8 @@ func _process_logic() -> void:
 		State.RETREATING:
 			entity_input.move_direction = -direction_to_target
 	
-	var aim_angle: float = entity_input.aim_direction.angle()
-	var direction_to_target_angle: float = direction_to_target.angle()
-	entity_input.aim_direction = Vector2.from_angle(
-			lerp_angle(aim_angle, direction_to_target_angle, aim_angle_rotation_weight))
+	entity_input.aim_direction = Vector2.from_angle(lerp_angle(entity_input.aim_direction.angle(),
+			direction_to_target.angle(), aim_angle_rotation_weight))
 	
 	if not is_disarmed():
 		_shoot_timer -= get_physics_process_delta_time()

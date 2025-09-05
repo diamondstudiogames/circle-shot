@@ -482,7 +482,9 @@ func _change_health_bar_glow(glow: float) -> void:
 
 
 func _on_player_health_changed(old_value: int, new_value: int) -> void:
+	_health_bar.max_value = _player.max_health
 	_health_bar.value = new_value
+	_health_immediate_bar.max_value = _player.max_health
 	_health_text.text = "%d/%d" % [_health_bar.value, _health_bar.max_value]
 	
 	if new_value < old_value:
@@ -609,10 +611,10 @@ func _on_aim_joystick_released(output: Vector2) -> void:
 
 
 func _on_local_player_created(player: Player) -> void:
-	_health_bar.max_value = player.max_health
-	_health_immediate_bar.max_value = player.max_health
-	_on_player_health_changed(player.max_health, player.max_health)
-	_interact_button.visible = player.player_input.has_interactibles()
+	_player = player
+	
+	_on_player_health_changed(_player.current_health, _player.max_health)
+	_interact_button.visible = _player.player_input.has_interactibles()
 	
 	_tint_anim.play(&"RESET")
 	var tween: Tween = create_tween()
@@ -620,16 +622,15 @@ func _on_local_player_created(player: Player) -> void:
 	tween.tween_property($Controller as Control, ^":modulate",
 			Color.WHITE, 0.5).from(Color.TRANSPARENT)
 	
-	player.health_changed.connect(_on_player_health_changed)
-	player.died.connect(_on_player_died)
+	_player.health_changed.connect(_on_player_health_changed)
+	_player.died.connect(_on_player_died)
 	
-	player.ammo_text_updated.connect(_on_player_ammo_text_updated)
-	player.weapon_changed.connect(_on_player_weapon_changed)
-	player.weapon_equipped.connect(_on_player_weapon_equipped)
-	player.skill_equipped.connect(_on_player_skill_equipped)
+	_player.ammo_text_updated.connect(_on_player_ammo_text_updated)
+	_player.weapon_changed.connect(_on_player_weapon_changed)
+	_player.weapon_equipped.connect(_on_player_weapon_equipped)
+	_player.skill_equipped.connect(_on_player_skill_equipped)
 	
-	player.player_input.interactibles_changed.connect(_on_player_input_interactibles_changed)
-	_player = player
+	_player.player_input.interactibles_changed.connect(_on_player_input_interactibles_changed)
 
 
 func _on_single_shot_timer_timeout() -> void:

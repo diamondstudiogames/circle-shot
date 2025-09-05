@@ -128,7 +128,12 @@ func _can_reload() -> bool:
 
 func _player_disarmed() -> void:
 	for ammo_node: Node in _ammo_parent.get_children():
-		(ammo_node.get_node(^"AnimationPlayer") as AnimationPlayer).play(&"RESET")
+		ammo_node.get_node(^"AnimationPlayer").process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _player_armed() -> void:
+	for ammo_node: Node in _ammo_parent.get_children():
+		ammo_node.get_node(^"AnimationPlayer").process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func _ammo_changed(in_stock: bool) -> void:

@@ -30,11 +30,13 @@ func _use() -> void:
 func _player_disarmed() -> void:
 	if is_equal_approx(_timer.wait_time, 0.5): # тайм стоп ещё не начался
 		_timer.paused = true
+		$AnimationPlayer.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _player_armed() -> void:
 	if is_equal_approx(_timer.wait_time, 0.5):
 		_timer.paused = false
+		$AnimationPlayer.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 @rpc("reliable", "authority", "call_local", 3)

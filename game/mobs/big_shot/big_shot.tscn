@@ -1,8 +1,324 @@
-[gd_scene load_steps=2 format=3 uid="uid://cew1aw8ebea66"]
+[gd_scene load_steps=32 format=3 uid="uid://cew1aw8ebea66"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_yijkc"]
+[ext_resource type="Script" uid="uid://bvyc0u1fmkvqo" path="res://game/mobs/big_shot/big_shot.gd" id="2_g0lbo"]
+[ext_resource type="Texture2D" uid="uid://dwwpju7i50max" path="res://game/mobs/big_shot/big_shot.png" id="2_u4qlp"]
+[ext_resource type="Texture2D" uid="uid://bvps7ka4brr5o" path="res://game/mobs/common/boss_minimap_marker.png" id="2_w3k2w"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="3_g6ok4"]
+[ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/desert_eagle/desert_eagle_bullet.tscn" id="3_j1gq0"]
+[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="4_e43vs"]
+[ext_resource type="PackedScene" uid="uid://c15g50dfs3v1w" path="res://game/mobs/big_shot/big_shot_death_vfx.tscn" id="4_t1t52"]
+[ext_resource type="PackedScene" uid="uid://bviayhbbcb3go" path="res://game/mobs/big_shot/heal_box.tscn" id="5_44ony"]
+[ext_resource type="PackedScene" uid="uid://cm0sqwulviy72" path="res://game/weapons/guns/sniper_rifle/sniper_bullet.tscn" id="5_ni5pl"]
+[ext_resource type="PackedScene" uid="uid://siyip5f1puuv" path="res://game/mobs/big_shot/ammo_box.tscn" id="6_c4oc5"]
+[ext_resource type="PackedScene" uid="uid://dixl482dlx0y5" path="res://game/weapons/grenades/he_grenade/projectile/he_grenade_projectile.tscn" id="6_c26ul"]
+[ext_resource type="PackedScene" uid="uid://comvmvk0q8dbr" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_visual.tscn" id="7_8v41x"]
+[ext_resource type="AnimationLibrary" uid="uid://b1n6fg1mit1ui" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_animations.tres" id="9_gstwe"]
+[ext_resource type="Texture2D" uid="uid://cbq4qle1omls" path="res://game/mobs/big_shot/transmitter.png" id="9_useqk"]
+[ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="10_08wo3"]
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="10_aihmp"]
+[ext_resource type="Texture2D" uid="uid://cq47hcb2lcwgk" path="res://game/mobs/big_shot/big_shot_screen_marker.png" id="11_cpt06"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/ak_74/visual/ak_74_animations.tres" id="11_e43vs"]
+[ext_resource type="PackedScene" uid="uid://d27xngh76umsj" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_visual.tscn" id="15_3pysx"]
+[ext_resource type="AnimationLibrary" uid="uid://c148d0ilnvh12" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_animations.tres" id="16_ni5pl"]
+[ext_resource type="PackedScene" uid="uid://da324c6cjnhfc" path="res://game/weapons/melee/knife/visual/knife_visual.tscn" id="18_00oeb"]
+[ext_resource type="PackedScene" uid="uid://ctbp0s06lem6h" path="res://game/weapons/grenades/he_grenade/visual/he_grenade_visual.tscn" id="19_1eg1l"]
+[ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="19_c26ul"]
+[ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="20_7uq7j"]
+[ext_resource type="AnimationLibrary" uid="uid://c8bfsskilnnwu" path="res://game/weapons/grenades/he_grenade/visual/he_grenade_animations.tres" id="20_eg55u"]
+[ext_resource type="AnimationLibrary" uid="uid://d33bsb3qmkra5" path="res://game/weapons/melee/knife/visual/knife_animations.tres" id="21_1eg1l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3k2w"]
+radius = 76.0
+
+[sub_resource type="Animation" id="Animation_44ony"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transmitter:show_behind_parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transmitter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(42, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transmitter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.246924]
+}
+
+[sub_resource type="Animation" id="Animation_i5eye"]
+resource_name = "spawn_bandits"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transmitter:show_behind_parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 1.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transmitter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.7, 0.75, 0.79999995, 0.84999996, 0.8999999, 0.9499999, 0.99999994, 1.05, 1.1000001, 1.3, 1.55, 1.8),
+"transitions": PackedFloat32Array(0.6, 1.6666666, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.6, 1.6666666, 0.6),
+"update": 0,
+"values": [Vector2(42, 36), Vector2(89, 40.000004), Vector2(42, 36), Vector2(42, 36), Vector2(42, 40), Vector2(42, 36), Vector2(42, 36), Vector2(42, 40), Vector2(42, 36), Vector2(42, 36), Vector2(42, 40), Vector2(42, 36), Vector2(42, 36), Vector2(89, 40.000004), Vector2(42, 36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transmitter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1.3, 1.55, 1.8),
+"transitions": PackedFloat32Array(0.6, 1.6666666, 1, 0.6, 1.6666666, 0.6),
+"update": 0,
+"values": [0.246924, 0.49404672, 0.246924, 0.246924, 0.49404672, 0.246924]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_bandits"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4oc5"]
+_data = {
+&"RESET": SubResource("Animation_44ony"),
+&"spawn_bandits": SubResource("Animation_i5eye")
+}
 
 [node name="BigShot" instance=ExtResource("1_yijkc")]
+script = ExtResource("2_g0lbo")
+min_distance = 400.0
+aim_angle_rotation_weight = 0.09999999999999999
+attack_interval_min = 1.0
+attack_interval_max = 1.5999999999912689
+attack_time_after_equip = 0.2
+attack_desert_eagle_spread = 2.0
+attack_desert_eagle_distance = 960.0
+attack_desert_eagle_shoot_times_min = 2
+attack_desert_eagle_shoot_times_max = 4
+attack_desert_eagle_shoot_interval = 1.0
+attack_desert_eagle_projectile_scene = ExtResource("3_j1gq0")
+attack_ak_74_spread = 6.0
+attack_ak_74_distance = 1120.0
+attack_ak_74_shoot_times_min = 7
+attack_ak_74_shoot_times_max = 12
+attack_ak_74_shoot_interval = 0.18
+attack_ak_74_projectile_scene = ExtResource("4_e43vs")
+attack_sniper_rifle_spread = 2.0
+attack_sniper_rifle_distance = 1200.0
+attack_sniper_rifle_shoot_times = 1
+attack_sniper_rifle_shoot_interval = 1.5
+attack_sniper_rifle_aim_time = 0.4499999999970896
+attack_sniper_rifle_projectile_speed = 3200.0
+attack_sniper_rifle_projectile_scene = ExtResource("5_ni5pl")
+attack_grenade_spread = 3.0
+attack_grenade_distance = 1600.0
+attack_grenade_projectile_speed = 1600.0
+attack_grenade_projectile_damping = 600.0
+attack_grenade_projectile_explosion_time = 1.75
+attack_grenade_projectile_scene = ExtResource("6_c26ul")
+attack_knife_distance = 280.0
+attack_bandits_count = 2
+attack_bandits_health_difference_to_spawn = 300
+attack_bandits_scenes = Array[PackedScene]([])
+attack_bandits_heal_box_scene = ExtResource("5_44ony")
+attack_bandits_ammo_box_scene = ExtResource("6_c4oc5")
+speed = 560.0
+max_health = 2000
+always_visible_on_minimap = true
+hurt_vfx_scene = ExtResource("3_g6ok4")
+death_vfx_scene = ExtResource("4_t1t52")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_w3k2w")
+
+[node name="Visual" parent="Minimap/MinimapMarker" index="0"]
+texture = ExtResource("2_w3k2w")
 
 [node name="Info" parent="." index="4"]
 visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+texture = ExtResource("2_u4qlp")
+offset = Vector2(-5, -8)
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="DesertEagle" type="Node2D" parent="Visual/Weapon" index="0"]
+process_mode = 4
+visible = false
+
+[node name="Visual" parent="Visual/Weapon/DesertEagle" index="0" instance=ExtResource("7_8v41x")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/DesertEagle" index="1"]
+position = Vector2(134, -50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/DesertEagle" index="2"]
+libraries = {
+&"": ExtResource("9_gstwe")
+}
+
+[node name="AK74" type="Node2D" parent="Visual/Weapon" index="1"]
+process_mode = 4
+visible = false
+
+[node name="Visual" parent="Visual/Weapon/AK74" index="0" instance=ExtResource("10_aihmp")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1"]
+position = Vector2(194, -31)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2"]
+libraries = {
+&"": ExtResource("11_e43vs")
+}
+
+[node name="SniperRifle" type="Node2D" parent="Visual/Weapon" index="2"]
+process_mode = 4
+visible = false
+
+[node name="Visual" parent="Visual/Weapon/SniperRifle" index="0" instance=ExtResource("15_3pysx")]
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/SniperRifle" index="1"]
+position = Vector2(296, -22)
+
+[node name="AimLine" type="Line2D" parent="Visual/Weapon/SniperRifle" index="2"]
+visible = false
+position = Vector2(296, -22)
+points = PackedVector2Array(0, 0, 12800, 0)
+width = 8.0
+default_color = Color(1, 0, 0, 0.2509804)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/SniperRifle" index="3"]
+libraries = {
+&"": ExtResource("16_ni5pl")
+}
+
+[node name="HEGrenade" type="Node2D" parent="Visual/Weapon" index="3"]
+process_mode = 4
+visible = false
+
+[node name="Visual" parent="Visual/Weapon/HEGrenade" index="0" instance=ExtResource("19_1eg1l")]
+
+[node name="ThrowPivot" type="Marker2D" parent="Visual/Weapon/HEGrenade" index="1"]
+position = Vector2(-32, -32)
+
+[node name="ThrowPoint" type="Marker2D" parent="Visual/Weapon/HEGrenade/ThrowPivot" index="0"]
+position = Vector2(104, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/HEGrenade" index="2"]
+libraries = {
+&"": ExtResource("20_eg55u")
+}
+
+[node name="Knife" type="Node2D" parent="Visual/Weapon" index="4"]
+process_mode = 4
+visible = false
+position = Vector2(-32, -32)
+
+[node name="Visual" parent="Visual/Weapon/Knife" index="0" instance=ExtResource("18_00oeb")]
+position = Vector2(32, 32)
+
+[node name="Attack" type="Node2D" parent="Visual/Weapon/Knife" index="1"]
+position = Vector2(116, 0)
+script = ExtResource("19_c26ul")
+damage = 55
+damage_interval = 0.7
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="RayDetector" type="RayCast2D" parent="Visual/Weapon/Knife/Attack" index="0"]
+position = Vector2(32, 0)
+enabled = false
+target_position = Vector2(120, 0)
+collision_mask = 75
+hit_from_inside = true
+script = ExtResource("20_7uq7j")
+metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Knife" index="2"]
+libraries = {
+&"": ExtResource("21_1eg1l")
+}
+
+[node name="Transmitter" type="Sprite2D" parent="Visual" index="2"]
+show_behind_parent = true
+position = Vector2(42, 36)
+rotation = 0.246924
+texture = ExtResource("9_useqk")
+offset = Vector2(0, -26)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_c4oc5")
+}
+
+[node name="ChangeMoveDirectionTimer" type="Timer" parent="." index="11"]
+process_callback = 0
+wait_time = 2.9999999999999996
+autostart = true
+
+[node name="Timer" type="Timer" parent="." index="12"]
+process_callback = 0
+one_shot = true
+
+[node name="GrenadeReloadTimer" type="Timer" parent="." index="13"]
+process_callback = 0
+wait_time = 20.0
+one_shot = true
+
+[node name="ScreenMarker" parent="." index="14" instance=ExtResource("10_08wo3")]
+margin = 0.0
+show_when_on_screen = false
+
+[node name="Icon" parent="ScreenMarker/Visual/Marker/Arrow" index="0"]
+texture = ExtResource("11_cpt06")
+
+[connection signal="timeout" from="ChangeMoveDirectionTimer" to="." method="_on_change_move_direction_timer_timeout"]
+
+[editable path="ScreenMarker"]

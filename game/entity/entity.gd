@@ -59,6 +59,9 @@ const SAFE_DISTANCE_LERP := 8.0
 @export var max_health: int = 100
 ## Команда сущности. Сущности из одной команды не могут наносить урон друг другу.
 @export var team: int = 0
+## Всегда ли видна сущность на мини-карте. Сущности одной командой с локальным игроком всегда видны
+## независимо от этой настройки.
+@export var always_visible_on_minimap := false
 
 @export_group("Vfx")
 ## Визуальный эффект получения урона. Не прикрепляется к сущности и должен самоуничтожаться.
@@ -474,7 +477,7 @@ func _armed() -> void:
 
 
 func _update_minimap_marker(local_team: int) -> void:
-	if team == local_team:
+	if team == local_team or always_visible_on_minimap:
 		$Minimap/MinimapNotifier.set_block_signals(true)
 		($Minimap/MinimapMarker/Visual as CanvasItem).show()
 	else:

@@ -97,13 +97,13 @@ func _can_reload() -> bool:
 
 func _player_disarmed() -> void:
 	# нет смысла пропускать
-	if _anim.is_playing() and not _anim.current_animation in [&"equip", &"post_use"]:
-		_anim.play(&"RESET")
+	_anim.process_mode = Node.PROCESS_MODE_DISABLED
 	_reload_timer.paused = true
 
 
 func _player_armed() -> void:
 	_reload_timer.paused = false
+	_anim.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func _ammo_changed(in_stock: bool) -> void:

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4lwbyqjto4mg"]
+
+[ext_resource type="PackedScene" uid="uid://bgeykg6bg2lct" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.tscn" id="1_byxak"]
+
+[node name="BanditDesertEagle" instance=ExtResource("1_byxak")]
+vision_distance = 11520.0

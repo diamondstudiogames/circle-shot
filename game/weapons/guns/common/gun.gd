@@ -167,8 +167,11 @@ func _can_reload() -> bool:
 
 
 func _player_disarmed() -> void:
-	if _anim.is_playing() and _anim.current_animation != &"equip": # нет смысла пропускать
-		_anim.play(&"RESET")
+	_anim.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _player_armed() -> void:
+	_anim.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 ## Вычисляет позицию оружия так, чтобы линия прицела в точности соответствовала направлению

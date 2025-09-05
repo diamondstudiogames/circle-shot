@@ -73,6 +73,7 @@ func freeze_entities() -> void:
 
 ## Заканчивает событие победой или поражением.
 func end_challenge(victory: bool) -> void:
+	freeze_entities()
 	($Music as AudioStreamPlayer).stop()
 	if victory:
 		($VictoryMusic as AudioStreamPlayer).play()

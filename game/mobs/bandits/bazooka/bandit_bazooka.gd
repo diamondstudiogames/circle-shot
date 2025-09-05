@@ -33,11 +33,11 @@ func _shoot() -> void:
 
 
 func _disarmed() -> void:
-	_weapon_anim.pause()
+	_weapon_anim.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _armed() -> void:
-	_weapon_anim.play()
+	_weapon_anim.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func _update_weapon() -> void:

@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 		_weapon.rotation = _calculate_aim_angle()
 
 
-func _shoot(direction := Vector2.ZERO) -> void:
+func _shoot(direction := Vector2.RIGHT) -> void:
 	_weapon_anim.play(&"attack")
 	_weapon_anim.seek(0.0)
 	block_turning()

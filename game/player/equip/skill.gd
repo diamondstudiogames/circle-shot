@@ -22,7 +22,7 @@ var _blocked_cooldown_counter: int = 0
 
 
 func _physics_process(delta: float) -> void:
-	if not is_cooldown_blocked():
+	if not is_cooldown_blocked() and player.can_use_weapon():
 		if _cooldown_timer > player.skill_vars[1]:
 			_cooldown_timer = player.skill_vars[1]
 		_cooldown_timer -= delta

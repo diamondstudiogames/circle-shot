@@ -26,6 +26,8 @@ var target: Entity
 ## [RayCast2D] используемый для проверки, может ли моб стрелять в цель.
 @onready var target_ray_cast: RayCast2D = $TargetRayCast
 
+@warning_ignore("unused_private_class_variable") # Для дочерних классов
+@onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
 @onready var _find_target_timer: Timer = $FindTargetTimer
 @onready var _update_target_timer: Timer = $UpdateTargetTimer
 
