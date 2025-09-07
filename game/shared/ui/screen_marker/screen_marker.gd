@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_visual.visible = is_visible_in_tree()
-	if not visible:
+	if not _visual.visible:
 		return
 	
 	var screen_pos: Vector2 = get_global_transform_with_canvas() * Vector2.ZERO

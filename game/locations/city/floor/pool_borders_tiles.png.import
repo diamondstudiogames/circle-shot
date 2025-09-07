@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3rxpgelvdy2"
-path="res://.godot/imported/grass_tiles.png-a2d687cbb9d580e2e173a6d330a27a32.ctex"
+uid="uid://e2dx71idc84v"
+path="res://.godot/imported/pool_borders_tiles.png-f67faa323fc5a4a5fc3ad27dd3104691.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/locations/city/grass_tiles.png"
-dest_files=["res://.godot/imported/grass_tiles.png-a2d687cbb9d580e2e173a6d330a27a32.ctex"]
+source_file="res://game/locations/city/floor/pool_borders_tiles.png"
+dest_files=["res://.godot/imported/pool_borders_tiles.png-f67faa323fc5a4a5fc3ad27dd3104691.ctex"]
 
 [params]
 

@@ -11,6 +11,7 @@ enum WeaponType {
 }
 
 @export var min_distance := 400.0
+@export var random_point_from_target_distance := 1280.0
 @export_range(0.01, 1.0, 0.01, "exp") var aim_angle_rotation_weight := 0.08
 
 @export_group("Attacks", "attack_")
@@ -53,9 +54,12 @@ enum WeaponType {
 
 @export_subgroup("Knife", "attack_knife_")
 @export var attack_knife_distance := 280.0
+@export var attack_knife_interval := 0.8
 
 @export_subgroup("Bandits", "attack_bandits_")
 @export var attack_bandits_count: int = 2
+@export var attack_bandits_distance := 1760.0
+@export var attack_bandits_spawn_area_radius := 2560.0
 @export var attack_bandits_health_difference_to_spawn: int = 200
 @export var attack_bandits_scenes: Array[PackedScene]
 @export var attack_bandits_heal_box_scene: PackedScene
@@ -67,6 +71,7 @@ var _retreating := false
 var _attack_timer := 0.0
 var _aiming := true
 var _last_health_on_bandits_spawn: int
+var _bandits_spawn_idx: int = 0
 
 var _current_weapon_type := WeaponType.NONE
 var _updating_weapons_rotations := true
@@ -135,6 +140,8 @@ func _process_logic() -> void:
 		if _attack_timer <= 0.0 and _attacking:
 			_attack_timer = randf_range(attack_interval_min, attack_interval_max)
 			_select_attack()
+		elif distance_to_target < attack_knife_distance and _attack_timer < attack_interval_min:
+			_attack_timer = 0.0
 
 
 func _process_logic_no_target() -> void:
@@ -145,12 +152,9 @@ func _process_logic_no_target() -> void:
 
 
 func _target_updated() -> void:
-	if _last_health_on_bandits_spawn - current_health >= attack_bandits_health_difference_to_spawn:
-		_attack_spawn_bandits()
-		_last_health_on_bandits_spawn = current_health
-	
-	var max_attack_distance: float = max(attack_desert_eagle_distance,
-			attack_ak_74_distance, attack_sniper_rifle_distance, attack_knife_distance) # ...
+	entity_input.turn_with_aim = true
+	var max_attack_distance: float = max(attack_desert_eagle_distance, attack_ak_74_distance,
+			attack_sniper_rifle_distance, attack_grenade_distance, attack_knife_distance)
 	_attacking = global_position.distance_to(target.global_position) <= max_attack_distance \
 			and not target_ray_cast.is_colliding()
 	_retreating = false
@@ -158,7 +162,9 @@ func _target_updated() -> void:
 
 func _target_reset() -> void:
 	_retreating = false
-	_attacking = false
+	entity_input.turn_with_aim = false
+	if agent.is_navigation_finished() and not is_queued_for_deletion():
+		_on_agent_navigation_finished()
 
 
 func _disarmed() -> void:
@@ -395,6 +401,10 @@ func _shoot_grenade(throw_direction := Vector2.RIGHT) -> void:
 		projectile.speed *= minf(throw_direction.length(), 1.0)
 		projectile.team = team
 		projectile.name += str(randi())
+		var attack: Attack = projectile.get_node(^"Explosion/Attack")
+		attack.who = id
+		attack.team = team
+		attack.damage_multiplier = damage_multiplier
 		_projectiles_parent.add_child(projectile, true)
 	
 	_weapon_anim_grenade.play(&"RESET")
@@ -431,7 +441,9 @@ func _select_attack() -> void:
 	
 	if distance_to_target < attack_desert_eagle_distance:
 		attack_pool.append(_attack_desert_eagle)
+		attack_pool.append(_attack_desert_eagle)
 	if distance_to_target < attack_ak_74_distance:
+		attack_pool.append(_attack_ak_74)
 		attack_pool.append(_attack_ak_74)
 	if distance_to_target < attack_sniper_rifle_distance:
 		attack_pool.append(_attack_sniper_rifle)
@@ -439,6 +451,10 @@ func _select_attack() -> void:
 		attack_pool.append(_attack_grenade)
 	if distance_to_target < attack_knife_distance:
 		attack_pool = [_attack_knife]
+	if distance_to_target < attack_bandits_distance and _last_health_on_bandits_spawn \
+			- current_health >= attack_bandits_health_difference_to_spawn:
+		attack_pool = [_attack_spawn_bandits]
+		_last_health_on_bandits_spawn = current_health
 	
 	if attack_pool.is_empty():
 		return
@@ -454,6 +470,8 @@ func _attack_desert_eagle() -> void:
 	if _current_weapon_type != WeaponType.DESERT_EAGLE:
 		_select_weapon.rpc(WeaponType.DESERT_EAGLE)
 		_attack_timer += _weapon_anim_desert_eagle.get_animation(&"equip").length
+		_attack_timer += _weapon_anim_desert_eagle.get_animation(&"post_equip").length
+		_attack_timer += attack_time_after_equip
 		var anim_name: StringName = await _weapon_anim_desert_eagle.animation_finished
 		if anim_name != &"equip":
 			return
@@ -478,6 +496,7 @@ func _attack_ak_74() -> void:
 	if _current_weapon_type != WeaponType.AK74:
 		_select_weapon.rpc(WeaponType.AK74)
 		_attack_timer += _weapon_anim_ak_74.get_animation(&"equip").length
+		_attack_timer += attack_time_after_equip
 		var anim_name: StringName = await _weapon_anim_ak_74.animation_finished
 		if anim_name != &"equip":
 			return
@@ -501,6 +520,7 @@ func _attack_sniper_rifle() -> void:
 	if _current_weapon_type != WeaponType.SNIPER_RIFLE:
 		_select_weapon.rpc(WeaponType.SNIPER_RIFLE)
 		_attack_timer += _weapon_anim_sniper_rifle.get_animation(&"equip").length
+		_attack_timer += attack_time_after_equip
 		var anim_name: StringName = await _weapon_anim_sniper_rifle.animation_finished
 		if anim_name != &"equip":
 			return
@@ -511,6 +531,9 @@ func _attack_sniper_rifle() -> void:
 	
 	_standing = true
 	for i: int in attack_sniper_rifle_shoot_times:
+		if not is_instance_valid(target):
+			_standing = false
+			return
 		_aiming = false
 		_toggle_aim_sniper_rifle.rpc(true)
 		var predicted_target_position: Vector2 = (
@@ -538,19 +561,20 @@ func _attack_grenade() -> void:
 	_attack_timer += _weapon_anim_grenade.get_animation(&"equip").length
 	_attack_timer += _weapon_anim_grenade.get_animation(&"pre_throw").length
 	_attack_timer += _weapon_anim_grenade.get_animation(&"throw").length
+	_attack_timer += attack_time_after_equip
 	var anim_name: StringName = await _weapon_anim_grenade.animation_finished
 	if anim_name != &"equip":
 		return
 	
 	_timer.start(attack_time_after_equip)
 	await _timer.timeout
+	if not is_instance_valid(target):
+		return
 	
-	var predicted_target_position: Vector2 = target.global_position + target.get_real_velocity() \
-			* attack_grenade_projectile_explosion_time
-	var need_speed: float = global_position.distance_to(predicted_target_position) \
+	var need_speed: float = global_position.distance_to(target.global_position) \
 			/ attack_grenade_projectile_explosion_time + attack_grenade_projectile_damping \
 			* attack_grenade_projectile_explosion_time / 2
-	entity_input.aim_direction = (global_position.direction_to(predicted_target_position)
+	entity_input.aim_direction = (global_position.direction_to(target.global_position)
 			* need_speed / attack_grenade_projectile_speed).limit_length(1.0)
 	
 	_shoot_grenade.rpc(entity_input.aim_direction)
@@ -561,6 +585,7 @@ func _attack_knife() -> void:
 	if _current_weapon_type != WeaponType.KNIFE:
 		_select_weapon.rpc(WeaponType.KNIFE)
 		_attack_timer += _weapon_anim_knife.get_animation(&"equip").length
+		_attack_timer += attack_time_after_equip
 		var anim_name: StringName = await _weapon_anim_knife.animation_finished
 		if anim_name != &"equip":
 			return
@@ -569,8 +594,11 @@ func _attack_knife() -> void:
 		_timer.start(attack_time_after_equip)
 		await _timer.timeout
 	
+	_attack_timer += attack_knife_interval
 	if is_disarmed():
 		await disarmed
+	if not is_instance_valid(target):
+		return
 	_shoot_knife.rpc(global_position.direction_to(target.global_position))
 
 
@@ -588,16 +616,22 @@ func _spawn_bandits() -> void:
 		return
 	
 	for i: int in attack_bandits_count:
-		var bandit_scene: PackedScene = attack_bandits_scenes.pick_random()
+		var bandit_scene: PackedScene = attack_bandits_scenes[_bandits_spawn_idx]
 		var bandit: Mob = bandit_scene.instantiate()
-		var random_point: Vector2 = \
-				NavigationServer2D.map_get_random_point(get_world_2d().navigation_map, 1, false)
-		bandit.position = random_point
+		var spawn_point: Vector2 = NavigationServer2D.map_get_closest_point(
+				get_world_2d().navigation_map,
+				Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+				* randf_range(0.0, attack_bandits_spawn_area_radius) + global_position
+		)
+		bandit.position = spawn_point
 		bandit.team = team
 		bandit.id = -randi()
 		bandit.name += str(bandit.id)
 		get_parent().add_child(bandit, true)
 		bandit.died.connect(_on_bandit_died.bind(bandit, i))
+		_bandits_spawn_idx += 1
+		if _bandits_spawn_idx == attack_bandits_scenes.size():
+			_bandits_spawn_idx = 0
 
 
 func _update_weapons() -> void:
@@ -643,6 +677,18 @@ func _on_bandit_died(bandit: Entity, idx: int) -> void:
 
 
 func _on_change_move_direction_timer_timeout() -> void:
-	var random_point: Vector2 = \
-			NavigationServer2D.map_get_random_point(get_world_2d().navigation_map, 1, false)
-	agent.target_position = random_point
+	var destination: Vector2
+	if not is_instance_valid(target):
+		destination = NavigationServer2D.map_get_random_point(
+				get_world_2d().navigation_map, 1, false)
+	else:
+		destination = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized() \
+				* randf_range(0.0, random_point_from_target_distance) + target.global_position
+		destination = NavigationServer2D.map_get_closest_point(
+				get_world_2d().navigation_map, destination)
+	agent.target_position = destination
+
+
+func _on_agent_navigation_finished() -> void:
+	_on_change_move_direction_timer_timeout()
+	($ChangeMoveDirectionTimer as Timer).start()

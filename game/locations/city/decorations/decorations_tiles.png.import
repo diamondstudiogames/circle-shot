@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx8pokrvjkx43"
-path="res://.godot/imported/pool_water.png-4e588777222d60fef8b604497ac7df0f.ctex"
+uid="uid://c7mhg6u7p8xec"
+path="res://.godot/imported/decorations_tiles.png-e77b108660ec8243358ee5cd84912133.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/locations/city/pool_water.png"
-dest_files=["res://.godot/imported/pool_water.png-4e588777222d60fef8b604497ac7df0f.ctex"]
+source_file="res://game/locations/city/decorations/decorations_tiles.png"
+dest_files=["res://.godot/imported/decorations_tiles.png-e77b108660ec8243358ee5cd84912133.ctex"]
 
 [params]
 

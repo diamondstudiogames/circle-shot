@@ -421,6 +421,7 @@ _data = {
 }
 
 [node name="Skewers" instance=ExtResource("1_q7ou4")]
+position = Vector2(0, 0)
 script = ExtResource("2_1lgvu")
 damage_second = 30
 damage_both = 50
@@ -431,11 +432,7 @@ speed_multiplier_when_current = 1.11
 shoot_on_joystick_release = false
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
-position = Vector2(32, 32)
 color = Color(0.597656, 0.597656, 0.597656, 1)
-
-[node name="Attack" parent="." index="1"]
-position = Vector2(32, 32)
 
 [node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
 enabled = false
@@ -473,7 +470,6 @@ script = ExtResource("5_erost")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
 [node name="Visual" parent="." index="2" instance=ExtResource("5_1lgvu")]
-position = Vector2(32, 32)
 
 [node name="Aim" type="Line2D" parent="." index="3"]
 visible = false

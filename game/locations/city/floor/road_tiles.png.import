@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y2c536jnosf6"
-path="res://.godot/imported/roof_tiles0.png-9d6f911eedb27d712b084b94e9d9b77b.ctex"
+uid="uid://cojq7brkaohvw"
+path="res://.godot/imported/road_tiles.png-37b6cd928ece99f3b21ed007772d380d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/locations/city/roof_tiles0.png"
-dest_files=["res://.godot/imported/roof_tiles0.png-9d6f911eedb27d712b084b94e9d9b77b.ctex"]
+source_file="res://game/locations/city/floor/road_tiles.png"
+dest_files=["res://.godot/imported/road_tiles.png-37b6cd928ece99f3b21ed007772d380d.ctex"]
 
 [params]
 
