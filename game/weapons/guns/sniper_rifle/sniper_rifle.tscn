@@ -16,12 +16,12 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_dynjt"]
 _limits = [-12.0, 0.0, 0.0, 4.0]
-_data = [Vector2(0, 0), 0.0, -4.63712, 0, 0, Vector2(4, -12), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
 
 [sub_resource type="Curve" id="Curve_2s46s"]
 _limits = [-12.0, 0.0, 0.0, 1.0]
-_data = [Vector2(0, -12), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bfp"]
@@ -45,7 +45,6 @@ spread_increasing_time = 0.3
 spread_reset_time = 2.0
 recoil_curve = SubResource("Curve_dynjt")
 recoil_cycle_curve = SubResource("Curve_2s46s")
-recoil_reset_time = 2.5
 ammo_per_load = 4
 ammo_total = 16
 speed_multiplier_when_current = 0.9

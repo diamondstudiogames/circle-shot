@@ -95,7 +95,7 @@ func _target_updated() -> void:
 func _target_reset() -> void:
 	_shooting = false
 	entity_input.turn_with_aim = false
-	if agent.is_navigation_finished() and not is_queued_for_deletion():
+	if agent.is_navigation_finished() and is_inside_tree():
 		_select_random_point()
 
 

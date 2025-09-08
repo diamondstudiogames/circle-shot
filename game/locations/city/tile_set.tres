@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=31 format=3 uid="uid://1phpga7lxtfk"]
+[gd_resource type="TileSet" load_steps=34 format=3 uid="uid://1phpga7lxtfk"]
 
 [ext_resource type="Texture2D" uid="uid://bo3rxpgelvdy2" path="res://game/locations/city/floor/grass_tiles.png" id="1_r7uam"]
 [ext_resource type="Texture2D" uid="uid://cojq7brkaohvw" path="res://game/locations/city/floor/road_tiles.png" id="2_dr02r"]
+[ext_resource type="Texture2D" uid="uid://bfcf7354gnct" path="res://game/locations/city/decorations/fence_tiles.png" id="3_dr02r"]
 [ext_resource type="Texture2D" uid="uid://y2c536jnosf6" path="res://game/locations/city/roof/roof_tiles0.png" id="3_y4xhl"]
 [ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/shared/shaders/materials/water.tres" id="4_4list"]
 [ext_resource type="Texture2D" uid="uid://e2dx71idc84v" path="res://game/locations/city/floor/pool_borders_tiles.png" id="4_ilnga"]
@@ -38,6 +39,9 @@ tile_data = PackedInt32Array(0, 9, 0, 65536, 9, 1, 131072, 9, 2, 1, 65545, 0, 65
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3611a"]
 tile_data = PackedInt32Array(0, 196617, 0, 1, 262153, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dr02r"]
+tile_data = PackedInt32Array(0, 196617, 1, 65536, 196617, 2, 1, 262153, 1, 65537, 262153, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmhyr"]
 texture = ExtResource("1_r7uam")
@@ -212,6 +216,52 @@ texture_region_size = Vector2i(160, 160)
 3:3/0/terrain_set = 0
 3:3/0/terrain = 0
 3:3/0/terrains_peering_bit/top_left_corner = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilnga"]
+texture = ExtResource("3_dr02r")
+texture_region_size = Vector2i(160, 160)
+0:0/0 = 0
+0:0/0/z_index = -2
+0:0/0/terrain_set = 2
+0:0/0/terrain = 0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/z_index = -2
+1:0/0/terrain_set = 2
+1:0/0/terrain = 0
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/z_index = -2
+2:0/0/terrain_set = 2
+2:0/0/terrain = 0
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/z_index = -2
+0:1/0/terrain_set = 2
+0:1/0/terrain = 0
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+2:1/0 = 0
+2:1/0/z_index = -2
+2:1/0/terrain_set = 2
+2:1/0/terrain = 0
+2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+1:1/0 = 0
+1:1/0/z_index = -2
+1:1/0/terrain_set = 2
+1:1/0/terrain = 0
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8ihi"]
 texture = ExtResource("3_y4xhl")
@@ -602,9 +652,25 @@ texture_region_size = Vector2i(160, 160)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, 40, 0, 0, 40, -80, -80, -80)
 3:0/0 = 0
+3:0/0/z_index = -2
 3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-60, 80, -60, -80, 80, -80, 80, 80)
 4:0/0 = 0
+4:0/0/z_index = -2
 4:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(60, 80, 60, -80, -80, -80, -80, 80)
+5:0/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+4:1/0/z_index = 3
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, 0, 0, 0, 0, 80, -80, 80, -80, 0)
+3:1/0 = 0
+3:1/0/z_index = 3
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 80, 0, 0, 80, 0, 80, 80)
+3:2/0 = 0
+3:2/0/z_index = 3
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(80, 0, 0, 0, 0, -80, 80, -80)
+4:2/0 = 0
+4:2/0/z_index = 3
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, 0, 0, 0, 0, -80, -80, -80)
 
 [resource]
 tile_size = Vector2i(160, 160)
@@ -628,6 +694,9 @@ terrain_set_1/terrain_2/name = "Roof1"
 terrain_set_1/terrain_2/color = Color(0, 0, 1, 1)
 terrain_set_1/terrain_3/name = "Roof2"
 terrain_set_1/terrain_3/color = Color(1, 0, 0, 1)
+terrain_set_2/mode = 2
+terrain_set_2/terrain_0/name = "Fence"
+terrain_set_2/terrain_0/color = Color(1, 1, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_gmhyr")
 sources/1 = SubResource("TileSetAtlasSource_c08qy")
 sources/2 = SubResource("TileSetAtlasSource_l8ihi")
@@ -638,6 +707,7 @@ sources/6 = SubResource("TileSetAtlasSource_dr02r")
 sources/7 = SubResource("TileSetAtlasSource_y4xhl")
 sources/8 = SubResource("TileSetAtlasSource_u0kqx")
 sources/9 = SubResource("TileSetAtlasSource_cct5s")
+sources/10 = SubResource("TileSetAtlasSource_ilnga")
 pattern_0 = SubResource("TileMapPattern_y4xhl")
 pattern_1 = SubResource("TileMapPattern_ilnga")
 pattern_2 = SubResource("TileMapPattern_ff38p")
@@ -647,3 +717,4 @@ pattern_5 = SubResource("TileMapPattern_6im1q")
 pattern_6 = SubResource("TileMapPattern_j2s00")
 pattern_7 = SubResource("TileMapPattern_cct5s")
 pattern_8 = SubResource("TileMapPattern_3611a")
+pattern_9 = SubResource("TileMapPattern_dr02r")

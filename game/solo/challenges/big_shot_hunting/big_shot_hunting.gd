@@ -36,7 +36,7 @@ func _get_rewards() -> Dictionary[String, int]:
 	return rewards
 
 
-## Спавнит Большую шишку.
+## Создаёт Большую шишку.
 func spawn_big_shot() -> void:
 	var big_shot: Entity = entity_scenes[1].instantiate()
 	big_shot.position = ($Map/BigShotSpawnPoint as Node2D).global_position
