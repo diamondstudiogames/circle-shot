@@ -28,7 +28,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.1308996938995747]
+"values": [0.2617993877991494]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,7 +103,7 @@ ammo_total = 24
 speed_multiplier_when_current = 0.98
 
 [node name="Ammo" parent="." index="0"]
-rotation = 0.1308997
+rotation = 0.2617994
 
 [node name="ThrowPoint" parent="ThrowPivot" index="0"]
 position = Vector2(96, 0)
