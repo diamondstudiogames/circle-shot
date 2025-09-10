@@ -95,6 +95,8 @@ func load_event(event_idx: int, map_idx: int) -> Event:
 	var map_scene: PackedScene = ResourceLoader.load_threaded_get(map_path)
 	var event: Event = event_scene.instantiate()
 	var map: Map = map_scene.instantiate()
+	event.data = Globals.items_db.events[event_idx]
+	map.data = Globals.items_db.events[event_idx].maps[map_idx]
 	event.add_child(map)
 	
 	set_process(false)
@@ -152,6 +154,8 @@ func load_challenge(challenge_idx: int, map_idx: int) -> Challenge:
 	var map_scene: PackedScene = ResourceLoader.load_threaded_get(map_path)
 	var challenge: Challenge = challenge_scene.instantiate()
 	var map: Map = map_scene.instantiate()
+	challenge.data = Globals.items_db.challenges[challenge_idx]
+	map.data = Globals.items_db.challenges[challenge_idx].maps[map_idx]
 	challenge.add_child(map)
 	
 	set_process(false)

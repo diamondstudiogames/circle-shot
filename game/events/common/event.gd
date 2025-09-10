@@ -15,6 +15,8 @@ signal ended
 ## Определяет максимум случайного расстояния от заданной точки появления.
 @export var spawn_point_randomness := 40.0
 
+## Данные об этом событии.
+var data: EventData
 ## Началось ли событие.
 var was_started := false
 ## Количество тиков в момент создания события. Используется для корректировки анимации начала.
@@ -53,32 +55,6 @@ func _local_player_created(player: Player) -> void:
 		var offset: float = (Time.get_ticks_msec() - created_ticks_msec) / 1000.0
 		($Camera as SmartCamera).pan_to_target(player.camera_target, maxf(4.0 - offset, 1.0))
 		event_ui.seek_intro(offset)
-
-
-## Создаёт игрока с идентификатором [param id]. Если событие ещё не началось, то этот игрок будет
-## обезоружен и обездвижен.
-func spawn_player(id: int) -> void:
-	var player: Player = _get_player_scene(id).instantiate()
-	player.position = _get_spawn_point(id) + Vector2(
-			randf_range(-spawn_point_randomness, spawn_point_randomness),
-			randf_range(-spawn_point_randomness, spawn_point_randomness)
-	)
-	player.team = players_teams[id]
-	player.id = id
-	player.player_name = players_names[id]
-	player.equip_data = players_equip_data[id].duplicate()
-	player.equip_data.append(-1)
-	if id in _players_skill_vars:
-		player.skill_vars = _players_skill_vars[id].duplicate()
-	player.name = "Player%d" % id
-	_customize_player(player)
-	$Entities.add_child(player)
-	player.killed.connect(_on_player_killed.bind(player))
-	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
-	if not was_started:
-		player.block_weapon_usage()
-		player.make_immobile()
-		player.block_turning()
 
 
 ## Останавливает, обезоруживает и делает неуязвимыми всех игроков.[br]
@@ -122,6 +98,32 @@ func end() -> void:
 	queue_free()
 
 
+## Создаёт игрока с идентификатором [param id]. Если событие ещё не началось, то этот игрок будет
+## обезоружен и обездвижен.
+func spawn_player(id: int) -> void:
+	var player: Player = _get_player_scene(id).instantiate()
+	player.position = _get_spawn_point(id) + Vector2(
+			randf_range(-spawn_point_randomness, spawn_point_randomness),
+			randf_range(-spawn_point_randomness, spawn_point_randomness)
+	)
+	player.team = players_teams[id]
+	player.id = id
+	player.player_name = players_names[id]
+	player.equip_data = players_equip_data[id].duplicate()
+	player.equip_data.append(-1)
+	if id in _players_skill_vars:
+		player.skill_vars = _players_skill_vars[id].duplicate()
+	player.name = "Player%d" % id
+	_customize_player(player)
+	$Entities.add_child(player)
+	player.killed.connect(_on_player_killed.bind(player))
+	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
+	if not was_started:
+		player.block_weapon_usage()
+		player.make_immobile()
+		player.block_turning()
+
+
 ## Заканчивает событие победой или поражением.
 func end_event(victory: bool) -> void:
 	($Music as AudioStreamPlayer).stop()
@@ -141,6 +143,11 @@ func end_event(victory: bool) -> void:
 		Globals.set_int("coins", Globals.get_int("coins") + coins_got)
 		
 		event_ui.show_rewards(rewards, coins_got)
+
+
+## Возвращает информацию о событии (его имя и состояние: оставшееся время, живые игроки, ...).
+func get_event_info() -> String:
+	return "%s, %s" % [data.name, _get_event_status() if was_started else "начало"]
 
 
 @rpc("call_local", "reliable", "authority", 3)
@@ -234,6 +241,12 @@ func _player_disconnected(_id: int) -> void:
 ## где ключи - строки с причиной награды, а значения - размер награды в монетах.
 func _get_rewards() -> Dictionary[String, int]:
 	return {}
+
+
+## Метод для переопределения. Должен возвращать статус события (живые игроки, оставшееся время)
+## с маленькой буквы.
+func _get_event_status() -> String:
+	return ""
 
 
 func _on_player_killed(by: int, _remained_health: int, player: Player) -> void:

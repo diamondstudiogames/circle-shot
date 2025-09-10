@@ -9,8 +9,12 @@ extends World
 
 ## Издаётся, когда испытание началось (т. е. после вызова [method _start]).
 signal started
+
+## Данные об этом испытании.
+var data: ChallengeData
 ## Началось ли испытание.
 var was_started := false
+
 var _player_skill_vars: Array[int]
 ## Ссылка на [ChallengeUI].
 @onready var challenge_ui: ChallengeUI = $UI

@@ -231,13 +231,14 @@ func load_map(event_challenge_idx: int, map_idx: int, challenge: bool) -> void:
 		remove_child(_current_map)
 		_current_map.queue_free()
 	
-	var map_scene_path: String
+	var map_data: MapData
 	if challenge:
-		map_scene_path = Globals.items_db.challenges[event_challenge_idx].maps[map_idx].scene_path
+		map_data = Globals.items_db.challenges[event_challenge_idx].maps[map_idx]
 	else:
-		map_scene_path = Globals.items_db.events[event_challenge_idx].maps[map_idx].scene_path
-	var map_scene: PackedScene = load(map_scene_path)
+		map_data = Globals.items_db.events[event_challenge_idx].maps[map_idx]
+	var map_scene: PackedScene = load(map_data.scene_path)
 	var map: Map = map_scene.instantiate()
+	map.data = map_data
 	_spawn_point = map.get_node(^"SoloSpawnPoint")
 	
 	var tracks_to_play: Array[AudioStream]

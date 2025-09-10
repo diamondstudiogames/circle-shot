@@ -6,6 +6,8 @@ extends Node2D
 @export var custom_tracks: Array[AudioStream]
 ## Ссылка на [World] этой карты.
 var world: World
+## Данные об этой карте.
+var data: MapData
 
 func _ready() -> void:
 	world = get_parent() as World

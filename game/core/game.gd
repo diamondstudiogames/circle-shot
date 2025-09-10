@@ -543,24 +543,23 @@ func _authenticate_callback(peer: int, data: PackedByteArray) -> void:
 				_scene_multiplayer.complete_auth(peer)
 				return
 			FailReason.DIFFERENT_VERSION:
+				var server_version: String = data.slice(1).get_string_from_utf8()
 				($ConnectingDialog as Window).hide()
 				show_error("Невозможно подключиться! \
-Версия сервера (%s) не совпадает с твоей (%s)." % [
-					data.slice(1).get_string_from_utf8(),
-					Globals.version,
-				])
+Версия сервера (%s) не совпадает с твоей (%s)." % [server_version, Globals.version])
 				push_warning("Can't connect: different versions (%s - local and %s - server)." % [
 					Globals.version,
-					data.slice(1).get_string_from_utf8(),
+					server_version,
 				])
 			FailReason.FULL_ROOM:
 				($ConnectingDialog as Window).hide()
 				show_error("Невозможно подключиться! Комната уже заполнена.")
 				push_warning("Can't connect: full room.")
 			FailReason.IN_GAME:
+				var status: String = data.slice(1).get_string_from_utf8()
 				($ConnectingDialog as Window).hide()
-				show_error("Невозможно подключиться! Игра уже началась.")
-				push_warning("Can't connect: game already started.")
+				show_error("Невозможно подключиться! Игра уже началась.\nСостояние: %s." % status)
+				push_warning("Can't connect: game already started. Status: %s." % status)
 			FailReason.BANNED:
 				($ConnectingDialog as Window).hide()
 				show_error("Невозможно подключиться! Ты забанен в этой комнате.")
@@ -590,8 +589,18 @@ func _authenticate_callback(peer: int, data: PackedByteArray) -> void:
 		print_verbose("Rejecting %d: full room." % peer)
 		return
 	if state != State.LOBBY:
-		_scene_multiplayer.send_auth(peer, PackedByteArray([FailReason.IN_GAME]))
-		print_verbose("Rejecting %d: already in game." % peer)
+		var status: String
+		if state == State.LOADING:
+			status = "Загрузка события"
+		else:
+			var event := world as Event
+			if not event:
+				status = "Неизвестно"
+			else:
+				status = event.get_event_info()
+		_scene_multiplayer.send_auth(peer,
+				PackedByteArray([FailReason.IN_GAME]) + status.to_utf8_buffer())
+		print_verbose("Rejecting %d: already in game, status: %s." % [peer, status])
 		return
 	
 	_scene_multiplayer.send_auth(peer, PackedByteArray([OK]))

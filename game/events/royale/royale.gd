@@ -105,6 +105,10 @@ func _get_rewards() -> Dictionary[String, int]:
 	return rewards
 
 
+func _get_event_status() -> String:
+	return "живых игроков: %d" % alive_players.size()
+
+
 @rpc("reliable", "call_local", "authority", 3)
 func _kill_player(who: int, killer: int = 0) -> void:
 	alive_players.erase(who)

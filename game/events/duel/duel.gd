@@ -110,6 +110,10 @@ func _get_rewards() -> Dictionary[String, int]:
 	return rewards
 
 
+func _get_event_status() -> String:
+	return "раунд %d" % (current_round + 1 if current_round != 3 else current_round)
+
+
 @rpc("reliable", "call_remote", "authority", 3)
 func _set_rounds_won(red: int, blue: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:

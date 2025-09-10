@@ -144,8 +144,13 @@ func _get_rewards() -> Dictionary[String, int]:
 	return rewards
 
 
+func _get_event_status() -> String:
+	return "осталось времени: %d:%02d" % [floori(_time_remained / 60.0), _time_remained % 60]
+
+
 @rpc("unreliable_ordered", "call_local", "authority", 3)
 func _update_time(remained: int) -> void:
+	_time_remained = remained
 	_flag_capture_ui.set_time(remained)
 
 
