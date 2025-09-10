@@ -246,11 +246,11 @@ _data = {
 script = ExtResource("2_btc68")
 match_time = 180
 comeback_time = 3
-coins_for_win = 70
-coins_for_draw = 55
-coins_for_defeat = 35
-coins_for_kill = 5
-damage_for_coin = 20
+coins_for_win = 35
+coins_for_draw = 22
+coins_for_defeat = 17
+coins_for_kill = 3
+damage_for_coin = 40
 entity_scenes = Array[PackedScene]([ExtResource("3_xyyla")])
 
 [node name="UI" parent="." index="8"]
