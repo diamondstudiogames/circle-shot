@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://bt05ommf4xsbx"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_ma3gx"]
+
+[resource]
+script = ExtResource("1_ma3gx")
+name = "Кровавые кинжалы"
+rarity = 2
+id = "bloody_daggers"
+stats = Dictionary[String, String]({
+"ammo_per_load": "4",
+"ammo_total": "20",
+"bleeding_duration": "3",
+"damage": "22",
+"dps": "30",
+"reload_time": "0.7"
+})
+damage_text = "Урон: {damage}, кровотечение"
+description = "[color=deep_sky_blue]Накладывает кровотечение[/color]
+Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Длительность кровотечения: [color=red]{bleeding_duration}[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color] за снаряд
+
+Красивые метательные кинжалы, которые бьют в самые уязвимые места целей, заставляя их истекать кровью."
+scene_path = "uid://cwunk2vqqu6em"
+image_path = "uid://dw46xpcqr6hmj"
+spawnable_scenes_paths = Array[String](["uid://bmgs501ayehg6"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

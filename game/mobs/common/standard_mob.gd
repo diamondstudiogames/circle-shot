@@ -45,8 +45,9 @@ func _ready() -> void:
 	_shoot_timer = shoot_interval
 	_last_no_target_position = global_position
 	agent.navigation_finished.connect(_on_agent_navigation_finished)
-	_select_random_point()
 	super()
+	await get_tree().physics_frame
+	_select_random_point.call_deferred()
 
 
 func _process_logic() -> void:
