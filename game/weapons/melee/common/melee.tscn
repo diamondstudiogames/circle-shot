@@ -6,7 +6,7 @@
 [node name="Melee" type="Node2D"]
 position = Vector2(-32, -32)
 script = ExtResource("1_cpujk")
-ammo_per_load = 1
+ammo_per_load = 0
 ammo_total = 0
 aim_camera_distance = 0.0
 shoot_on_joystick_release = true

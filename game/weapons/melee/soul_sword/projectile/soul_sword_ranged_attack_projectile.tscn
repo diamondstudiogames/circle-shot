@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkj4bv1jfeh82"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_t1005"]
+[ext_resource type="Script" uid="uid://crs7e7q0om128" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_projectile.gd" id="2_b0v2s"]
+[ext_resource type="Texture2D" uid="uid://c4s5bq1k8f462" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_projectile.png" id="2_tsoxk"]
+[ext_resource type="PackedScene" uid="uid://ccjhyo0vujx3a" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_hit_vfx.tscn" id="2_whxs8"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_whxs8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0v2s"]
+size = Vector2(40, 240)
+
+[node name="SoulSwordRangedAttackProjectile" instance=ExtResource("1_t1005")]
+script = ExtResource("2_b0v2s")
+speed = 2400.0
+hit_vfx_scene = ExtResource("2_whxs8")
+hit_wall_vfx_scene = ExtResource("2_whxs8")
+damage = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+z_index = -1
+texture = ExtResource("2_tsoxk")
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+position = Vector2(-60, 0)
+shape = SubResource("RectangleShape2D_b0v2s")
+target_position = Vector2(120, 0)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_whxs8")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]

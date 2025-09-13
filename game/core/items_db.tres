@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemsDB" load_steps=55 format=3 uid="uid://pwq1e7l2ckos"]
+[gd_resource type="Resource" script_class="ItemsDB" load_steps=56 format=3 uid="uid://pwq1e7l2ckos"]
 
 [ext_resource type="Script" uid="uid://btj6q66tc1cd6" path="res://game/solo/challenges/common/challenge_data.gd" id="1_l7qpn"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_yrpvj"]
@@ -47,6 +47,7 @@
 [ext_resource type="Resource" uid="uid://bt05ommf4xsbx" path="res://game/weapons/throwable/bloody_daggers/bloody_daggers.tres" id="42_vyn0d"]
 [ext_resource type="Resource" uid="uid://bmkwy1nu03e0n" path="res://game/weapons/grenades/molotov/molotov.tres" id="44_kifgh"]
 [ext_resource type="Resource" uid="uid://ddfxj31klycw7" path="res://game/weapons/throwable/kunai/kunai.tres" id="49_0uki1"]
+[ext_resource type="Resource" uid="uid://bfv547s02rwut" path="res://game/weapons/melee/soul_sword/soul_sword.tres" id="49_puq8a"]
 [ext_resource type="Resource" uid="uid://bf04l6ql12cgu" path="res://game/weapons/melee/chainsaw/chainsaw.tres" id="51_puq8a"]
 [ext_resource type="Resource" uid="uid://bup65dc37kog2" path="res://game/weapons/guns/tec_9/tec_9.tres" id="55_dkk74"]
 [ext_resource type="Resource" uid="uid://c33uv2gf6nw4x" path="res://game/weapons/guns/potato_cannon/potato_cannon.tres" id="61_wn3y5"]
@@ -64,7 +65,7 @@ skills_normal = Array[ExtResource("3_x8mha")]([ExtResource("4_hfvvw"), ExtResour
 weapons_light = Array[ExtResource("16_uslwp")]([ExtResource("20_wegr4"), ExtResource("21_43s3b"), ExtResource("42_2b02j"), ExtResource("49_0uki1"), ExtResource("55_dkk74"), ExtResource("61_wn3y5"), ExtResource("42_vyn0d")])
 weapons_heavy = Array[ExtResource("16_uslwp")]([ExtResource("17_7vx3p"), ExtResource("21_qy8k3"), ExtResource("18_hjrvg"), ExtResource("19_5dl73"), ExtResource("33_wgeog"), ExtResource("37_oq0s5"), ExtResource("39_p8lge")])
 weapons_support = Array[ExtResource("16_uslwp")]([ExtResource("25_wbuqy"), ExtResource("26_xy8s6"), ExtResource("36_240aq"), ExtResource("44_kifgh"), ExtResource("70_4r0pp"), ExtResource("71_xfcsd")])
-weapons_melee = Array[ExtResource("16_uslwp")]([ExtResource("23_50d6n"), ExtResource("24_gbbrj"), ExtResource("36_tm20e"), ExtResource("51_puq8a"), ExtResource("62_xtjoe"), ExtResource("64_d6vit")])
+weapons_melee = Array[ExtResource("16_uslwp")]([ExtResource("23_50d6n"), ExtResource("24_gbbrj"), ExtResource("36_tm20e"), ExtResource("51_puq8a"), ExtResource("62_xtjoe"), ExtResource("64_d6vit"), ExtResource("49_puq8a")])
 other_weapons = Array[ExtResource("16_uslwp")]([ExtResource("7_ekpuy")])
 default_skin = "default"
 default_skill = "potion"

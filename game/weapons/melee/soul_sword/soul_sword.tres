@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://bfv547s02rwut"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_khcso"]
+
+[resource]
+script = ExtResource("1_khcso")
+name = "Меч души"
+rarity = 5
+id = "soul_sword"
+stats = Dictionary[String, String]({
+"ammo_total": "20",
+"damage": "40",
+"damage_ranged": "25+25",
+"dps": "50",
+"dps_ranged": "31+31"
+})
+damage_text = "Урон: {damage}/{damage_ranged}"
+ammo_text = "{ammo_total} д. атак"
+description = "[color=deep_sky_blue]Имеет дальнюю и ближнюю атаки[/color]
+Ближняя атака:
+Урон/с: [color=red]{dps}[/color]
+Урон/удар: [color=red]{damage}[/color]
+Дальняя атака:
+Урон/с: [color=red]{dps_ranged}[/color]
+Урон/удар: [color=red]{damage_ranged}[/color]
+
+Боеприпасы: [color=blue]{ammo_total} исп. дальней атаки[/color]
+
+Меч, сделанный из душевной силы игрока."
+scene_path = "uid://hqut06bvc2kx"
+image_path = "uid://x1qujhwf8mpo"
+spawnable_scenes_paths = Array[String](["uid://dkj4bv1jfeh82"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

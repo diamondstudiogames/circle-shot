@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj1ubr1twmg8w"]
 
 [ext_resource type="Texture2D" uid="uid://bh108cwpsaaa5" path="res://game/skins/other/rkn/discord.png" id="1_bnnr3"]
-[ext_resource type="Shader" uid="uid://bo5eagvb07vaw" path="res://game/skins/other/rkn/dissolve.gdshader" id="1_n87c3"]
+[ext_resource type="Shader" uid="uid://b6fqw6usud13b" path="res://game/shared/shaders/dissolve.gdshader" id="1_n87c3"]
 [ext_resource type="Texture2D" uid="uid://cy4nxjwydigrf" path="res://game/skins/other/rkn/dissolve_noise.tres" id="2_n87c3"]
 [ext_resource type="Texture2D" uid="uid://da7lkffe1t7w4" path="res://game/skins/other/rkn/true_rkn.png" id="4_ebtal"]
 

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://hqut06bvc2kx"]
+
+[ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_1p00a"]
+[ext_resource type="Script" uid="uid://xbghoi55v2qb" path="res://game/weapons/melee/soul_sword/soul_sword.gd" id="2_58eje"]
+[ext_resource type="PackedScene" uid="uid://bxneeow1ptjoj" path="res://game/weapons/melee/soul_sword/visual/soul_sword_visual.tscn" id="3_8ieva"]
+[ext_resource type="PackedScene" uid="uid://dkj4bv1jfeh82" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_projectile.tscn" id="3_77mj1"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="6_jnypi"]
+[ext_resource type="AnimationLibrary" uid="uid://cnqm8e58wgcqt" path="res://game/weapons/melee/soul_sword/visual/soul_sword_animations.tres" id="7_qualf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ovse"]
+radius = 96.0
+
+[node name="SoulSword" instance=ExtResource("1_1p00a")]
+script = ExtResource("2_58eje")
+ranged_attack_projectile_scene = ExtResource("3_77mj1")
+damage_in_ranged_mode = 25
+damage = 40
+shoot_interval = 0.8000000000029104
+to_aim_time = 0.1999999999970896
+ammo_total = 20
+
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+visible = false
+position = Vector2(32, 0)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 282, -29, 264, -144, 238, -168, 189, -210)
+
+[node name="Visual" parent="." index="1" instance=ExtResource("3_8ieva")]
+position = Vector2(32, 32)
+
+[node name="Aim" type="Line2D" parent="." index="2"]
+z_index = 10
+position = Vector2(160, 0)
+points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
+closed = true
+width = 8.0
+default_color = Color(1, 1, 1, 0.376471)
+
+[node name="Outline" type="Line2D" parent="Aim" index="0"]
+show_behind_parent = true
+points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
+closed = true
+width = 12.0
+default_color = Color(0, 0, 0, 0.188235)
+
+[node name="Attack" parent="." index="3"]
+position = Vector2(32, 0)
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+position = Vector2(144, -120)
+enabled = false
+shape = SubResource("CircleShape2D_7ovse")
+target_position = Vector2(40, 120)
+max_results = 1
+collision_mask = 75
+script = ExtResource("6_jnypi")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+position = Vector2(144, 120)
+enabled = false
+shape = SubResource("CircleShape2D_7ovse")
+target_position = Vector2(40, -120)
+max_results = 1
+collision_mask = 75
+script = ExtResource("6_jnypi")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": ExtResource("7_qualf")
+}
+
+[node name="ShootPoint" type="Marker2D" parent="." index="5"]
+position = Vector2(216, 0)
