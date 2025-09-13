@@ -9,7 +9,7 @@ rarity = 1
 id = "shotgun"
 stats = Dictionary[String, String]({
 "ammo_per_load": "7",
-"ammo_total": "35",
+"ammo_total": "21",
 "buckshots": "6",
 "damage": "9",
 "dps": "68",

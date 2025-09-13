@@ -152,11 +152,18 @@ func _process_logic_no_target() -> void:
 
 
 func _target_updated() -> void:
+	var distance_to_target: float = global_position.distance_to(target.global_position)
+	if distance_to_target < attack_bandits_distance and _last_health_on_bandits_spawn \
+			- current_health >= attack_bandits_health_difference_to_spawn:
+		_attack_timer = randf_range(attack_interval_min, attack_interval_max)
+		_last_health_on_bandits_spawn = current_health
+		_attack_spawn_bandits()
+		return
+	
 	entity_input.turn_with_aim = true
 	var max_attack_distance: float = max(attack_desert_eagle_distance, attack_ak_74_distance,
 			attack_sniper_rifle_distance, attack_grenade_distance, attack_knife_distance)
-	_attacking = global_position.distance_to(target.global_position) <= max_attack_distance \
-			and not target_ray_cast.is_colliding()
+	_attacking = distance_to_target <= max_attack_distance and not target_ray_cast.is_colliding()
 	_retreating = false
 
 
@@ -451,10 +458,6 @@ func _select_attack() -> void:
 		attack_pool.append(_attack_grenade)
 	if distance_to_target < attack_knife_distance:
 		attack_pool = [_attack_knife]
-	if distance_to_target < attack_bandits_distance and _last_health_on_bandits_spawn \
-			- current_health >= attack_bandits_health_difference_to_spawn:
-		attack_pool = [_attack_spawn_bandits]
-		_last_health_on_bandits_spawn = current_health
 	
 	if attack_pool.is_empty():
 		return
