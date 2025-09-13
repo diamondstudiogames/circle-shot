@@ -1,9 +1,34 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6r2eoge3orht"]
+[gd_scene load_steps=38 format=3 uid="uid://b6r2eoge3orht"]
 
 [ext_resource type="Script" uid="uid://c4q6g2kmy56ks" path="res://main/main.gd" id="1_hy7wi"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="2_j1upr"]
 [ext_resource type="Texture2D" uid="uid://tgykndvggm2o" path="res://main/loading_splash.png" id="2_wlqd8"]
 [ext_resource type="Texture2D" uid="uid://dsk1f63d31ahx" path="res://main/splash.png" id="4_iryjb"]
+[ext_resource type="Texture2D" uid="uid://dvmrdt0n68ksr" path="res://menu/theme/textures/check_off.svg" id="5_frbr6"]
+[ext_resource type="Texture2D" uid="uid://d0beijvisaueb" path="res://menu/theme/textures/check_off_disabled.svg" id="6_o8j3b"]
+[ext_resource type="Texture2D" uid="uid://pknncm4fk3j4" path="res://menu/theme/textures/check_on.svg" id="7_wpkmi"]
+[ext_resource type="Texture2D" uid="uid://bqf2ht0lj03so" path="res://menu/theme/textures/check_on_disabled.svg" id="8_o0l78"]
+[ext_resource type="Texture2D" uid="uid://dkr1bnaxny0hm" path="res://menu/theme/textures/dropdown.svg" id="9_576ah"]
+[ext_resource type="Texture2D" uid="uid://spw7bm7bgbjk" path="res://menu/theme/textures/edit.svg" id="10_wpvt5"]
+[ext_resource type="Texture2D" uid="uid://bepstswixoyf1" path="res://menu/theme/textures/grabber.svg" id="11_amlcg"]
+[ext_resource type="Texture2D" uid="uid://dmbuumy7narj3" path="res://menu/theme/textures/grabber_disabled.svg" id="12_ue0mw"]
+[ext_resource type="Texture2D" uid="uid://5w3ii4bpldws" path="res://menu/theme/textures/grabber_highlight.svg" id="13_vqjab"]
+[ext_resource type="Texture2D" uid="uid://gmv55kbd6r21" path="res://menu/theme/textures/h_grabber.svg" id="14_h3axc"]
+[ext_resource type="Texture2D" uid="uid://j6ulvsthh02q" path="res://menu/theme/textures/menu_selected.svg" id="15_d7rgo"]
+[ext_resource type="Texture2D" uid="uid://b477qiraadl1y" path="res://menu/theme/textures/panel.svg" id="16_yjufm"]
+[ext_resource type="Texture2D" uid="uid://cqsea18in014y" path="res://menu/theme/textures/radio_checked.svg" id="17_phifs"]
+[ext_resource type="Texture2D" uid="uid://bixhx7p8y4rxk" path="res://menu/theme/textures/radio_checked_disabled.svg" id="18_cgvj2"]
+[ext_resource type="Texture2D" uid="uid://dl7ynyk8x2qf" path="res://menu/theme/textures/radio_unchecked.svg" id="19_t1yuj"]
+[ext_resource type="Texture2D" uid="uid://do8d1ljv51jol" path="res://menu/theme/textures/radio_unchecked_disabled.svg" id="20_4pcu1"]
+[ext_resource type="Texture2D" uid="uid://b07bjttu6sfjo" path="res://menu/theme/textures/scroll.svg" id="21_7eg6f"]
+[ext_resource type="Texture2D" uid="uid://cirl8ep7rrt3k" path="res://menu/theme/textures/slider_bg.svg" id="22_rue0h"]
+[ext_resource type="Texture2D" uid="uid://bi3fgnx03xvhu" path="res://menu/theme/textures/slider_fg.svg" id="23_c5cfd"]
+[ext_resource type="Texture2D" uid="uid://ds7qcafp868hu" path="res://menu/theme/textures/tick_off.svg" id="24_v40no"]
+[ext_resource type="Texture2D" uid="uid://c210vah1kc84v" path="res://menu/theme/textures/tick_off_disabled.svg" id="25_omb8t"]
+[ext_resource type="Texture2D" uid="uid://blcr2cbti1c5d" path="res://menu/theme/textures/tick_on.svg" id="26_k5bb4"]
+[ext_resource type="Texture2D" uid="uid://daejvrss7wnft" path="res://menu/theme/textures/tick_on_disabled.svg" id="27_028el"]
+[ext_resource type="Texture2D" uid="uid://byq7es1wtowmd" path="res://menu/theme/textures/v_grabber.svg" id="28_yyc07"]
+[ext_resource type="Texture2D" uid="uid://bmk107fcsqeir" path="res://menu/theme/textures/window_close.svg" id="29_3le5t"]
 
 [sub_resource type="Animation" id="Animation_i4btj"]
 length = 0.001
@@ -165,6 +190,114 @@ _data = {
 script = ExtResource("1_hy7wi")
 resources_to_preload_paths = Array[String](["uid://4wb77emq8t5p", "uid://c2leb2h0qjtmo", "uid://c4axjhbd674h8", "uid://5wx4yqp027gq", "uid://c2x58lim4381g", "uid://bj723c8k8la6y", "uid://scqgxynxowrb", "uid://d2g0bm0ppnwf7", "uid://behtxlo4s5s3", "uid://wgln4clkkuuk", "uid://cmwb81du1kbtm"])
 metadata/_custom_type_script = "uid://c4q6g2kmy56ks"
+
+[node name="Workaround" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 89.0
+offset_top = 53.0
+offset_right = 89.0
+offset_bottom = 53.0
+
+[node name="CheckOff" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("5_frbr6")
+
+[node name="CheckOffDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("6_o8j3b")
+
+[node name="CheckOn" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("7_wpkmi")
+
+[node name="CheckOnDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("8_o0l78")
+
+[node name="Dropdown" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("9_576ah")
+
+[node name="Edit" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("10_wpvt5")
+
+[node name="Grabber" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("11_amlcg")
+
+[node name="GrabberDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("12_ue0mw")
+
+[node name="GrabberHighlight" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("13_vqjab")
+
+[node name="HGrabber" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("14_h3axc")
+
+[node name="MenuSelected" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("15_d7rgo")
+
+[node name="Panel" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("16_yjufm")
+
+[node name="RadioChecked" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("17_phifs")
+
+[node name="RadioCheckedDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("18_cgvj2")
+
+[node name="RadioUnchecked" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("19_t1yuj")
+
+[node name="RadioUncheckedDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("20_4pcu1")
+
+[node name="Scroll" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("21_7eg6f")
+
+[node name="SliderBg" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("22_rue0h")
+
+[node name="SliderFg" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("23_c5cfd")
+
+[node name="TickOff" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("24_v40no")
+
+[node name="TickOffDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("25_omb8t")
+
+[node name="TickOn" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("26_k5bb4")
+
+[node name="TickOnDisabled" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("27_028el")
+
+[node name="VGrabber" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("28_yyc07")
+
+[node name="WindowClose" type="TextureRect" parent="Workaround"]
+layout_mode = 0
+texture = ExtResource("29_3le5t")
 
 [node name="LoadingScreen" type="Control" parent="."]
 layout_mode = 3

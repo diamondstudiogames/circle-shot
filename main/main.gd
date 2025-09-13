@@ -341,6 +341,7 @@ func _start_load() -> void:
 
 
 func _loading_init() -> void:
+	$Workaround.queue_free()
 	print_verbose("Initializing...")
 	_load_status_label.text = "Инициализация..."
 	_load_progress_bar.value = 0.0
