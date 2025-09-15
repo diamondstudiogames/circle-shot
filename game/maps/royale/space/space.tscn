@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4157ddj75w7o" path="res://game/events/royale/map_royale.tscn" id="1_5erqo"]
 [ext_resource type="AudioStream" uid="uid://dpdrqash4lyw2" path="res://game/locations/space/music.ogg" id="2_2n7ht"]
-[ext_resource type="Script" uid="uid://mre2smglj1wk" path="res://game/maps/royale/space/space.gd" id="2_fsg8k"]
+[ext_resource type="Script" uid="uid://mre2smglj1wk" path="res://game/locations/space/space.gd" id="2_fsg8k"]
 [ext_resource type="Texture2D" uid="uid://ccit1ha8122h0" path="res://game/locations/space/background.png" id="2_p6x1d"]
 [ext_resource type="TileSet" uid="uid://bbtp28pgym4wy" path="res://game/locations/space/tiles/tile_set.tres" id="3_x1q66"]
 [ext_resource type="Shader" uid="uid://cqxut0urqm01l" path="res://game/locations/space/change_color.gdshader" id="5_h260c"]

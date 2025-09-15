@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://dcn34giesfxix"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_kd3j5"]
+
+[resource]
+script = ExtResource("1_kd3j5")
+name = "Космическая арена"
+brief_description = "Крыло космической станции для сражений."
+scene_path = "uid://x7ibdchv5y4n"
+image_path = "uid://brte0hjuacqpc"
+metadata/_custom_type_script = "uid://c2mew3f2rwarc"
