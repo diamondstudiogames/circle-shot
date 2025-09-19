@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbij8lrmesyg5"]
+
+[ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_gcncu"]
+[ext_resource type="PackedScene" uid="uid://wh6dicp5sp3x" path="res://game/weapons/melee/scythe/visual/scythe_visual.tscn" id="2_o6lq2"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_y1cyl"]
+[ext_resource type="AnimationLibrary" uid="uid://csoqjms78k04l" path="res://game/weapons/melee/scythe/visual/scythe_animations.tres" id="4_kwyy8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b470g"]
+radius = 96.0
+
+[node name="Scythe" instance=ExtResource("1_gcncu")]
+damage = 53
+shoot_interval = 1.1999999999970896
+to_aim_time = 0.3000000000029104
+speed_multiplier_when_current = 1.06
+
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+visible = false
+color = Color(0.50390625, 0.50390625, 0.50390625, 1)
+polygon = PackedVector2Array(67, -1, 30, -58, 30, -106, 56, -100, 52, -153, 92, -152, 102, -197, 149, -168, 176, -216, 251, -119, 271, -53)
+
+[node name="Visual" parent="." index="1" instance=ExtResource("2_o6lq2")]
+position = Vector2(32, 32)
+
+[node name="Aim" type="Line2D" parent="." index="2"]
+z_index = 10
+points = PackedVector2Array(-272, -64, -192, -192, -64, -272, 64, -272, 192, -192, 272, -64, 272, 64, 192, 192, 64, 272, -64, 272, -192, 192, -272, 64)
+closed = true
+width = 8.0
+default_color = Color(1, 1, 1, 0.376471)
+
+[node name="Outline" type="Line2D" parent="Aim" index="0"]
+show_behind_parent = true
+points = PackedVector2Array(-272, -64, -192, -192, -64, -272, 64, -272, 192, -192, 272, -64, 272, 64, 192, 192, 64, 272, -64, 272, -192, 192, -272, 64)
+closed = true
+width = 12.0
+default_color = Color(0, 0, 0, 0.188235)
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+position = Vector2(128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(56, 128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+position = Vector2(128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(56, -128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector3" type="ShapeCast2D" parent="Attack" index="2"]
+position = Vector2(128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(-128, 56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector4" type="ShapeCast2D" parent="Attack" index="3"]
+position = Vector2(-128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(128, 56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector5" type="ShapeCast2D" parent="Attack" index="4"]
+position = Vector2(-128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(-56, -128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector6" type="ShapeCast2D" parent="Attack" index="5"]
+position = Vector2(-128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(-56, 128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector7" type="ShapeCast2D" parent="Attack" index="6"]
+position = Vector2(-128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(128, -56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector8" type="ShapeCast2D" parent="Attack" index="7"]
+position = Vector2(128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_b470g")
+target_position = Vector2(-128, -56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_y1cyl")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": ExtResource("4_kwyy8")
+}

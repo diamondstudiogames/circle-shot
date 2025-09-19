@@ -585,6 +585,7 @@ func _attack_grenade() -> void:
 
 
 func _attack_knife() -> void:
+	_attack_timer += attack_knife_interval
 	if _current_weapon_type != WeaponType.KNIFE:
 		_select_weapon.rpc(WeaponType.KNIFE)
 		_attack_timer += _weapon_anim_knife.get_animation(&"equip").length
@@ -597,7 +598,6 @@ func _attack_knife() -> void:
 		_timer.start(attack_time_after_equip)
 		await _timer.timeout
 	
-	_attack_timer += attack_knife_interval
 	if is_disarmed():
 		await disarmed
 	if not is_instance_valid(target):

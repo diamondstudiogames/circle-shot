@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://b1w3yaf2o3l84"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_q2c4o"]
+
+[resource]
+script = ExtResource("1_q2c4o")
+name = "Коса"
+rarity = 1
+id = "scythe"
+stats = Dictionary[String, String]({
+"ammo_total": "Не ограничено",
+"damage": "53",
+"dps": "44"
+})
+damage_text = "Урон: {damage}"
+ammo_text = "{ammo_total}"
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/удар: [color=red]{damage}[/color]
+
+Боеприпасы: [color=blue]{ammo_total}[/color]
+
+Атакует по области вокруг владельца, так что целиться не придётся."
+scene_path = "uid://dbij8lrmesyg5"
+image_path = "uid://cxgvphu3na66v"
+metadata/_custom_type_script = "uid://55g8njvkg07g"
