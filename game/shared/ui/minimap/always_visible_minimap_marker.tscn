@@ -1,20 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://kflolxygpcub"]
-
-[ext_resource type="Script" uid="uid://01da2q4uuc32" path="res://game/shared/ui/minimap/always_visible_minimap_marker.gd" id="1_b5nga"]
+[gd_scene format=3 uid="uid://kflolxygpcub"]
 
 [node name="MinimapMarker" type="Node2D"]
-script = ExtResource("1_b5nga")
 
 [node name="MinimapRemote" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../MinimapMarker/Visual")
+remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="MinimapMarker" type="Node" parent="."]
-
-[node name="Visual" type="Sprite2D" parent="MinimapMarker"]
+[node name="Visual" type="Sprite2D" parent="."]
+top_level = true
 visibility_layer = 2
 z_index = -7
 scale = Vector2(10, 10)
-
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

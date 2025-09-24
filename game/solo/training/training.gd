@@ -120,7 +120,7 @@ func load_default_map() -> void:
 	if not map_data.is_empty():
 		var floor_layer: TileMapLayer = map.get_node(^"TileMapLayers/Floor")
 		var walls_layer: TileMapLayer = map.get_node(^"TileMapLayers/Walls")
-		var minimap_layer: TileMapLayer = map.get_node(^"Minimap/MinimapTiles")
+		var minimap_layer: TileMapLayer = map.get_node(^"MinimapTiles")
 		var spikes_parent: AreaDetector = map.get_node(^"Spikes/AreaDetector")
 		
 		for x: int in MAP_SIZE.x:

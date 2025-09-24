@@ -64,6 +64,7 @@ func _update_pentagram() -> void:
 	($Pentagram/Candles as CanvasItem).visible = Globals.get_bool("quest_item_candles_collected")
 	($Pentagram/Cross as CanvasItem).visible = Globals.get_bool("quest_item_cross_collected")
 	
+	($Pentagram/Interactible as Interactible).hold_interaction_time = 2.0
 	if Globals.get_bool("quest_portal_opened"):
 		($Pentagram/AnimationPlayer as AnimationPlayer).play(&"ritual_done")
 		($Pentagram/AnimationPlayer as AnimationPlayer).advance(0.0)
@@ -75,6 +76,7 @@ func _update_pentagram() -> void:
 			and Globals.get_bool("quest_item_book_collected")
 	):
 		($Pentagram/Interactible as Interactible).set_text("Собраны не все предметы")
+		($Pentagram/Interactible as Interactible).hold_interaction_time = -1.0
 	else:
 		($Pentagram/Interactible as Interactible).set_text("Начать ритуал")
 

@@ -6,3 +6,5 @@
 [node name="WeaponBox" instance=ExtResource("1_d7a3y")]
 weapon_data = ExtResource("2_sa1qr")
 weapon_type = 4
+
+[editable path="MinimapMarker"]

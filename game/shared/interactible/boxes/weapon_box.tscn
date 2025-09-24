@@ -210,7 +210,7 @@ next/spawn = &"idle"
 
 [node name="MinimapMarker" parent="." index="6" instance=ExtResource("4_16dxx")]
 
-[node name="Visual" parent="MinimapMarker/MinimapMarker" index="0"]
+[node name="Visual" parent="MinimapMarker" index="2"]
 texture = ExtResource("5_6m2ea")
 
 [connection signal="timeout" from="DespawnTimer" to="Box" method="_on_despawn_timer_timeout"]

@@ -37,18 +37,17 @@ replication_config = SubResource("SceneReplicationConfig_nr771")
 
 [node name="Minimap" type="Node2D" parent="."]
 
-[node name="MinimapNotifier" type="VisibleOnScreenNotifier2D" parent="Minimap"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minimap"]
 rect = Rect2(-100, -100, 200, 200)
 
-[node name="MinimapRemote" type="RemoteTransform2D" parent="Minimap"]
-remote_path = NodePath("../MinimapMarker/Visual")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Minimap"]
+remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="MinimapMarker" type="Node" parent="Minimap"]
-
-[node name="Visual" type="Sprite2D" parent="Minimap/MinimapMarker"]
+[node name="Visual" type="Sprite2D" parent="Minimap"]
 visible = false
+top_level = true
 visibility_layer = 2
 z_index = -7
 scale = Vector2(10, 10)
@@ -78,10 +77,10 @@ texture_progress = ExtResource("3_jsgb6")
 margin = 32.0
 show_when_on_screen = false
 
-[node name="Icon" parent="ScreenMarker/Visual/Marker/Arrow" index="0"]
+[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
 texture = ExtResource("5_uuplo")
 
-[node name="Icon" parent="ScreenMarker/Visual/Marker" index="1"]
+[node name="Icon" parent="ScreenMarker/Marker" index="1"]
 texture = ExtResource("5_uuplo")
 
 [node name="CarryInteractible" parent="." instance=ExtResource("6_x0rae")]
@@ -104,8 +103,8 @@ hold_interaction_time = 0.4000000000087311
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 
-[connection signal="screen_entered" from="Minimap/MinimapNotifier" to="Minimap/MinimapMarker/Visual" method="show"]
-[connection signal="screen_exited" from="Minimap/MinimapNotifier" to="Minimap/MinimapMarker/Visual" method="hide"]
+[connection signal="screen_entered" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="show"]
+[connection signal="screen_exited" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="hide"]
 [connection signal="interacted" from="CarryInteractible" to="." method="_on_carry_interactible_interacted"]
 [connection signal="interacted" from="DropInteractible" to="." method="_on_drop_interactible_interacted"]
 

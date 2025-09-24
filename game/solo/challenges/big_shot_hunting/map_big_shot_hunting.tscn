@@ -22,3 +22,5 @@ position = Vector2(0, 4000)
 
 [node name="BigShotSpawnPoint" type="Marker2D" parent="." index="4"]
 gizmo_extents = 160.0
+
+[editable path="Borders"]

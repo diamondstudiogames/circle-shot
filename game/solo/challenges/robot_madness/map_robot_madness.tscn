@@ -170,3 +170,5 @@ z_index = -4
 texture = ExtResource("2_k4axp")
 
 [node name="NavigationRegions" type="Node2D" parent="." index="4"]
+
+[editable path="Borders"]

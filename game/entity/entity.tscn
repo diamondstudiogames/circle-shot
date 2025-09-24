@@ -61,18 +61,17 @@ replication_config = SubResource("SceneReplicationConfig_uh5p1")
 
 [node name="Minimap" type="Node2D" parent="."]
 
-[node name="MinimapNotifier" type="VisibleOnScreenNotifier2D" parent="Minimap"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minimap"]
 rect = Rect2(-100, -100, 200, 200)
 
-[node name="MinimapRemote" type="RemoteTransform2D" parent="Minimap"]
-remote_path = NodePath("../MinimapMarker/Visual")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Minimap"]
+remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="MinimapMarker" type="Node" parent="Minimap"]
-
-[node name="Visual" type="Sprite2D" parent="Minimap/MinimapMarker"]
+[node name="Visual" type="Sprite2D" parent="Minimap"]
 visible = false
+top_level = true
 visibility_layer = 2
 z_index = -7
 scale = Vector2(10, 10)
@@ -129,5 +128,5 @@ physics_interpolation_mode = 2
 physics_interpolation_mode = 2
 
 [connection signal="health_changed" from="." to="Info/HealthBar" method="_on_entity_health_changed"]
-[connection signal="screen_entered" from="Minimap/MinimapNotifier" to="Minimap/MinimapMarker/Visual" method="show"]
-[connection signal="screen_exited" from="Minimap/MinimapNotifier" to="Minimap/MinimapMarker/Visual" method="hide"]
+[connection signal="screen_entered" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="show"]
+[connection signal="screen_exited" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="hide"]

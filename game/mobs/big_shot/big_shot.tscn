@@ -182,7 +182,7 @@ death_vfx_scene = ExtResource("4_t1t52")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_w3k2w")
 
-[node name="Visual" parent="Minimap/MinimapMarker" index="0"]
+[node name="Visual" parent="Minimap" index="2"]
 texture = ExtResource("2_w3k2w")
 
 [node name="Info" parent="." index="4"]
@@ -320,7 +320,7 @@ one_shot = true
 margin = 0.0
 show_when_on_screen = false
 
-[node name="Icon" parent="ScreenMarker/Visual/Marker/Arrow" index="0"]
+[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
 texture = ExtResource("11_cpt06")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_agent_navigation_finished"]

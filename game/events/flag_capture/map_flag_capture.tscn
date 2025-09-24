@@ -69,3 +69,5 @@ gizmo_extents = 160.0
 [node name="BlueFlag" type="Marker2D" parent="." index="6"]
 position = Vector2(113, 55)
 gizmo_extents = 160.0
+
+[editable path="Borders"]

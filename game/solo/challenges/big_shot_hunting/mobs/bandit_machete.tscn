@@ -3,6 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://bs3r1j6hyqj1r" path="res://game/mobs/bandits/machete/bandit_machete.tscn" id="1_3ovg0"]
 
 [node name="BanditMachete" instance=ExtResource("1_3ovg0")]
-random_walk_area_radius = 1280.0
 vision_distance = 11520.0
 max_health = 50

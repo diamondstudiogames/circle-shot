@@ -3,6 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://bgeykg6bg2lct" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.tscn" id="1_byxak"]
 
 [node name="BanditDesertEagle" instance=ExtResource("1_byxak")]
-random_walk_area_radius = 1280.0
 vision_distance = 11520.0
 max_health = 50

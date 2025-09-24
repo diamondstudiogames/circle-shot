@@ -62,7 +62,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../..")
+tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -82,16 +82,16 @@ _data = {
 
 [node name="KillMarker" instance=ExtResource("1_m4fcy")]
 
-[node name="Arrow" parent="Visual/Marker" index="0"]
+[node name="Arrow" parent="Marker" index="0"]
 self_modulate = Color(1, 0, 0, 1)
 
-[node name="Icon" parent="Visual/Marker/Arrow" index="0"]
+[node name="Icon" parent="Marker/Arrow" index="0"]
 texture = ExtResource("2_cjxir")
 
-[node name="Icon" parent="Visual/Marker" index="1"]
+[node name="Icon" parent="Marker" index="1"]
 texture = ExtResource("2_cjxir")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Marker" index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker" index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_2v1tq")
 }

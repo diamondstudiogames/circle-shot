@@ -113,7 +113,7 @@ func teleport_to(destination: Vector2) -> void:
 	
 	_physics_interpolation_previous_position = destination
 	global_position = destination
-	position_smoothing_enabled = false
+	position_smoothing_enabled = false # FIXME
 	reset_smoothing()
 	position_smoothing_enabled = true
 

@@ -26,6 +26,7 @@ func _ready() -> void:
 	_base_position = position
 	await get_tree().process_frame # Ждём пока заработает VisibleOnScreenNotifier2D
 	_update_minimap_marker(_event.local_team)
+	_event.local_team_set.connect(_update_minimap_marker)
 
 
 func _exit_tree() -> void:
@@ -111,12 +112,12 @@ func _drop() -> void:
 
 func _update_minimap_marker(local_team: int) -> void:
 	if team == local_team:
-		$Minimap/MinimapNotifier.set_block_signals(true)
-		($Minimap/MinimapMarker/Visual as CanvasItem).show()
+		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(true)
+		($Minimap/Visual as CanvasItem).show()
 	else:
-		$Minimap/MinimapNotifier.set_block_signals(false)
-		($Minimap/MinimapMarker/Visual as CanvasItem).visible = \
-				($Minimap/MinimapNotifier as VisibleOnScreenNotifier2D).is_on_screen()
+		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(false)
+		($Minimap/Visual as CanvasItem).visible = \
+				($Minimap/VisibleOnScreenNotifier2D as VisibleOnScreenNotifier2D).is_on_screen()
 
 
 func _on_carry_interactible_interacted(who: Player) -> void:

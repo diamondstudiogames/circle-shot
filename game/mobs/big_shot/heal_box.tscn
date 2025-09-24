@@ -5,4 +5,4 @@
 [node name="HealBox" instance=ExtResource("1_saji1")]
 heal_amount = 50
 
-[editable path="DefaultMinimapMarker"]
+[editable path="MinimapMarker"]

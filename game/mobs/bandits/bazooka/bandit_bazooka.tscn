@@ -21,6 +21,7 @@ aim_angle_rotation_weight = 0.15000000000000002
 optimal_distance = 800.0
 min_distance = 240.0
 shoot_distance = 1120.0
+random_walk_area_radius = 1280.0
 speed = 512.0
 max_health = 150
 hurt_vfx_scene = ExtResource("2_r73io")
@@ -29,7 +30,7 @@ death_vfx_scene = ExtResource("5_y3rgh")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_h3xnw")
 
-[node name="MinimapNotifier" parent="Minimap" index="0"]
+[node name="VisibleOnScreenNotifier2D" parent="Minimap" index="0"]
 rect = Rect2(-160, -160, 320, 320)
 
 [node name="Info" parent="." index="4"]

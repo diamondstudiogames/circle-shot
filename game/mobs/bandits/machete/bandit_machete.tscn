@@ -23,6 +23,7 @@ aim_angle_rotation_weight = 0.06999999999999999
 optimal_distance = 0.0
 min_distance = 0.0
 shoot_distance = 440.0
+random_walk_area_radius = 1280.0
 hurt_vfx_scene = ExtResource("3_iv065")
 death_vfx_scene = ExtResource("4_iv065")
 

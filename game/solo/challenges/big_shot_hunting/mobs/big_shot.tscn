@@ -203,7 +203,6 @@ _data = {
 }
 
 [node name="BigShot" instance=ExtResource("1_rwgy5")]
-attack_sniper_rifle_distance = 1280.0
 attack_bandits_scenes = Array[PackedScene]([ExtResource("2_31nw0"), ExtResource("3_ch4f1"), ExtResource("4_3rmjc"), ExtResource("5_ao424"), ExtResource("6_4khue")])
 vision_distance = 11520.0
 

@@ -369,16 +369,6 @@ func _set_current_weapon(to: Weapon.Type) -> void:
 	print_verbose("%s changed current weapon to type %d." % [name, to])
 
 
-func _update_minimap_marker(local_team: int) -> void:
-	if team == local_team:
-		$Minimap/MinimapNotifier.set_block_signals(true)
-		($Minimap/MinimapMarker/Visual as CanvasItem).show()
-	else:
-		$Minimap/MinimapNotifier.set_block_signals(false)
-		($Minimap/MinimapMarker/Visual as CanvasItem).visible = \
-				($Minimap/MinimapNotifier as VisibleOnScreenNotifier2D).is_on_screen()
-
-
 func _update_health_bar_visibility(local_team: int) -> void:
 	($Info/HealthBar as CanvasItem).visible = team == local_team and not is_local()
 

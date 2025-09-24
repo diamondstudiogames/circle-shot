@@ -220,3 +220,4 @@ metadata/_edit_group_ = true
 
 [editable path="UI/Main/PlayerUI"]
 [editable path="Map"]
+[editable path="Map/Borders"]

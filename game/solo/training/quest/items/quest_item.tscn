@@ -31,8 +31,8 @@ texture = ExtResource("3_4xo1k")
 
 [node name="MinimapMarker" parent="." instance=ExtResource("5_lff6n")]
 
-[node name="Visual" parent="MinimapMarker/MinimapMarker" index="0"]
-modulate = Color(0.50390625, 0, 0, 1)
+[node name="Visual" parent="MinimapMarker" index="1"]
+self_modulate = Color(0.5019608, 0, 0, 1)
 texture = ExtResource("6_i3p7o")
 
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]

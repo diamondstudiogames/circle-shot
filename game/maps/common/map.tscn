@@ -8,9 +8,8 @@
 script = ExtResource("1_j26c2")
 metadata/_custom_type_script = "uid://btu1g3prgu2l8"
 
-[node name="Minimap" type="Node" parent="."]
-
-[node name="MinimapTiles" parent="Minimap" instance=ExtResource("2_3vl75")]
+[node name="MinimapTiles" parent="." instance=ExtResource("2_3vl75")]
+top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Borders" parent="." instance=ExtResource("3_3vl75")]

@@ -61,3 +61,5 @@ gizmo_extents = 76.0
 [node name="4" type="Marker2D" parent="SpawnPoints1" index="4"]
 position = Vector2(359, 218)
 gizmo_extents = 76.0
+
+[editable path="Borders"]

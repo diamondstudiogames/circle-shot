@@ -127,7 +127,7 @@ func _ready() -> void:
 	
 	print_verbose("%s with team %d created." % [name, team])
 	
-	($Minimap/MinimapMarker/Visual as CanvasItem).self_modulate = TEAM_COLORS[team]
+	($Minimap/Visual as CanvasItem).self_modulate = TEAM_COLORS[team]
 	await get_tree().process_frame # Ждём пока заработает VisibleOnScreenNotifier2D
 	_update_minimap_marker(world.local_team)
 	world.local_team_set.connect(_update_minimap_marker)
@@ -478,9 +478,9 @@ func _armed() -> void:
 
 func _update_minimap_marker(local_team: int) -> void:
 	if team == local_team or always_visible_on_minimap:
-		$Minimap/MinimapNotifier.set_block_signals(true)
-		($Minimap/MinimapMarker/Visual as CanvasItem).show()
+		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(true)
+		($Minimap/Visual as CanvasItem).show()
 	else:
-		$Minimap/MinimapNotifier.set_block_signals(false)
-		($Minimap/MinimapMarker/Visual as CanvasItem).visible = \
-				($Minimap/MinimapNotifier as VisibleOnScreenNotifier2D).is_on_screen()
+		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(false)
+		($Minimap/Visual as CanvasItem).visible = \
+				($Minimap/VisibleOnScreenNotifier2D as VisibleOnScreenNotifier2D).is_on_screen()

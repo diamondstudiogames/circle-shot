@@ -217,7 +217,7 @@ replication_config = SubResource("SceneReplicationConfig_mxk3j")
 
 [node name="MinimapMarker" parent="." instance=ExtResource("4_08lu2")]
 
-[node name="Visual" parent="MinimapMarker/MinimapMarker" index="0"]
+[node name="Visual" parent="MinimapMarker" index="2"]
 texture = ExtResource("5_dkmff")
 
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]
