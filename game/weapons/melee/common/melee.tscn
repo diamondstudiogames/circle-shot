@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bydh8wq8j224r"]
+[gd_scene load_steps=4 format=3 uid="uid://bydh8wq8j224r"]
 
 [ext_resource type="Script" uid="uid://cqxsiki473iro" path="res://game/weapons/melee/common/melee.gd" id="1_cpujk"]
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="2_wwru6"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_eay6w"]
 
 [node name="Melee" type="Node2D"]
 position = Vector2(-32, -32)
@@ -16,5 +17,19 @@ metadata/_custom_type_script = "uid://cqxsiki473iro"
 script = ExtResource("2_wwru6")
 damage_interval = 0.7
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="Aim" type="Line2D" parent="."]
+z_index = 10
+material = ExtResource("3_eay6w")
+closed = true
+width = 8.0
+default_color = Color(1, 1, 1, 0.376471)
+
+[node name="Outline" type="Line2D" parent="Aim"]
+show_behind_parent = true
+use_parent_material = true
+closed = true
+width = 12.0
+default_color = Color(0, 0, 0, 0.188235)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

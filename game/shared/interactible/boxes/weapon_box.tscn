@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dyqg11st1fbal" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.tscn" id="1_ac0ld"]
 [ext_resource type="Texture2D" uid="uid://dipiyhno23nai" path="res://game/shared/interactible/boxes/weapon_box.png" id="2_ddojc"]
 [ext_resource type="Script" uid="uid://bchg6vsak67e6" path="res://game/shared/interactible/boxes/weapon_box.gd" id="3_ddojc"]
-[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/default_minimap_marker.tscn" id="4_16dxx"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="4_16dxx"]
 [ext_resource type="Texture2D" uid="uid://dspcfy4d4kxaq" path="res://game/shared/interactible/boxes/weapon_box_minimap.png" id="5_6m2ea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3lq8"]
@@ -191,7 +191,7 @@ shape = SubResource("CircleShape2D_k3lq8")
 visible = false
 
 [node name="Box" type="Sprite2D" parent="." index="3"]
-z_index = -3
+z_index = -2
 texture = ExtResource("2_ddojc")
 script = ExtResource("3_ddojc")
 
@@ -208,11 +208,11 @@ libraries = {
 autoplay = "spawn"
 next/spawn = &"idle"
 
-[node name="DefaultMinimapMarker" parent="." index="6" instance=ExtResource("4_16dxx")]
+[node name="MinimapMarker" parent="." index="6" instance=ExtResource("4_16dxx")]
 
-[node name="Visual" parent="DefaultMinimapMarker/MinimapMarker" index="0"]
+[node name="Visual" parent="MinimapMarker/MinimapMarker" index="0"]
 texture = ExtResource("5_6m2ea")
 
 [connection signal="timeout" from="DespawnTimer" to="Box" method="_on_despawn_timer_timeout"]
 
-[editable path="DefaultMinimapMarker"]
+[editable path="MinimapMarker"]

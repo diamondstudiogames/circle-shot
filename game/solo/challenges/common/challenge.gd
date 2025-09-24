@@ -38,8 +38,7 @@ func _local_player_created(player: Player) -> void:
 		($Camera as SmartCamera).pan_to_target(player.camera_target, 4.0)
 
 
-## Создаёт игрока с идентификатором [param id]. Если событие ещё не началось, то этот игрок будет
-## обезоружен и обездвижен.
+## Создаёт игрока. Если испытание ещё не началось, то этот игрок будет обезоружен и обездвижен.
 func spawn_player() -> void:
 	var player: Player = entity_scenes[0].instantiate()
 	player.position = ($Map/SoloSpawnPoint as Node2D).global_position

@@ -46,11 +46,12 @@ const MAP_SIZE := Vector2i(50, 50)
 
 ## Массив с данными об врагах.
 var enemies_data: Array[EnemyData]
+## Игрок.
+var player: Player
+## Текущая карта.
+var current_map: Node2D
 
-var _player: Player
-var _current_map: Node2D
 var _spawn_point: Marker2D
-
 var _spikes_scene: PackedScene = load("uid://davg83gsduoyq")
 
 
@@ -64,7 +65,7 @@ func _local_player_died() -> void:
 
 ## Создаёт игрока.
 func spawn_player(teleport := true) -> void:
-	var player: Player = entity_scenes[0].instantiate()
+	player = entity_scenes[0].instantiate()
 	player.position = _spawn_point.global_position
 	player.team = 0
 	player.id = multiplayer.get_unique_id()
@@ -83,7 +84,6 @@ func spawn_player(teleport := true) -> void:
 	if teleport:
 		($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
 	$Entities.add_child(player, true)
-	_player = player
 
 
 ## Создаёт врага с типом [param type] в позиции [param position] с максимальным здоровьем в
@@ -108,9 +108,9 @@ func spawn_enemy(type: EnemyType, position: Vector2, health: int,
 func load_default_map() -> void:
 	cleanup()
 	await get_tree().process_frame
-	if _current_map:
-		remove_child(_current_map)
-		_current_map.queue_free()
+	if current_map:
+		remove_child(current_map)
+		current_map.queue_free()
 	
 	var map_scene: PackedScene = load("uid://bo4g1oix6cim0")
 	var map: Node2D = map_scene.instantiate()
@@ -177,10 +177,10 @@ func load_default_map() -> void:
 		map.add_child(sprite)
 	
 	(map.get_node(^"GuideNote/Interactible") as Interactible).interacted.connect(
-			show_guide.unbind(1))
+			show_note.bind(false).unbind(1))
 	
 	add_child(map)
-	_current_map = map
+	current_map = map
 	
 	# создание чанков навигации
 	for x: int in range(-2, 3):
@@ -207,7 +207,7 @@ func load_default_map() -> void:
 			nav_region.name = &"NavigationRegion2D"
 			nav_region.position = Vector2((chunk_size.x - 320.0) * x, (chunk_size.y - 320.0) * y)
 			nav_region.navigation_polygon = nav_polygon
-			_current_map.get_node(^"NavigationRegions").add_child(nav_region, true)
+			current_map.get_node(^"NavigationRegions").add_child(nav_region, true)
 			
 			nav_region.bake_navigation_polygon(false)
 	
@@ -227,9 +227,9 @@ func load_default_map() -> void:
 func load_map(event_challenge_idx: int, map_idx: int, challenge: bool) -> void:
 	cleanup()
 	await get_tree().process_frame
-	if _current_map:
-		remove_child(_current_map)
-		_current_map.queue_free()
+	if current_map:
+		remove_child(current_map)
+		current_map.queue_free()
 	
 	var map_data: MapData
 	if challenge:
@@ -259,7 +259,7 @@ func load_map(event_challenge_idx: int, map_idx: int, challenge: bool) -> void:
 		($Music as AudioStreamPlayer).stream_paused = not can_process()
 	
 	add_child(map)
-	_current_map = map
+	current_map = map
 	spawn_player()
 	map_changed.emit()
 
@@ -268,7 +268,7 @@ func load_map(event_challenge_idx: int, map_idx: int, challenge: bool) -> void:
 ## [code]y[/code] можно узнать блок в этих координатах следующим образом:
 ## [code]map_data[y * MAP_SIZE.x + x][/code].
 func get_map_data() -> PackedByteArray:
-	if _current_map is Map or not is_instance_valid(_current_map):
+	if current_map is Map or not is_instance_valid(current_map):
 		push_error("Current map must be default to get map data.")
 		return PackedByteArray()
 	if Globals.get_variant("custom_training_map", PackedByteArray()) != PackedByteArray():
@@ -277,7 +277,7 @@ func get_map_data() -> PackedByteArray:
 	var data := PackedByteArray()
 	data.resize(MAP_SIZE.x * MAP_SIZE.y)
 	
-	var floor_layer: TileMapLayer = _current_map.get_node(^"TileMapLayers/Floor")
+	var floor_layer: TileMapLayer = current_map.get_node(^"TileMapLayers/Floor")
 	for x: int in MAP_SIZE.x:
 		for y: int in MAP_SIZE.y:
 			# отнимаем полразмера т.к. в карте есть отрицательные координаты
@@ -286,7 +286,7 @@ func get_map_data() -> PackedByteArray:
 			data[y * MAP_SIZE.x + x] = BlockType.HOLE \
 					if atlas_coords == Vector2i(0, 1) else BlockType.GRASS
 	
-	var walls_layer: TileMapLayer = _current_map.get_node(^"TileMapLayers/Walls")
+	var walls_layer: TileMapLayer = current_map.get_node(^"TileMapLayers/Walls")
 	for x: int in MAP_SIZE.x:
 		for y: int in MAP_SIZE.y:
 			var atlas_coords: Vector2i = walls_layer.get_cell_atlas_coords(
@@ -299,65 +299,65 @@ func get_map_data() -> PackedByteArray:
 
 ## Восполняет все ОЗ игроку.
 func player_restore_health() -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(player):
 		return
 	
-	if _player.current_health == _player.max_health:
+	if player.current_health == player.max_health:
 		return
-	_player.heal(_player.max_health)
+	player.heal(player.max_health)
 
 
 ## Восполняет все боеприпасы игроку.
 func player_restore_ammo() -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(player):
 		return
 	
-	_player.add_ammo_to_weapon.rpc(Weapon.Type.LIGHT, 1.0)
-	_player.add_ammo_to_weapon.rpc(Weapon.Type.HEAVY, 1.0)
-	_player.add_ammo_to_weapon.rpc(Weapon.Type.SUPPORT, 1.0)
-	_player.add_ammo_to_weapon.rpc(Weapon.Type.MELEE, 1.0)
+	player.add_ammo_to_weapon.rpc(Weapon.Type.LIGHT, 1.0)
+	player.add_ammo_to_weapon.rpc(Weapon.Type.HEAVY, 1.0)
+	player.add_ammo_to_weapon.rpc(Weapon.Type.SUPPORT, 1.0)
+	player.add_ammo_to_weapon.rpc(Weapon.Type.MELEE, 1.0)
 
 
 ## Восстанавливает все использования навыка игроку, а также сбрасывает откат,
 ## если навык не используется.
 func player_restore_skill() -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(player):
 		return
 	
-	if _player.skill.is_cooldown_blocked(): # чтобы нельзя было использовать, пока действует эффект
-		_player.skill_vars[0] = _player.skill.use_times
+	if player.skill.is_cooldown_blocked(): # чтобы нельзя было использовать, пока действует эффект
+		player.skill_vars[0] = player.skill.use_times
 	else:
-		_player.skill_vars = [_player.skill.use_times, 0]
+		player.skill_vars = [player.skill.use_times, 0]
 
 
 ## Возвращает игрока на точку появления.
 func player_teleport_to_spawn() -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(player):
 		return
 	
-	_player.teleport_to.rpc(_spawn_point.global_position)
+	player.teleport_to.rpc(_spawn_point.global_position)
 	($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
 
 
 ## Обновляет экипировку игроку.
 func player_update_equip(skin: String, skill: String, light_weapon: String,
 		heavy_weapon: String, support_weapon: String, melee_weapon: String) -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(player):
 		return
 	
-	if _player.skin.data.id != skin:
-		_player.set_skin(Globals.items_db.skins_by_id[skin])
-	if _player.skill.data.id != skill and not _player.skill.is_cooldown_blocked():
-		_player.set_skill(Globals.items_db.skills_by_id[skill], true)
+	if player.skin.data.id != skin:
+		player.set_skin(Globals.items_db.skins_by_id[skin])
+	if player.skill.data.id != skill and not player.skill.is_cooldown_blocked():
+		player.set_skill(Globals.items_db.skills_by_id[skill], true)
 	
-	if (_player.weapons.get_child(Weapon.Type.LIGHT) as Weapon).data.id != light_weapon:
-		_player.set_weapon(Weapon.Type.LIGHT, Globals.items_db.weapons_by_id[light_weapon])
-	if (_player.weapons.get_child(Weapon.Type.HEAVY) as Weapon).data.id != heavy_weapon:
-		_player.set_weapon(Weapon.Type.HEAVY, Globals.items_db.weapons_by_id[heavy_weapon])
-	if (_player.weapons.get_child(Weapon.Type.SUPPORT) as Weapon).data.id != support_weapon:
-		_player.set_weapon(Weapon.Type.SUPPORT, Globals.items_db.weapons_by_id[support_weapon])
-	if (_player.weapons.get_child(Weapon.Type.MELEE) as Weapon).data.id != melee_weapon:
-		_player.set_weapon(Weapon.Type.MELEE, Globals.items_db.weapons_by_id[melee_weapon])
+	if (player.weapons.get_child(Weapon.Type.LIGHT) as Weapon).data.id != light_weapon:
+		player.set_weapon(Weapon.Type.LIGHT, Globals.items_db.weapons_by_id[light_weapon])
+	if (player.weapons.get_child(Weapon.Type.HEAVY) as Weapon).data.id != heavy_weapon:
+		player.set_weapon(Weapon.Type.HEAVY, Globals.items_db.weapons_by_id[heavy_weapon])
+	if (player.weapons.get_child(Weapon.Type.SUPPORT) as Weapon).data.id != support_weapon:
+		player.set_weapon(Weapon.Type.SUPPORT, Globals.items_db.weapons_by_id[support_weapon])
+	if (player.weapons.get_child(Weapon.Type.MELEE) as Weapon).data.id != melee_weapon:
+		player.set_weapon(Weapon.Type.MELEE, Globals.items_db.weapons_by_id[melee_weapon])
 
 
 ## Уничтожает всех врагов.
@@ -386,11 +386,13 @@ func reset_stats() -> void:
 	stats_changed.emit()
 
 
-## Показывает руководство по тренировке.
-func show_guide() -> void:
+## Показывает записку. [param quest] показывает записку из квеста.
+func show_note(quest: bool) -> void:
 	get_tree().paused = true
 	($UI/Main as CanvasItem).hide()
 	($UI/Guide as CanvasItem).show()
+	($UI/Guide/PanelContainer/Normal as CanvasItem).visible = not quest
+	($UI/Guide/PanelContainer/Quest as CanvasItem).visible = quest
 
 
 func _set_default_enemies_data() -> void:

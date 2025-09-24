@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=3 uid="uid://cnd3cvcpaofdf"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_k2a8i"]
+[ext_resource type="Texture2D" uid="uid://dwlo6dfxrjnh2" path="res://game/mobs/cultist/cultist.png" id="2_02i2a"]
+[ext_resource type="Script" uid="uid://dnq8ejh60uorb" path="res://game/mobs/cultist/cultist_scythe.gd" id="2_v4a7l"]
+[ext_resource type="PackedScene" uid="uid://wh6dicp5sp3x" path="res://game/weapons/melee/scythe/visual/scythe_visual.tscn" id="3_0wvw2"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="3_p8sfc"]
+[ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="4_6hbna"]
+[ext_resource type="PackedScene" uid="uid://ctqgs3w1llfuf" path="res://game/entity/vfx/blood_death_vfx.tscn" id="4_adh2n"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="5_s1w2s"]
+[ext_resource type="AnimationLibrary" uid="uid://csoqjms78k04l" path="res://game/weapons/melee/scythe/visual/scythe_animations.tres" id="6_v4a7l"]
+[ext_resource type="Texture2D" uid="uid://4uj82jlqxgav" path="res://game/mobs/cultist/cultists_scythe.png" id="7_p8sfc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl3v0"]
+radius = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p8sfc"]
+radius = 96.0
+
+[node name="CultistScythe" instance=ExtResource("1_k2a8i")]
+script = ExtResource("2_v4a7l")
+shoot_interval = 1.1999999999970896
+aim_angle_rotation_weight = 0.06
+optimal_distance = 0.0
+min_distance = 0.0
+shoot_distance = 420.0
+random_walk_area_radius = 1280.0
+speed = 600.0
+hurt_vfx_scene = ExtResource("3_p8sfc")
+death_vfx_scene = ExtResource("4_adh2n")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_dl3v0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+position = Vector2(-36, -16)
+texture = ExtResource("2_02i2a")
+
+[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+position = Vector2(32, 32)
+
+[node name="Scythe" type="Node2D" parent="Visual/Weapon" index="0"]
+position = Vector2(-32, -32)
+
+[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon/Scythe" index="0"]
+visible = false
+color = Color(0.50390625, 0.50390625, 0.50390625, 1)
+polygon = PackedVector2Array(67, -1, 30, -58, 30, -106, 56, -100, 52, -153, 92, -152, 102, -197, 149, -168, 176, -216, 251, -119, 271, -53)
+
+[node name="Visual" parent="Visual/Weapon/Scythe" index="1" instance=ExtResource("3_0wvw2")]
+position = Vector2(32, 32)
+
+[node name="Sprite2D" parent="Visual/Weapon/Scythe/Visual" index="0"]
+texture = ExtResource("7_p8sfc")
+
+[node name="Attack" type="Node2D" parent="Visual/Weapon/Scythe" index="2"]
+visible = false
+script = ExtResource("4_6hbna")
+damage = 40
+damage_interval = 0.7
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="0"]
+position = Vector2(128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(56, 128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="1"]
+position = Vector2(128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(56, -128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector3" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="2"]
+position = Vector2(128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(-128, 56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector4" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="3"]
+position = Vector2(-128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(128, 56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector5" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="4"]
+position = Vector2(-128, 128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(-56, -128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector6" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="5"]
+position = Vector2(-128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(-56, 128)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector7" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="6"]
+position = Vector2(-128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(128, -56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector8" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="7"]
+position = Vector2(128, -128)
+enabled = false
+shape = SubResource("CircleShape2D_p8sfc")
+target_position = Vector2(-128, -56)
+max_results = 1
+collision_mask = 75
+script = ExtResource("5_s1w2s")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Scythe" index="3"]
+libraries = {
+&"": ExtResource("6_v4a7l")
+}
+
+[editable path="Visual/Weapon/Scythe/Visual"]

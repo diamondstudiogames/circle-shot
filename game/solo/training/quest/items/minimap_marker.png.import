@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc561n34ye1tk"
-path="res://.godot/imported/death.png-8aafdd030f1c31d2dcceb77f80d623bb.ctex"
+uid="uid://b65h27pe6q6hk"
+path="res://.godot/imported/minimap_marker.png-bbe68794146fcaf7cf9f9f56329b4ac7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/player/vfx/death.png"
-dest_files=["res://.godot/imported/death.png-8aafdd030f1c31d2dcceb77f80d623bb.ctex"]
+source_file="res://game/solo/training/quest/items/minimap_marker.png"
+dest_files=["res://.godot/imported/minimap_marker.png-bbe68794146fcaf7cf9f9f56329b4ac7.ctex"]
 
 [params]
 

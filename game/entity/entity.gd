@@ -57,8 +57,6 @@ const SAFE_DISTANCE_LERP := 8.0
 @export var speed := 640.0
 ## Максимальное здоровье сущности.
 @export var max_health: int = 100
-## Команда сущности. Сущности из одной команды не могут наносить урон друг другу.
-@export var team: int = 0
 ## Всегда ли видна сущность на мини-карте. Сущности одной командой с локальным игроком всегда видны
 ## независимо от этой настройки.
 @export var always_visible_on_minimap := false
@@ -80,6 +78,8 @@ var id: int = -1:
 	set(value):
 		id = value
 		$Input.set_multiplayer_authority(value if id > 0 else MultiplayerPeer.TARGET_PEER_SERVER)
+## Команда сущности. Сущности из одной команды не могут наносить урон друг другу.
+var team: int = 0
 ## Текущее здоровье сущности.
 var current_health: int
 ## Позиция сущности на сервере. Используется при корректировке движения сущности на клиентах.

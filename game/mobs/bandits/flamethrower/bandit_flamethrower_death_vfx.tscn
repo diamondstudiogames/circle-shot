@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cepajywaefu1v"]
 
 [ext_resource type="Texture2D" uid="uid://dteg2fv78a130" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower_dead.png" id="1_4wr40"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="2_3765c"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_3765c"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

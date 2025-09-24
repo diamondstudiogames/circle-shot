@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=3 uid="uid://d37b6qih7jixf"]
+
+[ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_q4xc5"]
+[ext_resource type="Script" uid="uid://c2vgq6r1crf1c" path="res://game/solo/training/quest/cultists_fight/cultists_fight.gd" id="2_iormd"]
+[ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_pbgwp"]
+[ext_resource type="AudioStream" uid="uid://drc5s2lcedmty" path="res://game/solo/training/quest/cultists_fight/music.ogg" id="3_rem1v"]
+[ext_resource type="PackedScene" uid="uid://dk73x8ugugedl" path="res://game/solo/training/quest/cultists_fight/cultist_scythe.tscn" id="4_r6c2w"]
+[ext_resource type="Script" uid="uid://gi64gsopohq8" path="res://game/solo/training/quest/cultists_fight/cultists_fight_ui.gd" id="4_sa0r6"]
+[ext_resource type="Texture2D" uid="uid://brk630h1wdh40" path="res://menu/theme/icons/pause.png" id="5_3xgv4"]
+[ext_resource type="PackedScene" uid="uid://rq0ds83fr7a" path="res://game/solo/training/quest/cultists_fight/cultist_bloody_daggers.tscn" id="5_16cp4"]
+[ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_8787g"]
+[ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="7_qjxiq"]
+[ext_resource type="PackedScene" uid="uid://dpkjtov14f1kh" path="res://game/solo/training/quest/cultists_fight/cultists_fight_map.tscn" id="8_8787g"]
+[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="10_w2kqy"]
+[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="11_16cp4"]
+
+[sub_resource type="Curve" id="Curve_pbgwp"]
+_limits = [0.0, 5.0, 0.0, 100.0]
+_data = [Vector2(0, 1.25), 0.0, 0.03082077, 0, 0, Vector2(10, 3.25), 0.022197597, -0.0010173889, 0, 0, Vector2(100, 2), -0.020550704, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
+[node name="CultistsFight" instance=ExtResource("1_q4xc5")]
+script = ExtResource("2_iormd")
+challenge_time = 120
+kills_to_heal_box = 7
+kills_to_ammo_box = 15
+spawn_interval_curve = SubResource("Curve_pbgwp")
+entity_scenes = Array[PackedScene]([ExtResource("3_pbgwp"), ExtResource("4_r6c2w"), ExtResource("5_16cp4")])
+tracks = Array[AudioStream]([ExtResource("3_rem1v")])
+
+[node name="UI" parent="." index="8"]
+script = ExtResource("4_sa0r6")
+character_type_interval = 0.024999999994179234
+grammar_pause = 0.39999999999417923
+
+[node name="Pause" type="Button" parent="UI/Main" index="2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 72.0
+grow_horizontal = 0
+focus_mode = 0
+icon = ExtResource("5_3xgv4")
+
+[node name="Title" type="Label" parent="UI/Main" index="3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_type_variation = &"LabelOutlined"
+text = "Осталось выжить:"
+horizontal_alignment = 1
+
+[node name="RemainedTime" type="Label" parent="UI/Main" index="4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 36.0
+offset_right = 74.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLargeOutlined"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" index="5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+
+[node name="PauseDialog" type="Window" parent="UI" index="1"]
+process_mode = 2
+oversampling_override = 1.0
+title = "Игра приостановлена"
+size = Vector2i(240, 160)
+visible = false
+unresizable = true
+
+[node name="Background" type="ColorRect" parent="UI/PauseDialog" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseDialog" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="UI/PauseDialog/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Продолжить"
+icon = ExtResource("6_8787g")
+
+[node name="Quit" type="Button" parent="UI/PauseDialog/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Сдаться"
+icon = ExtResource("7_qjxiq")
+
+[node name="DialogTimer" type="Timer" parent="UI" index="2"]
+one_shot = true
+
+[node name="ResourcePreloaderCultistsFight" type="ResourcePreloader" parent="." index="12"]
+resources = [PackedStringArray("ammo_box", "heal_box"), [ExtResource("10_w2kqy"), ExtResource("11_16cp4")]]
+
+[node name="SpawnTimer" type="Timer" parent="." index="13"]
+process_callback = 0
+one_shot = true
+
+[node name="SurvivedTimer" type="Timer" parent="." index="14"]
+process_callback = 0
+autostart = true
+
+[node name="Map" parent="." index="15" instance=ExtResource("8_8787g")]
+metadata/_edit_lock_ = true
+
+[connection signal="ended" from="." to="." method="_on_ended"]
+[connection signal="ended" from="." to="UI" method="_on_cultists_fight_ended"]
+[connection signal="time_changed" from="." to="UI" method="_on_time_changed"]
+[connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]
+[connection signal="close_requested" from="UI/PauseDialog" to="UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Resume" to="UI" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Quit" to="UI" method="_on_quit_pressed"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SurvivedTimer" to="." method="_on_survived_timer_timeout"]

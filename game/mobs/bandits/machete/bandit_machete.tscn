@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_dr40c"]
 [ext_resource type="Texture2D" uid="uid://cx0ry0tacjsdp" path="res://game/mobs/bandits/machete/bandit_machete.png" id="2_a03xr"]
 [ext_resource type="Script" uid="uid://d247ian7ff71a" path="res://game/mobs/bandits/machete/bandit_machete.gd" id="2_s6k58"]
-[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="3_iv065"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="3_iv065"]
 [ext_resource type="PackedScene" uid="uid://1k2lyqd7wxl2" path="res://game/weapons/melee/machete/visual/machete_visual.tscn" id="3_s6k58"]
 [ext_resource type="PackedScene" uid="uid://de46wnkbixfrs" path="res://game/mobs/bandits/machete/bandit_machete_death_vfx.tscn" id="4_iv065"]
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="5_sx6jm"]

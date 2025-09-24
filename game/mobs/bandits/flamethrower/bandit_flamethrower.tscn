@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cgyrcxqehcj6h"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_6osx2"]
-[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="2_56hdh"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="2_56hdh"]
 [ext_resource type="Texture2D" uid="uid://02i01bhrlnxp" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.png" id="2_i6voi"]
 [ext_resource type="Script" uid="uid://l5bb6pn0uqk2" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.gd" id="2_ld84a"]
 [ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/flamethrower/projectile/fire_projectile.tscn" id="3_nkwvn"]

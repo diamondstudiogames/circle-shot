@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctqgs3w1llfuf"]
 
-[ext_resource type="Texture2D" uid="uid://cc561n34ye1tk" path="res://game/player/vfx/death.png" id="1_oknxm"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="1_ua5r2"]
+[ext_resource type="Texture2D" uid="uid://cc561n34ye1tk" path="res://game/entity/vfx/death.png" id="1_oknxm"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_ua5r2"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -99,7 +99,7 @@ _data = {
 [node name="BloodDeathVfx" type="Node2D"]
 
 [node name="Death" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -4
 texture = ExtResource("1_oknxm")
 
 [node name="Particles" type="CPUParticles2D" parent="."]

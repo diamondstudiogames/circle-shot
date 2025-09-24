@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://de46wnkbixfrs"]
 
 [ext_resource type="Texture2D" uid="uid://dj413n3nf0jj8" path="res://game/mobs/bandits/machete/bandit_machete_dead.png" id="1_66qkd"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="2_cqgwm"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_cqgwm"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -12,7 +12,7 @@ extends Weapon
 var _shoot_timer: float = 0.0
 var _turn_tween: Tween
 @onready var _anim: AnimationPlayer = $AnimationPlayer
-@onready var _aim: Node2D = $Aim
+@onready var _aim: Line2D = $Aim
 @onready var _attack: Attack = $Attack
 
 

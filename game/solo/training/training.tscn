@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://f6bay2nx1wy3"]
+[gd_scene load_steps=75 format=3 uid="uid://f6bay2nx1wy3"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6jugc"]
 [ext_resource type="Script" uid="uid://cq53u6g7rseun" path="res://game/solo/training/training.gd" id="2_lrvjq"]
@@ -41,11 +41,815 @@
 [ext_resource type="Texture2D" uid="uid://dn7x0uuvkhfal" path="res://game/solo/training/icons/enemies/robot_p350.png" id="29_8ojcx"]
 [ext_resource type="Texture2D" uid="uid://b1u3v2dc3jemk" path="res://menu/theme/icons/delete.png" id="33_xt344"]
 [ext_resource type="Texture2D" uid="uid://c2jp45c7cybbs" path="res://game/solo/training/icons/editor/spikes.png" id="38_4j2vv"]
+[ext_resource type="PackedScene" uid="uid://8lxygh47wdpr" path="res://game/solo/training/quest/items/book_animation.tscn" id="41_70jin"]
 [ext_resource type="PackedScene" uid="uid://davg83gsduoyq" path="res://game/solo/training/spikes.tscn" id="42_npibf"]
+[ext_resource type="Script" uid="uid://dacn48oh86ofd" path="res://game/solo/training/quest/quest.gd" id="43_auuw0"]
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="44_0djgj"]
+[ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="45_8vq0w"]
+[ext_resource type="Texture2D" uid="uid://7c7iyw4vxkgy" path="res://game/solo/training/quest/note.png" id="45_qsfa0"]
+[ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="46_bg35u"]
+[ext_resource type="Resource" uid="uid://cnpnlnxo5nbl7" path="res://game/maps/flag_capture/forest/forest.tres" id="46_kli4e"]
+[ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="47_p6gfp"]
+[ext_resource type="Resource" uid="uid://cq76r0krsilke" path="res://game/maps/royale/thunder/thunder.tres" id="47_w6fe7"]
+[ext_resource type="Resource" uid="uid://de53s62bw2sq" path="res://game/maps/duel/mini_classic/mini_classic.tres" id="48_70jin"]
+[ext_resource type="Material" uid="uid://b8111w5tokcit" path="res://game/shared/shaders/materials/solid_color.tres" id="48_bg35u"]
+[ext_resource type="Resource" uid="uid://brqjqke8notbq" path="res://game/maps/teamfight/polygon/polygon.tres" id="49_idd4e"]
+[ext_resource type="Texture2D" uid="uid://ce7lddx3qffnv" path="res://game/solo/training/quest/items/pentagram.png" id="49_p6gfp"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="50_cprrv"]
+[ext_resource type="Texture2D" uid="uid://dibouqwpi2a8i" path="res://game/solo/training/quest/portal.png" id="50_holad"]
+[ext_resource type="Texture2D" uid="uid://c40bl4igcm1jw" path="res://game/solo/training/quest/items/candle.png" id="50_p6gfp"]
+[ext_resource type="Texture2D" uid="uid://jcv2ibfs80kj" path="res://game/solo/training/quest/items/cross.png" id="52_holad"]
+[ext_resource type="PackedScene" uid="uid://bsw5gvu6qshxu" path="res://game/solo/training/quest/items/quest_item.tscn" id="54_jn28u"]
+[ext_resource type="Texture2D" uid="uid://bvdak2812tr4c" path="res://game/solo/training/quest/items/chalk.png" id="55_vkyk8"]
+[ext_resource type="Texture2D" uid="uid://djtxlpjpc7125" path="res://game/solo/training/quest/items/book.png" id="61_70jin"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_5ylsm"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_ew6j5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7biuy"]
+radius = 480.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70jin"]
+radius = 320.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vjfw"]
+atlas = ExtResource("50_p6gfp")
+region = Rect2(0, 0, 48, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cprrv"]
+atlas = ExtResource("50_p6gfp")
+region = Rect2(48, 0, 48, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holad"]
+atlas = ExtResource("50_p6gfp")
+region = Rect2(96, 0, 48, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vjfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vjfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cprrv")
+}],
+"loop": true,
+"name": &"burning",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_holad")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1w0nl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pentagram:instance_shader_parameters/power")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cross:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.391028]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cross:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cross/Cross2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cross/Cross2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cross/Cross2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cross:instance_shader_parameters/power")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Candles/Candle:use_parent_material")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Candles/Candle2:use_parent_material")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Candles/Candle3:use_parent_material")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Candles/Candle4:use_parent_material")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Candles/Candle5:use_parent_material")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Pentagram:material")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("48_bg35u")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CanvasModulate:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.4351263, 0.42956543, 0.53125, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Pentagram/Portal:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Pentagram/Portal:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Cross:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Pentagram/Portal:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jn28u"]
+resource_name = "ritual"
+length = 13.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cross:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8, 5, 12.5, 13.3),
+"transitions": PackedFloat32Array(1, 1, 1, 3, 1),
+"update": 0,
+"values": [0.391028, 0.391028, 0.0, 0.0, -0.96098495]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cross:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.8, 5, 12.5, 13.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, -1.681793, 1, 3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-5, -7), Vector2(11, -4.7683716e-07), Vector2(-8, 10), Vector2(9, 9), Vector2(0, 0), Vector2(0, 0), Vector2(0, -128), Vector2(0, -128), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cross:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 13.300001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cross/Cross2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.2999997, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cross/Cross2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7.2999997, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(4, 4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cross/Cross2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7.2999997, 7.7),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cross:instance_shader_parameters/power")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6.4, 7, 11.7, 12.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pentagram:material")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 7.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("48_bg35u"), ExtResource("50_cprrv")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Pentagram:instance_shader_parameters/power")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6.4, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Candles/Candle:use_parent_material")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CanvasModulate:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 7.3, 7.7, 8.1, 8.5, 8.9, 9.3, 9.7, 10.1, 10.5, 10.9, 11.3, 11.7, 12.099999, 13.3, 13.500001, 13.700001),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.4351263, 0.42956543, 0.53125, 1), Color(0.4351263, 0.42956543, 0.53125, 1), Color(13.296311, 13.296311, 13.296311, 1), Color(9.687732, 9.687732, 9.687732, 1), Color(13.296311, 13.296311, 13.296311, 1), Color(7.8425736, 7.8425736, 7.8425736, 1), Color(13.771139, 13.771139, 13.771139, 1), Color(1, 1, 1, 1), Color(0.09411765, 0.09411765, 0.09411765, 1), Color(0.17578125, 0.17578125, 0.17578125, 1), Color(0.09411764, 0.09411764, 0.09411764, 1), Color(0.1953125, 0.1953125, 0.1953125, 1), Color(0.09411764, 0.09411764, 0.09411764, 1), Color(0.4351263, 0.42956543, 0.53125, 1), Color(0.4351263, 0.42956543, 0.53125, 1), Color(1.1421766, 1.1326011, 1.3719887, 1), Color(0.5294118, 0.43137255, 0.43137255, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Pentagram/Portal:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 12.1, 13.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Pentagram/Portal:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 13.300001, 13.500001),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Candles/Candle")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default"],
+"method": &"play"
+}, {
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Candles/Candle2:use_parent_material")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 5.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Candles/Candle2")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 5.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default"],
+"method": &"play"
+}, {
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Candles/Candle3:use_parent_material")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 5.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Candles/Candle3")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 5.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default"],
+"method": &"play"
+}, {
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Candles/Candle4:use_parent_material")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Candles/Candle4")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default"],
+"method": &"play"
+}, {
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Candles/Candle5:use_parent_material")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 5.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Candles/Candle5")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 5.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"default"],
+"method": &"play"
+}, {
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/22/type = "method"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("..")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 13.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_player_start_ritual"
+}, {
+"args": [],
+"method": &"_player_end_ritual"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vkyk8"]
+resource_name = "ritual_done"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Candles/Candle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Candles/Candle2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Candles/Candle3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Candles/Candle4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Candles/Candle5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"burning"],
+"method": &"play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Candles/Candle:use_parent_material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Candles/Candle2:use_parent_material")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Candles/Candle3:use_parent_material")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Candles/Candle4:use_parent_material")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Candles/Candle5:use_parent_material")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Pentagram:material")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("50_cprrv")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cross:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasModulate:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5294118, 0.43137255, 0.43137255, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Pentagram/Portal:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Pentagram/Portal:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Pentagram/Portal:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.8515625, 0.8515625, 0.8515625, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkyk8"]
+_data = {
+&"RESET": SubResource("Animation_1w0nl"),
+&"ritual": SubResource("Animation_jn28u"),
+&"ritual_done": SubResource("Animation_vkyk8")
+}
 
 [node name="Training" instance=ExtResource("1_6jugc")]
 script = ExtResource("2_lrvjq")
@@ -690,33 +1494,33 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="0"]
+[node name="Normal" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="0"]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/VBoxContainer" index="0"]
+[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Normal" index="0"]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/VBoxContainer/Header" index="0"]
+[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Normal/Header" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/VBoxContainer/Header" index="1"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal/Header" index="1"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Руководство"
 
-[node name="CloseGuide" type="Button" parent="UI/Guide/PanelContainer/VBoxContainer/Header" index="2"]
+[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Normal/Header" index="2"]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
-[node name="Welcome" type="Label" parent="UI/Guide/PanelContainer/VBoxContainer" index="1"]
+[node name="Welcome" type="Label" parent="UI/Guide/PanelContainer/Normal" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Добро пожаловать в Тренировку!"
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/VBoxContainer" index="2"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal" index="2"]
 custom_minimum_size = Vector2(768, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -729,11 +1533,49 @@ text = "Здесь ты можешь сражаться в любом окруж
 Однако помни, что в 3 часа ночи Тренировка не работает!"
 autowrap_mode = 2
 
-[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/VBoxContainer" index="3"]
+[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Normal" index="3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "Хорошего времяпрепровождения!"
+
+[node name="Quest" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="1"]
+visible = false
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Quest" index="0"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Quest/Header" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest/Header" index="1"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Записка"
+
+[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Quest/Header" index="2"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("4_wkoo5")
+
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest" index="1"]
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Не знаю, попадёт в руки к кому-нибудь эта записка или нет... Но надеюсь кто-то сможет это прочитать.
+Это место... с ним что-то не так. Днём это самая обычная тренировка, где всё хорошо. Но стоит часам пробить 3 ночи... что-то меняется. Солнце уходит, забирая с собой свет. Хорошо, если бы на этом изменения закончились. Но это не так.
+Я начинал слышать какие-то голоса... Издававшиеся словно из-под земли. Они звали меня... я не знал что делать. Но вдруг один из них сказал мне: \"Ты... ты... прорви границу этого мира... ритуал... собери всё необходимое!\". Это наполнило меня любопытством, и я начал искать предметы по всему миру. Не знаю почему, но я словно знал, что и где находится... Это чувство не было мне раньше знакомо. Собрав всё нужное, я провёл ритуал, который и открыл портал. В тот момент я чувствовал себя плохо, потому что понимал, что прикоснулся к чему-то запретному, но любопытство взяло верх. Я вошёл в него, что стало моей РОКОВОЙ ОШИБКОЙ!!!
+То что я увидел не описать словами, будто все кошмары мира собрались в этом месте... ПОЖАЛУЙСТА, НИКОГДА, НИКОГДА НЕ ПРОВОДИ ЭТОТ РИТУАЛ И НЕ ЗАХОДИ В ПОРТАЛ!!! Прямо сейчас я истекаю последней кровью, моё тело еле-еле продолжает жить... Мне удалось спрятаться, но меня не хватит надолго... С последних сил пишу эту записку... Пожалуйста, уничтожь все использованные мной предметы... Никто больше не должен пройти через мои страдания... ОНИ жаждят лишь твоей крови, плоти и ДУШИ!.."
+autowrap_mode = 2
+
+[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Quest" index="2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Береги себя."
 
 [node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="3"]
 oversampling_override = 1.0
@@ -750,6 +1592,9 @@ oversampling_override = 1.0
 title = "Выбрать карту из..."
 size = Vector2i(288, 80)
 visible = false
+transient = true
+exclusive = true
+unresizable = true
 
 [node name="Background" type="ColorRect" parent="UI/SelectMap" index="0"]
 anchors_preset = 15
@@ -780,13 +1625,193 @@ size_flags_vertical = 4
 text = "Испытания"
 
 [node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12"]
-resources = [PackedStringArray("default_map", "spikes"), [ExtResource("3_36lnl"), ExtResource("42_npibf")]]
+resources = [PackedStringArray("book_animation", "default_map", "spikes"), [ExtResource("41_70jin"), ExtResource("3_36lnl"), ExtResource("42_npibf")]]
 
 [node name="RespawnTimer" type="Timer" parent="." index="13"]
 wait_time = 3.0
 one_shot = true
 
+[node name="Quest" type="Node2D" parent="." index="14"]
+script = ExtResource("43_auuw0")
+maps_to_items = Dictionary[ExtResource("44_0djgj"), NodePath]({
+ExtResource("46_kli4e"): NodePath("QuestItem2"),
+ExtResource("47_w6fe7"): NodePath("QuestItem3"),
+ExtResource("48_70jin"): NodePath("QuestItem"),
+ExtResource("49_idd4e"): NodePath("QuestItem4")
+})
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Quest" index="0"]
+color = Color(0.4351263, 0.42956543, 0.53125, 1)
+
+[node name="Note" type="Sprite2D" parent="Quest" index="1"]
+z_index = 4
+position = Vector2(4400, 3040)
+texture = ExtResource("45_qsfa0")
+
+[node name="Light" type="Sprite2D" parent="Quest/Note" index="0"]
+self_modulate = Color(1, 0, 0, 0.5019608)
+material = ExtResource("46_bg35u")
+scale = Vector2(16, 16)
+texture = ExtResource("47_p6gfp")
+
+[node name="Interactible" parent="Quest/Note" index="1" instance=ExtResource("45_8vq0w")]
+position = Vector2(0, -56)
+text = "Прочитать"
+hold_interaction_time = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Note/Interactible" index="1"]
+position = Vector2(0, 56)
+shape = SubResource("CircleShape2D_7biuy")
+
+[node name="Pentagram" type="Node2D" parent="Quest" index="2"]
+z_index = -4
+
+[node name="Interactible" parent="Quest/Pentagram" index="0" instance=ExtResource("45_8vq0w")]
+position = Vector2(0, -80)
+text = "Начать ритуал"
+hold_interaction_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Pentagram/Interactible" index="1"]
+position = Vector2(0, 80)
+shape = SubResource("CircleShape2D_70jin")
+
+[node name="Pentagram" type="Sprite2D" parent="Quest/Pentagram" index="1"]
+material = ExtResource("48_bg35u")
+instance_shader_parameters/color = Color(1, 1, 1, 1)
+instance_shader_parameters/power = 1.0
+texture = ExtResource("49_p6gfp")
+
+[node name="Portal" type="Sprite2D" parent="Quest/Pentagram/Pentagram" index="0"]
+visible = false
+show_behind_parent = true
+use_parent_material = true
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("50_holad")
+
+[node name="Candles" type="Node2D" parent="Quest/Pentagram" index="2"]
+material = ExtResource("50_cprrv")
+
+[node name="Candle" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="0"]
+position = Vector2(-213, -67)
+sprite_frames = SubResource("SpriteFrames_5vjfw")
+autoplay = "default"
+offset = Vector2(0, -48)
+
+[node name="Candle2" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="1"]
+position = Vector2(213, -67)
+sprite_frames = SubResource("SpriteFrames_5vjfw")
+autoplay = "default"
+offset = Vector2(0, -48)
+
+[node name="Candle3" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="2"]
+position = Vector2(0, -227)
+sprite_frames = SubResource("SpriteFrames_5vjfw")
+autoplay = "default"
+offset = Vector2(0, -48)
+
+[node name="Candle4" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="3"]
+position = Vector2(-129, 180)
+sprite_frames = SubResource("SpriteFrames_5vjfw")
+autoplay = "default"
+offset = Vector2(0, -48)
+
+[node name="Candle5" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="4"]
+position = Vector2(129, 180)
+sprite_frames = SubResource("SpriteFrames_5vjfw")
+autoplay = "default"
+offset = Vector2(0, -48)
+
+[node name="Cross" type="Sprite2D" parent="Quest/Pentagram" index="3"]
+material = ExtResource("48_bg35u")
+instance_shader_parameters/color = Color(2.708, 2.708, 2.708, 1)
+instance_shader_parameters/power = 0.0
+rotation = 0.391028
+texture = ExtResource("52_holad")
+
+[node name="Cross2" type="Sprite2D" parent="Quest/Pentagram/Cross" index="0"]
+visible = false
+show_behind_parent = true
+use_parent_material = true
+position = Vector2(0, -31)
+texture = ExtResource("52_holad")
+offset = Vector2(0, 30.999908)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quest/Pentagram" index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_vkyk8")
+}
+
+[node name="QuestItem" parent="Quest" index="3" instance=ExtResource("54_jn28u")]
+position = Vector2(-1360, -1520)
+item_id = "chalk"
+
+[node name="Chalk" type="Sprite2D" parent="Quest/QuestItem" index="2"]
+use_parent_material = true
+rotation = -0.46444356
+texture = ExtResource("55_vkyk8")
+
+[node name="QuestItem2" parent="Quest" index="4" instance=ExtResource("54_jn28u")]
+position = Vector2(1600, 2240)
+item_id = "cross"
+
+[node name="Cross" type="Sprite2D" parent="Quest/QuestItem2" index="2"]
+use_parent_material = true
+rotation = 1.0461975
+texture = ExtResource("52_holad")
+
+[node name="QuestItem3" parent="Quest" index="5" instance=ExtResource("54_jn28u")]
+position = Vector2(-3440, 1040)
+item_id = "candles"
+
+[node name="Candles" type="Node2D" parent="Quest/QuestItem3" index="2"]
+use_parent_material = true
+
+[node name="Candle5" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="0"]
+use_parent_material = true
+position = Vector2(18, -22)
+texture = ExtResource("50_p6gfp")
+hframes = 3
+frame = 2
+
+[node name="Candle3" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="1"]
+use_parent_material = true
+position = Vector2(27, -6)
+texture = ExtResource("50_p6gfp")
+hframes = 3
+frame = 2
+
+[node name="Candle4" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="2"]
+use_parent_material = true
+position = Vector2(-13, -27)
+texture = ExtResource("50_p6gfp")
+hframes = 3
+frame = 2
+
+[node name="Candle2" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="3"]
+use_parent_material = true
+position = Vector2(-26, -1)
+texture = ExtResource("50_p6gfp")
+hframes = 3
+frame = 2
+
+[node name="Candle" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="4"]
+use_parent_material = true
+position = Vector2(3, 9)
+texture = ExtResource("50_p6gfp")
+hframes = 3
+frame = 2
+
+[node name="QuestItem4" parent="Quest" index="6" instance=ExtResource("54_jn28u")]
+position = Vector2(3600, -1520)
+item_id = "book"
+
+[node name="Book" type="Sprite2D" parent="Quest/QuestItem4" index="2"]
+use_parent_material = true
+rotation = -0.22138059
+texture = ExtResource("61_70jin")
+
 [connection signal="map_changed" from="." to="UI" method="_on_map_changed"]
+[connection signal="map_changed" from="." to="Quest" method="_on_training_map_changed"]
 [connection signal="stats_changed" from="." to="UI" method="_on_training_stats_changed"]
 [connection signal="pressed" from="UI/Main/Menu" to="UI" method="_on_menu_pressed"]
 [connection signal="pressed" from="UI/Main/Quit" to="UI/QuitDialog" method="popup_centered"]
@@ -835,9 +1860,12 @@ one_shot = true
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/MoveEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/DeleteEnemy" to="UI/Menu/PanelContainer/MapEditor" method="_on_delete_enemy_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/DeleteEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
-[connection signal="pressed" from="UI/Guide/PanelContainer/VBoxContainer/Header/CloseGuide" to="UI" method="_on_close_guide_pressed"]
+[connection signal="pressed" from="UI/Guide/PanelContainer/Normal/Header/Close" to="UI" method="_on_close_note_pressed"]
+[connection signal="pressed" from="UI/Guide/PanelContainer/Quest/Header/Close" to="UI" method="_on_close_note_pressed"]
 [connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
 [connection signal="close_requested" from="UI/SelectMap" to="UI/SelectMap" method="hide"]
 [connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromEvent" to="UI" method="_on_map_from_event_pressed"]
 [connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromChallenge" to="UI" method="_on_map_from_challenge_pressed"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="interacted" from="Quest/Note/Interactible" to="Quest" method="_on_note_interactible_interacted"]
+[connection signal="interacted" from="Quest/Pentagram/Interactible" to="Quest" method="_on_pentagram_interactible_interacted"]

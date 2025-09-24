@@ -84,7 +84,7 @@ func _spawn_robot() -> void:
 	robot.max_health = roundi(robot.max_health * health_multiplier_curve.sample(time_survived))
 	robot.damage_multiplier = damage_multiplier_curve.sample(time_survived)
 	robot.speed_multiplier = speed_multiplier_curve.sample(time_survived)
-	robot.killed.connect(_on_robot_killed.bind(robot))
+	robot.died.connect(_on_robot_died.bind(robot))
 	$Entities.add_child(robot, true)
 	
 	_spawn_points_counter += 1
@@ -110,7 +110,7 @@ func _spawn_ammo_box(where: Vector2) -> void:
 	$Other.add_child(ammo_box, true)
 
 
-func _on_robot_killed(_by: int, _remained_health: int, robot: Entity) -> void:
+func _on_robot_died(robot: Entity) -> void:
 	var got_points: int = roundi(robot.damage_multiplier * points_for_damage_multiplier_base) \
 			+ roundi(robot.speed_multiplier * points_for_speed_multiplier_base) \
 			+ roundi(robot.max_health * points_for_health_base)

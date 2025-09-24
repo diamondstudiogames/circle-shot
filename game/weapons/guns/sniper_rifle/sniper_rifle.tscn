@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://4q0rrm6arbyx"]
+[gd_scene load_steps=14 format=3 uid="uid://4q0rrm6arbyx"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_57777"]
 [ext_resource type="Script" uid="uid://demdf41slbc0a" path="res://game/weapons/guns/sniper_rifle/sniper_rifle.gd" id="2_ir31q"]
 [ext_resource type="PackedScene" uid="uid://cm0sqwulviy72" path="res://game/weapons/guns/sniper_rifle/sniper_bullet.tscn" id="2_stbvt"]
 [ext_resource type="PackedScene" uid="uid://d27xngh76umsj" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_visual.tscn" id="4_b0etb"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="5_nrirq"]
 [ext_resource type="AnimationLibrary" uid="uid://c148d0ilnvh12" path="res://game/weapons/guns/sniper_rifle/visual/sniper_rifle_animations.tres" id="6_nrirq"]
 [ext_resource type="Shader" uid="uid://c5rcnc4qtas64" path="res://game/weapons/guns/sniper_rifle/aim/blur.gdshader" id="9_8tnl3"]
 [ext_resource type="Texture2D" uid="uid://baoopah0qlhcl" path="res://game/weapons/guns/sniper_rifle/aim/aim.png" id="9_cpvii"]
@@ -61,12 +62,14 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="AimLine" type="Line2D" parent="ShootPoint" index="1"]
 z_index = 10
+material = ExtResource("5_nrirq")
 points = PackedVector2Array(0, 0, 3200, 0)
 width = 8.0
 default_color = Color(1, 1, 1, 0.376471)
 
 [node name="Outline" type="Line2D" parent="ShootPoint/AimLine" index="0"]
 show_behind_parent = true
+use_parent_material = true
 points = PackedVector2Array(0, 0, 3200, 0)
 width = 12.0
 default_color = Color(0, 0, 0, 0.376471)

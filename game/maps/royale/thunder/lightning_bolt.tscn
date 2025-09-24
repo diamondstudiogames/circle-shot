@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm2xehxg7nb8e"]
+[gd_scene load_steps=13 format=3 uid="uid://dm2xehxg7nb8e"]
 
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="1_eqin4"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_sfshw"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dpbcslu6rdmnm" path="res://game/maps/royale/thunder/lightning_bolt.wav" id="3_868mv"]
 [ext_resource type="Texture2D" uid="uid://cppo6vvr4qygh" path="res://game/maps/royale/thunder/lightning_bolt.png" id="4_uhaos"]
 [ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="5_uhaos"]
+[ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="7_mqut8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_868mv"]
 radius = 320.0
@@ -226,18 +227,6 @@ _data = {
 &"strike": SubResource("Animation_sfshw")
 }
 
-[sub_resource type="Gradient" id="Gradient_868mv"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uhaos"]
-gradient = SubResource("Gradient_868mv")
-width = 160
-height = 160
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
 [node name="LightningBolt" type="Node2D"]
 self_modulate = Color(1, 0, 0, 0)
 z_index = -5
@@ -285,6 +274,6 @@ visibility_layer = 4
 z_index = 5
 material = ExtResource("5_uhaos")
 scale = Vector2(16, 16)
-texture = SubResource("GradientTexture2D_uhaos")
+texture = ExtResource("7_mqut8")
 
 [connection signal="draw" from="." to="." method="draw_circle" binds= [Vector2(0, 0), 320.0, Color(1, 1, 1, 1)]]

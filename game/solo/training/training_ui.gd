@@ -61,9 +61,11 @@ func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 			_items_grid.list_maps_of_challenge(_selecting_challenge,
 					_selected_map if _selected_challenge == _selecting_challenge else -1)
 		ItemsDB.Item.MAP:
-			if _selecting_event == _selected_event and _selected_map == idx:
+			if _selecting_event != -1 and _selecting_event == _selected_event \
+					and _selected_map == idx:
 				return
-			elif _selecting_challenge == _selected_challenge and _selected_map == idx:
+			elif _selecting_challenge != -1 and _selecting_challenge == _selected_challenge \
+					and _selected_map == idx:
 				return
 			_selected_map = idx
 			if _selecting_event >= 0:
@@ -107,7 +109,7 @@ func _on_close_pressed() -> void:
 	get_tree().paused = false
 
 
-func _on_close_guide_pressed() -> void:
+func _on_close_note_pressed() -> void:
 	get_tree().paused = false
 	($Main as CanvasItem).show()
 	($Guide as CanvasItem).hide()

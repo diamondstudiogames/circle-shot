@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bw1wlw5vj0li2" path="res://game/mobs/bandits/bazooka/bandit_bazooka_death_vfx.gd" id="1_7t5jt"]
 [ext_resource type="Texture2D" uid="uid://dvhmmxmlfylar" path="res://game/mobs/bandits/bazooka/bandit_bazooka_dead.png" id="2_773h1"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="2_e1cmd"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_e1cmd"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

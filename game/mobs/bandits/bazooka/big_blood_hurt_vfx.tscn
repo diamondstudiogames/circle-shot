@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdwe08hp3gif2"]
 
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="1_w010h"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_w010h"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

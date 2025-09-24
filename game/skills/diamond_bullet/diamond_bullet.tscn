@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwy62fpecrhen"]
+[gd_scene load_steps=8 format=3 uid="uid://dwy62fpecrhen"]
 
 [ext_resource type="Script" uid="uid://fh0cnw0xa7iy" path="res://game/skills/diamond_bullet/diamond_bullet.gd" id="1_vjdej"]
 [ext_resource type="PackedScene" uid="uid://cwbyj0wl0k3ab" path="res://game/skills/diamond_bullet/diamond_bullet_projectile.tscn" id="2_i4kng"]
 [ext_resource type="Texture2D" uid="uid://bclxn23pu2df8" path="res://game/skills/diamond_bullet/bullet.png" id="4_i4kng"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_weqfc"]
 
 [sub_resource type="Animation" id="Animation_i4kng"]
 length = 0.001
@@ -88,11 +89,13 @@ libraries = {
 [node name="Aim" type="Line2D" parent="."]
 visible = false
 z_index = 10
+material = ExtResource("4_weqfc")
 points = PackedVector2Array(64, 0, 4000, 0)
 width = 32.0
 default_color = Color(0, 0.623529, 1, 0.376471)
 
 [node name="SpreadLeft" type="Line2D" parent="Aim"]
+use_parent_material = true
 position = Vector2(64, -16)
 points = PackedVector2Array(64, 0, 128, 0)
 width = 4.0
@@ -100,11 +103,13 @@ default_color = Color(0, 0.623529, 1, 0.313726)
 
 [node name="Outline" type="Line2D" parent="Aim/SpreadLeft"]
 show_behind_parent = true
+use_parent_material = true
 points = PackedVector2Array(64, 0, 128, 0)
 width = 8.0
 default_color = Color(0, 0, 1, 0.156863)
 
 [node name="SpreadRight" type="Line2D" parent="Aim"]
+use_parent_material = true
 position = Vector2(64, 16)
 points = PackedVector2Array(64, 0, 128, 0)
 width = 4.0
@@ -112,12 +117,14 @@ default_color = Color(0, 0.623529, 1, 0.313726)
 
 [node name="Outline" type="Line2D" parent="Aim/SpreadRight"]
 show_behind_parent = true
+use_parent_material = true
 points = PackedVector2Array(64, 0, 128, 0)
 width = 8.0
 default_color = Color(0, 0, 1, 0.156863)
 
 [node name="Outline" type="Line2D" parent="Aim"]
 show_behind_parent = true
+use_parent_material = true
 points = PackedVector2Array(64, 0, 4000, 0)
 width = 36.0
 default_color = Color(0, 0, 1, 0.25098)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://se8ioau06ef"]
 
-[ext_resource type="Script" uid="uid://cc8at2avury8m" path="res://game/shared/ui/minimap/default_minimap_marker.gd" id="1_47jos"]
+[ext_resource type="Script" uid="uid://cc8at2avury8m" path="res://game/shared/ui/minimap/minimap_marker.gd" id="1_47jos"]
 
-[node name="DefaultMinimapMarker" type="Node2D"]
+[node name="MinimapMarker" type="Node2D"]
 script = ExtResource("1_47jos")
 
 [node name="MinimapNotifier" type="VisibleOnScreenNotifier2D" parent="."]

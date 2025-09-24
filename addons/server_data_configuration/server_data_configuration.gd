@@ -337,6 +337,7 @@ func _on_add_promocode_dialog_confirmed() -> void:
 	if %PromocodesList.has_node(promocode.validate_node_name()):
 		return
 	_settings_file.set_value("promocode_" + promocode, "rewards", [] as Array[String])
+	_settings_file.set_value("promocode_" + promocode, "comment", "")
 	_list_promocode(promocode)
 
 

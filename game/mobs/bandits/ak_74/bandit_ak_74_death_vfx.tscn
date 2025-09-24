@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://db4n5160rqb1v"]
 
 [ext_resource type="Texture2D" uid="uid://drdmmix0ndmug" path="res://game/mobs/bandits/ak_74/bandit_ak_74_dead.png" id="1_jpf1h"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="2_6klks"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_6klks"]
 
 [sub_resource type="Curve" id="Curve_e1ai4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

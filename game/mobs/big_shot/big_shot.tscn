@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bvyc0u1fmkvqo" path="res://game/mobs/big_shot/big_shot.gd" id="2_g0lbo"]
 [ext_resource type="Texture2D" uid="uid://dwwpju7i50max" path="res://game/mobs/big_shot/big_shot.png" id="2_u4qlp"]
 [ext_resource type="Texture2D" uid="uid://bvps7ka4brr5o" path="res://game/mobs/common/boss_minimap_marker.png" id="2_w3k2w"]
-[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="3_g6ok4"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="3_g6ok4"]
 [ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/desert_eagle/desert_eagle_bullet.tscn" id="3_j1gq0"]
 [ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="4_e43vs"]
 [ext_resource type="PackedScene" uid="uid://c15g50dfs3v1w" path="res://game/mobs/big_shot/big_shot_death_vfx.tscn" id="4_t1t52"]

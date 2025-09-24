@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vdagnimwlvoy"
-path="res://.godot/imported/shard.png-8d77dcbb1d54cc7ad34fec78b38c6f68.ctex"
+uid="uid://djtxlpjpc7125"
+path="res://.godot/imported/book.png-49df4f4191da094ad6a23610cb437cda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/player/vfx/shard.png"
-dest_files=["res://.godot/imported/shard.png-8d77dcbb1d54cc7ad34fec78b38c6f68.ctex"]
+source_file="res://game/solo/training/quest/items/book.png"
+dest_files=["res://.godot/imported/book.png-49df4f4191da094ad6a23610cb437cda.ctex"]
 
 [params]
 

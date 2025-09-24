@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://3l0k1cn63ahd"]
+[gd_scene load_steps=13 format=3 uid="uid://3l0k1cn63ahd"]
 
 [ext_resource type="Script" uid="uid://cukrup6mhkvhw" path="res://game/player/player.gd" id="1_d5iul"]
 [ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_r625f"]
-[ext_resource type="Texture2D" uid="uid://byjbep0gi5cm3" path="res://game/player/vfx/drop.png" id="3_8a6xh"]
+[ext_resource type="Texture2D" uid="uid://byjbep0gi5cm3" path="res://game/entity/vfx/drop.png" id="3_8a6xh"]
 [ext_resource type="Texture2D" uid="uid://d2j3okv8l0sm3" path="res://game/player/control_indicator.png" id="3_fptox"]
 [ext_resource type="Script" uid="uid://rxv23ocf5pex" path="res://game/player/player_input.gd" id="3_knbu5"]
-[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="3_tk865"]
-[ext_resource type="PackedScene" uid="uid://ctqgs3w1llfuf" path="res://game/player/vfx/blood_death_vfx.tscn" id="4_nsvnj"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="3_tk865"]
+[ext_resource type="PackedScene" uid="uid://ctqgs3w1llfuf" path="res://game/entity/vfx/blood_death_vfx.tscn" id="4_nsvnj"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="7_epvkq"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1t0v5"]
 properties/0/path = NodePath(".:shooting")
@@ -78,6 +79,7 @@ offset_top = 4.0
 offset_bottom = 28.0
 
 [node name="Name" type="Label" parent="Info" index="1"]
+use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -124,6 +126,7 @@ position = Vector2(32, 32)
 [node name="ControlIndicator" type="Sprite2D" parent="." index="7"]
 visible = false
 z_index = 15
+material = ExtResource("7_epvkq")
 position = Vector2(0, 96)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_fptox")

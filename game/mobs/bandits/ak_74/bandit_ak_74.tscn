@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_jhv3f"]
 [ext_resource type="Script" uid="uid://dw227fbxby0w3" path="res://game/mobs/bandits/ak_74/bandit_ak_74.gd" id="2_54hhr"]
-[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/player/vfx/blood_hurt_vfx.tscn" id="2_sdrlc"]
+[ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="2_sdrlc"]
 [ext_resource type="Texture2D" uid="uid://41l01i8thbg8" path="res://game/mobs/bandits/ak_74/bandit_ak_74.png" id="3_54hhr"]
 [ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="3_sdrlc"]
 [ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="3_wpxwc"]

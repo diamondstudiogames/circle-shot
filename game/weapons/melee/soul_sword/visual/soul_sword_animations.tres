@@ -270,7 +270,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [-1.2147491593880537, -0.261799]
+"values": [-1.2147491593880535, -0.261799]
 }
 
 [resource]

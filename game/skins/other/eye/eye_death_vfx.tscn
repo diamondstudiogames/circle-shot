@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bql8a7y2r76qm" path="res://game/skins/other/eye/eye.png" id="1_xglwn"]
 [ext_resource type="Texture2D" uid="uid://dfpjrnm67m4ut" path="res://game/skins/other/eye/eye_parts.png" id="2_u0htl"]
 [ext_resource type="Texture2D" uid="uid://cw2mmoxa42ric" path="res://game/skins/other/eye/slash.png" id="3_dvtpv"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="4_wblg5"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="4_wblg5"]
 
 [sub_resource type="Curve" id="Curve_bvaa4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

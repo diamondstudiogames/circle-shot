@@ -24,22 +24,7 @@ polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99,
 [node name="Visual" parent="." index="1" instance=ExtResource("3_xa745")]
 position = Vector2(32, 32)
 
-[node name="Aim" type="Line2D" parent="." index="2"]
-z_index = 10
-position = Vector2(140, 0)
-points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
-closed = true
-width = 8.0
-default_color = Color(1, 1, 1, 0.376471)
-
-[node name="Outline" type="Line2D" parent="Aim" index="0"]
-show_behind_parent = true
-points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
-closed = true
-width = 12.0
-default_color = Color(0, 0, 0, 0.188235)
-
-[node name="Attack" parent="." index="3"]
+[node name="Attack" parent="." index="2"]
 position = Vector2(32, 0)
 
 [node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
@@ -61,6 +46,13 @@ max_results = 1
 collision_mask = 75
 script = ExtResource("5_0d2ml")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="Aim" parent="." index="3"]
+position = Vector2(140, 0)
+points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
+
+[node name="Outline" parent="Aim" index="0"]
+points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {

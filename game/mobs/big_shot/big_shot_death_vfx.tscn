@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mofk1sieakyy" path="res://game/mobs/big_shot/case.png" id="1_cynqw"]
 [ext_resource type="Texture2D" uid="uid://0p2jfsi6ec31" path="res://game/mobs/big_shot/big_shot_dead.png" id="2_0bx0n"]
 [ext_resource type="Texture2D" uid="uid://cnn3awlo05qml" path="res://game/mobs/big_shot/big_shot_glasses.png" id="3_auuct"]
-[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/player/vfx/shard.png" id="3_h6m8x"]
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="3_h6m8x"]
 
 [sub_resource type="Curve" id="Curve_0bx0n"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

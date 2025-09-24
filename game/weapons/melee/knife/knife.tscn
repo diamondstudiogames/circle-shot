@@ -15,21 +15,7 @@ shoot_on_joystick_release = false
 [node name="Visual" parent="." index="0" instance=ExtResource("2_ei8cw")]
 position = Vector2(32, 32)
 
-[node name="Aim" type="Line2D" parent="." index="1"]
-visible = false
-z_index = 10
-position = Vector2(148, 0)
-points = PackedVector2Array(0, 0, 120, 0)
-width = 24.0
-default_color = Color(1, 1, 1, 0.376471)
-
-[node name="Outline" type="Line2D" parent="Aim" index="0"]
-show_behind_parent = true
-points = PackedVector2Array(0, 0, 120, 0)
-width = 28.0
-default_color = Color(0, 0, 0, 0.188235)
-
-[node name="Attack" parent="." index="2"]
+[node name="Attack" parent="." index="1"]
 position = Vector2(116, 0)
 
 [node name="RayDetector" type="RayCast2D" parent="Attack" index="0"]
@@ -40,6 +26,16 @@ collision_mask = 75
 hit_from_inside = true
 script = ExtResource("4_2ry8l")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
+
+[node name="Aim" parent="." index="2"]
+visible = false
+position = Vector2(148, 0)
+points = PackedVector2Array(0, 0, 120, 0)
+width = 24.0
+
+[node name="Outline" parent="Aim" index="0"]
+points = PackedVector2Array(0, 0, 120, 0)
+width = 28.0
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
