@@ -9,16 +9,29 @@ signal time_changed(remained_time: int)
 @export var kills_to_ammo_box: int = 15
 @export var spawn_interval_curve: Curve
 
+@export var shake_amplitude := 5.0
+@export var shake_step := 0.05
+
 var _time_survived: int = 0
 var _spawn_points_counter: int = 0
 var _spawn_points: Array[Node2D]
+var _shake_timer := 0.0
 
 var _spawn_heal_box_counter: int = 0
 var _spawn_ammo_box_counter: int = 0
 var _heal_box_scene: PackedScene = load("uid://bysyaaj2r7stt")
 var _ammo_box_scene: PackedScene = load("uid://bdtqr6mv231py")
 
+@onready var _camera: SmartCamera = $Camera
 @onready var _spawn_timer: Timer = $SpawnTimer
+
+
+func _process(delta: float) -> void:
+	_shake_timer += delta
+	if _shake_timer > shake_step:
+		_camera.offset = Vector2(randf_range(-shake_amplitude, shake_amplitude),
+				randf_range(-shake_amplitude, shake_amplitude))
+		_shake_timer = 0.0
 
 
 func _initialize() -> void:
@@ -33,6 +46,7 @@ func _initialize() -> void:
 
 
 func _local_player_died() -> void:
+	_shake_timer = -8.0
 	ended.emit(false)
 
 

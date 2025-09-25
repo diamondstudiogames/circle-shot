@@ -27,13 +27,15 @@ challenge_time = 120
 kills_to_heal_box = 7
 kills_to_ammo_box = 15
 spawn_interval_curve = SubResource("Curve_pbgwp")
+shake_amplitude = 10.0
+shake_step = 0.069999999992433
 entity_scenes = Array[PackedScene]([ExtResource("3_pbgwp"), ExtResource("4_r6c2w"), ExtResource("5_16cp4")])
 tracks = Array[AudioStream]([ExtResource("3_rem1v")])
 
 [node name="UI" parent="." index="8"]
 script = ExtResource("4_sa0r6")
-character_type_interval = 0.024999999994179234
-grammar_pause = 0.39999999999417923
+character_type_interval = 0.02499999999417923
+grammar_pause = 0.3999999999941792
 
 [node name="Pause" type="Button" parent="UI/Main" index="2"]
 layout_mode = 1

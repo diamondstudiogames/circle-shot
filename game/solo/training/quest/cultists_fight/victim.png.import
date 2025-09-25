@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq1t265p3mrwb"
-path="res://.godot/imported/image.png-c72bbd79df1a6a7356b81f8beda5401e.ctex"
+uid="uid://cmlp3qxkpqodl"
+path="res://.godot/imported/victim.png-f45eca9cefd7247db6eb1122d73a9aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/maps/flag_capture/space_arena/image.png"
-dest_files=["res://.godot/imported/image.png-c72bbd79df1a6a7356b81f8beda5401e.ctex"]
+source_file="res://game/solo/training/quest/cultists_fight/victim.png"
+dest_files=["res://.godot/imported/victim.png-f45eca9cefd7247db6eb1122d73a9aee.ctex"]
 
 [params]
 

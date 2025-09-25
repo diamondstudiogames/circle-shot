@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://dpkjtov14f1kh"]
+[gd_scene load_steps=14 format=4 uid="uid://dpkjtov14f1kh"]
 
 [ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="1_c2oks"]
 [ext_resource type="PackedScene" uid="uid://l5v4yoke40fq" path="res://game/maps/common/borders.tscn" id="2_tid5x"]
 [ext_resource type="TileSet" uid="uid://e8hnx4a6tmym" path="res://game/solo/training/quest/cultists_fight/tile_set.tres" id="3_3c6xr"]
+[ext_resource type="Texture2D" uid="uid://cmlp3qxkpqodl" path="res://game/solo/training/quest/cultists_fight/victim.png" id="4_3gkd4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3c6xr"]
 vertices = PackedVector2Array(-77, -397, -77, 800, -83, 237, -83, -77, 237, -403, 237, -717, 800, -723, 800, 800, -723, -723, -77, -717, -723, 800, -397, 237, -397, -77, -77, -403, 237, 800, 237, -397)
@@ -223,5 +224,11 @@ tile_set = ExtResource("3_3c6xr")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5294118, 0.43137255, 0.43137255, 1)
+
+[node name="Victim" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(2672, 233)
+rotation = 0.29279318
+texture = ExtResource("4_3gkd4")
 
 [editable path="Borders"]
