@@ -133,7 +133,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath(".:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -171,7 +171,7 @@ z_index = -1
 texture = ExtResource("2_j6g8k")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../..")
+remote_path = NodePath("../../Skin")
 use_global_coordinates = false
 update_rotation = false
 update_scale = false

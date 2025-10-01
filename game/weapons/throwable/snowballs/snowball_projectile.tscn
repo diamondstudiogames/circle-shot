@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://4jod4xwjklj3"]
 
-[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_ivj1u"]
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_ivj1u"]
 [ext_resource type="Texture2D" uid="uid://78c2fn08moe8" path="res://game/weapons/throwable/snowballs/snowball.png" id="2_fa608"]
 [ext_resource type="Script" uid="uid://dqllqb6q5suym" path="res://game/weapons/throwable/snowballs/snowball_projectile.gd" id="2_otbqe"]
 [ext_resource type="PackedScene" uid="uid://bokci0xbkadne" path="res://game/weapons/throwable/snowballs/snowball_hit_vfx.tscn" id="3_ebg44"]

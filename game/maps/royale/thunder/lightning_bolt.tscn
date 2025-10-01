@@ -229,7 +229,7 @@ _data = {
 
 [node name="LightningBolt" type="Node2D"]
 self_modulate = Color(1, 0, 0, 0)
-z_index = -5
+z_index = -4
 material = ExtResource("1_sfshw")
 script = ExtResource("1_eqin4")
 damage = 20
@@ -255,7 +255,7 @@ autoplay = "strike"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-z_index = 5
+z_index = 4
 z_as_relative = false
 use_parent_material = true
 scale = Vector2(2, 2)
@@ -271,7 +271,7 @@ bus = &"SFX"
 visible = false
 show_behind_parent = true
 visibility_layer = 4
-z_index = 5
+z_index = 4
 material = ExtResource("5_uhaos")
 scale = Vector2(16, 16)
 texture = ExtResource("7_mqut8")

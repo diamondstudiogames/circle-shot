@@ -74,6 +74,7 @@ visible = false
 top_level = true
 visibility_layer = 2
 z_index = -7
+material = ExtResource("6_0oi3i")
 scale = Vector2(10, 10)
 texture = ExtResource("8_8qsf0")
 

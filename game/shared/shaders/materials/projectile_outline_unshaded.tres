@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7ixms0xbcpbw"]
+
+[ext_resource type="Shader" uid="uid://dswt1c6ue2xk5" path="res://game/shared/shaders/outline_unshaded.gdshader" id="1_cmejt"]
+
+[resource]
+shader = ExtResource("1_cmejt")
+shader_parameter/outline_width = 1.5

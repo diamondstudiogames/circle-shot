@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://swhkj1uha3un"]
 
-[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_7rg4a"]
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_7rg4a"]
 [ext_resource type="PackedScene" uid="uid://cimmedlt134ub" path="res://game/weapons/throwable/kunai/kunai_hit_vfx.tscn" id="2_k173f"]
 [ext_resource type="Texture2D" uid="uid://dsi5shyxok7n3" path="res://game/weapons/throwable/kunai/kunai.png" id="2_u7dvy"]
 [ext_resource type="PackedScene" uid="uid://bcoer7ynu34mu" path="res://game/weapons/throwable/kunai/kunai_hit_wall_vfx.tscn" id="3_7cos4"]

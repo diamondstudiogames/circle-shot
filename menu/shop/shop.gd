@@ -647,7 +647,7 @@ func _on_special_offers_container_child_order_changed() -> void:
 
 
 func _on_daily_offers_container_child_order_changed() -> void:
-	if is_queued_for_deletion():
+	if not is_inside_tree():
 		return
 	(%NoDailyOffers as CanvasItem).visible = %DailyOffersContainer.get_child_count() == 0
 	(%DailyOffersContainer as CanvasItem).visible = %DailyOffersContainer.get_child_count() > 0

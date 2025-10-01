@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://csv5dwyvt57x6"]
+[gd_scene load_steps=7 format=3 uid="uid://csv5dwyvt57x6"]
 
 [ext_resource type="Script" uid="uid://b2ghun2kqwwnn" path="res://game/weapons/guns/bazooka/projectile/explosion_vfx.gd" id="1_57jy1"]
 [ext_resource type="Texture2D" uid="uid://oo1m3cl80hy3" path="res://game/weapons/guns/bazooka/projectile/explosion.png" id="1_fn7x4"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_l36fo"]
 
 [sub_resource type="Animation" id="Animation_57jy1"]
 length = 0.001
@@ -63,6 +64,7 @@ shake_max_duration = 0.6
 shake_max_distance = 1600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_l36fo")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_fn7x4")
 hframes = 4

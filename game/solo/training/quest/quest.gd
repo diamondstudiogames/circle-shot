@@ -4,10 +4,10 @@ extends Node2D
 @onready var _training: Training = get_parent()
 
 func _ready() -> void:
-	if Time.get_datetime_dict_from_system()["hour"] != 3 or Globals.get_bool("quest_completed"):
+	if Time.get_datetime_dict_from_system()["hour"] != 3:
 		queue_free()
 		return
-	(get_node(^"../Music") as AudioStreamPlayer).volume_db = -60.0
+	($"../Music" as AudioStreamPlayer).volume_db = -60.0
 	for map: MapData in maps_to_items:
 		if not has_node(maps_to_items[map]):
 			continue

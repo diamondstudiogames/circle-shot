@@ -4,9 +4,9 @@ extends Challenge
 ## Испытание "Большая шишка".
 
 @export_group("Rewards")
-## Сколько игрок получит очков за устранение Большой шишки.
+## Сколько игрок получит монет за устранение Большой шишки.
 @export var coins_for_win: int = 30
-## Сколько игрок получит очков за устранение Большой шишки.
+## Сколько игрок получит монет за убийство.
 @export var coins_for_kill: int = 2
 ## Сколько нужно нанести урона, чтобы получить монету.
 @export var damage_for_coin := 50.0
@@ -14,10 +14,6 @@ extends Challenge
 var _big_shot_killed := false
 
 @onready var _big_shot_hunting_ui: BigShotHuntingUI = $UI
-
-
-func _initialize() -> void:
-	pass
 
 
 func _local_player_died() -> void:

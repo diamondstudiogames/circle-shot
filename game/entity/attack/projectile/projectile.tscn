@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjgdkucrrx5a0"]
 
-[ext_resource type="Script" uid="uid://b87glapu60urx" path="res://game/entity/attack/projectile.gd" id="1_iq3wl"]
+[ext_resource type="Script" uid="uid://b87glapu60urx" path="res://game/entity/attack/projectile/projectile.gd" id="1_iq3wl"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bs5rt"]
 properties/0/path = NodePath(".:rotation")

@@ -71,7 +71,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if save_file and get_current_input_method() == InputMethod.KEYBOARD_AND_MOUSE \
+	if save_file and _previous_input_method == InputMethod.KEYBOARD_AND_MOUSE \
 			and event.is_action(&"fullscreen") and event.is_pressed():
 		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
 		apply_settings()
@@ -110,6 +110,8 @@ func initialize() -> void:
 func initialize_systems() -> void:
 	items_db = ResourceLoader.load("uid://pwq1e7l2ckos", "", ResourceLoader.CACHE_MODE_REPLACE_DEEP)
 	items_db.initialize()
+	if get_bool("quest_completed"):
+		items_db.challenges.append(load("uid://b5jj0i68nm7qf"))
 	
 	if "--console" in OS.get_cmdline_user_args():
 		if not OS.has_feature("pc"):

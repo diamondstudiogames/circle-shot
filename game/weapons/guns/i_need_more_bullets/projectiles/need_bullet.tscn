@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh8r5gsd6ghjm"]
 
-[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_d8wma"]
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_d8wma"]
 [ext_resource type="PackedScene" uid="uid://c2jsq46q2vp6k" path="res://game/weapons/guns/i_need_more_bullets/projectiles/need_bullet_hit_vfx.tscn" id="2_tm68e"]
 [ext_resource type="Texture2D" uid="uid://k0mk54lmi1cg" path="res://game/weapons/guns/i_need_more_bullets/projectiles/bullet.png" id="3_c0it7"]
 [ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="3_jpg0d"]

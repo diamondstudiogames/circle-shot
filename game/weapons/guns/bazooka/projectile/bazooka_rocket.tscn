@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cqhttq0m4j1p6"]
 
-[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile.tscn" id="1_jgst8"]
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_jgst8"]
 [ext_resource type="Texture2D" uid="uid://lnp8fiurpu2v" path="res://game/weapons/guns/bazooka/projectile/projectile.png" id="2_6c7jb"]
 [ext_resource type="Script" uid="uid://dxbtc1x50xcwv" path="res://game/weapons/guns/bazooka/projectile/bazooka_rocket.gd" id="2_7dcoq"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_7dcoq"]

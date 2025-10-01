@@ -611,9 +611,6 @@ func _attack_spawn_bandits() -> void:
 			($Visual/AnimationPlayer as AnimationPlayer).get_animation(&"spawn_bandits").length
 
 
-# атаки ...
-
-
 func _spawn_bandits() -> void:
 	if not multiplayer.is_server():
 		return
@@ -621,12 +618,11 @@ func _spawn_bandits() -> void:
 	for i: int in attack_bandits_count:
 		var bandit_scene: PackedScene = attack_bandits_scenes[_bandits_spawn_idx]
 		var bandit: Mob = bandit_scene.instantiate()
-		var spawn_point: Vector2 = NavigationServer2D.map_get_closest_point(
+		bandit.position = NavigationServer2D.map_get_closest_point(
 				get_world_2d().navigation_map,
 				Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 				* randf_range(0.0, attack_bandits_spawn_area_radius) + global_position
 		)
-		bandit.position = spawn_point
 		bandit.team = team
 		bandit.id = -randi()
 		bandit.name += str(bandit.id)
@@ -671,12 +667,12 @@ func _on_bandit_died(bandit: Entity, idx: int) -> void:
 		var ammo_box: Node2D = attack_bandits_ammo_box_scene.instantiate()
 		ammo_box.position = bandit.global_position
 		ammo_box.name += str(randi())
-		get_node(^"../../Other").add_child(ammo_box, true)
+		$"../../Other".add_child(ammo_box, true)
 	else:
 		var heal_box: Node2D = attack_bandits_heal_box_scene.instantiate()
 		heal_box.position = bandit.global_position
 		heal_box.name += str(randi())
-		get_node(^"../../Other").add_child(heal_box, true)
+		$"../../Other".add_child(heal_box, true)
 
 
 func _on_change_move_direction_timer_timeout() -> void:

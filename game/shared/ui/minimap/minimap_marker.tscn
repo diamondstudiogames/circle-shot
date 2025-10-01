@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://se8ioau06ef"]
+[gd_scene load_steps=3 format=3 uid="uid://se8ioau06ef"]
 
 [ext_resource type="Script" uid="uid://cc8at2avury8m" path="res://game/shared/ui/minimap/minimap_marker.gd" id="1_47jos"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_hmyv8"]
 
 [node name="MinimapMarker" type="Node2D"]
 script = ExtResource("1_47jos")
@@ -18,6 +19,7 @@ visible = false
 top_level = true
 visibility_layer = 2
 z_index = -7
+material = ExtResource("2_hmyv8")
 scale = Vector2(10, 10)
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="Visual" method="show"]
