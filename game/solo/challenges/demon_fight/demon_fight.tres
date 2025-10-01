@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ChallengeData" load_steps=4 format=3 uid="uid://b5jj0i68nm7qf"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_ibrj3"]
+[ext_resource type="Resource" uid="uid://co5oxb1w8wb2g" path="res://game/solo/challenges/demon_fight/maps/hell/hell.tres" id="2_1fwqp"]
+[ext_resource type="Script" uid="uid://btj6q66tc1cd6" path="res://game/solo/challenges/common/challenge_data.gd" id="2_d6web"]
+
+[resource]
+script = ExtResource("2_d6web")
+name = "Битва с демоном"
+brief_description = "Сразись с демоном-козлом."
+scene_path = "uid://xlq1mw3auadp"
+image_path = "uid://cnechmmthuudk"
+maps = Array[ExtResource("1_ibrj3")]([ExtResource("2_1fwqp")])
+metadata/_custom_type_script = "uid://btj6q66tc1cd6"

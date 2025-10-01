@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://xlq1mw3auadp"]
+
+[ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_xc66l"]
+[ext_resource type="Script" uid="uid://4q58pai5me2m" path="res://game/solo/challenges/demon_fight/demon_fight.gd" id="2_4d8qd"]
+[ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_7whrh"]
+[ext_resource type="AudioStream" uid="uid://b10l56af2v17a" path="res://game/music/boss0.ogg" id="3_lm2rq"]
+[ext_resource type="Script" uid="uid://krt5iqibdln0" path="res://game/solo/challenges/demon_fight/demon_fight_ui.gd" id="4_7whrh"]
+[ext_resource type="PackedScene" uid="uid://crqa4y5qrwe16" path="res://game/solo/challenges/demon_fight/goat/goat.tscn" id="4_xp7bv"]
+[ext_resource type="PackedScene" uid="uid://cr4tmpoe2mwoj" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_bloody_daggers.tscn" id="5_3ns2w"]
+[ext_resource type="PackedScene" uid="uid://6cqtx3ewy2xd" path="res://game/shared/ui/boss_health_bar/boss_health_bar.tscn" id="5_xp7bv"]
+[ext_resource type="PackedScene" uid="uid://ctr0ot22muh0a" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_scythe.tscn" id="6_v14lo"]
+
+[node name="DemonFight" instance=ExtResource("1_xc66l")]
+script = ExtResource("2_4d8qd")
+coins_for_win = 40
+coins_for_win_first_time = 500
+coins_for_kill = 3
+damage_for_coin = 80.0
+entity_scenes = Array[PackedScene]([ExtResource("3_7whrh"), ExtResource("4_xp7bv"), ExtResource("5_3ns2w"), ExtResource("6_v14lo")])
+tracks = Array[AudioStream]([ExtResource("3_lm2rq")])
+
+[node name="UI" parent="." index="8"]
+script = ExtResource("4_7whrh")
+
+[node name="BossHealthBar" parent="UI/Main" index="5" instance=ExtResource("5_xp7bv")]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="Title" parent="UI/Intro" index="1"]
+text = "БИТВА С ДЕМОНОМ"
+
+[node name="Description" parent="UI/Intro/Title" index="0"]
+text = "Сразись с демоном-козлом!"
+
+[node name="Text" parent="UI/Intro" index="2"]
+text = "Покажи ему, на
+что ты способен!"

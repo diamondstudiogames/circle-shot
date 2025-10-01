@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctr0ot22muh0a"]
+
+[ext_resource type="PackedScene" uid="uid://cnd3cvcpaofdf" path="res://game/mobs/cultist/cultist_scythe.tscn" id="1_n41bj"]
+
+[node name="CultistScythe" instance=ExtResource("1_n41bj")]
+vision_distance = 4400.0
+speed = 540.0
+max_health = 50
+
+[node name="Attack" parent="Visual/Weapon/Scythe" index="2"]
+damage = 35
+
+[editable path="Visual/Weapon/Scythe/Visual"]

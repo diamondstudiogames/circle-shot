@@ -1,0 +1,923 @@
+[gd_scene load_steps=55 format=3 uid="uid://crqa4y5qrwe16"]
+
+[ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_k3o16"]
+[ext_resource type="Script" uid="uid://eqrn58t8o13j" path="res://game/solo/challenges/demon_fight/goat/goat.gd" id="2_i1c5v"]
+[ext_resource type="Texture2D" uid="uid://dsxuhsygo7g4p" path="res://game/solo/challenges/demon_fight/goat/goat_atlas.png" id="2_rxp3c"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_b5mrw"]
+[ext_resource type="Texture2D" uid="uid://bvps7ka4brr5o" path="res://game/mobs/common/boss_minimap_marker.png" id="3_c8w87"]
+[ext_resource type="PackedScene" uid="uid://dtebsuda2o6v3" path="res://game/solo/challenges/demon_fight/goat/daggers/goat_bloody_dagger_projectile.tscn" id="3_wr4d6"]
+[ext_resource type="PackedScene" uid="uid://drdwyjli16ebx" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword_projectile.tscn" id="4_2yjeq"]
+[ext_resource type="PackedScene" uid="uid://dl34a52ytjh4n" path="res://game/solo/challenges/demon_fight/goat/lightnings/lightning_bolt.tscn" id="5_7y1wt"]
+[ext_resource type="Texture2D" uid="uid://dyeguhjc2xyis" path="res://game/solo/challenges/demon_fight/goat/dash/dash_effect.png" id="6_0xsrn"]
+[ext_resource type="Script" uid="uid://toclhmkyrbc1" path="res://game/solo/challenges/demon_fight/goat/dash/knockback_attack.gd" id="6_hhrq3"]
+[ext_resource type="PackedScene" uid="uid://dn5duenf5ju3" path="res://game/solo/challenges/demon_fight/goat/lightnings/lightning_bolt2.tscn" id="6_lgkcq"]
+[ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="7_0xsrn"]
+[ext_resource type="PackedScene" uid="uid://djnl6yscswq2o" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_projectile.tscn" id="7_lgkcq"]
+[ext_resource type="PackedScene" uid="uid://bn0sbtekfxv0j" path="res://game/solo/challenges/demon_fight/goat/pentagrams/pentagram_projectile.tscn" id="8_hg3s7"]
+[ext_resource type="Script" uid="uid://0cggnk8er2w8" path="res://game/solo/challenges/demon_fight/goat/dash/stun_attack.gd" id="8_hhrq3"]
+[ext_resource type="PackedScene" uid="uid://cusfj1e80gppm" path="res://game/solo/challenges/demon_fight/goat/pentagrams/pentagram_projectile2.tscn" id="9_gghdl"]
+[ext_resource type="PackedScene" uid="uid://cr4tmpoe2mwoj" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_bloody_daggers.tscn" id="10_6jhbq"]
+[ext_resource type="PackedScene" uid="uid://ctr0ot22muh0a" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_scythe.tscn" id="11_ye6st"]
+[ext_resource type="PackedScene" uid="uid://bdwj0acfcu4yr" path="res://game/solo/challenges/demon_fight/goat/cultists/heal_box.tscn" id="12_dvc1d"]
+[ext_resource type="Texture2D" uid="uid://c3cf2jj0xygi" path="res://game/solo/challenges/demon_fight/goat/pentagrams/floor_pentagram.png" id="12_mbgp5"]
+[ext_resource type="PackedScene" uid="uid://b0wfi12hhw7bt" path="res://game/solo/challenges/demon_fight/goat/cultists/ammo_box.tscn" id="13_nu1v0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5mrw"]
+radius = 72.0
+height = 224.0
+
+[sub_resource type="Animation" id="Animation_i1c5v"]
+resource_name = "RESET"
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/LeftRightLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat/LeftLeftLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goat/RightRightLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goat/RightLeftLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Goat/Base/Mouth:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(101, -9)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Goat:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goat:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Goat/Base:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, -26)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Goat/Base:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("DashEffect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("DashAttacks:process_mode")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PentagramEffect:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PentagramEffect:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hg3s7"]
+resource_name = "cultists"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base/Mouth:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.59999996, 0.65, 0.7, 0.75, 0.79999995, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(101, -9), Vector2(98, 23), Vector2(105, 25), Vector2(99, 23), Vector2(105, 19), Vector2(98, 23), Vector2(105, 25), Vector2(99, 23), Vector2(105, 19), Vector2(98, 23), Vector2(105, 25), Vector2(99, 23), Vector2(105, 19), Vector2(101, -9)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_cultists"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2yjeq"]
+resource_name = "daggers"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35000002, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(-8.999998, -11.999997), Vector2(13.000001, 6), Vector2(13.000001, 6), Vector2(6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35000002, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.15792416, 0.07417901, 0.07417901, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_daggers"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wr4d6"]
+resource_name = "dash"
+length = 2.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 1.7, 2.1),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(11, -26), Vector2(24, -16), Vector2(24, -16), Vector2(11, -26)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat/Base:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 1.7, 2.1),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.14307171, 0.14307171, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DashEffect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DashAttacks:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 0, 4]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_dash"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7y1wt"]
+resource_name = "fireballs"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base/Mouth:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(101, -9), Vector2(101, 19), Vector2(101, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_c8w87"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-1.5, -1.5),
+"update": 0,
+"values": [Vector2(11, -26), Vector2(11, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat/LeftRightLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goat/LeftLeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goat/RightRightLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Goat/RightLeftLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pppis"]
+resource_name = "pentagrams"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.65000004, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(-8.999998, -11.999997), Vector2(13.000001, 6), Vector2(13.000001, 6), Vector2(6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.65000004, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.15792416, 0.07417901, 0.07417901, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.65),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_pentagrams"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PentagramEffect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.55, 0.65, 1),
+"transitions": PackedFloat32Array(1, 2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PentagramEffect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_mbgp5"]
+resource_name = "summon"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base/Mouth:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(101, -9), Vector2(101, 9), Vector2(101, 9), Vector2(101, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_b5mrw"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, -26)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat/LeftRightLeg:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.47852626, -0.4782202150464459]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goat/LeftLeftLeg:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5113814708343387, 0.5107604]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goat/RightRightLeg:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.47472955654245746, -0.47395384]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Goat/RightLeftLeg:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.4363323129985824, 0.4360377]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c8w87"]
+_data = {
+&"RESET": SubResource("Animation_i1c5v"),
+&"cultists": SubResource("Animation_hg3s7"),
+&"daggers": SubResource("Animation_2yjeq"),
+&"dash": SubResource("Animation_wr4d6"),
+&"fireballs": SubResource("Animation_7y1wt"),
+&"idle": SubResource("Animation_c8w87"),
+&"pentagrams": SubResource("Animation_pppis"),
+&"summon": SubResource("Animation_mbgp5"),
+&"walk": SubResource("Animation_b5mrw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6jhbq"]
+animation = &"cultists"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ye6st"]
+filter_enabled = true
+filters = ["..", "Goat/Base/Mouth:position"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_dvc1d"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrvs1"]
+animation = &"daggers"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_7y1wt"]
+filter_enabled = true
+filters = ["..", "Goat:position", "Goat:rotation"]
+fadein_time = 0.3
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wr4d6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2yjeq"]
+animation = &"dash"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rrvs1"]
+filter_enabled = true
+filters = ["..", "DashAttacks:process_mode", "DashEffect:flip_v", "DashEffect:visible", "Goat/Base:position", "Goat/Base:rotation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lgkcq"]
+animation = &"fireballs"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_mbgp5"]
+filter_enabled = true
+filters = ["Goat/Base/Mouth:position"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m70k1"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_abqcq"]
+xfade_time = 0.3
+input_0/name = "idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "walk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gghdl"]
+animation = &"pentagrams"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6jhbq"]
+filter_enabled = true
+filters = ["..", "Goat:position", "Goat:rotation", "PentagramEffect:self_modulate", "PentagramEffect:visible"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_hg3s7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7y1wt"]
+animation = &"lightnings"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_lgkcq"]
+filter_enabled = true
+filters = ["Goat/Base/Mouth:position"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_mbgp5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hhrq3"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0xsrn"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wr4d6"]
+graph_offset = Vector2(1458.2874, 299.35754)
+nodes/output/position = Vector2(2900, 20)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_hhrq3")
+nodes/Walk/position = Vector2(-600, 280)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_m70k1")
+nodes/Idle/position = Vector2(-600, 100)
+nodes/IdleWalkTransition/node = SubResource("AnimationNodeTransition_abqcq")
+nodes/IdleWalkTransition/position = Vector2(-160, 100)
+nodes/WalkTimeScale/node = SubResource("AnimationNodeTimeScale_0xsrn")
+nodes/WalkTimeScale/position = Vector2(-360, 280)
+nodes/DashOneShot/node = SubResource("AnimationNodeOneShot_rrvs1")
+nodes/DashOneShot/position = Vector2(160, 60)
+nodes/Dash/node = SubResource("AnimationNodeAnimation_2yjeq")
+nodes/Dash/position = Vector2(-20, 360)
+nodes/DaggersOneShot/node = SubResource("AnimationNodeOneShot_7y1wt")
+nodes/DaggersOneShot/position = Vector2(640, 40)
+nodes/Daggers/node = SubResource("AnimationNodeAnimation_rrvs1")
+nodes/Daggers/position = Vector2(160, 440)
+nodes/DaggersTimeScale/node = SubResource("AnimationNodeTimeScale_wr4d6")
+nodes/DaggersTimeScale/position = Vector2(400, 280)
+nodes/SummonOneShot/node = SubResource("AnimationNodeOneShot_lgkcq")
+nodes/SummonOneShot/position = Vector2(1140, 20)
+nodes/Summon/node = SubResource("AnimationNodeAnimation_7y1wt")
+nodes/Summon/position = Vector2(700, 400)
+nodes/SummonTimeScale/node = SubResource("AnimationNodeTimeScale_mbgp5")
+nodes/SummonTimeScale/position = Vector2(900, 300)
+nodes/FireballsOneShot/node = SubResource("AnimationNodeOneShot_mbgp5")
+nodes/FireballsOneShot/position = Vector2(1620, 20)
+nodes/Fireballs/node = SubResource("AnimationNodeAnimation_lgkcq")
+nodes/Fireballs/position = Vector2(1320, 360)
+nodes/PentagramsOneShot/node = SubResource("AnimationNodeOneShot_6jhbq")
+nodes/PentagramsOneShot/position = Vector2(2060, 20)
+nodes/PentagramsTimeScale/node = SubResource("AnimationNodeTimeScale_hg3s7")
+nodes/PentagramsTimeScale/position = Vector2(1800, 320)
+nodes/Pentagrams/node = SubResource("AnimationNodeAnimation_gghdl")
+nodes/Pentagrams/position = Vector2(1560, 440)
+nodes/CultistsOneShot/node = SubResource("AnimationNodeOneShot_ye6st")
+nodes/CultistsOneShot/position = Vector2(2580, 20)
+nodes/CultistsTimeScale/node = SubResource("AnimationNodeTimeScale_dvc1d")
+nodes/CultistsTimeScale/position = Vector2(2360, 260)
+nodes/Cultists/node = SubResource("AnimationNodeAnimation_6jhbq")
+nodes/Cultists/position = Vector2(2140, 420)
+node_connections = [&"output", 0, &"CultistsOneShot", &"IdleWalkTransition", 0, &"Idle", &"IdleWalkTransition", 1, &"WalkTimeScale", &"WalkTimeScale", 0, &"Walk", &"DashOneShot", 0, &"IdleWalkTransition", &"DashOneShot", 1, &"Dash", &"DaggersOneShot", 0, &"DashOneShot", &"DaggersOneShot", 1, &"DaggersTimeScale", &"DaggersTimeScale", 0, &"Daggers", &"SummonOneShot", 0, &"DaggersOneShot", &"SummonOneShot", 1, &"SummonTimeScale", &"SummonTimeScale", 0, &"Summon", &"FireballsOneShot", 0, &"SummonOneShot", &"FireballsOneShot", 1, &"Fireballs", &"PentagramsOneShot", 0, &"FireballsOneShot", &"PentagramsOneShot", 1, &"PentagramsTimeScale", &"PentagramsTimeScale", 0, &"Pentagrams", &"CultistsOneShot", 0, &"PentagramsOneShot", &"CultistsOneShot", 1, &"CultistsTimeScale", &"CultistsTimeScale", 0, &"Cultists"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wr4d6"]
+radius = 116.0
+
+[node name="Goat" instance=ExtResource("1_k3o16")]
+script = ExtResource("2_i1c5v")
+min_distance = 500.0
+random_point_from_target_distance = 1600.0
+attack_interval_min = 0.8
+attack_interval_max = 1.5
+attack_dash_speed = 2000.0
+attack_dash_dash_duration = 1.0
+attack_dash_duration = 2.1
+attack_daggers_count_min = 3
+attack_daggers_count_max = 5
+attack_daggers_summon_count_max = 2
+attack_daggers_summon_duration = 1.0
+attack_daggers_prediction_time_min = 1.0
+attack_daggers_prediction_time_max = 2.0
+attack_daggers_spread = 3.0
+attack_daggers_spawn_radius_min = 240.0
+attack_daggers_spawn_radius_max = 400.0
+attack_daggers_count_min2 = 4
+attack_daggers_count_max2 = 6
+attack_daggers_summon_count_max2 = 3
+attack_daggers_projectile_scene = ExtResource("3_wr4d6")
+attack_daggers_sword_summon_duration = 2.0
+attack_daggers_sword_projectile_scene = ExtResource("4_2yjeq")
+attack_lightnings_duration = 0.5
+attack_lightnings_spawn_interval = 0.2
+attack_lightnings_count = 5
+attack_lightnings_count2 = 8
+attack_lightnings_scene = ExtResource("5_7y1wt")
+attack_lightnings_scene2 = ExtResource("6_lgkcq")
+attack_fireballs_summon_count = 3
+attack_fireballs_summon_count2 = 5
+attack_fireballs_summon_duration = 0.7
+attack_fireballs_count = 7
+attack_fireballs_count2 = 10
+attack_fireballs_angle_interval = 18.0
+attack_fireballs_spread = 12.0
+attack_fireballs_projectile_scene = ExtResource("7_lgkcq")
+attack_pentagrams_count = 12
+attack_pentagrams_count2 = 15
+attack_pentagrams_summon_duration = 1.0
+attack_pentagrams_scene = ExtResource("8_hg3s7")
+attack_pentagrams_scene2 = ExtResource("9_gghdl")
+attack_cultists_count = 2
+attack_cultists_count2 = 4
+attack_cultists_summon_duration = 1.0
+attack_cultists_attacks_interval = 15
+attack_cultists_scenes = Array[PackedScene]([ExtResource("10_6jhbq"), ExtResource("11_ye6st")])
+attack_cultists_boxes_scenes = Array[PackedScene]([ExtResource("12_dvc1d"), ExtResource("13_nu1v0")])
+vision_distance = 4400.0
+speed = 480.0
+max_health = 2000
+always_visible_on_minimap = true
+metadata/_edit_horizontal_guides_ = [110.0]
+metadata/_edit_vertical_guides_ = [-86.0]
+
+[node name="CollisionShape2D" parent="." index="2"]
+z_index = 1
+position = Vector2(0, 16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b5mrw")
+
+[node name="VisibleOnScreenNotifier2D" parent="Minimap" index="0"]
+rect = Rect2(-160, -160, 320, 320)
+
+[node name="Visual" parent="Minimap" index="2"]
+texture = ExtResource("3_c8w87")
+
+[node name="Info" parent="." index="4"]
+visible = false
+
+[node name="Goat" type="Node2D" parent="Visual" index="0"]
+position = Vector2(6, 0)
+
+[node name="LeftRightLeg" type="Sprite2D" parent="Visual/Goat" index="0"]
+position = Vector2(-69, 77)
+texture = ExtResource("2_rxp3c")
+offset = Vector2(6, 13)
+region_enabled = true
+region_rect = Rect2(56, 248, 40, 48)
+
+[node name="LeftLeftLeg" type="Sprite2D" parent="Visual/Goat" index="1"]
+position = Vector2(-86, 76)
+texture = ExtResource("2_rxp3c")
+offset = Vector2(5, 15)
+region_enabled = true
+region_rect = Rect2(16, 248, 32, 48)
+
+[node name="RightRightLeg" type="Sprite2D" parent="Visual/Goat" index="2"]
+position = Vector2(41, 69)
+texture = ExtResource("2_rxp3c")
+offset = Vector2(7, 12)
+region_enabled = true
+region_rect = Rect2(152, 240, 32, 48)
+
+[node name="RightLeftLeg" type="Sprite2D" parent="Visual/Goat" index="3"]
+position = Vector2(25, 70)
+texture = ExtResource("2_rxp3c")
+offset = Vector2(4, 15)
+region_enabled = true
+region_rect = Rect2(112, 240, 24, 56)
+
+[node name="Base" type="Sprite2D" parent="Visual/Goat" index="4"]
+position = Vector2(11, -26)
+texture = ExtResource("2_rxp3c")
+region_enabled = true
+region_rect = Rect2(8, 8, 264, 224)
+
+[node name="Mouth" type="Sprite2D" parent="Visual/Goat/Base" index="0"]
+show_behind_parent = true
+position = Vector2(101, -9)
+texture = ExtResource("2_rxp3c")
+region_enabled = true
+region_rect = Rect2(208, 232, 56, 88)
+
+[node name="Eye" type="Sprite2D" parent="Visual/Goat/Base" index="1"]
+material = ExtResource("3_b5mrw")
+position = Vector2(84, -63)
+texture = ExtResource("2_rxp3c")
+region_enabled = true
+region_rect = Rect2(8, 296, 24, 16)
+
+[node name="ShootPoint" type="Marker2D" parent="Visual/Goat" index="5"]
+position = Vector2(110, -45)
+
+[node name="DashEffect" type="Sprite2D" parent="Visual" index="1"]
+visible = false
+position = Vector2(112, -20)
+texture = ExtResource("6_0xsrn")
+
+[node name="PentagramEffect" type="Sprite2D" parent="Visual" index="2"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+material = ExtResource("3_b5mrw")
+position = Vector2(0, 110)
+scale = Vector2(0.5, 0.25)
+texture = ExtResource("12_mbgp5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_c8w87")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Visual" index="4"]
+tree_root = SubResource("AnimationNodeBlendTree_wr4d6")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleWalkTransition/current_state = "idle"
+parameters/IdleWalkTransition/transition_request = ""
+parameters/IdleWalkTransition/current_index = 0
+parameters/WalkTimeScale/scale = 1.0
+parameters/DashOneShot/active = false
+parameters/DashOneShot/internal_active = false
+parameters/DashOneShot/request = 0
+parameters/DaggersOneShot/active = false
+parameters/DaggersOneShot/internal_active = false
+parameters/DaggersOneShot/request = 0
+parameters/DaggersTimeScale/scale = 1.0
+parameters/SummonOneShot/active = false
+parameters/SummonOneShot/internal_active = false
+parameters/SummonOneShot/request = 0
+parameters/SummonTimeScale/scale = 1.0
+parameters/FireballsOneShot/active = false
+parameters/FireballsOneShot/internal_active = false
+parameters/FireballsOneShot/request = 0
+parameters/PentagramsOneShot/active = false
+parameters/PentagramsOneShot/internal_active = false
+parameters/PentagramsOneShot/request = 0
+parameters/PentagramsTimeScale/scale = 1.0
+parameters/CultistsOneShot/active = false
+parameters/CultistsOneShot/internal_active = false
+parameters/CultistsOneShot/request = 0
+parameters/CultistsTimeScale/scale = 1.0
+
+[node name="DashAttacks" type="Node2D" parent="Visual" index="5"]
+process_mode = 4
+visible = false
+position = Vector2(44, -16)
+
+[node name="KnockbackAttack" type="Node2D" parent="Visual/DashAttacks" index="0"]
+process_mode = 4
+script = ExtResource("6_hhrq3")
+knockback_power = 1440.0
+knockback_duration = 0.2
+damage = 24
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/KnockbackAttack" index="0"]
+collision_layer = 4
+collision_mask = 66
+monitorable = false
+script = ExtResource("7_0xsrn")
+metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/KnockbackAttack/AreaDetector" index="0"]
+rotation = 1.5707941
+shape = SubResource("CircleShape2D_wr4d6")
+
+[node name="StunAttack" type="Node2D" parent="Visual/DashAttacks" index="1"]
+process_mode = 4
+script = ExtResource("8_hhrq3")
+stun_duration = 2.0
+damage = 30
+damage_interval = 2.0
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/StunAttack" index="0"]
+collision_layer = 4
+collision_mask = 66
+monitorable = false
+script = ExtResource("7_0xsrn")
+metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/StunAttack/AreaDetector" index="0"]
+shape = SubResource("CircleShape2D_wr4d6")
+
+[node name="ChangeMoveDirectionTimer" type="Timer" parent="." index="11"]
+process_callback = 0
+wait_time = 2.9999999999999996
+autostart = true
+
+[node name="AnimationTimer" type="Timer" parent="." index="12"]
+one_shot = true
+
+[node name="Timer" type="Timer" parent="." index="13"]
+process_callback = 0
+one_shot = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_agent_navigation_finished"]
+[connection signal="timeout" from="ChangeMoveDirectionTimer" to="." method="_on_change_move_direction_timer_timeout"]

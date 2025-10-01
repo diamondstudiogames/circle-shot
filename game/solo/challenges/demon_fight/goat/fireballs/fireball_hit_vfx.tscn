@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bug6umkxagpar"]
+
+[ext_resource type="Texture2D" uid="uid://8n3830wsxjw6" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_hit.png" id="1_m4kgi"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_m7gth"]
+
+[sub_resource type="Curve" id="Curve_uixak"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FireballHitVfx" type="Node2D"]
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+z_index = 1
+material = ExtResource("1_m7gth")
+emitting = false
+amount = 4
+texture = ExtResource("1_m4kgi")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+scale_amount_curve = SubResource("Curve_uixak")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="ready" from="Particles" to="Particles" method="restart"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

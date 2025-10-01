@@ -146,6 +146,7 @@ func _on_ended(victory: bool) -> void:
 	
 	if victory:
 		Globals.set_bool("quest_completed", true)
+		Globals.items_db.challenges.append(load("uid://b5jj0i68nm7qf"))
 	
 	var timer := Timer.new()
 	timer.wait_time = 7.0

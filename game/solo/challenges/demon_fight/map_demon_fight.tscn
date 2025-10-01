@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dax6tr16ln065"]
+
+[ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_1jxdp"]
+
+[node name="Map" instance=ExtResource("1_1jxdp")]
+metadata/_edit_horizontal_guides_ = [1600.0, -1600.0]
+metadata/_edit_vertical_guides_ = [-1600.0, 1600.0]
+
+[node name="Left" parent="Borders" index="0"]
+position = Vector2(-1600, 0)
+
+[node name="Right" parent="Borders" index="1"]
+position = Vector2(1600, 0)
+
+[node name="Up" parent="Borders" index="2"]
+position = Vector2(0, -1600)
+
+[node name="Down" parent="Borders" index="3"]
+position = Vector2(0, 1600)
+
+[node name="SoloSpawnPoint" parent="." index="2"]
+position = Vector2(-320, 0)
+
+[node name="GoatSpawnPoint" type="Marker2D" parent="." index="3"]
+position = Vector2(320, 0)
+gizmo_extents = 160.0
+
+[node name="NavigationRegions" type="Node2D" parent="." index="4"]
+
+[editable path="Borders"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cusfj1e80gppm"]
+
+[ext_resource type="PackedScene" uid="uid://bn0sbtekfxv0j" path="res://game/solo/challenges/demon_fight/goat/pentagrams/pentagram_projectile.tscn" id="1_x6p2d"]
+
+[node name="PentagramProjectile2" instance=ExtResource("1_x6p2d")]
+max_bounces = 3

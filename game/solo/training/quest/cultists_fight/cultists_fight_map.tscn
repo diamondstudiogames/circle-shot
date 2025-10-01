@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="1_c2oks"]
 [ext_resource type="PackedScene" uid="uid://l5v4yoke40fq" path="res://game/maps/common/borders.tscn" id="2_tid5x"]
-[ext_resource type="TileSet" uid="uid://e8hnx4a6tmym" path="res://game/solo/training/quest/cultists_fight/tile_set.tres" id="3_3c6xr"]
+[ext_resource type="TileSet" uid="uid://e8hnx4a6tmym" path="res://game/solo/challenges/demon_fight/maps/hell/tile_set.tres" id="3_3c6xr"]
 [ext_resource type="Texture2D" uid="uid://cmlp3qxkpqodl" path="res://game/solo/training/quest/cultists_fight/victim.png" id="4_3gkd4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3c6xr"]

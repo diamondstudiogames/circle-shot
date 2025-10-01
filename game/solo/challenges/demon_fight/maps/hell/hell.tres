@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://co5oxb1w8wb2g"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_ispp8"]
+
+[resource]
+script = ExtResource("1_ispp8")
+name = "Ад"
+brief_description = "Адское кровавое место."
+scene_path = "uid://dkhxxf7hf1acf"
+image_path = "uid://c5yqevu8m6skf"
+metadata/_custom_type_script = "uid://c2mew3f2rwarc"

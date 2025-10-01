@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckb0l5smprlro"
-path="res://.godot/imported/tiles.png-dec59b78b867f55084b4722dbf55de1d.ctex"
+uid="uid://c5yqevu8m6skf"
+path="res://.godot/imported/image.png-638d2670e292b1e7b3b17ab5f8713522.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/solo/training/quest/cultists_fight/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-dec59b78b867f55084b4722dbf55de1d.ctex"]
+source_file="res://game/solo/challenges/demon_fight/maps/hell/image.png"
+dest_files=["res://.godot/imported/image.png-638d2670e292b1e7b3b17ab5f8713522.ctex"]
 
 [params]
 

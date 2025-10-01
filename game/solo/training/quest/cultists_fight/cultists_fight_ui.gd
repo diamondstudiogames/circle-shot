@@ -52,17 +52,31 @@ func _on_quit_pressed() -> void:
 func _on_cultists_fight_ended(victory: bool) -> void:
 	_dialog_timer.start(0.7)
 	await _dialog_timer.timeout
-	if victory:
-		show_dialog("А ты достаточно силён... \
-Возможно, [color=red]он[/color] захочет взглянуть на тебя.")
-		_dialog_timer.start(4.0)
-		await _dialog_timer.timeout
-		show_dialog("(появилось новое испытание!)")
+	if Globals.get_bool("goat_defeated"):
+		if victory:
+			show_dialog("Неплохо... Кстати, [color=red]он[/color] просил передать, \
+что ты действительно силён.")
+		else:
+			show_dialog("Ты смог одолеть [color=red]его[/color], но не смог нас? Позор!")
+	elif Globals.get_bool("quest_completed"):
+		if victory:
+			show_dialog("Раз за разом ты побеждаешь нас... \
+Лучше попробуй одолеть [color]его[/color].")
+		else:
+			show_dialog("Странно... Может, в прошлый раз \
+ты победил нас [color=yellow]случайно[/color]?")
 	else:
-		show_dialog("Ты ещё слишком слаб... Не достоин ты [color=red]его[/color] чести.")
-		_dialog_timer.start(3.5)
-		await _dialog_timer.timeout
-		show_dialog("Возвращайся, как будешь [color=yellow]готов[/color].")
+		if victory:
+			show_dialog("А ты достаточно силён... \
+Возможно, [color=red]он[/color] захочет взглянуть на тебя.")
+			_dialog_timer.start(4.0)
+			await _dialog_timer.timeout
+			show_dialog("(появилось новое испытание!)")
+		else:
+			show_dialog("Ты ещё слишком слаб... Не достоин ты [color=red]его[/color] чести.")
+			_dialog_timer.start(3.5)
+			await _dialog_timer.timeout
+			show_dialog("Возвращайся, как будешь [color=yellow]готов[/color].")
 
 
 func _on_time_changed(remained_time: int) -> void:

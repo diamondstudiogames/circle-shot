@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=3 uid="uid://drdwyjli16ebx"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_sefxv"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="2_noag4"]
+[ext_resource type="Script" uid="uid://bhoidkjku8ens" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword_projectile.gd" id="2_w8fr5"]
+[ext_resource type="PackedScene" uid="uid://brxhqwrtu5qq6" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword_hit_vfx.tscn" id="3_5uy8x"]
+[ext_resource type="Texture2D" uid="uid://oismyvlsd4xl" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword.png" id="3_w8fr5"]
+[ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_5uy8x"]
+[ext_resource type="PackedScene" uid="uid://dokrel5divyfi" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword_hit_wall_vfx.tscn" id="4_jwsi7"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_noag4"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:team")
+properties/2/spawn = true
+properties/2/replication_mode = 0
+
+[sub_resource type="Animation" id="Animation_noag4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RayDetector:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sefxv"]
+resource_name = "attack"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [6.283185307179586, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -1280.0, 4800.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RayDetector:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_stop_rotating"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8fr5"]
+_data = {
+&"RESET": SubResource("Animation_noag4"),
+&"attack": SubResource("Animation_sefxv")
+}
+
+[node name="BigSwordProjectile" instance=ExtResource("1_sefxv")]
+script = ExtResource("2_w8fr5")
+speed = 0.0
+hit_vfx_scene = ExtResource("3_5uy8x")
+hit_wall_vfx_scene = ExtResource("4_jwsi7")
+damage = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(1, 1, 1, 0)
+material = ExtResource("2_noag4")
+instance_shader_parameters/outline_color = Color(0, 0, 0, 1)
+texture = ExtResource("3_w8fr5")
+
+[node name="Timer" parent="." index="1"]
+wait_time = 4.0
+
+[node name="MultiplayerSynchronizer" parent="." index="2"]
+replication_config = SubResource("SceneReplicationConfig_noag4")
+
+[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+enabled = false
+target_position = Vector2(224, 0)
+collision_mask = 74
+hit_from_inside = true
+script = ExtResource("4_5uy8x")
+metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_w8fr5")
+}
+autoplay = "attack"
+
+[connection signal="hit" from="RayDetector" to="." method="_on_detector_hit"]

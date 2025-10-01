@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://e8hnx4a6tmym"]
 
-[ext_resource type="Texture2D" uid="uid://ckb0l5smprlro" path="res://game/solo/training/quest/cultists_fight/tiles.png" id="1_hkmnr"]
+[ext_resource type="Texture2D" uid="uid://ckb0l5smprlro" path="res://game/solo/challenges/demon_fight/maps/hell/tiles.png" id="1_eoene"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qw1cp"]
-texture = ExtResource("1_hkmnr")
+texture = ExtResource("1_eoene")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
 1:0/0 = 0
