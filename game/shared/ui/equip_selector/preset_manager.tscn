@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://y56j4fgei867"]
+[gd_scene load_steps=4 format=3 uid="uid://y56j4fgei867"]
 
 [ext_resource type="Script" uid="uid://bp73lu2fkjjcx" path="res://game/shared/ui/equip_selector/preset_manager.gd" id="1_271df"]
 [ext_resource type="PackedScene" uid="uid://22gvgr7d4eml" path="res://game/shared/ui/equip_selector/preset.tscn" id="2_o4wte"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="3_rwjit"]
 
 [node name="PresetManager" type="Window"]
 auto_translate_mode = 1
@@ -94,6 +95,11 @@ offset_bottom = 63.0
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Закрыть"
+
+[node name="AutofocusWindow" type="Node" parent="."]
+script = ExtResource("3_rwjit")
+focus_target = NodePath("../VBoxContainer/Close")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [connection signal="close_requested" from="." to="." method="hide"]
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="hide"]

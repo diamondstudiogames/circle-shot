@@ -40,8 +40,11 @@ func edit_action_event(action: StringName, event_idx: int) -> void:
 func remove_action_event(action: StringName, event_idx: int) -> void:
 	var events_container: VBoxContainer = %Actions.get_node(
 				action.to_pascal_case()).get_node(^"Container/Events")
-	events_container.get_child(event_idx).queue_free()
-	events_container.remove_child(events_container.get_child(event_idx))
+	var event: Control = events_container.get_child(event_idx)
+	if get_viewport().gui_get_focus_owner().is_ancestor_of(event):
+		($VBoxContainer/Buttons/Save as Control).grab_focus()
+	event.queue_free()
+	events_container.remove_child(event)
 	_action_events[action].remove_at(event_idx)
 	
 	for i: int in range(event_idx, _action_events[action].size()):

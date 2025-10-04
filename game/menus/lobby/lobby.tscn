@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmwb81du1kbtm"]
+[gd_scene load_steps=23 format=3 uid="uid://cmwb81du1kbtm"]
 
 [ext_resource type="Script" uid="uid://ce7fr2qft005n" path="res://game/menus/lobby/lobby.gd" id="1_jtfrr"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="2_6xr3g"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://lf4v4xbu425r" path="res://game/menus/lobby/view_ip_dialog.gd" id="5_jyb4t"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="7_8ughs"]
 [ext_resource type="Texture2D" uid="uid://c3r13t5eig25e" path="res://game/menus/lobby/icons/view_ips.png" id="7_f0cv5"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="9_mgd0l"]
 [ext_resource type="Script" uid="uid://dxhx1wvxyn771" path="res://game/menus/lobby/advices.gd" id="12_es10a"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="13_jqaxo"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="13_yfygw"]
@@ -239,6 +240,10 @@ icon = ExtResource("2_wjeu5")
 layout_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource("7_8ughs")
+
+[node name="Autofocus" type="Node" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons/Presets"]
+script = ExtResource("9_mgd0l")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="ConnectedToIP" type="LinkButton" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
 layout_mode = 2

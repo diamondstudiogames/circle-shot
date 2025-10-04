@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bj723c8k8la6y"]
+[gd_scene load_steps=37 format=3 uid="uid://bj723c8k8la6y"]
 
 [ext_resource type="Script" uid="uid://dfbi48lj1pb8n" path="res://menu/shop/shop.gd" id="1_4yet2"]
 [ext_resource type="Texture2D" uid="uid://c3kh0ourvde3l" path="res://menu/shop/background.png" id="2_cyj7w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lnjqijsauw8a" path="res://menu/shop/boxes/skin_box.png" id="5_cinaw"]
 [ext_resource type="Texture2D" uid="uid://dvh0b4o4tjklm" path="res://menu/shop/coins/coins0.png" id="5_idaoj"]
 [ext_resource type="Texture2D" uid="uid://bqdfll3jv7f18" path="res://menu/shop/coins/coins1.png" id="6_yhc8g"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="7_6fy5a"]
 [ext_resource type="Texture2D" uid="uid://b0j3g7rkerkdm" path="res://menu/theme/icons/help.png" id="7_i3jto"]
 [ext_resource type="Texture2D" uid="uid://hh4x3ybix143" path="res://menu/shop/boxes/equip_box.png" id="7_no6pl"]
 [ext_resource type="Texture2D" uid="uid://pdi5jmhwo5gp" path="res://menu/shop/coins/coins2.png" id="7_ra5ts"]
@@ -19,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dmpm2a2wq3u4p" path="res://menu/shop/coins/coins_offer.png" id="16_200u0"]
 [ext_resource type="Texture2D" uid="uid://dx36ekj6pm8tr" path="res://menu/shop/boxes/equip_box_offer.png" id="17_i3jto"]
 [ext_resource type="Texture2D" uid="uid://1e2hpb4yqrq3" path="res://menu/shop/boxes/equip_elite_box_offer.png" id="18_6dce8"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="18_ps1v5"]
 [ext_resource type="Texture2D" uid="uid://u3uysy5do7nd" path="res://menu/shop/boxes/skin_box_offer.png" id="19_1ovia"]
 [ext_resource type="PackedScene" uid="uid://dn1f63651tgy0" path="res://menu/shop/offer.tscn" id="20_1ovia"]
 [ext_resource type="Texture2D" uid="uid://bagp5s7stcybl" path="res://menu/shop/boxes/skin_elite_box_offer.png" id="20_ix43u"]
@@ -356,6 +358,10 @@ grow_vertical = 0
 theme_type_variation = &"BigFontButton"
 text = "80"
 icon = ExtResource("9_cinaw")
+
+[node name="Autofocus" type="Node" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox/Buy"]
+script = ExtResource("7_6fy5a")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
 layout_mode = 1
@@ -864,6 +870,10 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
+
+[node name="AutofocusWindow" type="Node" parent="BoxInfo"]
+script = ExtResource("18_ps1v5")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [PackedStringArray("coins_offer", "equip_box_offer", "equip_elite_box_offer", "offer", "offer_item", "skin_box_offer", "skin_elite_box_offer"), [ExtResource("16_200u0"), ExtResource("17_i3jto"), ExtResource("18_6dce8"), ExtResource("20_1ovia"), ExtResource("21_ix43u"), ExtResource("19_1ovia"), ExtResource("20_ix43u")]]

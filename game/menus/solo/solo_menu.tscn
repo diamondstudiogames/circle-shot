@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://behtxlo4s5s3"]
+[gd_scene load_steps=13 format=3 uid="uid://behtxlo4s5s3"]
 
 [ext_resource type="Script" uid="uid://dkaftynok7hlv" path="res://game/menus/solo/solo_menu.gd" id="1_cxrwa"]
 [ext_resource type="Texture2D" uid="uid://bu318tyxjskrf" path="res://game/menus/solo/background.png" id="2_upj1m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://tspwihdtsmtv" path="res://game/menus/solo/icons/story.png" id="4_wtg2m"]
 [ext_resource type="Texture2D" uid="uid://c27ihlifw8d57" path="res://game/menus/solo/icons/challenges.png" id="5_4ufvw"]
 [ext_resource type="Texture2D" uid="uid://dm4cuk0jf2iqf" path="res://game/menus/solo/icons/training.png" id="6_4ulqr"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="7_be2i2"]
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="8_7q66i"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="9_be2i2"]
 [ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="10_muk5r"]
@@ -103,6 +104,10 @@ icon = ExtResource("5_4ufvw")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+
+[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Buttons/Challenges"]
+script = ExtResource("7_be2i2")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="Training" type="Button" parent="Base/Margin/VBox/Buttons"]
 custom_minimum_size = Vector2(192, 192)
@@ -236,6 +241,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Начать!"
 icon = ExtResource("9_be2i2")
+
+[node name="Autofocus" type="Node" parent="Challenges/VBoxContainer/Buttons/StartChallenge"]
+script = ExtResource("7_be2i2")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="ChangeChallenge" type="Button" parent="Challenges/VBoxContainer/Buttons"]
 layout_mode = 2

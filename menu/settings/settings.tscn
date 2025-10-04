@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2leb2h0qjtmo"]
+[gd_scene load_steps=25 format=3 uid="uid://c2leb2h0qjtmo"]
 
 [ext_resource type="Script" uid="uid://bhvr3p7vj2nb4" path="res://menu/settings/settings.gd" id="1_jwkxy"]
 [ext_resource type="Texture2D" uid="uid://cj0xdsi2q6ea4" path="res://menu/settings/icons/general.png" id="1_n6g3h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://65yjl3wjlqpc" path="res://menu/settings/icons/sound.png" id="3_4iv1j"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="3_kafpn"]
 [ext_resource type="Texture2D" uid="uid://c4rtsjndqjkbc" path="res://menu/settings/icons/controls.png" id="4_bdj5p"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="5_2lh4n"]
 [ext_resource type="Texture2D" uid="uid://c7utfxkubmvch" path="res://menu/settings/icons/network.png" id="5_ptnea"]
 [ext_resource type="Texture2D" uid="uid://b3int4i23wkyl" path="res://menu/settings/icons/reset_name.png" id="9_0iguj"]
 [ext_resource type="Texture2D" uid="uid://b3dr78bao6pop" path="res://menu/settings/icons/restart.png" id="10_260xk"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cuewsvjjnyl40" path="res://menu/main/name_dialog.tscn" id="14_eq4mb"]
 [ext_resource type="Texture2D" uid="uid://c53e8se18ejxy" path="res://menu/settings/icons/edit_controls.png" id="14_wy2dx"]
 [ext_resource type="Texture2D" uid="uid://cp3wl6wn8h07v" path="res://menu/theme/icons/copy.png" id="19_2lh4n"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="23_f6ahd"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xsh6l"]
 
@@ -133,6 +135,10 @@ button_group = SubResource("ButtonGroup_xsh6l")
 text = "Основное"
 icon = ExtResource("1_n6g3h")
 alignment = 0
+
+[node name="Autofocus" type="Node" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/General"]
+script = ExtResource("5_2lh4n")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="Network" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
 layout_mode = 2
@@ -1555,6 +1561,11 @@ theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 text = "Удалить все данные"
 icon = ExtResource("12_g4yas")
+
+[node name="AutofocusWindow" type="Node" parent="ManageSaveDialog"]
+script = ExtResource("23_f6ahd")
+focus_target = NodePath("../VBoxContainer/Actions/CopySaveId")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="ActionsConfiguration" parent="." instance_placeholder="res://menu/settings/actions_configuration.tscn"]
 visible = false

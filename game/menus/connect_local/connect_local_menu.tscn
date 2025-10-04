@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://wgln4clkkuuk"]
+[gd_scene load_steps=11 format=3 uid="uid://wgln4clkkuuk"]
 
 [ext_resource type="Script" uid="uid://s3v8s1vebdqd" path="res://game/menus/connect_local/connect_local_menu.gd" id="1_f4u3n"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="1_xj6us"]
 [ext_resource type="Texture2D" uid="uid://b4yw2ehtx4wqf" path="res://game/menus/connect_local/background.png" id="2_5kfp0"]
 [ext_resource type="Texture2D" uid="uid://h6smixikm521" path="res://game/menus/connect_local/icons/create.png" id="2_rk7v2"]
 [ext_resource type="Texture2D" uid="uid://cuig0ueedrpys" path="res://game/menus/connect_local/icons/join.png" id="3_ug3n1"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="5_ayod8"]
 [ext_resource type="PackedScene" uid="uid://bs4vk7wdu27eo" path="res://game/menus/connect_local/local_lobby_entry.tscn" id="6_yc75x"]
 
 [sub_resource type="Animation" id="Animation_btwkk"]
@@ -112,6 +113,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Создать комнату"
 icon = ExtResource("2_rk7v2")
+
+[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Create"]
+script = ExtResource("5_ayod8")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="Separator" type="HBoxContainer" parent="Base/Margin/VBox"]
 layout_mode = 2

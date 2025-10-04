@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4axjhbd674h8"]
+[gd_scene load_steps=7 format=3 uid="uid://c4axjhbd674h8"]
 
 [ext_resource type="Script" uid="uid://bgequl5pvuuq5" path="res://menu/settings/actions_configuration.gd" id="1_h33al"]
 [ext_resource type="Texture2D" uid="uid://qd30cvl2xrw7" path="res://menu/theme/icons/add.png" id="2_h33al"]
 [ext_resource type="Texture2D" uid="uid://brcaom8n83yf2" path="res://menu/theme/icons/reset.png" id="3_cxjse"]
 [ext_resource type="Texture2D" uid="uid://bs0jb0hstf3sl" path="res://menu/theme/icons/save.png" id="4_4wuv6"]
 [ext_resource type="PackedScene" uid="uid://b8cprl60iu2or" path="res://menu/settings/action_event.tscn" id="5_4wuv6"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="6_wo6h3"]
 
 [node name="ActionsConfiguration" type="Window"]
 oversampling_override = 1.0
@@ -1110,6 +1111,11 @@ cancel_button_text = "Отмена"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [PackedStringArray("action_event"), [ExtResource("5_4wuv6")]]
+
+[node name="AutofocusWindow" type="Node" parent="."]
+script = ExtResource("6_wo6h3")
+focus_target = NodePath("../VBoxContainer/Buttons/Save")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [connection signal="close_requested" from="." to="." method="hide"]
 [connection signal="close_requested" from="." to="." method="_on_discard_pressed"]

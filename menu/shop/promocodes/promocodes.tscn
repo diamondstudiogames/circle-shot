@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr6d6ux533fuy"]
+[gd_scene load_steps=3 format=3 uid="uid://dr6d6ux533fuy"]
 
 [ext_resource type="Script" uid="uid://bdbn8caqtw781" path="res://menu/shop/promocodes/promocodes.gd" id="1_01myu"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="2_ircxu"]
 
 [node name="Promocodes" type="Window"]
 oversampling_override = 1.0
@@ -64,6 +65,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "Активировать"
+
+[node name="AutofocusWindow" type="Node" parent="."]
+script = ExtResource("2_ircxu")
+focus_target = NodePath("../MarginContainer/VBoxContainer/LineEdit")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [connection signal="close_requested" from="." to="." method="hide"]
 [connection signal="text_submitted" from="MarginContainer/VBoxContainer/LineEdit" to="." method="activate_promocode"]

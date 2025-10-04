@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4wb77emq8t5p"]
+[gd_scene load_steps=15 format=3 uid="uid://4wb77emq8t5p"]
 
 [ext_resource type="Script" uid="uid://6mjcp2pfoqs6" path="res://menu/main/menu.gd" id="1_6hvox"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="1_m6h1l"]
@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bxs6sdufwbl8p" path="res://menu/main/icons/together_game.png" id="3_fpx5a"]
 [ext_resource type="Texture2D" uid="uid://djuddec1qr5ot" path="res://menu/main/icons/shop.png" id="4_jpuob"]
 [ext_resource type="Texture2D" uid="uid://d2rpk8yt0h06x" path="res://menu/main/icons/achievements.png" id="5_noej1"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="5_wm4e1"]
 [ext_resource type="Texture2D" uid="uid://c3sk875fn0rx" path="res://menu/main/icons/settings.png" id="6_0pcoh"]
 [ext_resource type="Texture2D" uid="uid://c3x171iwlnadt" path="res://menu/main/icons/inventory.png" id="6_ts3g1"]
 [ext_resource type="Texture2D" uid="uid://b0j3g7rkerkdm" path="res://menu/theme/icons/help.png" id="7_aw44p"]
 [ext_resource type="PackedScene" uid="uid://cuewsvjjnyl40" path="res://menu/main/name_dialog.tscn" id="10_yw6bl"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="12_k1ro1"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="14_u3jdf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -72,6 +74,10 @@ icon = ExtResource("2_tkm62")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
+
+[node name="Autofocus" type="Node" parent="ButtonsContainer/PlayButtonsContainer/PlaySolo"]
+script = ExtResource("5_wm4e1")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="PlayNetwork" type="Button" parent="ButtonsContainer/PlayButtonsContainer"]
 custom_minimum_size = Vector2(192, 192)
@@ -206,6 +212,11 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "ОК"
+
+[node name="AutofocusWindow" type="Node" parent="About"]
+script = ExtResource("14_u3jdf")
+focus_target = NodePath("../MarginContainer/VBoxContainer/Close")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="UpdateDialog" type="ConfirmationDialog" parent="."]
 title = "Доступно обновление!"
