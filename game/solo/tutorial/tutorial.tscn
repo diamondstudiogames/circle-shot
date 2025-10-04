@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbue2vn1da0il"]
+[gd_scene load_steps=17 format=3 uid="uid://cbue2vn1da0il"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_qe1hl"]
 [ext_resource type="Script" uid="uid://cw4k527bms1xc" path="res://game/solo/tutorial/tutorial.gd" id="2_ct7or"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4layvo1ati2x" path="res://game/solo/tutorial/tutorial_map.tscn" id="4_t5re1"]
 [ext_resource type="PackedScene" uid="uid://cdo5q27lch5l8" path="res://game/mobs/dummy/dummy.tscn" id="4_xeb43"]
 [ext_resource type="PackedScene" uid="uid://0wc72b0o2o11" path="res://game/player/ui/player_ui.tscn" id="5_xeb43"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="6_8hor2"]
 [ext_resource type="PackedScene" uid="uid://b2v16qvrswdtd" path="res://game/weapons/guns/ak_74/ak_74.tscn" id="8_2xrf8"]
 [ext_resource type="PackedScene" uid="uid://dkem1fmo3lqym" path="res://game/weapons/grenades/he_grenade/he_grenade.tscn" id="9_8hor2"]
 [ext_resource type="PackedScene" uid="uid://dw483364uyeyn" path="res://game/weapons/melee/knife/knife.tscn" id="10_q32ry"]
@@ -136,6 +137,8 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = 72.0
 grow_horizontal = 0
+shortcut = ExtResource("6_8hor2")
+shortcut_in_tooltip = false
 icon = ExtResource("3_t5re1")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" index="4"]

@@ -34,11 +34,13 @@ func _input(input_event: InputEvent) -> void:
 		return
 	if _chat_button.button_pressed:
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE \
-				and input_event.is_action_pressed(&"close_chat"):
+				and input_event.is_action_pressed(&"pause"):
 			_chat_button.button_pressed = false
+			get_viewport().set_input_as_handled()
 		elif _input_method == Globals.InputMethod.CONTROLLER \
-				and input_event.is_action_pressed(&"c_close_chat"):
+				and input_event.is_action_pressed(&"c_pause"):
 			_chat_button.button_pressed = false
+			get_viewport().set_input_as_handled()
 
 
 func _unhandled_input(input_event: InputEvent) -> void:

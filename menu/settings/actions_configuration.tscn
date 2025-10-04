@@ -507,25 +507,25 @@ layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CloseChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Pause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
-text = "Закрыть чат"
+text = "Пауза/Закрыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
@@ -1059,25 +1059,25 @@ layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CCloseChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CPause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
-text = "Закрыть чат"
+text = "Пауза/Закрыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
@@ -1139,7 +1139,7 @@ metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container/Add" to="." method="add_action_event" binds= [&"show_weapons"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container/Add" to="." method="add_action_event" binds= [&"use_skill"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container/Add" to="." method="add_action_event" binds= [&"chat"]]
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CloseChat/Container/Add" to="." method="add_action_event" binds= [&"close_chat"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container/Add" to="." method="add_action_event" binds= [&"close_chat"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container/Add" to="." method="add_action_event" binds= [&"fullscreen"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container/Add" to="." method="add_action_event" binds= [&"c_move_left"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container/Add" to="." method="add_action_event" binds= [&"c_move_right"]]
@@ -1163,7 +1163,7 @@ metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container/Add" to="." method="add_action_event" binds= [&"c_show_weapons"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container/Add" to="." method="add_action_event" binds= [&"c_use_skill"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container/Add" to="." method="add_action_event" binds= [&"c_chat"]]
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CCloseChat/Container/Add" to="." method="add_action_event" binds= [&"c_close_chat"]]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container/Add" to="." method="add_action_event" binds= [&"c_close_chat"]]
 [connection signal="pressed" from="VBoxContainer/Buttons/Discard" to="." method="_on_discard_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="canceled" from="EventSelector" to="." method="_on_event_selector_canceled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://f6bay2nx1wy3"]
+[gd_scene load_steps=76 format=3 uid="uid://f6bay2nx1wy3"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6jugc"]
 [ext_resource type="Script" uid="uid://cq53u6g7rseun" path="res://game/solo/training/training.gd" id="2_lrvjq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="12_olgru"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="13_1grle"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_clwqa"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="14_idd4e"]
 [ext_resource type="Texture2D" uid="uid://ndobp7p586tx" path="res://menu/theme/icons/edit.png" id="16_8bquf"]
 [ext_resource type="Texture2D" uid="uid://2u83h36lsfg3" path="res://game/solo/training/icons/select_map.png" id="16_fhj3u"]
 [ext_resource type="Texture2D" uid="uid://d1vvdmcmvh4m8" path="res://game/solo/training/icons/destroy_enemies.png" id="16_oiyxk"]
@@ -886,6 +887,8 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = 72.0
 grow_horizontal = 0
+shortcut = ExtResource("14_idd4e")
+shortcut_in_tooltip = false
 icon = ExtResource("4_wkoo5")
 
 [node name="Stats" type="Label" parent="UI/Main" index="4"]
@@ -1426,7 +1429,7 @@ size_flags_horizontal = 3
 min_value = 0.09999999999126884
 max_value = 2.0
 step = 0.09999999999126884
-value = 0.9999999999126988
+value = 0.9999999999126881
 
 [node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="1"]
 custom_minimum_size = Vector2(48, 0)

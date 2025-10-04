@@ -1,0 +1,17 @@
+[gd_resource type="Shortcut" load_steps=4 format=3 uid="uid://dqhqklmms38d2"]
+
+[ext_resource type="Script" uid="uid://dbkyltjayj33t" path="res://game/shared/ui/pause_shortcut/pause_shortcut.gd" id="1_nj50g"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_8eyw6"]
+action = &"c_pause"
+pressed = true
+
+[sub_resource type="InputEventAction" id="InputEventAction_ffg36"]
+action = &"pause"
+pressed = true
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_nj50g")
+controller_event = SubResource("InputEventAction_8eyw6")
+keyboard_and_mouse_event = SubResource("InputEventAction_ffg36")
