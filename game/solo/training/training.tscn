@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://f6bay2nx1wy3"]
+[gd_scene load_steps=78 format=3 uid="uid://f6bay2nx1wy3"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6jugc"]
 [ext_resource type="Script" uid="uid://cq53u6g7rseun" path="res://game/solo/training/training.gd" id="2_lrvjq"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://d1vvdmcmvh4m8" path="res://game/solo/training/icons/destroy_enemies.png" id="16_oiyxk"]
 [ext_resource type="Texture2D" uid="uid://ki3j4g80hksv" path="res://game/solo/training/icons/respawn_enemies.png" id="17_g0cma"]
 [ext_resource type="Texture2D" uid="uid://cg2b6jb77iv65" path="res://game/solo/training/icons/return_to_training.png" id="17_oiyxk"]
+[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="18_ucqos"]
 [ext_resource type="Script" uid="uid://drnc877a0wtyp" path="res://game/solo/training/map_editor.gd" id="19_g0cma"]
 [ext_resource type="Texture2D" uid="uid://bs0jb0hstf3sl" path="res://menu/theme/icons/save.png" id="20_j183o"]
 [ext_resource type="Texture2D" uid="uid://brcaom8n83yf2" path="res://menu/theme/icons/reset.png" id="21_o5c37"]
@@ -45,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://8lxygh47wdpr" path="res://game/solo/training/quest/items/book_animation.tscn" id="41_70jin"]
 [ext_resource type="PackedScene" uid="uid://davg83gsduoyq" path="res://game/solo/training/spikes.tscn" id="42_npibf"]
 [ext_resource type="Script" uid="uid://dacn48oh86ofd" path="res://game/solo/training/quest/quest.gd" id="43_auuw0"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="43_yo046"]
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="44_0djgj"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="45_8vq0w"]
 [ext_resource type="Texture2D" uid="uid://7c7iyw4vxkgy" path="res://game/solo/training/quest/note.png" id="45_qsfa0"]
@@ -989,6 +991,10 @@ layout_mode = 2
 text = "Восстановить ОЗ"
 icon = ExtResource("7_gu8e4")
 
+[node name="Autofocus" type="Node" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player/Heal" index="0"]
+script = ExtResource("18_ucqos")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
+
 [node name="Ammo" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player" index="1"]
 layout_mode = 2
 text = "Восстановить боеприпасы"
@@ -1563,6 +1569,10 @@ layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
+[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Quest/Header/Close" index="0"]
+script = ExtResource("18_ucqos")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
+
 [node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest" index="1"]
 custom_minimum_size = Vector2(768, 0)
 layout_mode = 2
@@ -1626,6 +1636,11 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "Испытания"
+
+[node name="AutofocusWindow" type="Node" parent="UI/SelectMap" index="2"]
+script = ExtResource("43_yo046")
+focus_target = NodePath("../HBoxContainer/MapFromEvent")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12"]
 resources = [PackedStringArray("book_animation", "default_map", "spikes"), [ExtResource("41_70jin"), ExtResource("3_36lnl"), ExtResource("42_npibf")]]

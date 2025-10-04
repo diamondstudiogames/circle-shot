@@ -21,7 +21,6 @@ func _on_control_visibility_changed() -> void:
 
 
 func _on_window_input(event: InputEvent) -> void:
-	print(event.as_text())
 	if _window.visible and _window.has_focus() \
 			and event.is_action(&"ui_cancel") and event.is_pressed():
-		_window.hide()
+		_window.close_requested.emit()

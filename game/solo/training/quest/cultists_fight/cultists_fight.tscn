@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d37b6qih7jixf"]
+[gd_scene load_steps=17 format=3 uid="uid://d37b6qih7jixf"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_q4xc5"]
 [ext_resource type="Script" uid="uid://c2vgq6r1crf1c" path="res://game/solo/training/quest/cultists_fight/cultists_fight.gd" id="2_iormd"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpkjtov14f1kh" path="res://game/solo/training/quest/cultists_fight/cultists_fight_map.tscn" id="8_8787g"]
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="10_w2kqy"]
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="11_16cp4"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="12_kh07j"]
 
 [sub_resource type="Curve" id="Curve_pbgwp"]
 _limits = [0.0, 5.0, 0.0, 100.0]
@@ -141,6 +142,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Сдаться"
 icon = ExtResource("7_qjxiq")
+
+[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" index="2"]
+script = ExtResource("12_kh07j")
+focus_target = NodePath("../VBoxContainer/Resume")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="DialogTimer" type="Timer" parent="UI" index="2"]
 one_shot = true

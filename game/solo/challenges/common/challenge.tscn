@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bv5flcglplthg"]
+[gd_scene load_steps=19 format=3 uid="uid://bv5flcglplthg"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
 [ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="6_iuf22"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_v85pp"]
 [ext_resource type="PackedScene" uid="uid://cghfpr0gbxb2e" path="res://game/solo/challenges/common/reward.tscn" id="9_v85pp"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="9_xxoyb"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -575,6 +576,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = " Выйти из испытания"
 icon = ExtResource("4_uf786")
+
+[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" index="2"]
+script = ExtResource("9_xxoyb")
+focus_target = NodePath("../VBoxContainer/Resume")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10"]
 bus = &"Music"

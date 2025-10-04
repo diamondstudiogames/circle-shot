@@ -13,7 +13,6 @@ extends Attack
 @export var fireballs_circles_shift_per_spawn := 12.0
 @export var lightnings_speed_scale := 1.0
 
-var _fireballs_shift := false
 var _fireballs_circles_angle := 0.0
 @onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
 
@@ -26,7 +25,7 @@ func spawn_fireballs_back() -> void:
 	if not multiplayer.is_server():
 		return
 	var angle_interval: float = PI * 2 / fireballs_count
-	var base_angle: float = angle_interval / 2 if _fireballs_shift else 0.0
+	var base_angle: float = randf_range(0, angle_interval)
 	for i: int in fireballs_count:
 		var fireball: Projectile = fireball_back_scene.instantiate()
 		fireball.position = global_position
@@ -36,7 +35,6 @@ func spawn_fireballs_back() -> void:
 		fireball.damage_multiplier = damage_multiplier
 		fireball.name += str(randi())
 		_projectiles_parent.add_child(fireball)
-	_fireballs_shift = not _fireballs_shift
 
 
 func spawn_circle_fireballs() -> void:
