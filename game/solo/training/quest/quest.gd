@@ -17,36 +17,19 @@ func _ready() -> void:
 
 
 func _player_start_ritual() -> void:
-	_training.player.block_turning()
-	_training.player.block_weapon_usage()
-	_training.player.make_immobile()
-	_training.player.make_immune()
+	_training.start_cutscene()
 	_training.player.visual.scale.x = 1.0
 	$Pentagram/Interactible.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	var book_anim: Node2D = (load("uid://8lxygh47wdpr") as PackedScene).instantiate()
 	_training.player.visual.add_child(book_anim)
-	
-	var tween: Tween = create_tween()
-	tween.tween_callback($"../UI/Main".set.bind(&"process_mode", PROCESS_MODE_DISABLED))
-	tween.tween_property($"../UI/Main" as CanvasItem, ^":modulate", Color.TRANSPARENT, 0.5)
-	tween.tween_callback(($"../UI/Main" as CanvasItem).hide)
 
 
 func _player_end_ritual() -> void:
-	var tween: Tween = create_tween()
-	tween.tween_callback(($"../UI/Main" as CanvasItem).show)
-	tween.tween_property($"../UI/Main" as CanvasItem, ^":modulate", Color.WHITE, 1.0)
-	tween.tween_callback($"../UI/Main".set.bind(&"process_mode", PROCESS_MODE_INHERIT))
 	Globals.set_bool("quest_portal_opened", true)
 	_update_pentagram()
-	await tween.finished
-	
-	_training.player.unblock_turning()
-	_training.player.unblock_weapon_usage()
-	_training.player.unmake_immobile()
-	_training.player.unmake_immune()
-	$Pentagram/Interactible.process_mode = Node.PROCESS_MODE_INHERIT
+	await get_tree().create_timer(0.5, false).timeout
+	_training.end_cutscene()
 
 
 func _update_pentagram() -> void:

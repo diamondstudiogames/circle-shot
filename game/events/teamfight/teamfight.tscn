@@ -407,5 +407,4 @@ text = "Побеждает команда
 
 [node name="MatchTimer" type="Timer" parent="." index="15"]
 
-[connection signal="local_player_created" from="." to="." method="_on_local_player_created"]
 [connection signal="timeout" from="MatchTimer" to="." method="_on_match_timer_timeout"]

@@ -30,10 +30,10 @@ script = ExtResource("2_rxx1l")
 bounce_margin = 6.0
 max_bounces = 2
 speed = 1200.0
-damage = 9
+damage = 7
 
 [node name="Light" type="Sprite2D" parent="." index="0"]
-self_modulate = Color(1, 0, 0, 0.7529412)
+self_modulate = Color(1, 0.5019608, 0, 0.7529412)
 z_index = -1
 material = ExtResource("3_27pt0")
 scale = Vector2(0.75, 0.75)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_ahg27"]
 [ext_resource type="Script" uid="uid://5cs2e53nnhqf" path="res://game/mobs/common/mob.gd" id="2_6pkcb"]
 
-[node name="Mob" instance=ExtResource("1_ahg27")]
+[node name="Mob" groups=["mob"] instance=ExtResource("1_ahg27")]
 script = ExtResource("2_6pkcb")
 vision_distance = 3200.0
 find_target_min_time = 0.9

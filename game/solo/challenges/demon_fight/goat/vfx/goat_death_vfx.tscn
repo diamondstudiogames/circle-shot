@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgtjfid2bnpya"]
+
+[ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_glc1m"]
+[ext_resource type="Material" uid="uid://b8111w5tokcit" path="res://game/shared/shaders/materials/solid_color.tres" id="1_hrjfp"]
+[ext_resource type="Texture2D" uid="uid://dtl30v6bsvf1g" path="res://game/solo/challenges/demon_fight/goat/vfx/goat_full.png" id="1_l0lng"]
+[ext_resource type="Shader" uid="uid://b6fqw6usud13b" path="res://game/shared/shaders/dissolve.gdshader" id="2_hrjfp"]
+[ext_resource type="Texture2D" uid="uid://dlmtcvf64sg51" path="res://game/solo/challenges/demon_fight/goat/vfx/dissolve_noise.tres" id="3_l0lng"]
+[ext_resource type="Texture2D" uid="uid://c716m684p8byh" path="res://game/solo/challenges/demon_fight/goat/vfx/goat_full_red.png" id="4_sdxje"]
+
+[sub_resource type="Curve" id="Curve_sdxje"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjk04"]
+shader = ExtResource("2_hrjfp")
+shader_parameter/noise = ExtResource("3_l0lng")
+shader_parameter/down_multiplier = 0.0
+
+[sub_resource type="Animation" id="Animation_sdxje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoatFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoatFull:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoatFullRed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoatFull:instance_shader_parameters/power")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GoatFullRed:instance_shader_parameters/power")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_glc1m"]
+resource_name = "death"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoatFull:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.099999994, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoatFull:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoatFullRed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoatFull:instance_shader_parameters/power")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GoatFullRed:instance_shader_parameters/power")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.9, 3),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjk04"]
+_data = {
+&"RESET": SubResource("Animation_sdxje"),
+&"death": SubResource("Animation_glc1m")
+}
+
+[node name="GoatDeathVfx" type="Node2D"]
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 16
+texture = ExtResource("1_glc1m")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(96, 48)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 320.0
+scale_amount_curve = SubResource("Curve_sdxje")
+
+[node name="GoatFull" type="Sprite2D" parent="."]
+material = ExtResource("1_hrjfp")
+instance_shader_parameters/color = Color(2.454, 0, 0, 1)
+instance_shader_parameters/power = 0.0
+texture = ExtResource("1_l0lng")
+
+[node name="GoatFullRed" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(2.454, 2.454, 2.454, 1)
+material = SubResource("ShaderMaterial_hjk04")
+instance_shader_parameters/power = 0.0
+texture = ExtResource("4_sdxje")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hjk04")
+}
+autoplay = "death"
+
+[connection signal="ready" from="Particles" to="Particles" method="restart"]

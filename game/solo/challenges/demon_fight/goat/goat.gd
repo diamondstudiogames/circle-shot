@@ -3,10 +3,12 @@ extends Mob
 
 @export var min_distance := 400.0
 @export var random_point_from_target_distance := 1280.0
+@export var altar_scene: PackedScene
 
 @export_group("Attacks", "attack_")
 @export var attack_interval_min := 0.8
 @export var attack_interval_max := 1.5
+@export var attack_final_scene: PackedScene
 
 @export_subgroup("Dash", "attack_dash_")
 @export var attack_dash_speed := 1040.0
@@ -64,23 +66,43 @@ extends Mob
 @export var attack_cultists_scenes: Array[PackedScene]
 @export var attack_cultists_boxes_scenes: Array[PackedScene]
 
+@export_subgroup("Big Shot", "attack_big_")
+@export var attack_big_summon_duration := 1.3
+@export var attack_big_summon_count: int = 1
+@export var attack_big_summon_count2: int = 3
+@export var attack_big_second_phase_speedup := 1.5
+@export var attack_big_projectile_scene: PackedScene
+
+@export_subgroup("Floor Pentagrams", "attack_floor_")
+@export var attack_floor_count: int = 3
+@export var attack_floor_summon_duration := 1.5
+@export var attack_floor_scene: PackedScene
+
+@export_subgroup("Big Shots Down", "attack_down_")
+@export var attack_down_duration := 0.5
+@export var attack_down_spawn_interval := 0.1
+@export var attack_down_count: int = 7
+@export var attack_down_scene: PackedScene
+
 var _target_covered := false
 var _standing := false
 var _retreating := false
 var _attack_timer := 0.0
 var _second_phase := false
+var _did_final_attack := false
 
 var _dash_direction: Vector2
 var _spawn_sword := false
 var _attacks_counter: int = 0
 var _cultist_idx: int = 0
 var _box_idx: int = 0
+var _big_shot_aim_target: Entity
 
 @onready var _anim_tree: AnimationTree = $Visual/AnimationTree
 @onready var _anim_timer: Timer = $AnimationTimer
 @onready var _timer: Timer = $Timer
 
-@onready var _shoot_point: Marker2D = $Visual/Goat/ShootPoint
+@onready var _shoot_point: Marker2D = $Visual/Goat/Base/ShootPoint
 @onready var _knockback_attack: Attack = $Visual/DashAttacks/KnockbackAttack
 @onready var _stun_attack: Attack = $Visual/DashAttacks/StunAttack
 
@@ -99,6 +121,14 @@ func _process(_delta: float) -> void:
 		if _anim_tree.get(&"parameters/IdleWalkTransition/current_state") != "walk":
 			_anim_tree.set(&"parameters/IdleWalkTransition/transition_request", "walk")
 		_anim_tree.set(&"parameters/WalkTimeScale/scale", get_real_velocity().length() / speed)
+	if is_instance_valid(_big_shot_aim_target):
+		var direction: Vector2 = _shoot_point.global_position.direction_to(
+				_big_shot_aim_target.global_position)
+		_shoot_point.rotation = _calculate_aim_angle(direction)
+		if _big_shot_aim_target.global_position.x < global_position.x:
+			visual.scale.x = -1.0
+		else:
+			visual.scale.x = 1.0
 
 
 func _process_logic() -> void:
@@ -140,7 +170,10 @@ func _target_reset() -> void:
 func _health_changed(_old_value: int, new_value: int) -> void:
 	if new_value * 2 < max_health and not _second_phase:
 		_second_phase = true
-		# TODO: алтарь
+		if multiplayer.is_server():
+			_spawn_altar()
+	if new_value <= 100 and not _did_final_attack:
+		_final_attack()
 
 
 func _disarmed() -> void:
@@ -151,6 +184,8 @@ func _disarmed() -> void:
 	_anim_tree.set(&"parameters/SummonTimeScale/scale", 0.0)
 	_anim_tree.set(&"parameters/PentagramsTimeScale/scale", 0.0)
 	_anim_tree.set(&"parameters/CultistsTimeScale/scale", 0.0)
+	_anim_tree.set(&"parameters/BigTimeScale/scale", 0.0)
+	_anim_tree.set(&"parameters/FloorTimeScale/scale", 0.0)
 
 
 func _armed() -> void:
@@ -161,6 +196,9 @@ func _armed() -> void:
 	_anim_tree.set(&"parameters/SummonTimeScale/scale", 1.0)
 	_anim_tree.set(&"parameters/PentagramsTimeScale/scale", 1.0)
 	_anim_tree.set(&"parameters/CultistsTimeScale/scale", 1.0)
+	_anim_tree.set(&"parameters/BigTimeScale/scale",
+			attack_big_second_phase_speedup if _second_phase else 1.0)
+	_anim_tree.set(&"parameters/FloorTimeScale/scale", 1.0)
 
 
 @rpc("reliable", "authority", "call_local", 5)
@@ -227,16 +265,50 @@ func _do_cultists() -> void:
 			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 
+@rpc("reliable", "authority", "call_local", 5)
+func _do_big_shot(target_id: int) -> void:
+	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
+		push_error("This method must be called only by server.")
+		return
+	block_turning()
+	_anim_tree.set(&"parameters/BigOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	var entity: Entity = \
+			(get_tree().get_first_node_in_group(&"world") as World).entities.get(target_id)
+	if is_instance_valid(entity):
+		_big_shot_aim_target = entity
+	_anim_tree.set(&"parameters/BigTimeScale/scale",
+			attack_big_second_phase_speedup if _second_phase else 1.0)
+
+
+@rpc("reliable", "authority", "call_local", 5)
+func _do_floor_pentagrams() -> void:
+	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
+		push_error("This method must be called only by server.")
+		return
+	_anim_tree.set(&"parameters/FloorOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+
 func _select_attack() -> void:
 	if _attacks_counter == attack_cultists_attacks_interval:
 		_attacks_counter = 0
 		_attack_cultists()
 		return
 	
-	var attacks: Array[Callable] = [_attack_dash, _attack_daggers, _attack_fireballs] # TODO
-	var attacks_target_covered: Array[Callable] = [_attack_lightnings, _attack_pentagrams]
+	var attacks: Array[Callable] = [
+		_attack_dash,
+		_attack_daggers,
+		_attack_fireballs,
+		_attack_big_shot,
+	]
+	var attacks_target_covered: Array[Callable] = [
+		_attack_lightnings,
+		_attack_pentagrams,
+	]
 	if _second_phase:
-		attacks_target_covered.append_array([]) # TODO
+		attacks_target_covered.append_array([
+			_attack_floor_pentagrams,
+			_attack_big_shots_down,
+		])
 	
 	var attack: Callable = (attacks_target_covered if _target_covered
 			else attacks_target_covered + attacks + attacks).pick_random()
@@ -450,11 +522,126 @@ func _spawn_cultists() -> void:
 			_cultist_idx = 0
 
 
+func _attack_big_shot() -> void:
+	var count: int = attack_big_summon_count2 if _second_phase else attack_big_summon_count
+	var divider: float = attack_big_second_phase_speedup if _second_phase else 1.0
+	_attack_timer += count * attack_big_summon_duration / divider
+	for i: int in count:
+		if not is_instance_valid(target):
+			return
+		_do_big_shot.rpc(target.id)
+		if i + 1 != count:
+			_timer.start(attack_big_summon_duration / divider)
+			await _timer.timeout
+
+
+func _spawn_big_shot() -> void:
+	_big_shot_aim_target = null
+	unblock_turning()
+	if not multiplayer.is_server():
+		return
+	var direction: Vector2
+	if is_instance_valid(target):
+		direction = _shoot_point.global_position.direction_to(target.global_position)
+	else:
+		direction = Vector2.from_angle(_shoot_point.rotation)
+		direction.x = visual.scale.x
+	var big_shot: Attack = attack_big_projectile_scene.instantiate()
+	big_shot.position = _shoot_point.global_position
+	big_shot.damage_multiplier = damage_multiplier
+	big_shot.who = id
+	big_shot.team = team
+	big_shot.name += str(randi())
+	big_shot.rotation = direction.angle()
+	_projectiles_parent.add_child(big_shot)
+
+
+func _attack_floor_pentagrams() -> void:
+	_attack_timer += attack_floor_summon_duration
+	_standing = true
+	_do_floor_pentagrams.rpc()
+	_timer.start(attack_floor_summon_duration)
+	await _timer.timeout
+	_standing = false
+
+
+func _spawn_floor_pentagrams() -> void:
+	if not multiplayer.is_server():
+		return
+	for i: int in attack_floor_count:
+		var spawn_position: Vector2 = NavigationServer2D.map_get_random_point(
+				get_world_2d().navigation_map, 1, false)
+		if i == 0 and is_instance_valid(target):
+			spawn_position = target.global_position
+		var pentagram: Attack = attack_floor_scene.instantiate()
+		pentagram.position = spawn_position
+		pentagram.team = team
+		pentagram.who = id
+		pentagram.damage_multiplier = damage_multiplier
+		pentagram.name += str(randi())
+		_projectiles_parent.add_child(pentagram)
+
+
+func _attack_big_shots_down() -> void:
+	_attack_timer += attack_down_duration
+	_attack_timer += attack_down_spawn_interval * attack_down_count
+	_do_summon.rpc()
+	_timer.start(_anim_tree.get_animation(&"summon").length)
+	await _timer.timeout
+	for i: int in attack_down_count:
+		var big_shot_down: Attack = attack_down_scene.instantiate()
+		big_shot_down.position = NavigationServer2D.map_get_random_point(
+				get_world_2d().navigation_map, 1, false)
+		big_shot_down.damage_multiplier = damage_multiplier
+		big_shot_down.who = id
+		big_shot_down.team = team
+		big_shot_down.name += str(randi())
+		_projectiles_parent.add_child(big_shot_down)
+		if i + 1 != attack_down_count:
+			_timer.start(attack_down_spawn_interval)
+			await _timer.timeout
+
+
+func _spawn_altar() -> void:
+	var altar: Entity = altar_scene.instantiate()
+	altar.id = -randi()
+	altar.name += str(altar.id)
+	altar.team = team
+	altar.position = Vector2.ZERO
+	get_parent().add_child(altar, true)
+
+
+func _final_attack() -> void:
+	make_immune()
+	($CollisionShape2D as CollisionShape2D).disabled = true
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+	var tween: Tween = get_parent().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, ^":global_position", Vector2.ZERO, 1.0)
+	await tween.finished
+	hide()
+	
+	var final: Attack = attack_final_scene.instantiate()
+	final.position = Vector2.ZERO
+	final.team = team
+	final.who = id
+	final.damage_multiplier = damage_multiplier
+	_projectiles_parent.add_child(final, true)
+	
+	await final.tree_exiting
+	show()
+	unmake_immune()
+	($CollisionShape2D as CollisionShape2D).disabled = false
+	process_mode = Node.PROCESS_MODE_INHERIT
+	_did_final_attack = true
+
+
 func _on_cultist_died(cultist: Entity) -> void:
 	var box: Node2D = attack_cultists_boxes_scenes[_box_idx].instantiate()
 	box.position = cultist.global_position
 	box.name += str(randi())
-	$"../../Other".add_child(box, true)
+	get_tree().get_first_node_in_group(&"other_parent").add_child(box, true)
 	_box_idx += 1
 	if _box_idx == attack_cultists_boxes_scenes.size():
 		_box_idx = 0

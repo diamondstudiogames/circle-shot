@@ -14,7 +14,8 @@ func _summon_ligtning_bolt(where: Vector2) -> void:
 		return
 	var lightning: Attack = _lightning_bolt_scene.instantiate()
 	lightning.position = where
-	($"../Projectiles").add_child(lightning)
+	lightning.name += str(randi())
+	get_tree().get_first_node_in_group(&"projectiles_parent").add_child(lightning, true)
 
 
 func _on_lightning_bolt_timer_timeout() -> void:

@@ -1,0 +1,281 @@
+[gd_scene load_steps=16 format=3 uid="uid://bd5b1kibfjck6"]
+
+[ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_w38i3"]
+[ext_resource type="Script" uid="uid://crutl2ia5dv7o" path="res://game/solo/challenges/demon_fight/goat/altar/altar.gd" id="2_djudx"]
+[ext_resource type="Texture2D" uid="uid://70wynd5viegf" path="res://game/solo/challenges/demon_fight/goat/altar/altar.png" id="2_i7fki"]
+[ext_resource type="PackedScene" uid="uid://djnl6yscswq2o" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_projectile.tscn" id="3_l46ly"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_l46ly"]
+[ext_resource type="PackedScene" uid="uid://bdwj0acfcu4yr" path="res://game/solo/challenges/demon_fight/goat/cultists/heal_box.tscn" id="4_t8ikq"]
+[ext_resource type="Texture2D" uid="uid://c3cf2jj0xygi" path="res://game/solo/challenges/demon_fight/goat/pentagrams/floor_pentagram.png" id="5_2ujxk"]
+[ext_resource type="PackedScene" uid="uid://b0wfi12hhw7bt" path="res://game/solo/challenges/demon_fight/goat/cultists/ammo_box.tscn" id="5_lnpai"]
+[ext_resource type="PackedScene" uid="uid://ci04evnc0dlbk" path="res://game/solo/challenges/demon_fight/goat/altar/altar_death_vfx.tscn" id="6_lnpai"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_03hjr"]
+points = PackedVector2Array(-96, 64, 96, 64, 56, -354, -56, -354)
+
+[sub_resource type="Animation" id="Animation_lnpai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -544)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/PentagramEffect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visual/PentagramEffect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visual/PentagramEffect:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.25)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PowerArea/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yul31"]
+resource_name = "hurt"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -144), Vector2(-8, -144), Vector2(8, -144), Vector2(-8, -144), Vector2(8, -144), Vector2(1.9073486e-06, -143.5)]
+}
+
+[sub_resource type="Animation" id="Animation_t8ikq"]
+resource_name = "spawn"
+length = 1.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, -544), Vector2(0, -144)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/PentagramEffect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.85, 1.25),
+"transitions": PackedFloat32Array(1, 1e-05, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visual/PentagramEffect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visual/PentagramEffect:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.25),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.25), Vector2(0.5, 0.25), Vector2(1, 0.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PowerArea/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as211"]
+_data = {
+&"RESET": SubResource("Animation_lnpai"),
+&"hurt": SubResource("Animation_yul31"),
+&"spawn": SubResource("Animation_t8ikq")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bygv"]
+radius = 2400.0
+
+[node name="Altar" groups=["mob"] instance=ExtResource("1_w38i3")]
+script = ExtResource("2_djudx")
+area_damage_multiplier = 1.25
+area_speed_multiplier = 1.2
+fireball_scene = ExtResource("3_l46ly")
+fireballs_count = 10
+heal_box_scene = ExtResource("4_t8ikq")
+ammo_box_scene = ExtResource("5_lnpai")
+max_health = 400
+always_visible_on_minimap = true
+death_vfx_scene = ExtResource("6_lnpai")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("ConvexPolygonShape2D_03hjr")
+disabled = true
+
+[node name="Info" parent="." index="4"]
+position = Vector2(0, -392)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(0, -544)
+texture = ExtResource("2_i7fki")
+
+[node name="PentagramEffect" type="Sprite2D" parent="Visual" index="1"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+z_index = -4
+material = ExtResource("4_l46ly")
+position = Vector2(0, 64)
+scale = Vector2(0.5, 0.25)
+texture = ExtResource("5_2ujxk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+&"": SubResource("AnimationLibrary_as211")
+}
+autoplay = "spawn"
+
+[node name="ProjectilesTimer" type="Timer" parent="." index="8"]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="ProjectilesSpawnPoint" type="Marker2D" parent="." index="9"]
+position = Vector2(0, -180)
+gizmo_extents = 64.0
+
+[node name="PowerArea" type="Area2D" parent="." index="10"]
+collision_layer = 128
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerArea" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_3bygv")
+disabled = true
+
+[connection signal="killed" from="." to="." method="_on_killed"]
+[connection signal="timeout" from="ProjectilesTimer" to="." method="_on_projectiles_timer_timeout"]
+[connection signal="body_entered" from="PowerArea" to="." method="_on_power_area_body_entered"]
+[connection signal="body_exited" from="PowerArea" to="." method="_on_power_area_body_exited"]

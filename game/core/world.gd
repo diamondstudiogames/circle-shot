@@ -14,6 +14,11 @@ signal local_team_set(team: int)
 ## Издаётся, когда какая-либо статистика (нанесённый урон и/или убийства) меняется.
 signal stats_changed
 
+## Издаётся при начале кат-сцены.
+signal cutscene_started
+## Издаётся при конце кат-сцены.
+signal cutscene_ended
+
 ## Амплитуда вибрации при нанесении урона.
 const HIT_VIBRATION_AMPLITUDE := 0.07
 ## Длительность вибрации при нанесении урона.
@@ -49,6 +54,8 @@ var cached_resources: Array[Resource]
 
 var _vibration_enabled: bool
 var _queued_hits: Array[Hit]
+var _cutscene_tween: Tween
+
 var _hit_marker_scene: PackedScene = load("uid://c2f0n1b5sfpdh")
 var _kill_marker_scene: PackedScene = load("uid://blhm6uka1p287")
 
@@ -116,6 +123,28 @@ func cleanup() -> void:
 		projectile.queue_free()
 	for other: Node in $Other.get_children():
 		other.queue_free()
+
+
+## Начинает кат-сцену: управление игроком прерывается и интерфейс скрывается.
+func start_cutscene() -> void:
+	if is_instance_valid(_cutscene_tween):
+		_cutscene_tween.kill()
+	_cutscene_tween = create_tween()
+	_cutscene_tween.tween_property($UI/Main as CanvasItem,
+			^":modulate", Color.TRANSPARENT, 0.5).from(Color.WHITE)
+	_cutscene_tween.tween_callback(($UI/Main as CanvasItem).hide)
+	cutscene_started.emit()
+
+
+## Заканчивает кат-сцену: возвращает управление игроком и показывает интерфейс.
+func end_cutscene() -> void:
+	if is_instance_valid(_cutscene_tween):
+		_cutscene_tween.kill()
+	($UI/Main as CanvasItem).show()
+	_cutscene_tween = create_tween()
+	_cutscene_tween.tween_property($UI/Main as CanvasItem,
+			^":modulate", Color.WHITE, 0.5)
+	cutscene_ended.emit()
 
 
 @rpc("unreliable", "call_local", "authority", 6)

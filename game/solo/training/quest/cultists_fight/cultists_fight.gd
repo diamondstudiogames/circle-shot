@@ -46,7 +46,6 @@ func _initialize() -> void:
 
 
 func _local_player_died() -> void:
-	_shake_timer = -8.0
 	ended.emit(false)
 
 
@@ -139,14 +138,11 @@ func _on_survived_timer_timeout() -> void:
 
 
 func _on_ended(victory: bool) -> void:
+	_shake_timer = -8.0
 	_freeze_entities()
 	_spawn_timer.stop()
 	($SurvivedTimer as Timer).stop()
 	($Music as AudioStreamPlayer).stop()
-	
-	if victory:
-		Globals.set_bool("quest_completed", true)
-		Globals.items_db.challenges.append(load("uid://b5jj0i68nm7qf"))
 	
 	var timer := Timer.new()
 	timer.wait_time = 7.0
@@ -154,4 +150,8 @@ func _on_ended(victory: bool) -> void:
 	timer.one_shot = true
 	add_child(timer)
 	await timer.timeout
+	if victory:
+		Globals.set_bool("quest_completed", true)
+		Globals.items_db.challenges.append(load("uid://b5jj0i68nm7qf"))
 	Globals.main.game.close()
+	Globals.main.open_menu()

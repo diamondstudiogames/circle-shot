@@ -2,6 +2,7 @@ class_name BigShotHuntingUI
 extends ChallengeUI
 ## Интерфейс испытания "Большая шишка".
 
+## Задаёт босса для полоски здоровья.
 func set_boss(boss: Entity) -> void:
 	($Main/BossHealthBar as BossHealthBar).set_boss(boss, "Большая шишка")
 	($Main/BossHealthBar as CanvasItem).show()

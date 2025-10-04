@@ -61,7 +61,7 @@ func _on_cultists_fight_ended(victory: bool) -> void:
 	elif Globals.get_bool("quest_completed"):
 		if victory:
 			show_dialog("Раз за разом ты побеждаешь нас... \
-Лучше попробуй одолеть [color]его[/color].")
+Лучше попробуй одолеть [color=red]его[/color].")
 		else:
 			show_dialog("Странно... Может, в прошлый раз \
 ты победил нас [color=yellow]случайно[/color]?")

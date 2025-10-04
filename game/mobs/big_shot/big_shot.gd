@@ -667,12 +667,12 @@ func _on_bandit_died(bandit: Entity, idx: int) -> void:
 		var ammo_box: Node2D = attack_bandits_ammo_box_scene.instantiate()
 		ammo_box.position = bandit.global_position
 		ammo_box.name += str(randi())
-		$"../../Other".add_child(ammo_box, true)
+		get_tree().get_first_node_in_group(&"other_parent").add_child(ammo_box, true)
 	else:
 		var heal_box: Node2D = attack_bandits_heal_box_scene.instantiate()
 		heal_box.position = bandit.global_position
 		heal_box.name += str(randi())
-		$"../../Other".add_child(heal_box, true)
+		get_tree().get_first_node_in_group(&"other_parent").add_child(heal_box, true)
 
 
 func _on_change_move_direction_timer_timeout() -> void:

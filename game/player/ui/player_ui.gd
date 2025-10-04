@@ -39,6 +39,7 @@ var _touch_start_position: Vector2
 var _weapon_selection_tween: Tween
 
 var _window_focused: bool
+var _in_cutscene := false
 
 var _health_immediate_bar_tween: Tween
 var _health_bar_tween: Tween
@@ -131,7 +132,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not is_instance_valid(_player):
+	if not is_instance_valid(_player) or _in_cutscene:
 		return
 	
 	_update_skill()
@@ -157,8 +158,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_PAUSED and input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
-		_reset_keyboard_and_mouse_inputs()
+	if what == NOTIFICATION_PAUSED:
+		if input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			_reset_keyboard_and_mouse_inputs()
+		_reset_inputs()
 
 
 func select_weapon(type: Weapon.Type) -> void:
@@ -412,6 +415,16 @@ func _process_controller_input() -> void:
 		select_previous_weapon()
 
 
+func _reset_inputs() -> void:
+	if not is_instance_valid(_player):
+		return
+	_player.entity_input.move_direction = Vector2.ZERO
+	_player.entity_input.turn_with_aim = false
+	_player.player_input.showing_aim = false
+	_player.player_input.shooting = false
+	_player.player_input.interacting = false
+
+
 func _reset_keyboard_and_mouse_inputs() -> void:
 	_moving_left = false
 	_moving_right = false
@@ -420,14 +433,6 @@ func _reset_keyboard_and_mouse_inputs() -> void:
 	_shooting = false
 	_showing_aim = false
 	_interacting = false
-
-
-func _reset_controller_inputs() -> void:
-	_player.entity_input.move_direction = Vector2.ZERO
-	_player.entity_input.turn_with_aim = false
-	_player.player_input.showing_aim = false
-	_player.player_input.shooting = false
-	_player.player_input.interacting = false
 
 
 func _update_skill() -> void:
@@ -610,6 +615,15 @@ func _on_aim_joystick_released(output: Vector2) -> void:
 		_single_shot_timer.start()
 
 
+func _on_window_focus_changed(focus: bool) -> void:
+	_window_focused = focus
+	if not focus:
+		# Сброс состояния ввода во избежании неприятных ситуаций из-за потери управления
+		if input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			_reset_keyboard_and_mouse_inputs()
+		_reset_inputs()
+
+
 func _on_local_player_created(player: Player) -> void:
 	_player = player
 	
@@ -633,16 +647,15 @@ func _on_local_player_created(player: Player) -> void:
 	_player.player_input.interactibles_changed.connect(_on_player_input_interactibles_changed)
 
 
+func _on_cutscene_started() -> void:
+	_in_cutscene = true
+	_reset_inputs()
+
+
+func _on_cutscene_ended() -> void:
+	_in_cutscene = false
+
+
 func _on_single_shot_timer_timeout() -> void:
 	if is_instance_valid(_player):
 		_player.player_input.shooting = false
-
-
-func _on_window_focus_changed(focus: bool) -> void:
-	_window_focused = focus
-	if not focus:
-		# Сброс состояни ввода во избежании неприятных ситуаций из-за потери управления
-		if input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
-			_reset_keyboard_and_mouse_inputs()
-		elif input_method == Globals.InputMethod.CONTROLLER and is_instance_valid(_player):
-			_reset_controller_inputs()

@@ -94,6 +94,8 @@ bus = &"Music"
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [PackedStringArray("hit_marker", "kill_marker"), [ExtResource("13_ka3gv"), ExtResource("14_e8smu")]]
 
+[connection signal="cutscene_ended" from="." to="UI/Main/PlayerUI" method="_on_cutscene_ended"]
+[connection signal="cutscene_started" from="." to="UI/Main/PlayerUI" method="_on_cutscene_started"]
 [connection signal="local_player_created" from="." to="UI/Main/PlayerUI" method="_on_local_player_created"]
 [connection signal="child_entered_tree" from="Entities" to="." method="_on_entities_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Entities" to="." method="_on_entities_child_exiting_tree"]

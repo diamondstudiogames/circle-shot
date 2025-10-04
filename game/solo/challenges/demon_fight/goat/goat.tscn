@@ -1,12 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://crqa4y5qrwe16"]
+[gd_scene load_steps=73 format=3 uid="uid://crqa4y5qrwe16"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_k3o16"]
 [ext_resource type="Script" uid="uid://eqrn58t8o13j" path="res://game/solo/challenges/demon_fight/goat/goat.gd" id="2_i1c5v"]
 [ext_resource type="Texture2D" uid="uid://dsxuhsygo7g4p" path="res://game/solo/challenges/demon_fight/goat/goat_atlas.png" id="2_rxp3c"]
+[ext_resource type="PackedScene" uid="uid://bd5b1kibfjck6" path="res://game/solo/challenges/demon_fight/goat/altar/altar.tscn" id="3_5klji"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_b5mrw"]
 [ext_resource type="Texture2D" uid="uid://bvps7ka4brr5o" path="res://game/mobs/common/boss_minimap_marker.png" id="3_c8w87"]
 [ext_resource type="PackedScene" uid="uid://dtebsuda2o6v3" path="res://game/solo/challenges/demon_fight/goat/daggers/goat_bloody_dagger_projectile.tscn" id="3_wr4d6"]
 [ext_resource type="PackedScene" uid="uid://drdwyjli16ebx" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword_projectile.tscn" id="4_2yjeq"]
+[ext_resource type="PackedScene" uid="uid://balyq2gxkh127" path="res://game/solo/challenges/demon_fight/goat/final_attack/goat_final_attack.tscn" id="4_yh5re"]
 [ext_resource type="PackedScene" uid="uid://dl34a52ytjh4n" path="res://game/solo/challenges/demon_fight/goat/lightnings/lightning_bolt.tscn" id="5_7y1wt"]
 [ext_resource type="Texture2D" uid="uid://dyeguhjc2xyis" path="res://game/solo/challenges/demon_fight/goat/dash/dash_effect.png" id="6_0xsrn"]
 [ext_resource type="Script" uid="uid://toclhmkyrbc1" path="res://game/solo/challenges/demon_fight/goat/dash/knockback_attack.gd" id="6_hhrq3"]
@@ -21,6 +23,14 @@
 [ext_resource type="PackedScene" uid="uid://bdwj0acfcu4yr" path="res://game/solo/challenges/demon_fight/goat/cultists/heal_box.tscn" id="12_dvc1d"]
 [ext_resource type="Texture2D" uid="uid://c3cf2jj0xygi" path="res://game/solo/challenges/demon_fight/goat/pentagrams/floor_pentagram.png" id="12_mbgp5"]
 [ext_resource type="PackedScene" uid="uid://b0wfi12hhw7bt" path="res://game/solo/challenges/demon_fight/goat/cultists/ammo_box.tscn" id="13_nu1v0"]
+[ext_resource type="PackedScene" uid="uid://cyd2t88bc5c0r" path="res://game/solo/challenges/demon_fight/goat/big_shot/big_shot_projectile.tscn" id="14_r72mv"]
+[ext_resource type="PackedScene" uid="uid://d3qkueb6bersk" path="res://game/solo/challenges/demon_fight/goat/pentagrams/floor_pentagram.tscn" id="15_jrieu"]
+[ext_resource type="PackedScene" uid="uid://c6f1kuoqye764" path="res://game/solo/challenges/demon_fight/goat/big_shot/big_shot_down.tscn" id="16_g7o3a"]
+[ext_resource type="PackedScene" uid="uid://byirv1vrexocl" path="res://game/solo/challenges/demon_fight/goat/vfx/goat_blood_hurt_vfx.tscn" id="17_iuwl3"]
+[ext_resource type="Texture2D" uid="uid://b2i3ikm51rl3o" path="res://game/solo/challenges/demon_fight/goat/big_shot/big_shot.png" id="17_nu1v0"]
+[ext_resource type="PackedScene" uid="uid://bgtjfid2bnpya" path="res://game/solo/challenges/demon_fight/goat/vfx/goat_death_vfx.tscn" id="18_07pyh"]
+[ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="19_bb3ax"]
+[ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="20_jrieu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5mrw"]
 radius = 72.0
@@ -186,6 +196,121 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Goat/Base/ShootPoint/BigShot:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Goat/Base/ShootPoint/BigShot:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Goat/Base/ShootPoint/BigShot:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PentagramEffect:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_nu1v0"]
+resource_name = "big"
+length = 1.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat/Base/ShootPoint/BigShot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat/Base/ShootPoint/BigShot:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goat/Base/Mouth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(101, -9), Vector2(101, 30), Vector2(101, 30), Vector2(101, -9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goat/Base/ShootPoint/BigShot:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_big_shot"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_hg3s7"]
 resource_name = "cultists"
@@ -342,6 +467,85 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.5, 1),
 "update": 0,
 "values": [Vector2(101, -9), Vector2(101, 19), Vector2(101, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_bb3ax"]
+resource_name = "floor"
+length = 2.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 1.9, 2.05, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(-9, -60), Vector2(13.000001, 6), Vector2(13.000001, 6), Vector2(6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 1.9, 2.05, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.15792416, 0.07417901, 0.07417901, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_spawn_floor_pentagrams"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PentagramEffect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 1.9, 2.5),
+"transitions": PackedFloat32Array(1, 2, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PentagramEffect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PentagramEffect:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.9, 2.5),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.25), Vector2(0.5, 0.25), Vector2(1, 0.5)]
 }
 
 [sub_resource type="Animation" id="Animation_c8w87"]
@@ -562,15 +766,26 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c8w87"]
 _data = {
 &"RESET": SubResource("Animation_i1c5v"),
+&"big": SubResource("Animation_nu1v0"),
 &"cultists": SubResource("Animation_hg3s7"),
 &"daggers": SubResource("Animation_2yjeq"),
 &"dash": SubResource("Animation_wr4d6"),
 &"fireballs": SubResource("Animation_7y1wt"),
+&"floor": SubResource("Animation_bb3ax"),
 &"idle": SubResource("Animation_c8w87"),
 &"pentagrams": SubResource("Animation_pppis"),
 &"summon": SubResource("Animation_mbgp5"),
 &"walk": SubResource("Animation_b5mrw")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nu1v0"]
+animation = &"big"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_r72mv"]
+filter_enabled = true
+filters = ["..", "Goat/Base/Mouth:position", "Goat/Base/ShootPoint/BigShot:scale", "Goat/Base/ShootPoint/BigShot:self_modulate", "Goat/Base/ShootPoint/BigShot:visible"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_1lvv3"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6jhbq"]
 animation = &"cultists"
@@ -605,6 +820,15 @@ animation = &"fireballs"
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_mbgp5"]
 filter_enabled = true
 filters = ["Goat/Base/Mouth:position"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bb3ax"]
+animation = &"floor"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jrieu"]
+filter_enabled = true
+filters = ["..", "Goat:position", "Goat:rotation", "PentagramEffect:scale", "PentagramEffect:self_modulate", "PentagramEffect:visible"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_g7o3a"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m70k1"]
 animation = &"idle"
@@ -644,8 +868,8 @@ animation = &"walk"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0xsrn"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wr4d6"]
-graph_offset = Vector2(1458.2874, 299.35754)
-nodes/output/position = Vector2(2900, 20)
+graph_offset = Vector2(2089.9758, -21.459808)
+nodes/output/position = Vector2(3860, 20)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_hhrq3")
 nodes/Walk/position = Vector2(-600, 280)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_m70k1")
@@ -686,7 +910,19 @@ nodes/CultistsTimeScale/node = SubResource("AnimationNodeTimeScale_dvc1d")
 nodes/CultistsTimeScale/position = Vector2(2360, 260)
 nodes/Cultists/node = SubResource("AnimationNodeAnimation_6jhbq")
 nodes/Cultists/position = Vector2(2140, 420)
-node_connections = [&"output", 0, &"CultistsOneShot", &"IdleWalkTransition", 0, &"Idle", &"IdleWalkTransition", 1, &"WalkTimeScale", &"WalkTimeScale", 0, &"Walk", &"DashOneShot", 0, &"IdleWalkTransition", &"DashOneShot", 1, &"Dash", &"DaggersOneShot", 0, &"DashOneShot", &"DaggersOneShot", 1, &"DaggersTimeScale", &"DaggersTimeScale", 0, &"Daggers", &"SummonOneShot", 0, &"DaggersOneShot", &"SummonOneShot", 1, &"SummonTimeScale", &"SummonTimeScale", 0, &"Summon", &"FireballsOneShot", 0, &"SummonOneShot", &"FireballsOneShot", 1, &"Fireballs", &"PentagramsOneShot", 0, &"FireballsOneShot", &"PentagramsOneShot", 1, &"PentagramsTimeScale", &"PentagramsTimeScale", 0, &"Pentagrams", &"CultistsOneShot", 0, &"PentagramsOneShot", &"CultistsOneShot", 1, &"CultistsTimeScale", &"CultistsTimeScale", 0, &"Cultists"]
+nodes/BigOneShot/node = SubResource("AnimationNodeOneShot_r72mv")
+nodes/BigOneShot/position = Vector2(3040, 0)
+nodes/BigTimeScale/node = SubResource("AnimationNodeTimeScale_1lvv3")
+nodes/BigTimeScale/position = Vector2(2840, 320)
+nodes/Big/node = SubResource("AnimationNodeAnimation_nu1v0")
+nodes/Big/position = Vector2(2600, 400)
+nodes/FloorOneShot/node = SubResource("AnimationNodeOneShot_jrieu")
+nodes/FloorOneShot/position = Vector2(3460, -20)
+nodes/FloorTimeScale/node = SubResource("AnimationNodeTimeScale_g7o3a")
+nodes/FloorTimeScale/position = Vector2(3240, 320)
+nodes/Floor/node = SubResource("AnimationNodeAnimation_bb3ax")
+nodes/Floor/position = Vector2(3040, 400)
+node_connections = [&"output", 0, &"FloorOneShot", &"IdleWalkTransition", 0, &"Idle", &"IdleWalkTransition", 1, &"WalkTimeScale", &"WalkTimeScale", 0, &"Walk", &"DashOneShot", 0, &"IdleWalkTransition", &"DashOneShot", 1, &"Dash", &"DaggersOneShot", 0, &"DashOneShot", &"DaggersOneShot", 1, &"DaggersTimeScale", &"DaggersTimeScale", 0, &"Daggers", &"SummonOneShot", 0, &"DaggersOneShot", &"SummonOneShot", 1, &"SummonTimeScale", &"SummonTimeScale", 0, &"Summon", &"FireballsOneShot", 0, &"SummonOneShot", &"FireballsOneShot", 1, &"Fireballs", &"PentagramsOneShot", 0, &"FireballsOneShot", &"PentagramsOneShot", 1, &"PentagramsTimeScale", &"PentagramsTimeScale", 0, &"Pentagrams", &"CultistsOneShot", 0, &"PentagramsOneShot", &"CultistsOneShot", 1, &"CultistsTimeScale", &"CultistsTimeScale", 0, &"Cultists", &"BigOneShot", 0, &"CultistsOneShot", &"BigOneShot", 1, &"BigTimeScale", &"BigTimeScale", 0, &"Big", &"FloorOneShot", 0, &"BigOneShot", &"FloorOneShot", 1, &"FloorTimeScale", &"FloorTimeScale", 0, &"Floor"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wr4d6"]
 radius = 116.0
@@ -695,8 +931,10 @@ radius = 116.0
 script = ExtResource("2_i1c5v")
 min_distance = 500.0
 random_point_from_target_distance = 1600.0
+altar_scene = ExtResource("3_5klji")
 attack_interval_min = 0.8
-attack_interval_max = 1.5
+attack_interval_max = 1.6
+attack_final_scene = ExtResource("4_yh5re")
 attack_dash_speed = 2000.0
 attack_dash_dash_duration = 1.0
 attack_dash_duration = 2.1
@@ -726,7 +964,7 @@ attack_fireballs_summon_count2 = 5
 attack_fireballs_summon_duration = 0.7
 attack_fireballs_count = 7
 attack_fireballs_count2 = 10
-attack_fireballs_angle_interval = 18.0
+attack_fireballs_angle_interval = 20.0
 attack_fireballs_spread = 12.0
 attack_fireballs_projectile_scene = ExtResource("7_lgkcq")
 attack_pentagrams_count = 12
@@ -735,20 +973,31 @@ attack_pentagrams_summon_duration = 1.0
 attack_pentagrams_scene = ExtResource("8_hg3s7")
 attack_pentagrams_scene2 = ExtResource("9_gghdl")
 attack_cultists_count = 2
-attack_cultists_count2 = 4
+attack_cultists_count2 = 3
 attack_cultists_summon_duration = 1.0
 attack_cultists_attacks_interval = 15
 attack_cultists_scenes = Array[PackedScene]([ExtResource("10_6jhbq"), ExtResource("11_ye6st")])
 attack_cultists_boxes_scenes = Array[PackedScene]([ExtResource("12_dvc1d"), ExtResource("13_nu1v0")])
+attack_big_summon_duration = 1.3
+attack_big_summon_count = 2
+attack_big_summon_count2 = 4
+attack_big_second_phase_speedup = 1.5
+attack_big_projectile_scene = ExtResource("14_r72mv")
+attack_floor_count = 3
+attack_floor_summon_duration = 2.5
+attack_floor_scene = ExtResource("15_jrieu")
+attack_down_duration = 0.5
+attack_down_spawn_interval = 0.15
+attack_down_count = 8
+attack_down_scene = ExtResource("16_g7o3a")
 vision_distance = 4400.0
 speed = 480.0
 max_health = 2000
 always_visible_on_minimap = true
-metadata/_edit_horizontal_guides_ = [110.0]
-metadata/_edit_vertical_guides_ = [-86.0]
+hurt_vfx_scene = ExtResource("17_iuwl3")
+death_vfx_scene = ExtResource("18_07pyh")
 
 [node name="CollisionShape2D" parent="." index="2"]
-z_index = 1
 position = Vector2(0, 16)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_b5mrw")
@@ -813,8 +1062,23 @@ texture = ExtResource("2_rxp3c")
 region_enabled = true
 region_rect = Rect2(8, 296, 24, 16)
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Goat" index="5"]
-position = Vector2(110, -45)
+[node name="ShootPoint" type="Marker2D" parent="Visual/Goat/Base" index="2"]
+position = Vector2(99, -19)
+
+[node name="BigShot" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint" index="0"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+material = ExtResource("3_b5mrw")
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("17_nu1v0")
+
+[node name="Light" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint/BigShot" index="0"]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+material = ExtResource("19_bb3ax")
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("20_jrieu")
 
 [node name="DashEffect" type="Sprite2D" parent="Visual" index="1"]
 visible = false
@@ -864,6 +1128,14 @@ parameters/CultistsOneShot/active = false
 parameters/CultistsOneShot/internal_active = false
 parameters/CultistsOneShot/request = 0
 parameters/CultistsTimeScale/scale = 1.0
+parameters/BigOneShot/active = false
+parameters/BigOneShot/internal_active = false
+parameters/BigOneShot/request = 0
+parameters/BigTimeScale/scale = 1.0
+parameters/FloorOneShot/active = false
+parameters/FloorOneShot/internal_active = false
+parameters/FloorOneShot/request = 0
+parameters/FloorTimeScale/scale = 1.0
 
 [node name="DashAttacks" type="Node2D" parent="Visual" index="5"]
 process_mode = 4
@@ -875,7 +1147,7 @@ process_mode = 4
 script = ExtResource("6_hhrq3")
 knockback_power = 1440.0
 knockback_duration = 0.2
-damage = 24
+damage = 20
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
 [node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/KnockbackAttack" index="0"]
@@ -893,7 +1165,7 @@ shape = SubResource("CircleShape2D_wr4d6")
 process_mode = 4
 script = ExtResource("8_hhrq3")
 stun_duration = 2.0
-damage = 30
+damage = 25
 damage_interval = 2.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 

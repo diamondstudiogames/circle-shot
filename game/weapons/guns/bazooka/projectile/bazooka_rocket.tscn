@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqhttq0m4j1p6"]
+[gd_scene load_steps=11 format=3 uid="uid://cqhttq0m4j1p6"]
 
-[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_jgst8"]
+[ext_resource type="PackedScene" uid="uid://caamstm6bqh7q" path="res://game/entity/attack/projectile/exploding_projectile.tscn" id="1_jgst8"]
 [ext_resource type="Texture2D" uid="uid://lnp8fiurpu2v" path="res://game/weapons/guns/bazooka/projectile/projectile.png" id="2_6c7jb"]
-[ext_resource type="Script" uid="uid://dxbtc1x50xcwv" path="res://game/weapons/guns/bazooka/projectile/bazooka_rocket.gd" id="2_7dcoq"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_7dcoq"]
 [ext_resource type="PackedScene" uid="uid://csv5dwyvt57x6" path="res://game/weapons/guns/bazooka/projectile/explosion_vfx.tscn" id="3_jrmds"]
-[ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="5_jrmds"]
 [ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="5_oxn8s"]
-[ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="6_wxhwr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgst8"]
 radius = 16.0
@@ -38,7 +35,6 @@ animations = [{
 radius = 200.0
 
 [node name="BazookaRocket" instance=ExtResource("1_jgst8")]
-script = ExtResource("2_7dcoq")
 speed = 2600.0
 hit_vfx_scene = ExtResource("3_jrmds")
 hit_wall_vfx_scene = ExtResource("3_jrmds")
@@ -61,31 +57,11 @@ sprite_frames = SubResource("SpriteFrames_pfrdv")
 autoplay = "default"
 frame_progress = 0.582153
 
-[node name="Timer" parent="." index="2"]
-wait_time = 10.0
-
-[node name="Explosion" type="Node2D" parent="." index="4"]
-top_level = true
-script = ExtResource("6_wxhwr")
+[node name="Explosion" parent="." index="4"]
 damage = 55
 damage_interval = 0.5
-metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Explosion" index="0"]
-collision_layer = 4
-collision_mask = 66
-monitorable = false
-script = ExtResource("5_jrmds")
-metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/AreaDetector" index="0"]
+[node name="CollisionShape2D" parent="Explosion/AreaDetector" index="0"]
 shape = SubResource("CircleShape2D_jrmds")
-disabled = true
-
-[node name="Timer" type="Timer" parent="Explosion" index="1"]
-process_callback = 0
-wait_time = 0.3
-one_shot = true
 
 [connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]
-[connection signal="timeout" from="Explosion/Timer" to="Explosion/AreaDetector/CollisionShape2D" method="set_disabled" flags=3 binds= [true]]

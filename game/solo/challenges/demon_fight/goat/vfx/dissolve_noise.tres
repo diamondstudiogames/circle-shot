@@ -1,0 +1,18 @@
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://dlmtcvf64sg51"]
+
+[sub_resource type="Gradient" id="Gradient_fo5nm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_56hxu"]
+noise_type = 0
+seed = 1
+frequency = 0.005
+fractal_octaves = 4
+fractal_gain = 2.0
+
+[resource]
+width = 136
+height = 136
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_56hxu")
+color_ramp = SubResource("Gradient_fo5nm")

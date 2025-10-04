@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xlq1mw3auadp"]
+[gd_scene load_steps=20 format=3 uid="uid://xlq1mw3auadp"]
 
 [ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_xc66l"]
 [ext_resource type="Script" uid="uid://4q58pai5me2m" path="res://game/solo/challenges/demon_fight/demon_fight.gd" id="2_4d8qd"]
@@ -9,6 +9,217 @@
 [ext_resource type="PackedScene" uid="uid://cr4tmpoe2mwoj" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_bloody_daggers.tscn" id="5_3ns2w"]
 [ext_resource type="PackedScene" uid="uid://6cqtx3ewy2xd" path="res://game/shared/ui/boss_health_bar/boss_health_bar.tscn" id="5_xp7bv"]
 [ext_resource type="PackedScene" uid="uid://ctr0ot22muh0a" path="res://game/solo/challenges/demon_fight/goat/cultists/cultist_scythe.tscn" id="6_v14lo"]
+[ext_resource type="PackedScene" uid="uid://bd5b1kibfjck6" path="res://game/solo/challenges/demon_fight/goat/altar/altar.tscn" id="7_3ns2w"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="11_tglhq"]
+[ext_resource type="Texture2D" uid="uid://o7ojvmifiopy" path="res://game/solo/challenges/demon_fight/light_star.png" id="11_vf1pe"]
+[ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="12_tglhq"]
+[ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="13_ptmo4"]
+
+[sub_resource type="Animation" id="Animation_vf1pe"]
+resource_name = "appear"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tglhq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tint:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tint/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ptmo4"]
+resource_name = "glowing"
+length = 3.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-1.1, -1.1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.8784314)]
+}
+
+[sub_resource type="Animation" id="Animation_yri02"]
+resource_name = "disappear"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tint:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tint/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 0), Color(1, 1, 0, 0.1254902), Color(1, 1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rmwo"]
+_data = {
+&"RESET": SubResource("Animation_tglhq"),
+&"appear": SubResource("Animation_vf1pe"),
+&"disappear": SubResource("Animation_yri02"),
+&"glowing": SubResource("Animation_ptmo4")
+}
 
 [node name="DemonFight" instance=ExtResource("1_xc66l")]
 script = ExtResource("2_4d8qd")
@@ -16,11 +227,13 @@ coins_for_win = 40
 coins_for_win_first_time = 500
 coins_for_kill = 3
 damage_for_coin = 80.0
-entity_scenes = Array[PackedScene]([ExtResource("3_7whrh"), ExtResource("4_xp7bv"), ExtResource("5_3ns2w"), ExtResource("6_v14lo")])
+entity_scenes = Array[PackedScene]([ExtResource("3_7whrh"), ExtResource("4_xp7bv"), ExtResource("5_3ns2w"), ExtResource("6_v14lo"), ExtResource("7_3ns2w")])
 tracks = Array[AudioStream]([ExtResource("3_lm2rq")])
 
 [node name="UI" parent="." index="8"]
 script = ExtResource("4_7whrh")
+character_type_interval = 0.03
+grammar_pause = 0.5
 
 [node name="BossHealthBar" parent="UI/Main" index="5" instance=ExtResource("5_xp7bv")]
 visible = false
@@ -43,3 +256,62 @@ text = "Сразись с демоном-козлом!"
 [node name="Text" parent="UI/Intro" index="2"]
 text = "Покажи ему, на
 что ты способен!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI" index="3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+
+[node name="CutsceneTimer" type="Timer" parent="." index="17"]
+one_shot = true
+
+[node name="LightStar" type="Sprite2D" parent="." index="18"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = -4
+material = ExtResource("11_tglhq")
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("11_vf1pe")
+
+[node name="Light" type="Sprite2D" parent="LightStar" index="0"]
+self_modulate = Color(1, 0.8901961, 0, 0.5019608)
+show_behind_parent = true
+material = ExtResource("12_tglhq")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_ptmo4")
+
+[node name="Tint" type="CanvasLayer" parent="LightStar" index="1"]
+layer = 7
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="LightStar/Tint" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LightStar" index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_1rmwo")
+}
+next/appear = &"glowing"
