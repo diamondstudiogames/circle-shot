@@ -3,6 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="1_8biv1"]
 
 [node name="AmmoBox" instance=ExtResource("1_8biv1")]
-ammo_restore_ratio = 0.5
+ammo_restore_ratio = 0.4
 
 [editable path="MinimapMarker"]

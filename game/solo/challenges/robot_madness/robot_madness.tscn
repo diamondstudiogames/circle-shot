@@ -30,8 +30,8 @@ metadata/_snap_enabled = true
 
 [sub_resource type="Curve" id="Curve_leind"]
 _limits = [0.0, 12.0, 0.0, 200.0]
-_data = [Vector2(0, 4.8), 0.0, 0.0, 0, 0, Vector2(200, 12), 0.09180856, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 4.8), 0.0, 0.0, 0, 0, Vector2(160, 8.400001), 0.07930872, 0.07930872, 0, 0, Vector2(200, 6), 0.0014359504, 0.0, 0, 0]
+point_count = 3
 metadata/_snap_enabled = true
 
 [node name="Challenge" instance=ExtResource("1_rn47e")]
@@ -42,9 +42,9 @@ speed_multiplier_curve = SubResource("Curve_yej0p")
 spawn_interval_curve = SubResource("Curve_leind")
 points_for_heal_box = 30
 points_for_ammo_box = 65
-seconds_survived_for_coin = 20.0
-points_for_coin = 19.0
-damage_for_coin = 154.0
+seconds_survived_for_coin = 15.0
+points_for_coin = 13.0
+damage_for_coin = 100.0
 points_for_speed_multiplier_base = 6.5
 points_for_damage_multiplier_base = 11.0
 points_for_health_base = 0.05000000000291038
