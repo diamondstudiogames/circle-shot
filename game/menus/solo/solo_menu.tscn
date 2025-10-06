@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://behtxlo4s5s3"]
+[gd_scene load_steps=15 format=3 uid="uid://behtxlo4s5s3"]
 
 [ext_resource type="Script" uid="uid://dkaftynok7hlv" path="res://game/menus/solo/solo_menu.gd" id="1_cxrwa"]
 [ext_resource type="Texture2D" uid="uid://bu318tyxjskrf" path="res://game/menus/solo/background.png" id="2_upj1m"]
@@ -10,8 +10,10 @@
 [ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="7_be2i2"]
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="8_7q66i"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="9_be2i2"]
+[ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="9_y0c3c"]
 [ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="10_muk5r"]
 [ext_resource type="Texture2D" uid="uid://eyfsi3j0o04s" path="res://menu/theme/icons/change_map.png" id="11_y0c3c"]
+[ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_07mr3"]
 
 [node name="SoloMenu" type="Control"]
 layout_mode = 3
@@ -144,9 +146,11 @@ layout_mode = 2
 size_flags_vertical = 2
 alignment = 1
 
-[node name="Spacer" type="Control" parent="Challenges/VBoxContainer/Title"]
+[node name="Presets" type="Button" parent="Challenges/VBoxContainer/Title"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
+icon = ExtResource("9_y0c3c")
 
 [node name="Title" type="Label" parent="Challenges/VBoxContainer/Title"]
 layout_mode = 2
@@ -264,11 +268,16 @@ ok_button_text = "Пройти"
 dialog_text = "Ты действительно хочешь пройти обучение повторно?"
 cancel_button_text = "Отмена"
 
+[node name="PresetManager" parent="." instance=ExtResource("14_07mr3")]
+visible = false
+equip_selector_path = NodePath("../Challenges/VBoxContainer/EquipSelector")
+
 [connection signal="pressed" from="Base/Margin/VBox/Title/Tutorial" to="TutorialDialog" method="popup_centered"]
 [connection signal="pressed" from="Base/Margin/VBox/Title/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Story" to="." method="_on_story_pressed"]
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Challenges" to="." method="_on_challenges_pressed"]
 [connection signal="pressed" from="Base/Margin/VBox/Buttons/Training" to="." method="_on_training_pressed"]
+[connection signal="pressed" from="Challenges/VBoxContainer/Title/Presets" to="PresetManager" method="popup_centered"]
 [connection signal="pressed" from="Challenges/VBoxContainer/Title/QuitChallenges" to="." method="_on_quit_challenges_pressed"]
 [connection signal="pressed" from="Challenges/VBoxContainer/Buttons/StartChallenge" to="." method="_on_start_challenge_pressed"]
 [connection signal="pressed" from="Challenges/VBoxContainer/Buttons/ChangeChallenge" to="." method="_on_change_challenge_pressed"]

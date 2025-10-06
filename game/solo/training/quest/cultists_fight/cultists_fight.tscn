@@ -17,8 +17,8 @@
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="12_kh07j"]
 
 [sub_resource type="Curve" id="Curve_pbgwp"]
-_limits = [0.0, 5.0, 0.0, 100.0]
-_data = [Vector2(0, 1.25), 0.0, 0.03082077, 0, 0, Vector2(10, 3.25), 0.022197597, -0.0010173889, 0, 0, Vector2(100, 2), -0.020550704, 0.0, 0, 0]
+_limits = [0.0, 5.0, 0.0, 120.0]
+_data = [Vector2(0, 1.25), 0.0, 0.03082077, 0, 0, Vector2(10, 3.25), 0.022197597, -0.0010173889, 0, 0, Vector2(120, 2.5), -0.01167535, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
 metadata/_snap_count = 20

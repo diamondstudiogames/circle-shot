@@ -3,6 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="1_saji1"]
 
 [node name="HealBox" instance=ExtResource("1_saji1")]
-heal_amount = 40
+heal_amount = 35
 
 [editable path="MinimapMarker"]

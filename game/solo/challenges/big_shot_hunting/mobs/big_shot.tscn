@@ -203,7 +203,7 @@ _data = {
 }
 
 [node name="BigShot" instance=ExtResource("1_rwgy5")]
-attack_bandits_scenes = Array[PackedScene]([ExtResource("2_31nw0"), ExtResource("3_ch4f1"), ExtResource("4_3rmjc"), ExtResource("5_ao424"), ExtResource("6_4khue")])
+attack_bandits_scenes = Array[PackedScene]([ExtResource("4_3rmjc"), ExtResource("2_31nw0"), ExtResource("5_ao424"), ExtResource("6_4khue"), ExtResource("3_ch4f1")])
 vision_distance = 11520.0
 
 [node name="AnimationPlayer" parent="Visual/Weapon/HEGrenade" index="2"]

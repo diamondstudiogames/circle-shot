@@ -23,11 +23,15 @@ func _show_data() -> void:
 	(%Support as TextureRect).texture = load(Globals.items_db.weapons_by_id[data[3]].image_path)
 	(%Melee as TextureRect).texture = load(Globals.items_db.weapons_by_id[data[4]].image_path)
 	(%PresetName as Label).text = Globals.get_string("preset_%d_name" % idx)
+	if is_node_ready():
+		($Main/Buttons/Save as Control).grab_focus()
 
 
 func _show_empty() -> void:
 	($Main as CanvasItem).hide()
 	($Empty as CanvasItem).show()
+	if is_node_ready():
+		($Empty/Add as Control).grab_focus()
 
 
 func _validate_preset() -> void:

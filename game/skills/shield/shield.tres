@@ -8,11 +8,11 @@ name = "Щит"
 rarity = 1
 id = "shield"
 stats = Dictionary[String, String]({
-"cooldown": "20",
+"cooldown": "15",
 "count": "3",
-"duration": "3.5",
-"protection": "50",
-"slowdown": "30"
+"duration": "4",
+"protection": "60",
+"slowdown": "25"
 })
 brief_description = "Защищает и замедляет"
 description = "[color=deep_sky_blue]Защищает и замедляет[/color]

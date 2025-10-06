@@ -6,9 +6,11 @@
 [node name="EnergyDrink" type="Node2D"]
 script = ExtResource("1_mig33")
 speed_boost = 0.25
-damage_boost = 0.2
-defense_boost = 0.15
+damage_boost = 0.3
+defense_boost = 0.2
+boost_duration = 6.0
 use_times = 3
+use_cooldown = 25
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 
 [node name="Timer" type="Timer" parent="."]

@@ -1523,6 +1523,10 @@ layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
+[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Normal/Header/Close" index="0"]
+script = ExtResource("18_ucqos")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
+
 [node name="Welcome" type="Label" parent="UI/Guide/PanelContainer/Normal" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1539,7 +1543,7 @@ text = "Здесь ты можешь сражаться в любом окруж
 
 В редакторе можно расставлять четыре вида блоков, а также различных врагов. По клику на установленного врага можно изменить его параметры (урон и здоровье). Не забывай сохранять изменения перед выходом из редактора!
 
-Однако помни, что в 3 часа ночи Тренировка не работает!"
+Однако помни, что в 3 часа ночи тренироваться не рекомендуется!"
 autowrap_mode = 2
 
 [node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Normal" index="3"]

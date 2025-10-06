@@ -66,8 +66,11 @@ _data = {
 
 [node name="Shield" type="Node2D"]
 script = ExtResource("1_608e5")
+protection = 0.6
+slowdown = 0.25
+duration = 4.0
 use_times = 3
-use_cooldown = 20
+use_cooldown = 15
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

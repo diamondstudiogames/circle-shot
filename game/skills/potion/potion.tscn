@@ -5,7 +5,7 @@
 
 [node name="Potion" type="Node2D"]
 script = ExtResource("1_otbai")
-heal_amount = 50
+heal_amount = 45
 use_cooldown = 50
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 

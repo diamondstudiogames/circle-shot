@@ -9,7 +9,7 @@ id = "potion"
 stats = Dictionary[String, String]({
 "cooldown": "50",
 "count": "2",
-"heals": "50"
+"heals": "45"
 })
 brief_description = "Исцеляет {heals} ОЗ"
 description = "[color=deep_sky_blue]Исцеляет[/color]

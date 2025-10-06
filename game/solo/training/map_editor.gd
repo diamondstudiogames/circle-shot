@@ -194,12 +194,12 @@ func _update_enemies() -> void:
 		tb.stretch_mode = TextureButton.STRETCH_SCALE
 		tb.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 		
-		tb.size = Vector2.ONE * 64
+		tb.size = Vector2.ONE * 48
 		tb.scale = Vector2.ONE / _map.scale
-		tb.pivot_offset = Vector2.ONE * 32
+		tb.pivot_offset = Vector2.ONE * 24
 		_map.add_child(tb)
 		tb.position = Vector2(enemy_data.coords) + Vector2.ONE * 0.5
-		tb.position -= Vector2.ONE * 32 # компенсируем pivot_offset
+		tb.position -= Vector2.ONE * 24 # компенсируем pivot_offset
 		
 		tb.pressed.connect(_edit_enemy.bind(idx))
 

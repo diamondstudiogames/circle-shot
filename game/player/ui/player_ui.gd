@@ -37,6 +37,7 @@ var _touch_index: int = -1
 var _touch_timer := 0.0
 var _touch_start_position: Vector2
 var _weapon_selection_tween: Tween
+var _single_shot_lock_aim := false
 
 var _window_focused: bool
 var _in_cutscene := false
@@ -326,7 +327,7 @@ func _process_touch_input_method(delta: float) -> void:
 		_player.entity_input.turn_with_aim = true
 	else:
 		_player.player_input.showing_aim = false
-		_player.entity_input.turn_with_aim = false
+		_player.entity_input.turn_with_aim = _single_shot_lock_aim
 	
 	if not _joystick_fire:
 		_player.player_input.shooting = _shoot_area.is_pressed()
@@ -612,6 +613,9 @@ func _on_aim_joystick_released(output: Vector2) -> void:
 			and not output.is_zero_approx()
 	):
 		_player.player_input.shooting = true
+		_player.player_input.aim_direction = output.normalized() * MIN_AIM_DIRECTION_LENGTH + \
+				output * (1.0 - MIN_AIM_DIRECTION_LENGTH)
+		_single_shot_lock_aim = true
 		_single_shot_timer.start()
 
 
@@ -659,3 +663,4 @@ func _on_cutscene_ended() -> void:
 func _on_single_shot_timer_timeout() -> void:
 	if is_instance_valid(_player):
 		_player.player_input.shooting = false
+		_single_shot_lock_aim = false

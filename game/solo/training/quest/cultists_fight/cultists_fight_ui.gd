@@ -50,6 +50,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_cultists_fight_ended(victory: bool) -> void:
+	($Main/Pause as CanvasItem).hide()
 	_dialog_timer.start(0.7)
 	await _dialog_timer.timeout
 	if Globals.get_bool("goat_defeated"):

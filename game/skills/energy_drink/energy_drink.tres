@@ -8,11 +8,11 @@ name = "Энергетик"
 rarity = 1
 id = "hypercharge"
 stats = Dictionary[String, String]({
-"cooldown": "30",
+"cooldown": "25",
 "count": "3",
-"damage_boost": "20",
-"defense_boost": "15",
-"duration": "5",
+"damage_boost": "30",
+"defense_boost": "20",
+"duration": "6",
 "speed_boost": "25"
 })
 brief_description = "Усиливает на {duration} c"
