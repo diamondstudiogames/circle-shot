@@ -8,12 +8,14 @@ extends Mob
 @export_group("Attacks", "attack_")
 @export var attack_interval_min := 0.8
 @export var attack_interval_max := 1.5
+@export var attack_final_need_health: int = 150
 @export var attack_final_scene: PackedScene
 
 @export_subgroup("Dash", "attack_dash_")
 @export var attack_dash_speed := 1040.0
 @export var attack_dash_dash_duration := 1.0
 @export var attack_dash_duration := 2.1
+@export var attack_dash_select_distance := 320.0
 
 @export_subgroup("Daggers", "attack_daggers_")
 @export var attack_daggers_count_min: int = 5
@@ -86,7 +88,6 @@ extends Mob
 
 var _target_covered := false
 var _standing := false
-var _retreating := false
 var _attack_timer := 0.0
 var _second_phase := false
 var _did_final_attack := false
@@ -132,15 +133,7 @@ func _process(_delta: float) -> void:
 
 
 func _process_logic() -> void:
-	if target.global_position.distance_to(global_position) < min_distance:
-		_retreating = true
-	
-	if _retreating:
-		entity_input.move_direction = -global_position.direction_to(target.global_position)
-	elif _standing:
-		entity_input.move_direction = Vector2.ZERO
-	elif not agent.is_navigation_finished():
-		entity_input.move_direction = global_position.direction_to(agent.get_next_path_position())
+	_process_logic_no_target()
 	
 	if not is_disarmed():
 		_attack_timer -= get_physics_process_delta_time()
@@ -158,11 +151,9 @@ func _process_logic_no_target() -> void:
 
 func _target_updated() -> void:
 	_target_covered = target_ray_cast.is_colliding()
-	_retreating = false
 
 
 func _target_reset() -> void:
-	_retreating = false
 	if agent.is_navigation_finished() and is_inside_tree():
 		_on_agent_navigation_finished()
 
@@ -172,7 +163,7 @@ func _health_changed(_old_value: int, new_value: int) -> void:
 		_second_phase = true
 		if multiplayer.is_server():
 			_spawn_altar()
-	if new_value <= 100 and not _did_final_attack:
+	if new_value <= attack_final_need_health and not _did_final_attack:
 		_final_attack()
 
 
@@ -312,6 +303,8 @@ func _select_attack() -> void:
 	
 	var attack: Callable = (attacks_target_covered if _target_covered
 			else attacks_target_covered + attacks + attacks).pick_random()
+	if global_position.distance_to(target.global_position) < attack_dash_select_distance:
+		attack = _attack_dash
 	attack.call()
 	_attacks_counter += 1
 

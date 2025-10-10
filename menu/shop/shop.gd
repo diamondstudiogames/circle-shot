@@ -15,6 +15,7 @@ const ITEMS_NAMES: Dictionary[String, String] = {
 }
 
 @export_multiline var box_info_text := ""
+@export_node_path("Control") var no_offers_focus_path: NodePath
 # См. Loot для подробностей, и держите в синхронизации с ним
 @export_group("Box Chances", "box_chance_")
 @export_range(0.0, 100.0, 0.01) var box_chance_rare := 67.0
@@ -70,6 +71,7 @@ func _ready() -> void:
 	
 	Globals.main.loot_received.connect(_update_shop)
 	_update_shop()
+	_select_focus_target.call_deferred()
 
 
 func _notification(what: int) -> void:
@@ -632,12 +634,21 @@ func _update_shop() -> void:
 			_delete_offer(offer_id)
 
 
+func _select_focus_target() -> void:
+	if get_tree().get_node_count_in_group(&"buy_button") == 0:
+		(get_node(no_offers_focus_path) as Control).grab_focus()
+		return
+	(get_tree().get_first_node_in_group(&"buy_button") as Control).grab_focus()
+
+
 func _on_purchase_confirmed(cost: int, rewards: Array[String], offer_id: int = -1) -> void:
 	print_verbose("Purchase confirmed.")
 	if offer_id >= 0:
 		_delete_offer(offer_id)
 	Globals.set_int("coins", Globals.get_int("coins") - cost)
 	Globals.main.receive_loot(rewards)
+	await Globals.main.loot_received
+	_select_focus_target()
 
 
 func _on_special_offers_container_child_order_changed() -> void:

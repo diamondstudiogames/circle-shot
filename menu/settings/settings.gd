@@ -92,8 +92,8 @@ func _ready() -> void:
 	(%JoysticksAlphaSlider as Range).value = Globals.get_controls_float("joysticks_alpha")
 	(%DeadzoneSlider as Range).value = Globals.get_controls_float("deadzone")
 	
-	_update_aim_visual_size()
-	get_window().size_changed.connect(_update_aim_visual_size)
+	_on_window_size_changed()
+	get_window().size_changed.connect(_on_window_size_changed)
 	_update_input_methods()
 	
 	# Инфа о сохранении
@@ -152,13 +152,6 @@ func _ready() -> void:
 	Globals.apply_settings() # применяем настройки если что-то поменялось
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Globals.get_controls_int("input_method") == Globals.InputMethod.KEYBOARD_AND_MOUSE \
-			and event.is_action(&"fullscreen") and event.is_pressed():
-		(%FullscreenCheck as BaseButton).set_pressed_no_signal(
-				Globals.get_setting_bool("fullscreen"))
-
-
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST when visible:
@@ -208,16 +201,6 @@ func _toggle_input_method_settings_visibility(method: Globals.InputMethod) -> vo
 	_update_input_methods()
 
 
-func _update_aim_visual_size() -> void:
-	var viewport_size: Vector2 = get_viewport_rect().size
-	if viewport_size.x >= viewport_size.y:
-		_aim_visual.custom_minimum_size.x = AIM_VISUAL_MAX_SIZE
-		_aim_visual.custom_minimum_size.y = 1.0 / viewport_size.aspect() * AIM_VISUAL_MAX_SIZE
-	else:
-		_aim_visual.custom_minimum_size.y = AIM_VISUAL_MAX_SIZE
-		_aim_visual.custom_minimum_size.x = viewport_size.aspect() * AIM_VISUAL_MAX_SIZE
-
-
 func _show_played_time() -> void:
 	var played_time: String
 	var secs: int = Globals.get_int("played_time")
@@ -260,6 +243,17 @@ func _update_input_methods() -> void:
 func _on_request_permissions_result(permission: String, granted: bool, lambda: Callable) -> void:
 	print_verbose("Permission %s granted: %s." % [permission, str(granted)])
 	lambda.call_deferred(granted)
+
+
+func _on_window_size_changed() -> void:
+	var viewport_size: Vector2 = get_viewport_rect().size
+	if viewport_size.x >= viewport_size.y:
+		_aim_visual.custom_minimum_size.x = AIM_VISUAL_MAX_SIZE
+		_aim_visual.custom_minimum_size.y = 1.0 / viewport_size.aspect() * AIM_VISUAL_MAX_SIZE
+	else:
+		_aim_visual.custom_minimum_size.y = AIM_VISUAL_MAX_SIZE
+		_aim_visual.custom_minimum_size.x = viewport_size.aspect() * AIM_VISUAL_MAX_SIZE
+	(%FullscreenCheck as BaseButton).set_pressed_no_signal(Globals.get_setting_bool("fullscreen"))
 
 
 func _on_quit_pressed() -> void:

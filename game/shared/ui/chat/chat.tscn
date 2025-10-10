@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg3dj2mxhusof"]
+
+[ext_resource type="Script" uid="uid://c5wn8p7yq48wc" path="res://game/shared/ui/chat/chat.gd" id="1_32dao"]
+[ext_resource type="Texture2D" uid="uid://dwtddg0cmagg1" path="res://game/shared/ui/chat/chat_send.png" id="2_lmbxi"]
+[ext_resource type="Texture2D" uid="uid://vp72bksg88ac" path="res://game/shared/ui/chat/chat_send_focused.png" id="3_lmbxi"]
+
+[node name="Chat" type="PanelContainer"]
+auto_translate_mode = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+offset_right = 480.0
+offset_bottom = -320.0
+grow_vertical = 0
+script = ExtResource("1_32dao")
+metadata/_custom_type_script = "uid://c5wn8p7yq48wc"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Messages" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+meta_underlined = false
+hint_underlined = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Сообщение..."
+max_length = 80
+context_menu_enabled = false
+
+[node name="Send" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_lmbxi")
+texture_focused = ExtResource("3_lmbxi")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="send_message" unbinds=1]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Send" to="." method="send_message"]

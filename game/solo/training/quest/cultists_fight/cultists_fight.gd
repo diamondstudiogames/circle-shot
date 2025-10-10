@@ -150,7 +150,7 @@ func _on_ended(victory: bool) -> void:
 	timer.one_shot = true
 	add_child(timer)
 	await timer.timeout
-	if victory:
+	if victory and not Globals.get_bool("quest_completed"):
 		Globals.set_bool("quest_completed", true)
 		Globals.items_db.challenges.append(load("uid://b5jj0i68nm7qf"))
 	Globals.main.game.close()

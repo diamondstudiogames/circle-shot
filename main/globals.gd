@@ -75,6 +75,7 @@ func _input(event: InputEvent) -> void:
 			and event.is_action(&"fullscreen") and event.is_pressed():
 		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
 		apply_settings()
+		get_viewport().set_input_as_handled()
 
 
 func _notification(what: int) -> void:

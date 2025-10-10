@@ -106,7 +106,6 @@ var _turn_tween: Tween
 
 
 func _ready() -> void:
-	entity_input.turn_with_aim = true
 	_attack_timer = attack_interval_max
 	_last_health_on_bandits_spawn = max_health
 	super()

@@ -39,3 +39,4 @@ func _on_window_input(event: InputEvent) -> void:
 	if _window.visible and _window.has_focus() \
 			and event.is_action(&"ui_cancel") and event.is_pressed():
 		_window.close_requested.emit()
+		get_viewport().set_input_as_handled()

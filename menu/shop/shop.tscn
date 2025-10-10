@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bj723c8k8la6y"]
+[gd_scene load_steps=36 format=3 uid="uid://bj723c8k8la6y"]
 
 [ext_resource type="Script" uid="uid://dfbi48lj1pb8n" path="res://menu/shop/shop.gd" id="1_4yet2"]
 [ext_resource type="Texture2D" uid="uid://c3kh0ourvde3l" path="res://menu/shop/background.png" id="2_cyj7w"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://lnjqijsauw8a" path="res://menu/shop/boxes/skin_box.png" id="5_cinaw"]
 [ext_resource type="Texture2D" uid="uid://dvh0b4o4tjklm" path="res://menu/shop/coins/coins0.png" id="5_idaoj"]
 [ext_resource type="Texture2D" uid="uid://bqdfll3jv7f18" path="res://menu/shop/coins/coins1.png" id="6_yhc8g"]
-[ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="7_6fy5a"]
 [ext_resource type="Texture2D" uid="uid://b0j3g7rkerkdm" path="res://menu/theme/icons/help.png" id="7_i3jto"]
 [ext_resource type="Texture2D" uid="uid://hh4x3ybix143" path="res://menu/shop/boxes/equip_box.png" id="7_no6pl"]
 [ext_resource type="Texture2D" uid="uid://pdi5jmhwo5gp" path="res://menu/shop/coins/coins2.png" id="7_ra5ts"]
@@ -162,6 +161,7 @@ box_info_text = "Шансы получить предмет определённ
 [outline_size=2][color=#{legendary_color}]Легендарный[/color][/outline_size] предмет: {legendary_chance}%
 Когда все предметы какой-то редкости разблокированы, в ящике эта редкость заменяется на \"Повышение шансов\", которое работает следующим образом: шансы на предметы других редкостей растут на {chance_increase}%, а шанс на предмет полученной редкости понижается на сумму процентов, на которые повысились остальные, но не может опуститься ниже 20% от базового шанса полученной редкости. Повышенные шансы сбрасываются при получении любого предмета из этого ящика.
 Когда все предметы этого ящика разблокированы, содержимое меняется на монеты, количество которых зависит от полученной редкости при открытии ящика."
+no_offers_focus_path = NodePath("PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox/Buy")
 box_chance_increase = 7.0
 elite_box_chance_rare = 45.0
 elite_box_chance_epic = 42.0
@@ -358,10 +358,6 @@ grow_vertical = 0
 theme_type_variation = &"BigFontButton"
 text = "80"
 icon = ExtResource("9_cinaw")
-
-[node name="Autofocus" type="Node" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox/Buy"]
-script = ExtResource("7_6fy5a")
-metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
 [node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
 layout_mode = 1

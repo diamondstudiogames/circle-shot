@@ -183,7 +183,7 @@ func _save_settings() -> void:
 
 
 func _on_patch_version_value_changed(value: float, version: String) -> void:
-	_settings_file.get_value("patches", version, int(value))
+	_settings_file.set_value("patches", version, int(value))
 
 
 func _on_delete_patch_pressed(version: String) -> void:

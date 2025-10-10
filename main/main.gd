@@ -138,11 +138,17 @@ func open_screen(screen_scene: PackedScene) -> Control:
 
 ## Добавляет на сохранение и показывает добычу из массива [param loot].
 ## Этот метод - корутина, его можно подождать с помощью [code]await[/code].
-func receive_loot(loot: Array[String]) -> void:
-	print_verbose("Loot receive requested: %s." % str(loot))
+## Если [param internal] равен [code]true[/code], не издаёт сигнал [signal loot_received].
+func receive_loot(loot: Array[String], internal := false) -> void:
+	print_verbose("%s loot receive requested: %s." % [
+		"Internal" if internal else "Regular",
+		str(loot),
+	])
 	loot = verify_loot(loot)
 	if loot.is_empty():
 		print_verbose("No loot to show, ignoring.")
+		if not internal:
+			loot_received.emit.call_deferred()
 		return
 	
 	for item: String in loot:
@@ -167,21 +173,19 @@ func receive_loot(loot: Array[String]) -> void:
 				unlocked_skills.append(value)
 				Globals.set_variant("unlocked_skills", unlocked_skills)
 	
-	var music_volume_changed := false
-	if menu_music.volume_linear > 0.6:
+	if not internal:
 		menu_music.volume_linear = 0.5
-		music_volume_changed = true
 	
-	print_verbose("Showing loot %s." % str(loot))
+	print_verbose("Showing %s loot %s." % ["internal" if internal else "regular", str(loot)])
 	var loot_node: Loot = open_screen(load("uid://d2g0bm0ppnwf7") as PackedScene)
 	await loot_node.show_loot(loot)
 	remove_child(loot_node)
 	loot_node.queue_free()
-	loot_received.emit()
-	print_verbose("Loot shown.")
 	
-	if music_volume_changed:
+	print_verbose("%s loot shown." % ("Internal" if internal else "Regular"))
+	if not internal:
 		menu_music.volume_linear = 1.0
+		loot_received.emit()
 
 
 ## Проверяет добычу из массива [param loot] на существование и прочее. Возвращает изменённый массив.

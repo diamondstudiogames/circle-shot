@@ -223,7 +223,7 @@ _data = {
 
 [node name="DemonFight" instance=ExtResource("1_xc66l")]
 script = ExtResource("2_4d8qd")
-coins_for_win = 60
+coins_for_win = 70
 coins_for_win_first_time = 750
 coins_for_kill = 4
 damage_for_coin = 65.0

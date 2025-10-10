@@ -1,20 +1,19 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmwb81du1kbtm"]
+[gd_scene load_steps=22 format=3 uid="uid://cmwb81du1kbtm"]
 
 [ext_resource type="Script" uid="uid://ce7fr2qft005n" path="res://game/menus/lobby/lobby.gd" id="1_jtfrr"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="2_6xr3g"]
 [ext_resource type="Texture2D" uid="uid://nyuii0fx273c" path="res://game/menus/lobby/background.png" id="2_8bvc3"]
 [ext_resource type="Texture2D" uid="uid://d14nbphg5o3a" path="res://game/shared/ui/chat/chat.png" id="2_wjeu5"]
-[ext_resource type="Script" uid="uid://c5wn8p7yq48wc" path="res://game/shared/ui/chat/chat.gd" id="3_amd3n"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="3_cwg7d"]
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="3_es10a"]
 [ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="3_pddfd"]
 [ext_resource type="Texture2D" uid="uid://eyfsi3j0o04s" path="res://menu/theme/icons/change_map.png" id="4_4kry5"]
-[ext_resource type="Texture2D" uid="uid://dwtddg0cmagg1" path="res://game/shared/ui/chat/chat_send.png" id="4_6keib"]
 [ext_resource type="Script" uid="uid://lf4v4xbu425r" path="res://game/menus/lobby/view_ip_dialog.gd" id="5_jyb4t"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="7_8ughs"]
 [ext_resource type="Texture2D" uid="uid://c3r13t5eig25e" path="res://game/menus/lobby/icons/view_ips.png" id="7_f0cv5"]
 [ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="9_mgd0l"]
 [ext_resource type="Script" uid="uid://dxhx1wvxyn771" path="res://game/menus/lobby/advices.gd" id="12_es10a"]
+[ext_resource type="PackedScene" uid="uid://dg3dj2mxhusof" path="res://game/shared/ui/chat/chat.tscn" id="12_yfygw"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="13_jqaxo"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="13_yfygw"]
 [ext_resource type="Texture2D" uid="uid://ix82y4qydhql" path="res://menu/theme/icons/right.png" id="14_mgd0l"]
@@ -241,10 +240,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource("7_8ughs")
 
-[node name="Autofocus" type="Node" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons/Presets"]
-script = ExtResource("9_mgd0l")
-metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
-
 [node name="ConnectedToIP" type="LinkButton" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -265,45 +260,15 @@ size_flags_horizontal = 8
 text = "Выйти"
 icon = ExtResource("3_cwg7d")
 
-[node name="Chat" type="PanelContainer" parent="Main/Panels"]
-auto_translate_mode = 2
+[node name="Autofocus" type="Node" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave"]
+script = ExtResource("9_mgd0l")
+metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
+
+[node name="Chat" parent="Main/Panels" instance=ExtResource("12_yfygw")]
 visible = false
-self_modulate = Color(1, 1, 1, 0.878431)
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_amd3n")
 chat_button_path = NodePath("../Lobby/VBoxContainer/ControlButtons/Chat")
-metadata/_custom_type_script = "uid://c5wn8p7yq48wc"
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/Panels/Chat"]
-layout_mode = 2
-
-[node name="Messages" type="RichTextLabel" parent="Main/Panels/Chat/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-scroll_following = true
-meta_underlined = false
-hint_underlined = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Panels/Chat/VBoxContainer"]
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="Main/Panels/Chat/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Сообщение..."
-max_length = 80
-context_menu_enabled = false
-
-[node name="Send" type="TextureButton" parent="Main/Panels/Chat/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-texture_normal = ExtResource("4_6keib")
-ignore_texture_size = true
-stretch_mode = 4
 
 [node name="Advices" type="PanelContainer" parent="Main"]
 custom_minimum_size = Vector2(640, 128)
@@ -386,8 +351,6 @@ resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ConnectedToIP" to="." method="_on_connected_to_ip_pressed"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ViewIP" to="ViewIPDialog" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave" to="." method="_on_leave_pressed"]
-[connection signal="text_submitted" from="Main/Panels/Chat/VBoxContainer/HBoxContainer/LineEdit" to="Main/Panels/Chat" method="send_message" unbinds=1]
-[connection signal="pressed" from="Main/Panels/Chat/VBoxContainer/HBoxContainer/Send" to="Main/Panels/Chat" method="send_message"]
 [connection signal="pressed" from="Main/Advices/VBoxContainer/HBoxContainer/Previous" to="Main/Advices" method="_on_previous_pressed"]
 [connection signal="pressed" from="Main/Advices/VBoxContainer/HBoxContainer/Next" to="Main/Advices" method="_on_next_pressed"]
 [connection signal="timeout" from="Main/Advices/SwitchTimer" to="Main/Advices" method="_on_switch_timer_timeout"]

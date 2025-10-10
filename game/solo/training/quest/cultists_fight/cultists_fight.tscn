@@ -18,7 +18,7 @@
 
 [sub_resource type="Curve" id="Curve_pbgwp"]
 _limits = [0.0, 5.0, 0.0, 120.0]
-_data = [Vector2(0, 1.25), 0.0, 0.03082077, 0, 0, Vector2(10, 3.25), 0.022197597, -0.0010173889, 0, 0, Vector2(120, 2.5), -0.01167535, 0.0, 0, 0]
+_data = [Vector2(0, 1.25), 0.0, 0.03082077, 0, 0, Vector2(12, 4), 0.022197597, -0.013228938, 0, 0, Vector2(120, 3), 0.0021070398, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_enabled = true
 metadata/_snap_count = 20

@@ -50,9 +50,11 @@ func _unhandled_input(input_event: InputEvent) -> void:
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE \
 				and input_event.is_action_pressed(&"chat"):
 			_chat_button.button_pressed = true
+			get_viewport().set_input_as_handled()
 		elif _input_method == Globals.InputMethod.CONTROLLER \
 				and input_event.is_action_pressed(&"c_chat"):
 			_chat_button.button_pressed = true
+			get_viewport().set_input_as_handled()
 
 
 func _notification(what: int) -> void:

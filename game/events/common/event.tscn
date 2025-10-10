@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3nsak46hbo2c"]
+[gd_scene load_steps=14 format=3 uid="uid://d3nsak46hbo2c"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6dq27"]
 [ext_resource type="Script" uid="uid://ciktx11hqv3ox" path="res://game/events/common/event.gd" id="1_kxt6o"]
-[ext_resource type="Script" uid="uid://c5wn8p7yq48wc" path="res://game/shared/ui/chat/chat.gd" id="3_8d55t"]
 [ext_resource type="Script" uid="uid://buk2lt6westdi" path="res://game/events/common/event_ui.gd" id="4_10cmx"]
 [ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="4_t8n0q"]
+[ext_resource type="PackedScene" uid="uid://dg3dj2mxhusof" path="res://game/shared/ui/chat/chat.tscn" id="7_w1x71"]
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="8_nrcab"]
-[ext_resource type="Texture2D" uid="uid://dwtddg0cmagg1" path="res://game/shared/ui/chat/chat_send.png" id="9_2uw6w"]
 [ext_resource type="PackedScene" uid="uid://b1ipe4g6uueie" path="res://game/events/common/reward.tscn" id="10_w1x71"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="12_jddfk"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="13_j0bsh"]
@@ -243,51 +242,15 @@ grow_vertical = 0
 mouse_filter = 2
 alignment = 2
 
-[node name="ChatPanel" type="PanelContainer" parent="UI/Main" index="5"]
-auto_translate_mode = 2
+[node name="ChatPanel" parent="UI/Main" index="5" instance=ExtResource("7_w1x71")]
 visible = false
-self_modulate = Color(1, 1, 1, 0.878431)
+self_modulate = Color(1, 1, 1, 0.8784314)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = -480.0
 offset_right = 496.0
 offset_bottom = -80.0
-grow_vertical = 0
-focus_mode = 2
-script = ExtResource("3_8d55t")
 chat_button_path = NodePath("../Chat")
-metadata/_custom_type_script = "uid://c5wn8p7yq48wc"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main/ChatPanel" index="0"]
-layout_mode = 2
-
-[node name="Messages" type="RichTextLabel" parent="UI/Main/ChatPanel/VBoxContainer" index="0"]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-scroll_following = true
-meta_underlined = false
-hint_underlined = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Main/ChatPanel/VBoxContainer" index="1"]
-layout_mode = 2
-
-[node name="LineEdit" type="LineEdit" parent="UI/Main/ChatPanel/VBoxContainer/HBoxContainer" index="0"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Сообщение..."
-max_length = 80
-context_menu_enabled = false
-
-[node name="Send" type="TextureButton" parent="UI/Main/ChatPanel/VBoxContainer/HBoxContainer" index="1"]
-custom_minimum_size = Vector2(48, 0)
-layout_mode = 2
-texture_normal = ExtResource("9_2uw6w")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="RewardsPanel" type="PanelContainer" parent="UI/Main" index="6"]
 visible = false
@@ -481,6 +444,4 @@ one_shot = true
 [connection signal="toggled" from="UI/Main/Chat" to="UI" method="_on_chat_toggled"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI/Main/ChatPanel" method="_on_chat_toggled"]
 [connection signal="message_posted" from="UI/Main/ChatPanel" to="UI" method="_on_message_posted"]
-[connection signal="text_submitted" from="UI/Main/ChatPanel/VBoxContainer/HBoxContainer/LineEdit" to="UI/Main/ChatPanel" method="send_message" unbinds=1]
-[connection signal="pressed" from="UI/Main/ChatPanel/VBoxContainer/HBoxContainer/Send" to="UI/Main/ChatPanel" method="send_message"]
 [connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]

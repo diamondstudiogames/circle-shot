@@ -15,7 +15,7 @@ radius = 40.0
 radius = 128.0
 
 [node name="BigShotProjectile" instance=ExtResource("1_0p235")]
-speed = 2700.0
+speed = 2560.0
 hit_vfx_scene = ExtResource("2_t3jb7")
 hit_wall_vfx_scene = ExtResource("2_t3jb7")
 damage = 8

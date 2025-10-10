@@ -224,7 +224,7 @@ fireball_scene = ExtResource("3_l46ly")
 fireballs_count = 10
 heal_box_scene = ExtResource("4_t8ikq")
 ammo_box_scene = ExtResource("5_lnpai")
-max_health = 400
+max_health = 300
 always_visible_on_minimap = true
 death_vfx_scene = ExtResource("6_lnpai")
 

@@ -41,12 +41,12 @@ var _last_no_target_position: Vector2
 
 
 func _ready() -> void:
-	entity_input.turn_with_aim = true
 	_shoot_timer = shoot_interval
 	_last_no_target_position = global_position
 	agent.navigation_finished.connect(_on_agent_navigation_finished)
 	super()
-	await get_tree().physics_frame
+	if NavigationServer2D.map_get_iteration_id(get_world_2d().navigation_map):
+		await NavigationServer2D.map_changed
 	_select_random_point.call_deferred()
 
 

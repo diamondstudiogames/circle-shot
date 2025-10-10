@@ -264,7 +264,7 @@ func show_loot(loot: Array[String]) -> void:
 							reward = reward.replace('?', '')
 							_anim.play(&"box_secret_item")
 							await _anim.animation_finished
-						await Globals.main.receive_loot([reward])
+						await Globals.main.receive_loot([reward], true)
 						($Proceed as Control).grab_focus()
 
 
@@ -485,7 +485,7 @@ func _get_coins_compensation(rarity: ItemsDB.Rarity, type: String) -> int:
 		ItemsDB.Rarity.EPIC:
 			return coins_per_skin_epic if "skin" in type else coins_per_equip_epic
 		ItemsDB.Rarity.LEGENDARY:
-			return coins_per_equip_legendary if "skin" in type else coins_per_equip_legendary
+			return coins_per_skin_legendary if "skin" in type else coins_per_equip_legendary
 	return 0
 
 
