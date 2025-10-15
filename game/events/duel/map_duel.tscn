@@ -18,11 +18,15 @@ position = Vector2(0, -1600)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 1600)
 
-[node name="SpawnPoint0" type="Marker2D" parent="." index="3"]
+[node name="NavigationRegions" parent="." index="2"]
+chunks_per_axis = 4
+map_size = Vector2i(30, 20)
+
+[node name="SpawnPoint0" type="Marker2D" parent="." index="4"]
 position = Vector2(-227, -17)
 gizmo_extents = 80.0
 
-[node name="SpawnPoint1" type="Marker2D" parent="." index="4"]
+[node name="SpawnPoint1" type="Marker2D" parent="." index="5"]
 position = Vector2(238, 17)
 gizmo_extents = 80.0
 

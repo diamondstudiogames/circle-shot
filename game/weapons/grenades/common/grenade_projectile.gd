@@ -3,6 +3,9 @@ extends AnimatableBody2D
 
 ## Узел снаряда гранаты.
 
+## Вызывается в момент взрыва гранаты.
+signal exploded
+
 ## Скорость снаряда гранаты.
 @export var speed := 800.0
 ## Замедление снаряда гранаты.
@@ -53,4 +56,5 @@ func _explode() -> void:
 
 func _on_explosion_timer_timeout() -> void:
 	_exploded = true
+	exploded.emit()
 	_explode()

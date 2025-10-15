@@ -45,7 +45,7 @@ func _ready() -> void:
 	_last_no_target_position = global_position
 	agent.navigation_finished.connect(_on_agent_navigation_finished)
 	super()
-	if NavigationServer2D.map_get_iteration_id(get_world_2d().navigation_map):
+	if NavigationServer2D.map_get_iteration_id(get_world_2d().navigation_map) == 0:
 		await NavigationServer2D.map_changed
 	_select_random_point.call_deferred()
 

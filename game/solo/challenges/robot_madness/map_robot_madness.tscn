@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cfqfads1kdhew" path="res://game/mobs/robot/robot.png" id="2_k4axp"]
 
 [node name="Map" instance=ExtResource("1_c2b18")]
+metadata/_edit_vertical_guides_ = [-3200.0, 3200.0]
+metadata/_edit_horizontal_guides_ = [-3200.0, 3200.0]
 
 [node name="Left" parent="Borders" index="0"]
 position = Vector2(-3200, 0)
@@ -17,7 +19,11 @@ position = Vector2(0, -3200)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 3200)
 
-[node name="RobotsSpawnPoints" type="Node2D" parent="." index="3"]
+[node name="NavigationRegions" parent="." index="2"]
+chunks_per_axis = 4
+map_size = Vector2i(40, 40)
+
+[node name="RobotsSpawnPoints" type="Node2D" parent="." index="4"]
 
 [node name="0" type="Marker2D" parent="RobotsSpawnPoints" index="0"]
 position = Vector2(-172, -453)
@@ -168,7 +174,5 @@ metadata/_edit_group_ = true
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
-
-[node name="NavigationRegions" type="Node2D" parent="." index="4"]
 
 [editable path="Borders"]

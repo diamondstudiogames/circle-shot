@@ -187,7 +187,7 @@ func load_default_map() -> void:
 		for y: int in range(-2, 3):
 			var nav_polygon := NavigationPolygon.new()
 			nav_polygon.parsed_geometry_type = NavigationPolygon.PARSED_GEOMETRY_STATIC_COLLIDERS
-			nav_polygon.parsed_collision_mask = 17
+			nav_polygon.parsed_collision_mask = 273
 			nav_polygon.source_geometry_mode = \
 					NavigationPolygon.SOURCE_GEOMETRY_GROUPS_WITH_CHILDREN
 			nav_polygon.source_geometry_group_name = &"navigation_polygon_source"
@@ -207,6 +207,7 @@ func load_default_map() -> void:
 			nav_region.name = &"NavigationRegion2D"
 			nav_region.position = Vector2((chunk_size.x - 320.0) * x, (chunk_size.y - 320.0) * y)
 			nav_region.navigation_polygon = nav_polygon
+			nav_region.add_to_group(&"navigation_region")
 			current_map.get_node(^"NavigationRegions").add_child(nav_region, true)
 			
 			nav_region.bake_navigation_polygon(false)

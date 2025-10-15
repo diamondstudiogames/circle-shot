@@ -18,7 +18,8 @@ position = Vector2(0, -4000)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 4000)
 
-[node name="NavigationRegions" type="Node2D" parent="." index="2"]
+[node name="NavigationRegions" parent="." index="2"]
+agent_radius = 117.0
 
 [node name="BigShotSpawnPoint" type="Marker2D" parent="." index="4"]
 gizmo_extents = 160.0

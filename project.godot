@@ -73,7 +73,7 @@ text_editor/completion/add_type_hints=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/autofocus/plugin.cfg", "res://addons/resource_path/plugin.cfg", "res://addons/server_data_configuration/plugin.cfg")
+enabled=PackedStringArray("res://addons/autofocus/plugin.cfg", "res://addons/navigation_baker/plugin.cfg", "res://addons/resource_path/plugin.cfg", "res://addons/server_data_configuration/plugin.cfg")
 
 [file_customization]
 
@@ -93,6 +93,7 @@ import/fbx2gltf/enabled=false
 
 anti_fire="Can extinguish fire. Must be Area2D."
 navigation_polygon_source="Collision shapes of nodes in this group (and their children) will be accounted in NavigationPolygon baking."
+navigation_region="Group with every NavigationRegion2D in scene. Useful for rebake."
 
 [gui]
 

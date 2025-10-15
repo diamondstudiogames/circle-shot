@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp6wxqvjukdht"]
+[gd_scene load_steps=5 format=3 uid="uid://dp6wxqvjukdht"]
 
 [ext_resource type="Script" uid="uid://btu1g3prgu2l8" path="res://game/maps/common/map.gd" id="1_j26c2"]
 [ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="2_3vl75"]
 [ext_resource type="PackedScene" uid="uid://l5v4yoke40fq" path="res://game/maps/common/borders.tscn" id="3_3vl75"]
+[ext_resource type="Script" uid="uid://88uadq3srjl6" path="res://addons/navigation_baker/navigation_baker.gd" id="4_get36"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_j26c2")
@@ -14,7 +15,13 @@ metadata/_edit_lock_ = true
 
 [node name="Borders" parent="." instance=ExtResource("3_3vl75")]
 
+[node name="NavigationRegions" type="Node2D" parent="."]
+script = ExtResource("4_get36")
+metadata/_custom_type_script = "uid://88uadq3srjl6"
+
 [node name="SoloSpawnPoint" type="Marker2D" parent="."]
 gizmo_extents = 80.0
+
+[node name="TileMapLayers" type="Node2D" parent="." groups=["navigation_polygon_source"]]
 
 [editable path="Borders"]

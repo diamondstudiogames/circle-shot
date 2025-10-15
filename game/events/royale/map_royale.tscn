@@ -18,7 +18,11 @@ position = Vector2(0, -6400)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 6400)
 
-[node name="SpawnPoints" type="Node2D" parent="." index="3"]
+[node name="NavigationRegions" parent="." index="2"]
+chunks_per_axis = 8
+map_size = Vector2i(80, 80)
+
+[node name="SpawnPoints" type="Node2D" parent="." index="4"]
 
 [node name="0" type="Marker2D" parent="SpawnPoints" index="0"]
 position = Vector2(254, 144)

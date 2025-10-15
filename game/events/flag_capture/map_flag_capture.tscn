@@ -18,7 +18,10 @@ position = Vector2(0, -3200)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 3200)
 
-[node name="SpawnPoints0" type="Node2D" parent="." index="3"]
+[node name="NavigationRegions" parent="." index="2"]
+map_size = Vector2i(50, 40)
+
+[node name="SpawnPoints0" type="Node2D" parent="." index="4"]
 
 [node name="0" type="Marker2D" parent="SpawnPoints0" index="0"]
 position = Vector2(-330, 148)
@@ -33,14 +36,14 @@ position = Vector2(-374, 40)
 gizmo_extents = 76.0
 
 [node name="3" type="Marker2D" parent="SpawnPoints0" index="3"]
-position = Vector2(-330, 148)
+position = Vector2(-404, 130)
 gizmo_extents = 76.0
 
 [node name="4" type="Marker2D" parent="SpawnPoints0" index="4"]
 position = Vector2(-475, 191)
 gizmo_extents = 76.0
 
-[node name="SpawnPoints1" type="Node2D" parent="." index="4"]
+[node name="SpawnPoints1" type="Node2D" parent="." index="5"]
 
 [node name="0" type="Marker2D" parent="SpawnPoints1" index="0"]
 position = Vector2(504, 175)
@@ -55,18 +58,18 @@ position = Vector2(460, 67)
 gizmo_extents = 76.0
 
 [node name="3" type="Marker2D" parent="SpawnPoints1" index="3"]
-position = Vector2(504, 175)
+position = Vector2(430, 152)
 gizmo_extents = 76.0
 
 [node name="4" type="Marker2D" parent="SpawnPoints1" index="4"]
 position = Vector2(359, 218)
 gizmo_extents = 76.0
 
-[node name="RedFlag" type="Marker2D" parent="." index="5"]
+[node name="RedFlag" type="Marker2D" parent="." index="6"]
 position = Vector2(-156, -61)
 gizmo_extents = 160.0
 
-[node name="BlueFlag" type="Marker2D" parent="." index="6"]
+[node name="BlueFlag" type="Marker2D" parent="." index="7"]
 position = Vector2(113, 55)
 gizmo_extents = 160.0
 

@@ -18,7 +18,7 @@ position = Vector2(0, -4000)
 [node name="Down" parent="Borders" index="3"]
 position = Vector2(0, 4000)
 
-[node name="SpawnPoints0" type="Node2D" parent="." index="3"]
+[node name="SpawnPoints0" type="Node2D" parent="." index="4"]
 
 [node name="0" type="Marker2D" parent="SpawnPoints0" index="0"]
 position = Vector2(-330, 148)
@@ -33,14 +33,14 @@ position = Vector2(-374, 40)
 gizmo_extents = 76.0
 
 [node name="3" type="Marker2D" parent="SpawnPoints0" index="3"]
-position = Vector2(-330, 148)
+position = Vector2(-395, 133)
 gizmo_extents = 76.0
 
 [node name="4" type="Marker2D" parent="SpawnPoints0" index="4"]
 position = Vector2(-475, 191)
 gizmo_extents = 76.0
 
-[node name="SpawnPoints1" type="Node2D" parent="." index="4"]
+[node name="SpawnPoints1" type="Node2D" parent="." index="5"]
 
 [node name="0" type="Marker2D" parent="SpawnPoints1" index="0"]
 position = Vector2(504, 175)
@@ -55,7 +55,7 @@ position = Vector2(460, 67)
 gizmo_extents = 76.0
 
 [node name="3" type="Marker2D" parent="SpawnPoints1" index="3"]
-position = Vector2(504, 175)
+position = Vector2(434, 160)
 gizmo_extents = 76.0
 
 [node name="4" type="Marker2D" parent="SpawnPoints1" index="4"]

@@ -25,6 +25,7 @@ func _use() -> void:
 	player.unmake_immobile()
 	player.unblock_weapon_usage()
 	player.unblock_turning()
+	player.z_index = 10
 
 
 func _player_disarmed() -> void:
@@ -42,6 +43,7 @@ func _player_armed() -> void:
 @rpc("reliable", "authority", "call_local", 3)
 func _end_time_stop() -> void:
 	player.process_mode = Node.PROCESS_MODE_INHERIT
+	player.z_index = 0
 	unblock_cooldown()
 
 
