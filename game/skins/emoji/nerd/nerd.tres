@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_63i54")
-name = "NERD"
+name = "Ботан"
 rarity = 1
 id = "nerd"
 brief_description = "Эмоджи в очках"

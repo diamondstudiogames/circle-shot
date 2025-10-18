@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://cxjvs5l61ia68"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_8dfry"]
+
+[resource]
+script = ExtResource("1_8dfry")
+name = "Дьявол"
+rarity = 1
+id = "devil"
+brief_description = "Лучше держаться от него подальше..."
+scene_path = "uid://cmdho203t43nk"
+image_path = "uid://cscomehtx4ool"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://34c10nvhklaj"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_h7noo"]
+
+[resource]
+script = ExtResource("1_h7noo")
+name = "Злюка"
+rarity = 2
+id = "angry"
+brief_description = "Не стесняется в выражениях."
+custom_hurt_vfx = true
+custom_death_vfx = true
+custom_animations = true
+scene_path = "uid://dhdp2vembvf4n"
+image_path = "uid://bwbdpr1ffxf72"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

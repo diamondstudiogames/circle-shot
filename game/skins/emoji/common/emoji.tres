@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="SkinsLineData" load_steps=6 format=3 uid="uid://beunebjuy5bih"]
+[gd_resource type="Resource" script_class="SkinsLineData" load_steps=9 format=3 uid="uid://beunebjuy5bih"]
 
 [ext_resource type="Script" uid="uid://d3vgfmq2fcba3" path="res://game/player/equip/skins_line_data.gd" id="1_fdyoa"]
 [ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="2_3vnbd"]
 [ext_resource type="Resource" uid="uid://58mkx5h3v4ou" path="res://game/skins/emoji/cat/cat.tres" id="3_w3btd"]
 [ext_resource type="Resource" uid="uid://c23q3ut3jlaqc" path="res://game/skins/emoji/nerd/nerd.tres" id="4_mhuqe"]
 [ext_resource type="Resource" uid="uid://b2spxbj1bogeo" path="res://game/skins/emoji/smile/smile.tres" id="5_2evfl"]
+[ext_resource type="Resource" uid="uid://cxjvs5l61ia68" path="res://game/skins/emoji/devil/devil.tres" id="6_mhuqe"]
+[ext_resource type="Resource" uid="uid://cc3rh04m4qt7h" path="res://game/skins/emoji/pokerface/pokerface.tres" id="7_2evfl"]
+[ext_resource type="Resource" uid="uid://34c10nvhklaj" path="res://game/skins/emoji/angry/angry.tres" id="8_ddtni"]
 
 [resource]
 script = ExtResource("1_fdyoa")
 name = "Эмоджи"
 brief_description = "Скины в виде различных эмоджи."
 image_path = "uid://b2j8ks3o2naxx"
-skins = Array[ExtResource("2_3vnbd")]([ExtResource("3_w3btd"), ExtResource("4_mhuqe"), ExtResource("5_2evfl")])
+skins = Array[ExtResource("2_3vnbd")]([ExtResource("3_w3btd"), ExtResource("4_mhuqe"), ExtResource("5_2evfl"), ExtResource("6_mhuqe"), ExtResource("7_2evfl"), ExtResource("8_ddtni")])
 metadata/_custom_type_script = "uid://d3vgfmq2fcba3"

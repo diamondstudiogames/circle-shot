@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://cc3rh04m4qt7h"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_58105"]
+
+[resource]
+script = ExtResource("1_58105")
+name = "Пофигист"
+rarity = 2
+id = "pokerface"
+brief_description = "Кажется, ему всё равно."
+custom_death_vfx = true
+custom_animations = true
+scene_path = "uid://dyhp2bxmrqv67"
+image_path = "uid://v6ivb4pmb5oc"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

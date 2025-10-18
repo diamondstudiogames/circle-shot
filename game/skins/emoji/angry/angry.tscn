@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhdp2vembvf4n"]
+
+[ext_resource type="Texture2D" uid="uid://d1x0img8u125r" path="res://game/skins/emoji/angry/angry.png" id="1_m70ri"]
+[ext_resource type="Texture2D" uid="uid://2cwlmoida2tw" path="res://game/skins/emoji/angry/angry_hurt.png" id="1_s5na7"]
+[ext_resource type="Script" uid="uid://dh2w1n0dgqoy0" path="res://game/skins/emoji/angry/angry.gd" id="2_3nmf3"]
+[ext_resource type="PackedScene" uid="uid://c3wciay0oc61t" path="res://game/skins/emoji/angry/angry_hurt_vfx.tscn" id="3_t1x4f"]
+[ext_resource type="PackedScene" uid="uid://bn5uuy2xgimdb" path="res://game/skins/emoji/angry/angry_death_vfx.tscn" id="4_3nmf3"]
+
+[sub_resource type="Animation" id="Animation_3nmf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_m70ri")]
+}
+
+[sub_resource type="Animation" id="Animation_t1x4f"]
+resource_name = "hurt"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_s5na7"), ExtResource("1_m70ri")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbe2s"]
+_data = {
+&"RESET": SubResource("Animation_3nmf3"),
+&"hurt": SubResource("Animation_t1x4f")
+}
+
+[node name="Angry" type="Sprite2D"]
+texture = ExtResource("1_m70ri")
+script = ExtResource("2_3nmf3")
+custom_hurt_vfx_scene = ExtResource("3_t1x4f")
+custom_death_vfx_scene = ExtResource("4_3nmf3")
+metadata/_custom_type_script = "uid://nr21pnmv3b1n"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nbe2s")
+}
