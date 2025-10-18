@@ -373,6 +373,7 @@ texture = ExtResource("5_v7akx")
 [node name="ParallaxClouds" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 top_level = true
+visibility_layer = 4
 z_index = 1
 repeat_size = Vector2(2560, 1440)
 repeat_times = 2

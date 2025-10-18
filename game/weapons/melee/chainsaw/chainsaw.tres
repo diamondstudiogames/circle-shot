@@ -9,8 +9,8 @@ rarity = 2
 id = "chainsaw"
 stats = Dictionary[String, String]({
 "ammo_total": "не ограничено",
-"damage": "21",
-"dps": "105"
+"damage": "20",
+"dps": "100"
 })
 ammo_text = "Не ограничено"
 description = "Урон/с: [color=red]{dps}[/color]

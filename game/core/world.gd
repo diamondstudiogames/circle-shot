@@ -20,11 +20,11 @@ signal cutscene_started
 signal cutscene_ended
 
 ## Амплитуда вибрации при нанесении урона.
-const HIT_VIBRATION_AMPLITUDE := 0.07
+const HIT_VIBRATION_AMPLITUDE := 0.04
 ## Длительность вибрации при нанесении урона.
 const HIT_VIBRATION_DURATION_MS: int = 100
 ## Амплитуда вибрации при убийстве.
-const KILL_VIBRATION_AMPLITUDE := 0.15
+const KILL_VIBRATION_AMPLITUDE := 0.12
 ## Длительность вибрации при убийстве.
 const KILL_VIBRATION_DURATION_MS: int = 300
 

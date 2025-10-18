@@ -277,7 +277,7 @@ _data = {
 
 [node name="Map" instance=ExtResource("1_vj4q2")]
 script = ExtResource("2_fyera")
-background_color = Color(0, 0, 0, 1)
+background_color = Color(0.11764706, 0.003921569, 0.2509804, 1)
 custom_tracks = Array[AudioStream]([ExtResource("2_vdwal")])
 
 [node name="MinimapTiles" parent="." index="0"]

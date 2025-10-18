@@ -13,7 +13,7 @@ radius = 96.0
 [node name="SoulSword" instance=ExtResource("1_1p00a")]
 script = ExtResource("2_58eje")
 ranged_attack_projectile_scene = ExtResource("3_77mj1")
-damage_in_ranged_mode = 25
+damage_in_ranged_mode = 30
 damage = 40
 shoot_interval = 0.8000000000029104
 to_aim_time = 0.1999999999970896

@@ -12,7 +12,7 @@ radius = 20.0
 
 [node name="Chainsaw" instance=ExtResource("1_dte4u")]
 script = ExtResource("2_oth0h")
-damage = 21
+damage = 20
 shoot_interval = 0.2
 to_aim_time = 0.6
 speed_multiplier_when_current = 1.12
@@ -35,15 +35,15 @@ collision_mask = 75
 script = ExtResource("2_738d3")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_wy0b7")
-}
-next/attack = &"idle"
-
 [node name="AttackSfx" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource("6_wy0b7")
 max_distance = 2880.0
 bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": ExtResource("5_wy0b7")
+}
+next/attack = &"idle"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -10,9 +10,9 @@ id = "soul_sword"
 stats = Dictionary[String, String]({
 "ammo_total": "20",
 "damage": "40",
-"damage_ranged": "25+25",
+"damage_ranged": "30+20",
 "dps": "50",
-"dps_ranged": "31+31"
+"dps_ranged": "38+25"
 })
 damage_text = "Урон: {damage}/{damage_ranged}"
 ammo_text = "{ammo_total} д. атак"
