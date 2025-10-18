@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://bfeswkbmtamv8"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_njj7r"]
+
+[resource]
+script = ExtResource("1_njj7r")
+name = "MAX"
+rarity = 1
+id = "skam"
+brief_description = "ЛовЯт даже на парковке!"
+scene_path = "uid://dc5oq4evohgm7"
+image_path = "uid://b18kwljfpsj88"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

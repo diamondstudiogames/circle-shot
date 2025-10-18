@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://d2pd5ttn2o5s0"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_lvbr8"]
+
+[resource]
+script = ExtResource("1_lvbr8")
+name = "Маньяк"
+rarity = 1
+id = "imnotahuman"
+brief_description = "Ты один дома?"
+scene_path = "uid://rekkhl3qrajn"
+image_path = "uid://dx52nlok6bktj"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkinsLineData" load_steps=11 format=3 uid="uid://co6x6s514ppex"]
+[gd_resource type="Resource" script_class="SkinsLineData" load_steps=12 format=3 uid="uid://co6x6s514ppex"]
 
 [ext_resource type="Script" uid="uid://d3vgfmq2fcba3" path="res://game/player/equip/skins_line_data.gd" id="1_rvft0"]
 [ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="2_u5vgj"]
@@ -10,11 +10,12 @@
 [ext_resource type="Resource" uid="uid://cnb11eku2le8l" path="res://game/skins/videogames/mettaton/mettaton.tres" id="8_0ukel"]
 [ext_resource type="Resource" uid="uid://b46i5gov85jd" path="res://game/skins/videogames/om_nom/om_nom.tres" id="9_c4mhk"]
 [ext_resource type="Resource" uid="uid://ravfaps5efeu" path="res://game/skins/videogames/tenna/tenna.tres" id="10_yy117"]
+[ext_resource type="Resource" uid="uid://d2pd5ttn2o5s0" path="res://game/skins/videogames/maniac/maniac.tres" id="11_rrweu"]
 
 [resource]
 script = ExtResource("1_rvft0")
 name = "Видеоигры"
 brief_description = "Персонажи из различных видеоигр."
 image_path = "uid://e8nuwb28ixow"
-skins = Array[ExtResource("2_u5vgj")]([ExtResource("3_ukjql"), ExtResource("4_yy117"), ExtResource("5_rrweu"), ExtResource("6_37835"), ExtResource("7_6el46"), ExtResource("8_0ukel"), ExtResource("9_c4mhk"), ExtResource("10_yy117")])
+skins = Array[ExtResource("2_u5vgj")]([ExtResource("3_ukjql"), ExtResource("4_yy117"), ExtResource("5_rrweu"), ExtResource("6_37835"), ExtResource("7_6el46"), ExtResource("8_0ukel"), ExtResource("9_c4mhk"), ExtResource("10_yy117"), ExtResource("11_rrweu")])
 metadata/_custom_type_script = "uid://d3vgfmq2fcba3"

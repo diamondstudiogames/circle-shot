@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc5oq4evohgm7"]
+
+[ext_resource type="Texture2D" uid="uid://3d4wfa1gkdww" path="res://game/skins/other/max/max.png" id="1_ql5fq"]
+[ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_qr3tb"]
+
+[node name="Max" type="Sprite2D"]
+texture = ExtResource("1_ql5fq")
+script = ExtResource("1_qr3tb")
+metadata/_custom_type_script = "uid://nr21pnmv3b1n"
