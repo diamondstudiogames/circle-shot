@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ll80nn6exap3"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_o4ftr"]
+[ext_resource type="PackedScene" uid="uid://c45vuv36c8f6" path="res://game/weapons/guns/rifles/i_need_more_bullets/projectiles/single_need_bullet_hit_vfx.tscn" id="2_scwbr"]
+[ext_resource type="Texture2D" uid="uid://cd26opdvjp5t5" path="res://game/weapons/guns/rifles/i_need_more_bullets/projectiles/single_bullet.png" id="3_pklkt"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="3_vlijj"]
+[ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_vlijj"]
+
+[node name="SingleNeedBullet" instance=ExtResource("1_o4ftr")]
+speed = 4000.0
+hit_vfx_scene = ExtResource("2_scwbr")
+hit_wall_vfx_scene = ExtResource("2_scwbr")
+damage = 33
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+z_index = -1
+material = ExtResource("3_vlijj")
+position = Vector2(-22, 0)
+texture = ExtResource("3_pklkt")
+
+[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+position = Vector2(-128, 0)
+target_position = Vector2(128, 0)
+collision_mask = 75
+hit_from_inside = true
+script = ExtResource("4_vlijj")
+metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
+
+[connection signal="hit" from="RayDetector" to="." method="_on_detector_hit"]

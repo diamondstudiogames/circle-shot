@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_kbh7f"]
 [ext_resource type="Script" uid="uid://dmoavhfqpyihd" path="res://game/mobs/robot/variants/robot_p350.gd" id="2_od6ak"]
-[ext_resource type="PackedScene" uid="uid://c4cr4b5wn24yt" path="res://game/weapons/guns/p350/p350_bullet.tscn" id="3_fcvqf"]
-[ext_resource type="PackedScene" uid="uid://hco5h5lftad6" path="res://game/weapons/guns/p350/visual/p350_visual.tscn" id="4_xjmb3"]
-[ext_resource type="AnimationLibrary" uid="uid://i3oswnbbu01e" path="res://game/weapons/guns/p350/visual/p350_animations.tres" id="5_gdewm"]
+[ext_resource type="PackedScene" uid="uid://c4cr4b5wn24yt" path="res://game/weapons/guns/pistols/p350/p350_bullet.tscn" id="3_fcvqf"]
+[ext_resource type="PackedScene" uid="uid://hco5h5lftad6" path="res://game/weapons/guns/pistols/p350/visual/p350_visual.tscn" id="4_xjmb3"]
+[ext_resource type="AnimationLibrary" uid="uid://i3oswnbbu01e" path="res://game/weapons/guns/pistols/p350/visual/p350_animations.tres" id="5_gdewm"]
 
 [node name="RobotP350" instance=ExtResource("1_kbh7f")]
 script = ExtResource("2_od6ak")

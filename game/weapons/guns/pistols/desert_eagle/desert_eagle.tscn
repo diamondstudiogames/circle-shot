@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt2uws44q5uk"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_l8sst"]
+[ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/pistols/desert_eagle/desert_eagle_bullet.tscn" id="2_7232m"]
+[ext_resource type="PackedScene" uid="uid://comvmvk0q8dbr" path="res://game/weapons/guns/pistols/desert_eagle/visual/desert_eagle_visual.tscn" id="3_prwo0"]
+[ext_resource type="AnimationLibrary" uid="uid://b1n6fg1mit1ui" path="res://game/weapons/guns/pistols/desert_eagle/visual/desert_eagle_animations.tres" id="4_gphfq"]
+
+[sub_resource type="Curve" id="Curve_yn8d0"]
+_limits = [0.0, 12.0, 0.0, 1.6]
+_data = [Vector2(0, 0), 0.0, 15.4463, 0, 0, Vector2(1.6, 12), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_a2ndn"]
+_limits = [-14.0, 0.0, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, -13.7812, 0, 0, Vector2(3, -14), -0.513332, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jn5kp"]
+_limits = [-14.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, -14), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="DesertEagle" instance=ExtResource("1_l8sst")]
+shoot_interval = 0.57
+to_aim_time = 0.3
+projectile_scene = ExtResource("2_7232m")
+spread_walk = 3.5
+spread_curve = SubResource("Curve_yn8d0")
+spread_increasing_time = 0.5
+spread_reset_time = 0.7
+recoil_curve = SubResource("Curve_a2ndn")
+recoil_cycle_curve = SubResource("Curve_jn5kp")
+recoil_increasing_time = 0.5
+recoil_reset_time = 0.7
+ammo_per_load = 7
+ammo_total = 35
+speed_multiplier_when_current = 0.96
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_prwo0")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(134, -50)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_gphfq")
+}

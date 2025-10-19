@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="2_56hdh"]
 [ext_resource type="Texture2D" uid="uid://02i01bhrlnxp" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.png" id="2_i6voi"]
 [ext_resource type="Script" uid="uid://l5bb6pn0uqk2" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.gd" id="2_ld84a"]
-[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/flamethrower/projectile/fire_projectile.tscn" id="3_nkwvn"]
+[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/other/flamethrower/projectile/fire_projectile.tscn" id="3_nkwvn"]
 [ext_resource type="PackedScene" uid="uid://cepajywaefu1v" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower_death_vfx.tscn" id="3_uluc6"]
-[ext_resource type="PackedScene" uid="uid://bs5rd3ge5oubt" path="res://game/weapons/guns/flamethrower/visual/flamethrower_visual.tscn" id="6_nkwvn"]
-[ext_resource type="AnimationLibrary" uid="uid://dm3tlql2nim6v" path="res://game/weapons/guns/flamethrower/visual/flamethrower_animations.tres" id="8_sye6l"]
+[ext_resource type="PackedScene" uid="uid://bs5rd3ge5oubt" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_visual.tscn" id="6_nkwvn"]
+[ext_resource type="AnimationLibrary" uid="uid://dm3tlql2nim6v" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_animations.tres" id="8_sye6l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56hdh"]
 radius = 76.0

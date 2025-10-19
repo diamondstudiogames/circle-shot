@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://pjhomajigpbi"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_135fc"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="2_pcaw0"]
+[ext_resource type="Texture2D" uid="uid://b70ishj7g21cw" path="res://game/weapons/guns/other/flamethrower/projectile/fire_projectile.png" id="2_sll50"]
+[ext_resource type="Script" uid="uid://d3jenegyngmbp" path="res://game/weapons/guns/other/flamethrower/projectile/fire_projectile.gd" id="2_x8sdb"]
+[ext_resource type="PackedScene" uid="uid://b8mtoflrhtnpw" path="res://game/weapons/guns/other/flamethrower/projectile/fire_hit_vfx.tscn" id="3_x8sdb"]
+[ext_resource type="Material" uid="uid://7ixms0xbcpbw" path="res://game/shared/shaders/materials/projectile_outline_unshaded.tres" id="4_cujw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sll50"]
+radius = 32.0
+
+[node name="FireProjectile" instance=ExtResource("1_135fc")]
+script = ExtResource("2_x8sdb")
+speed_decay_time = 0.8
+speed = 2400.0
+hit_vfx_scene = ExtResource("3_x8sdb")
+hit_wall_vfx_scene = ExtResource("3_x8sdb")
+damage = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+z_index = -1
+material = ExtResource("4_cujw8")
+texture = ExtResource("2_sll50")
+offset = Vector2(-24, 0)
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+position = Vector2(-80, 0)
+shape = SubResource("CircleShape2D_sll50")
+target_position = Vector2(80, 0)
+max_results = 1
+collision_mask = 75
+script = ExtResource("2_pcaw0")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="Timer" parent="." index="2"]
+wait_time = 1.0
+
+[connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]

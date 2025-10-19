@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0sqwulviy72"]
+
+[ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_u0vms"]
+[ext_resource type="Texture2D" uid="uid://cohq2y4fe7wcv" path="res://game/weapons/guns/rifles/sniper_rifle/bullet.png" id="2_11pdg"]
+
+[node name="SniperBullet" instance=ExtResource("1_u0vms")]
+speed = 4300.0
+damage = 46
+
+[node name="RayDetector" parent="." index="0"]
+position = Vector2(-180, 0)
+target_position = Vector2(180, 0)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_11pdg")
+
+[node name="Timer" parent="." index="2"]
+wait_time = 3.0

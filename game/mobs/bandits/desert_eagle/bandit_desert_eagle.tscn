@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_3biik"]
 [ext_resource type="Script" uid="uid://dx62a4ohyvywr" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.gd" id="2_35jx5"]
-[ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/desert_eagle/desert_eagle_bullet.tscn" id="3_oqbp5"]
+[ext_resource type="PackedScene" uid="uid://ddnugomhhv0df" path="res://game/weapons/guns/pistols/desert_eagle/desert_eagle_bullet.tscn" id="3_oqbp5"]
 [ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="4_vq4yh"]
 [ext_resource type="PackedScene" uid="uid://utk6gbpl5c13" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle_death_vfx.tscn" id="5_35jx5"]
 [ext_resource type="Texture2D" uid="uid://t0h1t1ow6ltq" path="res://game/mobs/bandits/desert_eagle/bandit_desert_eagle.png" id="6_35jx5"]
-[ext_resource type="PackedScene" uid="uid://comvmvk0q8dbr" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_visual.tscn" id="7_3aoq5"]
-[ext_resource type="AnimationLibrary" uid="uid://b1n6fg1mit1ui" path="res://game/weapons/guns/desert_eagle/visual/desert_eagle_animations.tres" id="8_fq7fg"]
+[ext_resource type="PackedScene" uid="uid://comvmvk0q8dbr" path="res://game/weapons/guns/pistols/desert_eagle/visual/desert_eagle_visual.tscn" id="7_3aoq5"]
+[ext_resource type="AnimationLibrary" uid="uid://b1n6fg1mit1ui" path="res://game/weapons/guns/pistols/desert_eagle/visual/desert_eagle_animations.tres" id="8_fq7fg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpxwc"]
 radius = 76.0

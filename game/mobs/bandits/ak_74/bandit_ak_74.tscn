@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://dw227fbxby0w3" path="res://game/mobs/bandits/ak_74/bandit_ak_74.gd" id="2_54hhr"]
 [ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="2_sdrlc"]
 [ext_resource type="Texture2D" uid="uid://41l01i8thbg8" path="res://game/mobs/bandits/ak_74/bandit_ak_74.png" id="3_54hhr"]
-[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="3_sdrlc"]
-[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="3_wpxwc"]
-[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/ak_74/visual/ak_74_animations.tres" id="4_54hhr"]
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_visual.tscn" id="3_sdrlc"]
+[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/rifles/ak_74/ak_74_bullet.tscn" id="3_wpxwc"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_animations.tres" id="4_54hhr"]
 [ext_resource type="PackedScene" uid="uid://db4n5160rqb1v" path="res://game/mobs/bandits/ak_74/bandit_ak_74_death_vfx.tscn" id="5_fiqpf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpxwc"]

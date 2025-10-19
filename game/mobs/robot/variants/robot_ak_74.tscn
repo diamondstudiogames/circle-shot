@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_76374"]
 [ext_resource type="Script" uid="uid://c23b7s034omw" path="res://game/mobs/robot/variants/robot_ak_74.gd" id="2_76374"]
-[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/ak_74/ak_74_bullet.tscn" id="3_o76jr"]
-[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/ak_74/visual/ak_74_visual.tscn" id="4_ked2n"]
-[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/ak_74/visual/ak_74_animations.tres" id="5_q1a7n"]
+[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/rifles/ak_74/ak_74_bullet.tscn" id="3_o76jr"]
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_visual.tscn" id="4_ked2n"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_animations.tres" id="5_q1a7n"]
 
 [node name="RobotAK74" instance=ExtResource("1_76374")]
 script = ExtResource("2_76374")

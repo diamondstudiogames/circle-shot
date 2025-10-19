@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://qgpvrtvjg4dp"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_7pnph"]
+[ext_resource type="PackedScene" uid="uid://di4m7kkgyhvic" path="res://game/weapons/guns/other/potato_cannon/projectile/potato_projectile.tscn" id="2_1iw8o"]
+[ext_resource type="PackedScene" uid="uid://ee05ioldkevd" path="res://game/weapons/guns/other/potato_cannon/visual/potato_cannon_visual.tscn" id="3_1iw8o"]
+[ext_resource type="AnimationLibrary" uid="uid://qh0kma6856mb" path="res://game/weapons/guns/other/potato_cannon/visual/potato_cannon_animations.tres" id="4_kqd83"]
+
+[sub_resource type="Curve" id="Curve_fguuf"]
+_limits = [0.0, 8.0, 0.0, 2.5]
+_data = [Vector2(0, 0), 0.0, 3.2, 0, 1, Vector2(2.5, 8), 3.2, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dlx28"]
+_limits = [-8.0, 0.0, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.06, -0.580514), -0.808251, -1.42722, 0, 0, Vector2(3, -8), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_pshg7"]
+_limits = [-8.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -8), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="PotatoCannon" instance=ExtResource("1_7pnph")]
+shoot_interval = 0.55
+to_aim_time = 0.25
+projectile_scene = ExtResource("2_1iw8o")
+spread_base = 2.0
+spread_walk = 6.0
+spread_curve = SubResource("Curve_fguuf")
+spread_increasing_time = 0.4
+spread_reset_time = 0.6
+recoil_curve = SubResource("Curve_dlx28")
+recoil_cycle_curve = SubResource("Curve_pshg7")
+recoil_increasing_time = 0.5
+recoil_reset_time = 0.7
+ammo_total = 50
+speed_multiplier_when_current = 0.96
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_1iw8o")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(114, -46)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_kqd83")
+}

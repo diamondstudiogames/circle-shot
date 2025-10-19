@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_5uf7s"]
 [ext_resource type="Script" uid="uid://btgre7bv1b6d3" path="res://game/events/royale/royale.gd" id="2_d2r5a"]
-[ext_resource type="PackedScene" uid="uid://dn7oblc2lhvef" path="res://game/weapons/guns/bazooka/bazooka.tscn" id="3_vu7pc"]
+[ext_resource type="PackedScene" uid="uid://dn7oblc2lhvef" path="res://game/weapons/guns/other/bazooka/bazooka.tscn" id="3_vu7pc"]
 [ext_resource type="Script" uid="uid://x5ehyotfquq8" path="res://game/events/royale/royale_ui.gd" id="6_q5vxn"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="7_oyafe"]
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="7_v5hkh"]

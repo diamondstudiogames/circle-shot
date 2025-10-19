@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5ktvv2dnbcgp"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_ws6qo"]
+[ext_resource type="PackedScene" uid="uid://byoxdenhuuhfc" path="res://game/weapons/guns/rifles/famas/famas_bullet.tscn" id="2_4hyw8"]
+[ext_resource type="PackedScene" uid="uid://cwpkadi5ei534" path="res://game/weapons/guns/rifles/famas/visual/famas_visual.tscn" id="3_ciwyh"]
+[ext_resource type="AnimationLibrary" uid="uid://exf5k2o0da58" path="res://game/weapons/guns/rifles/famas/visual/famas_animations.tres" id="4_gmio7"]
+
+[sub_resource type="Curve" id="Curve_inlcm"]
+_limits = [0.0, 8.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1.6), 0.0, 0.0, 0, 0, Vector2(0.9, 6.4), 0.0, 0.0, 0, 0, Vector2(2, 8), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
+[sub_resource type="Curve" id="Curve_4h4it"]
+_limits = [-5.0, 0.0, 0.0, 1.75]
+_data = [Vector2(0.188153, 0), 0.0, 0.0, 0, 0, Vector2(1.225, -3), -7.05027, -7.05027, 0, 0, Vector2(1.5061, -5), 0.0, 0.0, 0, 0, Vector2(1.75, -3), 14.4598, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_eqhs3"]
+_limits = [-3.0, 3.0, 0.0, 2.6]
+_data = [Vector2(0, -3), 0.0, 9.81635, 0, 0, Vector2(0.65, 2.1), 0.0, 0.0, 0, 0, Vector2(1.3, -1.8), 0.0, 0.0, 0, 0, Vector2(1.95, 2.4), 0.0, 0.0, 0, 0, Vector2(2.6, -3), -7.59288, 0.0, 0, 0]
+point_count = 5
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
+[node name="FAMAS" instance=ExtResource("1_ws6qo")]
+shoot_interval = 0.13
+to_aim_time = 0.2
+projectile_scene = ExtResource("2_4hyw8")
+spread_base = 2.0
+spread_walk = 6.0
+spread_curve = SubResource("Curve_inlcm")
+spread_increasing_time = 0.18
+spread_reset_time = 0.45
+recoil_curve = SubResource("Curve_4h4it")
+recoil_cycle_curve = SubResource("Curve_eqhs3")
+recoil_reset_time = 0.5
+ammo_per_load = 30
+ammo_total = 120
+speed_multiplier_when_current = 0.95
+aim_camera_distance = 280.0
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_ciwyh")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(155, -20)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_gmio7")
+}

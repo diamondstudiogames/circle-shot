@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://c1scbdhsl2wlu" path="res://game/mobs/bandits/bazooka/bandit_bazooka.gd" id="2_h3xnw"]
 [ext_resource type="PackedScene" uid="uid://bdwe08hp3gif2" path="res://game/mobs/bandits/bazooka/big_blood_hurt_vfx.tscn" id="2_r73io"]
 [ext_resource type="Texture2D" uid="uid://dg0476yq0e8ba" path="res://game/mobs/bandits/bazooka/bandit_bazooka.png" id="2_vvl6l"]
-[ext_resource type="PackedScene" uid="uid://cqhttq0m4j1p6" path="res://game/weapons/guns/bazooka/projectile/bazooka_rocket.tscn" id="3_ji05r"]
-[ext_resource type="PackedScene" uid="uid://bjbu88a7f4mv6" path="res://game/weapons/guns/bazooka/visual/bazooka_visual.tscn" id="3_r73io"]
+[ext_resource type="PackedScene" uid="uid://cqhttq0m4j1p6" path="res://game/weapons/guns/other/bazooka/projectile/bazooka_rocket.tscn" id="3_ji05r"]
+[ext_resource type="PackedScene" uid="uid://bjbu88a7f4mv6" path="res://game/weapons/guns/other/bazooka/visual/bazooka_visual.tscn" id="3_r73io"]
 [ext_resource type="PackedScene" uid="uid://c108o2l7aigvy" path="res://game/mobs/bandits/bazooka/bandit_bazooka_death_vfx.tscn" id="5_y3rgh"]
-[ext_resource type="AnimationLibrary" uid="uid://mkiushk7ni1l" path="res://game/weapons/guns/bazooka/visual/bazooka_animations.tres" id="7_ji05r"]
+[ext_resource type="AnimationLibrary" uid="uid://mkiushk7ni1l" path="res://game/weapons/guns/other/bazooka/visual/bazooka_animations.tres" id="7_ji05r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h3xnw"]
 radius = 116.0

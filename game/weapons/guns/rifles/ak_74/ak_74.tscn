@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2v16qvrswdtd"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_q67hu"]
+[ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/rifles/ak_74/ak_74_bullet.tscn" id="2_jquc2"]
+[ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_visual.tscn" id="3_n3224"]
+[ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_animations.tres" id="4_7rkp1"]
+
+[sub_resource type="Curve" id="Curve_ncqml"]
+_limits = [0.0, 8.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.522648, 0.269663), 0.33074, 0.33074, 0, 0, Vector2(2, 8), 9.27106, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_mancs"]
+_limits = [0.0, 5.0, 0.0, 2.4]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45993, 0), 0.0, 0.0, 0, 0, Vector2(2.4, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_fskgo"]
+_limits = [-5.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.508651, -5), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="AK74" instance=ExtResource("1_q67hu")]
+shoot_interval = 0.145
+to_aim_time = 0.3
+projectile_scene = ExtResource("2_jquc2")
+spread_base = 2.0
+spread_walk = 8.0
+spread_curve = SubResource("Curve_ncqml")
+spread_increasing_time = 0.18
+spread_reset_time = 0.5
+recoil_curve = SubResource("Curve_mancs")
+recoil_cycle_curve = SubResource("Curve_fskgo")
+recoil_increasing_time = 0.18
+recoil_reset_time = 0.5
+ammo_per_load = 30
+ammo_total = 120
+speed_multiplier_when_current = 0.94
+aim_camera_distance = 240.0
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_n3224")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(194, -31)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_7rkp1")
+}

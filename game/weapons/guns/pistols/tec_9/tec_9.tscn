@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bltslbj5qgpco"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_mrfpm"]
+[ext_resource type="PackedScene" uid="uid://dqb1dkircv0dw" path="res://game/weapons/guns/pistols/tec_9/tec_9_bullet.tscn" id="2_ffep1"]
+[ext_resource type="PackedScene" uid="uid://b4ou1m6cytjr6" path="res://game/weapons/guns/pistols/tec_9/visual/tec_9_visual.tscn" id="3_pdnd7"]
+[ext_resource type="AnimationLibrary" uid="uid://debv4f5lw3mbe" path="res://game/weapons/guns/pistols/tec_9/visual/tec_9_animations.tres" id="4_els1m"]
+
+[sub_resource type="Curve" id="Curve_ffep1"]
+_limits = [0.0, 7.0, 0.0, 4.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.03654, 1.66509), 0.0, 0.0, 0, 0, Vector2(2.55149, 4.36321), 3.90448, 3.90448, 0, 0, Vector2(4, 7), -0.504305, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_kua1l"]
+_limits = [-5.0, 0.0, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(3, -5), -3.61611, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tm66w"]
+_limits = [-9.0, -1.0, 0.0, 1.0]
+_data = [Vector2(0, -5), 0.0, -19.4717, 0, 0, Vector2(0.25, -9), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0403132, 0.0403132, 0, 0, Vector2(1, -5), -21.9357, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
+[node name="Tec9" instance=ExtResource("1_mrfpm")]
+shoot_interval = 0.33
+to_aim_time = 0.2
+projectile_scene = ExtResource("2_ffep1")
+spread_base = 2.2
+spread_walk = 3.8
+spread_curve = SubResource("Curve_ffep1")
+spread_increasing_time = 0.35
+spread_reset_time = 0.6
+recoil_curve = SubResource("Curve_kua1l")
+recoil_cycle_curve = SubResource("Curve_tm66w")
+recoil_increasing_time = 0.4
+recoil_reset_time = 0.7
+ammo_per_load = 18
+ammo_total = 90
+speed_multiplier_when_current = 0.97
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_pdnd7")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(110, -37)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_els1m")
+}

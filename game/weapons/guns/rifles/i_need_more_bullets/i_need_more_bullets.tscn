@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://tpvpkv3eid7i"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_av5tx"]
+[ext_resource type="Script" uid="uid://7xncka5pgh3i" path="res://game/weapons/guns/rifles/i_need_more_bullets/i_need_more_bullets.gd" id="2_a8qdj"]
+[ext_resource type="PackedScene" uid="uid://ll80nn6exap3" path="res://game/weapons/guns/rifles/i_need_more_bullets/projectiles/single_need_bullet.tscn" id="3_vt8b5"]
+[ext_resource type="PackedScene" uid="uid://bh8r5gsd6ghjm" path="res://game/weapons/guns/rifles/i_need_more_bullets/projectiles/need_bullet.tscn" id="4_f0y0x"]
+[ext_resource type="PackedScene" uid="uid://djoqpyhdpphsu" path="res://game/weapons/guns/rifles/i_need_more_bullets/visual/i_need_more_bullets_visual.tscn" id="5_fm2ea"]
+[ext_resource type="AnimationLibrary" uid="uid://cp21h0h8q700b" path="res://game/weapons/guns/rifles/i_need_more_bullets/visual/i_need_more_bullets_animations.tres" id="6_71kn8"]
+[ext_resource type="AudioStream" uid="uid://dmga2aoukx48n" path="res://game/weapons/guns/rifles/i_need_more_bullets/sfx/switch_single.wav" id="8_2rkf8"]
+[ext_resource type="AudioStream" uid="uid://cb7drxrleuutq" path="res://game/weapons/guns/rifles/i_need_more_bullets/sfx/switch.wav" id="8_g15ve"]
+[ext_resource type="AudioStream" uid="uid://ch7njkaenmssq" path="res://game/weapons/guns/rifles/i_need_more_bullets/sfx/shooting.ogg" id="13_sudsl"]
+
+[sub_resource type="Curve" id="Curve_wj8nx"]
+_limits = [0.0, 4.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7744108, 0.580822), 0.0, 0.0, 0, 0, Vector2(2, 4), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_qervo"]
+_limits = [-6.0, 0.0, 0.0, 4.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.2, 0), 0.0, 0.0, 0, 0, Vector2(2, -3.6), -0.15821955, -3.2869163, 0, 0, Vector2(4, -6), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_hhsl4"]
+_limits = [-8.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, -8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(2, -8), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[node name="INeedMoreBullets" instance=ExtResource("1_av5tx")]
+script = ExtResource("2_a8qdj")
+single_shoot_interval = 0.9
+single_ammo_per_shot = 4
+single_projectile_scene = ExtResource("3_vt8b5")
+shoot_interval = 0.17
+to_aim_time = 0.2
+projectile_scene = ExtResource("4_f0y0x")
+spread_base = 2.5
+spread_walk = 7.0
+spread_curve = SubResource("Curve_wj8nx")
+spread_reset_time = 1.3
+recoil_curve = SubResource("Curve_qervo")
+recoil_cycle_curve = SubResource("Curve_hhsl4")
+recoil_increasing_time = 0.3
+recoil_reset_time = 1.2
+ammo_per_load = 24
+ammo_total = 96
+speed_multiplier_when_current = 0.96
+aim_camera_distance = 240.0
+
+[node name="Visual" parent="." index="0" instance=ExtResource("5_fm2ea")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(236, -34)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("6_71kn8")
+}
+
+[node name="ShootingTimer" type="Timer" parent="." index="3"]
+process_callback = 0
+one_shot = true
+
+[node name="SwitchSfx" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("8_g15ve")
+max_distance = 1600.0
+bus = &"SFX"
+
+[node name="SwitchSingleSfx" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("8_2rkf8")
+max_distance = 1600.0
+bus = &"SFX"
+
+[node name="ShootingSfx" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("13_sudsl")
+max_distance = 2560.0
+bus = &"SFX"
+
+[connection signal="timeout" from="ShootingTimer" to="ShootingSfx" method="stop"]
