@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkinData" load_steps=2 format=3 uid="uid://chsfk8wntcb00"]
+
+[ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="1_uw214"]
+
+[resource]
+script = ExtResource("1_uw214")
+name = "Сволочь"
+rarity = 4
+id = "me"
+brief_description = "Легендарный персонаж!"
+custom_death_vfx = true
+custom_animations = true
+scene_path = "uid://mwrpno2aa3e1"
+image_path = "uid://gdgpdy5k5lda"
+metadata/_custom_type_script = "uid://d6lhqjoo2iuf"

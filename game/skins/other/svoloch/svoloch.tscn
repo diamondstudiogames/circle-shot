@@ -1,0 +1,542 @@
+[gd_scene load_steps=27 format=3 uid="uid://mwrpno2aa3e1"]
+
+[ext_resource type="Script" uid="uid://ck6iv32w1yhr5" path="res://game/skins/other/svoloch/svoloch.gd" id="2_kt3p6"]
+[ext_resource type="PackedScene" uid="uid://72aki6snx1ox" path="res://game/skins/other/svoloch/svoloch_death_vfx.tscn" id="2_yisnh"]
+[ext_resource type="Texture2D" uid="uid://bwwkcguodnytp" path="res://game/skins/other/svoloch/base.png" id="3_yisnh"]
+[ext_resource type="Texture2D" uid="uid://cble4y603b06l" path="res://game/skins/other/svoloch/left_pupil.png" id="4_yisnh"]
+[ext_resource type="Texture2D" uid="uid://xn38sskd35w1" path="res://game/skins/other/svoloch/right_pupil.png" id="5_y8w3n"]
+
+[sub_resource type="Animation" id="Animation_kt3p6"]
+resource_name = "eyes_idle"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.85, 2, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yisnh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mouth:points")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)]
+}
+
+[sub_resource type="Animation" id="Animation_y8w3n"]
+resource_name = "eyes_shooting"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-47, -37, -33, -30, -21, -24, -9, -18, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-47, -37, -33, -30, -21, -24, -9, -18, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-47, -37, -33, -30, -21, -24, -9, -18, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.85, 2, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 12, -18, 21, -24, 29, -28, 40, -34, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 12, -18, 21, -24, 29, -28, 40, -34, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 12, -18, 21, -24, 29, -28, 40, -34, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_exqeb"]
+resource_name = "hurt"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1920929e-07, 0.34999996, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mouth:points")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4901161e-07, 0.35, 0.4999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-60, 70, -59, 63, -41, 45, -34, 44, -25, 52, -14, 60, -6, 66, 6, 48, 13, 44, 27, 42, 43, 52, 50, 60, 52, 67), PackedVector2Array(-60, 70, -59, 63, -41, 45, -34, 44, -25, 52, -14, 60, -6, 66, 6, 48, 13, 44, 27, 42, 43, 52, 50, 60, 52, 67), PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)]
+}
+
+[sub_resource type="Animation" id="Animation_c256x"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_043tw"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, -4), Vector2(16, -8), Vector2(4, -4), Vector2(-8, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.13962634015954636, 0.0, -0.13962634015954636]
+}
+
+[sub_resource type="Animation" id="Animation_lo2jj"]
+resource_name = "heal"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8w3n"]
+_data = {
+&"RESET": SubResource("Animation_yisnh"),
+&"eyes_idle": SubResource("Animation_kt3p6"),
+&"eyes_shooting": SubResource("Animation_y8w3n"),
+&"heal": SubResource("Animation_lo2jj"),
+&"hurt": SubResource("Animation_exqeb"),
+&"idle": SubResource("Animation_c256x"),
+&"walk": SubResource("Animation_043tw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lo2jj"]
+animation = &"eyes_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxpsq"]
+animation = &"eyes_shooting"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_case2"]
+xfade_time = 0.15
+input_0/name = "idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "shooting"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qvxn"]
+animation = &"heal"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_v6dk2"]
+fadein_time = 0.05
+fadeout_time = 0.15
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c256x"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_043tw"]
+fadein_time = 0.05
+fadeout_time = 0.15
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_case2"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lo2jj"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_7qvxn"]
+xfade_time = 0.3
+input_0/name = "idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "walk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v6dk2"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cnowc"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_exqeb"]
+graph_offset = Vector2(-133.0986, -13.545097)
+nodes/output/position = Vector2(1080, 340)
+nodes/EyesIdle/node = SubResource("AnimationNodeAnimation_lo2jj")
+nodes/EyesIdle/position = Vector2(-460, 60)
+nodes/EyesTransition/node = SubResource("AnimationNodeTransition_case2")
+nodes/EyesTransition/position = Vector2(-180, 80)
+nodes/HurtOneShot/node = SubResource("AnimationNodeOneShot_043tw")
+nodes/HurtOneShot/position = Vector2(40, 40)
+nodes/EyesShooting/node = SubResource("AnimationNodeAnimation_xxpsq")
+nodes/EyesShooting/position = Vector2(-460, 240)
+nodes/Hurt/node = SubResource("AnimationNodeAnimation_c256x")
+nodes/Hurt/position = Vector2(-180, 360)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_case2")
+nodes/Idle/position = Vector2(340, 400)
+nodes/IdleWalkTransition/node = SubResource("AnimationNodeTransition_7qvxn")
+nodes/IdleWalkTransition/position = Vector2(540, 420)
+nodes/WalkTimeScale/node = SubResource("AnimationNodeTimeScale_cnowc")
+nodes/WalkTimeScale/position = Vector2(320, 600)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_v6dk2")
+nodes/Walk/position = Vector2(140, 600)
+nodes/IdleWalkAdd/node = SubResource("AnimationNodeAdd2_lo2jj")
+nodes/IdleWalkAdd/position = Vector2(760, 280)
+nodes/HealOneShot/node = SubResource("AnimationNodeOneShot_v6dk2")
+nodes/HealOneShot/position = Vector2(400, 40)
+nodes/Heal/node = SubResource("AnimationNodeAnimation_7qvxn")
+nodes/Heal/position = Vector2(140, 340)
+node_connections = [&"output", 0, &"IdleWalkAdd", &"EyesTransition", 0, &"EyesIdle", &"EyesTransition", 1, &"EyesShooting", &"HurtOneShot", 0, &"EyesTransition", &"HurtOneShot", 1, &"Hurt", &"IdleWalkTransition", 0, &"Idle", &"IdleWalkTransition", 1, &"WalkTimeScale", &"WalkTimeScale", 0, &"Walk", &"IdleWalkAdd", 0, &"HealOneShot", &"IdleWalkAdd", 1, &"IdleWalkTransition", &"HealOneShot", 0, &"HurtOneShot", &"HealOneShot", 1, &"Heal"]
+
+[node name="Svoloch" type="Sprite2D"]
+position = Vector2(4, -4)
+script = ExtResource("2_kt3p6")
+custom_death_vfx_scene = ExtResource("2_yisnh")
+metadata/_custom_type_script = "uid://nr21pnmv3b1n"
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("3_yisnh")
+
+[node name="LeftEye" type="Line2D" parent="."]
+points = PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)
+closed = true
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="RightEye" type="Line2D" parent="."]
+points = PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)
+closed = true
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Mouth" type="Line2D" parent="."]
+points = PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Mouth2" type="Line2D" parent="."]
+visible = false
+position = Vector2(4, 110.00001)
+rotation = -0.09024988
+scale = Vector2(1, -1.0000002)
+points = PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="LeftPupil" type="Node2D" parent="."]
+position = Vector2(-40, -10)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftPupil"]
+position = Vector2(12, 0)
+texture = ExtResource("4_yisnh")
+
+[node name="RightPupil" type="Node2D" parent="."]
+position = Vector2(36, -18)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightPupil"]
+position = Vector2(12, 0)
+texture = ExtResource("5_y8w3n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y8w3n")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_exqeb")
+anim_player = NodePath("../AnimationPlayer")
+parameters/EyesTransition/current_state = "idle"
+parameters/EyesTransition/transition_request = ""
+parameters/EyesTransition/current_index = 0
+parameters/HurtOneShot/active = false
+parameters/HurtOneShot/internal_active = false
+parameters/HurtOneShot/request = 0
+parameters/IdleWalkTransition/current_state = "idle"
+parameters/IdleWalkTransition/transition_request = ""
+parameters/IdleWalkTransition/current_index = 0
+parameters/WalkTimeScale/scale = 1.0
+parameters/IdleWalkAdd/add_amount = 1.0
+parameters/HealOneShot/active = false
+parameters/HealOneShot/internal_active = false
+parameters/HealOneShot/request = 0
