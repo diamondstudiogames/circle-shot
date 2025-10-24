@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://cho41pu87ax8w"]
+
+[ext_resource type="Texture2D" uid="uid://t16k04krk0mq" path="res://game/weapons/guns/pistols/uzi/visual/magazine.png" id="1_aw8j6"]
+[ext_resource type="Texture2D" uid="uid://dlffodcwi64ne" path="res://game/weapons/guns/pistols/uzi/visual/base.png" id="2_0kyb6"]
+[ext_resource type="Texture2D" uid="uid://br0rwmfjcs2cd" path="res://game/weapons/guns/pistols/uzi/visual/shutter.png" id="3_cfxti"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_cfxti"]
+[ext_resource type="Texture2D" uid="uid://p7lc2resallt" path="res://game/weapons/guns/common/gun_sleeve.png" id="4_frym5"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="5_frym5"]
+
+[sub_resource type="Gradient" id="Gradient_5v3bp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Magazine" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_aw8j6")
+offset = Vector2(0, 18)
+region_enabled = true
+region_rect = Rect2(48, 32, 32, 104)
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_0kyb6")
+offset = Vector2(16, -18)
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 96)
+
+[node name="Magazine" type="Sprite2D" parent="Base"]
+show_behind_parent = true
+texture = ExtResource("1_aw8j6")
+offset = Vector2(0, 18)
+region_enabled = true
+region_rect = Rect2(48, 32, 32, 104)
+
+[node name="Shutter" type="Sprite2D" parent="Base"]
+show_behind_parent = true
+texture = ExtResource("3_cfxti")
+offset = Vector2(44, -54)
+region_enabled = true
+region_rect = Rect2(96, 8, 24, 8)
+
+[node name="Shoot" type="Sprite2D" parent="Base"]
+visible = false
+show_behind_parent = true
+material = ExtResource("4_cfxti")
+position = Vector2(109, -36)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_frym5")
+
+[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+show_behind_parent = true
+position = Vector2(15, -49)
+emitting = false
+amount = 1
+texture = ExtResource("4_frym5")
+lifetime = 0.4
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 128.0
+initial_velocity_max = 128.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color_ramp = SubResource("Gradient_5v3bp")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3hn08at7uvth"]
+
+[ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_adham"]
+
+[node name="UziBullet" instance=ExtResource("1_adham")]
+speed = 3000.0
+damage = 8

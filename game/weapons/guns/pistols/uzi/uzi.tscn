@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://0tvxeqyoku0o"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_7w4mw"]
+[ext_resource type="PackedScene" uid="uid://3hn08at7uvth" path="res://game/weapons/guns/pistols/uzi/uzi_bullet.tscn" id="2_dkh6t"]
+[ext_resource type="PackedScene" uid="uid://cho41pu87ax8w" path="res://game/weapons/guns/pistols/uzi/visual/uzi_visual.tscn" id="3_87wtb"]
+[ext_resource type="AnimationLibrary" uid="uid://vasgrexp6yof" path="res://game/weapons/guns/pistols/uzi/visual/uzi_animations.tres" id="4_rgy5v"]
+
+[sub_resource type="Curve" id="Curve_dkh6t"]
+_limits = [0.0, 5.0, 0.0, 1.5]
+_data = [Vector2(0, 0), 0.0, 6.013431, 0, 0, Vector2(1.5, 5), -0.22995709, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_csjp2"]
+_limits = [-7.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5117845, 0), 0.0, 0.0, 0, 0, Vector2(2, -7), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ld67l"]
+_limits = [-7.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -7), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Uzi" instance=ExtResource("1_7w4mw")]
+shoot_interval = 0.165
+to_aim_time = 0.25
+projectile_scene = ExtResource("2_dkh6t")
+spread_base = 4.0
+spread_walk = 5.0
+spread_curve = SubResource("Curve_dkh6t")
+spread_increasing_time = 0.3
+spread_reset_time = 0.7
+recoil_curve = SubResource("Curve_csjp2")
+recoil_cycle_curve = SubResource("Curve_ld67l")
+recoil_increasing_time = 0.35
+recoil_reset_time = 0.7
+ammo_per_load = 25
+speed_multiplier_when_current = 0.96
+aim_camera_distance = 128.0
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_87wtb")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(94, -35)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_rgy5v")
+}

@@ -3,5 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_bmjbu"]
 
 [node name="Tec9Bullet" instance=ExtResource("1_bmjbu")]
-speed = 3400.0
+speed = 3200.0
 damage = 12
