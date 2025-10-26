@@ -1,6 +1,6 @@
 extends Gun
 
-@export var buckshot_in_shot: int = 6
+@export var bullets_in_shot: int = 6
 var _interrupting_reload := false
 var _reloading := false
 
@@ -61,12 +61,12 @@ func _interrupt_reload(current_ammo: int) -> void:
 
 
 func _create_projectile() -> void:
-	for i: int in buckshot_in_shot:
+	for i: int in bullets_in_shot:
 		var projectile: Projectile = projectile_scene.instantiate()
 		projectile.position = _shoot_point.global_position
 		projectile.damage_multiplier = player.damage_multiplier
 		projectile.rotation = player.entity_input.aim_direction.angle() \
-				+ deg_to_rad(_calculate_spread() * (-1 + 2.0 / (buckshot_in_shot - 1) * i)) \
+				+ deg_to_rad(_calculate_spread() * (-1 + 2.0 / (bullets_in_shot - 1) * i)) \
 				+ deg_to_rad(_calculate_recoil()) * signf(player.entity_input.aim_direction.x)
 		projectile.team = player.team
 		projectile.who = player.id

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b40x5mxrjrg61"]
+
+[ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="1_t6j6s"]
+[ext_resource type="Texture2D" uid="uid://dilds0aidg2fu" path="res://game/weapons/guns/shotguns/spas/visual/base.png" id="2_r3urb"]
+[ext_resource type="Texture2D" uid="uid://dslkl4an5f75g" path="res://game/weapons/guns/shotguns/spas/visual/shutter.png" id="3_g3g7o"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_i1s3c"]
+
+[sub_resource type="Gradient" id="Gradient_ywdx0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Ammo" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-56, 0)
+rotation = 0.15707964
+texture = ExtResource("1_t6j6s")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_r3urb")
+offset = Vector2(96, -16)
+
+[node name="Shutter" type="Sprite2D" parent="Base"]
+texture = ExtResource("3_g3g7o")
+offset = Vector2(124, -20)
+region_enabled = true
+region_rect = Rect2(96, 16, 88, 32)
+
+[node name="Shoot" type="Sprite2D" parent="Base"]
+visible = false
+show_behind_parent = true
+position = Vector2(221, -31)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_i1s3c")
+
+[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+position = Vector2(47, -31)
+emitting = false
+amount = 1
+texture = ExtResource("1_t6j6s")
+lifetime = 0.5
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 256.0
+initial_velocity_max = 256.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+color_ramp = SubResource("Gradient_ywdx0")

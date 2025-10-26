@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_y8mmd"]
 
-[node name="Buckshot" instance=ExtResource("1_y8mmd")]
+[node name="ShotgunBullet" instance=ExtResource("1_y8mmd")]
 speed = 1700.0
 damage = 9
 

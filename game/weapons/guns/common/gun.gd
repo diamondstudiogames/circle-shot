@@ -25,11 +25,11 @@ extends Weapon
 ## принимать отрицательные значения. [member Curve.max_domain] определяет длительность
 ## этой кривой.
 @export var spread_curve: Curve
-## Время, через которое будет циклиться таймер разброса вне длительности кривой начнёт циклиться.
+## Время, через которое таймер разброса вне длительности кривой начнёт циклиться.
 @export var spread_post_curve_time := 1.0
 ## Время, за которое таймер разброса будет увеличен на [member shoot_interval].
 @export var spread_increasing_time := 0.2
-## Время, за которое разброс возвращается до базового после прекращения стрельбы.
+## Время, за которое разброс возвращается до базового после выстрела.
 @export var spread_reset_time := 0.4
 
 @export_group("Recoil", "recoil_")
@@ -41,7 +41,7 @@ extends Weapon
 @export var recoil_cycle_curve: Curve
 ## Время, за которое таймер отдачи будет увеличен на [member shoot_interval].
 @export var recoil_increasing_time := 0.2
-## Время, за которое отдача сбрасывается после прекращения стрельбы.
+## Время, за которое отдача сбрасывается после выстрела.
 @export var recoil_reset_time := 0.3
 
 var _shoot_timer := 0.0

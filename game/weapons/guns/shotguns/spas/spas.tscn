@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://1e31sp51n2is"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_2esms"]
+[ext_resource type="Script" uid="uid://dsk1jrhebi2n" path="res://game/weapons/guns/shotguns/common/shotgun.gd" id="2_osqyu"]
+[ext_resource type="PackedScene" uid="uid://dgbrhj6rb1yk0" path="res://game/weapons/guns/shotguns/spas/spas_bullet.tscn" id="3_t3aeo"]
+[ext_resource type="PackedScene" uid="uid://b40x5mxrjrg61" path="res://game/weapons/guns/shotguns/spas/visual/spas_visual.tscn" id="4_pyj37"]
+[ext_resource type="AnimationLibrary" uid="uid://dcnvpbkxn4yv6" path="res://game/weapons/guns/shotguns/spas/visual/spas_animations.tres" id="5_fgg20"]
+
+[sub_resource type="Curve" id="Curve_pyj37"]
+_limits = [0.0, 6.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 5.37041, 0, 0, Vector2(2, 6), 1.5867122, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fgg20"]
+_limits = [-6.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, -5.518999, 0, 0, Vector2(2, -6), -1.6104461, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_f3gcv"]
+_limits = [-6.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -6), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Spas" instance=ExtResource("1_2esms")]
+script = ExtResource("2_osqyu")
+bullets_in_shot = 5
+shoot_interval = 0.55
+to_aim_time = 0.3
+projectile_scene = ExtResource("3_t3aeo")
+spread_base = 10.0
+spread_walk = 5.0
+spread_curve = SubResource("Curve_pyj37")
+spread_increasing_time = 0.4
+spread_reset_time = 0.7
+recoil_curve = SubResource("Curve_fgg20")
+recoil_cycle_curve = SubResource("Curve_f3gcv")
+recoil_increasing_time = 0.4
+recoil_reset_time = 0.8
+ammo_per_load = 8
+ammo_total = 40
+speed_multiplier_when_current = 0.95
+
+[node name="Visual" parent="." index="0" instance=ExtResource("4_pyj37")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(206, -31)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("5_fgg20")
+}

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_hu422"]
 [ext_resource type="Script" uid="uid://dsk1jrhebi2n" path="res://game/weapons/guns/shotguns/common/shotgun.gd" id="2_bxqwq"]
-[ext_resource type="PackedScene" uid="uid://co7528ytx5rvc" path="res://game/weapons/guns/shotguns/shotgun/buckshot.tscn" id="3_1xtgg"]
+[ext_resource type="PackedScene" uid="uid://co7528ytx5rvc" path="res://game/weapons/guns/shotguns/shotgun/shotgun_bullet.tscn" id="3_1xtgg"]
 [ext_resource type="PackedScene" uid="uid://dhgrnfcb8xlai" path="res://game/weapons/guns/shotguns/shotgun/visual/shotgun_visual.tscn" id="4_hht4k"]
 [ext_resource type="AnimationLibrary" uid="uid://d02lf1cqrrxgc" path="res://game/weapons/guns/shotguns/shotgun/visual/shotgun_animations.tres" id="5_m782v"]
 
@@ -23,7 +23,7 @@ point_count = 1
 
 [node name="Shotgun" instance=ExtResource("1_hu422")]
 script = ExtResource("2_bxqwq")
-buckshot_in_shot = 6
+bullets_in_shot = 6
 shoot_interval = 0.8
 to_aim_time = 0.2
 projectile_scene = ExtResource("3_1xtgg")

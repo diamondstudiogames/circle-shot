@@ -472,14 +472,13 @@ func apply_controls_settings() -> void:
 ## метод ввода - автоматический, то этот метод также вызовет [method apply_controls_settings], если
 ## автоматически определённый метод ввода поменялся с прошлого вызова этого метода.
 func get_current_input_method(update_settings := true) -> InputMethod:
-	if get_controls_int("input_method") != InputMethod.AUTO:
-		return get_controls_int("input_method") as InputMethod
-	
-	var input_method: InputMethod = InputMethod.TOUCH
-	if DisplayServer.has_hardware_keyboard():
-		input_method = InputMethod.KEYBOARD_AND_MOUSE
-	if not Input.get_connected_joypads().is_empty():
-		input_method = InputMethod.CONTROLLER
+	var input_method := get_controls_int("input_method") as InputMethod
+	if input_method == InputMethod.AUTO:
+		input_method = InputMethod.TOUCH
+		if DisplayServer.has_hardware_keyboard():
+			input_method = InputMethod.KEYBOARD_AND_MOUSE
+		if not Input.get_connected_joypads().is_empty():
+			input_method = InputMethod.CONTROLLER
 	
 	if input_method != _previous_input_method:
 		_previous_input_method = input_method

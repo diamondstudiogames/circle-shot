@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgbrhj6rb1yk0"]
+
+[ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_bsn2l"]
+
+[node name="SpasBullet" instance=ExtResource("1_bsn2l")]
+damage = 7
+
+[node name="Timer" parent="." index="2"]
+wait_time = 0.7

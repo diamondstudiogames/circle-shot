@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dblox3w8oh8qk"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_58qif"]
+
+[resource]
+script = ExtResource("1_58qif")
+name = "SPAS-12"
+rarity = 1
+id = "spas"
+stats = Dictionary[String, String]({
+"ammo_per_load": "8",
+"ammo_total": "32",
+"buckshots": "5",
+"damage": "7",
+"dps": "64",
+"reload_time": "0.4"
+})
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Снарядов в выстреле: [color=red]{buckshots}[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color] за патрон
+
+Быстрый дробовик с хорошей точностью и средним уроном."
+scene_path = "uid://1e31sp51n2is"
+image_path = "uid://cx8krxub1reb8"
+spawnable_scenes_paths = Array[String](["uid://dgbrhj6rb1yk0"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

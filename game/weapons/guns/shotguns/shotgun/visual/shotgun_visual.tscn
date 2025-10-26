@@ -12,6 +12,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [node name="Visual" type="Node2D"]
 
 [node name="Ammo" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-56, 0)
 rotation = 0.20944
