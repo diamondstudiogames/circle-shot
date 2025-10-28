@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b40x5mxrjrg61"]
+[gd_scene load_steps=7 format=3 uid="uid://b40x5mxrjrg61"]
 
 [ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="1_t6j6s"]
 [ext_resource type="Texture2D" uid="uid://dilds0aidg2fu" path="res://game/weapons/guns/shotguns/spas/visual/base.png" id="2_r3urb"]
 [ext_resource type="Texture2D" uid="uid://dslkl4an5f75g" path="res://game/weapons/guns/shotguns/spas/visual/shutter.png" id="3_g3g7o"]
 [ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_i1s3c"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_r3urb"]
 
 [sub_resource type="Gradient" id="Gradient_ywdx0"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -30,6 +31,7 @@ region_rect = Rect2(96, 16, 88, 32)
 [node name="Shoot" type="Sprite2D" parent="Base"]
 visible = false
 show_behind_parent = true
+material = ExtResource("4_r3urb")
 position = Vector2(221, -31)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_i1s3c")

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dmwbbr13to1ir"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_5vs5n"]
+
+[resource]
+script = ExtResource("1_5vs5n")
+name = "Minigun"
+rarity = 2
+id = "minigun"
+stats = Dictionary[String, String]({
+"ammo_per_load": "150",
+"ammo_total": "300",
+"damage": "8",
+"dps": "80",
+"reload_time": "5"
+})
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+[color=deep_sky_blue]Разгоняется перед стрельбой[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color]
+
+Легендарный пулемёт с восхитительным уроном и неплохой точностью, однако его мобильность оставляет желать лучшего."
+scene_path = "uid://kyk1d4l4sa2k"
+image_path = "uid://db38iv6v8pi53"
+spawnable_scenes_paths = Array[String](["uid://c2npe1obh3ekr"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

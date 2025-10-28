@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://kyk1d4l4sa2k"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_mioq4"]
+[ext_resource type="Script" uid="uid://bv54vw8sk35a0" path="res://game/weapons/guns/rifles/minigun/minigun.gd" id="2_jp05l"]
+[ext_resource type="PackedScene" uid="uid://diifqrk7jht1y" path="res://game/weapons/guns/rifles/minigun/visual/minigun_visual.tscn" id="3_nhbw1"]
+[ext_resource type="AnimationLibrary" uid="uid://c3hx6ovvmx43a" path="res://game/weapons/guns/rifles/minigun/visual/minigun_animations.tres" id="4_iip8x"]
+[ext_resource type="PackedScene" uid="uid://c2npe1obh3ekr" path="res://game/weapons/guns/rifles/minigun/projectile/minigun_bullet.tscn" id="9_5vydx"]
+
+[sub_resource type="Curve" id="Curve_fio75"]
+_limits = [0.0, 6.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(2, 6), 4.627908, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_5vydx"]
+_limits = [-10.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.4882154, -4.8972607), -7.655192, -19.833918, 0, 0, Vector2(2, -10), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_b6sdk"]
+_limits = [-10.0, 10.0, 0.0, 2.0]
+_data = [Vector2(0, -10), 0.0, 0.0, 0, 0, Vector2(1.010101, 10), 0.0, 0.0, 0, 0, Vector2(2, -10), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Minigun" instance=ExtResource("1_mioq4")]
+script = ExtResource("2_jp05l")
+charge_time = 0.8
+handle_max_rotation = -30.0
+handle_rotation_speed = 37.5
+shoot_interval = 0.1
+ammo_per_shot = 3
+to_aim_time = 0.5
+projectile_scene = ExtResource("9_5vydx")
+spread_base = 3.0
+spread_walk = 3.0
+spread_walk_ratio = 0.2
+spread_curve = SubResource("Curve_fio75")
+spread_increasing_time = 0.15
+spread_reset_time = 1.0
+recoil_curve = SubResource("Curve_5vydx")
+recoil_cycle_curve = SubResource("Curve_b6sdk")
+recoil_increasing_time = 0.15
+recoil_reset_time = 1.5
+ammo_per_load = 150
+ammo_total = 450
+speed_multiplier_when_current = 0.75
+aim_camera_distance = 240.0
+
+[node name="Visual" parent="." index="0" instance=ExtResource("3_nhbw1")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(264, -6)
+
+[node name="Aim" parent="ShootPoint" index="0"]
+width = 32.0
+
+[node name="SpreadLeft" parent="ShootPoint/Aim" index="0"]
+position = Vector2(0, -16)
+
+[node name="SpreadRight" parent="ShootPoint/Aim" index="1"]
+position = Vector2(0, 16)
+
+[node name="Outline" parent="ShootPoint/Aim" index="2"]
+width = 36.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("4_iip8x")
+}
