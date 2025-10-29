@@ -8,7 +8,7 @@ name = "Коса"
 rarity = 1
 id = "scythe"
 stats = Dictionary[String, String]({
-"ammo_total": "Не ограничено",
+"ammo_total": "не ограничено",
 "damage": "53",
 "dps": "44"
 })

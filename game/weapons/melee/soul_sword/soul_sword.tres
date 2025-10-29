@@ -9,6 +9,7 @@ rarity = 5
 id = "soul_sword"
 stats = Dictionary[String, String]({
 "ammo_total": "20",
+"ammo_total_melee": "не ограничено",
 "damage": "40",
 "damage_ranged": "30+20",
 "dps": "50",
@@ -24,7 +25,8 @@ description = "[color=deep_sky_blue]Имеет дальнюю и ближнюю 
 Урон/с: [color=red]{dps_ranged}[/color]
 Урон/удар: [color=red]{damage_ranged}[/color]
 
-Боеприпасы: [color=blue]{ammo_total} исп. дальней атаки[/color]
+Боеприпасы (дальняя атака): [color=blue]{ammo_total}[/color]
+Боеприпасы (ближняя атака): [color=blue]{ammo_total_melee}[/color]
 
 Меч, сделанный из душевной силы игрока."
 scene_path = "uid://hqut06bvc2kx"

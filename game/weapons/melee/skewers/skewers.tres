@@ -8,7 +8,7 @@ name = "Шампуры"
 rarity = 2
 id = "skewers"
 stats = Dictionary[String, String]({
-"ammo_total": "Не ограничено",
+"ammo_total": "не ограничено",
 "damage": "35/30/50",
 "dps": "96"
 })

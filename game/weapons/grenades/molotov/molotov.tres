@@ -24,7 +24,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Количество: [color=blue]{ammo_total} шт.[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
-Стеклянная бутылка с зажигательной смесью, идеально подходит для контроля области. Однако огонь можно потушить."
+Стеклянная бутылка с зажигательной смесью, идеально подходящая для контроля области. Однако огонь можно потушить."
 scene_path = "uid://sfylru3mff2y"
 image_path = "uid://da8d8bw8e6naj"
 spawnable_scenes_paths = Array[String](["uid://dq6lpemfo4iff"])

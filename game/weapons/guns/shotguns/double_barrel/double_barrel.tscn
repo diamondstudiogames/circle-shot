@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds65ug20xe7w6"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_vsa8m"]
+[ext_resource type="Script" uid="uid://dsk1jrhebi2n" path="res://game/weapons/guns/shotguns/common/shotgun.gd" id="2_3ircb"]
+[ext_resource type="PackedScene" uid="uid://cck7peobtcapn" path="res://game/weapons/guns/shotguns/double_barrel/visual/double_barrel_visual.tscn" id="2_jkxsg"]
+[ext_resource type="AnimationLibrary" uid="uid://cf7ni7i8gjvbs" path="res://game/weapons/guns/shotguns/double_barrel/visual/double_barrel_animations.tres" id="3_icg7b"]
+[ext_resource type="PackedScene" uid="uid://dci857ukqhcky" path="res://game/weapons/guns/shotguns/double_barrel/double_barrel_bullet.tscn" id="3_mpo00"]
+
+[sub_resource type="Curve" id="Curve_3yf5v"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_o2m3x"]
+_limits = [-5.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, -5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_kmoyi"]
+_limits = [-5.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -5), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="DoubleBarrel" instance=ExtResource("1_vsa8m")]
+script = ExtResource("2_3ircb")
+bullets_in_shot = 4
+shoot_interval = 0.7
+to_aim_time = 0.3
+projectile_scene = ExtResource("3_mpo00")
+spread_base = 6.0
+spread_walk = 3.0
+spread_curve = SubResource("Curve_3yf5v")
+spread_increasing_time = 0.4
+spread_reset_time = 1.1
+recoil_curve = SubResource("Curve_o2m3x")
+recoil_cycle_curve = SubResource("Curve_kmoyi")
+recoil_increasing_time = 0.4
+recoil_reset_time = 1.1
+ammo_per_load = 2
+ammo_total = 26
+speed_multiplier_when_current = 0.95
+aim_camera_distance = 200.0
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("2_jkxsg")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(190, -8)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("3_icg7b")
+}

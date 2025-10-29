@@ -12,7 +12,7 @@ stats = Dictionary[String, String]({
 "damage": "20",
 "dps": "100"
 })
-ammo_text = "Не ограничено"
+ammo_text = "{ammo_total}"
 description = "Урон/с: [color=red]{dps}[/color]
 Урон/удар: [color=red]{damage}[/color]
 

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dptakdst00x0i"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_8ke5r"]
+
+[resource]
+script = ExtResource("1_8ke5r")
+name = "Двуствольное ружьё"
+rarity = 1
+id = "double_barrel"
+stats = Dictionary[String, String]({
+"ammo_per_load": "2",
+"ammo_total": "24",
+"buckshots": "4",
+"damage": "11",
+"dps": "63",
+"reload_time": "0.5"
+})
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Снарядов в выстреле: [color=red]{buckshots}[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color] за патрон
+
+Двуствольное ружьё обладает очень большой точностью, однако ограниченный боезапас не прощает ошибок."
+scene_path = "uid://ds65ug20xe7w6"
+image_path = "uid://bdtmprwb8beh5"
+spawnable_scenes_paths = Array[String](["uid://dci857ukqhcky"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

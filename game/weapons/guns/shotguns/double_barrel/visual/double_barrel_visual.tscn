@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cck7peobtcapn"]
+
+[ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="1_g00h4"]
+[ext_resource type="Texture2D" uid="uid://v00xdetgu4rl" path="res://game/weapons/guns/shotguns/double_barrel/visual/handle.png" id="2_gifhq"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_7kjml"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_ei43i"]
+[ext_resource type="Texture2D" uid="uid://dw03de416886n" path="res://game/weapons/guns/shotguns/double_barrel/visual/barrel.png" id="5_qboj1"]
+
+[sub_resource type="Gradient" id="Gradient_kmoyi"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Ammo" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-56, 0)
+rotation = 0.5131268
+texture = ExtResource("1_g00h4")
+
+[node name="Handle" type="Sprite2D" parent="."]
+texture = ExtResource("2_gifhq")
+offset = Vector2(-40, 12)
+region_enabled = true
+region_rect = Rect2(0, 0, 112, 56)
+
+[node name="Shoot" type="Sprite2D" parent="Handle"]
+visible = false
+show_behind_parent = true
+material = ExtResource("3_7kjml")
+position = Vector2(205, -8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_ei43i")
+
+[node name="Sleeve" type="CPUParticles2D" parent="Handle"]
+show_behind_parent = true
+position = Vector2(14, -6)
+emitting = false
+amount = 2
+texture = ExtResource("1_g00h4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(-1, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 256.0
+initial_velocity_max = 256.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+color_ramp = SubResource("Gradient_kmoyi")
+
+[node name="Barrel" type="Sprite2D" parent="Handle"]
+show_behind_parent = true
+position = Vector2(10, 4)
+texture = ExtResource("5_qboj1")
+offset = Vector2(82, -4)
+region_enabled = true
+region_rect = Rect2(88, 0, 200, 32)
