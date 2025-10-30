@@ -58,15 +58,7 @@ func destroy(where: Vector2, wall: bool) -> void:
 	for sd: ShapeDetector in shape_detectors:
 		sd.enabled = false
 	
-	var vfx_scene: PackedScene = hit_wall_vfx_scene if wall else hit_vfx_scene
-	if vfx_scene:
-		var vfx_parent: Node = get_tree().get_first_node_in_group(&"vfx_parent")
-		if is_instance_valid(vfx_parent):
-			var vfx: Node2D = vfx_scene.instantiate()
-			vfx.position = where
-			vfx.rotation = rotation
-			vfx.scale.y = sign(scale.y)
-			vfx_parent.add_child(vfx)
+	_create_vfx(where, wall)
 	
 	await get_tree().physics_frame
 	hide()
@@ -79,6 +71,20 @@ func _process_hit(where: Vector2, what: Entity) -> void:
 		destroy.rpc(where, not what)
 	else:
 		destroy(where, not what)
+
+
+## Метод для переопределения. Может использоваться для изменения логики создания визуального эффекта
+## при столкновении снаряда с чем-либо.
+func _create_vfx(where: Vector2, wall: bool) -> void:
+	var vfx_scene: PackedScene = hit_wall_vfx_scene if wall else hit_vfx_scene
+	if vfx_scene:
+		var vfx_parent: Node = get_tree().get_first_node_in_group(&"vfx_parent")
+		if is_instance_valid(vfx_parent):
+			var vfx: Node2D = vfx_scene.instantiate()
+			vfx.position = where
+			vfx.rotation = rotation
+			vfx.scale.y = sign(scale.y)
+			vfx_parent.add_child(vfx)
 
 
 func _on_detector_hit(where: Vector2, what: Entity) -> void:

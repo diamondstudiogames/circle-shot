@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
 [ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
 [ext_resource type="Script" uid="uid://cvncfjveetr3u" path="res://game/solo/challenges/common/challenge_ui.gd" id="3_kh7n0"]
-[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="4_70jvh"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="4_70jvh"]
 [ext_resource type="Texture2D" uid="uid://brk630h1wdh40" path="res://menu/theme/icons/pause.png" id="4_iuf22"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="4_uf786"]
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="5_54rqx"]
@@ -380,7 +380,7 @@ alignment = 1
 [node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0"]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
-text = "Итого:"
+text = "У тебя:"
 
 [node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1"]
 layout_mode = 2

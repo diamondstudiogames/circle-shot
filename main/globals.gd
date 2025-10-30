@@ -101,6 +101,23 @@ func initialize() -> void:
 	if OS.is_debug_build():
 		version += "-debug"
 	
+	var set_setting_next := false
+	for arg: String in OS.get_cmdline_user_args():
+		if set_setting_next:
+			var slices: PackedStringArray = arg.split('=', false)
+			if slices.size() == 2:
+				Globals.set_setting_variant(slices[0], str_to_var(slices[1]))
+				print_verbose('Set setting "%s" to value "%s".' % [
+					slices[0], 
+					str_to_var(slices[1]),
+				])
+				set_setting_next = false
+			else:
+				printerr("Incorrect set setting: expected setting=value, got %s instead." % arg)
+				set_setting_next = arg == "--set-setting"
+		else:
+			set_setting_next = arg == "--set-setting"
+	
 	setup_settings()
 	apply_settings()
 	setup_controls_settings()

@@ -9,7 +9,7 @@ rarity = 1
 id = "shield"
 stats = Dictionary[String, String]({
 "cooldown": "15",
-"count": "3",
+"count": "5",
 "duration": "4",
 "protection": "60",
 "slowdown": "25"

@@ -9,7 +9,7 @@ rarity = 1
 id = "m4a1"
 stats = Dictionary[String, String]({
 "ammo_per_load": "25",
-"ammo_total": "50",
+"ammo_total": "100",
 "damage": "7",
 "dps": "50",
 "reload_time": "2.7"

@@ -9,7 +9,7 @@ rarity = 1
 id = "famas"
 stats = Dictionary[String, String]({
 "ammo_per_load": "30",
-"ammo_total": "90",
+"ammo_total": "120",
 "damage": "6",
 "dps": "46",
 "reload_time": "2"

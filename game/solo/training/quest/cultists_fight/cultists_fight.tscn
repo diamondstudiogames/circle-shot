@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://rq0ds83fr7a" path="res://game/solo/training/quest/cultists_fight/cultist_bloody_daggers.tscn" id="5_16cp4"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_8787g"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="7_qjxiq"]
-[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="8_8a8sj"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="8_8a8sj"]
 [ext_resource type="PackedScene" uid="uid://dpkjtov14f1kh" path="res://game/solo/training/quest/cultists_fight/cultists_fight_map.tscn" id="8_8787g"]
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="10_w2kqy"]
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="11_16cp4"]

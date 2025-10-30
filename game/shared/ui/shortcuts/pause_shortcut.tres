@@ -1,0 +1,6 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://dqhqklmms38d2"]
+
+[ext_resource type="Script" uid="uid://dbkyltjayj33t" path="res://game/shared/ui/shortcuts/pause_shortcut.gd" id="1_nj50g"]
+
+[resource]
+script = ExtResource("1_nj50g")

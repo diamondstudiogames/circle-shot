@@ -314,12 +314,12 @@ radius = 320.0
 script = ExtResource("2_xtwto")
 match_time = 240
 comeback_time = 5
-coins_for_win = 55
-coins_for_draw = 38
-coins_for_defeat = 25
-coins_for_flag_captured = 9
-coins_for_kill = 5
-damage_for_coin = 30
+coins_for_win = 70
+coins_for_draw = 55
+coins_for_defeat = 40
+coins_for_flag_captured = 11
+coins_for_kill = 6
+damage_for_coin = 25
 entity_scenes = Array[PackedScene]([ExtResource("3_ae5hp")])
 
 [node name="OtherSpawner" parent="." index="6"]

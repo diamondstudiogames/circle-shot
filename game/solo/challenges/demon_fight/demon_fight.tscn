@@ -223,10 +223,10 @@ _data = {
 
 [node name="DemonFight" instance=ExtResource("1_xc66l")]
 script = ExtResource("2_4d8qd")
-coins_for_win = 70
-coins_for_win_first_time = 750
-coins_for_kill = 4
-damage_for_coin = 65.0
+coins_for_win = 85
+coins_for_win_first_time = 1000
+coins_for_kill = 5
+damage_for_coin = 55.0
 entity_scenes = Array[PackedScene]([ExtResource("3_7whrh"), ExtResource("4_xp7bv"), ExtResource("5_3ns2w"), ExtResource("6_v14lo"), ExtResource("7_3ns2w")])
 tracks = Array[AudioStream]([ExtResource("3_lm2rq")])
 

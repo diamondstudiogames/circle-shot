@@ -350,11 +350,6 @@ func _loading_init() -> void:
 	_load_status_label.text = "Инициализация..."
 	_load_progress_bar.value = 0.0
 	
-	Globals.initialize()
-	if DisplayServer.get_name() == "headless":
-		print("Running in headless mode.")
-		Globals.headless = true
-	
 	if "--help" in OS.get_cmdline_user_args():
 		print("Game specific arguments:")
 		print()
@@ -371,22 +366,10 @@ func _loading_init() -> void:
 			print("Note: to use --console on Windows, you must launch game from *.console.exe \
 file, otherwise it will NOT function.")
 	
-	var set_setting_next := false
-	for arg: String in OS.get_cmdline_user_args():
-		if set_setting_next:
-			var slices: PackedStringArray = arg.split('=', false)
-			if slices.size() == 2:
-				Globals.set_setting_variant(slices[0], str_to_var(slices[1]))
-				print_verbose('Set setting "%s" to value "%s".' % [
-					slices[0], 
-					str_to_var(slices[1]),
-				])
-				set_setting_next = false
-			else:
-				printerr("Incorrect set setting: expected setting=value, got %s instead." % arg)
-				set_setting_next = arg == "--set-setting"
-		else:
-			set_setting_next = arg == "--set-setting"
+	if DisplayServer.get_name() == "headless":
+		print("Running in headless mode.")
+		Globals.headless = true
+	Globals.initialize()
 	
 	_update_window_stretch_aspect()
 	get_window().size_changed.connect(_on_window_size_changed)

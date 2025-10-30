@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="12_olgru"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="13_1grle"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_clwqa"]
-[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/pause_shortcut/pause_shortcut.tres" id="14_idd4e"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="14_idd4e"]
 [ext_resource type="Texture2D" uid="uid://ndobp7p586tx" path="res://menu/theme/icons/edit.png" id="16_8bquf"]
 [ext_resource type="Texture2D" uid="uid://2u83h36lsfg3" path="res://game/solo/training/icons/select_map.png" id="16_fhj3u"]
 [ext_resource type="Texture2D" uid="uid://d1vvdmcmvh4m8" path="res://game/solo/training/icons/destroy_enemies.png" id="16_oiyxk"]

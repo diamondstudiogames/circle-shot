@@ -9,7 +9,7 @@ rarity = 3
 id = "sniper"
 stats = Dictionary[String, String]({
 "ammo_per_load": "4",
-"ammo_total": "12",
+"ammo_total": "16",
 "damage": "46",
 "dps": "31",
 "reload_time": "3.1"

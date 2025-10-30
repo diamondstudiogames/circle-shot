@@ -38,7 +38,7 @@ recoil_curve = SubResource("Curve_4h4it")
 recoil_cycle_curve = SubResource("Curve_eqhs3")
 recoil_reset_time = 0.5
 ammo_per_load = 30
-ammo_total = 120
+ammo_total = 150
 speed_multiplier_when_current = 0.95
 aim_camera_distance = 280.0
 

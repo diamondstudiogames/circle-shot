@@ -35,6 +35,7 @@ recoil_cycle_curve = SubResource("Curve_bi3gr")
 recoil_increasing_time = 0.16
 recoil_reset_time = 0.45
 ammo_per_load = 25
+ammo_total = 125
 speed_multiplier_when_current = 0.95
 aim_camera_distance = 320.0
 

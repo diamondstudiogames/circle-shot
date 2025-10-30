@@ -9,7 +9,7 @@ rarity = 4
 id = "ineedmorebullets"
 stats = Dictionary[String, String]({
 "ammo_per_load": "24",
-"ammo_total": "72",
+"ammo_total": "96",
 "damage": "8",
 "dps": "47",
 "reload_time": "2.9",

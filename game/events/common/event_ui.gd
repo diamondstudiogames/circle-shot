@@ -16,6 +16,7 @@ var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 ## Ссылка на [Event].
 @onready var event: Event = get_parent()
 @onready var _chat_button: Button = chat.get_node(chat.chat_button_path)
+@onready var _rewards_total: Label = %Rewards/Total/Count
 
 
 func _ready() -> void:
@@ -77,6 +78,9 @@ func seek_intro(at_time: float) -> void:
 ## Показывает награды из словаря [param rewards]. В [param total] находится сумма полученных монет.
 ## Для подробностей см. [method Event._get_rewards].
 func show_rewards(rewards: Dictionary[String, int], total: int) -> void:
+	var current_coins: int = Globals.get_int("coins")
+	_rewards_total.text = "%d (+%d)" % [current_coins, 0]
+	
 	($Main/RewardsPanel as CanvasItem).show()
 	var tween: Tween = create_tween()
 	tween.tween_property($Main/RewardsPanel as CanvasItem, ^":modulate", Color.WHITE, 0.5).from(
@@ -92,8 +96,8 @@ func show_rewards(rewards: Dictionary[String, int], total: int) -> void:
 	
 	(%Rewards/Total as CanvasItem).move_to_front()
 	tween.tween_interval(0.4)
-	tween.tween_method(func(val: int) -> void: (%Rewards/Total/Count as Label).text = str(val),
-			0, total, 1.0)
+	tween.tween_method(func(val: int) -> void: 
+		_rewards_total.text = "%d (+%d)" % [current_coins + val, val], 0, total, 1.0)
 	tween.tween_interval(3.5)
 	tween.tween_property($Main/RewardsPanel as CanvasItem, ^":modulate", Color.TRANSPARENT, 0.4)
 

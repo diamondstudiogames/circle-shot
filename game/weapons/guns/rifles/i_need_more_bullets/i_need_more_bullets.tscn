@@ -44,7 +44,7 @@ recoil_cycle_curve = SubResource("Curve_hhsl4")
 recoil_increasing_time = 0.3
 recoil_reset_time = 1.2
 ammo_per_load = 24
-ammo_total = 96
+ammo_total = 120
 speed_multiplier_when_current = 0.96
 aim_camera_distance = 240.0
 

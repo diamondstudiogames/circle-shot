@@ -140,13 +140,13 @@ _data = {
 }
 
 [sub_resource type="InputEventAction" id="InputEventAction_vu7pc"]
-action = &"move_left"
+action = &"ui_left"
 
 [sub_resource type="Shortcut" id="Shortcut_0ce5t"]
 events = [SubResource("InputEventAction_vu7pc")]
 
 [sub_resource type="InputEventAction" id="InputEventAction_og6sw"]
-action = &"move_right"
+action = &"ui_right"
 
 [sub_resource type="Shortcut" id="Shortcut_scmca"]
 events = [SubResource("InputEventAction_og6sw")]
@@ -159,11 +159,11 @@ ammo_box_spawn_interval_base = 15.0
 ammo_box_spawn_interval_per_player = 1.5
 weapon_box_spawn_interval_base = 50.0
 weapon_box_spawn_interval_per_player = 10.0
-coins_for_last_place = 10
-coins_for_first_place_base = 20
-coins_for_first_place_per_player = 4
-coins_for_kill = 6
-damage_for_coin = 18
+coins_for_last_place = 15
+coins_for_first_place_base = 25
+coins_for_first_place_per_player = 5
+coins_for_kill = 8
+damage_for_coin = 15
 spawn_point_randomness = 0.0
 metadata/_edit_horizontal_guides_ = []
 
