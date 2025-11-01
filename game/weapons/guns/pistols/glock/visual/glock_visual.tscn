@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi2ah3air18dv"]
+
+[ext_resource type="Texture2D" uid="uid://b42u3dgpp056h" path="res://game/weapons/guns/pistols/glock/visual/magazine.png" id="1_fiv57"]
+[ext_resource type="Texture2D" uid="uid://b8g7akyws1krl" path="res://game/weapons/guns/pistols/glock/visual/base.png" id="2_6qmj4"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_vfiqp"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="4_nbace"]
+[ext_resource type="Texture2D" uid="uid://bnc5t5os4w7d" path="res://game/weapons/guns/pistols/glock/visual/shutter.png" id="5_0emfk"]
+[ext_resource type="Texture2D" uid="uid://p7lc2resallt" path="res://game/weapons/guns/common/gun_sleeve.png" id="6_rn26l"]
+
+[sub_resource type="Gradient" id="Gradient_2pamt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Magazine" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_fiv57")
+offset = Vector2(0, 8)
+region_enabled = true
+region_rect = Rect2(0, 32, 56, 56)
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_6qmj4")
+offset = Vector2(36, -8)
+
+[node name="Shoot" type="Sprite2D" parent="Base"]
+visible = false
+show_behind_parent = true
+material = ExtResource("3_vfiqp")
+position = Vector2(112, -40)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_nbace")
+
+[node name="Shutter" type="Sprite2D" parent="Base"]
+texture = ExtResource("5_0emfk")
+offset = Vector2(36, -40)
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 24)
+
+[node name="Magazine" type="Sprite2D" parent="Base"]
+show_behind_parent = true
+texture = ExtResource("1_fiv57")
+offset = Vector2(0, 8)
+region_enabled = true
+region_rect = Rect2(0, 32, 56, 56)
+
+[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+show_behind_parent = true
+position = Vector2(20, -41)
+emitting = false
+amount = 1
+texture = ExtResource("6_rn26l")
+lifetime = 0.17
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 192.0
+initial_velocity_max = 192.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+color_ramp = SubResource("Gradient_2pamt")

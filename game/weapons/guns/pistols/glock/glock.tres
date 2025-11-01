@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://cdeyf4jfqhryk"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_k8gvu"]
+
+[resource]
+script = ExtResource("1_k8gvu")
+name = "Glock-22"
+rarity = 2
+id = "glock"
+stats = Dictionary[String, String]({
+"ammo_per_load": "20",
+"ammo_total": "80",
+"damage": "9",
+"dps": "42",
+"reload_time": "",
+"shots_in_burst": "3"
+})
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Выстрелов в очереди: [color=red]{shots_in_burst}[/color]
+[color=deep_sky_blue]Стреляет очередями[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color]
+
+Этот пистолет стреляет очередями из не очень сильных выстрелов, которые однако способны быстро нанести хороший урон."
+scene_path = "uid://8caj6mg6srss"
+image_path = "uid://duvsxneq0i1xv"
+spawnable_scenes_paths = Array[String](["uid://cme3hkkpcrxri"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

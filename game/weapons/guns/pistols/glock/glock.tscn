@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://8caj6mg6srss"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_3a7xl"]
+[ext_resource type="PackedScene" uid="uid://cme3hkkpcrxri" path="res://game/weapons/guns/pistols/glock/glock_bullet.tscn" id="2_vee2n"]
+[ext_resource type="Script" uid="uid://d0kggsafc4ohg" path="res://game/weapons/guns/pistols/glock/glock.gd" id="2_yhuw1"]
+[ext_resource type="PackedScene" uid="uid://bi2ah3air18dv" path="res://game/weapons/guns/pistols/glock/visual/glock_visual.tscn" id="4_aj6sd"]
+[ext_resource type="AnimationLibrary" uid="uid://cg6fo0mnlaxr5" path="res://game/weapons/guns/pistols/glock/visual/glock_animations.tres" id="5_vish7"]
+
+[sub_resource type="Curve" id="Curve_vee2n"]
+_limits = [0.0, 4.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(2, 4), 0.24600169, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_yhuw1"]
+_limits = [-4.0, 0.0, 0.0, 2.5]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.78282833, 0), 0.0, 0.0, 0, 0, Vector2(2.5, -4), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_1ic0r"]
+_limits = [-4.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -4), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Glock" instance=ExtResource("1_3a7xl")]
+script = ExtResource("2_yhuw1")
+shots_in_burst = 3
+to_aim_time = 0.2
+projectile_scene = ExtResource("2_vee2n")
+spread_base = 1.5
+spread_walk = 4.0
+spread_curve = SubResource("Curve_vee2n")
+spread_reset_time = 0.9
+recoil_curve = SubResource("Curve_yhuw1")
+recoil_cycle_curve = SubResource("Curve_1ic0r")
+recoil_reset_time = 0.6
+ammo_per_load = 20
+speed_multiplier_when_current = 0.98
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("4_aj6sd")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(98, -40)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("5_vish7")
+}
+
+[node name="BurstShotsIntervalTimer" type="Timer" parent="." index="3"]
+process_callback = 0
+wait_time = 0.13
+one_shot = true
+
+[editable path="Visual"]
