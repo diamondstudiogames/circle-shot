@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boiyd7ssqfvxg"
-path="res://.godot/imported/fire_hit.png-fdd84437fd03b201464a26c416db179b.ctex"
+uid="uid://cb16wjwwf4v02"
+path="res://.godot/imported/flame.png-424cb9b2c5c05591d214187487ef4a94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/weapons/guns/other/flamethrower/projectile/fire_hit.png"
-dest_files=["res://.godot/imported/fire_hit.png-fdd84437fd03b201464a26c416db179b.ctex"]
+source_file="res://game/weapons/guns/other/flamethrower/projectile/flame.png"
+dest_files=["res://.godot/imported/flame.png-424cb9b2c5c05591d214187487ef4a94.ctex"]
 
 [params]
 

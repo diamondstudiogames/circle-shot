@@ -9,7 +9,7 @@ rarity = 2
 id = "flamegun"
 stats = Dictionary[String, String]({
 "ammo_per_load": "75",
-"ammo_total": "75",
+"ammo_total": "150",
 "damage": "7",
 "dps": "70",
 "reload_time": "3.5"

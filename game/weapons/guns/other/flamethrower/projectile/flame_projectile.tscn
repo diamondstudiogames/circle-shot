@@ -1,0 +1,207 @@
+[gd_scene load_steps=11 format=3 uid="uid://pjhomajigpbi"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_spa4n"]
+[ext_resource type="Script" uid="uid://d3jenegyngmbp" path="res://game/weapons/guns/other/flamethrower/projectile/flame_projectile.gd" id="2_bl6oy"]
+[ext_resource type="Shader" uid="uid://dnnuodmgxudl4" path="res://game/weapons/guns/other/flamethrower/projectile/flame_outline.gdshader" id="4_7jiuy"]
+[ext_resource type="Texture2D" uid="uid://cb16wjwwf4v02" path="res://game/weapons/guns/other/flamethrower/projectile/flame.png" id="5_ayoey"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="6_4pdh8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfegl"]
+shader = ExtResource("4_7jiuy")
+shader_parameter/outline_width = 1.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmgbm"]
+resource_local_to_scene = true
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_spa4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShapeDetector:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [40.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShapeDetector:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1600.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:damage")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_5h1rg"]
+resource_name = "fire"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(1, 0, 0, 1), Color(0.7529412, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.8, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1.25, 1.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShapeDetector:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.9, 1),
+"update": 0,
+"values": [20.0, 184.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShapeDetector:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.90000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.7, 1),
+"update": 0,
+"values": [900.0, 160.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:damage")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.9, 1),
+"update": 0,
+"values": [7, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bl6oy"]
+_data = {
+&"RESET": SubResource("Animation_spa4n"),
+&"fire": SubResource("Animation_5h1rg")
+}
+
+[node name="FlameProjectile" instance=ExtResource("1_spa4n")]
+script = ExtResource("2_bl6oy")
+speed = 1600.0
+damage = 7
+damage_interval = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(1, 1, 0, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_xfegl")
+instance_shader_parameters/outline_color = Color(1, 0, 0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_ayoey")
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+position = Vector2(-128, 0)
+shape = SubResource("CircleShape2D_dmgbm")
+target_position = Vector2(128, 0)
+max_results = 1
+collision_mask = 75
+script = ExtResource("6_4pdh8")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="Timer" parent="." index="2"]
+wait_time = 1.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_bl6oy")
+}
+autoplay = "fire"
+
+[connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]

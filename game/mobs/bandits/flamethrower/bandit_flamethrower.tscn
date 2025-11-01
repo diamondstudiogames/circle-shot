@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="2_56hdh"]
 [ext_resource type="Texture2D" uid="uid://02i01bhrlnxp" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.png" id="2_i6voi"]
 [ext_resource type="Script" uid="uid://l5bb6pn0uqk2" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.gd" id="2_ld84a"]
-[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/other/flamethrower/projectile/fire_projectile.tscn" id="3_nkwvn"]
+[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/other/flamethrower/projectile/flame_projectile.tscn" id="3_nkwvn"]
 [ext_resource type="PackedScene" uid="uid://cepajywaefu1v" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower_death_vfx.tscn" id="3_uluc6"]
 [ext_resource type="PackedScene" uid="uid://bs5rd3ge5oubt" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_visual.tscn" id="6_nkwvn"]
 [ext_resource type="AnimationLibrary" uid="uid://dm3tlql2nim6v" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_animations.tres" id="8_sye6l"]
@@ -16,7 +16,7 @@ radius = 76.0
 script = ExtResource("2_ld84a")
 projectile_scene = ExtResource("3_nkwvn")
 shoot_times = 8
-spread = 30.0
+spread = 8.0
 shoot_interval = 1.5
 aim_angle_rotation_weight = 0.06999999999999999
 optimal_distance = 400.0

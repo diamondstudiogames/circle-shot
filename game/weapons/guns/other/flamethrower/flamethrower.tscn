@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2nr1cx8txay5"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_sklvg"]
-[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/other/flamethrower/projectile/fire_projectile.tscn" id="2_tngnv"]
+[ext_resource type="PackedScene" uid="uid://pjhomajigpbi" path="res://game/weapons/guns/other/flamethrower/projectile/flame_projectile.tscn" id="2_tngnv"]
 [ext_resource type="PackedScene" uid="uid://bs5rd3ge5oubt" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_visual.tscn" id="3_y3qts"]
 [ext_resource type="AnimationLibrary" uid="uid://dm3tlql2nim6v" path="res://game/weapons/guns/other/flamethrower/visual/flamethrower_animations.tres" id="4_tngnv"]
 
 [sub_resource type="Curve" id="Curve_y3qts"]
-_limits = [0.0, 10.0, 0.0, 5.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(5, 10), 0.0, 0.0, 0, 0]
+_limits = [0.0, 5.0, 0.0, 5.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(5, 5), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_tngnv"]
@@ -22,7 +22,7 @@ point_count = 1
 shoot_interval = 0.1
 to_aim_time = 0.35
 projectile_scene = ExtResource("2_tngnv")
-spread_base = 25.0
+spread_base = 5.0
 spread_walk = 5.0
 spread_curve = SubResource("Curve_y3qts")
 spread_increasing_time = 0.15
@@ -30,7 +30,7 @@ spread_reset_time = 1.0
 recoil_curve = SubResource("Curve_tngnv")
 recoil_cycle_curve = SubResource("Curve_m6ywg")
 ammo_per_load = 75
-ammo_total = 150
+ammo_total = 225
 speed_multiplier_when_current = 0.93
 aim_camera_distance = 180.0
 
