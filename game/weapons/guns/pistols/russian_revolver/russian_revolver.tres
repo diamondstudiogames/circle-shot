@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dsmxs7n6u56u1"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_l4keh"]
+
+[resource]
+script = ExtResource("1_l4keh")
+name = "Русский револьвер"
+rarity = 4
+id = "russian_roulette"
+stats = Dictionary[String, String]({
+"ammo_per_load": "6",
+"ammo_total": "42",
+"blank_bonus": "85",
+"blank_chance": "60",
+"damage": "20",
+"dps": "40",
+"reload_time": "2.2",
+"self_damage": "8"
+})
+description = "Базовый урон/с: [color=red]{dps}[/color]
+Базовый урон/снаряд: [color=red]{damage}[/color]
+Шанс на холостой: [color=red]{blank_chance}%[/color]
+Бонусный урон за холостой: [color=red]{blank_bonus}%[/color]
+Урон выстрела в себя: [color=red]{self_damage}[/color]
+[color=deep_sky_blue]Можно попытать удачу для повышения урона[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color]
+
+Этот револьвер стреляет одиночными мощными выстрелами, которые можно усилить ещё больше: за каждый холостой патрон, выпущенный в себя, урон следующего выстрела повышается."
+scene_path = "uid://bx4k2pqgm7ema"
+image_path = "uid://fvyih131vl3m"
+spawnable_scenes_paths = Array[String](["uid://bnow1haoeqnth"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

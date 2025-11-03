@@ -10,8 +10,8 @@ id = "deagle"
 stats = Dictionary[String, String]({
 "ammo_per_load": "7",
 "ammo_total": "28",
-"damage": "24",
-"dps": "42",
+"damage": "25",
+"dps": "44",
 "reload_time": "2.4"
 })
 description = "Урон/с: [color=red]{dps}[/color]

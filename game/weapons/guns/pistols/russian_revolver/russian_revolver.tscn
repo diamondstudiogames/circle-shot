@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx4k2pqgm7ema"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_uaoks"]
+[ext_resource type="Script" uid="uid://cd4n5e3wdttl3" path="res://game/weapons/guns/pistols/russian_revolver/russian_revolver.gd" id="2_5spho"]
+[ext_resource type="PackedScene" uid="uid://bnow1haoeqnth" path="res://game/weapons/guns/pistols/russian_revolver/russian_revolver_bullet.tscn" id="2_41vo5"]
+[ext_resource type="PackedScene" uid="uid://c427i0rt1iube" path="res://game/weapons/guns/pistols/russian_revolver/visual/russian_revolver_visual.tscn" id="4_rse48"]
+[ext_resource type="AnimationLibrary" uid="uid://3obae3swuxmp" path="res://game/weapons/guns/pistols/russian_revolver/visual/russian_revolver_animations.tres" id="10_1nin3"]
+
+[sub_resource type="Curve" id="Curve_5spho"]
+_limits = [0.0, 12.0, 0.0, 2.5]
+_data = [Vector2(0, 0), 0.0, 3.1282203, 0, 0, Vector2(2.5, 12), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1nin3"]
+_limits = [-10.0, 0.0, 0.0, 2.5]
+_data = [Vector2(0.5, 0), 0.0, -1.9922839, 0, 0, Vector2(2.5, -10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mswmq"]
+_limits = [-10.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -10), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="RussianRevolver" instance=ExtResource("1_uaoks")]
+script = ExtResource("2_5spho")
+blank_chance = 0.6
+bonus_damage = 0.85
+self_damage = 8
+red_per_blank = 0.2
+to_aim_time = 0.25
+projectile_scene = ExtResource("2_41vo5")
+spread_base = 1.5
+spread_walk = 3.5
+spread_curve = SubResource("Curve_5spho")
+spread_increasing_time = 0.45
+spread_reset_time = 0.9
+recoil_curve = SubResource("Curve_1nin3")
+recoil_cycle_curve = SubResource("Curve_mswmq")
+recoil_increasing_time = 0.45
+recoil_reset_time = 0.9
+ammo_per_load = 6
+ammo_total = 48
+speed_multiplier_when_current = 0.98
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("4_rse48")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(123, -34)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("10_1nin3")
+}

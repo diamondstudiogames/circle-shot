@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnow1haoeqnth"]
+
+[ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_nljgr"]
+
+[node name="RussianRevolverBullet" instance=ExtResource("1_nljgr")]
+speed = 3200.0
+damage = 20

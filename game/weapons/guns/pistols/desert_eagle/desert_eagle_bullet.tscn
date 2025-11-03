@@ -4,7 +4,7 @@
 
 [node name="DesertEagleBullet" instance=ExtResource("1_vbv8p")]
 speed = 3400.0
-damage = 24
+damage = 25
 
 [node name="RayDetector" parent="." index="0"]
 position = Vector2(-160, 0)
