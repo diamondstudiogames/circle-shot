@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://rtkhrjxem2dc"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_svmxp"]
+
+[resource]
+script = ExtResource("1_svmxp")
+name = "Крюк"
+rarity = 3
+id = "hook"
+stats = Dictionary[String, String]({
+"ammo_total": "4",
+"cooldown": "10",
+"range": "8",
+"stun_time": "1"
+})
+damage_text = "Притягивает врагов/владельца"
+ammo_text = "{ammo_total} исп."
+description = "[color=deep_sky_blue]Притягивает владельца к противникам или противников к владельцу[/color]
+Дальность: [color=red]{range} бл.[/color]
+Оглушение после притягивания врага: [color=red]{stun_time} с [/color]
+
+Количество использований: [color=blue]{ammo_total}[/color]
+Перезарядка: [color=blue]{cooldown} с[/color]
+
+Отличный способ сократить расстояние между тобой и врагом. Очень хорошо сочетается с оружием ближнего боя."
+scene_path = "uid://bdyfsrdgx0haa"
+image_path = "uid://ntkl330844fq"
+metadata/_custom_type_script = "uid://55g8njvkg07g"

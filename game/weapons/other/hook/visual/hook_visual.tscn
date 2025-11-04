@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5yuhtxk1cqyw"]
+
+[ext_resource type="Texture2D" uid="uid://d0o4mn81kpopk" path="res://game/weapons/other/hook/visual/chain.png" id="1_651yd"]
+[ext_resource type="Texture2D" uid="uid://dqqohrw8x4ie4" path="res://game/weapons/other/hook/visual/hook_attract_user.png" id="2_qdtlk"]
+
+[node name="Visual" type="Node2D"]
+
+[node name="Chain" type="Line2D" parent="."]
+z_index = -1
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+width = 24.0
+texture = ExtResource("1_651yd")
+texture_mode = 1
+
+[node name="Hook" type="Sprite2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(32, 32)
+texture = ExtResource("2_qdtlk")
+offset = Vector2(38, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="Hook"]
+enabled = false
+target_position = Vector2(72, 0)
+collision_mask = 11
+hit_from_inside = true
+
+[node name="ResetPoint" type="Marker2D" parent="."]
+position = Vector2(32, 32)

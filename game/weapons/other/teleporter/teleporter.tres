@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_hqr6q")
 name = "Телепортатор"
-rarity = 3
+rarity = 2
 id = "teleporter"
 stats = Dictionary[String, String]({
 "ammo_total": "2",

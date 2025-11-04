@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdyfsrdgx0haa"]
+
+[ext_resource type="Script" uid="uid://d0lom0taev17g" path="res://game/weapons/other/hook/hook.gd" id="1_3uidi"]
+[ext_resource type="PackedScene" uid="uid://b5yuhtxk1cqyw" path="res://game/weapons/other/hook/visual/hook_visual.tscn" id="3_edkhm"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="3_xj4w6"]
+[ext_resource type="AnimationLibrary" uid="uid://supye51qrqh3" path="res://game/weapons/other/hook/visual/hook_animations.tres" id="4_edkhm"]
+[ext_resource type="Texture2D" uid="uid://drf8asi0s3yc1" path="res://game/weapons/other/hook/visual/hook_attract_enemy.png" id="5_xj4w6"]
+[ext_resource type="Texture2D" uid="uid://dqqohrw8x4ie4" path="res://game/weapons/other/hook/visual/hook_attract_user.png" id="6_uqyeu"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xj4w6"]
+properties/0/path = NodePath("Visual/Hook:position")
+properties/0/spawn = false
+properties/0/replication_mode = 1
+
+[node name="Hook" type="Node2D"]
+script = ExtResource("1_3uidi")
+hook_speed = 2400.0
+attract_speed = 1760.0
+min_distance = 192.0
+min_reset_time = 0.3
+ammo_per_load = 0
+ammo_total = 4
+speed_multiplier_when_current = 0.99
+aim_camera_distance = 200.0
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." instance=ExtResource("3_edkhm")]
+position = Vector2(-32, -32)
+
+[node name="Aim" type="Line2D" parent="."]
+visible = false
+z_index = 10
+material = ExtResource("3_xj4w6")
+position = Vector2(-32, -32)
+points = PackedVector2Array(72, 0, 2048, 0)
+width = 8.0
+default_color = Color(1, 1, 1, 0.376471)
+
+[node name="Outline" type="Line2D" parent="Aim"]
+show_behind_parent = true
+use_parent_material = true
+points = PackedVector2Array(72, 0, 2048, 0)
+width = 12.0
+default_color = Color(0, 0, 0, 0.188235)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("4_edkhm")
+}
+
+[node name="CooldownTimer" type="Timer" parent="."]
+process_mode = 1
+process_callback = 0
+wait_time = 8.0
+one_shot = true
+
+[node name="AttractTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.25
+one_shot = true
+
+[node name="ThrowTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.8
+one_shot = true
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtResource("5_xj4w6"), ExtResource("6_uqyeu")]]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.1
+replication_config = SubResource("SceneReplicationConfig_xj4w6")
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="AttractTimer" to="." method="_on_attract_timer_timeout"]
+[connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
