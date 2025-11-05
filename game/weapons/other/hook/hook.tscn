@@ -48,10 +48,9 @@ libraries = {
 &"": ExtResource("4_edkhm")
 }
 
-[node name="CooldownTimer" type="Timer" parent="."]
-process_mode = 1
+[node name="ReloadTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 8.0
+wait_time = 9.0
 one_shot = true
 
 [node name="AttractTimer" type="Timer" parent="."]
@@ -71,6 +70,6 @@ resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtR
 replication_interval = 0.1
 replication_config = SubResource("SceneReplicationConfig_xj4w6")
 
-[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="AttractTimer" to="." method="_on_attract_timer_timeout"]
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]

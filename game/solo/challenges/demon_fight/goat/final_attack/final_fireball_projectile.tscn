@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddqmx7e72ebji"]
+[gd_scene load_steps=3 format=3 uid="uid://ddqmx7e72ebji"]
 
 [ext_resource type="PackedScene" uid="uid://djnl6yscswq2o" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_projectile.tscn" id="1_xeret"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_rw6he"]
 
 [node name="FinalFireballProjectile" instance=ExtResource("1_xeret")]
 speed = 880.0
 damage = 10
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("2_rw6he")
 
 [node name="RayDetector" parent="." index="4"]
 collision_mask = 74

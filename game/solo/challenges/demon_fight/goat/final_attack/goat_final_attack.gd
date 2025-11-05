@@ -10,7 +10,7 @@ extends Attack
 @export var fireballs_count: int = 18
 @export var big_shots_count: int = 10
 @export var fireballs_circles_count: int = 3
-@export var fireballs_circles_shift_per_spawn := 12.0
+@export var fireballs_circles_shift_per_spawn := 11.0
 @export var lightnings_speed_scale := 1.0
 
 var _fireballs_circles_angle := 0.0
@@ -25,7 +25,7 @@ func spawn_fireballs_back() -> void:
 	if not multiplayer.is_server():
 		return
 	var angle_interval: float = PI * 2 / fireballs_count
-	var base_angle: float = randf_range(0, angle_interval)
+	var base_angle: float = randf_range(0.0, angle_interval)
 	for i: int in fireballs_count:
 		var fireball: Projectile = fireball_back_scene.instantiate()
 		fireball.position = global_position

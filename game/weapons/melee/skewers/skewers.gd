@@ -33,8 +33,14 @@ func _physics_process(delta: float) -> void:
 		shoot(player.entity_input.aim_direction, _current_combo)
 
 
+func _exit_tree() -> void:
+	_timer.queue_free()
+
+
 func _initialize() -> void:
 	set_notify_local_transform(true)
+	_timer.name += name
+	_timer.reparent(player)
 
 
 func _shoot(direction := Vector2.RIGHT, combo: int = 0) -> void:

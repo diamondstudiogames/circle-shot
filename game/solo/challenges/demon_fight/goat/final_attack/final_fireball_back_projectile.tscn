@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyt1s64ximobk"]
+[gd_scene load_steps=6 format=3 uid="uid://cyt1s64ximobk"]
 
 [ext_resource type="PackedScene" uid="uid://djnl6yscswq2o" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_projectile.tscn" id="1_0gime"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_o2i8s"]
 
 [sub_resource type="Animation" id="Animation_otweu"]
 length = 0.001
@@ -66,6 +67,9 @@ _data = {
 
 [node name="FinalFireballBackProjectile" instance=ExtResource("1_0gime")]
 damage = 10
+
+[node name="Sprite2D" parent="." index="1"]
+material = ExtResource("2_o2i8s")
 
 [node name="Timer" parent="." index="2"]
 wait_time = 6.0

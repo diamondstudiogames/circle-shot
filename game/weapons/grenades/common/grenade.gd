@@ -66,8 +66,14 @@ func _physics_process(_delta: float) -> void:
 		shoot(player.entity_input.aim_direction)
 
 
+func _exit_tree() -> void:
+	_reload_timer.queue_free()
+
+
 func _initialize() -> void:
 	_reload_indicator_progress.visible = player.is_local()
+	_reload_timer.name += name
+	_reload_timer.reparent(player)
 
 
 func _make_current() -> void:

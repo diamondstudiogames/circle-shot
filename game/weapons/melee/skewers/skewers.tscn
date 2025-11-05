@@ -76,7 +76,6 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="." index="5"]
-process_mode = 1
 process_callback = 0
 one_shot = true
 

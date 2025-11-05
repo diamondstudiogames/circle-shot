@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_vpyyn")
-name = "Танцол"
+name = "Танцпол"
 brief_description = "Танцы на грани жизни и смерти."
 scene_path = "uid://doideugejj20p"
 image_path = "uid://bnfdyupnxpb13"

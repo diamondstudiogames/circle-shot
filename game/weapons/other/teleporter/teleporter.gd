@@ -39,8 +39,14 @@ func _physics_process(_delta: float) -> void:
 		shoot(not _collision_check.is_colliding() and not _border_check.is_colliding())
 
 
+func _exit_tree() -> void:
+	_reload_timer.queue_free()
+
+
 func _initialize() -> void:
 	_collision_check.add_exception(player)
+	_reload_timer.name += name
+	_reload_timer.reparent(player)
 
 
 func _shoot(success := false) -> void:
