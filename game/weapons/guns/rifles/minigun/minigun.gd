@@ -27,3 +27,8 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	if player.is_local() and can_reload() and ammo < ammo_per_shot:
 		player.try_reload_weapon()
+
+
+func _unmake_current() -> void:
+	super()
+	_charge_timer = 0.0

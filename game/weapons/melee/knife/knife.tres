@@ -7,7 +7,7 @@ script = ExtResource("1_2u2my")
 name = "Нож"
 id = "knife"
 stats = Dictionary[String, String]({
-"ammo_total": "не ограничено",
+"ammo_total": "Не ограничено",
 "damage": "55",
 "dps": "79"
 })

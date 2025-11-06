@@ -8,7 +8,7 @@ name = "Бензопила"
 rarity = 2
 id = "chainsaw"
 stats = Dictionary[String, String]({
-"ammo_total": "не ограничено",
+"ammo_total": "Не ограничено",
 "damage": "20",
 "dps": "100"
 })

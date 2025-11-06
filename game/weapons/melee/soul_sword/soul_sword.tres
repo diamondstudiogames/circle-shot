@@ -9,7 +9,7 @@ rarity = 5
 id = "soul_sword"
 stats = Dictionary[String, String]({
 "ammo_total": "20",
-"ammo_total_melee": "не ограничено",
+"ammo_total_melee": "Не ограничено",
 "damage": "40",
 "damage_ranged": "30+20",
 "dps": "50",

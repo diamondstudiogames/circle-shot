@@ -8,7 +8,7 @@ name = "Световой меч"
 rarity = 1
 id = "light_sword"
 stats = Dictionary[String, String]({
-"ammo_total": "не ограничено",
+"ammo_total": "Не ограничено",
 "damage": "42",
 "dps": "53"
 })

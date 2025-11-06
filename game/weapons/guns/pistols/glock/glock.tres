@@ -12,7 +12,7 @@ stats = Dictionary[String, String]({
 "ammo_total": "80",
 "damage": "9",
 "dps": "42",
-"reload_time": "",
+"reload_time": "2.1",
 "shots_in_burst": "3"
 })
 description = "Урон/с: [color=red]{dps}[/color]
