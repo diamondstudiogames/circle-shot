@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwxna5j2edqk1"]
+
+[ext_resource type="Texture2D" uid="uid://c8m6hi83grn52" path="res://game/weapons/guns/shotguns/uts_15/visual/base.png" id="1_pf3mg"]
+[ext_resource type="Texture2D" uid="uid://diyhfvdklmpv" path="res://game/weapons/guns/shotguns/uts_15/visual/shutter.png" id="2_nh3ua"]
+[ext_resource type="Texture2D" uid="uid://bryp7g223ewxt" path="res://game/weapons/guns/shotguns/uts_15/visual/aim.png" id="3_shsba"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="4_qxc10"]
+[ext_resource type="Texture2D" uid="uid://rvu643208pjh" path="res://game/weapons/guns/common/shoot_effect.png" id="5_q4wp0"]
+[ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="6_7dwcp"]
+
+[sub_resource type="Gradient" id="Gradient_omotg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Visual" type="Node2D"]
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_pf3mg")
+offset = Vector2(40, -20)
+
+[node name="Shutter" type="Sprite2D" parent="Base"]
+texture = ExtResource("2_nh3ua")
+offset = Vector2(96, -18)
+region_enabled = true
+region_rect = Rect2(128, 32, 96, 24)
+
+[node name="Aim" type="Sprite2D" parent="Base"]
+visible = false
+texture = ExtResource("3_shsba")
+offset = Vector2(4, -54)
+region_enabled = true
+region_rect = Rect2(72, 0, 24, 16)
+
+[node name="Shoot" type="Sprite2D" parent="Base"]
+visible = false
+show_behind_parent = true
+material = ExtResource("4_qxc10")
+position = Vector2(156, -28.999998)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_q4wp0")
+offset = Vector2(20, 0)
+
+[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+position = Vector2(5, -37)
+emitting = false
+amount = 1
+texture = ExtResource("6_7dwcp")
+lifetime = 0.7
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 256.0
+initial_velocity_max = 256.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+color_ramp = SubResource("Gradient_omotg")
+
+[node name="Ammo" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-56, 0)
+rotation = 0.17453294
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_7dwcp")

@@ -1,5 +1,8 @@
+class_name Shotgun
 extends Gun
+## Класс для оружий типа "Дробовики".
 
+## Количество пуль в одном выстреле.
 @export var bullets_in_shot: int = 6
 var _interrupting_reload := false
 var _reloading := false

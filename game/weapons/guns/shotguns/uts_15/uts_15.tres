@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://do1l6asuyrwyd"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_bbj7w"]
+
+[resource]
+script = ExtResource("1_bbj7w")
+name = "UTS-15"
+rarity = 3
+id = "uts15"
+stats = Dictionary[String, String]({
+"ammo_per_load": "15",
+"ammo_total": "15",
+"buckshots": "6",
+"buckshots_far": "5",
+"damage": "8",
+"damage_far": "8",
+"dps": "69",
+"dps_far": "57",
+"reload_time": "0.5"
+})
+damage_text = "Урон/с: {dps}/{dps_far}"
+description = "[color=deep_sky_blue]Имеет режимы стрельбы c большим и малым разбросами[/color]
+Большой разброс:
+Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Снарядов в выстреле: [color=red]{buckshots}[/color]
+Малый разброс:
+Урон/с: [color=red]{dps_far}[/color]
+Урон/снаряд: [color=red]{damage_far}[/color]
+Снарядов в выстреле: [color=red]{buckshots_far}[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color] за патрон
+
+Универсальный помоповый дробовик, который может как и нанести много урона вблизи, так и поражать цели издалека."
+scene_path = "uid://cx2gsf65qv7ou"
+image_path = "uid://ycgtnx4j5a60"
+spawnable_scenes_paths = Array[String](["uid://crqwj65hris7n", "uid://bw3a7jk8ylbmn"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

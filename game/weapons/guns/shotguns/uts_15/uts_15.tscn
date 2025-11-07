@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://cx2gsf65qv7ou"]
+
+[ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_ii548"]
+[ext_resource type="PackedScene" uid="uid://crqwj65hris7n" path="res://game/weapons/guns/shotguns/uts_15/uts_15_bullet.tscn" id="2_1rw2f"]
+[ext_resource type="Script" uid="uid://djn7fbvwkp5ud" path="res://game/weapons/guns/shotguns/uts_15/uts_15.gd" id="2_w6qi1"]
+[ext_resource type="PackedScene" uid="uid://bw3a7jk8ylbmn" path="res://game/weapons/guns/shotguns/uts_15/uts_15_bullet_far.tscn" id="3_tyyry"]
+[ext_resource type="PackedScene" uid="uid://bwxna5j2edqk1" path="res://game/weapons/guns/shotguns/uts_15/visual/uts_15_visual.tscn" id="4_w6qi1"]
+[ext_resource type="AnimationLibrary" uid="uid://bwatrs2dgplo2" path="res://game/weapons/guns/shotguns/uts_15/visual/uts_15_animations.tres" id="5_061iv"]
+
+[sub_resource type="Curve" id="Curve_n8gex"]
+_limits = [0.0, 10.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(2, 10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_061iv"]
+_limits = [-8.0, 0.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(2, -8), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tyyry"]
+_limits = [-8.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -8), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Uts15" instance=ExtResource("1_ii548")]
+script = ExtResource("2_w6qi1")
+bullets_in_shot_far = 5
+projectile_scene_far = ExtResource("3_tyyry")
+spread_far = 12.0
+bullets_in_shot = 6
+shoot_interval = 0.7
+to_aim_time = 0.25
+projectile_scene = ExtResource("2_1rw2f")
+spread_base = 28.0
+spread_walk = 5.0
+spread_curve = SubResource("Curve_n8gex")
+spread_increasing_time = 0.4
+spread_reset_time = 0.9
+recoil_curve = SubResource("Curve_061iv")
+recoil_cycle_curve = SubResource("Curve_tyyry")
+recoil_increasing_time = 0.4
+recoil_reset_time = 0.9
+ammo_per_load = 15
+ammo_total = 30
+speed_multiplier_when_current = 0.94
+shoot_on_joystick_release = true
+
+[node name="Visual" parent="." index="0" instance=ExtResource("4_w6qi1")]
+
+[node name="ShootPoint" parent="." index="1"]
+position = Vector2(156, -28)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": ExtResource("5_061iv")
+}
