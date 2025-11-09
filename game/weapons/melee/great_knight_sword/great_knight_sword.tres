@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://btcs5hocma6je"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_x0lbi"]
+
+[resource]
+script = ExtResource("1_x0lbi")
+name = "Меч Великого Рыцаря"
+rarity = 4
+id = "great_knight_sword"
+stats = Dictionary[String, String]({
+"ammo_total": "25",
+"ammo_total_melee": "Не ограничено",
+"bullet_count": "9",
+"bullet_damage": "5",
+"damage": "20",
+"dps": "20-65"
+})
+ammo_text = "{ammo_total} д. атак"
+description = "Урон/с: [color=red]{dps}[/color]
+Урон/удар: [color=red]{damage}[/color]
+Урон/пуля: [color=red]{bullet_damage}[/color]
+Количество пуль: [color=red]{bullet_count}[/color]
+[color=deep_sky_blue]Имеет два режима атаки: взмахом и выпадом[/color]
+
+Боеприпасы (атаки с пулями): [color=blue]{ammo_total}[/color]
+Боеприпасы (только ближняя атака): [color=blue]{ammo_total_melee}[/color]
+
+Священный меч Великого Рыцаря, который очень даже неплох в дальнем бою."
+scene_path = "uid://dbbcb0o6xemea"
+image_path = "uid://blavr05xsythu"
+spawnable_scenes_paths = Array[String](["uid://cvw03m4br4yl4"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

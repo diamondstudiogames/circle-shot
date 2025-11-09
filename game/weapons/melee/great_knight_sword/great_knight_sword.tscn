@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbbcb0o6xemea"]
+
+[ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_mbvxt"]
+[ext_resource type="Script" uid="uid://b8orliv6kas2t" path="res://game/weapons/melee/great_knight_sword/great_knight_sword.gd" id="2_7pd6l"]
+[ext_resource type="PackedScene" uid="uid://kw5w1c0d8qxc" path="res://game/weapons/melee/great_knight_sword/visual/great_knight_sword_visual.tscn" id="2_cxqip"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_v5lur"]
+[ext_resource type="PackedScene" uid="uid://cvw03m4br4yl4" path="res://game/weapons/melee/great_knight_sword/projectile/great_knight_sword_bullet.tscn" id="3_xtjbj"]
+[ext_resource type="AnimationLibrary" uid="uid://bhenjaug2mxp6" path="res://game/weapons/melee/great_knight_sword/visual/great_knight_sword_animations.tres" id="5_xtjbj"]
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="6_8sayp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pd6l"]
+radius = 88.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtjbj"]
+size = Vector2(160, 80)
+
+[node name="GreatKnightSword" instance=ExtResource("1_mbvxt")]
+script = ExtResource("2_7pd6l")
+projectile_scene = ExtResource("3_xtjbj")
+damage = 20
+to_aim_time = 0.2
+ammo_total = 25
+speed_multiplier_when_current = 1.04
+
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+visible = false
+position = Vector2(32, 0)
+color = Color(0.73046875, 0.73046875, 0.73046875, 1)
+polygon = PackedVector2Array(120, -134, 76, -141, 90, -94, 43, -103, 47, -61, 7, -54, 29, 1, 235, -15, 232, -78, 195, -134, 132, -183)
+
+[node name="Visual" parent="." index="1" instance=ExtResource("2_cxqip")]
+position = Vector2(32, 32)
+
+[node name="Attack" parent="." index="2"]
+visible = false
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+position = Vector2(120, -112)
+enabled = false
+shape = SubResource("CircleShape2D_7pd6l")
+target_position = Vector2(48, 112)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_v5lur")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+position = Vector2(120, 112)
+enabled = false
+shape = SubResource("CircleShape2D_7pd6l")
+target_position = Vector2(48, -112)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_v5lur")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="ShapeDetector3" type="ShapeCast2D" parent="Attack" index="2"]
+position = Vector2(128, 0)
+enabled = false
+shape = SubResource("RectangleShape2D_xtjbj")
+target_position = Vector2(144, 0)
+max_results = 1
+collision_mask = 75
+script = ExtResource("3_v5lur")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="Aim" parent="." index="3"]
+visible = false
+position = Vector2(112, 0)
+points = PackedVector2Array(-41, 0, -72, -72, -32, -200, 48, -200, 136, -64, 136, 64, 48, 200, -32, 200, -72, 72)
+
+[node name="Outline" parent="Aim" index="0"]
+points = PackedVector2Array(-41, 0, -72, -72, -32, -200, 48, -200, 136, -64, 136, 64, 48, 200, -32, 200, -72, 72)
+
+[node name="AimLunge" type="Line2D" parent="." index="4"]
+visible = false
+z_index = 10
+material = ExtResource("6_8sayp")
+position = Vector2(48, 0)
+points = PackedVector2Array(0, 0, 304, 0)
+width = 80.0
+default_color = Color(1, 1, 1, 0.376471)
+
+[node name="Outline" type="Line2D" parent="AimLunge" index="0"]
+show_behind_parent = true
+use_parent_material = true
+points = PackedVector2Array(0, 0, 304, 0)
+width = 88.0
+default_color = Color(0, 0, 0, 0.188235)
+
+[node name="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": ExtResource("5_xtjbj")
+}

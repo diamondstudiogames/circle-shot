@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvw03m4br4yl4"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_64e7m"]
+[ext_resource type="PackedScene" uid="uid://dk4phfkeek287" path="res://game/weapons/melee/great_knight_sword/projectile/great_knight_sword_bullet_hit_vfx.tscn" id="2_0hnr4"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="2_retb2"]
+[ext_resource type="Texture2D" uid="uid://cn257e4d7napb" path="res://game/weapons/melee/great_knight_sword/projectile/great_knight_sword_bullet.png" id="3_0hnr4"]
+[ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_w8k7n"]
+
+[node name="GreatKnightSwordBullet" instance=ExtResource("1_64e7m")]
+speed = 1600.0
+hit_vfx_scene = ExtResource("2_0hnr4")
+hit_wall_vfx_scene = ExtResource("2_0hnr4")
+damage = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+z_index = -1
+material = ExtResource("2_retb2")
+position = Vector2(-8, 0)
+texture = ExtResource("3_0hnr4")
+
+[node name="RayDetector" type="RayCast2D" parent="." index="1"]
+position = Vector2(-48, 0)
+target_position = Vector2(64, 0)
+collision_mask = 75
+hit_from_inside = true
+script = ExtResource("4_w8k7n")
+metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
+
+[node name="Timer" parent="." index="2"]
+wait_time = 1.0
+
+[connection signal="hit" from="RayDetector" to="." method="_on_detector_hit"]
