@@ -1,0 +1,234 @@
+[gd_scene load_steps=12 format=3 uid="uid://blbaxcg7pxcid"]
+
+[ext_resource type="PackedScene" uid="uid://cdo5tqeki3gle" path="res://game/weapons/throwable/common/throwable.tscn" id="1_cljil"]
+[ext_resource type="Script" uid="uid://cyx0bhliy0ekj" path="res://game/weapons/throwable/shurikens/shurikens.gd" id="2_3pe6m"]
+[ext_resource type="PackedScene" uid="uid://dwxxqi1vhd44v" path="res://game/weapons/throwable/shurikens/shuriken_projectile.tscn" id="2_weobi"]
+[ext_resource type="PackedScene" uid="uid://big87jkuo2e7o" path="res://game/weapons/throwable/shurikens/shuriken_ammo.tscn" id="3_3pe6m"]
+[ext_resource type="PackedScene" uid="uid://gxhkrdq1f0dw" path="res://game/weapons/throwable/shurikens/shuriken_fast_projectile.tscn" id="3_ngjk4"]
+
+[sub_resource type="Animation" id="Animation_weobi"]
+resource_name = "equip"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ammo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-32, -8), Vector2(48, -16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ammo:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.34906584]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ammo:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_3pe6m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ammo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ammo:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ammo:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.34906584]
+}
+
+[sub_resource type="Animation" id="Animation_ngjk4"]
+resource_name = "equip_fast"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ammo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-32, -8), Vector2(48, -16), Vector2(-48, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ammo:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 2.6179938]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ammo:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_4qspx"]
+resource_name = "switch_to_fast"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ammo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-48, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ammo:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.34906584, 2.6179938]
+}
+
+[sub_resource type="Animation" id="Animation_yewdt"]
+resource_name = "switch_to_normal"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ammo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-48, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ammo:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.6179938, 0.34906584]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3pe6m"]
+_data = {
+&"RESET": SubResource("Animation_3pe6m"),
+&"equip": SubResource("Animation_weobi"),
+&"equip_fast": SubResource("Animation_ngjk4"),
+&"switch_to_fast": SubResource("Animation_4qspx"),
+&"switch_to_normal": SubResource("Animation_yewdt")
+}
+
+[node name="Shurikens" instance=ExtResource("1_cljil")]
+script = ExtResource("2_3pe6m")
+throw_interval_fast = 0.12
+spread_fast = 17.0
+projectile_fast_scene = ExtResource("3_ngjk4")
+projectile_scene = ExtResource("2_weobi")
+ammo_scene = ExtResource("3_3pe6m")
+angle_between_ammo = 9.0
+throw_interval = 0.4
+spread_base = 3.0
+spread_walk = 7.0
+ammo_per_load = 8
+ammo_total = 48
+speed_multiplier_when_current = 0.98
+aim_camera_distance = 160.0
+
+[node name="Ammo" parent="." index="0"]
+rotation = 0.34906584
+
+[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+position = Vector2(104, 0)
+
+[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0"]
+width = 40.0
+
+[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0"]
+position = Vector2(0, -20)
+
+[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1"]
+position = Vector2(0, 20)
+
+[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2"]
+width = 44.0
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_3pe6m")
+}

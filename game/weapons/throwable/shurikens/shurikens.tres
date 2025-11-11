@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://navwwa7iap8n"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_1cnxe"]
+
+[resource]
+script = ExtResource("1_1cnxe")
+name = "Сюрикены"
+rarity = 3
+id = "shurikens"
+stats = Dictionary[String, String]({
+"ammo_per_load": "8",
+"ammo_total": "40",
+"damage": "16",
+"damage_fast": "8",
+"dps": "40",
+"dps_fast": "67",
+"reload_time": "0.5"
+})
+damage_text = "Урон/с: {dps}/{dps_fast}"
+description = "[color=deep_sky_blue]Имеет два режима стрельбы: обычный и быстрый (с большим разбросом)[/color]
+Обычный режим:
+Урон/с: [color=red]{dps}[/color]
+Урон/снаряд: [color=red]{damage}[/color]
+Быстрый режим:
+Урон/с: [color=red]{dps_fast}[/color]
+Урон/снаряд: [color=red]{damage_fast}[/color]
+
+Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
+Перезарядка: [color=blue]{reload_time} с[/color] за снаряд
+
+Универсальное метательное оружие, позволяющее как и точно поражать цели вдали, так и наносить огромный урон вблизи."
+scene_path = "uid://blbaxcg7pxcid"
+image_path = "uid://cv4bfdwgi7k7"
+spawnable_scenes_paths = Array[String](["uid://gxhkrdq1f0dw", "uid://dwxxqi1vhd44v"])
+metadata/_custom_type_script = "uid://55g8njvkg07g"

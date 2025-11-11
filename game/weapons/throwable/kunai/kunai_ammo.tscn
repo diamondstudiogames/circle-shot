@@ -178,12 +178,12 @@ _data = {
 
 [node name="KunaiAmmo" instance=ExtResource("1_eww6f")]
 
-[node name="AnimationPlayer" parent="." index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_eih8m")
-}
-
-[node name="Kunai" type="Sprite2D" parent="." index="1"]
+[node name="Kunai" type="Sprite2D" parent="." index="0"]
 position = Vector2(20, 0)
 texture = ExtResource("3_eih8m")
 offset = Vector2(32, -1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_eih8m")
+}

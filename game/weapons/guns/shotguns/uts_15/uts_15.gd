@@ -2,7 +2,7 @@ extends Shotgun
 
 
 @export var bullets_in_shot_far: int = 4
-@export var projectile_scene_far: PackedScene
+@export var projectile_far_scene: PackedScene
 @export var spread_far := 12.0
 var _far_mode := false
 var _default_bullets_in_shot: int
@@ -24,7 +24,7 @@ func additional_button() -> void:
 	
 	bullets_in_shot = bullets_in_shot_far if _far_mode else _default_bullets_in_shot
 	spread_base = spread_far if _far_mode else _default_spread
-	projectile_scene = projectile_scene_far if _far_mode else _default_projectile_scene
+	projectile_scene = projectile_far_scene if _far_mode else _default_projectile_scene
 
 
 func has_additional_button() -> bool:

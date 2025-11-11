@@ -99,7 +99,7 @@ spread_base = 2.5
 spread_walk = 5.5
 spread_walk_ratio = 0.6
 ammo_per_load = 4
-ammo_total = 24
+ammo_total = 40
 speed_multiplier_when_current = 0.98
 
 [node name="Ammo" parent="." index="0"]

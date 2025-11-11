@@ -9,7 +9,7 @@ rarity = 2
 id = "bloody_daggers"
 stats = Dictionary[String, String]({
 "ammo_per_load": "4",
-"ammo_total": "20",
+"ammo_total": "36",
 "bleeding_duration": "3",
 "damage": "22",
 "dps": "30",

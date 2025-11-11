@@ -1,0 +1,161 @@
+[gd_scene load_steps=8 format=3 uid="uid://big87jkuo2e7o"]
+
+[ext_resource type="PackedScene" uid="uid://cgnugiwepctjg" path="res://game/weapons/throwable/common/throwable_ammo.tscn" id="1_ubb8h"]
+[ext_resource type="Texture2D" uid="uid://b72pjg2f7euud" path="res://game/weapons/throwable/shurikens/shuriken.png" id="2_vxvay"]
+
+[sub_resource type="Animation" id="Animation_vxvay"]
+resource_name = "pre_throw"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuriken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, 0), Vector2(32, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shuriken:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.62831855]
+}
+
+[sub_resource type="Animation" id="Animation_7hes1"]
+resource_name = "reload"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuriken:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -24), Vector2(72, -12), Vector2(32, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shuriken:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.1415927, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shuriken:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_0wphq"]
+resource_name = "throw"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuriken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, 0), Vector2(32, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shuriken:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.62831855, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0sgaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shuriken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shuriken:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shuriken:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sgaa"]
+_data = {
+&"RESET": SubResource("Animation_0sgaa"),
+&"pre_throw": SubResource("Animation_vxvay"),
+&"reload": SubResource("Animation_7hes1"),
+&"throw": SubResource("Animation_0wphq")
+}
+
+[node name="ShurikenAmmo" instance=ExtResource("1_ubb8h")]
+
+[node name="Shuriken" type="Sprite2D" parent="." index="0"]
+position = Vector2(32, 0)
+texture = ExtResource("2_vxvay")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_0sgaa")
+}

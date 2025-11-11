@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://gxhkrdq1f0dw"]
+
+[ext_resource type="PackedScene" uid="uid://dwxxqi1vhd44v" path="res://game/weapons/throwable/shurikens/shuriken_projectile.tscn" id="1_q57qx"]
+
+[node name="ShurikenFastProjectile" instance=ExtResource("1_q57qx")]
+speed = 2500.0
+damage = 8

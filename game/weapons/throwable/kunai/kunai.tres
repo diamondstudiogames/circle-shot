@@ -9,7 +9,7 @@ rarity = 1
 id = "kunai"
 stats = Dictionary[String, String]({
 "ammo_per_load": "6",
-"ammo_total": "30",
+"ammo_total": "48",
 "damage": "17",
 "dps": "43",
 "reload_time": "0.6"

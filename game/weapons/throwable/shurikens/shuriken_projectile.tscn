@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwxxqi1vhd44v"]
+
+[ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_k52al"]
+[ext_resource type="PackedScene" uid="uid://cy377clll2dqo" path="res://game/weapons/throwable/shurikens/shuriken_hit_vfx.tscn" id="2_6rc8d"]
+[ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="2_xvbjv"]
+[ext_resource type="Texture2D" uid="uid://b72pjg2f7euud" path="res://game/weapons/throwable/shurikens/shuriken.png" id="3_6rc8d"]
+[ext_resource type="PackedScene" uid="uid://d1fq6k1p6cy0" path="res://game/weapons/throwable/shurikens/shuriken_hit_wall_vfx.tscn" id="3_286dy"]
+[ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="4_286dy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vkn1"]
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_u2eok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ntq0g"]
+resource_name = "rotation"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtgsq"]
+_data = {
+&"RESET": SubResource("Animation_u2eok"),
+&"rotation": SubResource("Animation_ntq0g")
+}
+
+[node name="ShurikenProjectile" instance=ExtResource("1_k52al")]
+speed = 2700.0
+hit_vfx_scene = ExtResource("2_6rc8d")
+hit_wall_vfx_scene = ExtResource("3_286dy")
+damage = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+material = ExtResource("2_xvbjv")
+texture = ExtResource("3_6rc8d")
+
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+position = Vector2(-80, 0)
+shape = SubResource("CircleShape2D_1vkn1")
+target_position = Vector2(80, 0)
+max_results = 1
+collision_mask = 75
+script = ExtResource("4_286dy")
+metadata/_custom_type_script = "uid://dfhhd4es3t3i"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_gtgsq")
+}
+autoplay = "rotation"
+
+[connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]
