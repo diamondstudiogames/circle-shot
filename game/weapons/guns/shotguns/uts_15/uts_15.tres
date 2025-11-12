@@ -15,7 +15,7 @@ stats = Dictionary[String, String]({
 "damage": "8",
 "damage_far": "8",
 "dps": "69",
-"dps_far": "57",
+"dps_far": "46",
 "reload_time": "0.5"
 })
 damage_text = "Урон/с: {dps}/{dps_far}"

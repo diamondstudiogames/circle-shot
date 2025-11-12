@@ -24,9 +24,9 @@ point_count = 1
 
 [node name="Uts15" instance=ExtResource("1_ii548")]
 script = ExtResource("2_w6qi1")
-bullets_in_shot_far = 5
+bullets_in_shot_far = 4
 projectile_far_scene = ExtResource("3_tyyry")
-spread_far = 12.0
+spread_far = 6.0
 bullets_in_shot = 6
 shoot_interval = 0.7
 to_aim_time = 0.25

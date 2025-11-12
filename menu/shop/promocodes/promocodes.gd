@@ -8,6 +8,7 @@ var _promocodes_rewards: Dictionary[String, Array]
 var _promocodes_comments: Dictionary[String, String]
 
 @onready var _comment: Label = $MarginContainer/VBoxContainer/Comment
+@onready var _line_edit: LineEdit = $MarginContainer/VBoxContainer/LineEdit
 
 
 func _ready() -> void:
@@ -78,6 +79,7 @@ func activate_promocode(promocode: String) -> void:
 	Globals.set_variant("used_promocodes", used_promocodes)
 	_comment.text = _promocodes_comments[promocode]
 	print_verbose("Used promocode %s." % promocode)
+	_line_edit.clear()
 	
 	hide()
 	await Globals.main.receive_loot(_promocodes_rewards[promocode])
@@ -85,4 +87,4 @@ func activate_promocode(promocode: String) -> void:
 
 
 func _on_activate_pressed() -> void:
-	activate_promocode(($MarginContainer/VBoxContainer/LineEdit as LineEdit).text)
+	activate_promocode(_line_edit.text)

@@ -6,60 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cble4y603b06l" path="res://game/skins/other/svoloch/left_pupil.png" id="4_yisnh"]
 [ext_resource type="Texture2D" uid="uid://xn38sskd35w1" path="res://game/skins/other/svoloch/right_pupil.png" id="5_y8w3n"]
 
-[sub_resource type="Animation" id="Animation_kt3p6"]
-resource_name = "eyes_idle"
-length = 4.0
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeftEye:points")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightEye:points")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.85, 2, 2.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftPupil:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightPupil:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_yisnh"]
 length = 0.001
 tracks/0/type = "value"
@@ -147,6 +93,60 @@ tracks/6/keys = {
 "values": [PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)]
 }
 
+[sub_resource type="Animation" id="Animation_kt3p6"]
+resource_name = "eyes_idle"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41), PackedVector2Array(-49, -14, -30, -12, -17, -11, -12, -11, -9, -10, -18, -11, -34, -12, -46, -13, -56, -14, -66, -16, -71, -18, -66, -17, -59, -15), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.85, 2, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5), PackedVector2Array(2, -11, 4, -12, 9, -13, 17, -13, 36, -13, 48, -13, 54, -14, 58, -15, 52, -14, 47, -13, 41, -13, 31, -13, 20, -13, 13, -13, 7, -12), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.85, 1.9999999, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_y8w3n"]
 resource_name = "eyes_shooting"
 length = 4.0
@@ -199,6 +199,59 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lo2jj"]
+resource_name = "heal"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftEye:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftPupil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightPupil:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_exqeb"]
@@ -322,59 +375,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.13962634015954636, 0.0, -0.13962634015954636]
-}
-
-[sub_resource type="Animation" id="Animation_lo2jj"]
-resource_name = "heal"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeftEye:points")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35, 0.49999985),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -13, -24, -29, -37, -46, -44, -57, -40, -67, -32, -71, -18, -66, -34, -56, -41), PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RightEye:points")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35, 0.49999985),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 55, -28, 49, -38, 37, -46, 23, -47, 13, -45, 8, -43, 3, -32), PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftPupil:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightPupil:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.34999985, 0.49999985),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 0), Vector2(1, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8w3n"]
@@ -508,15 +508,15 @@ default_color = Color(0, 0, 0, 1)
 position = Vector2(-40, -10)
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftPupil"]
-position = Vector2(12, 0)
 texture = ExtResource("4_yisnh")
+offset = Vector2(12, 0)
 
 [node name="RightPupil" type="Node2D" parent="."]
 position = Vector2(36, -18)
 
 [node name="Sprite2D" type="Sprite2D" parent="RightPupil"]
-position = Vector2(12, 0)
 texture = ExtResource("5_y8w3n")
+offset = Vector2(12, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

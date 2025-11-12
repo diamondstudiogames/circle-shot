@@ -21,7 +21,7 @@ extends Node2D
 @export_flags_2d_physics var parsed_collision_mask: int = 1 + 8 + 16
 @export var source_geometry_mode := NavigationPolygon.SOURCE_GEOMETRY_GROUPS_WITH_CHILDREN
 @export var source_geometry_group_name := &"navigation_polygon_source"
-@export var navigation_layers: int = 1
+@export_flags_2d_navigation var navigation_layers: int = 1
 @export var agent_radius := 77.0
 
 
