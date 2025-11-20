@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://r1b3fdnixxa"]
+
+[ext_resource type="Texture2D" uid="uid://bdr5rw48ejajq" path="res://game/locations/desert/objects/oasis.png" id="1_mhqst"]
+
+[node name="Oasis" type="StaticBody2D"]
+disable_mode = 1
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+scale = Vector2(2, 2)
+texture = ExtResource("1_mhqst")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-640, 0, -480, -480, 0, -640, 480, -480, 640, 0, 480, 480, 0, 640, -480, 480)

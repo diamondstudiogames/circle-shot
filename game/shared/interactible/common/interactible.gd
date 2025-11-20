@@ -37,6 +37,11 @@ func _process(delta: float) -> void:
 		return
 	
 	for player: Player in _hold_interaction_timers.keys():
+		if not _can_player_interact(player):
+			_hold_interaction_timers.erase(player)
+			if player == _local_player:
+				_reset_hold_interaction()
+			continue
 		_hold_interaction_timers[player] -= delta
 		if player == _local_player:
 			_hold_timer_progress.value = 1.0 - _hold_interaction_timers[player] \
@@ -74,14 +79,22 @@ func _reset_hold_interaction() -> void:
 	_hold_timer_progress.self_modulate = Color.WHITE
 
 
-## Метод для переопределения. Если он возвращает [code]false[/code], игрок не может
-## провзаимодействовать с этим ообъектом.
+## Метод для переопределения. Если он возвращает [code]false[/code], игрок будет видеть, что можно
+## провзаимодействовать с этим объектом, но не сможет этого сделать, а текущий прогресс (в случае
+## с продолжительным взаимодействием) сбросится, если в прошлый кадр метод возвращал
+## [code]true[/code].
 func _can_player_interact(_player: Player) -> bool:
 	return true
 
 
+## Метод для переопределения. Если он возвращает [code]true[/code], этот предмет будет полностью
+## игнорировать этого игрока.
+func _should_ignore_player(_player: Player) -> bool:
+	return false
+
+
 func _on_player_input_interaction_started(player: Player) -> void:
-	if hold_interaction_time < 0.0:
+	if hold_interaction_time < 0.0 and _can_player_interact(player):
 		_interact(player)
 		return
 	_hold_interaction_timers[player] = hold_interaction_time
@@ -99,7 +112,7 @@ func _on_body_entered(body: Node2D) -> void:
 	var player := body as Player
 	if not player:
 		return
-	if not _can_player_interact(player):
+	if _should_ignore_player(player):
 		return
 	
 	player.player_input.interaction_started.connect(

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://dcs7gnmh5psjs"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_1k7iy"]
+
+[resource]
+script = ExtResource("1_1k7iy")
+name = "Пустынные обломки"
+brief_description = "Всё, что сохранилось от деревни в пустыне..."
+scene_path = "uid://cp2uc082ipm83"
+image_path = "uid://ua0jkcuoqbmd"
+metadata/_custom_type_script = "uid://c2mew3f2rwarc"

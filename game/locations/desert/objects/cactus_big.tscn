@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnw60700ji12f"]
+
+[ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="1_83x7u"]
+[ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="2_mf13s"]
+[ext_resource type="Texture2D" uid="uid://bebmrmgd5efha" path="res://game/locations/desert/objects/cactus_big.png" id="3_83x7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovoe5"]
+radius = 136.0
+
+[node name="CactusBig" type="StaticBody2D"]
+disable_mode = 1
+collision_mask = 0
+
+[node name="Attack" type="Node2D" parent="."]
+script = ExtResource("1_83x7u")
+damage = 5
+damage_interval = 1.0
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="AreaDetector" type="Area2D" parent="Attack"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_mf13s")
+metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AreaDetector"]
+shape = SubResource("CircleShape2D_ovoe5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_83x7u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-112, 0, -104, -40, -80, -80, -40, -104, 0, -112, 40, -104, 80, -80, 104, -40, 112, 0, 104, 40, 80, 80, 40, 104, 0, 112, -40, 104, -80, 80, -104, 40)

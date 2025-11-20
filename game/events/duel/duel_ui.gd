@@ -5,7 +5,7 @@ extends EventUI
 
 ## Начинает раунд с индексом [param idx].
 func start_round(idx: int) -> void:
-	($Main/RoundEnd as Label).text = ""
+	($Main/RoundEnd as CanvasItem).hide()
 	(get_node("Main/Round%d" % idx) as CanvasItem).modulate = Color.WHITE
 
 
@@ -22,6 +22,7 @@ func end_round(idx: int, win_team: int, winner: int, end := false) -> void:
 			($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"defeat")
 			($Main/GameEnd as Label).text = "ПОРАЖЕНИЕ!"
 		return
+	($Main/RoundEnd as CanvasItem).show()
 	if winner == multiplayer.get_unique_id():
 		($Main/RoundEnd as Label).text = "Раунд выигран!"
 	else:

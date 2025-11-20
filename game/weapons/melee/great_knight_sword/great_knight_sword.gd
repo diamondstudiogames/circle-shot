@@ -13,6 +13,8 @@ func _shoot_bullets() -> void:
 	if ammo_in_stock <= 0:
 		return
 	ammo_in_stock -= 1
+	if not multiplayer.is_server():
+		return
 	var points: Node2D = _bullets_points_lunge if _lunge_attack else _bullets_points_swing
 	for point: Node2D in points.get_children():
 		var projectile: Projectile = projectile_scene.instantiate()

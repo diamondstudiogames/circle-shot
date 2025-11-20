@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EventData" load_steps=4 format=3 uid="uid://bmhhgkoyswa8b"]
+
+[ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_xhwgd"]
+[ext_resource type="Resource" uid="uid://dcs7gnmh5psjs" path="res://game/maps/bomb_defusal/desert_debris/desert_debris.tres" id="2_0ehtw"]
+[ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_1hwfc"]
+
+[resource]
+script = ExtResource("2_1hwfc")
+name = "Закладка бомбы"
+brief_description = "Заложи бомбу или уничтожь противников!"
+min_players = 4
+players_divider = 2
+team_event = true
+scene_path = "uid://bi0w23hbv2mue"
+image_path = "uid://dajxd38rxv22x"
+maps = Array[ExtResource("1_xhwgd")]([ExtResource("2_0ehtw")])
+metadata/_custom_type_script = "uid://df3h1g4gqr0xh"

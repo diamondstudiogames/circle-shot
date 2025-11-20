@@ -1,0 +1,422 @@
+[gd_scene load_steps=17 format=3 uid="uid://bi0w23hbv2mue"]
+
+[ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_u01ls"]
+[ext_resource type="Script" uid="uid://bemvbnrfvkh0i" path="res://game/events/bomb_defusal/bomb_defusal.gd" id="2_ppebb"]
+[ext_resource type="Script" uid="uid://bymv12hc8rgj5" path="res://game/events/bomb_defusal/bomb_defusal_ui.gd" id="3_002nh"]
+[ext_resource type="PackedScene" uid="uid://eqs1a6pmwuyo" path="res://game/events/bomb_defusal/bomb_defusal_player.tscn" id="3_buact"]
+[ext_resource type="PackedScene" uid="uid://bhowipgynlmam" path="res://game/events/bomb_defusal/bomb/weapon/bomb.tscn" id="5_iwtu0"]
+[ext_resource type="PackedScene" uid="uid://cb533eb27cteb" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted.tscn" id="7_0kvrl"]
+[ext_resource type="PackedScene" uid="uid://dpugjjonr8i0u" path="res://game/events/bomb_defusal/bomb/dropped/pickable_equip_item_bomb.tscn" id="7_iwtu0"]
+
+[sub_resource type="Animation" id="Animation_0668s"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gvqew"]
+resource_name = "round_end"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4.5, 6.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fraxw"]
+_data = {
+&"RESET": SubResource("Animation_0668s"),
+&"victory": SubResource("Animation_gvqew")
+}
+
+[sub_resource type="Animation" id="Animation_y57ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_iwtu0"]
+resource_name = "round_end"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.5, 3),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y57ud"]
+_data = {
+&"RESET": SubResource("Animation_y57ud"),
+&"round_end": SubResource("Animation_iwtu0")
+}
+
+[sub_resource type="Animation" id="Animation_ndkar"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0kvrl"]
+resource_name = "bomb_state"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 2, 2.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d77xg"]
+_data = {
+&"RESET": SubResource("Animation_ndkar"),
+&"bomb_state": SubResource("Animation_0kvrl")
+}
+
+[node name="Event" instance=ExtResource("1_u01ls")]
+script = ExtResource("2_ppebb")
+round_time = 120
+rounds_to_win = 3
+coins_for_win = 70
+coins_for_defeat = 35
+coins_for_kill = 5
+coins_for_bomb = 10
+damage_for_coin = 20
+spawn_point_randomness = 0.0
+entity_scenes = Array[PackedScene]([ExtResource("3_buact")])
+
+[node name="OtherSpawner" parent="." index="6"]
+_spawnable_scenes = PackedStringArray("uid://dpugjjonr8i0u", "uid://cb533eb27cteb")
+
+[node name="UI" parent="." index="8"]
+script = ExtResource("3_002nh")
+
+[node name="Timer" type="Label" parent="UI/Main" index="7"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 8.0
+offset_right = 28.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLargeOutlined"
+text = "3:00"
+
+[node name="RedCount" type="Label" parent="UI/Main" index="8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 40.0
+offset_right = -4.5
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueCount" type="Label" parent="UI/Main" index="9"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 4.5
+offset_top = 40.0
+offset_right = 59.5
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="10"]
+visible = false
+modulate = Color(1, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.00003
+offset_top = -220.0
+offset_right = 400.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(400, 60)
+alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_fraxw")
+}
+
+[node name="Winner" type="Label" parent="UI/Main/GameEnd" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "ПОБЕДИТЕЛЬ:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Team" type="Label" parent="UI/Main/GameEnd" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "Синяя"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="End" type="Label" parent="UI/Main/GameEnd" index="3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "команда!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundEnd" type="Label" parent="UI/Main" index="11"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -107.5
+offset_right = 240.0
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(240, 27.5)
+theme_type_variation = &"HeaderLargeOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+text = "Раунд выигран!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundEnd" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_y57ud")
+}
+
+[node name="BombState" type="Label" parent="UI/Main" index="12"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 52.5
+offset_right = 240.0
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(240, 27.5)
+theme_type_variation = &"HeaderLargeOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+text = "Раунд выигран!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/BombState" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_d77xg")
+}
+
+[node name="Title" parent="UI/Intro" index="1"]
+text = "ЗАКЛАДКА БОМБЫ"
+
+[node name="Description" parent="UI/Intro/Title" index="0"]
+text = "Заложи бомбу или уничтожь команду противника!"
+
+[node name="Text" parent="UI/Intro" index="2"]
+text = "Побеждает команда,
+выигравшая 3 раунда!"
+
+[node name="ResourcePreloaderBombDefusal" type="ResourcePreloader" parent="." index="15"]
+resources = [PackedStringArray("bomb", "bomb_placed", "pickable_equip_item_bomb"), [ExtResource("5_iwtu0"), ExtResource("7_0kvrl"), ExtResource("7_iwtu0")]]
+
+[node name="RoundTimer" type="Timer" parent="." index="18"]
+
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

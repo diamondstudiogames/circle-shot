@@ -13,6 +13,7 @@ properties/0/replication_mode = 0
 
 [node name="PickableEquipItem" type="Node2D"]
 script = ExtResource("1_y6mm5")
+metadata/_custom_type_script = "uid://b0mxaxk65mlbn"
 
 [node name="Interactible" parent="." instance=ExtResource("2_x6tjd")]
 position = Vector2(0, -80)

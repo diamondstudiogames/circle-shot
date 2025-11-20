@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://w18oqn8ga70s" path="res://game/locations/underwater/tile_set.tres" id="3_wbckg"]
 [ext_resource type="Texture2D" uid="uid://bbh2swg8h7714" path="res://game/locations/underwater/textures/big_seaweed.png" id="4_xsfyv"]
 [ext_resource type="Texture2D" uid="uid://cbbaps8j45ych" path="res://game/locations/underwater/textures/seaweed.png" id="5_43fp3"]
-[ext_resource type="Shader" uid="uid://cu57fp1jkfcf0" path="res://game/locations/underwater/distortion.gdshader" id="6_u6ofw"]
+[ext_resource type="Shader" uid="uid://cu57fp1jkfcf0" path="res://game/shared/shaders/screen_distortion.gdshader" id="6_u6ofw"]
 [ext_resource type="PackedScene" uid="uid://cxsywafaowjru" path="res://game/locations/underwater/animals/crab.tscn" id="6_xwywa"]
 [ext_resource type="Texture2D" uid="uid://jtslo1iqie6k" path="res://game/locations/underwater/textures/distortion_noise.tres" id="7_mocup"]
 [ext_resource type="PackedScene" uid="uid://fr7tkkl2lgw3" path="res://game/locations/underwater/animals/scat.tscn" id="7_wb6xb"]

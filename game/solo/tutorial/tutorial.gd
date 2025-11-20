@@ -172,7 +172,7 @@ func _check_conditions() -> void:
 			show_text(texts[18] % [_action_as_string("c_additional_button")])
 	if _picked_up_items == 5 and _conditions_met == 5:
 		_conditions_met += 1
-		_player.damage(50)
+		_player.damage(70)
 		_player.skill.used.connect(_on_skill_used)
 		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[21] % [_action_as_string("use_skill")])
@@ -257,7 +257,7 @@ func _on_trigger_body_entered(body: Node2D, source: Area2D, idx: int) -> void:
 			show_text(texts[24])
 
 
-func _on_pickable_equip_item_picked_up() -> void:
+func _on_pickable_equip_item_picked_up(_by: int) -> void:
 	_picked_up_items += 1
 	_check_conditions()
 

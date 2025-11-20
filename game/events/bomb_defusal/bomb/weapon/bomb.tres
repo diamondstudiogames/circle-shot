@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://cjgoqhsfs8s1g"]
+
+[ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_wy77t"]
+
+[resource]
+script = ExtResource("1_wy77t")
+name = "Бомба"
+rarity = 5
+id = "bomb"
+stats = Dictionary[String, String]({
+"defusing_time": "6",
+"explosion_time": "35",
+"planting_time": "2.8"
+})
+damage_text = "{explosion_time} с"
+ammo_text = "{planting_time} с"
+description = "Время закладывания: [color=red]{planting_time} с[/color]
+Время обезвреживания: [color=red]{planting_time} с[/color]
+Таймер взрыва: [color=red]{explosion_time} с[/color]
+
+Предмет, начинённый взрывчаткой, позволяющий взрывать важные (и не очень) объекты."
+scene_path = "uid://bhowipgynlmam"
+image_path = "uid://b7i52rgb6j8qf"
+metadata/_custom_type_script = "uid://55g8njvkg07g"

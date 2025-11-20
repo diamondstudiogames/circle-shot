@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b4layvo1ati2x"]
+[gd_scene load_steps=21 format=4 uid="uid://b4layvo1ati2x"]
 
 [ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="1_g4862"]
 [ext_resource type="PackedScene" uid="uid://l5v4yoke40fq" path="res://game/maps/common/borders.tscn" id="2_a8u33"]
@@ -7,11 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dyqg11st1fbal" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.tscn" id="4_85u6v"]
 [ext_resource type="Resource" uid="uid://ec5r1p2ay37a" path="res://game/weapons/guns/pistols/p350/p350.tres" id="5_4s3e4"]
 [ext_resource type="Resource" uid="uid://cico6bxoxthxp" path="res://game/weapons/guns/rifles/ak_74/ak_74.tres" id="6_4s3e4"]
+[ext_resource type="Texture2D" uid="uid://bxroqwsevr022" path="res://game/weapons/guns/pistols/p350/image.png" id="6_sgh71"]
 [ext_resource type="Resource" uid="uid://b6l0sibfxkmx6" path="res://game/weapons/grenades/he_grenade/he_grenade.tres" id="7_gxhnk"]
 [ext_resource type="Resource" uid="uid://bqt35gylr4la" path="res://game/weapons/melee/knife/knife.tres" id="8_a8u33"]
+[ext_resource type="Texture2D" uid="uid://bfak724toabd4" path="res://game/weapons/guns/rifles/ak_74/image.png" id="8_ayufw"]
 [ext_resource type="Resource" uid="uid://ccsednjhd5m3o" path="res://game/skills/potion/potion.tres" id="9_hlhjh"]
+[ext_resource type="Texture2D" uid="uid://ctmye1qbi2nx2" path="res://game/weapons/grenades/he_grenade/image.png" id="10_hcvmk"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="10_uomvx"]
 [ext_resource type="Texture2D" uid="uid://bx7seryss2nn8" path="res://game/solo/tutorial/end.png" id="11_4t5ee"]
+[ext_resource type="Texture2D" uid="uid://dq8riqdpmm2vy" path="res://game/weapons/melee/knife/image.png" id="12_d12vf"]
+[ext_resource type="Texture2D" uid="uid://mgk0jafbvi4h" path="res://game/skills/potion/image.png" id="14_8e181"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eak6g"]
 size = Vector2(160, 2880)
@@ -318,12 +323,14 @@ shape = SubResource("RectangleShape2D_qtlcm")
 position = Vector2(2080, 0)
 equip_type = 2
 visual_size_x = 128.0
+image = ExtResource("6_sgh71")
 weapon_data = ExtResource("5_4s3e4")
 
 [node name="PickableEquipItemAK74" parent="PickableEquipItems" instance=ExtResource("4_85u6v")]
 position = Vector2(4480, 0)
 equip_type = 2
 visual_size_x = 300.0
+image = ExtResource("8_ayufw")
 weapon_data = ExtResource("6_4s3e4")
 weapon_type = 1
 
@@ -331,6 +338,7 @@ weapon_type = 1
 position = Vector2(7680, -320)
 equip_type = 2
 visual_size_x = 64.0
+image = ExtResource("10_hcvmk")
 weapon_data = ExtResource("7_gxhnk")
 weapon_type = 2
 
@@ -338,6 +346,7 @@ weapon_type = 2
 position = Vector2(7680, 320)
 equip_type = 2
 visual_size_x = 150.0
+image = ExtResource("12_d12vf")
 weapon_data = ExtResource("8_a8u33")
 weapon_type = 3
 
@@ -345,6 +354,7 @@ weapon_type = 3
 position = Vector2(10720, 0)
 equip_type = 1
 visual_size_x = 64.0
+image = ExtResource("14_8e181")
 skill_data = ExtResource("9_hlhjh")
 
 [node name="FinishInteractible" parent="." instance=ExtResource("10_uomvx")]

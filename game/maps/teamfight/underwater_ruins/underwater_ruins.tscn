@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3h0grpq5ocoo" path="res://game/locations/underwater/animals/octopus.tscn" id="8_q8vty"]
 [ext_resource type="PackedScene" uid="uid://bv223gm15jt2a" path="res://game/locations/underwater/animals/red_fishes.tscn" id="9_u8bii"]
 [ext_resource type="PackedScene" uid="uid://dcftoqwpkkmmq" path="res://game/locations/underwater/animals/blue_fishes.tscn" id="10_he61a"]
-[ext_resource type="Shader" uid="uid://cu57fp1jkfcf0" path="res://game/locations/underwater/distortion.gdshader" id="11_fslmv"]
+[ext_resource type="Shader" uid="uid://cu57fp1jkfcf0" path="res://game/shared/shaders/screen_distortion.gdshader" id="11_fslmv"]
 [ext_resource type="Texture2D" uid="uid://jtslo1iqie6k" path="res://game/locations/underwater/textures/distortion_noise.tres" id="12_wnf15"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w0kxy"]

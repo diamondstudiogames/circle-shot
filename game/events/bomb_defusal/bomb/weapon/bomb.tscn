@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhowipgynlmam"]
+
+[ext_resource type="Script" uid="uid://kkomha1tlord" path="res://game/events/bomb_defusal/bomb/weapon/bomb.gd" id="1_w11ds"]
+[ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_1vqsf"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="3_dw5hw"]
+[ext_resource type="Texture2D" uid="uid://cxi2notbmqxdi" path="res://game/events/bomb_defusal/bomb/minimap_marker.png" id="4_k60jd"]
+
+[sub_resource type="Animation" id="Animation_n12nm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.39330202]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dn85p"]
+resource_name = "equip"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.9788429, 0.39269908169872414]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-6.3359375, -48.882813), Vector2(76, -52), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_o0wys"]
+resource_name = "plant"
+length = 2.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.3, 2.8),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1),
+"update": 0,
+"values": [0.39330202, 0.13962634, 0.13962634, 1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 0.8999999, 1, 1.0999999, 1.2, 1.3, 1.3999999, 1.4999998, 1.5999997, 1.6999998, 1.7999997, 1.8999999, 1.9999998, 2.3, 2.8),
+"transitions": PackedFloat32Array(-2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(52, -23), Vector2(52, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -19.000002), Vector2(51.999996, -23), Vector2(51.999996, -23), Vector2(-32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcvvm"]
+_data = {
+&"RESET": SubResource("Animation_n12nm"),
+&"equip": SubResource("Animation_dn85p"),
+&"plant": SubResource("Animation_o0wys")
+}
+
+[node name="Bomb" type="Node2D"]
+script = ExtResource("1_w11ds")
+ammo_per_load = 0
+ammo_total = -1
+speed_multiplier_when_current = 0.99
+aim_camera_distance = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.39330202
+texture = ExtResource("2_1vqsf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-32, -48)
+target_position = Vector2(0, 32)
+collision_mask = 128
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dcvvm")
+}
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+position = Vector2(-32, -32)
+remote_path = NodePath("../MinimapMarkerBase/MinimapMarker")
+update_rotation = false
+update_scale = false
+
+[node name="MinimapMarkerBase" type="Node" parent="."]
+
+[node name="MinimapMarker" parent="MinimapMarkerBase" instance=ExtResource("3_dw5hw")]
+position = Vector2(-32, -32)
+
+[node name="Visual" parent="MinimapMarkerBase/MinimapMarker" index="2"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-32, -32)
+texture = ExtResource("4_k60jd")
+
+[editable path="MinimapMarkerBase/MinimapMarker"]

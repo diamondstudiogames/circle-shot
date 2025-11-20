@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=3 uid="uid://cb533eb27cteb"]
+
+[ext_resource type="Script" uid="uid://d3yjfqptegji3" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted.gd" id="1_33kbv"]
+[ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_04vj3"]
+[ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="3_jj7vp"]
+[ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="4_k4rui"]
+[ext_resource type="AudioStream" uid="uid://bnbdsm76nupni" path="res://game/events/bomb_defusal/bomb/planted/countdown.wav" id="5_j152h"]
+[ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="6_2wmgq"]
+[ext_resource type="Script" uid="uid://df0wm1b35gsdc" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted_interactible.gd" id="7_k4rui"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="8_1pehw"]
+[ext_resource type="Texture2D" uid="uid://cxi2notbmqxdi" path="res://game/events/bomb_defusal/bomb/minimap_marker.png" id="9_30gdi"]
+[ext_resource type="Texture2D" uid="uid://b3a6at7opiyub" path="res://game/events/bomb_defusal/bomb/planted/smoke.png" id="10_63ig5"]
+[ext_resource type="AudioStream" uid="uid://dmpl5nw4anqdw" path="res://game/events/bomb_defusal/bomb/planted/explosion.wav" id="11_o455r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfr8r"]
+radius = 48.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1pehw"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
+[sub_resource type="Curve" id="Curve_366uc"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, -3.0137024), 0.0, 0.0, 0, 0, Vector2(0.060606062, -198.90411), 0.0, 0.0, 0, 0, Vector2(0.25252527, -200), 0.0, 0.0, 0, 0, Vector2(1, -3.0137024), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_0m3ms"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.77123284), 0.0, 0.0, 0, 0, Vector2(0.043771043, 1.0027397), 0.0, 0.0, 0, 0, Vector2(0.2760943, 1.608219), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_5uwaf"]
+offsets = PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.275, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.5019608, 0.02745098, 1, 0.5019608, 0.5019608, 0.5019608, 1, 0.5019608, 0.5019608, 0.5019608, 1, 0.5019608, 0.5019608, 0.5019608, 0.5019608, 0.5019608, 0.5019608, 0.5019608, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 40
+
+[node name="BombPlanted" type="Node2D"]
+script = ExtResource("1_33kbv")
+explosion_time = 35
+min_countdown_interval = 0.05
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+rotation = 1.5707964
+texture = ExtResource("2_04vj3")
+
+[node name="Light" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+z_index = -2
+material = ExtResource("3_jj7vp")
+position = Vector2(3.9999998, -9.999999)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_k4rui")
+
+[node name="CountdownSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_j152h")
+max_distance = 4800.0
+bus = &"SFX"
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CountdownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Interactible" parent="." instance=ExtResource("6_2wmgq")]
+position = Vector2(0, -48)
+script = ExtResource("7_k4rui")
+text = "Обезвредить"
+hold_interaction_time = 6.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+position = Vector2(0, 48)
+shape = SubResource("CircleShape2D_hfr8r")
+
+[node name="MinimapMarker" parent="." instance=ExtResource("8_1pehw")]
+
+[node name="Visual" parent="MinimapMarker" index="2"]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("9_30gdi")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1pehw")
+
+[node name="Explosion" type="Node2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+
+[node name="Particles" type="CPUParticles2D" parent="Explosion"]
+z_index = 4
+emitting = false
+amount = 40
+texture = ExtResource("10_63ig5")
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 160.0
+initial_velocity_max = 800.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+linear_accel_min = 2.0
+linear_accel_max = 2.0
+linear_accel_curve = SubResource("Curve_366uc")
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_0m3ms")
+color_ramp = SubResource("Gradient_5uwaf")
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Explosion"]
+stream = ExtResource("11_o455r")
+volume_db = 6.0
+max_distance = 14400.0
+attenuation = 0.3
+bus = &"SFX"
+
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]
+
+[editable path="MinimapMarker"]

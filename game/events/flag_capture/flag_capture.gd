@@ -225,6 +225,7 @@ func _end_event() -> void:
 	cleanup()
 	_event_timer.start(0.5)
 	await _event_timer.timeout
+	end.rpc()
 
 
 func _on_match_timer_timeout() -> void:
