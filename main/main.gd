@@ -374,10 +374,8 @@ file, otherwise it will NOT function.")
 	_update_window_stretch_aspect()
 	get_window().size_changed.connect(_on_window_size_changed)
 	if not "--reset-window" in OS.get_cmdline_user_args():
-		get_window().size.x = Globals.get_int("window_size_x", get_window().size.x)
-		get_window().size.y = Globals.get_int("window_size_y", get_window().size.y)
-		get_window().position.x = Globals.get_int("window_pos_x", get_window().position.x)
-		get_window().position.y = Globals.get_int("window_pos_y", get_window().position.y)
+		get_window().position = Globals.get_variant("window_position", get_window().position)
+		get_window().size = Globals.get_variant("window_size", get_window().size)
 	
 	multiplayer.multiplayer_peer = null # Чтобы убрать OfflineMultiplayerPeer
 	get_viewport().set_canvas_cull_mask_bit(1, false)
@@ -727,10 +725,8 @@ func _loading_open_menu() -> void:
 
 func _on_window_size_changed() -> void:
 	if get_window().mode == Window.MODE_WINDOWED:
-		Globals.set_int("window_size_x", get_window().size.x)
-		Globals.set_int("window_size_y", get_window().size.y)
-		Globals.set_int("window_pos_x", get_window().position.x)
-		Globals.set_int("window_pos_y", get_window().position.y)
+		Globals.set_variant("window_size", get_window().size)
+		Globals.set_variant("window_position", get_window().position)
 	_update_window_stretch_aspect()
 
 

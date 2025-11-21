@@ -12,7 +12,7 @@ size = Vector2(40, 240)
 
 [node name="SoulSwordRangedAttackProjectile" instance=ExtResource("1_t1005")]
 script = ExtResource("2_b0v2s")
-speed = 2400.0
+speed = 1600.0
 hit_vfx_scene = ExtResource("2_whxs8")
 hit_wall_vfx_scene = ExtResource("2_whxs8")
 damage = 20

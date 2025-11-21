@@ -19,7 +19,7 @@ script = ExtResource("2_7pd6l")
 projectile_scene = ExtResource("3_xtjbj")
 damage = 20
 to_aim_time = 0.2
-ammo_total = 25
+ammo_total = 20
 speed_multiplier_when_current = 1.04
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0"]

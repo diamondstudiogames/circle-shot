@@ -10,7 +10,7 @@ func _use() -> void:
 	player.block_turning()
 	
 	($AnimationPlayer as AnimationPlayer).play(&"use")
-	_timer.start(0.5)
+	_timer.start(1.0)
 	await _timer.timeout
 	
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE

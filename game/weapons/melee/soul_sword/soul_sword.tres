@@ -8,7 +8,7 @@ name = "Меч души"
 rarity = 5
 id = "soul_sword"
 stats = Dictionary[String, String]({
-"ammo_total": "20",
+"ammo_total": "15",
 "ammo_total_melee": "Не ограничено",
 "damage": "40",
 "damage_ranged": "30+20",

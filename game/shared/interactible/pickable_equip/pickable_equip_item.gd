@@ -47,6 +47,8 @@ enum EquipType {
 ## Тип оружия. Использовать вместе с [constant WEAPON].
 @export var weapon_type := Weapon.Type.LIGHT
 
+var _picked_up := false
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -81,7 +83,8 @@ func _equip_item(id: int) -> void:
 
 
 func _on_interactible_interacted(who: Player) -> void:
-	if not multiplayer.is_server():
+	if not multiplayer.is_server() or _picked_up:
 		return
+	_picked_up = true
 	_equip_item.rpc(who.id)
 	queue_free()

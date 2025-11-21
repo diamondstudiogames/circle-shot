@@ -8,7 +8,7 @@ name = "Меч Великого Рыцаря"
 rarity = 4
 id = "great_knight_sword"
 stats = Dictionary[String, String]({
-"ammo_total": "25",
+"ammo_total": "20",
 "ammo_total_melee": "Не ограничено",
 "bullet_count": "9",
 "bullet_damage": "5",

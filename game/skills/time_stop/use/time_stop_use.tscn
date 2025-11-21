@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://dt7q0ek60gu24" path="res://game/skills/time_stop/use/time_stop.gdshader" id="3_2ml2w"]
 [ext_resource type="Texture2D" uid="uid://o8shc4saqaax" path="res://game/skills/time_stop/use/time_stop_distortion.png" id="4_5cywq"]
 [ext_resource type="Texture2D" uid="uid://bn6gr1g17mwx6" path="res://game/skills/time_stop/use/circle.png" id="5_v7akx"]
-[ext_resource type="AudioStream" uid="uid://csa6n1fmbiw7n" path="res://game/skills/time_stop/use/clock_ticking.ogg" id="6_2ml2w"]
+[ext_resource type="AudioStream" uid="uid://q5s28sbppbrh" path="res://game/skills/time_stop/use/clock_ticking.wav" id="6_2ml2w"]
 [ext_resource type="Texture2D" uid="uid://csf7rhlt5wedy" path="res://game/skills/time_stop/use/cloud.png" id="7_fwlg7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txiu0"]

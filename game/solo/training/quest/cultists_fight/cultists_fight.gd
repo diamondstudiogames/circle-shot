@@ -126,7 +126,7 @@ func _on_cultist_died(cultist: Entity) -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
-	_spawn_cultist(randi() % 2)
+	_spawn_cultist(randi_range(2, 4) % 2)
 	_spawn_timer.start(spawn_interval_curve.sample(_time_survived))
 
 

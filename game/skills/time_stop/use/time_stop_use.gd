@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var _world: World = get_tree().get_first_node_in_group(&"world")
 
-
 func _exit_tree() -> void:
 	if _world.process_mode != PROCESS_MODE_INHERIT:
 		resume_time()

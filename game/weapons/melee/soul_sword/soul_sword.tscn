@@ -17,7 +17,7 @@ damage_in_ranged_mode = 30
 damage = 40
 shoot_interval = 0.8000000000029104
 to_aim_time = 0.1999999999970896
-ammo_total = 20
+ammo_total = 15
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
 visible = false
