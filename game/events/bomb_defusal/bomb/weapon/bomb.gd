@@ -72,10 +72,8 @@ func _on_player_shooting_started() -> void:
 	
 	if multiplayer.is_server():
 		_bomb_defusal.bomb_plant(global_position + Vector2.DOWN * 32
-				+ Vector2.LEFT * 32 * player.visual.scale.x)
+				+ Vector2.LEFT * 32 * player.visual.scale.x, player.id)
 		_remove_weapon.rpc()
-	if player.is_local():
-		_bomb_defusal.bombs_planted_defused += 1
 
 
 func _on_player_shooting_ended() -> void:

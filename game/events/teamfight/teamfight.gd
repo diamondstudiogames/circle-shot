@@ -58,35 +58,7 @@ func _finish_start() -> void:
 
 
 func _make_teams() -> void:
-	var places: Array[int]
-	places.append(floori(players_names.size() / 2.0))
-	places.append(floori(players_names.size() / 2.0))
-	if places[0] + places[1] != players_names.size():
-		places[randi() % 2] += 1
-	
-	for id: int in players_teams:
-		places[players_teams[id]] -= 1
-		if places[players_teams[id]] < 0:
-			# где-то ошиблись, вернём к нулю и вычтем из другого
-			places[players_teams[id]] = 0
-			places[1 - players_teams[id]] = 0
-	
-	var ids: Array[int]
-	ids.assign(players_names.keys())
-	ids.shuffle()
-	for id: int in ids:
-		if id in players_teams:
-			continue
-		
-		if places[0] > 0:
-			players_teams[id] = 0
-			places[0] -= 1
-		elif places[1] > 0:
-			players_teams[id] = 1
-			places[1] -= 1
-		else:
-			# по идее такого быть не должно, запихаем в красную
-			players_teams[id] = 0
+	Utils.make_teams(players_names, players_teams)
 
 
 func _get_spawn_point(id: int) -> Vector2:

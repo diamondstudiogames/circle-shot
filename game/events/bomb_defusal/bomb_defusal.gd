@@ -55,7 +55,6 @@ func _initialize() -> void:
 	_spawn_points_red.shuffle()
 	
 	_bomb_defusal_ui.set_score(red_rounds_won, blue_rounds_won)
-	_time_remained = round_time
 	
 	if multiplayer.is_server():
 		_spawn_counter_red = randi() % 5
@@ -63,36 +62,7 @@ func _initialize() -> void:
 
 
 func _make_teams() -> void:
-	var places: Array[int]
-	places.append(floori(players_names.size() / 2.0))
-	places.append(floori(players_names.size() / 2.0))
-	if places[0] + places[1] != players_names.size():
-		places[randi() % 2] += 1
-	
-	for id: int in players_teams:
-		places[players_teams[id]] -= 1
-		if places[players_teams[id]] < 0:
-			# где-то ошиблись, вернём к нулю и вычтем из другого
-			places[players_teams[id]] = 0
-			places[1 - players_teams[id]] = 0
-	
-	var ids: Array[int]
-	ids.assign(players_names.keys())
-	ids.shuffle()
-	for id: int in ids:
-		if id in players_teams:
-			continue
-		
-		if places[0] > 0:
-			players_teams[id] = 0
-			places[0] -= 1
-		elif places[1] > 0:
-			players_teams[id] = 1
-			places[1] -= 1
-		else:
-			# по идее такого быть не должно, запихаем в красную
-			players_teams[id] = 0
-	
+	Utils.make_teams(players_names, players_teams)
 	_pick_bomb_carrier()
 
 
@@ -102,8 +72,6 @@ func _finish_setup() -> void:
 
 func _finish_start() -> void:
 	if multiplayer.is_server():
-		if not (players_teams.find_key(0) and players_teams.find_key(1)):
-			_time_remained = 1
 		($RoundTimer as Timer).start()
 		_start_round.rpc()
 
@@ -125,10 +93,6 @@ func _customize_player(player: Player) -> void:
 		player.tree_exiting.connect(_on_bomb_player_tree_exiting.bind(player))
 
 
-#func _local_player_died() -> void:
-	#pass
-
-
 func _player_killed(_by: int, player: Player) -> void:
 	if player.id == _bomb_carrier:
 		_bomb_carrier = -1
@@ -136,10 +100,12 @@ func _player_killed(_by: int, player: Player) -> void:
 		pickable.position = player.global_position
 		pickable.picked_up.connect(_on_bomb_picked_up)
 		$Other.add_child(pickable, true)
+	_remove_player(player.id)
 	_check_alive_players()
 
 
-func _player_disconnected(_id: int) -> void:
+func _player_disconnected(id: int) -> void:
+	_remove_player(id)
 	if was_started:
 		_check_alive_players()
 
@@ -169,15 +135,16 @@ func _get_event_status() -> String:
 	]
 
 
-## Закладывает бомбу в точке [param where].
-func bomb_plant(where: Vector2) -> void:
+## Закладывает бомбу в точке [param where]. [param by] должен содержать ID игрока, заложившего
+## бомбу.
+func bomb_plant(where: Vector2, by: int) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
 	($RoundTimer as Timer).stop()
 	_bomb_planted = true
 	_bomb_carrier = -1
-	_bomb_plant.rpc()
+	_bomb_plant.rpc(by)
 	
 	var bomb: Node2D = _bomb_planted_scene.instantiate()
 	bomb.position = where
@@ -216,6 +183,7 @@ func _start_round() -> void:
 		return
 	_current_round += 1
 	round_started.emit()
+	print_verbose("Round %d started." % _current_round)
 
 
 @rpc("reliable", "authority", "call_local", 3)
@@ -223,11 +191,14 @@ func _end_round(defused_by: int = -1) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
+	_bomb_defusal_ui.set_spectate_visible(false)
 	round_ended.emit()
 	if defused_by > 0:
 		_bomb_defusal_ui.show_bomb_state(true)
 		if defused_by == multiplayer.get_unique_id():
 			bombs_planted_defused += 1
+		print_verbose("Bomb has been defused by %d." % defused_by)
+	print_verbose("Round %d ended." % _current_round)
 
 
 @rpc("reliable", "authority", "call_local", 3)
@@ -237,9 +208,12 @@ func _show_round_result(blue_won: bool, final: bool) -> void:
 		return
 	
 	if blue_won:
+		print_verbose("Blue team won round.")
 		blue_rounds_won += 1
 	else:
+		print_verbose("Red team won round.")
 		red_rounds_won += 1
+	print_verbose("Score: %d - %d." % [red_rounds_won, blue_rounds_won])
 	_bomb_defusal_ui.set_score(red_rounds_won, blue_rounds_won)
 	if final:
 		_local_won = blue_won and local_team == 1 or not blue_won and local_team == 0
@@ -251,11 +225,14 @@ func _show_round_result(blue_won: bool, final: bool) -> void:
 
 
 @rpc("reliable", "authority", "call_local", 3)
-func _bomb_plant() -> void:
+func _bomb_plant(planted_by: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
 	_bomb_defusal_ui.show_bomb_state(false)
+	if planted_by == multiplayer.get_unique_id():
+		bombs_planted_defused += 1
+	print_verbose("Bomb has been planted by %d." % planted_by)
 
 
 @rpc("unreliable_ordered", "call_local", "authority", 3)
@@ -264,10 +241,26 @@ func _update_time(remained: int, bomb: bool) -> void:
 	_bomb_defusal_ui.set_time(remained, bomb)
 
 
+@rpc("reliable", "call_local", "authority", 3)
+func _kill_player(who: int, alive_red_players: Array[int], alive_blue_players: Array[int]) -> void:
+	var alive_players: Array[int]
+	if local_team == 1 or alive_red_players.is_empty():
+		alive_players = alive_blue_players
+	else:
+		alive_players = alive_red_players
+	_bomb_defusal_ui.kill_player(who, alive_players)
+	print_verbose("Player %d died. Spectating: %s." % [who, alive_players])
+	if alive_players.is_empty():
+		_bomb_defusal_ui.set_spectate_visible(false)
+		return
+	if who == multiplayer.get_unique_id():
+		_bomb_defusal_ui.set_spectate_visible(true)
+
+
 func _init_round(first := false) -> void:
 	_bomb_planted = false
 	_time_remained = round_time
-	_update_time(_time_remained, false)
+	_update_time.rpc(_time_remained, false)
 	if first:
 		await started
 	if _check_remained_players():
@@ -278,7 +271,7 @@ func _init_round(first := false) -> void:
 		($RoundTimer as Timer).start()
 		for id: int in players_names:
 			spawn_player(id)
-	_start_round.rpc()
+		_start_round.rpc()
 
 
 func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -> void:
@@ -292,7 +285,7 @@ func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -
 			or red_rounds_won + int(not blue_won) >= rounds_to_win or force_end
 	_show_round_result.rpc(blue_won, final)
 	
-	_event_timer.start(3.0)
+	_event_timer.start(4.0)
 	await _event_timer.timeout
 	if not final:
 		cleanup()
@@ -300,7 +293,7 @@ func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -
 		await _event_timer.timeout
 		_init_round()
 	else:
-		_event_timer.start(3.5)
+		_event_timer.start(2.5)
 		await _event_timer.timeout
 		cleanup()
 		_event_timer.start(0.5)
@@ -335,6 +328,21 @@ func _check_alive_players() -> void:
 		_finalize_round(true)
 	elif alive_players_by_team[1] == 0:
 		_finalize_round(false)
+
+
+func _remove_player(who: int) -> void:
+	var alive_red_players: Array[int]
+	var alive_blue_players: Array[int]
+	for id: int in players_teams:
+		if id == who:
+			continue
+		if not id in players or players[id].is_queued_for_deletion():
+			continue
+		if players_teams[id] == 0:
+			alive_red_players.append(id)
+		else:
+			alive_blue_players.append(id)
+	_kill_player.rpc(who, alive_red_players, alive_blue_players)
 
 
 func _on_bomb_picked_up(by: int) -> void:

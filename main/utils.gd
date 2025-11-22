@@ -280,3 +280,39 @@ static func calculate_box_chances(rare_base: float, epic_base: float, legendary_
 		chances[2] += legendary_increase
 	
 	return chances
+
+
+## Распределяет игроков на 2 команды, опираясь на уже распределённых игроков (если есть).
+## [param players_names] - словарь вида ID - имя игрока,
+## [param players_teams] - словарь вида ID - команда игрока.
+static func make_teams(players_names: Dictionary[int, String],
+		players_teams: Dictionary[int, int]) -> void:
+	var places: Array[int]
+	places.append(floori(players_names.size() / 2.0))
+	places.append(floori(players_names.size() / 2.0))
+	if places[0] + places[1] != players_names.size():
+		places[randi() % 2] += 1
+	
+	for id: int in players_teams:
+		places[players_teams[id]] -= 1
+		if places[players_teams[id]] < 0:
+			# где-то ошиблись, вернём к нулю и вычтем из другого
+			places[players_teams[id]] = 0
+			places[1 - players_teams[id]] = 0
+	
+	var ids: Array[int]
+	ids.assign(players_names.keys())
+	ids.shuffle()
+	for id: int in ids:
+		if id in players_teams:
+			continue
+		
+		if places[0] > 0:
+			players_teams[id] = 0
+			places[0] -= 1
+		elif places[1] > 0:
+			players_teams[id] = 1
+			places[1] -= 1
+		else:
+			# по идее такого быть не должно, запихаем в красную
+			players_teams[id] = 0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://r1b3fdnixxa"]
+[gd_scene load_steps=3 format=3 uid="uid://r1b3fdnixxa"]
 
+[ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/shared/shaders/materials/water.tres" id="1_kiqka"]
 [ext_resource type="Texture2D" uid="uid://bdr5rw48ejajq" path="res://game/locations/desert/objects/oasis.png" id="1_mhqst"]
 
 [node name="Oasis" type="StaticBody2D"]
@@ -8,6 +9,7 @@ collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -5
+material = ExtResource("1_kiqka")
 scale = Vector2(2, 2)
 texture = ExtResource("1_mhqst")
 

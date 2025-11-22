@@ -1,7 +1,9 @@
 class_name BombDefusalUI
 extends EventUI
-
 ## Интерфейс события "Закладка бомбы".
+
+var _spectating_player: Player
+var _alive_players: Array[Player]
 
 ## Устанавливает счёт команд (т.е. количество выигранных раундов).
 func set_score(red: int, blue: int) -> void:
@@ -45,3 +47,47 @@ func set_time(time: int, bomb: bool) -> void:
 	else:
 		($Main/Timer as Label).text = time_str
 		($Main/Timer as Label).remove_theme_color_override(&"font_color")
+
+
+## Задаёт видимость интерфейса наблюдения.
+func set_spectate_visible(visibility: bool) -> void:
+	($Main/SpectatorMenu as CanvasItem).visible = visibility
+
+
+## Убивает игрока. Используется для функции наблюдения. [param alive_players] - список живых
+## игроков, за которыми можно вести наблюдение (чаще всего товарищи по команде)
+## [param who] - ID убитого.
+func kill_player(who: int, alive_players: Array[int]) -> void:
+	if Globals.headless:
+		return
+	
+	_alive_players.clear()
+	for id: int in alive_players:
+		_alive_players.append(event.players[id])
+	if who != _spectating_player.id and _spectating_player.id in alive_players \
+			or _alive_players.is_empty():
+		return
+	_set_player_to_spectate(randi() % _alive_players.size())
+
+
+## Перейти к следующему игроку при наблюдении.
+func next_player() -> void:
+	var new_id: int = (_alive_players.find(_spectating_player) + 1) % _alive_players.size()
+	_set_player_to_spectate(new_id)
+
+
+## Перейти к предыдущему игроку при наблюдении.
+func previous_player() -> void:
+	var new_id: int = (_alive_players.find(_spectating_player) + _alive_players.size() - 1) \
+			% _alive_players.size()
+	_set_player_to_spectate(new_id)
+
+
+func _set_player_to_spectate(idx: int) -> void:
+	_spectating_player = _alive_players[idx]
+	(%SpectatingName as Label).text = _spectating_player.player_name
+	(get_viewport().get_camera_2d() as SmartCamera).target = _spectating_player
+
+
+func _on_local_player_created(player: Player) -> void:
+	_spectating_player = player

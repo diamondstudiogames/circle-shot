@@ -1,12 +1,26 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi0w23hbv2mue"]
+[gd_scene load_steps=23 format=3 uid="uid://bi0w23hbv2mue"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_u01ls"]
 [ext_resource type="Script" uid="uid://bemvbnrfvkh0i" path="res://game/events/bomb_defusal/bomb_defusal.gd" id="2_ppebb"]
 [ext_resource type="Script" uid="uid://bymv12hc8rgj5" path="res://game/events/bomb_defusal/bomb_defusal_ui.gd" id="3_002nh"]
 [ext_resource type="PackedScene" uid="uid://eqs1a6pmwuyo" path="res://game/events/bomb_defusal/bomb_defusal_player.tscn" id="3_buact"]
+[ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="5_0kvrl"]
 [ext_resource type="PackedScene" uid="uid://bhowipgynlmam" path="res://game/events/bomb_defusal/bomb/weapon/bomb.tscn" id="5_iwtu0"]
+[ext_resource type="Texture2D" uid="uid://ix82y4qydhql" path="res://menu/theme/icons/right.png" id="6_ndkar"]
 [ext_resource type="PackedScene" uid="uid://cb533eb27cteb" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted.tscn" id="7_0kvrl"]
 [ext_resource type="PackedScene" uid="uid://dpugjjonr8i0u" path="res://game/events/bomb_defusal/bomb/dropped/pickable_equip_item_bomb.tscn" id="7_iwtu0"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_vu7pc"]
+action = &"ui_left"
+
+[sub_resource type="Shortcut" id="Shortcut_d77xg"]
+events = [SubResource("InputEventAction_vu7pc")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_og6sw"]
+action = &"ui_right"
+
+[sub_resource type="Shortcut" id="Shortcut_s5f1h"]
+events = [SubResource("InputEventAction_og6sw")]
 
 [sub_resource type="Animation" id="Animation_0668s"]
 resource_name = "RESET"
@@ -112,7 +126,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_iwtu0"]
 resource_name = "round_end"
-length = 3.0
+length = 4.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -121,7 +135,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 2.5, 3),
+"times": PackedFloat32Array(0, 0.4, 3.3, 4),
 "transitions": PackedFloat32Array(2, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -145,7 +159,7 @@ tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -284,7 +298,55 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="10"]
+[node name="SpectatorMenu" type="HBoxContainer" parent="UI/Main" index="10"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.5
+offset_top = -136.0
+offset_right = 227.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Previous" type="Button" parent="UI/Main/SpectatorMenu" index="0"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_d77xg")
+shortcut_in_tooltip = false
+icon = ExtResource("5_0kvrl")
+
+[node name="Spectating" type="VBoxContainer" parent="UI/Main/SpectatorMenu" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+text = "Наблюдение за"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpectatingName" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" type="Button" parent="UI/Main/SpectatorMenu" index="2"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_s5f1h")
+shortcut_in_tooltip = false
+icon = ExtResource("6_ndkar")
+
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="11"]
 visible = false
 modulate = Color(1, 0, 0, 0)
 layout_mode = 1
@@ -344,7 +406,7 @@ text = "команда!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RoundEnd" type="Label" parent="UI/Main" index="11"]
+[node name="RoundEnd" type="Label" parent="UI/Main" index="12"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -359,7 +421,6 @@ offset_right = 240.0
 offset_bottom = -52.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 pivot_offset = Vector2(240, 27.5)
 theme_type_variation = &"HeaderLargeOutlined"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -374,7 +435,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_y57ud")
 }
 
-[node name="BombState" type="Label" parent="UI/Main" index="12"]
+[node name="BombState" type="Label" parent="UI/Main" index="13"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -419,4 +480,7 @@ resources = [PackedStringArray("bomb", "bomb_placed", "pickable_equip_item_bomb"
 
 [node name="RoundTimer" type="Timer" parent="." index="18"]
 
+[connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
+[connection signal="pressed" from="UI/Main/SpectatorMenu/Previous" to="UI" method="previous_player"]
+[connection signal="pressed" from="UI/Main/SpectatorMenu/Next" to="UI" method="next_player"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
