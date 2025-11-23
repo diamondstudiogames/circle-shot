@@ -19,7 +19,7 @@ var _save_import_path: String
 func _ready() -> void:
 	show_section("General")
 	
-	_override_file.load("user://engine_settings.cfg")
+	_override_file.load(Globals.ENGINE_SETTINGS_PATH)
 	var preffered_renderering_method: RendereringMethod
 	if _override_file.get_value("rendering", "renderer/rendering_method") == "mobile":
 		preffered_renderering_method = RendereringMethod.MOBILE
@@ -101,6 +101,12 @@ func _ready() -> void:
 	(%SaveInfo/SaveId as Label).text = "ID сохранения: %s" % Globals.get_string("save_id")
 	_show_played_time()
 	(Globals.get_node(^"PlayedTimeTimer") as Timer).timeout.connect(_show_played_time)
+	
+	# Размер загруженных патчей
+	var total_size: int = 0
+	for file: String in DirAccess.get_files_at(Globals.PATCHES_PATH):
+		total_size += FileAccess.get_size(Globals.PATCHES_PATH.path_join(file))
+	(%ClearPatches as Button).text += " (%s)" % String.humanize_size(total_size)
 	
 	# UPnP
 	var upnp_status := "Отключён"
@@ -277,7 +283,7 @@ func _on_patches_check_toggled(toggled_on: bool) -> void:
 
 
 func _on_clear_patches_pressed() -> void:
-	remove_recursive("user://patches")
+	remove_recursive(Globals.PATCHES_PATH)
 	Globals.set_variant("patches", {} as Dictionary[String, int])
 	Globals.quit(true)
 
@@ -314,7 +320,7 @@ func _on_reset_controls_dialog_confirmed() -> void:
 func _on_reset_settings_dialog_confirmed() -> void:
 	Globals.save_file.erase_section(Globals.SETTINGS_SAVE_FILE_SECTION)
 	Globals.save_file.erase_section(Globals.CONTROLS_SAVE_FILE_SECTION)
-	DirAccess.remove_absolute("user://engine_settings.cfg")
+	DirAccess.remove_absolute(Globals.ENGINE_SETTINGS_PATH)
 	Globals.setup_settings()
 	Globals.apply_settings()
 	Globals.setup_controls_settings()
@@ -502,7 +508,7 @@ func _on_renderer_options_item_selected(index: int) -> void:
 			"gl_compatibility" if index == RendereringMethod.GL_COMPATIBILITY else "mobile"
 	_override_file.set_value("rendering", "renderer/rendering_method", new_renderer)
 	_override_file.set_value("rendering", "renderer/rendering_method.mobile", new_renderer)
-	_override_file.save("user://engine_settings.cfg")
+	_override_file.save(Globals.ENGINE_SETTINGS_PATH)
 #endregion
 
 

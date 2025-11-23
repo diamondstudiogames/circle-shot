@@ -37,6 +37,10 @@ const DEFAULT_SAVE_FILE_SECTION := "save"
 const SETTINGS_SAVE_FILE_SECTION := "settings"
 ## Секция файла сохранения для настроек управления (в частности переназначения клавиш).
 const CONTROLS_SAVE_FILE_SECTION := "controls"
+## Путь к файлу с настройками движка.
+const ENGINE_SETTINGS_PATH := "user://engine_settings.cfg"
+## Путь к каталогу с патчами.
+const PATCHES_PATH := "user://patches/"
 ## Название пакета игры (применимо для Android).
 const PACKAGE_NAME := "ru.diamondstudiogames.circleshot"
 
@@ -228,6 +232,7 @@ func import_save(path: String) -> Error:
 	
 	save_file = new_save_file
 	set_string("save_id", _generate_save_id())
+	set_variant("patches", {} as Dictionary[String, int])
 	print_verbose("Save imported from file %s. Restarting...")
 	quit(true)
 	return OK
@@ -237,7 +242,7 @@ func import_save(path: String) -> Error:
 ## Устанавливает настройки по умолчанию, если их ещё нет.
 func setup_settings() -> void:
 	var override_file := ConfigFile.new()
-	override_file.load("user://engine_settings.cfg")
+	override_file.load(ENGINE_SETTINGS_PATH)
 	
 	# Основное
 	set_setting_bool("check_updates", get_setting_bool("check_updates", true))
@@ -276,7 +281,7 @@ func setup_settings() -> void:
 	set_setting_bool("menu_tracks", get_setting_bool("menu_tracks", false))
 	set_setting_bool("separate_menu_tracks", get_setting_bool("separate_menu_tracks", false))
 	
-	override_file.save("user://engine_settings.cfg")
+	override_file.save(ENGINE_SETTINGS_PATH)
 
 
 ## Устанавливает настройки управления по умолчанию, если их ещё нет.

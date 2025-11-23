@@ -443,11 +443,10 @@ func _loading_check_patches() -> void:
 	if remote_patch_code > local_patch_code:
 		print_verbose("New version of patch detected (%d), downloading..." % remote_patch_code)
 		_load_status_label.text = "Загрузка патча..."
-		if not DirAccess.dir_exists_absolute("user://patches"):
-			DirAccess.make_dir_recursive_absolute("user://patches")
+		if not DirAccess.dir_exists_absolute(Globals.PATCHES_PATH):
+			DirAccess.make_dir_recursive_absolute(Globals.PATCHES_PATH)
 		var http := HTTPRequest.new()
 		http.timeout = 20.0
-		http.download_file = "user://patches/tmp.pck"
 		http.request_completed.connect(
 				_on_patch_http_request_completed.bind(http, remote_patch_code))
 		add_child(http)
@@ -478,7 +477,7 @@ func _loading_apply_patch() -> void:
 	var patches: Dictionary[String, int] = \
 			Globals.get_variant("patches", {} as Dictionary[String, int])
 	if Globals.version in patches:
-		var patch_path := "user://patches/%s.pck" % Globals.version
+		var patch_path := Globals.PATCHES_PATH.path_join("%s.pck" % Globals.version)
 		if FileAccess.file_exists(patch_path):
 			_load_status_label.text = "Применение патча..."
 			_load_progress_bar.value = 100.0
@@ -787,28 +786,23 @@ func _on_data_http_request_completed(result: HTTPRequest.Result,
 
 func _on_patch_http_request_completed(result: HTTPRequest.Result,
 		response_code: HTTPClient.ResponseCode, _headers: PackedStringArray, 
-		_body: PackedByteArray, http: HTTPRequest, new_patch_code: int) -> void:
+		body: PackedByteArray, http: HTTPRequest, new_patch_code: int) -> void:
 	http.queue_free()
 	set_process(false)
-	const TMP_PATCH_PATH := "user://patches/tmp.pck"
 	if result != HTTPRequest.RESULT_SUCCESS:
 		push_warning("Download patch: result is not Success. Result: %d." % result)
-		if FileAccess.file_exists(TMP_PATCH_PATH):
-			DirAccess.remove_absolute(TMP_PATCH_PATH)
 		loading_stage_finished.emit(false)
 		return
 	if response_code != HTTPClient.RESPONSE_OK:
 		push_warning(
 				"Download patch: response code is not 200. Response code: %d." % response_code)
-		if FileAccess.file_exists(TMP_PATCH_PATH):
-			DirAccess.remove_absolute(TMP_PATCH_PATH)
 		loading_stage_finished.emit(false)
 		return
 	
-	var patch_path := "user://patches/%s.pck" % Globals.version
-	if FileAccess.file_exists(patch_path):
-		DirAccess.remove_absolute(patch_path)
-	DirAccess.rename_absolute(TMP_PATCH_PATH, patch_path)
+	var file := FileAccess.open(
+			Globals.PATCHES_PATH.path_join("%s.pck" % Globals.version), FileAccess.WRITE)
+	file.store_buffer(body)
+	file.close()
 	var patches: Dictionary[String, int] = \
 			Globals.get_variant("patches", {} as Dictionary[String, int])
 	patches[Globals.version] = new_patch_code
