@@ -183,7 +183,7 @@ spawn_point_randomness = 0.0
 [node name="UI" parent="." index="8"]
 script = ExtResource("4_jj4yx")
 
-[node name="Round0" type="TextureRect" parent="UI/Main" index="7"]
+[node name="Round0" type="TextureRect" parent="UI/Main" index="5"]
 modulate = Color(0.566406, 0.566406, 0.566406, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -197,7 +197,7 @@ grow_horizontal = 2
 texture = ExtResource("6_weffi")
 expand_mode = 1
 
-[node name="Round1" type="TextureRect" parent="UI/Main" index="8"]
+[node name="Round1" type="TextureRect" parent="UI/Main" index="6"]
 modulate = Color(0.566406, 0.566406, 0.566406, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -211,7 +211,7 @@ grow_horizontal = 2
 texture = ExtResource("7_leh4n")
 expand_mode = 1
 
-[node name="Round2" type="TextureRect" parent="UI/Main" index="9"]
+[node name="Round2" type="TextureRect" parent="UI/Main" index="7"]
 modulate = Color(0.566406, 0.566406, 0.566406, 1)
 layout_mode = 1
 anchors_preset = 5
@@ -225,7 +225,7 @@ grow_horizontal = 2
 texture = ExtResource("8_ompgj")
 expand_mode = 1
 
-[node name="RoundEnd" type="Label" parent="UI/Main" index="10"]
+[node name="RoundEnd" type="Label" parent="UI/Main" index="8"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -242,7 +242,7 @@ grow_vertical = 2
 theme_type_variation = &"HeaderLargeOutlined"
 horizontal_alignment = 1
 
-[node name="GameEnd" type="Label" parent="UI/Main" index="11"]
+[node name="GameEnd" type="Label" parent="UI/Main" index="9"]
 visible = false
 self_modulate = Color(1, 0, 0, 0)
 layout_mode = 1

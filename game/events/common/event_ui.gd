@@ -78,7 +78,7 @@ func seek_intro(at_time: float) -> void:
 ## Показывает награды из словаря [param rewards]. В [param total] находится сумма полученных монет.
 ## Для подробностей см. [method Event._get_rewards].
 func show_rewards(rewards: Dictionary[String, int], total: int) -> void:
-	var current_coins: int = Globals.get_int("coins")
+	var current_coins: int = Globals.get_int("coins") - total # монеты уже добавлены
 	_rewards_total.text = "%d (+%d)" % [current_coins, 0]
 	
 	($Main/RewardsPanel as CanvasItem).show()

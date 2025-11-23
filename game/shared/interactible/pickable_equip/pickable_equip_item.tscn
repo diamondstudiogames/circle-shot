@@ -24,7 +24,7 @@ position = Vector2(0, 80)
 shape = SubResource("CircleShape2D_upxl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -4
+z_index = -3
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_y6mm5")

@@ -37,6 +37,16 @@ func _can_reload() -> bool:
 	return false
 
 
+func has_additional_button() -> bool:
+	return true
+
+
+func additional_button() -> void:
+	if multiplayer.is_server():
+		_remove_weapon.rpc()
+		_bomb_defusal.bomb_drop(player.global_position)
+
+
 func _player_disarmed() -> void:
 	_anim.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -51,7 +61,6 @@ func get_ammo_text() -> String:
 
 @rpc("reliable", "authority", "call_local", 5)
 func _remove_weapon() -> void:
-	player.unmake_immobile()
 	player.set_weapon(Weapon.Type.ADDITIONAL, null)
 
 
@@ -74,6 +83,7 @@ func _on_player_shooting_started() -> void:
 		_bomb_defusal.bomb_plant(global_position + Vector2.DOWN * 32
 				+ Vector2.LEFT * 32 * player.visual.scale.x, player.id)
 		_remove_weapon.rpc()
+	player.unmake_immobile()
 
 
 func _on_player_shooting_ended() -> void:

@@ -388,7 +388,7 @@ _spawnable_scenes = PackedStringArray("uid://cc2mkoa1fingr", "uid://cyudg7uces0w
 [node name="UI" parent="." index="8"]
 script = ExtResource("3_xkawu")
 
-[node name="Timer" type="Label" parent="UI/Main" index="6"]
+[node name="Timer" type="Label" parent="UI/Main" index="5"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -401,7 +401,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderLargeOutlined"
 text = "3:00"
 
-[node name="Comeback" type="Label" parent="UI/Main" index="7"]
+[node name="Comeback" type="Label" parent="UI/Main" index="6"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -420,7 +420,7 @@ text = "Возвращение через 3..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RedCount" type="Label" parent="UI/Main" index="8"]
+[node name="RedCount" type="Label" parent="UI/Main" index="7"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -437,7 +437,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlueCount" type="Label" parent="UI/Main" index="9"]
+[node name="BlueCount" type="Label" parent="UI/Main" index="8"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -454,7 +454,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="10"]
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="9"]
 visible = false
 modulate = Color(1, 0, 0, 0)
 layout_mode = 1
@@ -463,7 +463,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = -400.00003
 offset_top = -220.0
 offset_right = 400.0
 offset_bottom = -100.0
@@ -526,7 +526,7 @@ text = "команда!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FlagCaptured" type="HBoxContainer" parent="UI/Main" index="11"]
+[node name="FlagCaptured" type="HBoxContainer" parent="UI/Main" index="10"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -535,7 +535,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = -400.00003
 offset_top = -12.0
 offset_right = 400.0
 offset_bottom = 108.0

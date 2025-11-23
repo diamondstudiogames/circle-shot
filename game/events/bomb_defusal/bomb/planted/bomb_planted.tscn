@@ -38,13 +38,12 @@ metadata/_snap_count = 40
 
 [node name="BombPlanted" type="Node2D"]
 script = ExtResource("1_33kbv")
-explosion_time = 35
 min_countdown_interval = 0.05
 shake_max_amplitude = 64.0
 shake_max_distance = 16000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -2
+z_index = -3
 rotation = 1.5707964
 texture = ExtResource("2_04vj3")
 
@@ -71,7 +70,7 @@ one_shot = true
 position = Vector2(0, -48)
 script = ExtResource("7_k4rui")
 text = "Обезвредить"
-hold_interaction_time = 6.0
+hold_interaction_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
 position = Vector2(0, 48)

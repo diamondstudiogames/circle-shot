@@ -135,6 +135,15 @@ func _get_event_status() -> String:
 	]
 
 
+## Бросает бомбу на пол в позиции, указанной в [param where].
+func bomb_drop(where: Vector2) -> void:
+	_bomb_carrier = -1
+	var pickable: PickableEquipItem = _bomb_dropped_scene.instantiate()
+	pickable.position = where
+	pickable.picked_up.connect(_on_bomb_picked_up)
+	$Other.add_child(pickable, true)
+
+
 ## Закладывает бомбу в точке [param where]. [param by] должен содержать ID игрока, заложившего
 ## бомбу.
 func bomb_plant(where: Vector2, by: int) -> void:
@@ -353,11 +362,7 @@ func _on_bomb_player_tree_exiting(player: Player) -> void:
 	if player.id != _bomb_carrier: # мб уже заплентил, а подключение осталось
 		return
 	if not player.id in players_names: # отключился, бросаем бомбу, иначе это обычная очистка
-		_bomb_carrier = -1
-		var pickable: PickableEquipItem = _bomb_dropped_scene.instantiate()
-		pickable.position = player.global_position
-		pickable.picked_up.connect(_on_bomb_picked_up)
-		$Other.add_child(pickable, true)
+		bomb_drop(player.global_position)
 
 
 func _on_round_timer_timeout() -> void:

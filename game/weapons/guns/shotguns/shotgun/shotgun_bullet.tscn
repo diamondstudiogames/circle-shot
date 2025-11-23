@@ -7,4 +7,4 @@ speed = 1700.0
 damage = 9
 
 [node name="Timer" parent="." index="2"]
-wait_time = 0.7
+wait_time = 0.6

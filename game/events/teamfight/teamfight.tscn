@@ -292,7 +292,7 @@ entity_scenes = Array[PackedScene]([ExtResource("3_xyyla")])
 [node name="UI" parent="." index="8"]
 script = ExtResource("4_m4tqf")
 
-[node name="Timer" type="Label" parent="UI/Main" index="7"]
+[node name="Timer" type="Label" parent="UI/Main" index="5"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -305,7 +305,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderLargeOutlined"
 text = "3:00"
 
-[node name="Comeback" type="Label" parent="UI/Main" index="8"]
+[node name="Comeback" type="Label" parent="UI/Main" index="6"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -324,7 +324,7 @@ text = "Возвращение через 3..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RedCount" type="Label" parent="UI/Main" index="9"]
+[node name="RedCount" type="Label" parent="UI/Main" index="7"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -341,7 +341,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlueCount" type="Label" parent="UI/Main" index="10"]
+[node name="BlueCount" type="Label" parent="UI/Main" index="8"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -358,7 +358,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="11"]
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="9"]
 visible = false
 modulate = Color(1, 0, 0, 0)
 layout_mode = 1

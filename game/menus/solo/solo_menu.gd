@@ -70,6 +70,7 @@ func _on_game_started() -> void:
 func _on_game_closed() -> void:
 	show()
 	process_mode = Node.PROCESS_MODE_INHERIT
+	_equip_selector._ready() # обновляем экипировку, выбранную вне этого меню
 
 
 func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:

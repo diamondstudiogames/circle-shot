@@ -21,11 +21,11 @@ _data = [Vector2(0, -7), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [node name="Uzi" instance=ExtResource("1_7w4mw")]
-shoot_interval = 0.165
+shoot_interval = 0.17
 to_aim_time = 0.25
 projectile_scene = ExtResource("2_dkh6t")
 spread_base = 4.0
-spread_walk = 5.0
+spread_walk = 4.5
 spread_curve = SubResource("Curve_dkh6t")
 spread_increasing_time = 0.3
 spread_reset_time = 0.7
