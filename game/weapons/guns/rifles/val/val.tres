@@ -11,7 +11,7 @@ stats = Dictionary[String, String]({
 "ammo_per_load": "20",
 "ammo_total": "100",
 "damage": "8",
-"dps": "52",
+"dps": "51",
 "reload_time": "2.9",
 "shots_in_burst": "4"
 })

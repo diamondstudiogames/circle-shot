@@ -11,7 +11,7 @@ extends Weapon
 @export var to_aim_time := 0.15
 ## Угол между боеприпасами (в градусах).
 @export var angle_between_ammo := 10.0
-## Интервал между бросками. Должен быть больше либо равным времени анимации броска.
+## Интервал между бросками.
 @export var throw_interval := 0.5
 ## Базовый разброс снаряда.
 @export var spread_base := 1.0
@@ -24,6 +24,7 @@ extends Weapon
 var _throw_timer := 0.0
 var _reloading := false
 var _interrupting_reload := false
+var _throwing_count: int = 0
 var _turn_tween: Tween
 
 @onready var _anim: AnimationPlayer = $AnimationPlayer
@@ -72,15 +73,19 @@ func _initialize() -> void:
 
 func _shoot() -> void:
 	_throw_timer = throw_interval
+	if ammo - _throwing_count <= 0:
+		return
 	
-	var current_ammo: Node2D = _ammo_parent.get_child(ammo - 1)
+	var current_ammo: Node2D = _ammo_parent.get_child(ammo - 1 - _throwing_count)
 	var current_ammo_anim: AnimationPlayer = current_ammo.get_node(^"AnimationPlayer")
+	_throwing_count += 1
 	
 	var throw_anim: Animation = current_ammo_anim.get_animation(&"pre_throw")
 	throw_anim.track_set_key_value(0, 1, current_ammo.to_local(_throw_pivot.global_position))
 	current_ammo_anim.play(&"pre_throw")
 	var anim_name: StringName = await current_ammo_anim.animation_finished
 	if anim_name != &"pre_throw":
+		_throwing_count -= 1
 		return
 	
 	player.block_turning()
@@ -93,6 +98,7 @@ func _shoot() -> void:
 	current_ammo_anim.play(&"throw")
 	anim_name = await current_ammo_anim.animation_finished
 	player.unblock_turning()
+	_throwing_count -= 1
 	if anim_name != &"throw":
 		return
 	

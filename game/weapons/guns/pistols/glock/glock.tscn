@@ -7,32 +7,33 @@
 [ext_resource type="AnimationLibrary" uid="uid://cg6fo0mnlaxr5" path="res://game/weapons/guns/pistols/glock/visual/glock_animations.tres" id="5_vish7"]
 
 [sub_resource type="Curve" id="Curve_vee2n"]
-_limits = [0.0, 4.0, 0.0, 2.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(2, 4), 0.24600169, 0.0, 0, 0]
-point_count = 2
+_limits = [0.0, 5.0, 0.0, 2.25]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7424242, 0.33287668), 1.0578067, 1.0578067, 0, 0, Vector2(2.25, 5), 0.24600169, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_yhuw1"]
-_limits = [-4.0, 0.0, 0.0, 2.5]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.78282833, 0), 0.0, 0.0, 0, 0, Vector2(2.5, -4), 0.0, 0.0, 0, 0]
+_limits = [-5.0, 0.0, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.2020202, 0), 0.0, 0.0, 0, 0, Vector2(3, -5), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_1ic0r"]
-_limits = [-4.0, 0.0, 0.0, 1.0]
-_data = [Vector2(0, -4), 0.0, 0.0, 0, 0]
+_limits = [-5.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -5), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [node name="Glock" instance=ExtResource("1_3a7xl")]
 script = ExtResource("2_yhuw1")
 shots_in_burst = 3
+shoot_interval = 0.57
 to_aim_time = 0.2
 projectile_scene = ExtResource("2_vee2n")
 spread_base = 1.5
 spread_walk = 4.0
 spread_curve = SubResource("Curve_vee2n")
-spread_reset_time = 0.9
+spread_reset_time = 1.0
 recoil_curve = SubResource("Curve_yhuw1")
 recoil_cycle_curve = SubResource("Curve_1ic0r")
-recoil_reset_time = 0.6
+recoil_reset_time = 0.8
 ammo_per_load = 20
 speed_multiplier_when_current = 0.98
 shoot_on_joystick_release = true
@@ -49,7 +50,7 @@ libraries = {
 
 [node name="BurstShotsIntervalTimer" type="Timer" parent="." index="3"]
 process_callback = 0
-wait_time = 0.13
+wait_time = 0.14
 one_shot = true
 
 [editable path="Visual"]

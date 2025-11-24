@@ -23,10 +23,10 @@ point_count = 1
 
 [node name="RussianRevolver" instance=ExtResource("1_uaoks")]
 script = ExtResource("2_5spho")
-blank_chance = 0.6
-bonus_damage = 0.85
-self_damage = 8
-red_per_blank = 0.2
+blank_chance = 0.5
+bonus_damage = 0.5
+self_damage = 10
+red_per_blank = 0.25
 to_aim_time = 0.25
 projectile_scene = ExtResource("2_41vo5")
 spread_base = 1.5

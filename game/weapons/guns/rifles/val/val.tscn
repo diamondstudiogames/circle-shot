@@ -7,31 +7,31 @@
 [ext_resource type="AnimationLibrary" uid="uid://bha6ndyxvjlnb" path="res://game/weapons/guns/rifles/val/visual/val_animations.tres" id="5_cyi4y"]
 
 [sub_resource type="Curve" id="Curve_1tw8d"]
-_limits = [0.0, 8.0, 0.0, 4.0]
-_data = [Vector2(0.99663305, 0), 0.0, 1.5941839, 0, 0, Vector2(4, 8), -0.15671213, 0.0, 0, 0]
+_limits = [0.0, 10.0, 0.0, 4.0]
+_data = [Vector2(0.99663305, 0), 0.0, 1.5941839, 0, 0, Vector2(4, 10), -0.15671213, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_cyi4y"]
-_limits = [-6.0, 0.0, 0.0, 4.0]
-_data = [Vector2(1.4545455, 0), 0.0, -1.4809315, 0, 0, Vector2(4, -6), -0.32987916, 0.0, 0, 0]
+_limits = [-7.0, 0.0, 0.0, 4.0]
+_data = [Vector2(1.4545455, 0), 0.0, -1.4809315, 0, 0, Vector2(4, -7), -0.32987916, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_s7suj"]
-_limits = [-6.0, 0.0, 0.0, 1.0]
-_data = [Vector2(0, -6), 0.0, 0.0, 0, 0]
+_limits = [-7.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, -7), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [node name="Val" instance=ExtResource("1_elrx0")]
 script = ExtResource("2_sxjeg")
 shots_in_burst = 4
-shoot_interval = 0.62
+shoot_interval = 0.55
 to_aim_time = 0.3
 projectile_scene = ExtResource("3_dc4sr")
 spread_base = 1.5
 spread_walk = 6.5
 spread_curve = SubResource("Curve_1tw8d")
 spread_increasing_time = 0.15
-spread_reset_time = 0.85
+spread_reset_time = 1.0
 recoil_curve = SubResource("Curve_cyi4y")
 recoil_cycle_curve = SubResource("Curve_s7suj")
 recoil_increasing_time = 0.15
@@ -54,5 +54,5 @@ libraries = {
 
 [node name="BurstShotsIntervalTimer" type="Timer" parent="." index="3"]
 process_callback = 0
-wait_time = 0.11
+wait_time = 0.1
 one_shot = true

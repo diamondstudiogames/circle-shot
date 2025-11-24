@@ -4,4 +4,4 @@
 
 [node name="ValBullet" instance=ExtResource("1_xqyc3")]
 speed = 3100.0
-damage = 8
+damage = 7

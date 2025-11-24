@@ -10,12 +10,12 @@ id = "russian_roulette"
 stats = Dictionary[String, String]({
 "ammo_per_load": "6",
 "ammo_total": "42",
-"blank_bonus": "85",
-"blank_chance": "60",
+"blank_bonus": "50",
+"blank_chance": "50",
 "damage": "20",
 "dps": "40",
 "reload_time": "2.2",
-"self_damage": "8"
+"self_damage": "10"
 })
 description = "Базовый урон/с: [color=red]{dps}[/color]
 Базовый урон/снаряд: [color=red]{damage}[/color]

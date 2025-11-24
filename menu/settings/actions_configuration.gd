@@ -79,6 +79,7 @@ func _load_keys_from_map() -> void:
 		for child: Node in events_container.get_children():
 			child.queue_free()
 		
+		_action_events[action] = [] as Array[EncodedInputEvent]
 		var idx: int = 0
 		for event: InputEvent in InputMap.action_get_events(action):
 			var encoded_event := EncodedInputEvent.new()
@@ -102,11 +103,7 @@ func _load_keys_from_map() -> void:
 				if jm.axis_value > 0.0:
 					encoded_event.value += 1
 			
-			if action in _action_events:
-				_action_events[action].append(encoded_event)
-			else:
-				_action_events[action] = [encoded_event]
-			
+			_action_events[action].append(encoded_event)
 			_create_action_event(action, events_container, encoded_event)
 			idx += 1
 

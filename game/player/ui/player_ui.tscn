@@ -441,6 +441,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
+stretch_mode = 5
 
 [node name="Count" type="Label" parent="Controller/Skill"]
 layout_mode = 1
