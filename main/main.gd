@@ -436,7 +436,7 @@ func _loading_check_patches() -> void:
 	
 	var patches: Dictionary[String, int] = \
 			Globals.get_variant("patches", {} as Dictionary[String, int])
-	var remote_patch_code: int = Globals.data_file.get_value("patches", Globals.version, 0)
+	var remote_patch_code: int = Globals.remote_data_file.get_value("patches", Globals.version, 0)
 	var local_patch_code: int = patches.get(Globals.version, 0)
 	print_verbose("Local patch version: %d, remote: %d." % [local_patch_code, remote_patch_code])
 	
@@ -780,7 +780,7 @@ func _on_data_http_request_completed(result: HTTPRequest.Result,
 		loading_stage_finished.emit(false)
 	else:
 		print_verbose("Data downloaded successfully.")
-		Globals.data_file = data_file
+		Globals.remote_data_file = data_file
 		loading_stage_finished.emit(true)
 
 

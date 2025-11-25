@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://iq1642q07wum" path="res://game/core/game.gd" id="1_j8au2"]
 [ext_resource type="Script" uid="uid://cv3kjc76k7c58" path="res://game/core/loader.gd" id="2_p5b8s"]
 [ext_resource type="Script" uid="uid://c6qch787reyu5" path="res://game/core/debug/debug_info.gd" id="3_0xkxq"]
-[ext_resource type="Texture2D" uid="uid://tgykndvggm2o" path="res://main/loading_splash.png" id="3_512x5"]
+[ext_resource type="PackedScene" uid="uid://cn2ifbe6eq1wt" path="res://main/loading_splash/loading_splash.tscn" id="3_hdtff"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="4_yi0ok"]
 
 [sub_resource type="Animation" id="Animation_oievw"]
@@ -118,15 +118,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Image" type="TextureRect" parent="Loader/Screen"]
+[node name="LoadingSplash" parent="Loader/Screen" instance=ExtResource("3_hdtff")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_512x5")
-stretch_mode = 6
 
 [node name="Logo" type="TextureRect" parent="Loader/Screen"]
 layout_mode = 1

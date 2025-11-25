@@ -9,6 +9,6 @@ uniform sampler2D screen_texture: hint_screen_texture, repeat_disable, filter_ne
 void fragment() {
 	vec3 color = vec3(1.0) - textureLod(screen_texture, (SCREEN_UV - 0.5) * (1.0 / screen_zoom)
 			+ 0.5 + texture(distortion, UV).b * dist_power / screen_zoom, 0.0).rgb;
-	color = mix(color, vec3(1.0), (abs(UV.x - 0.5) + abs(UV.y - 0.5)) * 2.0);
+	color = mix(color, vec3(1.0), length(UV - vec2(0.5)) * 2.0);
 	COLOR.rgb = color;
 }

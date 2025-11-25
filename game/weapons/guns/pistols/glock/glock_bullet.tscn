@@ -3,4 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_blt0c"]
 
 [node name="GlockBullet" instance=ExtResource("1_blt0c")]
+speed = 3100.0
 damage = 7

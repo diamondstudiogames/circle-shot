@@ -63,7 +63,7 @@ var upnp: UPNPManager
 var save_file: ConfigFile
 ## Файл с данными, которые загружаются с сервера. Проверяйте на [code]null[/code]
 ## перед использованием!
-var data_file: ConfigFile
+var remote_data_file: ConfigFile
 
 var _previous_input_method := InputMethod.AUTO
 

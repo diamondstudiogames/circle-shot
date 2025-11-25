@@ -26,9 +26,9 @@ func _ready() -> void:
 		_promocodes_rewards[promocode_stripped] = rewards
 		_promocodes_comments[promocode_stripped] = splits[1]
 	
-	if not Globals.data_file:
+	if not Globals.remote_data_file:
 		return
-	for section: String in Globals.data_file.get_sections():
+	for section: String in Globals.remote_data_file.get_sections():
 		if not section.begins_with("promocode_"):
 			continue
 		var promocode: String = Utils.strip_string(section.right(-10))
@@ -36,24 +36,24 @@ func _ready() -> void:
 			print_verbose("Found invalid online promocode, ignoring.")
 			continue
 		
-		if not (Globals.data_file.has_section_key(section, "comment") \
-				and typeof(Globals.data_file.get_value(section, "comment")) == TYPE_STRING):
+		if not (Globals.remote_data_file.has_section_key(section, "comment") \
+				and typeof(Globals.remote_data_file.get_value(section, "comment")) == TYPE_STRING):
 			print_verbose("Found invalid online promocode %s: no comment, ignoring." % promocode)
 			continue
-		var comment: String = Globals.data_file.get_value(section, "comment")
+		var comment: String = Globals.remote_data_file.get_value(section, "comment")
 		
-		if not (Globals.data_file.has_section_key(section, "rewards") \
-				and typeof(Globals.data_file.get_value(section, "rewards")) == TYPE_ARRAY):
+		if not (Globals.remote_data_file.has_section_key(section, "rewards") \
+				and typeof(Globals.remote_data_file.get_value(section, "rewards")) == TYPE_ARRAY):
 			print_verbose("Found invalid online promocode %s: no rewards, ignoring." % promocode)
 			continue
-		var rewards: Array = Globals.data_file.get_value(section, "rewards")
+		var rewards: Array = Globals.remote_data_file.get_value(section, "rewards")
 		if rewards.get_typed_builtin() != TYPE_STRING:
 			print_verbose("Found invalid online promocode %s: no rewards, ignoring." % promocode)
 			continue
 		
-		if Globals.data_file.has_section_key(section, "only_for_ids") \
-				and typeof(Globals.data_file.get_value(section, "only_for_ids")) == TYPE_ARRAY:
-			var only_for_ids: Array = Globals.data_file.get_value(section, "only_for_ids")
+		if Globals.remote_data_file.has_section_key(section, "only_for_ids") and \
+				typeof(Globals.remote_data_file.get_value(section, "only_for_ids")) == TYPE_ARRAY:
+			var only_for_ids: Array = Globals.remote_data_file.get_value(section, "only_for_ids")
 			if only_for_ids.get_typed_builtin() == TYPE_STRING \
 					and not Globals.get_string("save_id") in only_for_ids:
 				# нам не предназначен

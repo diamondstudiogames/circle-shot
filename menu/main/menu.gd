@@ -26,21 +26,27 @@ func check_updates() -> bool:
 			or not Globals.get_setting_bool("check_updates"):
 		print_verbose("Updates check disabled.")
 		return false
-	if not Globals.data_file:
+	if not Globals.remote_data_file:
 		print_verbose("Updates check failed: data is not available.")
 		return false
-	if Globals.data_file.has_section_key("versions", "checked"):
-		var betas_checked: bool = Globals.data_file.get_value("versions", "checked")
+	if Globals.remote_data_file.has_section_key("versions", "checked"):
+		var betas_checked: bool = Globals.remote_data_file.get_value("versions", "checked")
 		if not betas_checked or Globals.get_setting_bool("check_betas"):
 			print_verbose("Updates already checked.")
 			return false
 	
-	Globals.data_file.set_value("versions", "checked", Globals.get_setting_bool("check_betas"))
-	var remote_version: String = Globals.data_file.get_value("versions", "stable", Globals.version)
+	Globals.remote_data_file.set_value("versions", "checked",
+			Globals.get_setting_bool("check_betas"))
+	var remote_version: String = Globals.remote_data_file.get_value(
+			"versions", "stable", Globals.version)
 	var beta := false
-	if Globals.get_setting_bool("check_betas") and _is_version_newer_than(
-			str(Globals.data_file.get_value("versions", "beta", Globals.version)), remote_version):
-		remote_version = Globals.data_file.get_value("versions", "beta", Globals.version)
+	if (
+			Globals.get_setting_bool("check_betas")
+			and _is_version_newer_than(
+			str(Globals.remote_data_file.get_value("versions", "beta", Globals.version)),
+			remote_version)
+	):
+		remote_version = Globals.remote_data_file.get_value("versions", "beta", Globals.version)
 		beta = true
 	
 	if _is_version_newer_than(remote_version, Globals.version):

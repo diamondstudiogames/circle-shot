@@ -166,12 +166,12 @@ func show_box_info(type: String) -> void:
 
 
 func _list_online_offers() -> void:
-	if not Globals.data_file:
+	if not Globals.remote_data_file:
 		print_verbose("Online offers are not available.")
 		return
 	print_verbose("Listing online offers...")
 	
-	for section: String in Globals.data_file.get_sections():
+	for section: String in Globals.remote_data_file.get_sections():
 		if not section.begins_with("offer_"):
 			continue
 		var offer: String = Utils.strip_string(section.right(-6))
@@ -189,29 +189,29 @@ func _list_online_offers() -> void:
 			print_verbose("Found already used offer with ID %d." % offer_id)
 			continue
 		
-		if not (Globals.data_file.has_section_key(section, "name") \
-				and typeof(Globals.data_file.get_value(section, "name")) == TYPE_STRING):
+		if not (Globals.remote_data_file.has_section_key(section, "name") \
+				and typeof(Globals.remote_data_file.get_value(section, "name")) == TYPE_STRING):
 			print_verbose("Found invalid online offer %s: no name, ignoring." % offer)
 			continue
-		var offer_name: String = Globals.data_file.get_value(section, "name")
+		var offer_name: String = Globals.remote_data_file.get_value(section, "name")
 		
-		if not (Globals.data_file.has_section_key(section, "cost") \
-				and typeof(Globals.data_file.get_value(section, "cost")) == TYPE_INT):
+		if not (Globals.remote_data_file.has_section_key(section, "cost") \
+				and typeof(Globals.remote_data_file.get_value(section, "cost")) == TYPE_INT):
 			print_verbose("Found invalid online offer %s: no cost, ignoring." % offer)
 			continue
-		var cost: int = Globals.data_file.get_value(section, "cost")
+		var cost: int = Globals.remote_data_file.get_value(section, "cost")
 		
-		if not (Globals.data_file.has_section_key(section, "sale") \
-				and typeof(Globals.data_file.get_value(section, "sale")) == TYPE_INT):
+		if not (Globals.remote_data_file.has_section_key(section, "sale") \
+				and typeof(Globals.remote_data_file.get_value(section, "sale")) == TYPE_INT):
 			print_verbose("Found invalid online offer %s: no sale, ignoring." % offer)
 			continue
-		var sale: int = Globals.data_file.get_value(section, "sale")
+		var sale: int = Globals.remote_data_file.get_value(section, "sale")
 		
-		if not (Globals.data_file.has_section_key(section, "rewards") \
-				and typeof(Globals.data_file.get_value(section, "rewards")) == TYPE_ARRAY):
+		if not (Globals.remote_data_file.has_section_key(section, "rewards") \
+				and typeof(Globals.remote_data_file.get_value(section, "rewards")) == TYPE_ARRAY):
 			print_verbose("Found invalid online offer %s: no rewards, ignoring." % offer)
 			continue
-		var rewards: Array = Globals.data_file.get_value(section, "rewards")
+		var rewards: Array = Globals.remote_data_file.get_value(section, "rewards")
 		if rewards.get_typed_builtin() != TYPE_STRING:
 			print_verbose("Found invalid online offer %s: no rewards, ignoring." % offer)
 			continue
@@ -219,9 +219,9 @@ func _list_online_offers() -> void:
 			print_verbose("Found online offer %s with incorrect or already obtained items." % offer)
 			continue
 		
-		if Globals.data_file.has_section_key(section, "only_for_ids") \
-				and typeof(Globals.data_file.get_value(section, "only_for_ids")) == TYPE_ARRAY:
-			var only_for_ids: Array = Globals.data_file.get_value(section, "only_for_ids")
+		if Globals.remote_data_file.has_section_key(section, "only_for_ids") and \
+				typeof(Globals.remote_data_file.get_value(section, "only_for_ids")) == TYPE_ARRAY:
+			var only_for_ids: Array = Globals.remote_data_file.get_value(section, "only_for_ids")
 			if only_for_ids.get_typed_builtin() == TYPE_STRING \
 					and not Globals.get_string("save_id") in only_for_ids:
 				# нам не предназначен
