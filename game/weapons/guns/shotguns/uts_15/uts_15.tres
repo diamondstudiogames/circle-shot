@@ -11,7 +11,7 @@ stats = Dictionary[String, String]({
 "ammo_per_load": "15",
 "ammo_total": "15",
 "buckshots": "6",
-"buckshots_far": "5",
+"buckshots_far": "4",
 "damage": "8",
 "damage_far": "8",
 "dps": "69",
@@ -32,7 +32,7 @@ description = "[color=deep_sky_blue]Имеет режимы стрельбы c �
 Боеприпасы: [color=blue]{ammo_per_load}/{ammo_total}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color] за патрон
 
-Универсальный помоповый дробовик, который может как и нанести много урона вблизи, так и поражать цели издалека."
+Универсальный помоповый дробовик, который может как и нанести много урона вблизи, так и поражать цель издалека."
 scene_path = "uid://cx2gsf65qv7ou"
 image_path = "uid://ycgtnx4j5a60"
 spawnable_scenes_paths = Array[String](["uid://crqwj65hris7n", "uid://bw3a7jk8ylbmn"])

@@ -22,7 +22,7 @@ description = "[color=deep_sky_blue]Дым накладывает невидим
 Количество: [color=blue]{ammo_total} шт.[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
-Граната, позволяющая скрыть позицию в облаке дыма и союзников, и врагов."
+Граната, позволяющая в облаке дыма скрыть позицию как союзников, так и врагов."
 scene_path = "uid://c5swv4a3luh8f"
 image_path = "uid://blxo5eej36ufg"
 spawnable_scenes_paths = Array[String](["uid://3cta5u3qtmvj"])

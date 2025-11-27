@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_1hwfc")
 name = "Закладка бомбы"
-brief_description = "Заложи бомбу или уничтожь противников!"
+brief_description = "Заложи бомбу или уничтожь противника!"
 min_players = 4
 players_divider = 2
 team_event = true

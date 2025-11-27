@@ -195,7 +195,11 @@ func export_save(path: String) -> Error:
 		])
 		return FileAccess.get_open_error()
 	
-	var success: bool = fa.store_string(save_file.encode_to_text())
+	var exported_save_file := ConfigFile.new()
+	for key: String in save_file.get_section_keys(DEFAULT_SAVE_FILE_SECTION):
+		exported_save_file.set_value(DEFAULT_SAVE_FILE_SECTION, key,
+				save_file.get_value(DEFAULT_SAVE_FILE_SECTION, key))
+	var success: bool = fa.store_string(exported_save_file.encode_to_text())
 	if not success:
 		push_error("Export save: failed writing data to file %s with error: %s." % [
 			path,
@@ -230,7 +234,11 @@ func import_save(path: String) -> Error:
 		])
 		return err
 	
-	save_file = new_save_file
+	save_file.erase_section(DEFAULT_SAVE_FILE_SECTION)
+	for key: String in new_save_file.get_section_keys(DEFAULT_SAVE_FILE_SECTION):
+		save_file.set_value(DEFAULT_SAVE_FILE_SECTION, key,
+				new_save_file.get_value(DEFAULT_SAVE_FILE_SECTION, key))
+	
 	set_string("save_id", _generate_save_id())
 	set_variant("patches", {} as Dictionary[String, int])
 	print_verbose("Save imported from file %s. Restarting...")

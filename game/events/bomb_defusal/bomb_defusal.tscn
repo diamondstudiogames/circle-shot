@@ -473,7 +473,7 @@ text = "Заложи бомбу или уничтожь команду прот�
 
 [node name="Text" parent="UI/Intro" index="2"]
 text = "Побеждает команда,
-выигравшая 3 раунда!"
+выигравшая 4 раунда!"
 
 [node name="ResourcePreloaderBombDefusal" type="ResourcePreloader" parent="." index="15"]
 resources = [PackedStringArray("bomb", "bomb_placed", "pickable_equip_item_bomb"), [ExtResource("5_iwtu0"), ExtResource("7_0kvrl"), ExtResource("7_iwtu0")]]

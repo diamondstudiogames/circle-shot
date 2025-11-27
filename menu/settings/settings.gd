@@ -104,8 +104,9 @@ func _ready() -> void:
 	
 	# Размер загруженных патчей
 	var total_size: int = 0
-	for file: String in DirAccess.get_files_at(Globals.PATCHES_PATH):
-		total_size += FileAccess.get_size(Globals.PATCHES_PATH.path_join(file))
+	if DirAccess.dir_exists_absolute(Globals.PATCHES_PATH):
+		for file: String in DirAccess.get_files_at(Globals.PATCHES_PATH):
+			total_size += FileAccess.get_size(Globals.PATCHES_PATH.path_join(file))
 	(%ClearPatches as Button).text += " (%s)" % String.humanize_size(total_size)
 	
 	# UPnP
@@ -315,6 +316,7 @@ func _on_reset_controls_dialog_confirmed() -> void:
 	name = &"OldSettings"
 	queue_free()
 	Globals.main.open_screen(load("uid://c2leb2h0qjtmo") as PackedScene)
+	print_verbose("Controls settings resetted.")
 
 
 func _on_reset_settings_dialog_confirmed() -> void:
@@ -329,11 +331,13 @@ func _on_reset_settings_dialog_confirmed() -> void:
 	name = &"OldSettings"
 	queue_free()
 	Globals.main.open_screen(load("uid://c2leb2h0qjtmo") as PackedScene)
+	print_verbose("Settings resetted.")
 
 
 func _on_reset_data_dialog_confirmed() -> void:
 	remove_recursive("user://")
 	Globals.quit(true)
+	print_verbose("Data resetted. Restarting...")
 
 
 func _on_export_pressed() -> void:
@@ -424,6 +428,7 @@ func _on_import_file_dialog_file_selected(path: String) -> void:
 из следующего файла?"
 	import_confirm_dialog.dialog_text += "\n%s\n" % _save_import_path
 	import_confirm_dialog.dialog_text += "ВНИМАНИЕ: текущее сохранение будет утрачено безвозвратно!"
+	import_confirm_dialog.dialog_text += "\nНастройки (в том числе управление) будут сохранены."
 	import_confirm_dialog.dialog_text += "\nПосле импортирования игра будет перезапущена."
 	# сбрасываем до минимального размера
 	import_confirm_dialog.popup_centered.call_deferred(Vector2i.ONE) 
