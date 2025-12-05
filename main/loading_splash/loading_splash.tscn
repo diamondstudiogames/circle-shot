@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn2ifbe6eq1wt"]
 
 [ext_resource type="Script" uid="uid://bgte0cqnmfho2" path="res://main/loading_splash/loading_splash.gd" id="1_ebvvx"]
-[ext_resource type="Texture2D" uid="uid://cnhijunf2a6so" path="res://main/loading_splash/splash1.png" id="2_8uql8"]
-[ext_resource type="Texture2D" uid="uid://tgykndvggm2o" path="res://main/loading_splash/splash2.png" id="3_am1cv"]
-[ext_resource type="Texture2D" uid="uid://bwwcbivjhyqxu" path="res://main/loading_splash/splash3.png" id="4_30b08"]
+[ext_resource type="Texture2D" uid="uid://cnhijunf2a6so" path="res://main/loading_splash/loading_splash1.png" id="2_8uql8"]
+[ext_resource type="Texture2D" uid="uid://tgykndvggm2o" path="res://main/loading_splash/loading_splash2.png" id="3_am1cv"]
+[ext_resource type="Texture2D" uid="uid://bwwcbivjhyqxu" path="res://main/loading_splash/loading_splash3.png" id="4_30b08"]
 
 [node name="LoadingSplash" type="TextureRect"]
 anchors_preset = 15

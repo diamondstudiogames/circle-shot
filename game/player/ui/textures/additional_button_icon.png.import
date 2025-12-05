@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwwcbivjhyqxu"
-path="res://.godot/imported/splash3.png-d8b3e1f1b857097f906c096a909f166f.ctex"
+uid="uid://74osnfe42bpm"
+path="res://.godot/imported/additional_button_icon.png-53262987543d940e12316cc8152a8e95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/loading_splash/splash3.png"
-dest_files=["res://.godot/imported/splash3.png-d8b3e1f1b857097f906c096a909f166f.ctex"]
+source_file="res://game/player/ui/textures/additional_button_icon.png"
+dest_files=["res://.godot/imported/additional_button_icon.png-53262987543d940e12316cc8152a8e95.ctex"]
 
 [params]
 

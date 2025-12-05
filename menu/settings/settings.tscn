@@ -199,7 +199,6 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="General" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -312,6 +311,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Перезапустить игру"
 icon = ExtResource("10_260xk")
+
+[node name="ChangeName" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Сменить имя"
+icon = ExtResource("9_0iguj")
 
 [node name="ManageSave" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions"]
 layout_mode = 2
@@ -1000,6 +1005,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -1407,9 +1413,20 @@ ok_button_text = "Сбросить"
 dialog_text = "Ты действительно хочешь вернуть настройки управления к значениям по умолчанию?"
 cancel_button_text = "Отмена"
 
+[node name="NameDialog" parent="." instance=ExtResource("14_eq4mb")]
+title = "Смена имени"
+visible = false
+
+[node name="LineEdit" parent="NameDialog/MarginContainer/VBoxContainer" index="1"]
+placeholder_text = "Новое имя..."
+
+[node name="Confirm" parent="NameDialog/MarginContainer/VBoxContainer" index="2"]
+text = "Сменить"
+
 [node name="ManageSaveDialog" type="Window" parent="."]
 oversampling_override = 1.0
 title = "Управление сохранением"
+position = Vector2i(0, 28)
 size = Vector2i(640, 240)
 visible = false
 wrap_controls = true
@@ -1471,16 +1488,6 @@ dialog_text = "Удалить все данные игры?
 В случае утвердительного ответа игра будет перезапущена."
 cancel_button_text = "Отмена"
 
-[node name="NameDialog" parent="ManageSaveDialog/Dialogs" instance=ExtResource("14_eq4mb")]
-title = "Смена имени"
-visible = false
-
-[node name="LineEdit" parent="ManageSaveDialog/Dialogs/NameDialog/MarginContainer/VBoxContainer" index="1"]
-placeholder_text = "Новое имя..."
-
-[node name="Confirm" parent="ManageSaveDialog/Dialogs/NameDialog/MarginContainer/VBoxContainer" index="2"]
-text = "Сменить"
-
 [node name="AndroidInfoDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs"]
 oversampling_override = 1.0
 title = "Информация"
@@ -1526,30 +1533,24 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="CopySaveId" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
+[node name="Export" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
 layout_mode = 2
-text = "Копировать ID сохранения"
-icon = ExtResource("19_2lh4n")
+text = "Экспортировать"
+icon = ExtResource("12_vwloa")
 
-[node name="ChangeName" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
+[node name="Import" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Сменить имя"
-icon = ExtResource("9_0iguj")
+text = "Импортировать"
+icon = ExtResource("13_nyjt0")
 
 [node name="Actions2" type="HBoxContainer" parent="ManageSaveDialog/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Export" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
+[node name="CopySaveId" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
 layout_mode = 2
-text = "Экспортировать"
-icon = ExtResource("12_vwloa")
-
-[node name="Import" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
-layout_mode = 2
-text = "Импортировать"
-icon = ExtResource("13_nyjt0")
+text = "Копировать ID сохранения"
+icon = ExtResource("19_2lh4n")
 
 [node name="DeleteData" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
 layout_mode = 2
@@ -1565,7 +1566,7 @@ icon = ExtResource("12_g4yas")
 
 [node name="AutofocusWindow" type="Node" parent="ManageSaveDialog"]
 script = ExtResource("23_f6ahd")
-focus_target = NodePath("../VBoxContainer/Actions/CopySaveId")
+focus_target = NodePath("../VBoxContainer/Actions2/CopySaveId")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="ActionsConfiguration" parent="." instance_placeholder="res://menu/settings/actions_configuration.tscn"]
@@ -1590,6 +1591,7 @@ autostart = true
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches/ClearPatches" to="." method="_on_clear_patches_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches/Help" to="." method="show_help" binds= [0]]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions/RestartGame" to="." method="_on_restart_game_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions/ChangeName" to="." method="_on_change_name_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions/ManageSave" to="ManageSaveDialog" method="popup_centered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2/ResetControlSettings" to="ResetControlsDialog" method="popup_centered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2/ResetSettings" to="ResetSettingsDialog" method="popup_centered"]
@@ -1647,19 +1649,18 @@ autostart = true
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/ConfigureActions" to="." method="_on_configure_actions_pressed"]
 [connection signal="confirmed" from="ResetSettingsDialog" to="." method="_on_reset_settings_dialog_confirmed"]
 [connection signal="confirmed" from="ResetControlsDialog" to="." method="_on_reset_controls_dialog_confirmed"]
+[connection signal="close_requested" from="NameDialog" to="NameDialog" method="hide"]
+[connection signal="name_accepted" from="NameDialog" to="." method="_on_name_dialog_name_accepted"]
 [connection signal="close_requested" from="ManageSaveDialog" to="ManageSaveDialog" method="hide"]
 [connection signal="file_selected" from="ManageSaveDialog/Dialogs/ExportFileDialog" to="." method="_on_export_file_dialog_file_selected"]
 [connection signal="file_selected" from="ManageSaveDialog/Dialogs/ImportFileDialog" to="." method="_on_import_file_dialog_file_selected"]
 [connection signal="confirmed" from="ManageSaveDialog/Dialogs/ImportConfirmDialog" to="." method="_on_import_confirm_dialog_confirmed"]
 [connection signal="confirmed" from="ManageSaveDialog/Dialogs/EraseDataDialog" to="." method="_on_reset_data_dialog_confirmed"]
-[connection signal="close_requested" from="ManageSaveDialog/Dialogs/NameDialog" to="ManageSaveDialog/Dialogs/NameDialog" method="hide"]
-[connection signal="name_accepted" from="ManageSaveDialog/Dialogs/NameDialog" to="." method="_on_name_dialog_name_accepted"]
 [connection signal="confirmed" from="ManageSaveDialog/Dialogs/AndroidInfoDialog" to="." method="_on_android_info_dialog_confirmed"]
-[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/CopySaveId" to="." method="_on_copy_save_id_pressed"]
-[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/ChangeName" to="." method="_on_change_name_pressed"]
-[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Export" to="." method="_on_export_pressed"]
-[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/Export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/Import" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/CopySaveId" to="." method="_on_copy_save_id_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/DeleteData" to="ManageSaveDialog/Dialogs/EraseDataDialog" method="popup_centered"]
 [connection signal="timeout" from="UpdateInputMethodsTimer" to="." method="_update_input_methods"]
 
-[editable path="ManageSaveDialog/Dialogs/NameDialog"]
+[editable path="NameDialog"]

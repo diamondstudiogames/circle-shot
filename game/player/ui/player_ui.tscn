@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0wc72b0o2o11"]
+[gd_scene load_steps=29 format=3 uid="uid://0wc72b0o2o11"]
 
 [ext_resource type="Script" uid="uid://dnfj2pxuibak6" path="res://game/player/ui/player_ui.gd" id="1_2pprn"]
 [ext_resource type="Shader" uid="uid://coxueocca4drx" path="res://game/player/ui/blood_vignette/blood_vignette.gdshader" id="2_bioi4"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cqlo1boor0w4t" path="res://game/player/ui/textures/skill_button.png" id="14_nojcu"]
 [ext_resource type="Texture2D" uid="uid://ddf5gqkbjq4a7" path="res://game/player/ui/textures/interact_button.png" id="15_l5du6"]
 [ext_resource type="Texture2D" uid="uid://cldx4o161bsqt" path="res://game/player/ui/textures/additional_weapon_bg.png" id="16_2wypa"]
+[ext_resource type="Texture2D" uid="uid://74osnfe42bpm" path="res://game/player/ui/textures/additional_button_icon.png" id="17_akmgk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l5du6"]
 shader = ExtResource("2_bioi4")
@@ -310,6 +311,20 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("7_6c3s8")
+
+[node name="AdditionalButtonIcon" type="TextureRect" parent="Controller/CurrentWeapon"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 36.0
+grow_horizontal = 0
+texture = ExtResource("17_akmgk")
+expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="Controller/CurrentWeapon"]
 material = ExtResource("7_2wypa")

@@ -38,7 +38,8 @@ metadata/_snap_count = 40
 
 [node name="BombPlanted" type="Node2D"]
 script = ExtResource("1_33kbv")
-min_countdown_interval = 0.05
+explosion_time = 40
+min_countdown_interval = 0.04
 shake_max_amplitude = 64.0
 shake_max_distance = 16000.0
 

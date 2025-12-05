@@ -299,9 +299,8 @@ func _on_copy_save_id_pressed() -> void:
 
 
 func _on_change_name_pressed() -> void:
-	($ManageSaveDialog/Dialogs/NameDialog as Window).title = \
-			"Смена имени (текущее: %s)" % Globals.get_string("player_name")
-	($ManageSaveDialog/Dialogs/NameDialog as Window).popup_centered()
+	($NameDialog as Window).title = "Смена имени (текущее: %s)" % Globals.get_string("player_name")
+	($NameDialog as Window).popup_centered()
 
 
 func _on_name_dialog_name_accepted() -> void:

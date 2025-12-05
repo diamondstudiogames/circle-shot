@@ -611,7 +611,7 @@ func _attack_spawn_bandits() -> void:
 
 
 func _spawn_bandits() -> void:
-	if not multiplayer.is_server():
+	if not multiplayer.is_server() or not is_instance_valid(target):
 		return
 	
 	for i: int in attack_bandits_count:
@@ -620,7 +620,7 @@ func _spawn_bandits() -> void:
 		bandit.position = NavigationServer2D.map_get_closest_point(
 				get_world_2d().navigation_map,
 				Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
-				* randf_range(0.0, attack_bandits_spawn_area_radius) + global_position
+				* randf_range(0.0, attack_bandits_spawn_area_radius) + target.global_position
 		)
 		bandit.team = team
 		bandit.id = -randi()

@@ -462,7 +462,7 @@ tile_map_data = PackedByteArray("AADm/wUAAAABAAEAAADm/wYAAAABAAEAAADm/wcAAAABAAE
 tile_set = ExtResource("2_jfxit")
 
 [node name="Crabs" type="Node2D" parent="." index="7"]
-z_index = -4
+z_index = -5
 
 [node name="Crab" parent="Crabs" index="0" instance=ExtResource("3_qhdro")]
 position = Vector2(-945, -329)

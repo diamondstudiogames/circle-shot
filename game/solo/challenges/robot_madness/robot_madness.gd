@@ -16,6 +16,9 @@ extends Challenge
 @export var points_for_heal_box: int = 50
 ## Раз в сколько очков появляется коробка с боеприпасами.
 @export var points_for_ammo_box: int = 120
+## Минимальное расстояние до игрока, на котором должен находиться появившийся робот. Если не
+## соблюдено, выбирается другая точка.
+@export var safe_player_distance := 960.0
 
 @export_group("Rewards")
 ## Сколько нужно выжить в секундах, чтобы получить монету.
@@ -77,7 +80,18 @@ func _get_rewards() -> Dictionary[String, int]:
 
 func _spawn_robot() -> void:
 	var robot: Entity = entity_scenes[1 + _robot_counter].instantiate()
-	robot.position = _spawn_points[_spawn_points_counter].global_position
+	var spawn_pos: Vector2 = _spawn_points[_spawn_points_counter].global_position
+	
+	# защита от спавна за спиной
+	if is_instance_valid(local_player):
+		while spawn_pos.distance_to(local_player.global_position) < safe_player_distance:
+			_spawn_points_counter += 1
+			if _spawn_points_counter == _spawn_points.size():
+				_spawn_points_counter = 0
+				_spawn_points.shuffle()
+			spawn_pos = _spawn_points[_spawn_points_counter].global_position
+	
+	robot.position = spawn_pos
 	robot.team = 1
 	robot.id = -randi()
 	robot.name += str(robot.id)

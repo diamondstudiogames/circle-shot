@@ -187,21 +187,27 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[font_size=20][center]Авторы[/center][/font_size]
-Summersay415 - идея, программирование, карты и скины
+text = "[center][font_size=24]Авторы[/font_size][/center]
+[font_size=20]Программисты[/font_size]
+Summersay415
+[font_size=20]Художники[/font_size]
 ZerkaloWorld - скины, карты, оружия и навыки
 DanKras - скины и загрузочные экраны
-Kesha1026 - музыка
-wiziritka - скины и карты
-Коррупция2023 - карты
 Ronill - фоны
-BaCat86, Kaurt, MilDeV, ZeroHero135, smilecov_07, NETRASH - скины
-Тестировщики (и благодарность):
+wizirika, BaCat86, Kaurt, MilDeV, ZeroHero135, smilecov_07, NETRASH - скины
+[font_size=20]Композиторы[/font_size]
+Kesha1026
+[font_size=20]Создатели карт[/font_size]
+Summersay415
+Коррупция2023
+wiziritka
+[font_size=20]Тестировщики (и благодарность):[/font_size]
 LohDebil228, ATINY, YanniKss
 [url=https://t.me/dsgames31][center]Telegram-канал Diamond Studio GAMES[/center][/url]
-[font_size=20][center]Движок[/center][/font_size]
-Игра сделана на движке Godot Engine, имеющем лицензию MIT. С текстом лицензии можно ознакомиться [url=https://godotengine.org/license]здесь[/url].
-[font_size=20][center]Другое[/center][/font_size]
+[center][font_size=24]Движок[/font_size][/center]
+Игра сделана на движке Godot Engine, имеющем лицензию MIT.
+С текстом лицензии можно ознакомиться [url=https://godotengine.org/license]здесь[/url].
+[center][font_size=24]Другое[/font_size][/center]
 Скины эмоджи взяты с [url]https://openmoji.org/[/url].
 Музыка карты Гроза - [url=https://www.newgrounds.com/audio/listen/638150]Waterflame - Thunderzone v2[/url].
 Музыка битвы из квеста - [url=https://youtu.be/NS8DPG62Fto]KSLV - Override[/url].

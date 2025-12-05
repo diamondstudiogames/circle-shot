@@ -553,8 +553,12 @@ func _on_player_weapon_changed(_to: Weapon.Type) -> void:
 	_current_weapon_icon.set_instance_shader_parameter(&"color",
 			ItemsDB.RARITY_COLORS[_player.current_weapon.data.rarity])
 	
+	var has_additional_button: bool = _player.current_weapon.has_additional_button()
 	($Controller/TouchControls/AdditionalButtonAnchor/AdditionalButton as CanvasItem).visible = \
-			_player.current_weapon.has_additional_button()
+			has_additional_button
+	# Не показываем при управлении касаниями, потому что кнопка и так видна
+	($Controller/CurrentWeapon/AdditionalButtonIcon as CanvasItem).visible = \
+			has_additional_button and input_method != Globals.InputMethod.TOUCH
 
 
 func _on_player_weapon_equipped(type: Weapon.Type, data: WeaponData) -> void:

@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgykndvggm2o"
-path="res://.godot/imported/splash2.png-0e84c32c864760a5476d805b680ace3e.ctex"
+uid="uid://bwwcbivjhyqxu"
+path="res://.godot/imported/loading_splash3.png-f1f64adbac04c4686f866d8f2bd56650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/loading_splash/splash2.png"
-dest_files=["res://.godot/imported/splash2.png-0e84c32c864760a5476d805b680ace3e.ctex"]
+source_file="res://main/loading_splash/loading_splash3.png"
+dest_files=["res://.godot/imported/loading_splash3.png-f1f64adbac04c4686f866d8f2bd56650.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmwb81du1kbtm"]
+[gd_scene load_steps=20 format=3 uid="uid://cmwb81du1kbtm"]
 
 [ext_resource type="Script" uid="uid://ce7fr2qft005n" path="res://game/menus/lobby/lobby.gd" id="1_jtfrr"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="2_6xr3g"]
@@ -12,11 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="7_8ughs"]
 [ext_resource type="Texture2D" uid="uid://c3r13t5eig25e" path="res://game/menus/lobby/icons/view_ips.png" id="7_f0cv5"]
 [ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="9_mgd0l"]
-[ext_resource type="Script" uid="uid://dxhx1wvxyn771" path="res://game/menus/lobby/advices.gd" id="12_es10a"]
 [ext_resource type="PackedScene" uid="uid://dg3dj2mxhusof" path="res://game/shared/ui/chat/chat.tscn" id="12_yfygw"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="13_jqaxo"]
-[ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="13_yfygw"]
-[ext_resource type="Texture2D" uid="uid://ix82y4qydhql" path="res://menu/theme/icons/right.png" id="14_mgd0l"]
+[ext_resource type="PackedScene" uid="uid://d3ncbc7jsib0p" path="res://game/shared/ui/advices/advices.tscn" id="13_vtxnl"]
 [ext_resource type="PackedScene" uid="uid://dj0mx5ui2wu4n" path="res://game/menus/lobby/player_entry.tscn" id="18_yfygw"]
 
 [sub_resource type="Animation" id="Animation_5k1w6"]
@@ -121,7 +119,6 @@ alignment = 1
 
 [node name="Event" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment"]
 unique_name_in_owner = true
-self_modulate = Color(0.752941, 0.752941, 0.752941, 1)
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -151,7 +148,6 @@ vertical_alignment = 2
 
 [node name="Map" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment"]
 unique_name_in_owner = true
-self_modulate = Color(0.752941, 0.752941, 0.752941, 1)
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -270,50 +266,8 @@ custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 chat_button_path = NodePath("../Lobby/VBoxContainer/ControlButtons/Chat")
 
-[node name="Advices" type="PanelContainer" parent="Main"]
-custom_minimum_size = Vector2(640, 128)
+[node name="Advices" parent="Main" instance=ExtResource("13_vtxnl")]
 layout_mode = 2
-size_flags_horizontal = 4
-script = ExtResource("12_es10a")
-advices = Array[String](["Снежки являются отличным дополнением к оружию ближнего боя.", "Определить место, куда прицеливается снайпер, можно по красной точке.", "Дымовая граната способна тушить огонь.", "Через дымовую завесу нельзя прицеливаться со снайперской винтовки.", "Не знаешь, кто находится за дымовой завесой? Брось туда осколочную гранату, и, возможно, тебе не придётся узнавать.", "Светошумовая граната гораздо слабее ослепляет товарищей.", "Коктейль Молотова очень эффективен в закрытых местностях.", "Ты не можешь нанести урон товарищам, даже если очень хочется.", "Телепортатор позволяет перемещаться за стенки, что может сильно помочь в закрытых местностях.", "Целебное зелье полезнее всего там, где ты не возрождаешься после смерти.", "Алмазная пуля работает с любым оружием.", "Бомба невидимости доставит противнику неприятности в битвах 1 на 1.", "Перекат защищает от любых опасностей, кроме продолжительного урона от эффектов.", "В зависимости от текущего оружия скорость игрока может меняться. Например, ходить с ножом быстрее, чем с пистолетом.", "Чем дольше стреляешь из огнестрельного оружия, тем больше разброс пуль и отдача, так что делай перерывы между стрельбой.", "Разброс снарядов может повышаться во время ходьбы.", "Если во время схватки у тебя закончились патроны в магазине, то быстрее будет переключиться на другое оружие, чем ждать перезарядку.", "Держись за укрытиями, если твоё оружие сейчас перезаряжается.", "Ты можешь прервать перезарядку бросаемого оружия или дробовика, нажав кнопку стрельбы.", "Все гранаты отскакивают от стен, кроме коктейля Молотова.", "Энергетик может помочь повернуть ход игры в сторону твоей команды.", "Если ты подключил мышку и клавиатуру к телефону, то можно использовать их, поменяв тип управления в настройках на \"Клавиатура + Мышь\".", "На ПК можно быстро переключать полноэкранный режим определённой клавишей (по умолчанию F11).", "Не нравится играть тремя пальцами? Ты можешь поменять способ стрельбы в настройках управления.", "Используй Circle Shot Launcher для удобного управления разными версиями игры.", "Следить за новостями о разработке можно в Telegram-канале, найти ссылку можно в Меню > Об игре.", "Некоторые карты имеют уникальный саундтрек.", "Ты можешь поменять расположение кнопок управления в настройках, если вариант по умолчанию тебя не устраивает.", "Ты можешь назначить действиям другие клавиши для своего удобства.", "Если в Командном бою твоя команда лидирует по счёту и осталось мало времени, то лучшим вариантом будет отступление.", "В Захвате флага многое значит распределение ролей среди участников команды.", "Двигайся зигзагом, так в тебя будет сложнее попасть.", "Не нравятся эти советы? Ты можешь скрыть их в настройках.", "В игре есть скрытые предметы, которые можно получить из ящиков.", "Получил новое оружие, навык или скин и хочешь его опробовать? Загляни в Тренировку, там можно заняться этим и много чем ещё."])
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/Advices"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Main/Advices/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"HeaderSmall"
-text = "СОВЕТ"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Advices/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Previous" type="Button" parent="Main/Advices/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-icon = ExtResource("13_yfygw")
-
-[node name="Advice" type="Label" parent="Main/Advices/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 1)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/line_spacing = -2
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Next" type="Button" parent="Main/Advices/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-icon = ExtResource("14_mgd0l")
-
-[node name="SwitchTimer" type="Timer" parent="Main/Advices"]
-wait_time = 10.0
-one_shot = true
 
 [node name="PresetManager" parent="." instance=ExtResource("13_jqaxo")]
 visible = false
@@ -351,9 +305,6 @@ resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ConnectedToIP" to="." method="_on_connected_to_ip_pressed"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ViewIP" to="ViewIPDialog" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="Main/Advices/VBoxContainer/HBoxContainer/Previous" to="Main/Advices" method="_on_previous_pressed"]
-[connection signal="pressed" from="Main/Advices/VBoxContainer/HBoxContainer/Next" to="Main/Advices" method="_on_next_pressed"]
-[connection signal="timeout" from="Main/Advices/SwitchTimer" to="Main/Advices" method="_on_switch_timer_timeout"]
 [connection signal="about_to_popup" from="ViewIPDialog" to="ViewIPDialog" method="_on_about_to_popup"]
 [connection signal="custom_action" from="ViewIPDialog" to="ViewIPDialog" method="_on_custom_action"]
 [connection signal="request_completed" from="ViewIPDialog/HTTPRequest" to="ViewIPDialog" method="_on_request_completed"]

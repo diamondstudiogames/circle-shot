@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ck5uq0aa1ov56"]
 
 [node name="ItemBig" type="TextureRect"]
-self_modulate = Color(0.753906, 0.753906, 0.753906, 1)
 custom_minimum_size = Vector2(392, 80)
 expand_mode = 1
 

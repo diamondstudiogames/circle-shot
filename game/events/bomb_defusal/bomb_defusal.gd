@@ -37,6 +37,7 @@ var _spawn_counter_blue: int = 0
 var _time_remained: int
 var _local_won: bool
 var _current_round: int = 0
+var _round_ended := false
 
 var _bomb_carrier: int
 var _bomb_planted: bool
@@ -47,6 +48,7 @@ var _bomb_planted_scene: PackedScene = load("uid://cb533eb27cteb")
 
 @onready var _spawn_points_red: Array[Node] = $Map/SpawnPoints0.get_children()
 @onready var _spawn_points_blue: Array[Node] = $Map/SpawnPoints1.get_children()
+@onready var _round_timer: Timer = $RoundTimer
 @onready var _bomb_defusal_ui: BombDefusalUI = $UI
 
 
@@ -72,7 +74,7 @@ func _finish_setup() -> void:
 
 func _finish_start() -> void:
 	if multiplayer.is_server():
-		($RoundTimer as Timer).start()
+		_round_timer.start()
 		_start_round.rpc()
 
 
@@ -106,7 +108,7 @@ func _player_killed(_by: int, player: Player) -> void:
 
 func _player_disconnected(id: int) -> void:
 	_remove_player(id)
-	if was_started:
+	if was_started and not _round_ended:
 		_check_alive_players()
 
 
@@ -128,6 +130,8 @@ func _get_rewards() -> Dictionary[String, int]:
 
 
 func _get_event_status() -> String:
+	if _round_ended:
+		return "конец раунда %d" % _current_round
 	return "раунд %d, осталось времени: %d:%02d" % [
 		_current_round,
 		floori(_time_remained / 60.0),
@@ -150,7 +154,7 @@ func bomb_plant(where: Vector2, by: int) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
-	($RoundTimer as Timer).stop()
+	_round_timer.stop()
 	_bomb_planted = true
 	_bomb_carrier = -1
 	_bomb_plant.rpc(by)
@@ -275,16 +279,17 @@ func _init_round(first := false) -> void:
 	if _check_remained_players():
 		return
 	if not first:
-		was_started = true
+		_round_ended = false
 		_pick_bomb_carrier()
-		($RoundTimer as Timer).start()
+		_round_timer.start()
 		for id: int in players_names:
 			spawn_player(id)
 		_start_round.rpc()
 
 
 func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -> void:
-	was_started = false
+	_round_ended = true
+	_round_timer.stop()
 	freeze_players.rpc()
 	_end_round.rpc(defused_by)
 	if defused_by > 0:
@@ -369,5 +374,4 @@ func _on_round_timer_timeout() -> void:
 	_time_remained -= 1
 	_update_time.rpc(_time_remained, false)
 	if _time_remained <= 0:
-		($RoundTimer as Timer).stop()
 		_finalize_round(true)

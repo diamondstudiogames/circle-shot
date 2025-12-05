@@ -380,6 +380,7 @@ position = Vector2(1919, 480)
 shape = SubResource("RectangleShape2D_lb8a5")
 
 [node name="Crabs" type="Node2D" parent="." index="8"]
+z_index = -5
 
 [node name="Crab" parent="Crabs" index="0" instance=ExtResource("3_mdcpe")]
 position = Vector2(-1936, 671)
