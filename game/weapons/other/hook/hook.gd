@@ -42,6 +42,7 @@ var _attract_enemy_texture: Texture2D = load("uid://drf8asi0s3yc1")
 @onready var _reload_timer: Timer = $ReloadTimer
 @onready var _throw_timer: Timer = $ThrowTimer
 @onready var _attract_timer: Timer = $AttractTimer
+@onready var _sync_position_timer: Timer = $SyncPositionTimer
 
 
 func _physics_process(delta: float) -> void:
@@ -169,6 +170,8 @@ func _shoot(direction := Vector2.RIGHT) -> void:
 	_throw_direction = direction
 	_state = State.THROW
 	_throw_timer.start()
+	if multiplayer.is_server():
+		_sync_position_timer.start()
 
 
 func _make_current() -> void:
@@ -238,6 +241,13 @@ func get_ammo_text() -> String:
 	return "Осталось: %d" % ammo_in_stock
 
 
+@rpc("call_remote", "authority", "unreliable_ordered", 5)
+func _sync_hook_position(pos: Vector2) -> void:
+	if not _state in [State.THROW, State.ATTRACT]:
+		return
+	_hook.position = pos
+
+
 func _reset_throwing(skip_animation := false) -> void:
 	_throw_timer.stop()
 	await _reset_common(skip_animation)
@@ -266,6 +276,8 @@ func _reset_attraction(skip_animation := false) -> void:
 
 
 func _reset_common(skip_animation: bool) -> void:
+	if multiplayer.is_server():
+		_sync_position_timer.stop()
 	_ray_cast.enabled = false
 	_ray_cast.clear_exceptions()
 	_hook.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
@@ -290,7 +302,8 @@ func _reset_common(skip_animation: bool) -> void:
 
 func _lerp_to_reset(weight: float, from: Vector2, from_rotation: float) -> void:
 	_hook.global_position = from.lerp(_reset_point.global_position, weight)
-	_hook.rotation = lerpf(from_rotation, -PI / 2 + signf(player.visual.scale.x) * PI / 2, weight)
+	_hook.rotation = lerp_angle(
+			from_rotation, -PI / 2 + signf(player.visual.scale.x) * PI / 2, weight)
 
 
 func _on_reload_timer_timeout() -> void:
@@ -308,3 +321,7 @@ func _on_attract_timer_timeout() -> void:
 
 func _on_throw_timer_timeout() -> void:
 	_reset_throwing()
+
+
+func _on_sync_position_timer_timeout() -> void:
+	_sync_hook_position.rpc(_hook.position)

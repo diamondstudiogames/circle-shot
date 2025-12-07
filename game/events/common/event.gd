@@ -115,7 +115,7 @@ func spawn_player(id: int) -> void:
 		player.skill_vars = _players_skill_vars[id].duplicate()
 	player.name = "Player%d" % id
 	_customize_player(player)
-	$Entities.add_child(player)
+	$Entities.add_child(player, true)
 	player.killed.connect(_on_player_killed.bind(player))
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 	if not was_started:

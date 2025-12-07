@@ -72,7 +72,7 @@ func _spawn_player() -> void:
 	]
 	player.equip_data.append(-1)
 	player.name = "Player%d" % player.id
-	$Entities.add_child(player)
+	$Entities.add_child(player, true)
 
 
 func _spawn_cultist(idx: int) -> void:

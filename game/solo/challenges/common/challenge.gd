@@ -58,7 +58,7 @@ func spawn_player() -> void:
 		player.skill_vars = _player_skill_vars.duplicate()
 	player.name = "Player%d" % player.id
 	_customize_player(player)
-	$Entities.add_child(player)
+	$Entities.add_child(player, true)
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 	if not was_started:
 		player.block_weapon_usage()

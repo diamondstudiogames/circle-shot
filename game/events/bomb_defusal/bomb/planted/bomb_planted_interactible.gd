@@ -6,4 +6,4 @@ func _should_ignore_player(player: Player) -> bool:
 
 
 func _can_player_interact(player: Player) -> bool:
-	return not player.player_input.shooting and not player.is_disarmed()
+	return not player.player_input.shooting and player.can_use_weapon()

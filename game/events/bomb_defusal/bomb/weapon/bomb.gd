@@ -3,6 +3,7 @@ extends Weapon
 
 const CANT_PLANT_TINT := Color(0.702, 0.524, 0.524, 1.0)
 
+var _planting := false
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _ray_cast: RayCast2D = $RayCast2D
 @onready var _bomb_defusal: BombDefusal = get_tree().get_first_node_in_group(&"world")
@@ -60,6 +61,20 @@ func get_ammo_text() -> String:
 
 
 @rpc("reliable", "authority", "call_local", 5)
+func _start_planting() -> void:
+	player.make_immobile()
+	_anim.play(&"plant")
+	_planting = true
+
+
+@rpc("reliable", "authority", "call_local", 5)
+func _stop_planting() -> void:
+	_planting = false
+	_anim.play(&"RESET")
+	player.unmake_immobile()
+
+
+@rpc("reliable", "authority", "call_local", 5)
 func _remove_weapon() -> void:
 	player.set_weapon(Weapon.Type.ADDITIONAL, null)
 
@@ -70,21 +85,22 @@ func _can_plant() -> bool:
 
 
 func _on_player_shooting_started() -> void:
+	if not multiplayer.is_server():
+		return
 	if not _can_plant():
 		return
-	player.make_immobile()
-	_anim.play(&"plant")
+	
+	_start_planting.rpc()
 	var anim_name: StringName = await _anim.animation_finished
+	_stop_planting.rpc()
 	if anim_name != &"plant":
-		player.unmake_immobile()
 		return
 	
-	if multiplayer.is_server():
-		_bomb_defusal.bomb_plant(global_position + Vector2.DOWN * 32
-				+ Vector2.LEFT * 32 * player.visual.scale.x, player.id)
-		_remove_weapon.rpc()
-	player.unmake_immobile()
+	_bomb_defusal.bomb_plant(global_position + Vector2.DOWN * 32
+			+ Vector2.LEFT * 32 * player.visual.scale.x, player.id)
+	_remove_weapon.rpc()
 
 
 func _on_player_shooting_ended() -> void:
-	_anim.play(&"RESET")
+	if multiplayer.is_server() and _planting:
+		_stop_planting.rpc()

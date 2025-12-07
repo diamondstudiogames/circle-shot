@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdyfsrdgx0haa"]
+[gd_scene load_steps=7 format=3 uid="uid://bdyfsrdgx0haa"]
 
 [ext_resource type="Script" uid="uid://d0lom0taev17g" path="res://game/weapons/other/hook/hook.gd" id="1_3uidi"]
 [ext_resource type="PackedScene" uid="uid://b5yuhtxk1cqyw" path="res://game/weapons/other/hook/visual/hook_visual.tscn" id="3_edkhm"]
@@ -6,11 +6,6 @@
 [ext_resource type="AnimationLibrary" uid="uid://supye51qrqh3" path="res://game/weapons/other/hook/visual/hook_animations.tres" id="4_edkhm"]
 [ext_resource type="Texture2D" uid="uid://drf8asi0s3yc1" path="res://game/weapons/other/hook/visual/hook_attract_enemy.png" id="5_xj4w6"]
 [ext_resource type="Texture2D" uid="uid://dqqohrw8x4ie4" path="res://game/weapons/other/hook/visual/hook_attract_user.png" id="6_uqyeu"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xj4w6"]
-properties/0/path = NodePath("Visual/Hook:position")
-properties/0/spawn = false
-properties/0/replication_mode = 1
 
 [node name="Hook" type="Node2D"]
 script = ExtResource("1_3uidi")
@@ -63,13 +58,14 @@ process_callback = 0
 wait_time = 0.8
 one_shot = true
 
+[node name="SyncPositionTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtResource("5_xj4w6"), ExtResource("6_uqyeu")]]
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_interval = 0.1
-replication_config = SubResource("SceneReplicationConfig_xj4w6")
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="AttractTimer" to="." method="_on_attract_timer_timeout"]
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
+[connection signal="timeout" from="SyncPositionTimer" to="." method="_on_sync_position_timer_timeout"]
