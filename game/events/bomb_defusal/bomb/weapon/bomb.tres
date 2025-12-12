@@ -8,8 +8,8 @@ name = "Бомба"
 rarity = 5
 id = "bomb"
 stats = Dictionary[String, String]({
-"defusing_time": "5",
-"explosion_time": "40",
+"defusing_time": "4",
+"explosion_time": "35",
 "planting_time": "2.8"
 })
 damage_text = "{explosion_time} с"

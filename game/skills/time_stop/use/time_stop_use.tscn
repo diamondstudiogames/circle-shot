@@ -238,10 +238,10 @@ tracks/9/path = NodePath("ParallaxClouds:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.25),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(0, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_v7akx"]
@@ -365,6 +365,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Invert" type="Sprite2D" parent="BackBufferCopy"]
+z_index = 1
 material = SubResource("ShaderMaterial_q5hdi")
 instance_shader_parameters/screen_zoom = 2.0
 scale = Vector2(1e-05, 1e-05)
@@ -374,7 +375,7 @@ texture = ExtResource("5_v7akx")
 modulate = Color(1, 1, 1, 0)
 top_level = true
 visibility_layer = 4
-z_index = 1
+z_index = 9
 repeat_size = Vector2(2560, 1440)
 repeat_times = 2
 

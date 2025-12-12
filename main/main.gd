@@ -446,7 +446,7 @@ func _loading_check_patches() -> void:
 		if not DirAccess.dir_exists_absolute(Globals.PATCHES_PATH):
 			DirAccess.make_dir_recursive_absolute(Globals.PATCHES_PATH)
 		var http := HTTPRequest.new()
-		http.timeout = 20.0
+		http.timeout = 60.0
 		http.request_completed.connect(
 				_on_patch_http_request_completed.bind(http, remote_patch_code))
 		add_child(http)

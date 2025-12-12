@@ -142,7 +142,7 @@ func load_default_map() -> void:
 					BlockType.SPIKES:
 						floor_layer.set_cell(map_coords, 1, Vector2i(0, 0))
 						walls_layer.erase_cell(map_coords)
-						minimap_layer.set_cell(map_coords, 0, Vector2i(0, 1))
+						minimap_layer.set_cell(map_coords, 0, Vector2i(3, 0))
 						
 						var spikes: CollisionShape2D = _spikes_scene.instantiate()
 						spikes.position = map_coords * 160.0 + Vector2.ONE * 80

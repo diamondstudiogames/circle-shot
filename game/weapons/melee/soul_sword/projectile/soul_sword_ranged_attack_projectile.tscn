@@ -8,11 +8,10 @@
 [ext_resource type="Material" uid="uid://7ixms0xbcpbw" path="res://game/shared/shaders/materials/projectile_outline_unshaded.tres" id="4_jtld5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0v2s"]
-size = Vector2(40, 240)
+size = Vector2(40, 224)
 
 [node name="SoulSwordRangedAttackProjectile" instance=ExtResource("1_t1005")]
 script = ExtResource("2_b0v2s")
-speed = 1600.0
 hit_vfx_scene = ExtResource("2_whxs8")
 hit_wall_vfx_scene = ExtResource("2_whxs8")
 damage = 20

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0d83mi7scscc"]
+[gd_scene load_steps=4 format=3 uid="uid://d0d83mi7scscc"]
 
 [ext_resource type="PackedScene" uid="uid://b8fjhhk3nq2ef" path="res://game/shared/interactible/boxes/weapon_box.tscn" id="1_d7a3y"]
+[ext_resource type="Texture2D" uid="uid://iocjsqchyao6" path="res://game/weapons/guns/other/bazooka/image.png" id="2_3dvv0"]
 [ext_resource type="Resource" uid="uid://co7e50nsbbr5q" path="res://game/weapons/guns/other/bazooka/bazooka.tres" id="2_sa1qr"]
 
 [node name="WeaponBox" instance=ExtResource("1_d7a3y")]
+image = ExtResource("2_3dvv0")
 weapon_data = ExtResource("2_sa1qr")
 weapon_type = 4
 

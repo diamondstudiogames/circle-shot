@@ -8,7 +8,7 @@
 script = ExtResource("1_34i6u")
 ammo_per_load = 0
 ammo_total = 3
-aim_camera_distance = 200.0
+aim_camera_distance = 224.0
 shoot_on_joystick_release = true
 metadata/_custom_type_script = "uid://uhm74338rvh5"
 

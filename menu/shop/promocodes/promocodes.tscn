@@ -15,6 +15,7 @@ script = ExtResource("1_01myu")
 promocodes = Dictionary[String, String]({
 "206кабинет": "skin_box:1;Мы так не записываем!!!",
 "2дшутер": "coins:29;Лучшая игра 2029 года!",
+"309кабинет": "coins:39;I = U/R",
 "apple": "coins:30;INCREDIBLE! AMAZING! SO MANY INNOVATIONS! (нет)",
 "deltarunetomorrow": "coins:123;DELTARUNE NOW!!!",
 "fastboot": "coins:67;Счастье начинается с OEM Unlock",
@@ -24,8 +25,10 @@ promocodes = Dictionary[String, String]({
 "max": "coins:52;Ловят даже на парковке!",
 "sniperdelete": "equip_box:1;И не мечтай",
 "summersay415": "coins:42;Большой брат следит за тобой.",
+"егэ": "skin_box:1;ЕГЭ🥵🥵🥵",
 "казино": "equip_box:1,skin_box:1;Если хочешь депнуть мне - давай скорей!",
-"саввушки": "coins:88;Забетонируйте Плюшевого Мишку("
+"саввушки": "coins:88;Забетонируйте Плюшевого Мишку(",
+"ященко": "coins:18,equip_box:1;Гроб с параметром в подарок!"
 })
 
 [node name="Background" type="ColorRect" parent="."]

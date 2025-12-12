@@ -235,7 +235,7 @@ _data = {
 
 [node name="Event" instance=ExtResource("1_u01ls")]
 script = ExtResource("2_ppebb")
-round_time = 100
+round_time = 70
 rounds_to_win = 4
 coins_for_win = 70
 coins_for_defeat = 35

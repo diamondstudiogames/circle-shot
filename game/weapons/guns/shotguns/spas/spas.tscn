@@ -39,6 +39,7 @@ recoil_reset_time = 0.8
 ammo_per_load = 8
 ammo_total = 40
 speed_multiplier_when_current = 0.95
+aim_camera_distance = 200.0
 
 [node name="Visual" parent="." index="0" instance=ExtResource("4_pyj37")]
 

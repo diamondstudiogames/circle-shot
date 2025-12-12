@@ -16,7 +16,7 @@ min_reset_time = 0.3
 ammo_per_load = 0
 ammo_total = 4
 speed_multiplier_when_current = 0.99
-aim_camera_distance = 200.0
+aim_camera_distance = 240.0
 shoot_on_joystick_release = true
 
 [node name="Visual" parent="." instance=ExtResource("3_edkhm")]

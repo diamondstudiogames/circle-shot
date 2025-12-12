@@ -151,7 +151,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(0.7, 1),
 "update": 0,
-"values": [900.0, 160.0]
+"values": [1040.0, 240.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -160,10 +160,10 @@ tracks/5/path = NodePath(".:damage")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(0.9, 1),
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.7, 1),
 "update": 0,
-"values": [7, 2]
+"values": [7, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bl6oy"]

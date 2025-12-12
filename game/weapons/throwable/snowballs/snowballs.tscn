@@ -75,6 +75,7 @@ spread_base = 3.0
 spread_walk = 3.0
 ammo_per_load = 2
 ammo_total = 32
+aim_camera_distance = 96.0
 
 [node name="Ammo" parent="." index="0"]
 position = Vector2(-24, -12)

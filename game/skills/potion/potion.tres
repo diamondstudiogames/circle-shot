@@ -7,9 +7,9 @@ script = ExtResource("1_dkhs1")
 name = "Целебное зелье"
 id = "potion"
 stats = Dictionary[String, String]({
-"cooldown": "50",
+"cooldown": "60",
 "count": "2",
-"heals": "45"
+"heals": "35"
 })
 brief_description = "Исцеляет {heals} ОЗ"
 description = "[color=deep_sky_blue]Исцеляет[/color]

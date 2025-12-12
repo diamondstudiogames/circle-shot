@@ -35,6 +35,7 @@ recoil_reset_time = 0.7
 ammo_per_load = 7
 ammo_total = 35
 speed_multiplier_when_current = 0.96
+aim_camera_distance = 180.0
 shoot_on_joystick_release = true
 
 [node name="Visual" parent="." index="0" instance=ExtResource("3_prwo0")]
