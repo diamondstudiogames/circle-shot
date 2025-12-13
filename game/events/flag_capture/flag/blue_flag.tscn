@@ -9,13 +9,17 @@ team = 1
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_orxp6")
 
-[node name="Visual" parent="Minimap" index="2"]
+[node name="TimerProgress" parent="." index="3"]
 self_modulate = Color(0, 0, 1, 1)
 
-[node name="TimerProgress" parent="." index="4"]
+[node name="MinimapMarker" parent="." index="4"]
+team = 1
+
+[node name="Visual" parent="MinimapMarker" index="2"]
 self_modulate = Color(0, 0, 1, 1)
 
 [node name="Marker" parent="ScreenMarker" index="0"]
 modulate = Color(0, 0, 1, 1)
 
+[editable path="MinimapMarker"]
 [editable path="ScreenMarker"]

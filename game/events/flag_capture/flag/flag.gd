@@ -21,12 +21,10 @@ var _return_timer := 0.0
 func _ready() -> void:
 	reset_physics_interpolation()
 	if _event.local_team != team:
+		($ScreenMarker as CanvasItem).hide()
 		$ScreenMarker.queue_free()
 	
 	_base_position = position
-	await get_tree().process_frame # Ждём пока заработает VisibleOnScreenNotifier2D
-	_update_minimap_marker(_event.local_team)
-	_event.local_team_set.connect(_update_minimap_marker)
 
 
 func _exit_tree() -> void:
@@ -108,16 +106,6 @@ func teleport_to_base() -> void:
 
 func _drop() -> void:
 	drop.rpc(position)
-
-
-func _update_minimap_marker(local_team: int) -> void:
-	if team == local_team:
-		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(true)
-		($Minimap/Visual as CanvasItem).show()
-	else:
-		$Minimap/VisibleOnScreenNotifier2D.set_block_signals(false)
-		($Minimap/Visual as CanvasItem).visible = \
-				($Minimap/VisibleOnScreenNotifier2D as VisibleOnScreenNotifier2D).is_on_screen()
 
 
 func _on_carry_interactible_interacted(who: Player) -> void:

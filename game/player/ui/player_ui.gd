@@ -546,6 +546,7 @@ func _on_player_died() -> void:
 func _on_player_weapon_changed(_to: Weapon.Type) -> void:
 	if not is_instance_valid(_player.current_weapon):
 		($Controller/TouchControls/AdditionalButtonAnchor/AdditionalButton as CanvasItem).hide()
+		($Controller/CurrentWeapon/AdditionalButtonIcon as CanvasItem).hide()
 		_current_weapon_icon.texture = null
 		return
 	

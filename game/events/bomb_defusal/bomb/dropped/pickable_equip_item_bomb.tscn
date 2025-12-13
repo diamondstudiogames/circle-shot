@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpugjjonr8i0u"]
+[gd_scene load_steps=10 format=3 uid="uid://dpugjjonr8i0u"]
 
 [ext_resource type="PackedScene" uid="uid://dyqg11st1fbal" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.tscn" id="1_603bq"]
 [ext_resource type="Texture2D" uid="uid://b7i52rgb6j8qf" path="res://game/events/bomb_defusal/bomb/weapon/image.png" id="2_c8h2d"]
+[ext_resource type="Script" uid="uid://bmoh2iudg1w3w" path="res://game/events/bomb_defusal/bomb/dropped/pickable_equip_item_bomb.gd" id="2_ofa01"]
 [ext_resource type="Resource" uid="uid://cjgoqhsfs8s1g" path="res://game/events/bomb_defusal/bomb/weapon/bomb.tres" id="2_vhk0a"]
 [ext_resource type="Script" uid="uid://cs7xc1pk5a1cc" path="res://game/events/bomb_defusal/bomb/dropped/bomb_interactible.gd" id="3_vhk0a"]
 [ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="5_4nyev"]
 [ext_resource type="Texture2D" uid="uid://cxi2notbmqxdi" path="res://game/events/bomb_defusal/bomb/minimap_marker.png" id="6_ofa01"]
+[ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="8_56swa"]
+[ext_resource type="Texture2D" uid="uid://dch2ba6ofr21x" path="res://game/events/bomb_defusal/bomb/screen_marker.png" id="9_kw4j2"]
 
 [node name="PickableEquipItemBomb" instance=ExtResource("1_603bq")]
+script = ExtResource("2_ofa01")
 equip_type = 2
 visual_size_x = 80.0
 image = ExtResource("2_c8h2d")
@@ -18,9 +22,24 @@ weapon_type = 4
 script = ExtResource("3_vhk0a")
 
 [node name="MinimapMarker" parent="." index="3" instance=ExtResource("5_4nyev")]
+team = 0
 
 [node name="Visual" parent="MinimapMarker" index="2"]
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0.5019608, 0, 1)
 texture = ExtResource("6_ofa01")
 
+[node name="ScreenMarker" parent="." index="4" instance=ExtResource("8_56swa")]
+margin = 32.0
+show_when_on_screen = false
+
+[node name="Marker" parent="ScreenMarker" index="0"]
+modulate = Color(1, 0.5019608, 0, 1)
+
+[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
+texture = ExtResource("9_kw4j2")
+
+[node name="Icon" parent="ScreenMarker/Marker" index="1"]
+texture = ExtResource("9_kw4j2")
+
 [editable path="MinimapMarker"]
+[editable path="ScreenMarker"]

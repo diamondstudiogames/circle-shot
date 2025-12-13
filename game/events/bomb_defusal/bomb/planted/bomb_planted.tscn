@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cb533eb27cteb"]
+[gd_scene load_steps=19 format=3 uid="uid://cb533eb27cteb"]
 
 [ext_resource type="Script" uid="uid://d3yjfqptegji3" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted.gd" id="1_33kbv"]
 [ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_04vj3"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="8_1pehw"]
 [ext_resource type="Texture2D" uid="uid://cxi2notbmqxdi" path="res://game/events/bomb_defusal/bomb/minimap_marker.png" id="9_30gdi"]
 [ext_resource type="Texture2D" uid="uid://b3a6at7opiyub" path="res://game/events/bomb_defusal/bomb/planted/smoke.png" id="10_63ig5"]
+[ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="10_366uc"]
+[ext_resource type="Texture2D" uid="uid://dch2ba6ofr21x" path="res://game/events/bomb_defusal/bomb/screen_marker.png" id="11_0m3ms"]
 [ext_resource type="AudioStream" uid="uid://dmpl5nw4anqdw" path="res://game/events/bomb_defusal/bomb/planted/explosion.wav" id="11_o455r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfr8r"]
@@ -78,10 +80,24 @@ position = Vector2(0, 48)
 shape = SubResource("CircleShape2D_hfr8r")
 
 [node name="MinimapMarker" parent="." instance=ExtResource("8_1pehw")]
+team = 0
 
 [node name="Visual" parent="MinimapMarker" index="2"]
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0.5019608, 0, 1)
 texture = ExtResource("9_30gdi")
+
+[node name="ScreenMarker" parent="." instance=ExtResource("10_366uc")]
+margin = 32.0
+show_when_on_screen = false
+
+[node name="Marker" parent="ScreenMarker" index="0"]
+modulate = Color(1, 0.5019608, 0, 1)
+
+[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
+texture = ExtResource("11_0m3ms")
+
+[node name="Icon" parent="ScreenMarker/Marker" index="1"]
+texture = ExtResource("11_0m3ms")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1pehw")
@@ -128,3 +144,4 @@ bus = &"SFX"
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]
 
 [editable path="MinimapMarker"]
+[editable path="ScreenMarker"]

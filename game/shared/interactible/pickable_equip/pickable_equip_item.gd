@@ -53,7 +53,6 @@ var _picked_up := false
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	reset_physics_interpolation()
 	if not image:
 		var image_path: String
 		match equip_type:
@@ -67,6 +66,7 @@ func _ready() -> void:
 	else:
 		($Sprite2D as Sprite2D).texture = image
 	($Sprite2D as Node2D).scale = Vector2.ONE * visual_size_x / 256.0
+	reset_physics_interpolation()
 
 
 @rpc("authority", "call_local", "reliable") # нулевой канал чтобы не пришло позже queue_free

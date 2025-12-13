@@ -15,9 +15,13 @@ var _screen_angle: float
 
 func _ready() -> void:
 	_screen_angle = (get_viewport_rect().size - get_viewport_rect().size / 2).angle()
+	_process(0.0)
 
 
 func _process(_delta: float) -> void:
+	if not visible:
+		return
+	
 	var screen_pos: Vector2 = get_global_transform_with_canvas() * Vector2.ZERO
 	var screen_rect: Rect2 = get_viewport_rect()
 	

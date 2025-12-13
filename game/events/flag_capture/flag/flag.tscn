@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bdupyqf5qxbsn" path="res://game/events/flag_capture/flag/flag.gd" id="1_nr771"]
 [ext_resource type="Texture2D" uid="uid://c63ivlmcoucnj" path="res://game/events/flag_capture/flag/minimap_flag.png" id="2_nr771"]
-[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_oyuah"]
 [ext_resource type="Texture2D" uid="uid://dfgdeiexpgkbi" path="res://game/events/flag_capture/flag/timer.png" id="3_jsgb6"]
+[ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="3_oyuah"]
 [ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="4_m7w11"]
 [ext_resource type="Texture2D" uid="uid://clm45yn1rangi" path="res://game/events/flag_capture/flag/flag_marker.png" id="5_uuplo"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="6_x0rae"]
@@ -36,25 +36,6 @@ shape = SubResource("CircleShape2D_nr771")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_nr771")
 
-[node name="Minimap" type="Node2D" parent="."]
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minimap"]
-rect = Rect2(-100, -100, 200, 200)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Minimap"]
-remote_path = NodePath("../Visual")
-update_rotation = false
-update_scale = false
-
-[node name="Visual" type="Sprite2D" parent="Minimap"]
-visible = false
-top_level = true
-visibility_layer = 2
-z_index = -7
-material = ExtResource("2_oyuah")
-scale = Vector2(10, 10)
-texture = ExtResource("2_nr771")
-
 [node name="TimerProgress" type="TextureProgressBar" parent="."]
 visible = false
 z_index = 2
@@ -74,6 +55,11 @@ step = 0.01
 value = 1.0
 fill_mode = 5
 texture_progress = ExtResource("3_jsgb6")
+
+[node name="MinimapMarker" parent="." instance=ExtResource("3_oyuah")]
+
+[node name="Visual" parent="MinimapMarker" index="2"]
+texture = ExtResource("2_nr771")
 
 [node name="ScreenMarker" parent="." instance=ExtResource("4_m7w11")]
 margin = 32.0
@@ -105,9 +91,8 @@ hold_interaction_time = 0.4000000000087311
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 
-[connection signal="screen_entered" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="show"]
-[connection signal="screen_exited" from="Minimap/VisibleOnScreenNotifier2D" to="Minimap/Visual" method="hide"]
 [connection signal="interacted" from="CarryInteractible" to="." method="_on_carry_interactible_interacted"]
 [connection signal="interacted" from="DropInteractible" to="." method="_on_drop_interactible_interacted"]
 
+[editable path="MinimapMarker"]
 [editable path="ScreenMarker"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhowipgynlmam"]
+[gd_scene load_steps=11 format=3 uid="uid://bhowipgynlmam"]
 
 [ext_resource type="Script" uid="uid://kkomha1tlord" path="res://game/events/bomb_defusal/bomb/weapon/bomb.gd" id="1_w11ds"]
 [ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_1vqsf"]
 [ext_resource type="PackedScene" uid="uid://se8ioau06ef" path="res://game/shared/ui/minimap/minimap_marker.tscn" id="3_dw5hw"]
 [ext_resource type="Texture2D" uid="uid://cxi2notbmqxdi" path="res://game/events/bomb_defusal/bomb/minimap_marker.png" id="4_k60jd"]
+[ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="5_6fdbn"]
+[ext_resource type="Texture2D" uid="uid://dch2ba6ofr21x" path="res://game/events/bomb_defusal/bomb/screen_marker.png" id="6_wb67x"]
 
 [sub_resource type="Animation" id="Animation_n12nm"]
 length = 0.001
@@ -140,25 +142,68 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="State" type="Label" parent="."]
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -213.0
+offset_right = 208.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(240, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_dcvvm")
 }
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+[node name="RemoteTransformMinimapMarker" type="RemoteTransform2D" parent="."]
 position = Vector2(-32, -32)
-remote_path = NodePath("../MinimapMarkerBase/MinimapMarker")
+remote_path = NodePath("../MarkersBase/MinimapMarker")
 update_rotation = false
 update_scale = false
 
-[node name="MinimapMarkerBase" type="Node" parent="."]
-
-[node name="MinimapMarker" parent="MinimapMarkerBase" instance=ExtResource("3_dw5hw")]
+[node name="RemoteTransformScreenMarker" type="RemoteTransform2D" parent="."]
 position = Vector2(-32, -32)
+remote_path = NodePath("../MarkersBase/ScreenMarker")
+update_rotation = false
+update_scale = false
 
-[node name="Visual" parent="MinimapMarkerBase/MinimapMarker" index="2"]
-self_modulate = Color(0, 0, 0, 1)
+[node name="MarkersBase" type="Node" parent="."]
+
+[node name="MinimapMarker" parent="MarkersBase" instance=ExtResource("3_dw5hw")]
+position = Vector2(-32, -32)
+team = 0
+
+[node name="Visual" parent="MarkersBase/MinimapMarker" index="2"]
+self_modulate = Color(1, 0.5019608, 0, 1)
 position = Vector2(-32, -32)
 texture = ExtResource("4_k60jd")
 
-[editable path="MinimapMarkerBase/MinimapMarker"]
+[node name="ScreenMarker" parent="MarkersBase" instance=ExtResource("5_6fdbn")]
+position = Vector2(-32, -32)
+margin = 32.0
+show_when_on_screen = false
+
+[node name="Marker" parent="MarkersBase/ScreenMarker" index="0"]
+modulate = Color(1, 0.5019608, 0, 1)
+
+[node name="Icon" parent="MarkersBase/ScreenMarker/Marker/Arrow" index="0"]
+texture = ExtResource("6_wb67x")
+
+[node name="Icon" parent="MarkersBase/ScreenMarker/Marker" index="1"]
+texture = ExtResource("6_wb67x")
+
+[editable path="MarkersBase/MinimapMarker"]
+[editable path="MarkersBase/ScreenMarker"]

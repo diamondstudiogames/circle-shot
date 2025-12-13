@@ -1,19 +1,38 @@
 extends Weapon
 
 
-const CANT_PLANT_TINT := Color(0.702, 0.524, 0.524, 1.0)
+const CANT_PLANT_TINT := Color(0.836, 0.366, 0.366)
 
 var _planting := false
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _ray_cast: RayCast2D = $RayCast2D
+@onready var _state: Label = $State
 @onready var _bomb_defusal: BombDefusal = get_tree().get_first_node_in_group(&"world")
+
+
+func _process(_delta: float) -> void:
+	_state.scale.x = player.visual.scale.x
 
 
 func _physics_process(_delta: float) -> void:
 	if _can_plant():
 		modulate = Color.WHITE
+		if player.is_local():
+			_state.text = "Закладываю..." if _planting \
+					else "Удерживай СТРЕЛЯТЬ, чтобы заложить бомбу"
 	else:
 		modulate = CANT_PLANT_TINT
+		if _planting and multiplayer.is_server():
+			_stop_planting.rpc()
+		if player.is_local():
+			_state.text = "Не могу заложить бомбу %s" % ("сейчас" if not can_shoot() else "здесь")
+
+
+func _initialize() -> void:
+	if (get_tree().get_first_node_in_group(&"world") as World).local_team != 0:
+		$RemoteTransformScreenMarker.queue_free()
+		($MarkersBase/ScreenMarker as CanvasItem).hide()
+		$MarkersBase/ScreenMarker.queue_free()
 
 
 func _make_current() -> void:
@@ -92,7 +111,8 @@ func _on_player_shooting_started() -> void:
 	
 	_start_planting.rpc()
 	var anim_name: StringName = await _anim.animation_finished
-	_stop_planting.rpc()
+	if _planting: # мб было прервано
+		_stop_planting.rpc()
 	if anim_name != &"plant":
 		return
 	

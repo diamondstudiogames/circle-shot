@@ -64,13 +64,16 @@ func _make_teams() -> void:
 	Utils.make_teams(players_names, players_teams)
 
 
+func _finish_setup() -> void:
+	_spawn_flag(false)
+	_spawn_flag(true)
+
+
 func _finish_start() -> void:
 	if multiplayer.is_server():
 		if not (players_teams.find_key(0) and players_teams.find_key(1)):
 			_time_remained = 1
 		($MatchTimer as Timer).start()
-		_spawn_flag(false)
-		_spawn_flag(true)
 
 
 func _get_spawn_point(id: int) -> Vector2:
