@@ -230,6 +230,7 @@ func _show_played_time() -> void:
 
 
 func _update_input_methods() -> void:
+	Globals.update_current_input_method()
 	(%InputMethod as Label).text = "Определённый тип управления: %s" \
 			% (%InputOptions as OptionButton).get_item_text(Globals.get_current_input_method())
 	

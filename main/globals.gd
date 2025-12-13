@@ -65,7 +65,7 @@ var save_file: ConfigFile
 ## перед использованием!
 var remote_data_file: ConfigFile
 
-var _previous_input_method := InputMethod.AUTO
+var _current_input_method := InputMethod.AUTO
 
 
 func _ready() -> void:
@@ -75,7 +75,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if save_file and _previous_input_method == InputMethod.KEYBOARD_AND_MOUSE \
+	if save_file and get_current_input_method() == InputMethod.KEYBOARD_AND_MOUSE \
 			and event.is_action(&"fullscreen") and event.is_pressed():
 		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
 		apply_settings()
@@ -124,6 +124,7 @@ func initialize() -> void:
 	
 	setup_settings()
 	apply_settings()
+	update_current_input_method(false)
 	setup_controls_settings()
 	apply_controls_settings()
 
@@ -447,7 +448,7 @@ func apply_settings() -> void:
 
 ## Применяет настройки управления.
 func apply_controls_settings() -> void:
-	var input_method: InputMethod = get_current_input_method(false)
+	var input_method: InputMethod = get_current_input_method()
 	Input.emulate_touch_from_mouse = input_method == InputMethod.TOUCH
 	
 	if input_method == InputMethod.TOUCH:
@@ -499,7 +500,15 @@ func apply_controls_settings() -> void:
 ## Возвращает текущий метод ввода. Если [param update_settings] равен [code]true[/code] и текущий
 ## метод ввода - автоматический, то этот метод также вызовет [method apply_controls_settings], если
 ## автоматически определённый метод ввода поменялся с прошлого вызова этого метода.
-func get_current_input_method(update_settings := true) -> InputMethod:
+func get_current_input_method() -> InputMethod:
+	if _current_input_method == InputMethod.AUTO:
+		update_current_input_method()
+	return _current_input_method
+
+
+## Обновляет текущий метод ввода. Если он изменился с прошлого вызова этого метода, то настройки
+## управления обновляются (если [param update_settings] равен [code]true[/code]).
+func update_current_input_method(update_settings := true) -> void:
 	var input_method := get_controls_int("input_method") as InputMethod
 	if input_method == InputMethod.AUTO:
 		input_method = InputMethod.TOUCH
@@ -507,13 +516,10 @@ func get_current_input_method(update_settings := true) -> InputMethod:
 			input_method = InputMethod.KEYBOARD_AND_MOUSE
 		if not Input.get_connected_joypads().is_empty():
 			input_method = InputMethod.CONTROLLER
-	
-	if input_method != _previous_input_method:
-		_previous_input_method = input_method
+	if _current_input_method != input_method:
+		_current_input_method = input_method
 		if update_settings:
 			apply_controls_settings()
-	
-	return input_method
 #endregion
 
 

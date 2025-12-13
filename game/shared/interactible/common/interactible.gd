@@ -10,6 +10,11 @@ extends Area2D
 ## который провзаимодействовал.
 signal interacted(who: Player)
 
+## Название действия взаимодействия (клавиатура и мышь).
+const INTERACT_ACTION_NAME_KEYBOARD_AND_MOUSE := &"interact"
+## Название действия взаимодействия (контроллер).
+const INTERACT_ACTION_NAME_CONTROLLER := &"c_interact"
+
 ## Текст, появляющийся над стрелкой взаимодействия.
 @export_multiline var text: String
 ## Время, которое должна быть зажата кнопка для взаимодействия.
@@ -58,9 +63,32 @@ func _process(delta: float) -> void:
 
 ## Задаёт текст над стрелкой взаимодействия.
 func set_text(new_text: String) -> void:
-	if hold_interaction_time > 0.0:
-		new_text = "(удерживай)\n" + new_text
-	_label.text = new_text
+	var action: StringName
+	var events: Array[String]
+	match Globals.get_current_input_method():
+		Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			action = INTERACT_ACTION_NAME_KEYBOARD_AND_MOUSE
+		Globals.InputMethod.CONTROLLER:
+			action = INTERACT_ACTION_NAME_CONTROLLER
+	if not action.is_empty():
+		var event_types: Array[Globals.EncodedInputEventType] = \
+				Globals.get_controls_variant("action_%s_event_types" % action, [] as Array[int]) 
+		var event_values: Array[int] = \
+				Globals.get_controls_variant("action_%s_event_values" % action, [] as Array[int])
+		for i: int in event_types.size():
+			events.append(Utils.encoded_input_event_as_text(event_types[i], event_values[i]))
+	
+	if events.is_empty():
+		if hold_interaction_time > 0.0:
+			_label.text = "(удерживай)\n"
+		else:
+			_label.text = ""
+	else:
+		if hold_interaction_time > 0.0:
+			_label.text = "(%s - удерживай)\n" % '/'.join(events)
+		else:
+			_label.text = "(%s)\n" % '/'.join(events)
+	_label.text += new_text
 
 
 func _interact(player: Player) -> void:

@@ -188,7 +188,7 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource("1_hy7wi")
-resources_to_preload_paths = Array[String](["uid://4wb77emq8t5p", "uid://c2leb2h0qjtmo", "uid://c4axjhbd674h8", "uid://5wx4yqp027gq", "uid://c2x58lim4381g", "uid://bj723c8k8la6y", "uid://scqgxynxowrb", "uid://d2g0bm0ppnwf7", "uid://behtxlo4s5s3", "uid://wgln4clkkuuk", "uid://cmwb81du1kbtm"])
+resources_to_preload_paths = Array[String](["uid://4wb77emq8t5p", "uid://c2leb2h0qjtmo", "uid://c2x58lim4381g", "uid://bj723c8k8la6y", "uid://scqgxynxowrb", "uid://d2g0bm0ppnwf7", "uid://behtxlo4s5s3", "uid://wgln4clkkuuk", "uid://cmwb81du1kbtm"])
 metadata/_custom_type_script = "uid://c4q6g2kmy56ks"
 
 [node name="Workaround" type="Control" parent="."]

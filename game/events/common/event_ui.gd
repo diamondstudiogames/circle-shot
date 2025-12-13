@@ -8,7 +8,6 @@ extends CanvasLayer
 ## Время, в течении которого сообщения чата видно в предпросмотре.
 @export var messages_visible_time := 3.0
 
-var _input_method: Globals.InputMethod
 var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 
 ## Чат.
@@ -20,7 +19,6 @@ var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 
 
 func _ready() -> void:
-	_input_method = Globals.get_current_input_method() as Globals.InputMethod
 	($QuitDialog as AcceptDialog).dialog_text = "Ты действительно хочешь покинуть игру?"
 	if multiplayer.is_server():
 		($QuitDialog as AcceptDialog).dialog_text += "\nВнимание: ты являешься ХОСТОМ! \
@@ -34,11 +32,11 @@ func _input(input_event: InputEvent) -> void:
 	if not _chat_button.visible:
 		return
 	if _chat_button.button_pressed:
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE \
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE \
 				and input_event.is_action_pressed(&"pause"):
 			_chat_button.button_pressed = false
 			get_viewport().set_input_as_handled()
-		elif _input_method == Globals.InputMethod.CONTROLLER \
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER \
 				and input_event.is_action_pressed(&"c_pause"):
 			_chat_button.button_pressed = false
 			get_viewport().set_input_as_handled()
@@ -48,11 +46,11 @@ func _unhandled_input(input_event: InputEvent) -> void:
 	if not _chat_button.visible:
 		return
 	if not _chat_button.button_pressed:
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE \
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE \
 				and input_event.is_action_pressed(&"chat"):
 			_chat_button.button_pressed = true
 			get_viewport().set_input_as_handled()
-		elif _input_method == Globals.InputMethod.CONTROLLER \
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER \
 				and input_event.is_action_pressed(&"c_chat"):
 			_chat_button.button_pressed = true
 			get_viewport().set_input_as_handled()
