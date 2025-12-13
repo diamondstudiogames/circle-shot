@@ -6,6 +6,7 @@
 script = ExtResource("1_ac33g")
 name = "Криминальный город"
 brief_description = "Опасные сражения в городе преступников."
+size = Vector2i(50, 50)
 scene_path = "uid://3ea8c6l8g4n5"
 image_path = "uid://d6p7i4i0wimh"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

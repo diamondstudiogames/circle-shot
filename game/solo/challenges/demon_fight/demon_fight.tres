@@ -8,6 +8,7 @@
 script = ExtResource("2_d6web")
 name = "Битва с демоном"
 brief_description = "Сразись с демоном-козлом."
+description = "Одолев культистов, ты должен встретиться с истинным злом этой игры. Удачи!"
 scene_path = "uid://xlq1mw3auadp"
 image_path = "uid://cnechmmthuudk"
 maps = Array[ExtResource("1_ibrj3")]([ExtResource("2_1fwqp")])

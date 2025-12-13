@@ -6,6 +6,7 @@
 script = ExtResource("1_fdi78")
 name = "Полигон"
 brief_description = "Отличное место для перестрелок!"
+size = Vector2i(50, 50)
 scene_path = "uid://yw3tn27vxvlr"
 image_path = "uid://cxqd2beqfqhx7"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

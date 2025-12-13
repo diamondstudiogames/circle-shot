@@ -48,10 +48,6 @@ func _local_player_created(player: Player) -> void:
 	if was_started:
 		($Camera as SmartCamera).pan_to_target(player.camera_target, 0.3)
 	else:
-		if not multiplayer.is_server():
-			local_player.block_weapon_usage()
-			local_player.make_immobile()
-			local_player.block_turning()
 		var offset: float = (Time.get_ticks_msec() - created_ticks_msec) / 1000.0
 		($Camera as SmartCamera).pan_to_target(player.camera_target, maxf(4.0 - offset, 1.0))
 		event_ui.seek_intro(offset)
@@ -118,10 +114,6 @@ func spawn_player(id: int) -> void:
 	$Entities.add_child(player, true)
 	player.killed.connect(_on_player_killed.bind(player))
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
-	if not was_started:
-		player.block_weapon_usage()
-		player.make_immobile()
-		player.block_turning()
 
 
 ## Заканчивает событие победой или поражением.
@@ -161,17 +153,13 @@ func _start() -> void:
 		($Music as AudioStreamPlayer).play()
 	
 	_finish_start()
-	if multiplayer.is_server():
-		get_tree().call_group(&"player", &"unblock_weapon_usage")
-		get_tree().call_group(&"player", &"unmake_immobile")
-		get_tree().call_group(&"player", &"unblock_turning")
-	else:
-		local_player.unblock_weapon_usage()
-		local_player.unmake_immobile()
-		local_player.unblock_turning()
+	get_tree().call_group(&"entity", &"unmake_disarmed")
+	get_tree().call_group(&"entity", &"unmake_immobile")
+	get_tree().call_group(&"entity", &"unmake_immune")
+	get_tree().call_group(&"entity", &"unblock_turning")
+	
 	started.emit()
 	was_started = true
-	
 	print_verbose("Event started.")
 
 
@@ -289,3 +277,15 @@ func _on_peer_disconnected(id: int) -> void:
 		end.rpc()
 		return
 	_player_disconnected(id)
+
+
+func _on_entities_child_entered_tree(node: Node) -> void:
+	super(node)
+	if was_started:
+		return
+	var entity := node as Entity
+	if entity:
+		entity.make_disarmed()
+		entity.make_immobile()
+		entity.make_immune()
+		entity.block_turning()

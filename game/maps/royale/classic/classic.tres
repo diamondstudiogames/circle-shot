@@ -6,6 +6,7 @@
 script = ExtResource("1_s8q2e")
 name = "Классика"
 brief_description = "Как в старые добрые времена..."
+size = Vector2i(80, 80)
 scene_path = "uid://dtui0y2krx3gd"
 image_path = "uid://c40q3nwga77jn"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

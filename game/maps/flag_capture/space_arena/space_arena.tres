@@ -6,6 +6,7 @@
 script = ExtResource("1_kd3j5")
 name = "Космическая арена"
 brief_description = "Крыло космической станции для сражений."
+size = Vector2i(50, 40)
 scene_path = "uid://x7ibdchv5y4n"
 image_path = "uid://bq1t265p3mrwb"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

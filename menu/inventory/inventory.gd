@@ -68,6 +68,8 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			description += "\nКомандное: [color=%s]%s[/color]" % \
 					(["lime_green", "Да"] if event.team_event else ["red", "Нет"])
 			description += '\n'
+			description += '\n' + event.description
+			description += '\n'
 			description += "\nКоличество карт: [color=lime_green]%d[/color]" % event.maps.size()
 			
 			(%Description/BigItem as CanvasItem).show()
@@ -79,6 +81,8 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			var challenge: ChallengeData = Globals.items_db.challenges[idx]
 			item_name = challenge.name
 			description = "[center]%s[/center]" % challenge.brief_description
+			description += '\n'
+			description += '\n' + challenge.description
 			description += '\n'
 			description += "\nКоличество карт: [color=lime_green]%d[/color]" % challenge.maps.size()
 			
@@ -95,11 +99,14 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 				map = Globals.items_db.challenges[_challenge_map_filter].maps[idx]
 			item_name = map.name
 			description = "[center]%s[/center]" % map.brief_description
+			description += '\n'
+			description += "\nРазмер карты: [color=blue]%d на %d[/color]" % [map.size.x, map.size.y]
+			description += '\n'
 			if _event_map_filter >= 0:
-				description += "\n\nСобытие: [color=red]%s[/color]" \
+				description += "\nСобытие: [color=red]%s[/color]" \
 						% Globals.items_db.events[_event_map_filter].name
 			elif _challenge_map_filter >= 0:
-				description += "\n\nИспытание: [color=red]%s[/color]" \
+				description += "\nИспытание: [color=red]%s[/color]" \
 						% Globals.items_db.challenges[_challenge_map_filter].name
 			
 			(%Description/BigItem as CanvasItem).show()
@@ -300,6 +307,7 @@ func _on_show_items_pressed() -> void:
 			_event_map_filter = _selected_item_idx
 			_challenge_map_filter = -1
 			_type_to_list = ItemsDB.Item.MAP
+			_update_items_grid()
 		ItemsDB.Item.CHALLENGE:
 			(%Description as CanvasItem).hide()
 			(%NothingSelected as CanvasItem).show()

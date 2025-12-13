@@ -6,6 +6,7 @@
 script = ExtResource("1_4h3jc")
 name = "Подводный мир"
 brief_description = "Кто сражается на дне океана?"
+size = Vector2i(80, 80)
 scene_path = "uid://5qd5jb876wl3"
 image_path = "uid://b5o28d22vfcq2"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

@@ -6,6 +6,7 @@
 script = ExtResource("1_1k7iy")
 name = "Пустынные обломки"
 brief_description = "Всё, что сохранилось от деревни в пустыне..."
+size = Vector2i(60, 60)
 scene_path = "uid://cp2uc082ipm83"
 image_path = "uid://ua0jkcuoqbmd"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

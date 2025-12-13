@@ -9,6 +9,8 @@ extends Resource
 @export var name: String
 ## Краткое описание карты.
 @export var brief_description: String
+## Размер карты.
+@export var size: Vector2i
 ## Путь до сцены с картой.
 @export_file("PackedScene") var scene_path: String
 ## Путь до картинки-обложки карты. Разрешение: 784 на 160.

@@ -6,6 +6,7 @@
 script = ExtResource("1_trb37")
 name = "Подводные руины"
 brief_description = "Больше никто не живет на дне океана..."
+size = Vector2i(50, 50)
 scene_path = "uid://c0ai0uwsn846q"
 image_path = "uid://bey1hfaqa7m8d"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

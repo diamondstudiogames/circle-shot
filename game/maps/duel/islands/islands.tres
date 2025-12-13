@@ -6,6 +6,7 @@
 script = ExtResource("1_7jrsk")
 name = "Острова"
 brief_description = "Здесь нет места для двоих."
+size = Vector2i(30, 20)
 scene_path = "uid://5ox0nwewapej"
 image_path = "uid://ct48s2ffadd1c"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

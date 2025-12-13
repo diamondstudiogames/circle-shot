@@ -360,7 +360,7 @@ func _generate_daily_offers() -> void:
 					offer["rewards"] = ["skin_box:%d" % count] as Array[String]
 			1: # Элитный ящик
 				offer["name"] = "Акция"
-				var discount: float = [0.95, 0.95, 0.9, 0.85].pick_random()
+				var discount: float = [0.9, 0.85, 0.8, 0.7].pick_random()
 				offer["sale"] = 100 - int(100 * discount)
 				var count: int = randi_range(1, 2)
 				if randi() % 2 == 0:
@@ -383,7 +383,7 @@ func _generate_daily_offers() -> void:
 				] as Array[String]
 			3: # Два элитных ящика разных типов
 				offer["name"] = "Двойная акция"
-				var discount: float = [0.9, 0.9, 0.85, 0.8].pick_random()
+				var discount: float = [0.9, 0.85, 0.75, 0.65].pick_random()
 				offer["sale"] = 100 - int(100 * discount)
 				var count_skin: int = randi_range(1, 2)
 				var count_equip: int = randi_range(1, 2)
@@ -634,7 +634,10 @@ func _update_shop() -> void:
 			_delete_offer(offer_id)
 
 
-func _select_focus_target() -> void:
+func _select_focus_target(previous: Control = null) -> void:
+	if previous:
+		previous.grab_focus()
+		return
 	if get_tree().get_node_count_in_group(&"buy_button") == 0:
 		(get_node(no_offers_focus_path) as Control).grab_focus()
 		return
@@ -646,9 +649,10 @@ func _on_purchase_confirmed(cost: int, rewards: Array[String], offer_id: int = -
 	if offer_id >= 0:
 		_delete_offer(offer_id)
 	Globals.set_int("coins", Globals.get_int("coins") - cost)
+	var focused: Control = get_viewport().gui_get_focus_owner()
 	Globals.main.receive_loot(rewards)
 	await Globals.main.loot_received
-	_select_focus_target()
+	_select_focus_target(focused if is_instance_valid(focused) else null)
 
 
 func _on_special_offers_container_child_order_changed() -> void:

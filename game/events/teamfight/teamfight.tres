@@ -10,6 +10,7 @@
 script = ExtResource("2_066hq")
 name = "Командный бой"
 brief_description = "Побеждай противников на счёт!"
+description = "Простое, но весёлое событие: побеждает та команда, которая совершила больше убийств за отведённое время."
 min_players = 4
 players_divider = 2
 team_event = true

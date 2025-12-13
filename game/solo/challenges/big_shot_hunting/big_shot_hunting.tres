@@ -8,6 +8,7 @@
 script = ExtResource("3_gbp54")
 name = "Большая шишка"
 brief_description = "Устрани главаря бандитов!"
+description = "Цель испытания - нанести как можно больше урона Большой шишке или вовсе устранить его. Однако в его распоряжении много атак, и каждый раз, как он теряет определённое количество здоровья, появляется подкрепление. Будь осторожен!"
 scene_path = "uid://bqjtplbpilvlh"
 image_path = "uid://dinhj307k65dc"
 maps = Array[ExtResource("1_owemw")]([ExtResource("2_epxtb")])

@@ -6,6 +6,7 @@
 script = ExtResource("1_c6cdg")
 name = "Космос"
 brief_description = "Сражение на космической станции."
+size = Vector2i(80, 80)
 scene_path = "uid://cbmb8arq01pl8"
 image_path = "uid://brte0hjuacqpc"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

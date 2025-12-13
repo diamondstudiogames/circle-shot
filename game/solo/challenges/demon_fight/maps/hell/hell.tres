@@ -6,6 +6,7 @@
 script = ExtResource("1_ispp8")
 name = "Ад"
 brief_description = "Адское кровавое место."
+size = Vector2i(20, 20)
 scene_path = "uid://dkhxxf7hf1acf"
 image_path = "uid://c5yqevu8m6skf"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

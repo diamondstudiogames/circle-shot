@@ -6,6 +6,7 @@
 script = ExtResource("1_y7385")
 name = "Снежный лес"
 brief_description = "Поединок в зимнем лесу."
+size = Vector2i(30, 20)
 scene_path = "uid://bpli4nq3osyio"
 image_path = "uid://blj1aaljy7mb5"
 metadata/_custom_type_script = "uid://c2mew3f2rwarc"

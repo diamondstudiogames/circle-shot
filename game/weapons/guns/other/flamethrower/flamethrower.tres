@@ -10,8 +10,8 @@ id = "flamegun"
 stats = Dictionary[String, String]({
 "ammo_per_load": "75",
 "ammo_total": "150",
-"damage": "7",
-"dps": "70",
+"damage": "4-7",
+"dps": "40-70",
 "reload_time": "3.5"
 })
 description = "Урон/с: [color=red]{dps}[/color]
