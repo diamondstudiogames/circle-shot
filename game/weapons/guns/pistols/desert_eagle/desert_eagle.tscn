@@ -21,7 +21,7 @@ _data = [Vector2(0, -14), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [node name="DesertEagle" instance=ExtResource("1_l8sst")]
-shoot_interval = 0.57
+shoot_interval = 0.55
 to_aim_time = 0.3
 projectile_scene = ExtResource("2_7232m")
 spread_walk = 3.5

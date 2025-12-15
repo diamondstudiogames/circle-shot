@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 
 func _use() -> void:
 	($ActiveMarker/AnimationPlayer as AnimationPlayer).play(&"active")
-	player.player_input.shooting_started.connect(_on_player_shooting_started, CONNECT_ONE_SHOT)
+	player.player_input.shooting_started.connect(_on_player_shooting_started)
 	block_cooldown()
 
 
@@ -41,6 +41,7 @@ func _on_player_shooting_started() -> void:
 	if not player.can_use_weapon():
 		return
 	
+	player.player_input.shooting_started.disconnect(_on_player_shooting_started)
 	unblock_cooldown()
 	($ActiveMarker/AnimationPlayer as AnimationPlayer).play(&"RESET")
 	if multiplayer.is_server():

@@ -288,7 +288,7 @@ func can_use_weapon() -> bool:
 	return _blocked_weapon_usage_counter <= 0
 
 
-@rpc("any_peer", "unreliable_ordered", "call_local", 5)
+@rpc("any_peer", "reliable", "call_local", 5)
 func _request_change_weapon(to: Weapon.Type) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
@@ -323,7 +323,7 @@ func _request_reload() -> void:
 			current_weapon.get_reload_args())
 
 
-@rpc("any_peer", "unreliable", "call_local", 5)
+@rpc("any_peer", "reliable", "call_local", 5)
 func _request_additional_button() -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
@@ -340,7 +340,7 @@ func _request_additional_button() -> void:
 	additional_button_weapon.rpc(current_weapon.get_additional_button_args())
 
 
-@rpc("any_peer", "unreliable", "call_local", 5)
+@rpc("any_peer", "reliable", "call_local", 5)
 func _request_use_skill() -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
