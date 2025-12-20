@@ -117,10 +117,10 @@ func _physics_process(delta: float) -> void:
 					if not _target_position.is_finite():
 						_reset_attraction()
 						return
-					target_position = _target.global_position
+					target_position = _target_position
 				player.knockback -= _previous_knockback
 				_previous_knockback = attract_speed \
-							* player.global_position.direction_to(target_position)
+						* player.global_position.direction_to(target_position)
 				player.knockback += _previous_knockback
 				if player.global_position.distance_to(target_position) <= min_distance:
 					_reset_attraction()
@@ -143,12 +143,15 @@ func _exit_tree() -> void:
 	if _state == State.ATTRACT:
 		_reset_attraction(true)
 	_reload_timer.queue_free()
+	_failed_reload_timer.queue_free()
 
 
 func _initialize() -> void:
 	_previous_physics_hook_position = _hook.global_position
 	_reload_timer.name += name
 	_reload_timer.reparent(player)
+	_failed_reload_timer.name += name
+	_failed_reload_timer.reparent(player)
 
 
 func _shoot(direction := Vector2.RIGHT) -> void:
@@ -266,8 +269,7 @@ func _reset_throwing(skip_animation := false) -> void:
 	await _reset_common(skip_animation)
 	_state = State.RELOAD
 	_hook.self_modulate = Color.GRAY
-	if _failed_reload_timer.is_inside_tree():
-		_failed_reload_timer.start()
+	_failed_reload_timer.start()
 
 
 func _reset_attraction(skip_animation := false) -> void:

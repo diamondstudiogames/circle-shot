@@ -13,7 +13,6 @@ hook_speed = 2400.0
 attract_speed = 1760.0
 min_distance = 192.0
 min_reset_time = 0.3
-additional_stun_time = 0.3
 ammo_per_load = 0
 ammo_total = 4
 speed_multiplier_when_current = 0.99
@@ -51,7 +50,7 @@ one_shot = true
 
 [node name="FailedReloadTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 2.0
+wait_time = 0.4
 one_shot = true
 
 [node name="AttractTimer" type="Timer" parent="."]

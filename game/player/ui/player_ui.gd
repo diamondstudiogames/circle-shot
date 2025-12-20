@@ -302,7 +302,8 @@ func _unhandled_keyboard_and_mouse_input(event: InputEvent) -> void:
 		select_weapon(Weapon.Type.SUPPORT)
 	if event.is_action_pressed(&"weapon_melee"):
 		select_weapon(Weapon.Type.MELEE)
-	if event.is_action_pressed(&"weapon_additional") and _player.equip_data[6] != -1:
+	if event.is_action_pressed(&"weapon_additional") \
+			and is_instance_valid(_player) and _player.equip_data[6] != -1:
 		select_weapon(Weapon.Type.ADDITIONAL)
 	if event.is_action_pressed(&"reload"):
 		reload()
@@ -402,7 +403,8 @@ func _process_controller_input() -> void:
 		select_weapon(Weapon.Type.SUPPORT)
 	if Input.is_action_just_pressed(&"c_weapon_melee"):
 		select_weapon(Weapon.Type.MELEE)
-	if Input.is_action_just_pressed(&"c_weapon_additional") and _player.equip_data[6] != -1:
+	if Input.is_action_just_pressed(&"c_weapon_additional") \
+			and is_instance_valid(_player) and _player.equip_data[6] != -1:
 		select_weapon(Weapon.Type.ADDITIONAL)
 	if Input.is_action_just_pressed(&"c_reload"):
 		reload()

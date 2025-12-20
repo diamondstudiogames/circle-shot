@@ -17,8 +17,7 @@ func _explode() -> void:
 	($AnimationPlayer as AnimationPlayer).advance(0.0) # Мгновенно показываем спрайт взрыва
 	var world: World = get_tree().get_first_node_in_group(&"world")
 	if ($VisibleOnScreenNotifier2D as VisibleOnScreenNotifier2D).is_on_screen():
-		if world.local_team != ($Explosion/Attack as Attack).team \
-				and is_instance_valid(world.local_player):
+		if world.local_team != team and is_instance_valid(world.local_player):
 			var music_idx: int = AudioServer.get_bus_index(&"Music")
 			var sfx_idx: int = AudioServer.get_bus_index(&"SFX")
 			_previous_music_db = AudioServer.get_bus_volume_db(music_idx)

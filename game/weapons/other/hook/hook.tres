@@ -9,10 +9,10 @@ rarity = 3
 id = "hook"
 stats = Dictionary[String, String]({
 "ammo_total": "4",
-"failed_reload": "2",
+"failed_reload": "0.5",
 "range": "12",
 "reload": "8",
-"stun_time": "0.3"
+"stun_time": "1"
 })
 damage_text = "Притягивает врагов/владельца"
 ammo_text = "{ammo_total} исп."
