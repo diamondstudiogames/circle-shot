@@ -4,6 +4,12 @@ extends GrenadeProjectile
 @export var shake_max_duration := 1.0
 @export var shake_max_distance := 3200.0
 
+func _ready() -> void:
+	super()
+	($Explosion/Sprite2D as CanvasItem).set_instance_shader_parameter(&"outline_color",
+			Entity.TEAM_COLORS[team])
+
+
 func _explode() -> void:
 	($Explosion/AnimationPlayer as AnimationPlayer).play(&"explode")
 	var camera: SmartCamera = get_viewport().get_camera_2d()

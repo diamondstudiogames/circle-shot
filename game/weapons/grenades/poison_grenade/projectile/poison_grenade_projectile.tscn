@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqo7kuss0a7js"]
+[gd_scene load_steps=13 format=3 uid="uid://dqo7kuss0a7js"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_ufrjk"]
 [ext_resource type="Script" uid="uid://crgutyugo7q0u" path="res://game/weapons/grenades/poison_grenade/projectile/poison_grenade_projectile.gd" id="2_5l6o6"]
 [ext_resource type="Texture2D" uid="uid://jf1e2wal4px0" path="res://game/weapons/grenades/poison_grenade/visual/base.png" id="2_11r5e"]
 [ext_resource type="Texture2D" uid="uid://4ebfydnls4ld" path="res://game/weapons/grenades/poison_grenade/projectile/poison_cloud.png" id="4_5l6o6"]
+[ext_resource type="Shader" uid="uid://cfro4bv3g07li" path="res://game/shared/shaders/outline.gdshader" id="4_m31ma"]
 [ext_resource type="Script" uid="uid://dmwy12upyag5w" path="res://game/weapons/grenades/poison_grenade/projectile/poison_attack.gd" id="5_a5tqx"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="5_qap35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k78p"]
+shader = ExtResource("4_m31ma")
+shader_parameter/outline_width = 3.0
 
 [sub_resource type="Animation" id="Animation_qap35"]
 resource_name = "RESET"
@@ -244,10 +249,13 @@ texture = ExtResource("2_11r5e")
 wait_time = 2.0
 
 [node name="Explosion" type="Node2D" parent="." index="4"]
+physics_interpolation_mode = 2
 visible = false
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Explosion" index="0"]
+material = SubResource("ShaderMaterial_4k78p")
+instance_shader_parameters/outline_color = Color(0, 0, 0, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_5l6o6")
 
@@ -270,5 +278,6 @@ script = ExtResource("5_qap35")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_ptys2")
 disabled = true

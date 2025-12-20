@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csf7rhlt5wedy"
-path="res://.godot/imported/cloud.png-88d82204155606fc6a800059398078ff.ctex"
+uid="uid://duyr6kj77pk7i"
+path="res://.godot/imported/clouds.png-2a6ba82f59fd5de793ca90ce9cd0a7d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/skills/time_stop/use/cloud.png"
-dest_files=["res://.godot/imported/cloud.png-88d82204155606fc6a800059398078ff.ctex"]
+source_file="res://game/skills/time_stop/use/clouds.png"
+dest_files=["res://.godot/imported/clouds.png-2a6ba82f59fd5de793ca90ce9cd0a7d9.ctex"]
 
 [params]
 

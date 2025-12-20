@@ -533,6 +533,7 @@ texture = ExtResource("2_e4wmq")
 wait_time = 2.0
 
 [node name="Explosion" type="Node2D" parent="." index="4"]
+physics_interpolation_mode = 2
 
 [node name="Smokes" type="Node2D" parent="Explosion" index="0"]
 modulate = Color(1, 1, 1, 0)

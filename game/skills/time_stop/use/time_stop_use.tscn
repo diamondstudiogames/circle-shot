@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://o8shc4saqaax" path="res://game/skills/time_stop/use/time_stop_distortion.png" id="4_5cywq"]
 [ext_resource type="Texture2D" uid="uid://bn6gr1g17mwx6" path="res://game/skills/time_stop/use/circle.png" id="5_v7akx"]
 [ext_resource type="AudioStream" uid="uid://q5s28sbppbrh" path="res://game/skills/time_stop/use/clock_ticking.wav" id="6_2ml2w"]
-[ext_resource type="Texture2D" uid="uid://csf7rhlt5wedy" path="res://game/skills/time_stop/use/cloud.png" id="7_fwlg7"]
+[ext_resource type="Texture2D" uid="uid://duyr6kj77pk7i" path="res://game/skills/time_stop/use/clouds.png" id="6_fwlg7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txiu0"]
 shader = ExtResource("2_f1txa")
@@ -238,10 +238,10 @@ tracks/9/path = NodePath("ParallaxClouds:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.55),
-"transitions": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.45, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_v7akx"]
@@ -344,6 +344,7 @@ z_index = 9
 script = ExtResource("1_jqo2k")
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+visibility_layer = 4
 copy_mode = 2
 
 [node name="Gray" type="ColorRect" parent="BackBufferCopy"]
@@ -374,74 +375,32 @@ texture = ExtResource("5_v7akx")
 [node name="ParallaxClouds" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 top_level = true
-visibility_layer = 4
 z_index = 9
 repeat_size = Vector2(2560, 1440)
 repeat_times = 2
 
-[node name="Cloud" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(232, 158)
-texture = ExtResource("7_fwlg7")
+[node name="Clouds" type="Sprite2D" parent="ParallaxClouds"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_fwlg7")
+centered = false
 
-[node name="Cloud2" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(652, 349)
-texture = ExtResource("7_fwlg7")
+[node name="Clouds2" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(1280, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("6_fwlg7")
+centered = false
 
-[node name="Cloud3" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(978, 88)
-texture = ExtResource("7_fwlg7")
+[node name="Clouds3" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(0, 720)
+scale = Vector2(2, 2)
+texture = ExtResource("6_fwlg7")
+centered = false
 
-[node name="Cloud4" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1005, 648)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud5" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(201, 783)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud6" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(2218, 1401)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud7" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1788, 257)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud8" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1505, 990)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud9" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(2401, 489)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud10" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(2268, 1054)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud11" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1386, 453)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud12" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(376, 1151)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud13" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1897, 718)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud14" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1773, 1313)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud15" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(1119, 1200)
-texture = ExtResource("7_fwlg7")
-
-[node name="Cloud16" type="Sprite2D" parent="ParallaxClouds"]
-position = Vector2(743, 921)
-texture = ExtResource("7_fwlg7")
+[node name="Clouds4" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(1280, 720)
+scale = Vector2(2, 2)
+texture = ExtResource("6_fwlg7")
+centered = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_2ml2w")
