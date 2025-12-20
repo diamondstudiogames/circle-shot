@@ -12,6 +12,7 @@ func _ready() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property($Grenade/Flame as Node2D, ^":position", Vector2(0.0, -42.0), 1.5)
 	($Explosion as Node2D).rotation = randf_range(-PI, PI)
+	($Explosion/Fire as CanvasItem).modulate = Entity.TEAM_COLORS[team]
 
 
 func _physics_process(delta: float) -> void:

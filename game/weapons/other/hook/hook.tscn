@@ -13,6 +13,7 @@ hook_speed = 2400.0
 attract_speed = 1760.0
 min_distance = 192.0
 min_reset_time = 0.3
+additional_stun_time = 0.3
 ammo_per_load = 0
 ammo_total = 4
 speed_multiplier_when_current = 0.99
@@ -45,7 +46,12 @@ libraries = {
 
 [node name="ReloadTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 9.0
+wait_time = 8.0
+one_shot = true
+
+[node name="FailedReloadTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
 one_shot = true
 
 [node name="AttractTimer" type="Timer" parent="."]
@@ -66,6 +72,7 @@ wait_time = 0.1
 resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtResource("5_xj4w6"), ExtResource("6_uqyeu")]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="FailedReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="AttractTimer" to="." method="_on_attract_timer_timeout"]
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
 [connection signal="timeout" from="SyncPositionTimer" to="." method="_on_sync_position_timer_timeout"]

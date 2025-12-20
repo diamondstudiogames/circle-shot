@@ -67,6 +67,8 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			description += "\nДелитель игроков: [color=red]%d[/color]" % event.players_divider
 			description += "\nКомандное: [color=%s]%s[/color]" % \
 					(["lime_green", "Да"] if event.team_event else ["red", "Нет"])
+			description += "\nБазовое здоровье игрока: [color=red]%d[/color]" \
+					% event.default_player_health
 			description += '\n'
 			description += '\n' + event.description
 			description += '\n'
@@ -81,6 +83,9 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			var challenge: ChallengeData = Globals.items_db.challenges[idx]
 			item_name = challenge.name
 			description = "[center]%s[/center]" % challenge.brief_description
+			description += '\n'
+			description += "\nБазовое здоровье игрока: [color=red]%d[/color]" \
+					% challenge.default_player_health
 			description += '\n'
 			description += '\n' + challenge.description
 			description += '\n'

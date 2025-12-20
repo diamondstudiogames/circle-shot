@@ -29,7 +29,7 @@ texture = ExtResource("2_cx3tc")
 position = Vector2(104, 0)
 
 [node name="ReloadTimer" parent="." index="3"]
-wait_time = 20.0
+wait_time = 22.0
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {

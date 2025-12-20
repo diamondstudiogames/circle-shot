@@ -10,8 +10,10 @@ extends Resource
 @export var name: String
 ## Краткое описание испытания.
 @export var brief_description: String
-## Полное описание события.
+## Полное описание испытания.
 @export_multiline var description: String
+## Здоровье игрока в этом испытании (по умолчанию).
+@export var default_player_health: int = 100
 ## Путь до сцены с испытанием.
 @export_file("PackedScene") var scene_path: String
 ## Путь до картинки-обложки испытания. Разрешение: 784 на 160.

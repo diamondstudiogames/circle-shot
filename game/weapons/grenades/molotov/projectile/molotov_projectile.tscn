@@ -59,7 +59,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Burned1:visible")
+tracks/3/path = NodePath("Burned/Burned1:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -71,7 +71,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Burned0:visible")
+tracks/4/path = NodePath("Burned/Burned0:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -83,7 +83,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Fire1:visible")
+tracks/5/path = NodePath("Fire/Fire1:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -95,7 +95,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Fire0:visible")
+tracks/6/path = NodePath("Fire/Fire0:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -107,7 +107,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Burned1:modulate")
+tracks/7/path = NodePath("Burned/Burned1:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -119,7 +119,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Burned0:modulate")
+tracks/8/path = NodePath("Burned/Burned0:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -131,7 +131,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Fire1:modulate")
+tracks/9/path = NodePath("Fire/Fire1:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -143,7 +143,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Fire0:modulate")
+tracks/10/path = NodePath("Fire/Fire0:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -167,7 +167,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Fire1/Fire:self_modulate")
+tracks/12/path = NodePath("Fire/Fire1/Fire:self_modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -179,7 +179,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Fire1/Fire7:self_modulate")
+tracks/13/path = NodePath("Fire/Fire1/Fire7:self_modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -191,7 +191,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Fire1/Fire10:self_modulate")
+tracks/14/path = NodePath("Fire/Fire1/Fire10:self_modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -203,7 +203,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Fire1/Fire2:self_modulate")
+tracks/15/path = NodePath("Fire/Fire1/Fire2:self_modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -215,7 +215,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Fire1/Fire5:self_modulate")
+tracks/16/path = NodePath("Fire/Fire1/Fire5:self_modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -227,7 +227,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Fire1/Fire3:self_modulate")
+tracks/17/path = NodePath("Fire/Fire1/Fire3:self_modulate")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -239,7 +239,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Fire1/Fire8:self_modulate")
+tracks/18/path = NodePath("Fire/Fire1/Fire8:self_modulate")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -251,7 +251,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Fire0/Fire:self_modulate")
+tracks/19/path = NodePath("Fire/Fire0/Fire:self_modulate")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -263,7 +263,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Fire0/Fire2:self_modulate")
+tracks/20/path = NodePath("Fire/Fire0/Fire2:self_modulate")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -275,7 +275,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Fire0/Fire6:self_modulate")
+tracks/21/path = NodePath("Fire/Fire0/Fire6:self_modulate")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -287,7 +287,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Fire0/Fire3:self_modulate")
+tracks/22/path = NodePath("Fire/Fire0/Fire3:self_modulate")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -388,7 +388,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Burned1:visible")
+tracks/3/path = NodePath("Burned/Burned1:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -400,7 +400,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Burned0:visible")
+tracks/4/path = NodePath("Burned/Burned0:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -412,7 +412,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Fire1:visible")
+tracks/5/path = NodePath("Fire/Fire1:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -424,7 +424,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Fire0:visible")
+tracks/6/path = NodePath("Fire/Fire0:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -436,7 +436,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Burned1:modulate")
+tracks/7/path = NodePath("Burned/Burned1:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -448,7 +448,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Burned0:modulate")
+tracks/8/path = NodePath("Burned/Burned0:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -460,7 +460,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Fire1:modulate")
+tracks/9/path = NodePath("Fire/Fire1:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -472,7 +472,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Fire0:modulate")
+tracks/10/path = NodePath("Fire/Fire0:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -510,7 +510,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Fire1/Fire:self_modulate")
+tracks/13/path = NodePath("Fire/Fire1/Fire:self_modulate")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -522,7 +522,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Fire1/Fire7:self_modulate")
+tracks/14/path = NodePath("Fire/Fire1/Fire7:self_modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -534,7 +534,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Fire1/Fire10:self_modulate")
+tracks/15/path = NodePath("Fire/Fire1/Fire10:self_modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -546,7 +546,7 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Fire1/Fire2:self_modulate")
+tracks/16/path = NodePath("Fire/Fire1/Fire2:self_modulate")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
@@ -558,7 +558,7 @@ tracks/16/keys = {
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Fire1/Fire5:self_modulate")
+tracks/17/path = NodePath("Fire/Fire1/Fire5:self_modulate")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -570,7 +570,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Fire1/Fire3:self_modulate")
+tracks/18/path = NodePath("Fire/Fire1/Fire3:self_modulate")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -582,7 +582,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Fire1/Fire8:self_modulate")
+tracks/19/path = NodePath("Fire/Fire1/Fire8:self_modulate")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -594,7 +594,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Fire0/Fire:self_modulate")
+tracks/20/path = NodePath("Fire/Fire0/Fire:self_modulate")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -606,7 +606,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Fire0/Fire2:self_modulate")
+tracks/21/path = NodePath("Fire/Fire0/Fire2:self_modulate")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -618,7 +618,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Fire0/Fire6:self_modulate")
+tracks/22/path = NodePath("Fire/Fire0/Fire6:self_modulate")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -630,7 +630,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("Fire0/Fire3:self_modulate")
+tracks/23/path = NodePath("Fire/Fire0/Fire3:self_modulate")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -745,87 +745,91 @@ libraries = {
 &"": SubResource("AnimationLibrary_cwnr0")
 }
 
-[node name="Burned1" type="Node2D" parent="Explosion" index="1"]
+[node name="Burned" type="Node2D" parent="Explosion" index="1"]
+
+[node name="Burned1" type="Node2D" parent="Explosion/Burned" index="0"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="BurnedGround5" type="Sprite2D" parent="Explosion/Burned1" index="0"]
+[node name="BurnedGround5" type="Sprite2D" parent="Explosion/Burned/Burned1" index="0"]
 position = Vector2(-524, 5)
 rotation = -1.46575
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround6" type="Sprite2D" parent="Explosion/Burned1" index="1"]
+[node name="BurnedGround6" type="Sprite2D" parent="Explosion/Burned/Burned1" index="1"]
 position = Vector2(-386, -435)
 rotation = 1.58539
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround7" type="Sprite2D" parent="Explosion/Burned1" index="2"]
+[node name="BurnedGround7" type="Sprite2D" parent="Explosion/Burned/Burned1" index="2"]
 position = Vector2(97, -489)
 rotation = -1.95791
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround8" type="Sprite2D" parent="Explosion/Burned1" index="3"]
+[node name="BurnedGround8" type="Sprite2D" parent="Explosion/Burned/Burned1" index="3"]
 position = Vector2(484, -246)
 rotation = 2.23624
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround9" type="Sprite2D" parent="Explosion/Burned1" index="4"]
+[node name="BurnedGround9" type="Sprite2D" parent="Explosion/Burned/Burned1" index="4"]
 position = Vector2(511, 214)
 rotation = -0.718924
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround10" type="Sprite2D" parent="Explosion/Burned1" index="5"]
+[node name="BurnedGround10" type="Sprite2D" parent="Explosion/Burned/Burned1" index="5"]
 position = Vector2(234, 514)
 rotation = 2.66276
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround11" type="Sprite2D" parent="Explosion/Burned1" index="6"]
+[node name="BurnedGround11" type="Sprite2D" parent="Explosion/Burned/Burned1" index="6"]
 position = Vector2(-218, 467)
 rotation = -2.20092
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="Burned0" type="Node2D" parent="Explosion" index="2"]
+[node name="Burned0" type="Node2D" parent="Explosion/Burned" index="1"]
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="BurnedGround" type="Sprite2D" parent="Explosion/Burned0" index="0"]
+[node name="BurnedGround" type="Sprite2D" parent="Explosion/Burned/Burned0" index="0"]
 position = Vector2(-120, -164)
 rotation = 0.960157
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround2" type="Sprite2D" parent="Explosion/Burned0" index="1"]
+[node name="BurnedGround2" type="Sprite2D" parent="Explosion/Burned/Burned0" index="1"]
 position = Vector2(200, -93)
 rotation = 0.55909
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround3" type="Sprite2D" parent="Explosion/Burned0" index="2"]
+[node name="BurnedGround3" type="Sprite2D" parent="Explosion/Burned/Burned0" index="2"]
 position = Vector2(169, 238)
 rotation = -0.510738
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround4" type="Sprite2D" parent="Explosion/Burned0" index="3"]
+[node name="BurnedGround4" type="Sprite2D" parent="Explosion/Burned/Burned0" index="3"]
 position = Vector2(-137, 214)
 rotation = 0.909684
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="Fire1" type="Node2D" parent="Explosion" index="3"]
+[node name="Fire" type="Node2D" parent="Explosion" index="2"]
+
+[node name="Fire1" type="Node2D" parent="Explosion/Fire" index="0"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="Fire" type="Sprite2D" parent="Explosion/Fire1" index="0"]
+[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire1" index="0"]
 self_modulate = Color(1, 1, 1, 0.792157)
 material = ExtResource("8_gwkkj")
 position = Vector2(-531, 8.99999)
@@ -833,7 +837,7 @@ rotation = 1.23123
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire7" type="Sprite2D" parent="Explosion/Fire1" index="1"]
+[node name="Fire7" type="Sprite2D" parent="Explosion/Fire/Fire1" index="1"]
 self_modulate = Color(1, 1, 1, 0.901961)
 material = ExtResource("8_gwkkj")
 position = Vector2(514, 221)
@@ -841,7 +845,7 @@ rotation = 2.22661
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire10" type="Sprite2D" parent="Explosion/Fire1" index="2"]
+[node name="Fire10" type="Sprite2D" parent="Explosion/Fire/Fire1" index="2"]
 self_modulate = Color(1, 1, 1, 0.839216)
 material = ExtResource("8_gwkkj")
 position = Vector2(232, 511)
@@ -849,7 +853,7 @@ rotation = -2.76275
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire2" type="Sprite2D" parent="Explosion/Fire1" index="3"]
+[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire1" index="3"]
 self_modulate = Color(1, 1, 1, 0.882353)
 material = ExtResource("8_gwkkj")
 position = Vector2(-391, -430)
@@ -857,7 +861,7 @@ rotation = 0.307988
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire5" type="Sprite2D" parent="Explosion/Fire1" index="4"]
+[node name="Fire5" type="Sprite2D" parent="Explosion/Fire/Fire1" index="4"]
 self_modulate = Color(1, 1, 1, 0.94902)
 material = ExtResource("8_gwkkj")
 position = Vector2(487, -233)
@@ -865,7 +869,7 @@ rotation = 2.63158
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire3" type="Sprite2D" parent="Explosion/Fire1" index="5"]
+[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire1" index="5"]
 self_modulate = Color(1, 1, 1, 0.905882)
 material = ExtResource("8_gwkkj")
 position = Vector2(92, -512)
@@ -873,7 +877,7 @@ rotation = -2.84862
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire8" type="Sprite2D" parent="Explosion/Fire1" index="6"]
+[node name="Fire8" type="Sprite2D" parent="Explosion/Fire/Fire1" index="6"]
 self_modulate = Color(1, 1, 1, 0.835294)
 material = ExtResource("8_gwkkj")
 position = Vector2(-241, 486)
@@ -881,18 +885,18 @@ rotation = 2.27029
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire0" type="Node2D" parent="Explosion" index="4"]
+[node name="Fire0" type="Node2D" parent="Explosion/Fire" index="1"]
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="Fire" type="Sprite2D" parent="Explosion/Fire0" index="0"]
+[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire0" index="0"]
 material = ExtResource("8_gwkkj")
 position = Vector2(-137, -161)
 rotation = -1.43232
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire2" type="Sprite2D" parent="Explosion/Fire0" index="1"]
+[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire0" index="1"]
 self_modulate = Color(1, 1, 1, 0.729412)
 material = ExtResource("8_gwkkj")
 position = Vector2(202, -74)
@@ -900,7 +904,7 @@ rotation = 2.28808
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire6" type="Sprite2D" parent="Explosion/Fire0" index="2"]
+[node name="Fire6" type="Sprite2D" parent="Explosion/Fire/Fire0" index="2"]
 self_modulate = Color(1, 1, 1, 0.894118)
 material = ExtResource("8_gwkkj")
 position = Vector2(153, 233)
@@ -908,7 +912,7 @@ rotation = -3.12932
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire3" type="Sprite2D" parent="Explosion/Fire0" index="3"]
+[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire0" index="3"]
 self_modulate = Color(1, 1, 1, 0.819608)
 material = ExtResource("8_gwkkj")
 position = Vector2(-164, 196)
@@ -916,7 +920,7 @@ rotation = -0.320615
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Explode" type="Sprite2D" parent="Explosion" index="5"]
+[node name="Explode" type="Sprite2D" parent="Explosion" index="3"]
 visible = false
 material = ExtResource("8_gwkkj")
 texture = ExtResource("9_py4wg")

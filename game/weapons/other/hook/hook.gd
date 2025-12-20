@@ -37,9 +37,10 @@ var _attract_enemy_texture: Texture2D = load("uid://drf8asi0s3yc1")
 @onready var _aim: Line2D = $Aim
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 
-@onready var _ray_cast: RayCast2D = $Visual/Hook/RayCast2D
+@onready var _shape_cast: ShapeCast2D = $Visual/Hook/ShapeCast2D
 @onready var _reset_point: Marker2D = $Visual/ResetPoint
 @onready var _reload_timer: Timer = $ReloadTimer
+@onready var _failed_reload_timer: Timer = $FailedReloadTimer
 @onready var _throw_timer: Timer = $ThrowTimer
 @onready var _attract_timer: Timer = $AttractTimer
 @onready var _sync_position_timer: Timer = $SyncPositionTimer
@@ -54,10 +55,10 @@ func _physics_process(delta: float) -> void:
 	match _state:
 		State.THROW:
 			_hook.global_position += hook_speed * delta * _throw_direction
-			if _ray_cast.is_colliding():
-				var entity := _ray_cast.get_collider() as Entity
+			if _shape_cast.is_colliding():
+				var entity := _shape_cast.get_collider(0) as Entity
 				if entity and entity.team == player.team:
-					_ray_cast.add_exception(entity)
+					_shape_cast.add_exception(entity)
 					return
 				
 				var success := true
@@ -68,8 +69,12 @@ func _physics_process(delta: float) -> void:
 					else:
 						success = false
 				else:
-					_target = null
-					_target_position = _ray_cast.get_collision_point()
+					if entity:
+						_target = entity
+						_target_position = Vector2.INF
+					else:
+						_target = null
+						_target_position = _shape_cast.get_collision_point(0)
 				
 				if is_instance_valid(entity):
 					if entity.global_position.distance_to(player.global_position) <= min_distance:
@@ -85,13 +90,14 @@ func _physics_process(delta: float) -> void:
 					if is_instance_valid(_target):
 						if multiplayer.is_server():
 							_target.add_timeless_effect.rpc(Effect.STUN)
-					else:
+					if not _attracting_enemy:
 						if multiplayer.is_server():
 							player.add_timeless_effect.rpc(Effect.IMMOBILITY)
 				else:
 					_reset_throwing()
 		
 		State.ATTRACT:
+			_hook.rotation = player.global_position.angle_to_point(_hook.global_position)
 			if _attracting_enemy:
 				if is_instance_valid(_target):
 					_target.knockback -= _previous_knockback
@@ -104,13 +110,20 @@ func _physics_process(delta: float) -> void:
 				else:
 					_reset_attraction()
 			else:
+				var target_position: Vector2
+				if is_instance_valid(_target):
+					target_position = _target.global_position
+				else:
+					if not _target_position.is_finite():
+						_reset_attraction()
+						return
+					target_position = _target.global_position
 				player.knockback -= _previous_knockback
 				_previous_knockback = attract_speed \
-							* player.global_position.direction_to(_target_position)
+							* player.global_position.direction_to(target_position)
 				player.knockback += _previous_knockback
-				if player.global_position.distance_to(_target_position) <= min_distance:
+				if player.global_position.distance_to(target_position) <= min_distance:
 					_reset_attraction()
-			_hook.rotation = player.global_position.angle_to_point(_hook.global_position)
 
 
 func _process(_delta: float) -> void:
@@ -165,8 +178,8 @@ func _shoot(direction := Vector2.RIGHT) -> void:
 	_hook.reset_physics_interpolation()
 	_visual.rotation = 0.0
 	
-	_ray_cast.enabled = true
-	_ray_cast.add_exception(player)
+	_shape_cast.enabled = true
+	_shape_cast.add_exception(player)
 	_throw_direction = direction
 	_state = State.THROW
 	_throw_timer.start()
@@ -251,18 +264,21 @@ func _sync_hook_position(pos: Vector2) -> void:
 func _reset_throwing(skip_animation := false) -> void:
 	_throw_timer.stop()
 	await _reset_common(skip_animation)
-	_state = State.IDLE
-	unblock_shooting()
+	_state = State.RELOAD
+	_hook.self_modulate = Color.GRAY
+	if _failed_reload_timer.is_inside_tree():
+		_failed_reload_timer.start()
 
 
 func _reset_attraction(skip_animation := false) -> void:
 	if is_instance_valid(_target):
-		_target.knockback -= _previous_knockback
+		if _attracting_enemy:
+			_target.knockback -= _previous_knockback
 		if multiplayer.is_server():
 			_target.add_effect.rpc(Effect.STUN, additional_stun_time)
 			_target.remove_timeless_effect.rpc(Effect.STUN)
 		_target = null
-	else:
+	if not _attracting_enemy:
 		player.knockback -= _previous_knockback
 		if multiplayer.is_server():
 			player.remove_timeless_effect.rpc(Effect.IMMOBILITY)
@@ -272,14 +288,15 @@ func _reset_attraction(skip_animation := false) -> void:
 	await _reset_common(skip_animation)
 	_state = State.RELOAD
 	_hook.self_modulate = Color.GRAY
-	_reload_timer.start()
+	if _failed_reload_timer.is_inside_tree():
+		_reload_timer.start()
 
 
 func _reset_common(skip_animation: bool) -> void:
 	if multiplayer.is_server():
 		_sync_position_timer.stop()
-	_ray_cast.enabled = false
-	_ray_cast.clear_exceptions()
+	_shape_cast.enabled = false
+	_shape_cast.clear_exceptions()
 	_hook.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	_hook.z_index = 0
 	if not skip_animation:

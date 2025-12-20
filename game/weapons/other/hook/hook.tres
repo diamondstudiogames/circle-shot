@@ -9,18 +9,20 @@ rarity = 3
 id = "hook"
 stats = Dictionary[String, String]({
 "ammo_total": "4",
-"range": "8",
-"reload": "9",
-"stun_time": "1"
+"failed_reload": "2",
+"range": "12",
+"reload": "8",
+"stun_time": "0.3"
 })
 damage_text = "Притягивает врагов/владельца"
 ammo_text = "{ammo_total} исп."
-description = "[color=deep_sky_blue]Притягивает владельца к противникам или противников к владельцу[/color]
+description = "[color=deep_sky_blue]Притягивает владельца к противнику или противника к владельцу[/color]
 Дальность: [color=red]{range} бл.[/color]
 Оглушение после притягивания врага: [color=red]{stun_time} с [/color]
 
 Количество использований: [color=blue]{ammo_total}[/color]
 Перезарядка: [color=blue]{reload} с[/color]
+Перезарядка при промахе: [color=blue]{failed_reload} с[/color]
 
 Отличный способ сократить расстояние между тобой и врагом. Очень хорошо сочетается с оружием ближнего боя."
 scene_path = "uid://bdyfsrdgx0haa"

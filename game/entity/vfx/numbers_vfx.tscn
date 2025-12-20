@@ -7,9 +7,9 @@
 z_index = 1
 material = ExtResource("1_e63f4")
 script = ExtResource("1_obvo0")
-gravity = 320.0
-despawn_time = 0.5
-max_velocity = Vector2(480, 120)
+gravity = 360.0
+despawn_time = 0.6
+max_velocity = Vector2(480, 240)
 
 [node name="Label" type="Label" parent="."]
 use_parent_material = true

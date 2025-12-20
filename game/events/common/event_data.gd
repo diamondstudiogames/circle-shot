@@ -14,6 +14,8 @@ extends Resource
 @export_group("Info")
 ## Полное описание события.
 @export_multiline var description: String
+## Здоровье игрока в этом событии (по умолчанию).
+@export var default_player_health: int = 100
 ## Минимальное число игроков (от 2 до 10).
 @export_range(2, 10, 1) var min_players: int = 2
 ## Максимальное число игроков (от 2 до 10).
