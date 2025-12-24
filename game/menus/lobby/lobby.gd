@@ -400,6 +400,8 @@ func _set_admin(admin: int) -> void:
 		# Просим сервер установить выбранные ранее НАМИ событие и карту
 		request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
 				Globals.get_int("selected_event"), selected_maps[Globals.get_int("selected_event")])
+		_request_set_reject_players.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+				Globals.get_setting_bool("reject_players"))
 	else:
 		(%ClientHint as Label).text = "Начать игру может только админ."
 	
@@ -429,6 +431,18 @@ func _set_environment(event_idx: int, map_idx: int) -> void:
 	
 	print_verbose("Environment set: event index - %d, map index - %d." % [event_idx, map_idx])
 	_update_environment()
+
+
+@rpc("any_peer", "call_local", "reliable", 1)
+func _request_set_reject_players(reject_players: bool) -> void:
+	if not multiplayer.is_server():
+		push_error("Unexpected call on client.")
+		return
+	var sender_id: int = multiplayer.get_remote_sender_id()
+	if sender_id != admin_id:
+		push_warning("Set reject players request rejected: player %d is not admin." % sender_id)
+		return
+	_game.reject_players = reject_players
 
 
 @rpc("call_local", "reliable", "authority", 1)

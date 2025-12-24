@@ -28,14 +28,14 @@ z_index = 10
 material = ExtResource("3_xj4w6")
 position = Vector2(-32, -32)
 points = PackedVector2Array(72, 0, 2048, 0)
-width = 8.0
+width = 48.0
 default_color = Color(1, 1, 1, 0.376471)
 
 [node name="Outline" type="Line2D" parent="Aim"]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(72, 0, 2048, 0)
-width = 12.0
+width = 52.0
 default_color = Color(0, 0, 0, 0.188235)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
