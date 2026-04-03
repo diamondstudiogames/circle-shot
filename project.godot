@@ -16,7 +16,7 @@ general/accessibility_support=2
 
 config/name="Circle Shot"
 config/description="2D Shooter Multiplayer Game"
-config/version="3.0.0"
+config/version="3.0.1"
 run/main_scene="uid://b6r2eoge3orht"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="circle-shot"

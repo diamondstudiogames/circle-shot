@@ -10,7 +10,7 @@ id = "deagle"
 stats = Dictionary[String, String]({
 "ammo_per_load": "7",
 "ammo_total": "28",
-"damage": "25",
+"damage": "24",
 "dps": "44",
 "reload_time": "2.4"
 })
