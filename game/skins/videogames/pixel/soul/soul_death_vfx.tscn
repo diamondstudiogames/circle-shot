@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://duo2qoo3obbl0"]
+[gd_scene format=3 uid="uid://duo2qoo3obbl0"]
 
 [ext_resource type="Texture2D" uid="uid://bmf8p82g2e1n2" path="res://game/skins/videogames/pixel/soul/soul.png" id="1_g7bfw"]
 [ext_resource type="AudioStream" uid="uid://cg8qi7nlu34d4" path="res://game/skins/videogames/pixel/hurt.wav" id="2_phpob"]
@@ -255,27 +255,25 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0.697318, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="SoulDeathVfx" type="Node2D"]
+[node name="SoulDeathVfx" type="Node2D" unique_id=562705190]
 z_index = 1
 texture_filter = 1
 
-[node name="Soul" type="Sprite2D" parent="."]
+[node name="Soul" type="Sprite2D" parent="." unique_id=786342588]
 texture = ExtResource("1_g7bfw")
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." unique_id=890455859]
 max_distance = 2080.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1604606980]
 root_node = NodePath("../Sfx")
-libraries = {
-&"": SubResource("AnimationLibrary_lsdeg")
-}
-autoplay = "death"
+libraries/ = SubResource("AnimationLibrary_lsdeg")
+autoplay = &"death"
 
-[node name="Parts" type="Node2D" parent="."]
+[node name="Parts" type="Node2D" parent="." unique_id=1198082731]
 
-[node name="Particle" type="CPUParticles2D" parent="Parts"]
+[node name="Particle" type="CPUParticles2D" parent="Parts" unique_id=1614277448]
 emitting = false
 amount = 1
 texture = ExtResource("6_sans5")
@@ -290,7 +288,7 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 color_ramp = SubResource("Gradient_7s7n1")
 
-[node name="Particle2" type="CPUParticles2D" parent="Parts"]
+[node name="Particle2" type="CPUParticles2D" parent="Parts" unique_id=827767203]
 emitting = false
 amount = 1
 texture = ExtResource("7_ox7vt")
@@ -305,7 +303,7 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 color_ramp = SubResource("Gradient_lcdaj")
 
-[node name="Particle3" type="CPUParticles2D" parent="Parts"]
+[node name="Particle3" type="CPUParticles2D" parent="Parts" unique_id=320836398]
 emitting = false
 amount = 1
 texture = ExtResource("8_f5yb5")
@@ -320,7 +318,7 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 color_ramp = SubResource("Gradient_rnwys")
 
-[node name="Particle4" type="CPUParticles2D" parent="Parts"]
+[node name="Particle4" type="CPUParticles2D" parent="Parts" unique_id=2087823148]
 emitting = false
 amount = 1
 texture = ExtResource("9_rbyvu")
@@ -335,7 +333,7 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 color_ramp = SubResource("Gradient_h3q4t")
 
-[node name="Particle5" type="CPUParticles2D" parent="Parts"]
+[node name="Particle5" type="CPUParticles2D" parent="Parts" unique_id=655885878]
 emitting = false
 amount = 1
 texture = ExtResource("10_d0j40")
@@ -350,7 +348,7 @@ angular_velocity_min = -360.0
 angular_velocity_max = 360.0
 color_ramp = SubResource("Gradient_mbt4h")
 
-[node name="Particle6" type="CPUParticles2D" parent="Parts"]
+[node name="Particle6" type="CPUParticles2D" parent="Parts" unique_id=749994051]
 emitting = false
 amount = 1
 texture = ExtResource("11_5wsm6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2leb2h0qjtmo"]
+[gd_scene format=3 uid="uid://c2leb2h0qjtmo"]
 
 [ext_resource type="Script" uid="uid://bhvr3p7vj2nb4" path="res://menu/settings/settings.gd" id="1_jwkxy"]
 [ext_resource type="Texture2D" uid="uid://cj0xdsi2q6ea4" path="res://menu/settings/icons/general.png" id="1_n6g3h"]
@@ -26,7 +26,7 @@
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xsh6l"]
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" unique_id=735297435]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +65,7 @@ Forward Mobile - современный метод отрисовки, одна�
 Использовать треки для боя - в меню будут использоваться те же пользовательские треки, что и в бою.
 Использовать отдельные треки - в меню будут использоваться треки, загруженные из отдельной папки. Ограничения по количеству и размеров треков те же, что и у треков для боя."])
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=877726021]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +75,7 @@ grow_vertical = 2
 texture = ExtResource("1_pp8cx")
 stretch_mode = 6
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1048853974]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,31 +89,31 @@ offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1161966900]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=352919455]
 layout_mode = 2
 alignment = 1
 
-[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title" unique_id=2031808698]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title" unique_id=1700475310]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Настройки"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title" unique_id=1384180800]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 icon = ExtResource("3_kafpn")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1539761504]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -121,14 +121,14 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer" unique_id=876366084]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Sections" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Sections" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=316176848]
 layout_mode = 2
 
-[node name="General" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="General" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=645631039]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
@@ -137,11 +137,11 @@ text = "Основное"
 icon = ExtResource("1_n6g3h")
 alignment = 0
 
-[node name="Autofocus" type="Node" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/General"]
+[node name="Autofocus" type="Node" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/General" unique_id=232498717]
 script = ExtResource("5_2lh4n")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Network" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="Network" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=113814372]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_xsh6l")
@@ -149,7 +149,7 @@ text = "Сеть"
 icon = ExtResource("5_ptnea")
 alignment = 0
 
-[node name="Game" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="Game" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=1693319393]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_xsh6l")
@@ -157,7 +157,7 @@ text = "Игра"
 icon = ExtResource("2_wsc6q")
 alignment = 0
 
-[node name="Graphics" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="Graphics" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=402486939]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_xsh6l")
@@ -165,7 +165,7 @@ text = "Графика"
 icon = ExtResource("2_qkcqn")
 alignment = 0
 
-[node name="Sound" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="Sound" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=1109026294]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_xsh6l")
@@ -173,7 +173,7 @@ text = "Звук"
 icon = ExtResource("3_4iv1j")
 alignment = 0
 
-[node name="Controls" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections"]
+[node name="Controls" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections" unique_id=1495180488]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_xsh6l")
@@ -181,14 +181,14 @@ text = "Управление"
 icon = ExtResource("4_bdj5p")
 alignment = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=18998102]
 layout_mode = 2
 size_flags_horizontal = 3
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
-[node name="Sections" type="MarginContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+[node name="Sections" type="MarginContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=1897717531]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,16 +198,16 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="General" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="General" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=1866313167]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 alignment = 1
 
-[node name="CheckUpdates" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="CheckUpdates" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=1293602530]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates" unique_id=1689531811]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -215,26 +215,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Проверять наличие обновлений"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates" unique_id=796520569]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UpdatesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates/Setting"]
+[node name="UpdatesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates/Setting" unique_id=911098741]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckUpdates/Setting" unique_id=1229385955]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CheckBetas" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="CheckBetas" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=886442367]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas" unique_id=319090706]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -242,26 +242,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Проверять наличие бета-версий"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas" unique_id=2018505073]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BetasCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas/Setting"]
+[node name="BetasCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas/Setting" unique_id=1516703802]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckBetas/Setting" unique_id=791434494]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CheckPatches" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="CheckPatches" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=412500611]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches" unique_id=998216019]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -269,86 +269,86 @@ theme_type_variation = &"HeaderSmall"
 text = "Проверять и загружать патчи"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches" unique_id=486613061]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PatchesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches/Setting"]
+[node name="PatchesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches/Setting" unique_id=383525081]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/CheckPatches/Setting" unique_id=1532550672]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="ClearPatches" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="ClearPatches" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=582744997]
 layout_mode = 2
 alignment = 1
 
-[node name="ClearPatches" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches"]
+[node name="ClearPatches" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches" unique_id=1211275625]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Удалить загруженные патчи"
 icon = ExtResource("12_g4yas")
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/ClearPatches" unique_id=1507241474]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="Actions" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="Actions" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=717459699]
 layout_mode = 2
 alignment = 1
 
-[node name="RestartGame" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions"]
+[node name="RestartGame" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions" unique_id=1639886722]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Перезапустить игру"
 icon = ExtResource("10_260xk")
 
-[node name="ChangeName" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions"]
+[node name="ChangeName" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions" unique_id=170926885]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Сменить имя"
 icon = ExtResource("9_0iguj")
 
-[node name="ManageSave" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions"]
+[node name="ManageSave" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions" unique_id=1650870894]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Управление сохранением"
 icon = ExtResource("13_5fghj")
 
-[node name="Actions2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General"]
+[node name="Actions2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General" unique_id=386407457]
 layout_mode = 2
 alignment = 1
 
-[node name="ResetControlSettings" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2"]
+[node name="ResetControlSettings" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2" unique_id=1159361556]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Сбросить настройки управления"
 icon = ExtResource("10_kedwe")
 
-[node name="ResetSettings" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2"]
+[node name="ResetSettings" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/General/Actions2" unique_id=1778866687]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Сбросить все настройки"
 icon = ExtResource("11_d7m0t")
 
-[node name="Network" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="Network" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=1663341234]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Broadcast" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network"]
+[node name="Broadcast" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network" unique_id=535286903]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast" unique_id=76945120]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -356,25 +356,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Показывать комнату в сети"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast" unique_id=30376287]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BroadcastCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast/Setting"]
+[node name="BroadcastCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast/Setting" unique_id=2127805704]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/Broadcast/Setting" unique_id=1485745938]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="RejectPlayers" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network"]
+[node name="RejectPlayers" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network" unique_id=1328919077]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers" unique_id=1030069041]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -382,25 +382,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Строгий максимум игроков"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers" unique_id=1990486717]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RejectPlayersCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers/Setting"]
+[node name="RejectPlayersCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers/Setting" unique_id=130880460]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/RejectPlayers/Setting" unique_id=570543150]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="UPNP" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network"]
+[node name="UPNP" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network" unique_id=412937081]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP" unique_id=1555141213]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -408,48 +408,48 @@ theme_type_variation = &"HeaderSmall"
 text = "Открытие портов через UPnP"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP" unique_id=42303173]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="UPNPCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP/Setting"]
+[node name="UPNPCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP/Setting" unique_id=967436365]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNP/Setting" unique_id=1972669499]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="UPNPStatus" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network"]
+[node name="UPNPStatus" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network" unique_id=1505155191]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNPStatus"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNPStatus" unique_id=243349667]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Статус UPnP:"
 vertical_alignment = 1
 
-[node name="UPNPStatus" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNPStatus"]
+[node name="UPNPStatus" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Network/UPNPStatus" unique_id=68210272]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 vertical_alignment = 1
 
-[node name="Game" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="Game" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=1203039052]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShowMinimap" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="ShowMinimap" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=876728928]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap" unique_id=607365624]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -457,25 +457,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Отображать мини-карту"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap" unique_id=1679584293]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShowMinimapCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap/Setting"]
+[node name="ShowMinimapCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap/Setting" unique_id=2090805034]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap/Setting" unique_id=186086974]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="ShowDebug" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="ShowDebug" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=59975831]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug" unique_id=1949963143]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -483,26 +483,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Отображать FPS и пинг"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug" unique_id=1736479462]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ShowDebugCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug/Setting"]
+[node name="ShowDebugCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug/Setting" unique_id=808393777]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug/Setting" unique_id=1849360486]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="ChatInGame" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="ChatInGame" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=1618476353]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame" unique_id=1293888070]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -510,26 +510,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Чат в бою"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame" unique_id=811622888]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ChatInGameCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting"]
+[node name="ChatInGameCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting" unique_id=7250200]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting" unique_id=1470209450]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="Vibration" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="Vibration" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=757134583]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration" unique_id=713747369]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -537,25 +537,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Вибрация"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration" unique_id=402257452]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VibrationCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting"]
+[node name="VibrationCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting" unique_id=660665465]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting" unique_id=587269994]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="DodgeDirection" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="DodgeDirection" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=1067169086]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection" unique_id=1773498626]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -563,11 +563,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Направление переката"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection" unique_id=870568265]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DodgeOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection/Setting"]
+[node name="DodgeOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection/Setting" unique_id=1045153293]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -578,16 +578,16 @@ popup/item_0/id = 0
 popup/item_1/text = "Прицел"
 popup/item_1/id = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection/Setting" unique_id=1043935443]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="Advices" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game"]
+[node name="Advices" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game" unique_id=1522798636]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices" unique_id=397103865]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -595,31 +595,31 @@ theme_type_variation = &"HeaderSmall"
 text = "Отображать советы"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices" unique_id=621564017]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AdvicesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices/Setting"]
+[node name="AdvicesCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices/Setting" unique_id=748533693]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Advices/Setting" unique_id=297460572]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="Graphics" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="Graphics" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=221533441]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics"]
+[node name="Fullscreen" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics" unique_id=1577323733]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen" unique_id=1638940801]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -627,26 +627,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Полный экран"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen" unique_id=531179977]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FullscreenCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen/Setting"]
+[node name="FullscreenCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen/Setting" unique_id=1631033657]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/Fullscreen/Setting" unique_id=1789077223]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="MaxFPS" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics"]
+[node name="MaxFPS" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics" unique_id=1351176701]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS" unique_id=415115727]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -654,11 +654,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Ограничение FPS"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS" unique_id=1249200318]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FPSSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting"]
+[node name="FPSSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting" unique_id=1886008158]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -670,7 +670,7 @@ step = 10.0
 value = 130.0
 allow_lesser = true
 
-[node name="FPSValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting"]
+[node name="FPSValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting" unique_id=1275066154]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
@@ -680,16 +680,16 @@ text = "Нет"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/MaxFPS/Setting" unique_id=219285496]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="LowGraphics" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics"]
+[node name="LowGraphics" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics" unique_id=87800075]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics" unique_id=1652982007]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -697,25 +697,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Упрощённая графика"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics" unique_id=1195837791]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LowGraphicsCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics/Setting"]
+[node name="LowGraphicsCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics/Setting" unique_id=1550881501]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/LowGraphics/Setting" unique_id=239113676]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="PreferredRenderer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics"]
+[node name="PreferredRenderer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics" unique_id=1153841801]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer" unique_id=309696809]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -723,11 +723,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Метод отрисовки"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer" unique_id=924050849]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RendererOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer/Setting"]
+[node name="RendererOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer/Setting" unique_id=1748129591]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -738,27 +738,27 @@ popup/item_0/id = 0
 popup/item_1/text = "Forward Mobile"
 popup/item_1/id = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics/PreferredRenderer/Setting" unique_id=1300514064]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CurrentRenderer" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics"]
+[node name="CurrentRenderer" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Graphics" unique_id=477230708]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 
-[node name="Sound" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="Sound" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=116801049]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MasterVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound"]
+[node name="MasterVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound" unique_id=136986703]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume" unique_id=1906049917]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -766,11 +766,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Общая громкость"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume" unique_id=387444044]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MasterVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume/Setting"]
+[node name="MasterVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume/Setting" unique_id=1131033114]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -780,17 +780,17 @@ max_value = 1.0
 step = 0.01
 value = 0.78
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MasterVolume/Setting" unique_id=1091690944]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="MusicVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound"]
+[node name="MusicVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound" unique_id=517508708]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume" unique_id=1443035563]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -798,11 +798,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Громкость музыки"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume" unique_id=1093092769]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MusicVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume/Setting"]
+[node name="MusicVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume/Setting" unique_id=1383533520]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -812,17 +812,17 @@ max_value = 1.0
 step = 0.01
 value = 0.78
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/MusicVolume/Setting" unique_id=1643824462]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="SFXVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound"]
+[node name="SFXVolume" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound" unique_id=1240355729]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume" unique_id=655768008]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -830,11 +830,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Громкость звуков"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume" unique_id=461059826]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SFXVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume/Setting"]
+[node name="SFXVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume/Setting" unique_id=1467976781]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -844,17 +844,17 @@ max_value = 1.0
 step = 0.01
 value = 0.78
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/SFXVolume/Setting" unique_id=1729915059]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CustomTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound"]
+[node name="CustomTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound" unique_id=1138539965]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks" unique_id=1405182078]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -862,29 +862,29 @@ theme_type_variation = &"HeaderSmall"
 text = "Пользовательские треки"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks" unique_id=764329028]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CustomTracksCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks/Setting"]
+[node name="CustomTracksCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks/Setting" unique_id=2060292589]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracks/Setting" unique_id=140855117]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CustomTracksSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound"]
+[node name="CustomTracksSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound" unique_id=1382988394]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="OfficialTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="OfficialTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=891530655]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks" unique_id=1975315385]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -892,25 +892,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Официальные треки"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks" unique_id=1796027740]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OfficialTracksCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks/Setting"]
+[node name="OfficialTracksCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks/Setting" unique_id=1722494263]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/OfficialTracks/Setting" unique_id=251591037]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CustomMenuTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="CustomMenuTracks" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=1688728919]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks" unique_id=1043029946]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -918,11 +918,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Пользовательские треки в меню"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks" unique_id=38210151]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MenuTracksOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks/Setting"]
+[node name="MenuTracksOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks/Setting" unique_id=749479816]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -935,13 +935,13 @@ popup/item_1/id = 1
 popup/item_2/text = "Использовать отдельные треки"
 popup/item_2/id = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/CustomMenuTracks/Setting" unique_id=718280264]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="CustomTracksPath" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="CustomTracksPath" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=1094819249]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
@@ -949,33 +949,33 @@ theme_type_variation = &"HeaderSmall"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LoadedTracksLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="LoadedTracksLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=774988666]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Загруженные треки"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=1517515413]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="LoadedTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/PanelContainer"]
+[node name="LoadedTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/PanelContainer" unique_id=81020992]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Empty" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/PanelContainer/LoadedTracks"]
+[node name="Empty" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/PanelContainer/LoadedTracks" unique_id=2135065773]
 layout_mode = 2
 text = "Нет треков"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MenuTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings"]
+[node name="MenuTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings" unique_id=201551352]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="MenuTracksPath" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks"]
+[node name="MenuTracksPath" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks" unique_id=1407372707]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
@@ -983,36 +983,36 @@ theme_type_variation = &"HeaderSmall"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LoadedTracksLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks"]
+[node name="LoadedTracksLabel" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks" unique_id=775792770]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Загруженные треки для меню"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks" unique_id=1371679299]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="LoadedMenuTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks/PanelContainer"]
+[node name="LoadedMenuTracks" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks/PanelContainer" unique_id=179592366]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Empty" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks/PanelContainer/LoadedMenuTracks"]
+[node name="Empty" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Sound/CustomTracksSettings/MenuTracks/PanelContainer/LoadedMenuTracks" unique_id=1862427869]
 layout_mode = 2
 text = "Нет треков"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Controls" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections"]
+[node name="Controls" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections" unique_id=2006165975]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputMethod" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+[node name="InputMethod" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls" unique_id=631945256]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod" unique_id=1219782859]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1020,11 +1020,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Тип управления"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod" unique_id=297821193]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting"]
+[node name="InputOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting" unique_id=1615927279]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1039,20 +1039,20 @@ popup/item_2/id = 2
 popup/item_3/text = "Автоматически"
 popup/item_3/id = 3
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/InputMethod/Setting" unique_id=1473354691]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="KeyboardSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+[node name="KeyboardSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls" unique_id=323161826]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="FollowMouse" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings"]
+[node name="FollowMouse" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings" unique_id=43844034]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse" unique_id=342513743]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1060,25 +1060,25 @@ theme_type_variation = &"HeaderSmall"
 text = "Следить прицелом за мышью"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse" unique_id=727923441]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FollowMouseCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse/Setting"]
+[node name="FollowMouseCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse/Setting" unique_id=32829825]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/FollowMouse/Setting" unique_id=547761641]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="AlwaysShowAim" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings"]
+[node name="AlwaysShowAim" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings" unique_id=356586492]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim" unique_id=2121453645]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1086,26 +1086,26 @@ theme_type_variation = &"HeaderSmall"
 text = "Всегда показывать прицел"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim" unique_id=1052488323]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AlwaysAimCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim/Setting"]
+[node name="AlwaysAimCheck" type="CheckButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim/Setting" unique_id=555474897]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/AlwaysShowAim/Setting" unique_id=1522262263]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="SneakMultiplier" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings"]
+[node name="SneakMultiplier" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings" unique_id=1439969278]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier" unique_id=1732779791]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1113,11 +1113,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Скорость крадущегося игрока"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier" unique_id=2099374874]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SneakSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting"]
+[node name="SneakSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting" unique_id=1446809362]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1129,7 +1129,7 @@ step = 0.01
 value = 0.2
 allow_lesser = true
 
-[node name="SneakValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting"]
+[node name="SneakValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting" unique_id=1628878576]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
@@ -1139,25 +1139,25 @@ text = "x0.20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/SneakMultiplier/Setting" unique_id=980373496]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="Aim" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings"]
+[node name="Aim" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings" unique_id=385556027]
 layout_mode = 2
 
-[node name="Settings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim"]
+[node name="Settings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim" unique_id=1838120570]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="AimDeadzone" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings"]
+[node name="AimDeadzone" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings" unique_id=41361625]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone" unique_id=2029188427]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1165,11 +1165,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Размер мёртвой зоны прицела"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone" unique_id=906628459]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AimDZoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone/Setting"]
+[node name="AimDZoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone/Setting" unique_id=253908842]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1181,16 +1181,16 @@ step = 0.001
 value = 0.1
 allow_lesser = true
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimDeadzone/Setting" unique_id=1808324948]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="AimZone" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings"]
+[node name="AimZone" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings" unique_id=779662709]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone" unique_id=741075197]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1198,11 +1198,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Размер зоны прицеливания"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone" unique_id=338466718]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AimZoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone/Setting"]
+[node name="AimZoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone/Setting" unique_id=146555184]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1213,33 +1213,33 @@ max_value = 0.7
 step = 0.001
 value = 0.5
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim/Settings/AimZone/Setting" unique_id=1524257946]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="AimVisual" type="ColorRect" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim"]
+[node name="AimVisual" type="ColorRect" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings/Aim" unique_id=1079250307]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="ConfigureActions" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings"]
+[node name="ConfigureActions" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/KeyboardSettings" unique_id=1031131316]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Настроить действия..."
 icon = ExtResource("14_wy2dx")
 
-[node name="TouchSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+[node name="TouchSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls" unique_id=135167503]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="FireMode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings"]
+[node name="FireMode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings" unique_id=1970409348]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode" unique_id=118367622]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1247,11 +1247,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Стрелять с помощью"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode" unique_id=755876113]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FireModeOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode/Setting"]
+[node name="FireModeOptions" type="OptionButton" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode/Setting" unique_id=1262825399]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1262,16 +1262,16 @@ popup/item_0/id = 0
 popup/item_1/text = "Джойстика прицеливания"
 popup/item_1/id = 0
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/FireMode/Setting" unique_id=1971669352]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="JoysticksAlpha" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings"]
+[node name="JoysticksAlpha" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings" unique_id=576356400]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha" unique_id=931135425]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1279,11 +1279,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Непрозрачность джойстиков"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha" unique_id=1452168194]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="JoysticksAlphaSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting"]
+[node name="JoysticksAlphaSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting" unique_id=1163002234]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1293,7 +1293,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="AlphaValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting"]
+[node name="AlphaValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting" unique_id=1507708880]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
@@ -1303,27 +1303,27 @@ text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings/JoysticksAlpha/Setting" unique_id=1278994704]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="ConfigureControls" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings"]
+[node name="ConfigureControls" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/TouchSettings" unique_id=1756309086]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Настроить управление..."
 icon = ExtResource("14_wy2dx")
 
-[node name="ControllerSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+[node name="ControllerSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls" unique_id=37387580]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Deadzone" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+[node name="Deadzone" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings" unique_id=1355820618]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone" unique_id=645746012]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1331,11 +1331,11 @@ theme_type_variation = &"HeaderSmall"
 text = "Мёртвая зона джойстиков"
 vertical_alignment = 1
 
-[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone"]
+[node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone" unique_id=614659144]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeadzoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+[node name="DeadzoneSlider" type="HSlider" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting" unique_id=652678098]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1346,7 +1346,7 @@ max_value = 0.5
 step = 0.01
 value = 0.10000000000582077
 
-[node name="DeadzoneValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+[node name="DeadzoneValue" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting" unique_id=1524443643]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
@@ -1356,48 +1356,48 @@ text = "0.10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting"]
+[node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings/Deadzone/Setting" unique_id=1586712343]
 visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
 expand_icon = true
 
-[node name="ConfigureActions" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+[node name="ConfigureActions" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings" unique_id=771579762]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Настроить действия..."
 icon = ExtResource("14_wy2dx")
 
-[node name="ConnectedJoypads" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings"]
+[node name="ConnectedJoypads" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/ControllerSettings" unique_id=1808514134]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 horizontal_alignment = 1
 
-[node name="AutoSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls"]
+[node name="AutoSettings" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls" unique_id=1979539495]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InputMethod" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings"]
+[node name="InputMethod" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings" unique_id=666999012]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 horizontal_alignment = 1
 
-[node name="Info" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings"]
+[node name="Info" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Controls/AutoSettings" unique_id=1482054022]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Чтобы изменить настройки, выбери нужный тип управления"
 horizontal_alignment = 1
 
-[node name="HelpDialog" type="AcceptDialog" parent="."]
+[node name="HelpDialog" type="AcceptDialog" parent="." unique_id=1974698453]
 title = "Помощь по настройке"
 size = Vector2i(800, 120)
 unresizable = true
 dialog_autowrap = true
 
-[node name="ResetSettingsDialog" type="ConfirmationDialog" parent="."]
+[node name="ResetSettingsDialog" type="ConfirmationDialog" parent="." unique_id=123873409]
 title = "Сброс настроек"
 size = Vector2i(705, 112)
 unresizable = true
@@ -1405,7 +1405,7 @@ ok_button_text = "Сбросить"
 dialog_text = "Ты действительно хочешь вернуть все настройки к значениям по умолчанию?"
 cancel_button_text = "Отмена"
 
-[node name="ResetControlsDialog" type="ConfirmationDialog" parent="."]
+[node name="ResetControlsDialog" type="ConfirmationDialog" parent="." unique_id=865759192]
 title = "Сброс настроек управления"
 size = Vector2i(705, 112)
 unresizable = true
@@ -1413,7 +1413,7 @@ ok_button_text = "Сбросить"
 dialog_text = "Ты действительно хочешь вернуть настройки управления к значениям по умолчанию?"
 cancel_button_text = "Отмена"
 
-[node name="NameDialog" parent="." instance=ExtResource("14_eq4mb")]
+[node name="NameDialog" parent="." unique_id=2071928166 instance=ExtResource("14_eq4mb")]
 title = "Смена имени"
 visible = false
 
@@ -1423,7 +1423,7 @@ placeholder_text = "Новое имя..."
 [node name="Confirm" parent="NameDialog/MarginContainer/VBoxContainer" index="2"]
 text = "Сменить"
 
-[node name="ManageSaveDialog" type="Window" parent="."]
+[node name="ManageSaveDialog" type="Window" parent="." unique_id=378327502]
 oversampling_override = 1.0
 title = "Управление сохранением"
 position = Vector2i(0, 28)
@@ -1434,9 +1434,9 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Dialogs" type="Node" parent="ManageSaveDialog"]
+[node name="Dialogs" type="Node" parent="ManageSaveDialog" unique_id=2099423085]
 
-[node name="ExportFileDialog" type="FileDialog" parent="ManageSaveDialog/Dialogs"]
+[node name="ExportFileDialog" type="FileDialog" parent="ManageSaveDialog/Dialogs" unique_id=1990092088]
 oversampling_override = 1.0
 title = "Экспортировать сохранение"
 size = Vector2i(1024, 560)
@@ -1450,7 +1450,7 @@ use_native_dialog = true
 favorites_enabled = false
 recent_list_enabled = false
 
-[node name="ImportFileDialog" type="FileDialog" parent="ManageSaveDialog/Dialogs"]
+[node name="ImportFileDialog" type="FileDialog" parent="ManageSaveDialog/Dialogs" unique_id=1212601350]
 oversampling_override = 1.0
 title = "Импортировать сохранение"
 size = Vector2i(1024, 560)
@@ -1465,19 +1465,19 @@ use_native_dialog = true
 favorites_enabled = false
 recent_list_enabled = false
 
-[node name="InfoDialog" type="AcceptDialog" parent="ManageSaveDialog/Dialogs"]
+[node name="InfoDialog" type="AcceptDialog" parent="ManageSaveDialog/Dialogs" unique_id=1661942244]
 oversampling_override = 1.0
 size = Vector2i(119, 112)
 unresizable = true
 
-[node name="ImportConfirmDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs"]
+[node name="ImportConfirmDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs" unique_id=292701645]
 oversampling_override = 1.0
 title = "Импортирование сохранения"
 size = Vector2i(322, 112)
 ok_button_text = "Импортировать"
 cancel_button_text = "Отмена"
 
-[node name="EraseDataDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs"]
+[node name="EraseDataDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs" unique_id=892745753]
 title = "Удаление всех данных"
 size = Vector2i(913, 190)
 unresizable = true
@@ -1488,71 +1488,64 @@ dialog_text = "Удалить все данные игры?
 В случае утвердительного ответа игра будет перезапущена."
 cancel_button_text = "Отмена"
 
-[node name="AndroidInfoDialog" type="ConfirmationDialog" parent="ManageSaveDialog/Dialogs"]
-oversampling_override = 1.0
-title = "Информация"
-size = Vector2i(322, 112)
-ok_button_text = "Импортировать"
-cancel_button_text = "Отмена"
-
-[node name="Background" type="ColorRect" parent="ManageSaveDialog"]
+[node name="Background" type="ColorRect" parent="ManageSaveDialog" unique_id=1112055798]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ManageSaveDialog"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ManageSaveDialog" unique_id=274473411]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveInfo" type="VBoxContainer" parent="ManageSaveDialog/VBoxContainer"]
+[node name="SaveInfo" type="VBoxContainer" parent="ManageSaveDialog/VBoxContainer" unique_id=1561027158]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Name" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo"]
+[node name="Name" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo" unique_id=1096652025]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_type_variation = &"HeaderSmall"
 
-[node name="SaveId" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo"]
+[node name="SaveId" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo" unique_id=470083316]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PlayedTime" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo"]
+[node name="PlayedTime" type="Label" parent="ManageSaveDialog/VBoxContainer/SaveInfo" unique_id=729351357]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Actions" type="HBoxContainer" parent="ManageSaveDialog/VBoxContainer"]
+[node name="Actions" type="HBoxContainer" parent="ManageSaveDialog/VBoxContainer" unique_id=685667844]
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="Export" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
+[node name="Export" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions" unique_id=752403914]
 layout_mode = 2
 text = "Экспортировать"
 icon = ExtResource("12_vwloa")
 
-[node name="Import" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions"]
+[node name="Import" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions" unique_id=817198555]
 layout_mode = 2
 text = "Импортировать"
 icon = ExtResource("13_nyjt0")
 
-[node name="Actions2" type="HBoxContainer" parent="ManageSaveDialog/VBoxContainer"]
+[node name="Actions2" type="HBoxContainer" parent="ManageSaveDialog/VBoxContainer" unique_id=1750751499]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CopySaveId" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
+[node name="CopySaveId" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2" unique_id=1613052868]
 layout_mode = 2
 text = "Копировать ID сохранения"
 icon = ExtResource("19_2lh4n")
 
-[node name="DeleteData" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2"]
+[node name="DeleteData" type="Button" parent="ManageSaveDialog/VBoxContainer/Actions2" unique_id=298711150]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -1564,15 +1557,15 @@ theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 text = "Удалить все данные"
 icon = ExtResource("12_g4yas")
 
-[node name="AutofocusWindow" type="Node" parent="ManageSaveDialog"]
+[node name="AutofocusWindow" type="Node" parent="ManageSaveDialog" unique_id=96235753]
 script = ExtResource("23_f6ahd")
 focus_target = NodePath("../VBoxContainer/Actions2/CopySaveId")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[node name="ActionsConfiguration" parent="." instance_placeholder="res://menu/settings/actions_configuration.tscn"]
+[node name="ActionsConfiguration" parent="." unique_id=1479032376 instance_placeholder="res://menu/settings/actions_configuration.tscn"]
 visible = false
 
-[node name="UpdateInputMethodsTimer" type="Timer" parent="."]
+[node name="UpdateInputMethodsTimer" type="Timer" parent="." unique_id=394531341]
 autostart = true
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Title/Quit" to="." method="_on_quit_pressed"]
@@ -1656,7 +1649,6 @@ autostart = true
 [connection signal="file_selected" from="ManageSaveDialog/Dialogs/ImportFileDialog" to="." method="_on_import_file_dialog_file_selected"]
 [connection signal="confirmed" from="ManageSaveDialog/Dialogs/ImportConfirmDialog" to="." method="_on_import_confirm_dialog_confirmed"]
 [connection signal="confirmed" from="ManageSaveDialog/Dialogs/EraseDataDialog" to="." method="_on_reset_data_dialog_confirmed"]
-[connection signal="confirmed" from="ManageSaveDialog/Dialogs/AndroidInfoDialog" to="." method="_on_android_info_dialog_confirmed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/Export" to="." method="_on_export_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/Import" to="." method="_on_import_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/CopySaveId" to="." method="_on_copy_save_id_pressed"]

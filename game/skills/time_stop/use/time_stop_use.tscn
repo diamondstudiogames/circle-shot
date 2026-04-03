@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bquhtboou21kv"]
+[gd_scene format=3 uid="uid://bquhtboou21kv"]
 
 [ext_resource type="Script" uid="uid://cbh6hltsi7geu" path="res://game/skills/time_stop/use/time_stop_use.gd" id="1_jqo2k"]
 [ext_resource type="Shader" uid="uid://ckhd0fkc4skop" path="res://game/skills/time_stop/use/screen_grayscale.gdshader" id="2_f1txa"]
@@ -338,16 +338,16 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
 
-[node name="TimeStopUse" type="Node2D"]
+[node name="TimeStopUse" type="Node2D" unique_id=1857609943]
 process_mode = 1
 z_index = 9
 script = ExtResource("1_jqo2k")
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=898296394]
 visibility_layer = 4
 copy_mode = 2
 
-[node name="Gray" type="ColorRect" parent="BackBufferCopy"]
+[node name="Gray" type="ColorRect" parent="BackBufferCopy" unique_id=1815299218]
 visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 material = SubResource("ShaderMaterial_txiu0")
@@ -365,62 +365,60 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Invert" type="Sprite2D" parent="BackBufferCopy"]
+[node name="Invert" type="Sprite2D" parent="BackBufferCopy" unique_id=1481948827]
 z_index = 1
 material = SubResource("ShaderMaterial_q5hdi")
 instance_shader_parameters/screen_zoom = 2.0
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("5_v7akx")
 
-[node name="ParallaxClouds" type="Parallax2D" parent="."]
+[node name="ParallaxClouds" type="Parallax2D" parent="." unique_id=700201762]
 modulate = Color(1, 1, 1, 0)
 top_level = true
 z_index = 9
 repeat_size = Vector2(2560, 1440)
 repeat_times = 2
 
-[node name="Clouds" type="Sprite2D" parent="ParallaxClouds"]
+[node name="Clouds" type="Sprite2D" parent="ParallaxClouds" unique_id=1037659138]
 scale = Vector2(2, 2)
 texture = ExtResource("6_fwlg7")
 centered = false
 
-[node name="Clouds2" type="Sprite2D" parent="ParallaxClouds"]
+[node name="Clouds2" type="Sprite2D" parent="ParallaxClouds" unique_id=1358027145]
 position = Vector2(1280, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("6_fwlg7")
 centered = false
 
-[node name="Clouds3" type="Sprite2D" parent="ParallaxClouds"]
+[node name="Clouds3" type="Sprite2D" parent="ParallaxClouds" unique_id=1910504371]
 position = Vector2(0, 720)
 scale = Vector2(2, 2)
 texture = ExtResource("6_fwlg7")
 centered = false
 
-[node name="Clouds4" type="Sprite2D" parent="ParallaxClouds"]
+[node name="Clouds4" type="Sprite2D" parent="ParallaxClouds" unique_id=1492943939]
 position = Vector2(1280, 720)
 scale = Vector2(2, 2)
 texture = ExtResource("6_fwlg7")
 centered = false
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1810078850]
 stream = ExtResource("6_2ml2w")
 pitch_scale = 2.0
 max_distance = 20000.0
 attenuation = 0.5
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_4rex0")
-}
-autoplay = "time_stop"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019625276]
+libraries/ = SubResource("AnimationLibrary_4rex0")
+autoplay = &"time_stop"
 
-[node name="DurationTimer" type="Timer" parent="."]
+[node name="DurationTimer" type="Timer" parent="." unique_id=2080530299]
 process_callback = 0
 wait_time = 2.0
 one_shot = true
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=56476026]
 replication_config = SubResource("SceneReplicationConfig_mma4c")
 
 [connection signal="timeout" from="DurationTimer" to="AnimationPlayer" method="play" binds= [&"time_stop_end"]]

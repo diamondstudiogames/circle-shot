@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tpvpkv3eid7i"]
+[gd_scene format=3 uid="uid://tpvpkv3eid7i"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_av5tx"]
 [ext_resource type="Script" uid="uid://7xncka5pgh3i" path="res://game/weapons/guns/rifles/i_need_more_bullets/i_need_more_bullets.gd" id="2_a8qdj"]
@@ -27,7 +27,7 @@ _data = [Vector2(0, -8), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Ve
 point_count = 3
 metadata/_snap_enabled = true
 
-[node name="INeedMoreBullets" instance=ExtResource("1_av5tx")]
+[node name="INeedMoreBullets" unique_id=759244474 instance=ExtResource("1_av5tx")]
 script = ExtResource("2_a8qdj")
 single_shoot_interval = 0.9
 single_ammo_per_shot = 4
@@ -48,33 +48,31 @@ ammo_total = 120
 speed_multiplier_when_current = 0.96
 aim_camera_distance = 240.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("5_fm2ea")]
+[node name="Visual" parent="." index="0" unique_id=1722454834 instance=ExtResource("5_fm2ea")]
 
 [node name="ShootPoint" parent="." index="1"]
 position = Vector2(236, -34)
 
 [node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("6_71kn8")
-}
+libraries/ = ExtResource("6_71kn8")
 
-[node name="ShootingTimer" type="Timer" parent="." index="3"]
+[node name="ShootingTimer" type="Timer" parent="." index="3" unique_id=1100327772]
 process_callback = 0
 one_shot = true
 
-[node name="SwitchSfx" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="SwitchSfx" type="AudioStreamPlayer2D" parent="." index="4" unique_id=1608423401]
 stream = ExtResource("8_g15ve")
 max_distance = 1600.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="SwitchSingleSfx" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="SwitchSingleSfx" type="AudioStreamPlayer2D" parent="." index="5" unique_id=2071264901]
 stream = ExtResource("8_2rkf8")
 max_distance = 1600.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="ShootingSfx" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="ShootingSfx" type="AudioStreamPlayer2D" parent="." index="6" unique_id=79622706]
 stream = ExtResource("13_sudsl")
 max_distance = 2560.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
 [connection signal="timeout" from="ShootingTimer" to="ShootingSfx" method="stop"]

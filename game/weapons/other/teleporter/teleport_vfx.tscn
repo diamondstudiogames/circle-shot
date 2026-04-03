@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2p44r4a1hf7"]
+[gd_scene format=3 uid="uid://2p44r4a1hf7"]
 
 [ext_resource type="AudioStream" uid="uid://b2ynpfbj32tyc" path="res://game/weapons/other/teleporter/visual/teleport.wav" id="1_wx1d4"]
 
@@ -13,9 +13,10 @@ colors = PackedColorArray(1, 1, 1, 1, 0.929412, 0.929412, 0.929412, 0.678431, 0.
 [sub_resource type="Gradient" id="Gradient_3ex3y"]
 colors = PackedColorArray(1, 1, 1, 1, 0.682434, 1, 0.664062, 1)
 
-[node name="TeleportVfx" type="Node2D"]
+[node name="TeleportVfx" type="Node2D" unique_id=1881245596]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=474975304]
+emitting = false
 amount = 80
 one_shot = true
 explosiveness = 1.0
@@ -34,16 +35,16 @@ scale_amount_curve = SubResource("Curve_0hlmb")
 color_ramp = SubResource("Gradient_2b80s")
 color_initial_ramp = SubResource("Gradient_3ex3y")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=278021390]
 wait_time = 1.5
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585867825]
 stream = ExtResource("1_wx1d4")
 autoplay = true
 max_distance = 2400.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
 [connection signal="ready" from="CPUParticles2D" to="CPUParticles2D" method="restart"]
 [connection signal="timeout" from="Timer" to="." method="queue_free"]

@@ -40,6 +40,8 @@ func _find_ips() -> void:
 				break
 		if not preffered:
 			_other_ips.append(ip)
+	_preffered_ips.sort()
+	_other_ips.sort()
 	
 	dialog_text = ""
 	if not _preffered_ips.is_empty():

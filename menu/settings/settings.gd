@@ -373,50 +373,8 @@ func _on_export_file_dialog_file_selected(path: String) -> void:
 
 
 func _on_import_pressed() -> void:
-	if OS.has_feature("android"):
-		if int(OS.get_version().get_slice('.', 0)) < 29:
-			var perms: PackedStringArray = OS.get_granted_permissions()
-			if not "android.permission.READ_EXTERNAL_STORAGE" in perms \
-					and not "android.permission.WRITE_EXTERNAL_STORAGE" in perms:
-				var lambda: Callable = func(value: bool) -> void:
-					if value: _on_import_pressed()
-				get_tree().on_request_permissions_result.connect(
-						_on_request_permissions_result.bind(lambda), CONNECT_ONE_SHOT)
-				OS.request_permissions()
-				return
-		else:
-			DirAccess.make_dir_recursive_absolute(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
-					.get_base_dir().path_join("Android").path_join("media")
-					.path_join(Globals.PACKAGE_NAME))
-			DirAccess.make_dir_recursive_absolute(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
-					.get_base_dir().path_join("Android").path_join("data")
-					.path_join(Globals.PACKAGE_NAME))
-			
-			var android_info_dialog: ConfirmationDialog = \
-					$ManageSaveDialog/Dialogs/AndroidInfoDialog
-			android_info_dialog.dialog_text = "\
-На Android, начиная с 10 версии, ты не сможешь импортировать сохранение,
-экспортированное до переустановки приложения или скачанное извне,
-если оно не находится в следующих папках:\n"
-			android_info_dialog.dialog_text += "Память устройства/Android/media/%s\n" \
-					% Globals.PACKAGE_NAME
-			android_info_dialog.dialog_text += "Память устройства/Android/data/%s\n" \
-					% Globals.PACKAGE_NAME
-			android_info_dialog.dialog_text += \
-					"Перемести нужное сохранение туда и лишь потом импортируй."
-			android_info_dialog.popup_centered()
-			return
-	
 	($ManageSaveDialog/Dialogs/ImportFileDialog as FileDialog).current_dir = OS.get_system_dir(
 			OS.SYSTEM_DIR_DOCUMENTS)
-	($ManageSaveDialog/Dialogs/ImportFileDialog as Window).popup_centered()
-
-
-func _on_android_info_dialog_confirmed() -> void:
-	($ManageSaveDialog/Dialogs/ImportFileDialog as FileDialog).current_dir = (
-			OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS).get_base_dir().path_join("Android")
-			.path_join("media").path_join(Globals.PACKAGE_NAME)
-	)
 	($ManageSaveDialog/Dialogs/ImportFileDialog as Window).popup_centered()
 
 

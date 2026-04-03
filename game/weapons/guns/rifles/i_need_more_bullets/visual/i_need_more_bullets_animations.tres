@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=12 format=3 uid="uid://cp21h0h8q700b"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://cp21h0h8q700b"]
 
 [ext_resource type="AudioStream" uid="uid://btyf0why553e7" path="res://game/weapons/guns/rifles/i_need_more_bullets/sfx/equip.wav" id="1_a63kl"]
 [ext_resource type="AudioStream" uid="uid://dbdcdmwfdu77b" path="res://game/weapons/guns/rifles/i_need_more_bullets/sfx/reload.wav" id="2_sxjjx"]
