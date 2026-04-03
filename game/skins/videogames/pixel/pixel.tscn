@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwh60wyedvw8h"]
+[gd_scene format=3 uid="uid://bwh60wyedvw8h"]
 
 [ext_resource type="Texture2D" uid="uid://nfu2fikexo2b" path="res://game/skins/videogames/pixel/pixel.png" id="1_ur117"]
 [ext_resource type="Script" uid="uid://d3xaj26s8u422" path="res://game/skins/videogames/pixel/pixel.gd" id="2_aofr8"]
@@ -58,18 +58,16 @@ _data = {
 &"hurt": SubResource("Animation_aofr8")
 }
 
-[node name="Pixel" type="Sprite2D"]
+[node name="Pixel" type="Sprite2D" unique_id=829133921]
 texture_filter = 1
 texture = ExtResource("1_ur117")
 script = ExtResource("2_aofr8")
 custom_death_vfx_scene = ExtResource("3_vtscn")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_08jdo")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1602613693]
+libraries/ = SubResource("AnimationLibrary_08jdo")
 
-[node name="HurtSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="HurtSfx" type="AudioStreamPlayer2D" parent="." unique_id=1348089654]
 max_distance = 1920.0
-bus = &"SFX"
+bus = &"PositionedSFX"

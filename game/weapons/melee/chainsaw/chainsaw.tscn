@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqptp3tatgmn"]
+[gd_scene format=3 uid="uid://dqptp3tatgmn"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_dte4u"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="2_738d3"]
@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqtrk"]
 radius = 20.0
 
-[node name="Chainsaw" instance=ExtResource("1_dte4u")]
+[node name="Chainsaw" unique_id=280696728 instance=ExtResource("1_dte4u")]
 script = ExtResource("2_oth0h")
 damage = 20
 shoot_interval = 0.2
@@ -18,14 +18,14 @@ to_aim_time = 0.6
 speed_multiplier_when_current = 1.12
 shoot_on_joystick_release = false
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_eqtrk")]
+[node name="Visual" parent="." index="0" unique_id=1848714098 instance=ExtResource("3_eqtrk")]
 position = Vector2(32, 32)
 
 [node name="Attack" parent="." index="1"]
 position = Vector2(32, 32)
 damage_interval = 0.2
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0" unique_id=2124459333]
 position = Vector2(64, 8)
 enabled = false
 shape = SubResource("CircleShape2D_eqtrk")
@@ -35,15 +35,13 @@ collision_mask = 75
 script = ExtResource("2_738d3")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="AttackSfx" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="AttackSfx" type="AudioStreamPlayer2D" parent="." index="3" unique_id=542740539]
 stream = ExtResource("6_wy0b7")
 max_distance = 2880.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
 [node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": ExtResource("5_wy0b7")
-}
+libraries/ = ExtResource("5_wy0b7")
 next/attack = &"idle"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

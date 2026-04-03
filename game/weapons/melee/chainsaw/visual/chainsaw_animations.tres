@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=8 format=3 uid="uid://ckh16qdbknjnf"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://ckh16qdbknjnf"]
 
 [ext_resource type="AudioStream" uid="uid://biktvjio6nme8" path="res://game/weapons/melee/chainsaw/visual/idle.ogg" id="1_77r7i"]
 [ext_resource type="AudioStream" uid="uid://852l2260wl4s" path="res://game/weapons/melee/chainsaw/visual/equip.wav" id="2_nbxp3"]

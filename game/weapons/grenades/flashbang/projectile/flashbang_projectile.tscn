@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dwq3twijmmpig"]
+[gd_scene format=3 uid="uid://dwq3twijmmpig"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_ua7bf"]
 [ext_resource type="Texture2D" uid="uid://bah0mhat58x6x" path="res://game/weapons/grenades/flashbang/visual/base.png" id="2_nfc8c"]
@@ -272,31 +272,29 @@ _data = {
 &"stun": SubResource("Animation_oxxvb")
 }
 
-[node name="FlashbangProjectile" instance=ExtResource("1_ua7bf")]
+[node name="FlashbangProjectile" unique_id=637767104 instance=ExtResource("1_ua7bf")]
 script = ExtResource("2_otq4k")
 unmute_duration = 0.8
 speed = 1800.0
 damping = 600.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0" unique_id=1049467969]
 root_node = NodePath("../Explosion")
-libraries = {
-&"": SubResource("AnimationLibrary_isnu3")
-}
+libraries/ = SubResource("AnimationLibrary_isnu3")
 
-[node name="Explosion" type="Sprite2D" parent="." index="1"]
+[node name="Explosion" type="Sprite2D" parent="." index="1" unique_id=484865994]
 self_modulate = Color(1, 1, 1, 0)
 z_index = 2
 material = ExtResource("4_kamxo")
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("3_c5i60")
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="Explosion" index="0"]
+[node name="Sound" type="AudioStreamPlayer2D" parent="Explosion" index="0" unique_id=61726872]
 scale = Vector2(0.5, 0.5)
 max_distance = 4800.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="Attack" type="Node2D" parent="Explosion" index="1"]
+[node name="Attack" type="Node2D" parent="Explosion" index="1" unique_id=183363902]
 scale = Vector2(0.455, 0.455)
 script = ExtResource("3_nxt1r")
 stun_duration = 2.5
@@ -304,25 +302,25 @@ damage = 1
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0" unique_id=1177004868]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("4_7cy3p")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0" unique_id=1294755900]
 shape = SubResource("CircleShape2D_8b4pb")
 disabled = true
 
 [node name="Grenade" parent="." index="2"]
 texture = ExtResource("2_nfc8c")
 
-[node name="Stun" type="CanvasLayer" parent="." index="6"]
+[node name="Stun" type="CanvasLayer" parent="." index="6" unique_id=1910528877]
 layer = 6
 visible = false
 
-[node name="Effect" type="Control" parent="Stun" index="0"]
+[node name="Effect" type="Control" parent="Stun" index="0" unique_id=1060241653]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -331,7 +329,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Texture" type="TextureRect" parent="Stun/Effect" index="0"]
+[node name="Texture" type="TextureRect" parent="Stun/Effect" index="0" unique_id=1715687292]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -342,7 +340,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="White" type="ColorRect" parent="Stun/Effect" index="1"]
+[node name="White" type="ColorRect" parent="Stun/Effect" index="1" unique_id=170574482]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,12 +349,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Stun" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_gc2tr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stun" index="1" unique_id=1845032847]
+libraries/ = SubResource("AnimationLibrary_gc2tr")
 
-[node name="Sound" type="AudioStreamPlayer" parent="Stun" index="2"]
+[node name="Sound" type="AudioStreamPlayer" parent="Stun" index="2" unique_id=1292979190]
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="7"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="7" unique_id=1180118426]
 rect = Rect2(-128, -128, 256, 256)

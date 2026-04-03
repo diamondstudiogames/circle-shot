@@ -124,8 +124,8 @@ func initialize() -> void:
 	
 	setup_settings()
 	apply_settings()
-	update_current_input_method(false)
 	setup_controls_settings()
+	update_current_input_method(false)
 	apply_controls_settings()
 
 

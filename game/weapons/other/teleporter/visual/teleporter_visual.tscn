@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4fixd76g5fv8"]
+[gd_scene format=3 uid="uid://c4fixd76g5fv8"]
 
 [ext_resource type="Texture2D" uid="uid://dj31vxe6j5ys0" path="res://game/weapons/other/teleporter/visual/base.png" id="1_7rxjx"]
 [ext_resource type="Material" uid="uid://b8111w5tokcit" path="res://game/shared/shaders/materials/solid_color.tres" id="2_ttyyw"]
@@ -11,19 +11,19 @@
 atlas = ExtResource("6_oxbby")
 region = Rect2(8, 44, 32, 17)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=639173589]
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1022617584]
 position = Vector2(4, 4)
 rotation = 0.435151
 texture = ExtResource("1_7rxjx")
 offset = Vector2(0, -12)
 
-[node name="Buttons" type="Node2D" parent="Base"]
+[node name="Buttons" type="Node2D" parent="Base" unique_id=1007456256]
 show_behind_parent = true
 position = Vector2(0, -12)
 
-[node name="Button0" type="Sprite2D" parent="Base/Buttons"]
+[node name="Button0" type="Sprite2D" parent="Base/Buttons" unique_id=1930775754]
 material = ExtResource("2_ttyyw")
 instance_shader_parameters/power = 0.0
 texture = ExtResource("3_6lt5q")
@@ -31,7 +31,7 @@ offset = Vector2(-8, 0)
 region_enabled = true
 region_rect = Rect2(0, 24, 32, 32)
 
-[node name="Button1" type="Sprite2D" parent="Base/Buttons"]
+[node name="Button1" type="Sprite2D" parent="Base/Buttons" unique_id=2065228102]
 material = ExtResource("2_ttyyw")
 instance_shader_parameters/power = 0.0
 texture = ExtResource("4_bedeq")
@@ -39,7 +39,7 @@ offset = Vector2(8, 0)
 region_enabled = true
 region_rect = Rect2(16, 24, 32, 32)
 
-[node name="Button2" type="Sprite2D" parent="Base/Buttons"]
+[node name="Button2" type="Sprite2D" parent="Base/Buttons" unique_id=1149434248]
 material = ExtResource("2_ttyyw")
 instance_shader_parameters/power = 0.0
 texture = ExtResource("5_n24k8")
@@ -47,13 +47,13 @@ offset = Vector2(0, 24)
 region_enabled = true
 region_rect = Rect2(0, 48, 48, 32)
 
-[node name="RedButton" type="Sprite2D" parent="Base/Buttons"]
+[node name="RedButton" type="Sprite2D" parent="Base/Buttons" unique_id=349867695]
 texture = ExtResource("6_oxbby")
 offset = Vector2(0, 12)
 region_enabled = true
 region_rect = Rect2(8, 40, 32, 24)
 
-[node name="ReloadIndicator" type="TextureProgressBar" parent="Base"]
+[node name="ReloadIndicator" type="TextureProgressBar" parent="Base" unique_id=1532681379]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,6 +72,6 @@ value = 1.0
 fill_mode = 3
 texture_progress = SubResource("AtlasTexture_eqdtl")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1747284128]
 max_distance = 2400.0
-bus = &"SFX"
+bus = &"PositionedSFX"

@@ -58,6 +58,7 @@ const MAX_PLAYER_NAME_LENGTH: int = 24
 const LOCAL_IP_PREFIXES: Array[String] = [
 	"192.168.",
 	"10.",
+	"172.",
 ]
 
 ## Максимальное число игроков, превысив которое сервер начнёт отклонять соединения.

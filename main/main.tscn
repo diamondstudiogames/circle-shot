@@ -1,34 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://b6r2eoge3orht"]
+[gd_scene format=3 uid="uid://b6r2eoge3orht"]
 
 [ext_resource type="Script" uid="uid://c4q6g2kmy56ks" path="res://main/main.gd" id="1_hy7wi"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="2_j1upr"]
 [ext_resource type="Texture2D" uid="uid://dsk1f63d31ahx" path="res://main/splash.png" id="4_iryjb"]
-[ext_resource type="Texture2D" uid="uid://dvmrdt0n68ksr" path="res://menu/theme/textures/check_off.svg" id="5_frbr6"]
-[ext_resource type="Texture2D" uid="uid://d0beijvisaueb" path="res://menu/theme/textures/check_off_disabled.svg" id="6_o8j3b"]
-[ext_resource type="Texture2D" uid="uid://pknncm4fk3j4" path="res://menu/theme/textures/check_on.svg" id="7_wpkmi"]
-[ext_resource type="Texture2D" uid="uid://bqf2ht0lj03so" path="res://menu/theme/textures/check_on_disabled.svg" id="8_o0l78"]
-[ext_resource type="Texture2D" uid="uid://dkr1bnaxny0hm" path="res://menu/theme/textures/dropdown.svg" id="9_576ah"]
-[ext_resource type="Texture2D" uid="uid://spw7bm7bgbjk" path="res://menu/theme/textures/edit.svg" id="10_wpvt5"]
-[ext_resource type="Texture2D" uid="uid://bepstswixoyf1" path="res://menu/theme/textures/grabber.svg" id="11_amlcg"]
-[ext_resource type="Texture2D" uid="uid://dmbuumy7narj3" path="res://menu/theme/textures/grabber_disabled.svg" id="12_ue0mw"]
-[ext_resource type="Texture2D" uid="uid://5w3ii4bpldws" path="res://menu/theme/textures/grabber_highlight.svg" id="13_vqjab"]
-[ext_resource type="Texture2D" uid="uid://gmv55kbd6r21" path="res://menu/theme/textures/h_grabber.svg" id="14_h3axc"]
-[ext_resource type="Texture2D" uid="uid://j6ulvsthh02q" path="res://menu/theme/textures/menu_selected.svg" id="15_d7rgo"]
-[ext_resource type="Texture2D" uid="uid://b477qiraadl1y" path="res://menu/theme/textures/panel.svg" id="16_yjufm"]
-[ext_resource type="Texture2D" uid="uid://cqsea18in014y" path="res://menu/theme/textures/radio_checked.svg" id="17_phifs"]
-[ext_resource type="Texture2D" uid="uid://bixhx7p8y4rxk" path="res://menu/theme/textures/radio_checked_disabled.svg" id="18_cgvj2"]
-[ext_resource type="Texture2D" uid="uid://dl7ynyk8x2qf" path="res://menu/theme/textures/radio_unchecked.svg" id="19_t1yuj"]
-[ext_resource type="Texture2D" uid="uid://do8d1ljv51jol" path="res://menu/theme/textures/radio_unchecked_disabled.svg" id="20_4pcu1"]
-[ext_resource type="Texture2D" uid="uid://b07bjttu6sfjo" path="res://menu/theme/textures/scroll.svg" id="21_7eg6f"]
-[ext_resource type="Texture2D" uid="uid://cirl8ep7rrt3k" path="res://menu/theme/textures/slider_bg.svg" id="22_rue0h"]
-[ext_resource type="Texture2D" uid="uid://bi3fgnx03xvhu" path="res://menu/theme/textures/slider_fg.svg" id="23_c5cfd"]
-[ext_resource type="Texture2D" uid="uid://ds7qcafp868hu" path="res://menu/theme/textures/tick_off.svg" id="24_v40no"]
-[ext_resource type="Texture2D" uid="uid://c210vah1kc84v" path="res://menu/theme/textures/tick_off_disabled.svg" id="25_omb8t"]
-[ext_resource type="Texture2D" uid="uid://blcr2cbti1c5d" path="res://menu/theme/textures/tick_on.svg" id="26_k5bb4"]
-[ext_resource type="Texture2D" uid="uid://daejvrss7wnft" path="res://menu/theme/textures/tick_on_disabled.svg" id="27_028el"]
 [ext_resource type="PackedScene" uid="uid://cn2ifbe6eq1wt" path="res://main/loading_splash/loading_splash.tscn" id="27_frbr6"]
-[ext_resource type="Texture2D" uid="uid://byq7es1wtowmd" path="res://menu/theme/textures/v_grabber.svg" id="28_yyc07"]
-[ext_resource type="Texture2D" uid="uid://bmk107fcsqeir" path="res://menu/theme/textures/window_close.svg" id="29_3le5t"]
 
 [sub_resource type="Animation" id="Animation_i4btj"]
 length = 0.001
@@ -186,120 +161,12 @@ _data = {
 &"splash_screen": SubResource("Animation_nes4c")
 }
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=341288002]
 script = ExtResource("1_hy7wi")
 resources_to_preload_paths = Array[String](["uid://4wb77emq8t5p", "uid://c2leb2h0qjtmo", "uid://c2x58lim4381g", "uid://bj723c8k8la6y", "uid://scqgxynxowrb", "uid://d2g0bm0ppnwf7", "uid://behtxlo4s5s3", "uid://wgln4clkkuuk", "uid://cmwb81du1kbtm"])
 metadata/_custom_type_script = "uid://c4q6g2kmy56ks"
 
-[node name="Workaround" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 89.0
-offset_top = 53.0
-offset_right = 89.0
-offset_bottom = 53.0
-
-[node name="CheckOff" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("5_frbr6")
-
-[node name="CheckOffDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("6_o8j3b")
-
-[node name="CheckOn" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("7_wpkmi")
-
-[node name="CheckOnDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("8_o0l78")
-
-[node name="Dropdown" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("9_576ah")
-
-[node name="Edit" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("10_wpvt5")
-
-[node name="Grabber" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("11_amlcg")
-
-[node name="GrabberDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("12_ue0mw")
-
-[node name="GrabberHighlight" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("13_vqjab")
-
-[node name="HGrabber" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("14_h3axc")
-
-[node name="MenuSelected" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("15_d7rgo")
-
-[node name="Panel" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("16_yjufm")
-
-[node name="RadioChecked" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("17_phifs")
-
-[node name="RadioCheckedDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("18_cgvj2")
-
-[node name="RadioUnchecked" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("19_t1yuj")
-
-[node name="RadioUncheckedDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("20_4pcu1")
-
-[node name="Scroll" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("21_7eg6f")
-
-[node name="SliderBg" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("22_rue0h")
-
-[node name="SliderFg" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("23_c5cfd")
-
-[node name="TickOff" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("24_v40no")
-
-[node name="TickOffDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("25_omb8t")
-
-[node name="TickOn" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("26_k5bb4")
-
-[node name="TickOnDisabled" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("27_028el")
-
-[node name="VGrabber" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("28_yyc07")
-
-[node name="WindowClose" type="TextureRect" parent="Workaround"]
-layout_mode = 0
-texture = ExtResource("29_3le5t")
-
-[node name="LoadingScreen" type="Control" parent="."]
+[node name="LoadingScreen" type="Control" parent="." unique_id=363556388]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -307,10 +174,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LoadingSplash" parent="LoadingScreen" instance=ExtResource("27_frbr6")]
+[node name="LoadingSplash" parent="LoadingScreen" unique_id=1848962940 instance=ExtResource("27_frbr6")]
 layout_mode = 1
 
-[node name="Logo" type="TextureRect" parent="LoadingScreen"]
+[node name="Logo" type="TextureRect" parent="LoadingScreen" unique_id=985549748]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -322,7 +189,7 @@ grow_horizontal = 2
 texture = ExtResource("2_j1upr")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="LoadingScreen"]
+[node name="ProgressBar" type="ProgressBar" parent="LoadingScreen" unique_id=154605019]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -336,7 +203,7 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StatusLabel" type="Label" parent="LoadingScreen"]
+[node name="StatusLabel" type="Label" parent="LoadingScreen" unique_id=1271268899]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -353,13 +220,11 @@ theme_type_variation = &"HeaderMediumOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen"]
-libraries = {
-&"": SubResource("AnimationLibrary_5apas")
-}
-autoplay = "black"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen" unique_id=437720804]
+libraries/ = SubResource("AnimationLibrary_5apas")
+autoplay = &"black"
 
-[node name="SplashScreen" type="Control" parent="."]
+[node name="SplashScreen" type="Control" parent="." unique_id=1263559409]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -368,7 +233,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="SplashScreen"]
+[node name="Background" type="ColorRect" parent="SplashScreen" unique_id=1213766315]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,7 +242,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Logo" type="TextureRect" parent="SplashScreen"]
+[node name="Logo" type="TextureRect" parent="SplashScreen" unique_id=937425975]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -395,10 +260,8 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(256, 256)
 texture = ExtResource("4_iryjb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SplashScreen"]
-libraries = {
-&"": SubResource("AnimationLibrary_s0b2o")
-}
-autoplay = "splash_screen"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SplashScreen" unique_id=1415526698]
+libraries/ = SubResource("AnimationLibrary_s0b2o")
+autoplay = &"splash_screen"
 
 [connection signal="animation_finished" from="SplashScreen/AnimationPlayer" to="." method="_start_load" unbinds=1]

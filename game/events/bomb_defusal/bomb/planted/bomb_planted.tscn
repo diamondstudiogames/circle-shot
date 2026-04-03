@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cb533eb27cteb"]
+[gd_scene format=3 uid="uid://cb533eb27cteb"]
 
 [ext_resource type="Script" uid="uid://d3yjfqptegji3" path="res://game/events/bomb_defusal/bomb/planted/bomb_planted.gd" id="1_33kbv"]
 [ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_04vj3"]
@@ -38,19 +38,19 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.5019608, 0.02745098, 1, 0
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="BombPlanted" type="Node2D"]
+[node name="BombPlanted" type="Node2D" unique_id=479129474]
 script = ExtResource("1_33kbv")
 explosion_time = 35
 min_countdown_interval = 0.04
 shake_max_amplitude = 64.0
 shake_max_distance = 16000.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953723805]
 z_index = -3
 rotation = 1.5707964
 texture = ExtResource("2_04vj3")
 
-[node name="Light" type="Sprite2D" parent="."]
+[node name="Light" type="Sprite2D" parent="." unique_id=1106561826]
 self_modulate = Color(1, 0, 0, 1)
 z_index = -2
 material = ExtResource("3_jj7vp")
@@ -58,35 +58,35 @@ position = Vector2(3.9999998, -9.999999)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_k4rui")
 
-[node name="CountdownSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="CountdownSfx" type="AudioStreamPlayer2D" parent="." unique_id=1237266136]
 stream = ExtResource("5_j152h")
 max_distance = 4800.0
-bus = &"SFX"
+bus = &"PositionedSFX"
 
-[node name="ExplosionTimer" type="Timer" parent="."]
+[node name="ExplosionTimer" type="Timer" parent="." unique_id=96841702]
 autostart = true
 
-[node name="CountdownTimer" type="Timer" parent="."]
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1508797482]
 one_shot = true
 
-[node name="Interactible" parent="." instance=ExtResource("6_2wmgq")]
+[node name="Interactible" parent="." unique_id=873855353 instance=ExtResource("6_2wmgq")]
 position = Vector2(0, -48)
 script = ExtResource("7_k4rui")
 text = "Обезвредить"
 hold_interaction_time = 4.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible" unique_id=101803232]
 position = Vector2(0, 48)
 shape = SubResource("CircleShape2D_hfr8r")
 
-[node name="MinimapMarker" parent="." instance=ExtResource("8_1pehw")]
+[node name="MinimapMarker" parent="." unique_id=18805059 instance=ExtResource("8_1pehw")]
 team = 0
 
 [node name="Visual" parent="MinimapMarker" index="2"]
 self_modulate = Color(1, 0.5019608, 0, 1)
 texture = ExtResource("9_30gdi")
 
-[node name="ScreenMarker" parent="." instance=ExtResource("10_366uc")]
+[node name="ScreenMarker" parent="." unique_id=95540512 instance=ExtResource("10_366uc")]
 margin = 32.0
 show_when_on_screen = false
 
@@ -99,14 +99,14 @@ texture = ExtResource("11_0m3ms")
 [node name="Icon" parent="ScreenMarker/Marker" index="1"]
 texture = ExtResource("11_0m3ms")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=943226897]
 replication_config = SubResource("SceneReplicationConfig_1pehw")
 
-[node name="Explosion" type="Node2D" parent="."]
+[node name="Explosion" type="Node2D" parent="." unique_id=2007864211]
 visible = false
 scale = Vector2(4, 4)
 
-[node name="Particles" type="CPUParticles2D" parent="Explosion"]
+[node name="Particles" type="CPUParticles2D" parent="Explosion" unique_id=1578143397]
 z_index = 4
 emitting = false
 amount = 40
@@ -132,12 +132,12 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_0m3ms")
 color_ramp = SubResource("Gradient_5uwaf")
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="Explosion"]
+[node name="Sfx" type="AudioStreamPlayer2D" parent="Explosion" unique_id=1566967111]
 stream = ExtResource("11_o455r")
 volume_db = 6.0
 max_distance = 14400.0
 attenuation = 0.3
-bus = &"SFX"
+bus = &"PositionedSFX"
 
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
