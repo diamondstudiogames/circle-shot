@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtebsuda2o6v3"]
+[gd_scene format=3 uid="uid://dtebsuda2o6v3"]
 
 [ext_resource type="PackedScene" uid="uid://bmgs501ayehg6" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger_projectile.tscn" id="1_lsiki"]
 
@@ -112,7 +112,7 @@ _data = {
 &"attack": SubResource("Animation_j7la0")
 }
 
-[node name="GoatBloodyDaggerProjectile" instance=ExtResource("1_lsiki")]
+[node name="GoatBloodyDaggerProjectile" unique_id=1722364506 instance=ExtResource("1_lsiki")]
 bleeding_damage_per_interval = 3
 speed = 0.0
 damage = 7
@@ -122,14 +122,12 @@ position = Vector2(40, 0)
 rotation = 3.1415927
 offset = Vector2(0, 0)
 
-[node name="Timer" parent="." index="1"]
+[node name="Timer" parent="." index="1" unique_id=273134143]
 wait_time = 4.0
 
 [node name="RayDetector" parent="." index="3"]
 enabled = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_ttpfu")
-}
-autoplay = "attack"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=131781549]
+libraries/ = SubResource("AnimationLibrary_ttpfu")
+autoplay = &"attack"

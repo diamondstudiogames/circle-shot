@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dr2uormlrsrlg"]
+[gd_resource type="TileSet" format=3 uid="uid://dr2uormlrsrlg"]
 
 [ext_resource type="Texture2D" uid="uid://bmm1r8iea7wcj" path="res://game/maps/duel/snow_forest/tiles.png" id="1_7fyb1"]
 

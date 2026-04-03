@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5h3w2m2lel7x"]
+[gd_scene format=3 uid="uid://b5h3w2m2lel7x"]
 
 [ext_resource type="Shader" uid="uid://bkumhb22olqgy" path="res://game/skins/programming/c_like/vfx/glitch.gdshader" id="1_0166k"]
 [ext_resource type="Texture2D" uid="uid://bfjmili5836j6" path="res://game/skins/programming/c_like/vfx/shift_noise.tres" id="2_mec1c"]
@@ -159,16 +159,16 @@ _data = {
 &"death": SubResource("Animation_nq1af")
 }
 
-[node name="SegfaultDeathVfx" type="Node2D"]
+[node name="SegfaultDeathVfx" type="Node2D" unique_id=561704616]
 
-[node name="Console" type="Sprite2D" parent="."]
+[node name="Console" type="Sprite2D" parent="." unique_id=2008813273]
 z_index = -2
 material = SubResource("ShaderMaterial_yb8wo")
 instance_shader_parameters/glitch = 0.0
 instance_shader_parameters/shift_glitch = 0.0
 texture = ExtResource("3_fmk61")
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=784429471]
 z_index = 1
 material = SubResource("CanvasItemMaterial_omr4w")
 emitting = false
@@ -190,8 +190,6 @@ damping_min = 60.0
 damping_max = 60.0
 color_ramp = SubResource("Gradient_30iwm")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lbbt7")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=516082655]
+libraries/ = SubResource("AnimationLibrary_lbbt7")
+autoplay = &"death"

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmr0fcamx7t56"]
+[gd_scene format=3 uid="uid://dmr0fcamx7t56"]
 
 [ext_resource type="Script" uid="uid://ct17mdmy2ddae" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_8x4dy"]
 
-[node name="VirtualJoystick" type="Control"]
+[node name="VirtualJoystick" type="Control" unique_id=1266098201]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 200.0
@@ -11,7 +11,7 @@ pivot_offset = Vector2(100, 100)
 script = ExtResource("1_8x4dy")
 metadata/_custom_type_script = "uid://ct17mdmy2ddae"
 
-[node name="Base" type="TextureRect" parent="."]
+[node name="Base" type="TextureRect" parent="." unique_id=601509653]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,7 +29,7 @@ mouse_force_pass_scroll_events = false
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Tip" type="TextureRect" parent="Base"]
+[node name="Tip" type="TextureRect" parent="Base" unique_id=875730397]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dokrel5divyfi"]
+[gd_scene format=3 uid="uid://dokrel5divyfi"]
 
 [ext_resource type="Texture2D" uid="uid://oismyvlsd4xl" path="res://game/solo/challenges/demon_fight/goat/daggers/big_sword.png" id="1_bokti"]
 
@@ -78,15 +78,13 @@ _data = {
 &"hit_wall": SubResource("Animation_5cdk4")
 }
 
-[node name="BigSwordHitWallVfx" type="Node2D"]
+[node name="BigSwordHitWallVfx" type="Node2D" unique_id=2069929997]
 
-[node name="BigSword" type="Sprite2D" parent="."]
+[node name="BigSword" type="Sprite2D" parent="." unique_id=545380179]
 z_index = -1
 texture = ExtResource("1_bokti")
 offset = Vector2(-104, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7hfds")
-}
-autoplay = "hit_wall"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1419956996]
+libraries/ = SubResource("AnimationLibrary_7hfds")
+autoplay = &"hit_wall"

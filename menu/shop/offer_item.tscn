@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dbnx3sb61pp2"]
 
-[node name="OfferItem" type="ColorRect"]
+[node name="OfferItem" type="ColorRect" unique_id=369596814]
 custom_minimum_size = Vector2(160, 160)
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="." unique_id=1475532146]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Name" type="Label" parent="."]
+[node name="Name" type="Label" parent="." unique_id=1119897475]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -25,7 +25,7 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="." unique_id=1289614597]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

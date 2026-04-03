@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2jsq46q2vp6k"]
+[gd_scene format=3 uid="uid://c2jsq46q2vp6k"]
 
 [ext_resource type="Texture2D" uid="uid://k0mk54lmi1cg" path="res://game/weapons/guns/rifles/i_need_more_bullets/projectiles/bullet.png" id="1_3kco5"]
 
 [sub_resource type="Gradient" id="Gradient_fcg8j"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="NeedBulletHitVfx" type="Node2D"]
+[node name="NeedBulletHitVfx" type="Node2D" unique_id=1935129991]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1907395697]
 position = Vector2(-24, 0)
 amount = 1
 texture = ExtResource("1_3kco5")
@@ -24,7 +24,7 @@ angular_velocity_min = -180.0
 angular_velocity_max = 180.0
 color_ramp = SubResource("Gradient_fcg8j")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=387028246]
 wait_time = 0.5
 one_shot = true
 autostart = true

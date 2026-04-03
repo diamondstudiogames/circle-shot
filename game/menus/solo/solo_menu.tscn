@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://behtxlo4s5s3"]
+[gd_scene format=3 uid="uid://behtxlo4s5s3"]
 
 [ext_resource type="Script" uid="uid://dkaftynok7hlv" path="res://game/menus/solo/solo_menu.gd" id="1_cxrwa"]
 [ext_resource type="Texture2D" uid="uid://bu318tyxjskrf" path="res://game/menus/solo/background.png" id="2_upj1m"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_07mr3"]
 [ext_resource type="PackedScene" uid="uid://d3ncbc7jsib0p" path="res://game/shared/ui/advices/advices.tscn" id="14_ee8c4"]
 
-[node name="SoloMenu" type="Control"]
+[node name="SoloMenu" type="Control" unique_id=1716218829]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cxrwa")
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="." unique_id=1431574429]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ grow_vertical = 2
 texture = ExtResource("2_upj1m")
 stretch_mode = 6
 
-[node name="Base" type="PanelContainer" parent="."]
+[node name="Base" type="PanelContainer" parent="." unique_id=1827117246]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,41 +49,41 @@ offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="Base"]
+[node name="Margin" type="MarginContainer" parent="Base" unique_id=157688727]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="Base/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Base/Margin" unique_id=1562078949]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="Base/Margin/VBox"]
+[node name="Title" type="HBoxContainer" parent="Base/Margin/VBox" unique_id=1862107947]
 layout_mode = 2
 
-[node name="Tutorial" type="Button" parent="Base/Margin/VBox/Title"]
+[node name="Tutorial" type="Button" parent="Base/Margin/VBox/Title" unique_id=825246071]
 layout_mode = 2
 size_flags_horizontal = 2
 icon = ExtResource("3_4ufvw")
 
-[node name="TitleLabel" type="Label" parent="Base/Margin/VBox/Title"]
+[node name="TitleLabel" type="Label" parent="Base/Margin/VBox/Title" unique_id=746976263]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Одиночная игра"
 horizontal_alignment = 1
 
-[node name="Quit" type="Button" parent="Base/Margin/VBox/Title"]
+[node name="Quit" type="Button" parent="Base/Margin/VBox/Title" unique_id=150584535]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("3_q0x0n")
 
-[node name="Buttons" type="HBoxContainer" parent="Base/Margin/VBox"]
+[node name="Buttons" type="HBoxContainer" parent="Base/Margin/VBox" unique_id=388199643]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Story" type="Button" parent="Base/Margin/VBox/Buttons"]
+[node name="Story" type="Button" parent="Base/Margin/VBox/Buttons" unique_id=121227203]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -96,7 +96,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Challenges" type="Button" parent="Base/Margin/VBox/Buttons"]
+[node name="Challenges" type="Button" parent="Base/Margin/VBox/Buttons" unique_id=952727821]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -108,11 +108,11 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Buttons/Challenges"]
+[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Buttons/Challenges" unique_id=502362606]
 script = ExtResource("7_be2i2")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Training" type="Button" parent="Base/Margin/VBox/Buttons"]
+[node name="Training" type="Button" parent="Base/Margin/VBox/Buttons" unique_id=1038384579]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -124,7 +124,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Challenges" type="VBoxContainer" parent="."]
+[node name="Challenges" type="VBoxContainer" parent="." unique_id=409089226]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -139,48 +139,48 @@ offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main" type="PanelContainer" parent="Challenges"]
+[node name="Main" type="PanelContainer" parent="Challenges" unique_id=83422341]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Challenges/Main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Challenges/Main" unique_id=1466606230]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="Challenges/Main/VBoxContainer"]
+[node name="Title" type="HBoxContainer" parent="Challenges/Main/VBoxContainer" unique_id=924786242]
 layout_mode = 2
 size_flags_vertical = 2
 alignment = 1
 
-[node name="Presets" type="Button" parent="Challenges/Main/VBoxContainer/Title"]
+[node name="Presets" type="Button" parent="Challenges/Main/VBoxContainer/Title" unique_id=796600137]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
 icon = ExtResource("9_y0c3c")
 
-[node name="Title" type="Label" parent="Challenges/Main/VBoxContainer/Title"]
+[node name="Title" type="Label" parent="Challenges/Main/VBoxContainer/Title" unique_id=708650161]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Испытания"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitChallenges" type="Button" parent="Challenges/Main/VBoxContainer/Title"]
+[node name="QuitChallenges" type="Button" parent="Challenges/Main/VBoxContainer/Title" unique_id=634732323]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 icon = ExtResource("3_q0x0n")
 
-[node name="Environment" type="HBoxContainer" parent="Challenges/Main/VBoxContainer"]
+[node name="Environment" type="HBoxContainer" parent="Challenges/Main/VBoxContainer" unique_id=731810618]
 layout_mode = 2
 alignment = 1
 
-[node name="Challenge" type="TextureRect" parent="Challenges/Main/VBoxContainer/Environment"]
+[node name="Challenge" type="TextureRect" parent="Challenges/Main/VBoxContainer/Environment" unique_id=1516378167]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 
-[node name="Container" type="VBoxContainer" parent="Challenges/Main/VBoxContainer/Environment/Challenge"]
+[node name="Container" type="VBoxContainer" parent="Challenges/Main/VBoxContainer/Environment/Challenge" unique_id=2100761128]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,28 +188,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Challenge/Container"]
+[node name="Name" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Challenge/Container" unique_id=527211017]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"HeaderMediumOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Challenge/Container"]
+[node name="Description" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Challenge/Container" unique_id=985864933]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Map" type="TextureRect" parent="Challenges/Main/VBoxContainer/Environment"]
+[node name="Map" type="TextureRect" parent="Challenges/Main/VBoxContainer/Environment" unique_id=904366058]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 
-[node name="Container" type="VBoxContainer" parent="Challenges/Main/VBoxContainer/Environment/Map"]
+[node name="Container" type="VBoxContainer" parent="Challenges/Main/VBoxContainer/Environment/Map" unique_id=124394384]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,55 +217,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Map/Container"]
+[node name="Name" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Map/Container" unique_id=32999015]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"HeaderMediumOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Map/Container"]
+[node name="Description" type="Label" parent="Challenges/Main/VBoxContainer/Environment/Map/Container" unique_id=369537910]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="EquipSelector" parent="Challenges/Main/VBoxContainer" instance=ExtResource("8_7q66i")]
+[node name="EquipSelector" parent="Challenges/Main/VBoxContainer" unique_id=1307223189 instance=ExtResource("8_7q66i")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Challenges/Main/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="Challenges/Main/VBoxContainer" unique_id=1859748759]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="StartChallenge" type="Button" parent="Challenges/Main/VBoxContainer/Buttons"]
+[node name="StartChallenge" type="Button" parent="Challenges/Main/VBoxContainer/Buttons" unique_id=807745400]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Начать!"
 icon = ExtResource("9_be2i2")
 
-[node name="Autofocus" type="Node" parent="Challenges/Main/VBoxContainer/Buttons/StartChallenge"]
+[node name="Autofocus" type="Node" parent="Challenges/Main/VBoxContainer/Buttons/StartChallenge" unique_id=957585803]
 script = ExtResource("7_be2i2")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="ChangeChallenge" type="Button" parent="Challenges/Main/VBoxContainer/Buttons"]
+[node name="ChangeChallenge" type="Button" parent="Challenges/Main/VBoxContainer/Buttons" unique_id=622306394]
 layout_mode = 2
 text = "Сменить испытание..."
 icon = ExtResource("10_muk5r")
 
-[node name="ChangeMap" type="Button" parent="Challenges/Main/VBoxContainer/Buttons"]
+[node name="ChangeMap" type="Button" parent="Challenges/Main/VBoxContainer/Buttons" unique_id=903833933]
 layout_mode = 2
 text = "Сменить карту..."
 icon = ExtResource("11_y0c3c")
 
-[node name="Advices" parent="Challenges" instance=ExtResource("14_ee8c4")]
+[node name="Advices" parent="Challenges" unique_id=1120656845 instance=ExtResource("14_ee8c4")]
 layout_mode = 2
 
-[node name="TutorialDialog" type="ConfirmationDialog" parent="."]
+[node name="TutorialDialog" type="ConfirmationDialog" parent="." unique_id=689137952]
 oversampling_override = 1.0
 title = "Обучение"
 size = Vector2i(284, 112)
@@ -273,7 +273,7 @@ ok_button_text = "Пройти"
 dialog_text = "Ты действительно хочешь пройти обучение повторно?"
 cancel_button_text = "Отмена"
 
-[node name="PresetManager" parent="." instance=ExtResource("14_07mr3")]
+[node name="PresetManager" parent="." unique_id=2028435669 instance=ExtResource("14_07mr3")]
 visible = false
 equip_selector_path = NodePath("../Challenges/Main/VBoxContainer/EquipSelector")
 

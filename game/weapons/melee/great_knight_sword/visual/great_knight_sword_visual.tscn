@@ -1,103 +1,103 @@
-[gd_scene load_steps=2 format=3 uid="uid://kw5w1c0d8qxc"]
+[gd_scene format=3 uid="uid://kw5w1c0d8qxc"]
 
 [ext_resource type="Texture2D" uid="uid://jhkufgmx23y7" path="res://game/weapons/melee/great_knight_sword/visual/great_knight_sword.png" id="1_8o1g7"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1103625751]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1916007475]
 rotation = -0.2617994
 texture = ExtResource("1_8o1g7")
 offset = Vector2(96, 0)
 
-[node name="BulletsSpawnPointsSwing" type="Node2D" parent="."]
+[node name="BulletsSpawnPointsSwing" type="Node2D" parent="." unique_id=1118597124]
 
-[node name="0" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="0" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=2017372626]
 position = Vector2(128, 0)
 gizmo_extents = 32.0
 
-[node name="1" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="1" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=159555292]
 position = Vector2(64, -111)
 rotation = -1.0471976
 gizmo_extents = 32.0
 
-[node name="2" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="2" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=1454212570]
 position = Vector2(91, -91)
 rotation = -0.7853982
 gizmo_extents = 32.0
 
-[node name="3" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="3" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=35518095]
 position = Vector2(111, -64)
 rotation = -0.5235988
 gizmo_extents = 32.0
 
-[node name="5" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="5" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=1403288347]
 position = Vector2(124, 33)
 rotation = 0.2617994
 scale = Vector2(0.99999994, 0.99999994)
 gizmo_extents = 32.0
 
-[node name="4" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="4" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=187550198]
 position = Vector2(124, -33)
 rotation = -0.2617994
 gizmo_extents = 32.0
 
-[node name="6" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="6" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=1200159638]
 position = Vector2(111, 64)
 rotation = 0.5235988
 gizmo_extents = 32.0
 
-[node name="7" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="7" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=68925255]
 position = Vector2(91, 91)
 rotation = 0.7853982
 gizmo_extents = 32.0
 
-[node name="8" type="Marker2D" parent="BulletsSpawnPointsSwing"]
+[node name="8" type="Marker2D" parent="BulletsSpawnPointsSwing" unique_id=2006607241]
 position = Vector2(64, 111)
 rotation = 1.0471976
 gizmo_extents = 32.0
 
-[node name="BulletsSpawnPointsLunge" type="Node2D" parent="."]
+[node name="BulletsSpawnPointsLunge" type="Node2D" parent="." unique_id=888621952]
 
-[node name="0" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="0" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=943387228]
 position = Vector2(325, 0)
 gizmo_extents = 32.0
 
-[node name="1" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="1" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=110887266]
 position = Vector2(117, -37)
 rotation = -0.34906584
 gizmo_extents = 32.0
 
-[node name="2" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="2" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=857407053]
 position = Vector2(169, -30)
 rotation = -0.2617994
 gizmo_extents = 32.0
 
-[node name="3" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="3" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=1642031727]
 position = Vector2(224, -21)
 rotation = -0.17453292
 gizmo_extents = 32.0
 
-[node name="4" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="4" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=1123538589]
 position = Vector2(276, -10)
 rotation = -0.08726646
 gizmo_extents = 32.0
 
-[node name="5" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="5" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=1933479590]
 position = Vector2(117, 37)
 rotation = 0.34906584
 gizmo_extents = 32.0
 
-[node name="6" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="6" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=62715282]
 position = Vector2(169, 30)
 rotation = 0.2617994
 gizmo_extents = 32.0
 
-[node name="7" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="7" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=1078095759]
 position = Vector2(224, 21)
 rotation = 0.17453292
 gizmo_extents = 32.0
 
-[node name="8" type="Marker2D" parent="BulletsSpawnPointsLunge"]
+[node name="8" type="Marker2D" parent="BulletsSpawnPointsLunge" unique_id=1365940155]
 position = Vector2(276, 10)
 rotation = 0.08726646
 gizmo_extents = 32.0

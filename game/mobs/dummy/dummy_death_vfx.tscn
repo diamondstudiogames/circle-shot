@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://j0nc4xdi7sr0"]
+[gd_scene format=3 uid="uid://j0nc4xdi7sr0"]
 
 [ext_resource type="Texture2D" uid="uid://b8wwg2ykfshv8" path="res://game/mobs/dummy/dummy_dead.png" id="1_htngk"]
 [ext_resource type="Texture2D" uid="uid://bk7tg4o2dhpm" path="res://game/mobs/dummy/fluff.png" id="2_rf5fc"]
@@ -127,15 +127,15 @@ _data = {
 &"RESET": SubResource("Animation_ntxbl")
 }
 
-[node name="DummyDeathVfx" type="Node2D"]
+[node name="DummyDeathVfx" type="Node2D" unique_id=1564632940]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124201707]
 z_index = -2
 position = Vector2(0, 40)
 texture = ExtResource("1_htngk")
 offset = Vector2(0, -40)
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1294401413]
 z_index = 1
 material = SubResource("CanvasItemMaterial_qvlos")
 emitting = false
@@ -153,8 +153,6 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_v1ijc")
 anim_offset_max = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gi0nl")
-}
-autoplay = "Death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1860534105]
+libraries/ = SubResource("AnimationLibrary_gi0nl")
+autoplay = &"Death"

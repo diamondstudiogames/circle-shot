@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChallengeData" load_steps=4 format=3 uid="uid://btdml607s8w5d"]
+[gd_resource type="Resource" script_class="ChallengeData" format=3 uid="uid://btdml607s8w5d"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_owemw"]
 [ext_resource type="Resource" uid="uid://bp2mr8jwarhu5" path="res://game/solo/challenges/big_shot_hunting/maps/criminal_city/criminal_city.tres" id="2_epxtb"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhdp2vembvf4n"]
+[gd_scene format=3 uid="uid://dhdp2vembvf4n"]
 
 [ext_resource type="Texture2D" uid="uid://d1x0img8u125r" path="res://game/skins/emoji/angry/angry.png" id="1_m70ri"]
 [ext_resource type="Texture2D" uid="uid://2cwlmoida2tw" path="res://game/skins/emoji/angry/angry_hurt.png" id="1_s5na7"]
@@ -44,14 +44,12 @@ _data = {
 &"hurt": SubResource("Animation_t1x4f")
 }
 
-[node name="Angry" type="Sprite2D"]
+[node name="Angry" type="Sprite2D" unique_id=2114317170]
 texture = ExtResource("1_m70ri")
 script = ExtResource("2_3nmf3")
 custom_hurt_vfx_scene = ExtResource("3_t1x4f")
 custom_death_vfx_scene = ExtResource("4_3nmf3")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nbe2s")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=157228730]
+libraries/ = SubResource("AnimationLibrary_nbe2s")

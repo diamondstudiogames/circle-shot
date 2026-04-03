@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://kflolxygpcub"]
+[gd_scene format=3 uid="uid://kflolxygpcub"]
 
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_b5nga"]
 
-[node name="MinimapMarker" type="Node2D"]
+[node name="MinimapMarker" type="Node2D" unique_id=516566011]
 
-[node name="MinimapRemote" type="RemoteTransform2D" parent="."]
+[node name="MinimapRemote" type="RemoteTransform2D" parent="." unique_id=731218493]
 remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="Visual" type="Sprite2D" parent="."]
+[node name="Visual" type="Sprite2D" parent="." unique_id=775027562]
 top_level = true
 visibility_layer = 2
 z_index = -7

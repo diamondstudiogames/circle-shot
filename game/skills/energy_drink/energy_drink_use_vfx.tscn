@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7rmbgdh6weme"]
+[gd_scene format=3 uid="uid://c7rmbgdh6weme"]
 
 [ext_resource type="Texture2D" uid="uid://mt30gs7p32uk" path="res://game/skills/energy_drink/damaged.png" id="1_o1jix"]
 [ext_resource type="Texture2D" uid="uid://b4r6plex6kfs1" path="res://game/skills/energy_drink/opener.png" id="2_2xrub"]
@@ -162,21 +162,19 @@ _data = {
 &"use": SubResource("Animation_fgkox")
 }
 
-[node name="EnergyDrinkUseVfx" type="Node2D"]
+[node name="EnergyDrinkUseVfx" type="Node2D" unique_id=140293749]
 show_behind_parent = true
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1034628501]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_3hurv")
 
-[node name="Opener" type="Sprite2D" parent="Base"]
+[node name="Opener" type="Sprite2D" parent="Base" unique_id=921346855]
 show_behind_parent = true
 position = Vector2(1, -41)
 texture = ExtResource("2_2xrub")
 offset = Vector2(-1, 41)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_xl8vo")
-}
-autoplay = "use"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=918704611]
+libraries/ = SubResource("AnimationLibrary_xl8vo")
+autoplay = &"use"

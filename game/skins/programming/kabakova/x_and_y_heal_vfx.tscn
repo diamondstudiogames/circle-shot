@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfagdds1gg8ks"]
+[gd_scene format=3 uid="uid://dfagdds1gg8ks"]
 
 [ext_resource type="Texture2D" uid="uid://bi2cc3hnojs3m" path="res://game/skins/programming/kabakova/x_and_y.png" id="1_6ogjf"]
 
@@ -17,9 +17,9 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="XAndYHealVfx" type="Node2D"]
+[node name="XAndYHealVfx" type="Node2D" unique_id=1218673155]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1614385853]
 z_index = 1
 material = SubResource("CanvasItemMaterial_y8t8i")
 amount = 4
@@ -40,7 +40,7 @@ radial_accel_curve = SubResource("Curve_0uwwu")
 scale_amount_curve = SubResource("Curve_e1ai4")
 anim_offset_max = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=217515550]
 wait_time = 0.6
 one_shot = true
 autostart = true

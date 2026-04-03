@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c80v57cmun6n5"]
+[gd_scene format=3 uid="uid://c80v57cmun6n5"]
 
 [ext_resource type="PackedScene" uid="uid://cio2wgh4fglo4" path="res://game/skins/programming/kabakova/graphic_death_vfx.tscn" id="2_fr12t"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_lsj16"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cd77mloov7sbg" path="res://game/skins/programming/kabakova/numbers_blood.tscn" id="4_osqjj"]
 [ext_resource type="PackedScene" uid="uid://dfagdds1gg8ks" path="res://game/skins/programming/kabakova/x_and_y_heal_vfx.tscn" id="5_bp77c"]
 
-[node name="Kabakova" type="Sprite2D"]
+[node name="Kabakova" type="Sprite2D" unique_id=2033903509]
 texture = ExtResource("2_wnbls")
 script = ExtResource("2_lsj16")
 custom_hurt_vfx_scene = ExtResource("3_go1nj")

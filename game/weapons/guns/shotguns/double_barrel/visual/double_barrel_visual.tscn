@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cck7peobtcapn"]
+[gd_scene format=3 uid="uid://cck7peobtcapn"]
 
 [ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="1_g00h4"]
 [ext_resource type="Texture2D" uid="uid://v00xdetgu4rl" path="res://game/weapons/guns/shotguns/double_barrel/visual/handle.png" id="2_gifhq"]
@@ -9,22 +9,22 @@
 [sub_resource type="Gradient" id="Gradient_kmoyi"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1951491161]
 
-[node name="Ammo" type="Sprite2D" parent="."]
+[node name="Ammo" type="Sprite2D" parent="." unique_id=2146182164]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-56, 0)
 rotation = 0.5131268
 texture = ExtResource("1_g00h4")
 
-[node name="Handle" type="Sprite2D" parent="."]
+[node name="Handle" type="Sprite2D" parent="." unique_id=320521088]
 texture = ExtResource("2_gifhq")
 offset = Vector2(-40, 12)
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 56)
 
-[node name="Shoot" type="Sprite2D" parent="Handle"]
+[node name="Shoot" type="Sprite2D" parent="Handle" unique_id=2095261905]
 visible = false
 show_behind_parent = true
 material = ExtResource("3_7kjml")
@@ -32,7 +32,7 @@ position = Vector2(205, -8)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_ei43i")
 
-[node name="Sleeve" type="CPUParticles2D" parent="Handle"]
+[node name="Sleeve" type="CPUParticles2D" parent="Handle" unique_id=459087807]
 show_behind_parent = true
 position = Vector2(14, -6)
 emitting = false
@@ -49,7 +49,7 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_kmoyi")
 
-[node name="Barrel" type="Sprite2D" parent="Handle"]
+[node name="Barrel" type="Sprite2D" parent="Handle" unique_id=676880305]
 show_behind_parent = true
 position = Vector2(10, 4)
 texture = ExtResource("5_qboj1")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm2txvy6i1tmo"]
+[gd_scene format=3 uid="uid://bm2txvy6i1tmo"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_xqyc3"]
 
-[node name="ValBullet" instance=ExtResource("1_xqyc3")]
+[node name="ValBullet" unique_id=681492543 instance=ExtResource("1_xqyc3")]
 speed = 3100.0
 damage = 7

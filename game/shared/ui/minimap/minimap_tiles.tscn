@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba2cw3xgen7yp"]
+[gd_scene format=3 uid="uid://ba2cw3xgen7yp"]
 
 [ext_resource type="TileSet" uid="uid://ci04ocvnien3" path="res://game/shared/ui/minimap/tile_set.tres" id="1_2ih73"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_ett0e"]
 
-[node name="MinimapTiles" type="TileMapLayer"]
+[node name="MinimapTiles" type="TileMapLayer" unique_id=79072599]
 light_mask = 2
 visibility_layer = 2
 z_index = -10

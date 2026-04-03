@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://7yeuewjt5nf4"]
+[gd_scene format=3 uid="uid://7yeuewjt5nf4"]
 
 [ext_resource type="Texture2D" uid="uid://nj1ie48xpwpg" path="res://game/skills/invisibility_bomb/invisibility_bomb.png" id="1_bdcay"]
 
@@ -126,15 +126,13 @@ _data = {
 &"use": SubResource("Animation_vjva6")
 }
 
-[node name="InvisibilityBombUseVfx" type="Node2D"]
+[node name="InvisibilityBombUseVfx" type="Node2D" unique_id=1522594201]
 
-[node name="Bomb" type="Sprite2D" parent="."]
+[node name="Bomb" type="Sprite2D" parent="." unique_id=2014213875]
 z_index = -1
 position = Vector2(-18, -24)
 texture = ExtResource("1_bdcay")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tweey")
-}
-autoplay = "use"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=549055991]
+libraries/ = SubResource("AnimationLibrary_tweey")
+autoplay = &"use"

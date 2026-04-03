@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx4k2pqgm7ema"]
+[gd_scene format=3 uid="uid://bx4k2pqgm7ema"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_uaoks"]
 [ext_resource type="Script" uid="uid://cd4n5e3wdttl3" path="res://game/weapons/guns/pistols/russian_revolver/russian_revolver.gd" id="2_5spho"]
@@ -21,7 +21,7 @@ _limits = [-10.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -10), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="RussianRevolver" instance=ExtResource("1_uaoks")]
+[node name="RussianRevolver" unique_id=277886896 instance=ExtResource("1_uaoks")]
 script = ExtResource("2_5spho")
 blank_chance = 0.55
 bonus_damage = 0.6
@@ -44,12 +44,10 @@ speed_multiplier_when_current = 0.98
 aim_camera_distance = 180.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_rse48")]
+[node name="Visual" parent="." index="0" unique_id=1530193866 instance=ExtResource("4_rse48")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(123, -34)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("10_1nin3")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("10_1nin3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://72aki6snx1ox"]
+[gd_scene format=3 uid="uid://72aki6snx1ox"]
 
 [ext_resource type="Texture2D" uid="uid://c6s7iuy8h63na" path="res://game/skins/other/svoloch/svoloch_dying.png" id="1_dgdn2"]
 [ext_resource type="Texture2D" uid="uid://buaq7v6lsrh3f" path="res://game/skins/other/svoloch/svoloch_dead.png" id="2_l4e0t"]
@@ -128,18 +128,16 @@ _data = {
 &"death": SubResource("Animation_a6isw")
 }
 
-[node name="SvolochDeathVfx" type="Node2D"]
+[node name="SvolochDeathVfx" type="Node2D" unique_id=626160006]
 
-[node name="Svoloch" type="Sprite2D" parent="."]
+[node name="Svoloch" type="Sprite2D" parent="." unique_id=1285038120]
 z_index = -2
 position = Vector2(0, 40)
 texture = ExtResource("1_dgdn2")
 offset = Vector2(4, -44)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ce6qy")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1467063228]
+libraries/ = SubResource("AnimationLibrary_ce6qy")
+autoplay = &"death"
 
-[node name="BloodHurtVfx" parent="." instance=ExtResource("3_l4e0t")]
+[node name="BloodHurtVfx" parent="." unique_id=1557661501 instance=ExtResource("3_l4e0t")]

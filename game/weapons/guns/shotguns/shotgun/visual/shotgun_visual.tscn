@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhgrnfcb8xlai"]
+[gd_scene format=3 uid="uid://dhgrnfcb8xlai"]
 
 [ext_resource type="Texture2D" uid="uid://bdfqe6qhot1gb" path="res://game/weapons/guns/shotguns/common/shotgun_ammo.png" id="1_1jnd5"]
 [ext_resource type="Texture2D" uid="uid://cln1si1eynqrx" path="res://game/weapons/guns/shotguns/shotgun/visual/base.png" id="2_1s2h2"]
@@ -9,20 +9,20 @@
 [sub_resource type="Gradient" id="Gradient_d2dv7"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=160384228]
 
-[node name="Ammo" type="Sprite2D" parent="."]
+[node name="Ammo" type="Sprite2D" parent="." unique_id=1034809802]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-56, 0)
 rotation = 0.20944
 texture = ExtResource("1_1jnd5")
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=943602754]
 texture = ExtResource("2_1s2h2")
 offset = Vector2(56, 0)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1973886219]
 visible = false
 show_behind_parent = true
 material = ExtResource("3_1s2h2")
@@ -31,13 +31,13 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_d5hbu")
 offset = Vector2(20, 0)
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=1397311496]
 texture = ExtResource("4_kga5u")
 offset = Vector2(132, -8)
 region_enabled = true
 region_rect = Rect2(184, 16, 72, 24)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=40913524]
 position = Vector2(62, -15)
 emitting = false
 amount = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2v16qvrswdtd"]
+[gd_scene format=3 uid="uid://b2v16qvrswdtd"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_q67hu"]
 [ext_resource type="PackedScene" uid="uid://tbn6kstqx2sj" path="res://game/weapons/guns/rifles/ak_74/ak_74_bullet.tscn" id="2_jquc2"]
@@ -20,7 +20,7 @@ _limits = [-5.0, 5.0, 0.0, 1.0]
 _data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.508651, -5), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="AK74" instance=ExtResource("1_q67hu")]
+[node name="AK74" unique_id=765780610 instance=ExtResource("1_q67hu")]
 shoot_interval = 0.145
 to_aim_time = 0.3
 projectile_scene = ExtResource("2_jquc2")
@@ -38,12 +38,10 @@ ammo_total = 120
 speed_multiplier_when_current = 0.94
 aim_camera_distance = 240.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_n3224")]
+[node name="Visual" parent="." index="0" unique_id=951740423 instance=ExtResource("3_n3224")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(194, -31)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_7rkp1")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_7rkp1")

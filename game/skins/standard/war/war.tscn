@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://yb112418c25u"]
+[gd_scene format=3 uid="uid://yb112418c25u"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_1w36t"]
 [ext_resource type="Texture2D" uid="uid://cjwf5ejxymu8c" path="res://game/skins/standard/war/war.png" id="1_mel6r"]
 
-[node name="War" type="Sprite2D"]
+[node name="War" type="Sprite2D" unique_id=9390456]
 texture = ExtResource("1_mel6r")
 script = ExtResource("1_1w36t")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

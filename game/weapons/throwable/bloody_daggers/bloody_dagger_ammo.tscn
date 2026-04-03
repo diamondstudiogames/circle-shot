@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clql3epyoffkq"]
+[gd_scene format=3 uid="uid://clql3epyoffkq"]
 
 [ext_resource type="PackedScene" uid="uid://cgnugiwepctjg" path="res://game/weapons/throwable/common/throwable_ammo.tscn" id="1_onnyp"]
 [ext_resource type="Texture2D" uid="uid://cqfc6oedfri6n" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger.png" id="2_ya7lc"]
@@ -54,7 +54,7 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ry741"]
+[sub_resource type="Animation" id="Animation_a5xh7"]
 resource_local_to_scene = true
 resource_name = "Throw"
 length = 0.08
@@ -137,7 +137,7 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_jcvs8"]
+[sub_resource type="Animation" id="Animation_7ys2l"]
 resource_local_to_scene = true
 resource_name = "PostThrow"
 length = 0.06
@@ -167,23 +167,21 @@ tracks/1/keys = {
 "values": [-1.87527, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eih8m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qjlo"]
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_eih8m"),
-&"pre_throw": SubResource("Animation_ry741"),
+&"pre_throw": SubResource("Animation_a5xh7"),
 &"reload": SubResource("Animation_hpv2k"),
-&"throw": SubResource("Animation_jcvs8")
+&"throw": SubResource("Animation_7ys2l")
 }
 
-[node name="BloodyDaggerAmmo" instance=ExtResource("1_onnyp")]
+[node name="BloodyDaggerAmmo" unique_id=41537192 instance=ExtResource("1_onnyp")]
 
 [node name="AnimationPlayer" parent="." index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_eih8m")
-}
+libraries/ = SubResource("AnimationLibrary_0qjlo")
 
-[node name="BloodyDagger" type="Sprite2D" parent="." index="1"]
+[node name="BloodyDagger" type="Sprite2D" parent="." index="1" unique_id=663093066]
 position = Vector2(8, 0)
 texture = ExtResource("2_ya7lc")
 offset = Vector2(40, 0)

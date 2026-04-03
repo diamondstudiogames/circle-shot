@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4157ddj75w7o"]
+[gd_scene format=3 uid="uid://c4157ddj75w7o"]
 
 [ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_5vgda"]
 
-[node name="Map" instance=ExtResource("1_5vgda")]
+[node name="Map" unique_id=1025730906 instance=ExtResource("1_5vgda")]
 metadata/_edit_horizontal_guides_ = [-6400.0, 6400.0]
 metadata/_edit_vertical_guides_ = [-6400.0, 6400.0]
 
@@ -22,45 +22,45 @@ position = Vector2(0, 6400)
 chunks_per_axis = 8
 map_size = Vector2i(80, 80)
 
-[node name="SpawnPoints" type="Node2D" parent="." index="4"]
+[node name="SpawnPoints" type="Node2D" parent="." index="4" unique_id=685249337]
 
-[node name="0" type="Marker2D" parent="SpawnPoints" index="0"]
+[node name="0" type="Marker2D" parent="SpawnPoints" index="0" unique_id=200264270]
 position = Vector2(254, 144)
 gizmo_extents = 76.0
 
-[node name="1" type="Marker2D" parent="SpawnPoints" index="1"]
+[node name="1" type="Marker2D" parent="SpawnPoints" index="1" unique_id=1915431391]
 position = Vector2(118, 95)
 gizmo_extents = 76.0
 
-[node name="2" type="Marker2D" parent="SpawnPoints" index="2"]
+[node name="2" type="Marker2D" parent="SpawnPoints" index="2" unique_id=1685388518]
 position = Vector2(210, 36)
 gizmo_extents = 76.0
 
-[node name="3" type="Marker2D" parent="SpawnPoints" index="3"]
+[node name="3" type="Marker2D" parent="SpawnPoints" index="3" unique_id=831516744]
 position = Vector2(254, 144)
 gizmo_extents = 76.0
 
-[node name="4" type="Marker2D" parent="SpawnPoints" index="4"]
+[node name="4" type="Marker2D" parent="SpawnPoints" index="4" unique_id=143647615]
 position = Vector2(109, 187)
 gizmo_extents = 76.0
 
-[node name="5" type="Marker2D" parent="SpawnPoints" index="5"]
+[node name="5" type="Marker2D" parent="SpawnPoints" index="5" unique_id=1000550932]
 position = Vector2(207, 219)
 gizmo_extents = 76.0
 
-[node name="6" type="Marker2D" parent="SpawnPoints" index="6"]
+[node name="6" type="Marker2D" parent="SpawnPoints" index="6" unique_id=1736465153]
 position = Vector2(343, 80)
 gizmo_extents = 76.0
 
-[node name="7" type="Marker2D" parent="SpawnPoints" index="7"]
+[node name="7" type="Marker2D" parent="SpawnPoints" index="7" unique_id=724588697]
 position = Vector2(416, 196)
 gizmo_extents = 76.0
 
-[node name="8" type="Marker2D" parent="SpawnPoints" index="8"]
+[node name="8" type="Marker2D" parent="SpawnPoints" index="8" unique_id=663205126]
 position = Vector2(331, 268)
 gizmo_extents = 76.0
 
-[node name="9" type="Marker2D" parent="SpawnPoints" index="9"]
+[node name="9" type="Marker2D" parent="SpawnPoints" index="9" unique_id=642239027]
 position = Vector2(187, 318)
 gizmo_extents = 76.0
 

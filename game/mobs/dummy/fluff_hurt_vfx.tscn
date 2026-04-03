@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4mcugdviiqd0"]
+[gd_scene format=3 uid="uid://d4mcugdviiqd0"]
 
 [ext_resource type="Texture2D" uid="uid://bk7tg4o2dhpm" path="res://game/mobs/dummy/fluff.png" id="1_5qjhu"]
 
@@ -12,9 +12,9 @@ particles_anim_loop = false
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="FluffHurtVfx" type="Node2D"]
+[node name="FluffHurtVfx" type="Node2D" unique_id=1494919169]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=638234129]
 z_index = 1
 material = SubResource("CanvasItemMaterial_5qjhu")
 amount = 5
@@ -32,7 +32,7 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 anim_offset_max = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=726154080]
 wait_time = 0.6
 one_shot = true
 autostart = true

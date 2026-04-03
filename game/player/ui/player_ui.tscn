@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://0wc72b0o2o11"]
+[gd_scene format=3 uid="uid://0wc72b0o2o11"]
 
 [ext_resource type="Script" uid="uid://dnfj2pxuibak6" path="res://game/player/ui/player_ui.gd" id="1_2pprn"]
 [ext_resource type="Shader" uid="uid://coxueocca4drx" path="res://game/player/ui/blood_vignette/blood_vignette.gdshader" id="2_bioi4"]
@@ -91,7 +91,7 @@ _data = {
 &"hurt": SubResource("Animation_42oh0")
 }
 
-[node name="PlayerUI" type="Control"]
+[node name="PlayerUI" type="Control" unique_id=1945719453]
 process_priority = -10
 layout_mode = 3
 anchors_preset = 15
@@ -102,7 +102,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2pprn")
 
-[node name="Controller" type="Control" parent="."]
+[node name="Controller" type="Control" parent="." unique_id=1433383525]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,7 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BloodVignette" type="TextureRect" parent="Controller"]
+[node name="BloodVignette" type="TextureRect" parent="Controller" unique_id=2127132896]
 visible = false
 modulate = Color(1, 0, 0, 0.501961)
 visibility_layer = 4
@@ -125,7 +125,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_tfa7a")
 
-[node name="HealthBar" type="TextureRect" parent="Controller"]
+[node name="HealthBar" type="TextureRect" parent="Controller" unique_id=683697452]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -142,7 +142,7 @@ mouse_filter = 2
 texture = ExtResource("4_425vn")
 expand_mode = 1
 
-[node name="HealthImmediate" type="TextureProgressBar" parent="Controller/HealthBar"]
+[node name="HealthImmediate" type="TextureProgressBar" parent="Controller/HealthBar" unique_id=2072469684]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -160,7 +160,7 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("5_2wb1l")
 
-[node name="Health" type="TextureProgressBar" parent="Controller/HealthBar"]
+[node name="Health" type="TextureProgressBar" parent="Controller/HealthBar" unique_id=1320135266]
 material = ExtResource("7_2wypa")
 instance_shader_parameters/power = 0.0
 layout_mode = 1
@@ -179,7 +179,7 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("5_3xbtg")
 
-[node name="Label" type="Label" parent="Controller/HealthBar"]
+[node name="Label" type="Label" parent="Controller/HealthBar" unique_id=1780388775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,11 +192,11 @@ text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PositionLoader" type="Node" parent="Controller/HealthBar"]
+[node name="PositionLoader" type="Node" parent="Controller/HealthBar" unique_id=1593723263]
 script = ExtResource("8_witf6")
 id = "health_bar"
 
-[node name="TouchControls" type="Control" parent="Controller"]
+[node name="TouchControls" type="Control" parent="Controller" unique_id=159996159]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,7 +205,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MoveVirtualJoystick" parent="Controller/TouchControls" instance=ExtResource("2_x7k0l")]
+[node name="MoveVirtualJoystick" parent="Controller/TouchControls" unique_id=1716915890 instance=ExtResource("2_x7k0l")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -220,11 +220,11 @@ pressed_color = Color(0, 0.273438, 1, 1)
 base_texture = ExtResource("3_svvw5")
 tip_texture = ExtResource("4_opsbs")
 
-[node name="PositionLoader" type="Node" parent="Controller/TouchControls/MoveVirtualJoystick"]
+[node name="PositionLoader" type="Node" parent="Controller/TouchControls/MoveVirtualJoystick" unique_id=172473530]
 script = ExtResource("8_witf6")
 id = "move_js"
 
-[node name="AimVirtualJoystick" parent="Controller/TouchControls" instance=ExtResource("2_x7k0l")]
+[node name="AimVirtualJoystick" parent="Controller/TouchControls" unique_id=961980418 instance=ExtResource("2_x7k0l")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -242,18 +242,18 @@ pressed_color = Color(1, 0, 0, 1)
 base_texture = ExtResource("3_svvw5")
 tip_texture = ExtResource("5_5uxix")
 
-[node name="PositionLoader" type="Node" parent="Controller/TouchControls/AimVirtualJoystick"]
+[node name="PositionLoader" type="Node" parent="Controller/TouchControls/AimVirtualJoystick" unique_id=1650716754]
 script = ExtResource("8_witf6")
 id = "aim_js"
 
-[node name="ShootAreaAnchor" type="Control" parent="Controller/TouchControls"]
+[node name="ShootAreaAnchor" type="Control" parent="Controller/TouchControls" unique_id=123361380]
 anchors_preset = 0
 
-[node name="ShootArea" type="TouchScreenButton" parent="Controller/TouchControls/ShootAreaAnchor"]
+[node name="ShootArea" type="TouchScreenButton" parent="Controller/TouchControls/ShootAreaAnchor" unique_id=412501251]
 position = Vector2(320, 128)
 shape = SubResource("RectangleShape2D_6sal7")
 
-[node name="AdditionalButtonAnchor" type="Control" parent="Controller/TouchControls"]
+[node name="AdditionalButtonAnchor" type="Control" parent="Controller/TouchControls" unique_id=1896243292]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -267,15 +267,15 @@ offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="AdditionalButton" type="TouchScreenButton" parent="Controller/TouchControls/AdditionalButtonAnchor"]
+[node name="AdditionalButton" type="TouchScreenButton" parent="Controller/TouchControls/AdditionalButtonAnchor" unique_id=907925416]
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_10yoo")
 
-[node name="PositionLoader" type="Node" parent="Controller/TouchControls/AdditionalButtonAnchor"]
+[node name="PositionLoader" type="Node" parent="Controller/TouchControls/AdditionalButtonAnchor" unique_id=661825173]
 script = ExtResource("8_witf6")
 id = "additional"
 
-[node name="InteractButtonAnchor" type="Control" parent="Controller/TouchControls"]
+[node name="InteractButtonAnchor" type="Control" parent="Controller/TouchControls" unique_id=1509289452]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -289,15 +289,15 @@ offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="InteractButton" type="TouchScreenButton" parent="Controller/TouchControls/InteractButtonAnchor"]
+[node name="InteractButton" type="TouchScreenButton" parent="Controller/TouchControls/InteractButtonAnchor" unique_id=878746423]
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("15_l5du6")
 
-[node name="PositionLoader" type="Node" parent="Controller/TouchControls/InteractButtonAnchor"]
+[node name="PositionLoader" type="Node" parent="Controller/TouchControls/InteractButtonAnchor" unique_id=1075784518]
 script = ExtResource("8_witf6")
 id = "interact"
 
-[node name="CurrentWeapon" type="TextureRect" parent="Controller"]
+[node name="CurrentWeapon" type="TextureRect" parent="Controller" unique_id=25905767]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -312,7 +312,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("7_6c3s8")
 
-[node name="AdditionalButtonIcon" type="TextureRect" parent="Controller/CurrentWeapon"]
+[node name="AdditionalButtonIcon" type="TextureRect" parent="Controller/CurrentWeapon" unique_id=1384450765]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -326,7 +326,7 @@ grow_horizontal = 0
 texture = ExtResource("17_akmgk")
 expand_mode = 1
 
-[node name="Icon" type="TextureRect" parent="Controller/CurrentWeapon"]
+[node name="Icon" type="TextureRect" parent="Controller/CurrentWeapon" unique_id=1212402049]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 8
@@ -343,7 +343,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Controller/CurrentWeapon"]
+[node name="Label" type="Label" parent="Controller/CurrentWeapon" unique_id=1993788039]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -358,11 +358,11 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_type_variation = &"LabelOutlined"
 
-[node name="PositionLoader" type="Node" parent="Controller/CurrentWeapon"]
+[node name="PositionLoader" type="Node" parent="Controller/CurrentWeapon" unique_id=516679137]
 script = ExtResource("8_witf6")
 id = "weapon"
 
-[node name="AdditionalWeapon" type="TextureRect" parent="Controller"]
+[node name="AdditionalWeapon" type="TextureRect" parent="Controller" unique_id=1370018260]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -378,7 +378,7 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("16_2wypa")
 
-[node name="Icon" type="TextureRect" parent="Controller/AdditionalWeapon"]
+[node name="Icon" type="TextureRect" parent="Controller/AdditionalWeapon" unique_id=1711470839]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 8
@@ -395,7 +395,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Controller/AdditionalWeapon"]
+[node name="Label" type="Label" parent="Controller/AdditionalWeapon" unique_id=681300644]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -410,15 +410,15 @@ grow_vertical = 0
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Controller/AdditionalWeapon"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Controller/AdditionalWeapon" unique_id=1554346898]
 position = Vector2(96, 48)
 shape = SubResource("RectangleShape2D_2wypa")
 
-[node name="PositionLoader" type="Node" parent="Controller/AdditionalWeapon"]
+[node name="PositionLoader" type="Node" parent="Controller/AdditionalWeapon" unique_id=1640487010]
 script = ExtResource("8_witf6")
 id = "spare_weapon"
 
-[node name="Skill" type="TextureProgressBar" parent="Controller"]
+[node name="Skill" type="TextureProgressBar" parent="Controller" unique_id=807996418]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -442,7 +442,7 @@ texture_progress = ExtResource("14_nojcu")
 tint_under = Color(1, 1, 1, 0.501961)
 tint_progress = Color(1, 1, 1, 0.752941)
 
-[node name="Icon" type="TextureRect" parent="Controller/Skill"]
+[node name="Icon" type="TextureRect" parent="Controller/Skill" unique_id=1971248757]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -458,7 +458,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Count" type="Label" parent="Controller/Skill"]
+[node name="Count" type="Label" parent="Controller/Skill" unique_id=1086968960]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -476,15 +476,15 @@ theme_override_font_sizes/font_size = 40
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Controller/Skill"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Controller/Skill" unique_id=939318125]
 position = Vector2(60, 60)
 shape = SubResource("RectangleShape2D_x4djl")
 
-[node name="PositionLoader" type="Node" parent="Controller/Skill"]
+[node name="PositionLoader" type="Node" parent="Controller/Skill" unique_id=1062220292]
 script = ExtResource("8_witf6")
 id = "skill"
 
-[node name="WeaponSelection" type="Control" parent="Controller"]
+[node name="WeaponSelection" type="Control" parent="Controller" unique_id=2072602218]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -499,7 +499,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BGLight" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="BGLight" type="TextureRect" parent="Controller/WeaponSelection" unique_id=1598723017]
 self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 1
 anchors_preset = 6
@@ -518,7 +518,7 @@ mouse_filter = 2
 texture = ExtResource("11_kgyyy")
 expand_mode = 1
 
-[node name="BGHeavy" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="BGHeavy" type="TextureRect" parent="Controller/WeaponSelection" unique_id=1247528228]
 self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 1
 anchors_preset = 6
@@ -537,7 +537,7 @@ mouse_filter = 2
 texture = ExtResource("11_kgyyy")
 expand_mode = 1
 
-[node name="BGSupport" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="BGSupport" type="TextureRect" parent="Controller/WeaponSelection" unique_id=2032006238]
 self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 1
 anchors_preset = 6
@@ -555,7 +555,7 @@ mouse_filter = 2
 texture = ExtResource("11_kgyyy")
 expand_mode = 1
 
-[node name="BGMelee" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="BGMelee" type="TextureRect" parent="Controller/WeaponSelection" unique_id=52698131]
 self_modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 1
 anchors_preset = 6
@@ -575,7 +575,7 @@ mouse_filter = 2
 texture = ExtResource("11_kgyyy")
 expand_mode = 1
 
-[node name="LightWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="LightWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection" unique_id=1567875002]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 4
@@ -590,7 +590,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LightWeaponName" type="Label" parent="Controller/WeaponSelection"]
+[node name="LightWeaponName" type="Label" parent="Controller/WeaponSelection" unique_id=2434461]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -604,7 +604,7 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HeavyWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="HeavyWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection" unique_id=15890]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 5
@@ -619,7 +619,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HeavyWeaponName" type="Label" parent="Controller/WeaponSelection"]
+[node name="HeavyWeaponName" type="Label" parent="Controller/WeaponSelection" unique_id=1575056208]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -632,7 +632,7 @@ grow_horizontal = 2
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 
-[node name="SupportWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="SupportWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection" unique_id=1798607621]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 7
@@ -650,7 +650,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SupportWeaponName" type="Label" parent="Controller/WeaponSelection"]
+[node name="SupportWeaponName" type="Label" parent="Controller/WeaponSelection" unique_id=333232902]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -663,7 +663,7 @@ grow_horizontal = 2
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 
-[node name="MeleeWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection"]
+[node name="MeleeWeaponIcon" type="TextureRect" parent="Controller/WeaponSelection" unique_id=1332433181]
 material = ExtResource("7_2wypa")
 layout_mode = 1
 anchors_preset = 6
@@ -681,7 +681,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MeleeWeaponName" type="Label" parent="Controller/WeaponSelection"]
+[node name="MeleeWeaponName" type="Label" parent="Controller/WeaponSelection" unique_id=1022237481]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -695,7 +695,7 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PlayerTint" type="ColorRect" parent="."]
+[node name="PlayerTint" type="ColorRect" parent="." unique_id=497253817]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -705,12 +705,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerTint"]
-libraries = {
-&"": SubResource("AnimationLibrary_e0ahq")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerTint" unique_id=215598438]
+libraries/ = SubResource("AnimationLibrary_e0ahq")
 
-[node name="Center" type="Control" parent="."]
+[node name="Center" type="Control" parent="." unique_id=2124987810]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -720,7 +718,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SingleShotTimer" type="Timer" parent="."]
+[node name="SingleShotTimer" type="Timer" parent="." unique_id=179700071]
 wait_time = 0.2
 one_shot = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdyfsrdgx0haa"]
+[gd_scene format=3 uid="uid://bdyfsrdgx0haa"]
 
 [ext_resource type="Script" uid="uid://d0lom0taev17g" path="res://game/weapons/other/hook/hook.gd" id="1_3uidi"]
 [ext_resource type="PackedScene" uid="uid://b5yuhtxk1cqyw" path="res://game/weapons/other/hook/visual/hook_visual.tscn" id="3_edkhm"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://drf8asi0s3yc1" path="res://game/weapons/other/hook/visual/hook_attract_enemy.png" id="5_xj4w6"]
 [ext_resource type="Texture2D" uid="uid://dqqohrw8x4ie4" path="res://game/weapons/other/hook/visual/hook_attract_user.png" id="6_uqyeu"]
 
-[node name="Hook" type="Node2D"]
+[node name="Hook" type="Node2D" unique_id=32487809]
 script = ExtResource("1_3uidi")
 hook_speed = 2400.0
 attract_speed = 1760.0
@@ -19,10 +19,10 @@ speed_multiplier_when_current = 0.99
 aim_camera_distance = 240.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." instance=ExtResource("3_edkhm")]
+[node name="Visual" parent="." unique_id=724454010 instance=ExtResource("3_edkhm")]
 position = Vector2(-32, -32)
 
-[node name="Aim" type="Line2D" parent="."]
+[node name="Aim" type="Line2D" parent="." unique_id=90443582]
 visible = false
 z_index = 10
 material = ExtResource("3_xj4w6")
@@ -31,43 +31,41 @@ points = PackedVector2Array(72, 0, 2048, 0)
 width = 48.0
 default_color = Color(1, 1, 1, 0.376471)
 
-[node name="Outline" type="Line2D" parent="Aim"]
+[node name="Outline" type="Line2D" parent="Aim" unique_id=945399274]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(72, 0, 2048, 0)
 width = 52.0
 default_color = Color(0, 0, 0, 0.188235)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": ExtResource("4_edkhm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1108065200]
+libraries/ = ExtResource("4_edkhm")
 
-[node name="ReloadTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1462378929]
 process_callback = 0
 wait_time = 8.0
 one_shot = true
 
-[node name="FailedReloadTimer" type="Timer" parent="."]
+[node name="FailedReloadTimer" type="Timer" parent="." unique_id=219212199]
 process_callback = 0
 wait_time = 0.4
 one_shot = true
 
-[node name="AttractTimer" type="Timer" parent="."]
+[node name="AttractTimer" type="Timer" parent="." unique_id=238192586]
 process_callback = 0
 wait_time = 1.25
 one_shot = true
 
-[node name="ThrowTimer" type="Timer" parent="."]
+[node name="ThrowTimer" type="Timer" parent="." unique_id=1888745773]
 process_callback = 0
 wait_time = 0.8
 one_shot = true
 
-[node name="SyncPositionTimer" type="Timer" parent="."]
+[node name="SyncPositionTimer" type="Timer" parent="." unique_id=663284840]
 process_callback = 0
 wait_time = 0.1
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=633727971]
 resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtResource("5_xj4w6"), ExtResource("6_uqyeu")]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

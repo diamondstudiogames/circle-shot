@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddix4ibsde835"]
+[gd_scene format=3 uid="uid://ddix4ibsde835"]
 
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="1_7nvhj"]
 [ext_resource type="PackedScene" uid="uid://bx715huw1dsun" path="res://game/player/modifiers/immune_on_respawn_timer.tscn" id="2_hdk1a"]
 
-[node name="Player" instance=ExtResource("1_7nvhj")]
+[node name="Player" unique_id=1487701509 instance=ExtResource("1_7nvhj")]
 
-[node name="ImmuneOnRespawnTimer" parent="." index="10" instance=ExtResource("2_hdk1a")]
+[node name="ImmuneOnRespawnTimer" parent="." index="10" unique_id=1586236353 instance=ExtResource("2_hdk1a")]
 wait_time = 1.5

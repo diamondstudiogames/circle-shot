@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdwe08hp3gif2"]
+[gd_scene format=3 uid="uid://bdwe08hp3gif2"]
 
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_w010h"]
 
@@ -6,11 +6,10 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BigBloodHurtVfx" type="Node2D"]
+[node name="BigBloodHurtVfx" type="Node2D" unique_id=2028740998]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=2123206766]
 z_index = 1
-emitting = false
 texture = ExtResource("1_w010h")
 lifetime = 0.5
 one_shot = true
@@ -23,7 +22,7 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1449584104]
 wait_time = 0.6
 one_shot = true
 autostart = true

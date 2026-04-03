@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://w86u3a024aw3"]
+[gd_scene format=3 uid="uid://w86u3a024aw3"]
 
 [ext_resource type="Script" uid="uid://cdn8hq65c7t5a" path="res://game/skills/potion/potion.gd" id="1_otbai"]
 [ext_resource type="PackedScene" uid="uid://c1jxj44vodfa7" path="res://game/skills/potion/potion_use_vfx.tscn" id="2_7nba0"]
 
-[node name="Potion" type="Node2D"]
+[node name="Potion" type="Node2D" unique_id=285879885]
 script = ExtResource("1_otbai")
 heal_amount = 35
 use_cooldown = 60
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=2138983156]
 process_callback = 0
 one_shot = true
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=184462238]
 resources = [PackedStringArray("potion_use_vfx"), [ExtResource("2_7nba0")]]

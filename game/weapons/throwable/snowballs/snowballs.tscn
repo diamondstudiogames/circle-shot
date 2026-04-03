@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0sfmbuci74d7"]
+[gd_scene format=3 uid="uid://0sfmbuci74d7"]
 
 [ext_resource type="PackedScene" uid="uid://cdo5tqeki3gle" path="res://game/weapons/throwable/common/throwable.tscn" id="1_lvpje"]
 [ext_resource type="PackedScene" uid="uid://4jod4xwjklj3" path="res://game/weapons/throwable/snowballs/snowball_projectile.tscn" id="2_pk5fa"]
@@ -66,7 +66,7 @@ _data = {
 &"equip": SubResource("Animation_lvpje")
 }
 
-[node name="Snowballs" instance=ExtResource("1_lvpje")]
+[node name="Snowballs" unique_id=2120306037 instance=ExtResource("1_lvpje")]
 projectile_scene = ExtResource("2_pk5fa")
 ammo_scene = ExtResource("2_yga7a")
 angle_between_ammo = 20.0
@@ -77,20 +77,18 @@ ammo_per_load = 2
 ammo_total = 32
 aim_camera_distance = 96.0
 
-[node name="Ammo" parent="." index="0"]
+[node name="Ammo" parent="." index="0" unique_id=471454208]
 position = Vector2(-24, -12)
 rotation = 0.392699
 
-[node name="ThrowPivot" parent="." index="1"]
+[node name="ThrowPivot" parent="." index="1" unique_id=1435792219]
 position = Vector2(-32, -48)
 
-[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+[node name="ThrowPoint" parent="ThrowPivot" index="0" unique_id=235930379]
 position = Vector2(96, 0)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_008ih")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=607822860]
+libraries/ = SubResource("AnimationLibrary_008ih")
 
-[node name="InterruptReloadMarginTimer" parent="." index="3"]
+[node name="InterruptReloadMarginTimer" parent="." index="3" unique_id=791863817]
 wait_time = 0.6

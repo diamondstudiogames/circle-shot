@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://nnn41dbal4sv"]
+[gd_scene format=3 uid="uid://nnn41dbal4sv"]
 
 [ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_e0vs5"]
 [ext_resource type="Texture2D" uid="uid://htarcqwm76" path="res://game/events/bomb_defusal/letter_a.png" id="2_s0q7p"]
 [ext_resource type="Texture2D" uid="uid://cdqjhriesx2i1" path="res://game/events/bomb_defusal/letter_b.png" id="3_0its4"]
 
-[node name="Map" instance=ExtResource("1_e0vs5")]
+[node name="Map" unique_id=891247641 instance=ExtResource("1_e0vs5")]
 metadata/_edit_vertical_guides_ = [-4800.0, 4800.0]
 metadata/_edit_horizontal_guides_ = [-4800.0, 4800.0]
 
@@ -24,64 +24,64 @@ position = Vector2(0, 4800)
 chunks_per_axis = 6
 map_size = Vector2i(60, 60)
 
-[node name="SpawnPoints0" type="Node2D" parent="." index="4"]
+[node name="SpawnPoints0" type="Node2D" parent="." index="4" unique_id=1780894395]
 
-[node name="0" type="Marker2D" parent="SpawnPoints0" index="0"]
+[node name="0" type="Marker2D" parent="SpawnPoints0" index="0" unique_id=1710343589]
 position = Vector2(-330, 148)
 gizmo_extents = 76.0
 
-[node name="1" type="Marker2D" parent="SpawnPoints0" index="1"]
+[node name="1" type="Marker2D" parent="SpawnPoints0" index="1" unique_id=321188208]
 position = Vector2(-466, 99)
 gizmo_extents = 76.0
 
-[node name="2" type="Marker2D" parent="SpawnPoints0" index="2"]
+[node name="2" type="Marker2D" parent="SpawnPoints0" index="2" unique_id=1925859469]
 position = Vector2(-374, 40)
 gizmo_extents = 76.0
 
-[node name="3" type="Marker2D" parent="SpawnPoints0" index="3"]
+[node name="3" type="Marker2D" parent="SpawnPoints0" index="3" unique_id=798079807]
 position = Vector2(-395, 133)
 gizmo_extents = 76.0
 
-[node name="4" type="Marker2D" parent="SpawnPoints0" index="4"]
+[node name="4" type="Marker2D" parent="SpawnPoints0" index="4" unique_id=836743104]
 position = Vector2(-475, 191)
 gizmo_extents = 76.0
 
-[node name="SpawnPoints1" type="Node2D" parent="." index="5"]
+[node name="SpawnPoints1" type="Node2D" parent="." index="5" unique_id=1222282320]
 
-[node name="0" type="Marker2D" parent="SpawnPoints1" index="0"]
+[node name="0" type="Marker2D" parent="SpawnPoints1" index="0" unique_id=422724211]
 position = Vector2(504, 175)
 gizmo_extents = 76.0
 
-[node name="1" type="Marker2D" parent="SpawnPoints1" index="1"]
+[node name="1" type="Marker2D" parent="SpawnPoints1" index="1" unique_id=1546327984]
 position = Vector2(368, 126)
 gizmo_extents = 76.0
 
-[node name="2" type="Marker2D" parent="SpawnPoints1" index="2"]
+[node name="2" type="Marker2D" parent="SpawnPoints1" index="2" unique_id=1196685622]
 position = Vector2(460, 67)
 gizmo_extents = 76.0
 
-[node name="3" type="Marker2D" parent="SpawnPoints1" index="3"]
+[node name="3" type="Marker2D" parent="SpawnPoints1" index="3" unique_id=288616392]
 position = Vector2(434, 160)
 gizmo_extents = 76.0
 
-[node name="4" type="Marker2D" parent="SpawnPoints1" index="4"]
+[node name="4" type="Marker2D" parent="SpawnPoints1" index="4" unique_id=1962277556]
 position = Vector2(359, 218)
 gizmo_extents = 76.0
 
-[node name="PlantZoneA" type="Area2D" parent="." index="6" groups=["plant_zone"]]
+[node name="PlantZoneA" type="Area2D" parent="." index="6" unique_id=653240777 groups=["plant_zone"]]
 position = Vector2(-1015, -820)
 collision_layer = 128
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantZoneA" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantZoneA" index="0" unique_id=346893896]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlantZoneA" index="1"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlantZoneA" index="1" unique_id=1725133610]
 remote_path = NodePath("../Letter")
 update_rotation = false
 update_scale = false
 
-[node name="Letter" type="Sprite2D" parent="PlantZoneA" index="2"]
+[node name="Letter" type="Sprite2D" parent="PlantZoneA" index="2" unique_id=1003490194]
 top_level = true
 visibility_layer = 2
 z_index = -10
@@ -89,20 +89,20 @@ position = Vector2(-1015, -820)
 scale = Vector2(10, 10)
 texture = ExtResource("2_s0q7p")
 
-[node name="PlantZoneB" type="Area2D" parent="." index="7" groups=["plant_zone"]]
+[node name="PlantZoneB" type="Area2D" parent="." index="7" unique_id=2070305206 groups=["plant_zone"]]
 position = Vector2(1412, 379)
 collision_layer = 128
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantZoneB" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantZoneB" index="0" unique_id=323281000]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlantZoneB" index="1"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlantZoneB" index="1" unique_id=1654688589]
 remote_path = NodePath("../Letter")
 update_rotation = false
 update_scale = false
 
-[node name="Letter" type="Sprite2D" parent="PlantZoneB" index="2"]
+[node name="Letter" type="Sprite2D" parent="PlantZoneB" index="2" unique_id=1948698407]
 top_level = true
 visibility_layer = 2
 z_index = -10

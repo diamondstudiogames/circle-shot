@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6xv8irqbsfq"]
+[gd_scene format=3 uid="uid://dl6xv8irqbsfq"]
 
 [ext_resource type="Texture2D" uid="uid://bb51b5csgc4du" path="res://game/skins/programming/c_like/vfx/errors.png" id="1_los0q"]
 
@@ -12,9 +12,9 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0.452471, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="ErrorsHurtVfx" type="Node2D"]
+[node name="ErrorsHurtVfx" type="Node2D" unique_id=605006416]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1827852523]
 z_index = 1
 material = SubResource("CanvasItemMaterial_6ormg")
 amount = 4
@@ -34,7 +34,7 @@ angular_velocity_max = 90.0
 color_ramp = SubResource("Gradient_tvjfb")
 anim_offset_max = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=900158880]
 wait_time = 0.6
 one_shot = true
 autostart = true

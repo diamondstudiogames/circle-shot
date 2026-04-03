@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://byoxdenhuuhfc"]
+[gd_scene format=3 uid="uid://byoxdenhuuhfc"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_380pc"]
 
-[node name="FAMASBullet" instance=ExtResource("1_380pc")]
+[node name="FAMASBullet" unique_id=376708647 instance=ExtResource("1_380pc")]
 speed = 3300.0
 damage = 6
 
-[node name="RayDetector" parent="." index="0"]
+[node name="RayDetector" parent="." index="0" unique_id=1954893045]
 position = Vector2(-160, 0)
 target_position = Vector2(160, 0)

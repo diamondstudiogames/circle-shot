@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8cprl60iu2or"]
+[gd_scene format=3 uid="uid://b8cprl60iu2or"]
 
 [ext_resource type="Texture2D" uid="uid://ndobp7p586tx" path="res://menu/theme/icons/edit.png" id="1_m4cln"]
 [ext_resource type="Texture2D" uid="uid://b1u3v2dc3jemk" path="res://menu/theme/icons/delete.png" id="2_df1f6"]
 
-[node name="ActionEvent" type="HBoxContainer"]
+[node name="ActionEvent" type="HBoxContainer" unique_id=1027458053]
 
-[node name="Event" type="Label" parent="."]
+[node name="Event" type="Label" parent="." unique_id=681571205]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -13,10 +13,10 @@ theme_type_variation = &"HeaderMedium"
 text = "Z"
 horizontal_alignment = 1
 
-[node name="Edit" type="Button" parent="."]
+[node name="Edit" type="Button" parent="." unique_id=398796955]
 layout_mode = 2
 icon = ExtResource("1_m4cln")
 
-[node name="Remove" type="Button" parent="."]
+[node name="Remove" type="Button" parent="." unique_id=1109776854]
 layout_mode = 2
 icon = ExtResource("2_df1f6")

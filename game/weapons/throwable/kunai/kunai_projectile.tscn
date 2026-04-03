@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://swhkj1uha3un"]
+[gd_scene format=3 uid="uid://swhkj1uha3un"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_7rg4a"]
 [ext_resource type="PackedScene" uid="uid://cimmedlt134ub" path="res://game/weapons/throwable/kunai/kunai_hit_vfx.tscn" id="2_k173f"]
@@ -7,18 +7,18 @@
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="3_k173f"]
 [ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="4_n2ahb"]
 
-[node name="KunaiProjectile" instance=ExtResource("1_7rg4a")]
+[node name="KunaiProjectile" unique_id=1656324662 instance=ExtResource("1_7rg4a")]
 speed = 2900.0
 hit_vfx_scene = ExtResource("2_k173f")
 hit_wall_vfx_scene = ExtResource("3_7cos4")
 damage = 17
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=665653637]
 material = ExtResource("4_n2ahb")
 texture = ExtResource("2_u7dvy")
 offset = Vector2(32, -1)
 
-[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+[node name="RayDetector" type="RayCast2D" parent="." index="3" unique_id=87774400]
 target_position = Vector2(96, 0)
 collision_mask = 75
 hit_from_inside = true

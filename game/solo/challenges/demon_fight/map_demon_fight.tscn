@@ -1,32 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dax6tr16ln065"]
+[gd_scene format=3 uid="uid://dax6tr16ln065"]
 
 [ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_1jxdp"]
 
-[node name="Map" instance=ExtResource("1_1jxdp")]
+[node name="Map" unique_id=1622335376 instance=ExtResource("1_1jxdp")]
 metadata/_edit_horizontal_guides_ = [1600.0, -1600.0]
 metadata/_edit_vertical_guides_ = [-1600.0, 1600.0]
 
-[node name="Left" parent="Borders" index="0"]
+[node name="Left" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="0" unique_id=1273615357]
 position = Vector2(-1600, 0)
 
-[node name="Right" parent="Borders" index="1"]
+[node name="Right" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="1" unique_id=828215416]
 position = Vector2(1600, 0)
 
-[node name="Up" parent="Borders" index="2"]
+[node name="Up" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="2" unique_id=1011974304]
 position = Vector2(0, -1600)
 
-[node name="Down" parent="Borders" index="3"]
+[node name="Down" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="3" unique_id=1832668716]
 position = Vector2(0, 1600)
 
-[node name="NavigationRegions" parent="." index="2"]
+[node name="NavigationRegions" parent="." index="2" unique_id=1935052457]
 chunks_per_axis = 4
 map_size = Vector2i(20, 20)
 agent_radius = 117.0
 
-[node name="SoloSpawnPoint" parent="." index="3"]
+[node name="SoloSpawnPoint" parent="." index="3" unique_id=304113711]
 position = Vector2(-320, 0)
 
-[node name="GoatSpawnPoint" type="Marker2D" parent="." index="4"]
+[node name="GoatSpawnPoint" type="Marker2D" parent="." index="4" unique_id=1659876430]
 position = Vector2(320, 0)
 gizmo_extents = 160.0
 

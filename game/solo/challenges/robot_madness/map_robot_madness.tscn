@@ -1,176 +1,176 @@
-[gd_scene load_steps=3 format=3 uid="uid://dguahtshkr11v"]
+[gd_scene format=3 uid="uid://dguahtshkr11v"]
 
 [ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_c2b18"]
 [ext_resource type="Texture2D" uid="uid://cfqfads1kdhew" path="res://game/mobs/robot/robot.png" id="2_k4axp"]
 
-[node name="Map" instance=ExtResource("1_c2b18")]
+[node name="Map" unique_id=2084333841 instance=ExtResource("1_c2b18")]
 metadata/_edit_vertical_guides_ = [-3200.0, 3200.0]
 metadata/_edit_horizontal_guides_ = [-3200.0, 3200.0]
 
-[node name="Left" parent="Borders" index="0"]
+[node name="Left" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="0" unique_id=1273615357]
 position = Vector2(-3200, 0)
 
-[node name="Right" parent="Borders" index="1"]
+[node name="Right" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="1" unique_id=828215416]
 position = Vector2(3200, 0)
 
-[node name="Up" parent="Borders" index="2"]
+[node name="Up" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="2" unique_id=1011974304]
 position = Vector2(0, -3200)
 
-[node name="Down" parent="Borders" index="3"]
+[node name="Down" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="3" unique_id=1832668716]
 position = Vector2(0, 3200)
 
-[node name="NavigationRegions" parent="." index="2"]
+[node name="NavigationRegions" parent="." index="2" unique_id=1935052457]
 chunks_per_axis = 4
 map_size = Vector2i(40, 40)
 
-[node name="RobotsSpawnPoints" type="Node2D" parent="." index="4"]
+[node name="RobotsSpawnPoints" type="Node2D" parent="." index="4" unique_id=1600858544]
 
-[node name="0" type="Marker2D" parent="RobotsSpawnPoints" index="0"]
+[node name="0" type="Marker2D" parent="RobotsSpawnPoints" index="0" unique_id=1804884487]
 position = Vector2(-172, -453)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/0" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/0" index="0" unique_id=1398507781]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="1" type="Marker2D" parent="RobotsSpawnPoints" index="1"]
+[node name="1" type="Marker2D" parent="RobotsSpawnPoints" index="1" unique_id=664750807]
 position = Vector2(39, -421)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/1" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/1" index="0" unique_id=158206473]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="2" type="Marker2D" parent="RobotsSpawnPoints" index="2"]
+[node name="2" type="Marker2D" parent="RobotsSpawnPoints" index="2" unique_id=383446326]
 position = Vector2(221, -378)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/2" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/2" index="0" unique_id=834480480]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="3" type="Marker2D" parent="RobotsSpawnPoints" index="3"]
+[node name="3" type="Marker2D" parent="RobotsSpawnPoints" index="3" unique_id=1812371843]
 position = Vector2(346, -287)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/3" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/3" index="0" unique_id=362330208]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="4" type="Marker2D" parent="RobotsSpawnPoints" index="4"]
+[node name="4" type="Marker2D" parent="RobotsSpawnPoints" index="4" unique_id=285486352]
 position = Vector2(428, -119)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/4" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/4" index="0" unique_id=257708037]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="5" type="Marker2D" parent="RobotsSpawnPoints" index="5"]
+[node name="5" type="Marker2D" parent="RobotsSpawnPoints" index="5" unique_id=1762036458]
 position = Vector2(388, 55)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/5" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/5" index="0" unique_id=1425890819]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="6" type="Marker2D" parent="RobotsSpawnPoints" index="6"]
+[node name="6" type="Marker2D" parent="RobotsSpawnPoints" index="6" unique_id=205856557]
 position = Vector2(303, 140)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/6" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/6" index="0" unique_id=1396955856]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="7" type="Marker2D" parent="RobotsSpawnPoints" index="7"]
+[node name="7" type="Marker2D" parent="RobotsSpawnPoints" index="7" unique_id=1482333475]
 position = Vector2(183, 251)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/7" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/7" index="0" unique_id=543398456]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="8" type="Marker2D" parent="RobotsSpawnPoints" index="8"]
+[node name="8" type="Marker2D" parent="RobotsSpawnPoints" index="8" unique_id=698676781]
 position = Vector2(14, 336)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/8" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/8" index="0" unique_id=866578880]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="9" type="Marker2D" parent="RobotsSpawnPoints" index="9"]
+[node name="9" type="Marker2D" parent="RobotsSpawnPoints" index="9" unique_id=1656627184]
 position = Vector2(-195, 265)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/9" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/9" index="0" unique_id=219742705]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="10" type="Marker2D" parent="RobotsSpawnPoints" index="10"]
+[node name="10" type="Marker2D" parent="RobotsSpawnPoints" index="10" unique_id=1674229117]
 position = Vector2(-361, 179)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/10" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/10" index="0" unique_id=258945351]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="11" type="Marker2D" parent="RobotsSpawnPoints" index="11"]
+[node name="11" type="Marker2D" parent="RobotsSpawnPoints" index="11" unique_id=295926916]
 position = Vector2(-499, 58)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/11" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/11" index="0" unique_id=1737242057]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="12" type="Marker2D" parent="RobotsSpawnPoints" index="12"]
+[node name="12" type="Marker2D" parent="RobotsSpawnPoints" index="12" unique_id=1033807048]
 position = Vector2(-541, -121)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/12" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/12" index="0" unique_id=1863645611]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="13" type="Marker2D" parent="RobotsSpawnPoints" index="13"]
+[node name="13" type="Marker2D" parent="RobotsSpawnPoints" index="13" unique_id=291362357]
 position = Vector2(-526, -295)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/13" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/13" index="0" unique_id=816510209]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")
 
-[node name="14" type="Marker2D" parent="RobotsSpawnPoints" index="14"]
+[node name="14" type="Marker2D" parent="RobotsSpawnPoints" index="14" unique_id=880635796]
 position = Vector2(-358, -388)
 gizmo_extents = 160.0
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/14" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="RobotsSpawnPoints/14" index="0" unique_id=801257152]
 self_modulate = Color(1, 1, 1, 0.5019608)
 z_index = -4
 texture = ExtResource("2_k4axp")

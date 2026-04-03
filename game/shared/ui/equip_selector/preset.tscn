@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://22gvgr7d4eml"]
+[gd_scene format=3 uid="uid://22gvgr7d4eml"]
 
 [ext_resource type="Script" uid="uid://b26i3vhrlgj7l" path="res://game/shared/ui/equip_selector/preset.gd" id="1_n85t5"]
 [ext_resource type="Texture2D" uid="uid://bs0jb0hstf3sl" path="res://menu/theme/icons/save.png" id="6_6dufu"]
@@ -7,18 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://b1u3v2dc3jemk" path="res://menu/theme/icons/delete.png" id="9_abwvg"]
 [ext_resource type="Texture2D" uid="uid://qd30cvl2xrw7" path="res://menu/theme/icons/add.png" id="10_cxyfc"]
 
-[node name="Preset" type="PanelContainer"]
+[node name="Preset" type="PanelContainer" unique_id=236322895]
 mouse_filter = 1
 script = ExtResource("1_n85t5")
 
-[node name="Main" type="HBoxContainer" parent="."]
+[node name="Main" type="HBoxContainer" parent="." unique_id=1802356335]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=470275229]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PresetName" type="Label" parent="Main/VBoxContainer"]
+[node name="PresetName" type="Label" parent="Main/VBoxContainer" unique_id=1915410670]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
@@ -28,72 +28,72 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/VBoxContainer" unique_id=1101795084]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Light" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer"]
+[node name="Light" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer" unique_id=201513848]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Heavy" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer"]
+[node name="Heavy" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer" unique_id=579946474]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Support" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer"]
+[node name="Support" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer" unique_id=1419640593]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Melee" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer"]
+[node name="Melee" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer" unique_id=2092300529]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Skill" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer"]
+[node name="Skill" type="TextureRect" parent="Main/VBoxContainer/HBoxContainer" unique_id=1683413927]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buttons" type="GridContainer" parent="Main"]
+[node name="Buttons" type="GridContainer" parent="Main" unique_id=1857731049]
 layout_mode = 2
 size_flags_vertical = 4
 columns = 2
 
-[node name="Load" type="Button" parent="Main/Buttons"]
+[node name="Load" type="Button" parent="Main/Buttons" unique_id=241990900]
 layout_mode = 2
 icon = ExtResource("7_ndeyw")
 
-[node name="Save" type="Button" parent="Main/Buttons"]
+[node name="Save" type="Button" parent="Main/Buttons" unique_id=461317528]
 layout_mode = 2
 icon = ExtResource("6_6dufu")
 
-[node name="Rename" type="Button" parent="Main/Buttons"]
+[node name="Rename" type="Button" parent="Main/Buttons" unique_id=1253978751]
 layout_mode = 2
 icon = ExtResource("8_r0bg3")
 
-[node name="Delete" type="Button" parent="Main/Buttons"]
+[node name="Delete" type="Button" parent="Main/Buttons" unique_id=373678660]
 layout_mode = 2
 icon = ExtResource("9_abwvg")
 
-[node name="Empty" type="HBoxContainer" parent="."]
+[node name="Empty" type="HBoxContainer" parent="." unique_id=751835637]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Empty"]
+[node name="Label" type="Label" parent="Empty" unique_id=2040845930]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
@@ -101,11 +101,11 @@ text = "Пусто"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Add" type="Button" parent="Empty"]
+[node name="Add" type="Button" parent="Empty" unique_id=426463301]
 layout_mode = 2
 icon = ExtResource("10_cxyfc")
 
-[node name="RenameDialog" type="ConfirmationDialog" parent="."]
+[node name="RenameDialog" type="ConfirmationDialog" parent="." unique_id=90637896]
 size = Vector2i(400, 136)
 unresizable = true
 always_on_top = true
@@ -113,7 +113,7 @@ ok_button_text = "Переименовать"
 dialog_hide_on_ok = false
 cancel_button_text = "Отмена"
 
-[node name="NameEdit" type="LineEdit" parent="RenameDialog"]
+[node name="NameEdit" type="LineEdit" parent="RenameDialog" unique_id=1260826957]
 unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://iutlr15vmmri"]
+[gd_scene format=3 uid="uid://iutlr15vmmri"]
 
 [ext_resource type="Texture2D" uid="uid://2yncwmqu2t45" path="res://game/skins/horny/sunflower/cum_death.png" id="1_ljqh5"]
 [ext_resource type="Texture2D" uid="uid://m3qb0hm07hw5" path="res://game/skins/horny/sunflower/cum_shard.png" id="2_ljqh5"]
@@ -97,13 +97,13 @@ _data = {
 &"death": SubResource("Animation_xfvme")
 }
 
-[node name="CumDeathVfx" type="Node2D"]
+[node name="CumDeathVfx" type="Node2D" unique_id=2025647940]
 
-[node name="Death" type="Sprite2D" parent="."]
+[node name="Death" type="Sprite2D" parent="." unique_id=1069204969]
 z_index = -3
 texture = ExtResource("1_ljqh5")
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=419098584]
 z_index = 1
 emitting = false
 amount = 128
@@ -121,8 +121,6 @@ damping_min = 60.0
 damping_max = 60.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_br86y")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2115046831]
+libraries/ = SubResource("AnimationLibrary_br86y")
+autoplay = &"death"

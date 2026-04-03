@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://gkuvrx6p0txb"]
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://gkuvrx6p0txb"]
 
 [ext_resource type="Script" uid="uid://55g8njvkg07g" path="res://game/player/equip/weapon_data.gd" id="1_ko1gy"]
 

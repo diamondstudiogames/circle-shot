@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjbu88a7f4mv6"]
+[gd_scene format=3 uid="uid://bjbu88a7f4mv6"]
 
 [ext_resource type="Texture2D" uid="uid://dmtomxf1ssuyk" path="res://game/weapons/guns/other/bazooka/visual/rocket.png" id="1_g7e37"]
 [ext_resource type="Texture2D" uid="uid://c0vko0rruh36w" path="res://game/weapons/guns/other/bazooka/visual/base.png" id="2_1mxqx"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1336040393]
 
-[node name="Rocket" type="Sprite2D" parent="."]
+[node name="Rocket" type="Sprite2D" parent="." unique_id=1501433780]
 visible = false
 texture = ExtResource("1_g7e37")
 offset = Vector2(144, -26)
 region_enabled = true
 region_rect = Rect2(208, 8, 80, 48)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1148229097]
 texture = ExtResource("2_1mxqx")
 offset = Vector2(8, 0)
 region_enabled = true
 region_rect = Rect2(0, 8, 224, 100)
 
-[node name="Rocket" type="Sprite2D" parent="Base"]
+[node name="Rocket" type="Sprite2D" parent="Base" unique_id=827595068]
 texture = ExtResource("1_g7e37")
 offset = Vector2(144, -26)
 region_enabled = true

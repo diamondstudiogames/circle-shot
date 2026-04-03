@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://f3hynmyergkp"]
+[gd_scene format=3 uid="uid://f3hynmyergkp"]
 
 [ext_resource type="Texture2D" uid="uid://e22r3ipb6iml" path="res://game/skins/programming/godot/errors.png" id="1_28xj7"]
 
@@ -6,9 +6,9 @@
 offsets = PackedFloat32Array(0, 0.0456274, 0.775665, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="ErrorsDeathVfx" type="Node2D"]
+[node name="ErrorsDeathVfx" type="Node2D" unique_id=736884863]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1579848582]
 z_index = 1
 amount = 32
 texture = ExtResource("1_28xj7")
@@ -29,7 +29,7 @@ angle_min = -30.0
 angle_max = 30.0
 color_ramp = SubResource("Gradient_pw4g6")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1906832874]
 wait_time = 4.0
 one_shot = true
 autostart = true

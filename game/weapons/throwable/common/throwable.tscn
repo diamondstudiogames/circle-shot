@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdo5tqeki3gle"]
+[gd_scene format=3 uid="uid://cdo5tqeki3gle"]
 
 [ext_resource type="Script" uid="uid://bqt2qhk5ev2vc" path="res://game/weapons/throwable/common/throwable.gd" id="1_18g0n"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_vnmxg"]
 
-[node name="Throwable" type="Node2D"]
+[node name="Throwable" type="Node2D" unique_id=1323445741]
 script = ExtResource("1_18g0n")
 metadata/_custom_type_script = "uid://bqt2qhk5ev2vc"
 
-[node name="Ammo" type="Marker2D" parent="."]
+[node name="Ammo" type="Marker2D" parent="." unique_id=471454208]
 
-[node name="ThrowPivot" type="Marker2D" parent="."]
+[node name="ThrowPivot" type="Marker2D" parent="." unique_id=1435792219]
 position = Vector2(-32, -32)
 
-[node name="ThrowPoint" type="Marker2D" parent="ThrowPivot"]
+[node name="ThrowPoint" type="Marker2D" parent="ThrowPivot" unique_id=235930379]
 
-[node name="Aim" type="Line2D" parent="ThrowPivot/ThrowPoint"]
+[node name="Aim" type="Line2D" parent="ThrowPivot/ThrowPoint" unique_id=322959564]
 visible = false
 z_index = 10
 material = ExtResource("2_vnmxg")
@@ -22,44 +22,44 @@ points = PackedVector2Array(0, 0, 6500, 0)
 width = 48.0
 default_color = Color(1, 1, 1, 0.376471)
 
-[node name="SpreadLeft" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim"]
+[node name="SpreadLeft" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim" unique_id=220986809]
 use_parent_material = true
 position = Vector2(0, -24)
 points = PackedVector2Array(128, 0, 192, 0)
 width = 4.0
 default_color = Color(1, 1, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim/SpreadLeft"]
+[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim/SpreadLeft" unique_id=1413538727]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 8.0
 default_color = Color(0, 0, 0, 0.156863)
 
-[node name="SpreadRight" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim"]
+[node name="SpreadRight" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim" unique_id=1589520150]
 use_parent_material = true
 position = Vector2(0, 24)
 points = PackedVector2Array(128, 0, 192, 0)
 width = 4.0
 default_color = Color(1, 1, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim/SpreadRight"]
+[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim/SpreadRight" unique_id=1418193339]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 8.0
 default_color = Color(0, 0, 0, 0.156863)
 
-[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim"]
+[node name="Outline" type="Line2D" parent="ThrowPivot/ThrowPoint/Aim" unique_id=1268797650]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(0, 0, 2048, 0)
 width = 52.0
 default_color = Color(0, 0, 0, 0.188235)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=607822860]
 
-[node name="InterruptReloadMarginTimer" type="Timer" parent="."]
+[node name="InterruptReloadMarginTimer" type="Timer" parent="." unique_id=791863817]
 process_callback = 0
 wait_time = 0.35000000000000003
 one_shot = true

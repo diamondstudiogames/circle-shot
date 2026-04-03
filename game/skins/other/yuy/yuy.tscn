@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjm6eb2572drg"]
+[gd_scene format=3 uid="uid://bjm6eb2572drg"]
 
 [ext_resource type="Texture2D" uid="uid://ba4lswtn6ceyv" path="res://game/skins/other/yuy/yuy.png" id="1_iopt8"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_krcqx"]
 
-[node name="Yuy" type="Sprite2D"]
+[node name="Yuy" type="Sprite2D" unique_id=1503251308]
 position = Vector2(8, 0)
 texture = ExtResource("1_iopt8")
 script = ExtResource("1_krcqx")

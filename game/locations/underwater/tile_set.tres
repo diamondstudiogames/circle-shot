@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://w18oqn8ga70s"]
+[gd_resource type="TileSet" format=3 uid="uid://w18oqn8ga70s"]
 
 [ext_resource type="Texture2D" uid="uid://b8d1kl6ki038n" path="res://game/locations/underwater/textures/main_tiles.png" id="1_npekb"]
 [ext_resource type="Texture2D" uid="uid://bsrb3xhoxaaqu" path="res://game/locations/underwater/textures/decoration_tiles.png" id="2_do65p"]

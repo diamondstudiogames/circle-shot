@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bb3l78y8xo1pq"]
+[gd_resource type="TileSet" format=3 uid="uid://bb3l78y8xo1pq"]
 
 [ext_resource type="Texture2D" uid="uid://bosgi573g3bns" path="res://game/locations/desert/main_tiles.png" id="1_al7dq"]
 [ext_resource type="Texture2D" uid="uid://5x6n1240h27e" path="res://game/locations/desert/decoration_tiles.png" id="2_bolf7"]

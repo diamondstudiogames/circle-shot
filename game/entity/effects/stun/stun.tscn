@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://of54uwtr1ice"]
+[gd_scene format=3 uid="uid://of54uwtr1ice"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_33b72"]
 [ext_resource type="Script" uid="uid://cauli2a3cgdq8" path="res://game/entity/effects/stun/stun.gd" id="2_ca7vy"]
@@ -10,14 +10,14 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="Stun" instance=ExtResource("1_33b72")]
+[node name="Stun" unique_id=839972605 instance=ExtResource("1_33b72")]
 script = ExtResource("2_ca7vy")
 shake_amplitude = 6.0
 shake_speed = 0.1
 stackable = false
 negative = true
 
-[node name="Particles" type="CPUParticles2D" parent="." index="1"]
+[node name="Particles" type="CPUParticles2D" parent="." index="1" unique_id=1179614908]
 amount = 4
 texture = ExtResource("4_tw637")
 lifetime = 1.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brwprvy8a0caq"]
+[gd_scene format=3 uid="uid://brwprvy8a0caq"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_elrx0"]
 [ext_resource type="Script" uid="uid://6rycobqjpg4k" path="res://game/weapons/guns/rifles/val/val.gd" id="2_sxjeg"]
@@ -21,7 +21,7 @@ _limits = [-7.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -7), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Val" instance=ExtResource("1_elrx0")]
+[node name="Val" unique_id=1706302023 instance=ExtResource("1_elrx0")]
 script = ExtResource("2_sxjeg")
 shots_in_burst = 4
 shoot_interval = 0.55
@@ -42,17 +42,15 @@ speed_multiplier_when_current = 0.94
 aim_camera_distance = 256.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_1tw8d")]
+[node name="Visual" parent="." index="0" unique_id=575795593 instance=ExtResource("4_1tw8d")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(193, -24)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_cyi4y")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("5_cyi4y")
 
-[node name="BurstShotsIntervalTimer" type="Timer" parent="." index="3"]
+[node name="BurstShotsIntervalTimer" type="Timer" parent="." index="3" unique_id=1115712934]
 process_callback = 0
 wait_time = 0.1
 one_shot = true

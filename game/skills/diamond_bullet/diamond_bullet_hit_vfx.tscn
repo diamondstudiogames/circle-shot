@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://piu2cytktbgw"]
+[gd_scene format=3 uid="uid://piu2cytktbgw"]
 
 [ext_resource type="Texture2D" uid="uid://dr035tccs1jfe" path="res://game/skills/diamond_bullet/shard.png" id="1_kms2c"]
 
@@ -12,9 +12,9 @@ offsets = PackedFloat32Array(0, 0.3, 0.6, 0.8, 1)
 colors = PackedColorArray(0.431373, 0.784314, 0.980392, 1, 0.141176, 0.65098, 0.929412, 1, 0.0941176, 0.615686, 0.901961, 1, 0, 0.529412, 0.823529, 1, 0, 0.529412, 0.823529, 1)
 metadata/_snap_enabled = true
 
-[node name="DiamondBulletHitVfx" type="Node2D"]
+[node name="DiamondBulletHitVfx" type="Node2D" unique_id=268022529]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=412792352]
 z_index = 1
 amount = 4
 texture = ExtResource("1_kms2c")
@@ -29,7 +29,7 @@ initial_velocity_max = 64.0
 scale_amount_curve = SubResource("Curve_uixak")
 color_initial_ramp = SubResource("Gradient_cphkj")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1668919973]
 wait_time = 0.5
 one_shot = true
 autostart = true

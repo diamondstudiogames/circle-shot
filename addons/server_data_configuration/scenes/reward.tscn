@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d0bbhj2qr3xf5"]
 
-[node name="Reward" type="HBoxContainer"]
+[node name="Reward" type="HBoxContainer" unique_id=513924440]
 
-[node name="Type" type="OptionButton" parent="."]
+[node name="Type" type="OptionButton" parent="." unique_id=2051224326]
 layout_mode = 2
 selected = 0
 item_count = 8
@@ -23,11 +23,11 @@ popup/item_6/id = 6
 popup/item_7/text = "Элитный ящик со скином"
 popup/item_7/id = 7
 
-[node name="Value" type="LineEdit" parent="."]
+[node name="Value" type="LineEdit" parent="." unique_id=1152500476]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Количество или ID"
 
-[node name="Delete" type="Button" parent="."]
+[node name="Delete" type="Button" parent="." unique_id=1197487780]
 layout_mode = 2
 text = "Удалить"

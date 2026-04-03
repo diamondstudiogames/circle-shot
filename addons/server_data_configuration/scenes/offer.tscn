@@ -1,38 +1,38 @@
 [gd_scene format=3 uid="uid://dkwe2kjrkbt70"]
 
-[node name="Offer" type="VBoxContainer"]
+[node name="Offer" type="VBoxContainer" unique_id=234726905]
 offset_right = 354.0
 offset_bottom = 134.0
 
-[node name="Offer" type="Label" parent="."]
+[node name="Offer" type="Label" parent="." unique_id=861106263]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Предложение "
 
-[node name="Name" type="HBoxContainer" parent="."]
+[node name="Name" type="HBoxContainer" parent="." unique_id=1856973261]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Name"]
+[node name="Label" type="Label" parent="Name" unique_id=764537211]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Имя предложения"
 
-[node name="LineEdit" type="LineEdit" parent="Name"]
+[node name="LineEdit" type="LineEdit" parent="Name" unique_id=1536646571]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Акция"
 
-[node name="Cost" type="HBoxContainer" parent="."]
+[node name="Cost" type="HBoxContainer" parent="." unique_id=158145934]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Cost"]
+[node name="Label" type="Label" parent="Cost" unique_id=962278937]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Цена"
 
-[node name="SpinBox" type="SpinBox" parent="Cost"]
+[node name="SpinBox" type="SpinBox" parent="Cost" unique_id=224723852]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -40,47 +40,47 @@ max_value = 999999999.0
 suffix = "монет"
 custom_arrow_step = 10.0
 
-[node name="Sale" type="HBoxContainer" parent="."]
+[node name="Sale" type="HBoxContainer" parent="." unique_id=570185600]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Sale"]
+[node name="Label" type="Label" parent="Sale" unique_id=1915327585]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Скидка"
 
-[node name="SpinBox" type="SpinBox" parent="Sale"]
+[node name="SpinBox" type="SpinBox" parent="Sale" unique_id=1388881375]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 suffix = "%"
 
-[node name="OnlyForIds" type="HBoxContainer" parent="."]
+[node name="OnlyForIds" type="HBoxContainer" parent="." unique_id=116711408]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OnlyForIds"]
+[node name="Label" type="Label" parent="OnlyForIds" unique_id=1503804624]
 layout_mode = 2
 text = "Ограничения по ID сохранения,
 через запятую"
 
-[node name="LineEdit" type="LineEdit" parent="OnlyForIds"]
+[node name="LineEdit" type="LineEdit" parent="OnlyForIds" unique_id=1138020179]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Нет ограничений"
 
-[node name="Rewards" type="VBoxContainer" parent="."]
+[node name="Rewards" type="VBoxContainer" parent="." unique_id=1679991869]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="."]
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1089678363]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="AddReward" type="Button" parent="Buttons"]
+[node name="AddReward" type="Button" parent="Buttons" unique_id=1562879410]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Добавить награду"
 
-[node name="Delete" type="Button" parent="Buttons"]
+[node name="Delete" type="Button" parent="Buttons" unique_id=633162224]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Удалить предложение"

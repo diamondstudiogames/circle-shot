@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://tbn6kstqx2sj"]
+[gd_scene format=3 uid="uid://tbn6kstqx2sj"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_hc0xc"]
 
-[node name="AK74Bullet" instance=ExtResource("1_hc0xc")]
+[node name="AK74Bullet" unique_id=144886978 instance=ExtResource("1_hc0xc")]
 speed = 3000.0
 damage = 8

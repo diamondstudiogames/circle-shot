@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn0sbtekfxv0j"]
+[gd_scene format=3 uid="uid://bn0sbtekfxv0j"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_brddv"]
 [ext_resource type="Script" uid="uid://b4mh8vsrr5j" path="res://game/entity/attack/projectile/bouncing_projectile.gd" id="2_rxx1l"]
@@ -25,32 +25,32 @@ properties/4/path = NodePath(".:direction")
 properties/4/spawn = false
 properties/4/replication_mode = 1
 
-[node name="PentagramProjectile" instance=ExtResource("1_brddv")]
+[node name="PentagramProjectile" unique_id=183084208 instance=ExtResource("1_brddv")]
 script = ExtResource("2_rxx1l")
 bounce_margin = 6.0
 max_bounces = 2
 speed = 1200.0
 damage = 7
 
-[node name="Light" type="Sprite2D" parent="." index="0"]
+[node name="Light" type="Sprite2D" parent="." index="0" unique_id=183290389]
 self_modulate = Color(1, 0.5019608, 0, 0.7529412)
 z_index = -1
 material = ExtResource("3_27pt0")
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_27pt0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1219905544]
 z_index = -1
 material = ExtResource("5_civew")
 texture = ExtResource("3_4om4m")
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 5.0
 
-[node name="MultiplayerSynchronizer" parent="." index="3"]
+[node name="MultiplayerSynchronizer" parent="." index="3" unique_id=467713174]
 replication_config = SubResource("SceneReplicationConfig_rxx1l")
 
-[node name="RayDetector" type="RayCast2D" parent="." index="4"]
+[node name="RayDetector" type="RayCast2D" parent="." index="4" unique_id=945026684]
 target_position = Vector2(20, 0)
 collision_mask = 75
 hit_from_inside = true

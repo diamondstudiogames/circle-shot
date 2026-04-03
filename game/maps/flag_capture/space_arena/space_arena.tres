@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3 uid="uid://dcn34giesfxix"]
+[gd_resource type="Resource" script_class="MapData" format=3 uid="uid://dcn34giesfxix"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_kd3j5"]
 

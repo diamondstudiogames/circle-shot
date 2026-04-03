@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7qxiioask0vw"]
+[gd_scene format=3 uid="uid://7qxiioask0vw"]
 
 [ext_resource type="Texture2D" uid="uid://dcbjm787y1awt" path="res://game/skins/other/tralalero_tralala/base.png" id="1_5f0h7"]
 [ext_resource type="Script" uid="uid://dh5c1akxpcp1m" path="res://game/skins/other/tralalero_tralala/tralalero_tralala.gd" id="2_5f0h7"]
@@ -133,7 +133,7 @@ _data = {
 &"walk": SubResource("Animation_hkh8d")
 }
 
-[node name="TralaleroTralala" type="Sprite2D"]
+[node name="TralaleroTralala" type="Sprite2D" unique_id=1368961270]
 texture = ExtResource("1_5f0h7")
 offset = Vector2(-34, -17)
 region_enabled = true
@@ -141,7 +141,7 @@ region_rect = Rect2(0, 0, 256, 200)
 script = ExtResource("2_5f0h7")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="LegLeft" type="Sprite2D" parent="."]
+[node name="LegLeft" type="Sprite2D" parent="." unique_id=1220090971]
 show_behind_parent = true
 position = Vector2(40, 33)
 texture = ExtResource("3_y0cnl")
@@ -149,14 +149,14 @@ offset = Vector2(18, 26)
 region_enabled = true
 region_rect = Rect2(184, 136, 72, 80)
 
-[node name="LegRight" type="Sprite2D" parent="."]
+[node name="LegRight" type="Sprite2D" parent="." unique_id=2129864919]
 position = Vector2(-35, 39)
 texture = ExtResource("4_8gqpl")
 offset = Vector2(21, 32)
 region_enabled = true
 region_rect = Rect2(104, 136, 88, 104)
 
-[node name="LegMiddle" type="Sprite2D" parent="."]
+[node name="LegMiddle" type="Sprite2D" parent="." unique_id=2041075130]
 show_behind_parent = true
 position = Vector2(-89, 41)
 texture = ExtResource("5_u8e3p")
@@ -164,9 +164,7 @@ offset = Vector2(7, 18)
 region_enabled = true
 region_rect = Rect2(56, 144, 48, 64)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_1mtkd")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810856100]
+libraries/ = SubResource("AnimationLibrary_1mtkd")
+autoplay = &"idle"
 blend_times = [&"idle", &"walk", 0.3, &"walk", &"idle", 0.3]

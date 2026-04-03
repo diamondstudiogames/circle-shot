@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bke8fbeyrf4lw"]
+[gd_resource type="TileSet" format=3 uid="uid://bke8fbeyrf4lw"]
 
 [ext_resource type="Texture2D" uid="uid://c3yqdrrl4y5pq" path="res://game/locations/dance_floor/tiles.png" id="1_aw7kk"]
 [ext_resource type="Texture2D" uid="uid://v3j6mlwjj101" path="res://game/locations/dance_floor/wall_tiles.png" id="2_kd1vf"]

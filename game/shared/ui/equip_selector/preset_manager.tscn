@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://y56j4fgei867"]
+[gd_scene format=3 uid="uid://y56j4fgei867"]
 
 [ext_resource type="Script" uid="uid://bp73lu2fkjjcx" path="res://game/shared/ui/equip_selector/preset_manager.gd" id="1_271df"]
 [ext_resource type="PackedScene" uid="uid://22gvgr7d4eml" path="res://game/shared/ui/equip_selector/preset.tscn" id="2_o4wte"]
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="3_rwjit"]
 
-[node name="PresetManager" type="Window"]
+[node name="PresetManager" type="Window" unique_id=1830616630]
 auto_translate_mode = 1
 oversampling_override = 1.0
 title = "Предустановки экипировки"
@@ -14,89 +14,89 @@ exclusive = true
 unresizable = true
 script = ExtResource("1_271df")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1301988295]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1675395239]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=2085444499]
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="PresetsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="PresetsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1606563010]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Preset" parent="VBoxContainer/ScrollContainer/PresetsContainer" instance=ExtResource("2_o4wte")]
+[node name="Preset" parent="VBoxContainer/ScrollContainer/PresetsContainer" unique_id=63450304 instance=ExtResource("2_o4wte")]
 layout_mode = 2
 idx = 1
 
-[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset/RenameDialog" index="2"]
+[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset/RenameDialog" parent_id_path=PackedInt32Array(63450304, 90637896) index="2" unique_id=1260826957]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 368.0
 offset_bottom = 63.0
 
-[node name="Preset2" parent="VBoxContainer/ScrollContainer/PresetsContainer" instance=ExtResource("2_o4wte")]
+[node name="Preset2" parent="VBoxContainer/ScrollContainer/PresetsContainer" unique_id=629211876 instance=ExtResource("2_o4wte")]
 layout_mode = 2
 idx = 2
 
-[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset2/RenameDialog" index="2"]
+[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset2/RenameDialog" parent_id_path=PackedInt32Array(629211876, 90637896) index="2" unique_id=1260826957]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 368.0
 offset_bottom = 63.0
 
-[node name="Preset3" parent="VBoxContainer/ScrollContainer/PresetsContainer" instance=ExtResource("2_o4wte")]
+[node name="Preset3" parent="VBoxContainer/ScrollContainer/PresetsContainer" unique_id=35444535 instance=ExtResource("2_o4wte")]
 layout_mode = 2
 idx = 3
 
-[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset3/RenameDialog" index="2"]
+[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset3/RenameDialog" parent_id_path=PackedInt32Array(35444535, 90637896) index="2" unique_id=1260826957]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 368.0
 offset_bottom = 63.0
 
-[node name="Preset4" parent="VBoxContainer/ScrollContainer/PresetsContainer" instance=ExtResource("2_o4wte")]
+[node name="Preset4" parent="VBoxContainer/ScrollContainer/PresetsContainer" unique_id=893512596 instance=ExtResource("2_o4wte")]
 layout_mode = 2
 idx = 4
 
-[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset4/RenameDialog" index="2"]
+[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset4/RenameDialog" parent_id_path=PackedInt32Array(893512596, 90637896) index="2" unique_id=1260826957]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 368.0
 offset_bottom = 63.0
 
-[node name="Preset5" parent="VBoxContainer/ScrollContainer/PresetsContainer" instance=ExtResource("2_o4wte")]
+[node name="Preset5" parent="VBoxContainer/ScrollContainer/PresetsContainer" unique_id=484800121 instance=ExtResource("2_o4wte")]
 layout_mode = 2
 idx = 5
 
-[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset5/RenameDialog" index="2"]
+[node name="NameEdit" parent="VBoxContainer/ScrollContainer/PresetsContainer/Preset5/RenameDialog" parent_id_path=PackedInt32Array(484800121, 90637896) index="2" unique_id=1260826957]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 368.0
 offset_bottom = 63.0
 
-[node name="Close" type="Button" parent="VBoxContainer"]
+[node name="Close" type="Button" parent="VBoxContainer" unique_id=1732277098]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Закрыть"
 
-[node name="AutofocusWindow" type="Node" parent="."]
+[node name="AutofocusWindow" type="Node" parent="." unique_id=518355958]
 script = ExtResource("3_rwjit")
 focus_target = NodePath("../VBoxContainer/Close")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"

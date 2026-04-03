@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn5uuy2xgimdb"]
+[gd_scene format=3 uid="uid://bn5uuy2xgimdb"]
 
 [ext_resource type="Texture2D" uid="uid://2cwlmoida2tw" path="res://game/skins/emoji/angry/angry_hurt.png" id="1_hld8t"]
 [ext_resource type="Texture2D" uid="uid://cnfkitnfq50jq" path="res://game/skins/emoji/angry/symbols.png" id="2_noar7"]
@@ -12,6 +12,45 @@ particles_anim_loop = false
 [sub_resource type="Curve" id="Curve_3jova"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.7087663, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Animation" id="Animation_noar7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hld8t"]
 resource_name = "death"
@@ -68,58 +107,19 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_noar7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles2D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ejv6g"]
 _data = {
 &"RESET": SubResource("Animation_noar7"),
 &"death": SubResource("Animation_hld8t")
 }
 
-[node name="AngryDeathVfx" type="Node2D"]
+[node name="AngryDeathVfx" type="Node2D" unique_id=1864626457]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097566275]
 z_index = -2
 texture = ExtResource("1_hld8t")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1749808245]
 z_index = 1
 material = SubResource("CanvasItemMaterial_ejv6g")
 emitting = false
@@ -135,8 +135,6 @@ initial_velocity_max = 300.0
 scale_amount_curve = SubResource("Curve_3jova")
 anim_offset_max = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ejv6g")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2145264391]
+libraries/ = SubResource("AnimationLibrary_ejv6g")
+autoplay = &"death"

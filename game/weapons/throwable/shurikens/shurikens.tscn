@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://blbaxcg7pxcid"]
+[gd_scene format=3 uid="uid://blbaxcg7pxcid"]
 
 [ext_resource type="PackedScene" uid="uid://cdo5tqeki3gle" path="res://game/weapons/throwable/common/throwable.tscn" id="1_cljil"]
 [ext_resource type="Script" uid="uid://cyx0bhliy0ekj" path="res://game/weapons/throwable/shurikens/shurikens.gd" id="2_3pe6m"]
@@ -194,7 +194,7 @@ _data = {
 &"switch_to_normal": SubResource("Animation_yewdt")
 }
 
-[node name="Shurikens" instance=ExtResource("1_cljil")]
+[node name="Shurikens" unique_id=953692702 instance=ExtResource("1_cljil")]
 script = ExtResource("2_3pe6m")
 throw_interval_fast = 0.12
 spread_fast = 17.0
@@ -210,25 +210,23 @@ ammo_total = 48
 speed_multiplier_when_current = 0.98
 aim_camera_distance = 180.0
 
-[node name="Ammo" parent="." index="0"]
+[node name="Ammo" parent="." index="0" unique_id=471454208]
 rotation = 0.34906584
 
-[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+[node name="ThrowPoint" parent="ThrowPivot" parent_id_path=PackedInt32Array(1435792219) index="0" unique_id=235930379]
 position = Vector2(104, 0)
 
-[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0"]
+[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0" unique_id=322959564]
 width = 40.0
 
-[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0"]
+[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0" unique_id=220986809]
 position = Vector2(0, -20)
 
-[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1"]
+[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1" unique_id=1589520150]
 position = Vector2(0, 20)
 
-[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2"]
+[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2" unique_id=1268797650]
 width = 44.0
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_3pe6m")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=607822860]
+libraries/ = SubResource("AnimationLibrary_3pe6m")

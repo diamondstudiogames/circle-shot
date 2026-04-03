@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://mlbaavhyud5j"]
+[gd_scene format=3 uid="uid://mlbaavhyud5j"]
 
 [ext_resource type="Script" uid="uid://bp1xq77n83bjo" path="res://game/shared/ui/equip_selector/equip_selector.gd" id="1_ex6i3"]
 [ext_resource type="Script" uid="uid://cq43botg0qg0m" path="res://menu/items_grid/items_grid.gd" id="2_5y7db"]
 [ext_resource type="Texture2D" uid="uid://c1rotus1aunmr" path="res://menu/theme/icons/left.png" id="2_hh3qv"]
 
-[node name="EquipSelector" type="GridContainer"]
+[node name="EquipSelector" type="GridContainer" unique_id=881659686]
 offset_right = 788.0
 offset_bottom = 128.0
 columns = 6
 script = ExtResource("1_ex6i3")
 metadata/_custom_type_script = "uid://bp1xq77n83bjo"
 
-[node name="Skin" type="TextureRect" parent="."]
+[node name="Skin" type="TextureRect" parent="." unique_id=1715098896]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="Skin"]
+[node name="Type" type="Label" parent="Skin" unique_id=170002724]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -30,7 +30,7 @@ text = "Скин"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="Skin"]
+[node name="Name" type="Label" parent="Skin" unique_id=1859109648]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -44,7 +44,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="Skin"]
+[node name="RarityFill" type="ColorRect" parent="Skin" unique_id=1500004744]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -53,7 +53,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeSkin" type="Button" parent="Skin"]
+[node name="ChangeSkin" type="Button" parent="Skin" unique_id=2016532890]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,14 +62,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="LightWeapon" type="TextureRect" parent="."]
+[node name="LightWeapon" type="TextureRect" parent="." unique_id=2000871900]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="LightWeapon"]
+[node name="Type" type="Label" parent="LightWeapon" unique_id=493994001]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -81,7 +81,7 @@ text = "Лёгкое оружие"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="LightWeapon"]
+[node name="Name" type="Label" parent="LightWeapon" unique_id=2046104755]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -95,7 +95,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="LightWeapon"]
+[node name="RarityFill" type="ColorRect" parent="LightWeapon" unique_id=1417215141]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -104,7 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeLightWeapon" type="Button" parent="LightWeapon"]
+[node name="ChangeLightWeapon" type="Button" parent="LightWeapon" unique_id=997413026]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,14 +113,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="HeavyWeapon" type="TextureRect" parent="."]
+[node name="HeavyWeapon" type="TextureRect" parent="." unique_id=1512265682]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="HeavyWeapon"]
+[node name="Type" type="Label" parent="HeavyWeapon" unique_id=447004996]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -132,7 +132,7 @@ text = "Тяжёлое оружие"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="HeavyWeapon"]
+[node name="Name" type="Label" parent="HeavyWeapon" unique_id=673665593]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -146,7 +146,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="HeavyWeapon"]
+[node name="RarityFill" type="ColorRect" parent="HeavyWeapon" unique_id=39795879]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -155,7 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeHeavyWeapon" type="Button" parent="HeavyWeapon"]
+[node name="ChangeHeavyWeapon" type="Button" parent="HeavyWeapon" unique_id=828855671]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -163,14 +163,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="SupportWeapon" type="TextureRect" parent="."]
+[node name="SupportWeapon" type="TextureRect" parent="." unique_id=983931729]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="SupportWeapon"]
+[node name="Type" type="Label" parent="SupportWeapon" unique_id=1051942014]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -182,7 +182,7 @@ text = "Оружие поддержки"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="SupportWeapon"]
+[node name="Name" type="Label" parent="SupportWeapon" unique_id=95594282]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -196,7 +196,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="SupportWeapon"]
+[node name="RarityFill" type="ColorRect" parent="SupportWeapon" unique_id=134418897]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -205,7 +205,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeSupportWeapon" type="Button" parent="SupportWeapon"]
+[node name="ChangeSupportWeapon" type="Button" parent="SupportWeapon" unique_id=1850386015]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,14 +214,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="MeleeWeapon" type="TextureRect" parent="."]
+[node name="MeleeWeapon" type="TextureRect" parent="." unique_id=861595086]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="MeleeWeapon"]
+[node name="Type" type="Label" parent="MeleeWeapon" unique_id=1910064063]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -233,7 +233,7 @@ text = "Ближнее оружие"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="MeleeWeapon"]
+[node name="Name" type="Label" parent="MeleeWeapon" unique_id=1050734793]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -247,7 +247,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="MeleeWeapon"]
+[node name="RarityFill" type="ColorRect" parent="MeleeWeapon" unique_id=825893445]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -256,7 +256,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeMeleeWeapon" type="Button" parent="MeleeWeapon"]
+[node name="ChangeMeleeWeapon" type="Button" parent="MeleeWeapon" unique_id=848595292]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -265,14 +265,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="Skill" type="TextureRect" parent="."]
+[node name="Skill" type="TextureRect" parent="." unique_id=1473485481]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="Skill"]
+[node name="Type" type="Label" parent="Skill" unique_id=1407908931]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -284,7 +284,7 @@ text = "Навык"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Name" type="Label" parent="Skill"]
+[node name="Name" type="Label" parent="Skill" unique_id=1577520805]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -298,7 +298,7 @@ theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="RarityFill" type="ColorRect" parent="Skill"]
+[node name="RarityFill" type="ColorRect" parent="Skill" unique_id=2107144003]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -307,7 +307,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeSkill" type="Button" parent="Skill"]
+[node name="ChangeSkill" type="Button" parent="Skill" unique_id=1563048775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -316,7 +316,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"LightFlatButton"
 
-[node name="ItemSelector" type="Window" parent="."]
+[node name="ItemSelector" type="Window" parent="." unique_id=879479038]
 auto_translate_mode = 1
 oversampling_override = 1.0
 size = Vector2i(408, 440)
@@ -325,30 +325,30 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="ItemSelector"]
+[node name="Background" type="ColorRect" parent="ItemSelector" unique_id=237251598]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ItemSelector"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemSelector" unique_id=28647881]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ItemSelector/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemSelector/MarginContainer" unique_id=812255416]
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ItemSelector/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemSelector/MarginContainer/ScrollContainer" unique_id=417302367]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BackToSkinsLines" type="Button" parent="ItemSelector/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="BackToSkinsLines" type="Button" parent="ItemSelector/MarginContainer/ScrollContainer/VBoxContainer" unique_id=636819976]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -356,7 +356,7 @@ theme_type_variation = &"FlatButton"
 text = "Вернуться к линейкам"
 icon = ExtResource("2_hh3qv")
 
-[node name="ItemsGrid" type="GridContainer" parent="ItemSelector/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="ItemsGrid" type="GridContainer" parent="ItemSelector/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1502961797]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

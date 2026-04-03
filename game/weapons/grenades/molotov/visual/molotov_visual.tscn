@@ -1,25 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ffmv1lla228t"]
+[gd_scene format=3 uid="uid://ffmv1lla228t"]
 
 [ext_resource type="Texture2D" uid="uid://wejvx6ukp36q" path="res://game/weapons/grenades/molotov/visual/molotov.png" id="1_r5l0o"]
 [ext_resource type="Texture2D" uid="uid://bp2f107skrkno" path="res://game/weapons/grenades/molotov/visual/flame.png" id="2_g3mj4"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_wsn8j"]
 [ext_resource type="Texture2D" uid="uid://bucic1dxuje2e" path="res://game/weapons/grenades/molotov/visual/igniter.png" id="3_wsn8j"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1456496251]
 
-[node name="Molotov" type="Sprite2D" parent="."]
+[node name="Molotov" type="Sprite2D" parent="." unique_id=358382767]
 position = Vector2(7, -5)
 rotation = 0.16710502
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_r5l0o")
 
-[node name="Flame" type="Sprite2D" parent="Molotov"]
+[node name="Flame" type="Sprite2D" parent="Molotov" unique_id=1377437019]
 visible = false
 material = ExtResource("2_wsn8j")
 position = Vector2(15, -15)
 texture = ExtResource("2_g3mj4")
 
-[node name="Igniter" type="Sprite2D" parent="."]
+[node name="Igniter" type="Sprite2D" parent="." unique_id=607644138]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-81, -1)
 rotation = 0.318524

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbu2je8ylxhxd"]
+[gd_scene format=3 uid="uid://cbu2je8ylxhxd"]
 
 [ext_resource type="Texture2D" uid="uid://dcei15hn601wa" path="res://game/weapons/melee/skewers/visual/skewer.png" id="1_je3dc"]
 [ext_resource type="Texture2D" uid="uid://di262r2a0v0l4" path="res://game/weapons/melee/skewers/visual/skewer2.png" id="2_t104j"]
@@ -13,37 +13,37 @@ point_count = 3
 offsets = PackedFloat32Array(0.605839, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=801321759]
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="Pivot" type="Node2D" parent="." unique_id=344981378]
 position = Vector2(-16, 16)
 
-[node name="Skewer" type="Sprite2D" parent="Pivot"]
+[node name="Skewer" type="Sprite2D" parent="Pivot" unique_id=556728768]
 texture = ExtResource("1_je3dc")
 offset = Vector2(56, 0)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot" unique_id=456357024]
 remote_path = NodePath("../../../Attack/RayDetector")
 update_position = false
 update_scale = false
 
-[node name="Pivot2" type="Node2D" parent="."]
+[node name="Pivot2" type="Node2D" parent="." unique_id=106503017]
 z_index = -1
 position = Vector2(16, -16)
 
-[node name="Skewer2" type="Sprite2D" parent="Pivot2"]
+[node name="Skewer2" type="Sprite2D" parent="Pivot2" unique_id=1381136170]
 texture = ExtResource("2_t104j")
 offset = Vector2(56, 0)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot2"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Pivot2" unique_id=712658634]
 remote_path = NodePath("../../../Attack/RayDetector2")
 update_position = false
 update_scale = false
 
-[node name="SparksPivot" type="Node2D" parent="."]
+[node name="SparksPivot" type="Node2D" parent="." unique_id=2126937322]
 z_index = -1
 
-[node name="Sparks" type="CPUParticles2D" parent="SparksPivot"]
+[node name="Sparks" type="CPUParticles2D" parent="SparksPivot" unique_id=138518718]
 material = ExtResource("3_t104j")
 position = Vector2(200, 0)
 emitting = false
@@ -68,7 +68,7 @@ angle_max = 180.0
 scale_amount_curve = SubResource("Curve_0mdr0")
 color_ramp = SubResource("Gradient_erost")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SparksPivot"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SparksPivot" unique_id=876141075]
 remote_path = NodePath("../../../Attack/SparksRayDetector")
 update_position = false
 update_scale = false

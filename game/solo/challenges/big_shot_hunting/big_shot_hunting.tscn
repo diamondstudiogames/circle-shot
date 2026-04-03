@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqjtplbpilvlh"]
+[gd_scene format=3 uid="uid://bqjtplbpilvlh"]
 
 [ext_resource type="PackedScene" uid="uid://bv5flcglplthg" path="res://game/solo/challenges/common/challenge.tscn" id="1_jgay5"]
 [ext_resource type="Script" uid="uid://bcgwabyht0p1b" path="res://game/solo/challenges/big_shot_hunting/big_shot_hunting.gd" id="2_13yc1"]
@@ -7,20 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://bxh8jmlt24h14" path="res://game/solo/challenges/big_shot_hunting/mobs/big_shot.tscn" id="4_ova4e"]
 [ext_resource type="PackedScene" uid="uid://6cqtx3ewy2xd" path="res://game/shared/ui/boss_health_bar/boss_health_bar.tscn" id="6_ova4e"]
 
-[node name="Challenge" instance=ExtResource("1_jgay5")]
+[node name="Challenge" unique_id=2030719935 instance=ExtResource("1_jgay5")]
 script = ExtResource("2_13yc1")
 coins_for_win = 70
 coins_for_kill = 7
 damage_for_coin = 50.0
 entity_scenes = Array[PackedScene]([ExtResource("3_ova4e"), ExtResource("4_ova4e")])
 
-[node name="Camera" parent="." index="7"]
+[node name="Camera" parent="." index="7" unique_id=388143561]
 position = Vector2(-1280, -720)
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("3_h2e7t")
 
-[node name="BossHealthBar" parent="UI/Main" index="5" instance=ExtResource("6_ova4e")]
+[node name="BossHealthBar" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=645185631 instance=ExtResource("6_ova4e")]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -43,5 +43,5 @@ text = "Убей его или
 нанеси как можно
 больше урона!"
 
-[node name="Camera" parent="MinimapViewport" index="0"]
+[node name="Camera" parent="MinimapViewport" parent_id_path=PackedInt32Array(1592930040) index="0" unique_id=1609421300]
 position = Vector2(-1280, -720)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bokci0xbkadne"]
+[gd_scene format=3 uid="uid://bokci0xbkadne"]
 
 [ext_resource type="Texture2D" uid="uid://bbukicvptv1sw" path="res://game/weapons/throwable/snowballs/snowflake.png" id="1_fe8gk"]
 [ext_resource type="Texture2D" uid="uid://bbmxn5soqlrf8" path="res://game/weapons/throwable/snowballs/snowball_hit.png" id="2_xdmhi"]
@@ -11,10 +11,10 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.524904, 0.927203)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="SnowballHitVfx" type="Node2D"]
+[node name="SnowballHitVfx" type="Node2D" unique_id=1774171190]
 z_index = 1
 
-[node name="Snowflakes" type="CPUParticles2D" parent="."]
+[node name="Snowflakes" type="CPUParticles2D" parent="." unique_id=1152913428]
 amount = 3
 texture = ExtResource("1_fe8gk")
 lifetime = 0.5
@@ -31,7 +31,7 @@ angle_max = 360.0
 scale_amount_curve = SubResource("Curve_ws5q0")
 color_ramp = SubResource("Gradient_8r80f")
 
-[node name="Snow" type="CPUParticles2D" parent="."]
+[node name="Snow" type="CPUParticles2D" parent="." unique_id=1607948753]
 amount = 3
 texture = ExtResource("2_xdmhi")
 lifetime = 0.5
@@ -47,7 +47,7 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_curve = SubResource("Curve_ws5q0")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=715312081]
 one_shot = true
 autostart = true
 

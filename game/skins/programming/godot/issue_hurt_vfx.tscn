@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4rh7m0j10120"]
+[gd_scene format=3 uid="uid://b4rh7m0j10120"]
 
 [ext_resource type="Texture2D" uid="uid://cjs38fa003f7x" path="res://game/skins/programming/godot/issue.png" id="1_nf4ox"]
 
@@ -10,9 +10,9 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.638783, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="IssueHurtVfx" type="Node2D"]
+[node name="IssueHurtVfx" type="Node2D" unique_id=1674646598]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=697955762]
 z_index = 1
 amount = 3
 texture = ExtResource("1_nf4ox")
@@ -28,7 +28,7 @@ initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 color_ramp = SubResource("Gradient_6fs2g")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=797527497]
 wait_time = 0.6
 one_shot = true
 autostart = true

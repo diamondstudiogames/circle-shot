@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cho41pu87ax8w"]
+[gd_scene format=3 uid="uid://cho41pu87ax8w"]
 
 [ext_resource type="Texture2D" uid="uid://t16k04krk0mq" path="res://game/weapons/guns/pistols/uzi/visual/magazine.png" id="1_aw8j6"]
 [ext_resource type="Texture2D" uid="uid://dlffodcwi64ne" path="res://game/weapons/guns/pistols/uzi/visual/base.png" id="2_0kyb6"]
@@ -10,36 +10,36 @@
 [sub_resource type="Gradient" id="Gradient_5v3bp"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1181732503]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=440585104]
 visible = false
 texture = ExtResource("1_aw8j6")
 offset = Vector2(0, 18)
 region_enabled = true
 region_rect = Rect2(48, 32, 32, 104)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=165462053]
 texture = ExtResource("2_0kyb6")
 offset = Vector2(16, -18)
 region_enabled = true
 region_rect = Rect2(0, 0, 160, 96)
 
-[node name="Magazine" type="Sprite2D" parent="Base"]
+[node name="Magazine" type="Sprite2D" parent="Base" unique_id=1042497535]
 show_behind_parent = true
 texture = ExtResource("1_aw8j6")
 offset = Vector2(0, 18)
 region_enabled = true
 region_rect = Rect2(48, 32, 32, 104)
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=1479371526]
 show_behind_parent = true
 texture = ExtResource("3_cfxti")
 offset = Vector2(44, -54)
 region_enabled = true
 region_rect = Rect2(96, 8, 24, 8)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1355823736]
 visible = false
 show_behind_parent = true
 material = ExtResource("4_cfxti")
@@ -47,7 +47,7 @@ position = Vector2(109, -36)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_frym5")
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=1695046876]
 show_behind_parent = true
 position = Vector2(15, -49)
 emitting = false

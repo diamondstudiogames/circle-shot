@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvb6a8p7615dy"]
+[gd_scene format=3 uid="uid://dvb6a8p7615dy"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_hdr7a"]
 [ext_resource type="Script" uid="uid://col2idqdcvxc" path="res://game/entity/effects/immobility/immobility.gd" id="2_auqey"]
@@ -43,17 +43,15 @@ _data = {
 &"lock": SubResource("Animation_5mski")
 }
 
-[node name="Immobility" instance=ExtResource("1_hdr7a")]
+[node name="Immobility" unique_id=1502397311 instance=ExtResource("1_hdr7a")]
 script = ExtResource("2_auqey")
 stackable = false
 negative = true
 
-[node name="Lock" type="Sprite2D" parent="." index="1"]
+[node name="Lock" type="Sprite2D" parent="." index="1" unique_id=174201362]
 position = Vector2(0, -120)
 texture = ExtResource("3_xukhq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_g6jt4")
-}
-autoplay = "lock"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=405747293]
+libraries/ = SubResource("AnimationLibrary_g6jt4")
+autoplay = &"lock"

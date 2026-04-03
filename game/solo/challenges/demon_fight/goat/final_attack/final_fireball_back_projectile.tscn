@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyt1s64ximobk"]
+[gd_scene format=3 uid="uid://cyt1s64ximobk"]
 
 [ext_resource type="PackedScene" uid="uid://djnl6yscswq2o" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_projectile.tscn" id="1_0gime"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_o2i8s"]
@@ -65,20 +65,18 @@ _data = {
 &"back": SubResource("Animation_ngwn4")
 }
 
-[node name="FinalFireballBackProjectile" instance=ExtResource("1_0gime")]
+[node name="FinalFireballBackProjectile" unique_id=616769786 instance=ExtResource("1_0gime")]
 damage = 10
 
 [node name="Sprite2D" parent="." index="1"]
 material = ExtResource("2_o2i8s")
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 6.0
 
 [node name="RayDetector" parent="." index="4"]
 collision_mask = 66
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
-libraries = {
-&"": SubResource("AnimationLibrary_f8p8u")
-}
-autoplay = "back"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=139721629]
+libraries/ = SubResource("AnimationLibrary_f8p8u")
+autoplay = &"back"

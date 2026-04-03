@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://6cqtx3ewy2xd"]
+[gd_scene format=3 uid="uid://6cqtx3ewy2xd"]
 
 [ext_resource type="Texture2D" uid="uid://c1i366gv3j0xb" path="res://game/shared/ui/boss_health_bar/health_bar_empty.png" id="1_3bguj"]
 [ext_resource type="Material" uid="uid://b8111w5tokcit" path="res://game/shared/shaders/materials/solid_color.tres" id="2_o61sk"]
 [ext_resource type="Script" uid="uid://cf2jtnestjga1" path="res://game/shared/ui/boss_health_bar/boss_health_bar.gd" id="2_sfn1v"]
 [ext_resource type="Texture2D" uid="uid://p5royvkdebkh" path="res://game/shared/ui/boss_health_bar/health_bar.png" id="3_sfn1v"]
 
-[node name="BossHealthBar" type="TextureRect"]
+[node name="BossHealthBar" type="TextureRect" unique_id=1879900315]
 offset_right = 640.0
 offset_bottom = 32.0
 texture = ExtResource("1_3bguj")
@@ -13,7 +13,7 @@ expand_mode = 1
 script = ExtResource("2_sfn1v")
 metadata/_custom_type_script = "uid://cf2jtnestjga1"
 
-[node name="Name" type="Label" parent="."]
+[node name="Name" type="Label" parent="." unique_id=666984535]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -26,7 +26,7 @@ theme_type_variation = &"HeaderSmallOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=2010078706]
 material = ExtResource("2_o61sk")
 instance_shader_parameters/power = 0.0
 layout_mode = 1
@@ -38,7 +38,7 @@ grow_vertical = 2
 nine_patch_stretch = true
 texture_progress = ExtResource("3_sfn1v")
 
-[node name="Health" type="Label" parent="."]
+[node name="Health" type="Label" parent="." unique_id=19874908]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

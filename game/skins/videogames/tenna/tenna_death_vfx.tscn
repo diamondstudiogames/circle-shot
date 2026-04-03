@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccxfjys3detus"]
+[gd_scene format=3 uid="uid://ccxfjys3detus"]
 
 [ext_resource type="Texture2D" uid="uid://45onfn78lv5w" path="res://game/skins/videogames/tenna/tenna_dead.png" id="1_cva4s"]
 [ext_resource type="Texture2D" uid="uid://d0fecuqx3mgbu" path="res://game/skins/videogames/tenna/flashes.png" id="2_fsqnr"]
@@ -178,21 +178,21 @@ _data = {
 &"death": SubResource("Animation_xe8os")
 }
 
-[node name="TennaDeathVfx" type="Node2D"]
+[node name="TennaDeathVfx" type="Node2D" unique_id=1045309891]
 
-[node name="Tenna" type="Sprite2D" parent="."]
+[node name="Tenna" type="Sprite2D" parent="." unique_id=1370330416]
 z_index = -2
 texture = ExtResource("1_cva4s")
 offset = Vector2(4, -20)
 
-[node name="Flashes" type="Sprite2D" parent="Tenna"]
+[node name="Flashes" type="Sprite2D" parent="Tenna" unique_id=1818995044]
 visible = false
 show_behind_parent = true
 texture = ExtResource("2_fsqnr")
 offset = Vector2(0, 16)
 vframes = 4
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1404861338]
 z_index = 1
 material = SubResource("CanvasItemMaterial_8uxtc")
 emitting = false
@@ -214,8 +214,6 @@ scale_amount_curve = SubResource("Curve_110g0")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hnkv0")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2086295037]
+libraries/ = SubResource("AnimationLibrary_hnkv0")
+autoplay = &"death"

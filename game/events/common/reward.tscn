@@ -1,20 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ipe4g6uueie"]
+[gd_scene format=3 uid="uid://b1ipe4g6uueie"]
 
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="1_jbgge"]
 
-[node name="Reward" type="HBoxContainer"]
+[node name="Reward" type="HBoxContainer" unique_id=367569321]
 
-[node name="Reason" type="Label" parent="."]
+[node name="Reason" type="Label" parent="." unique_id=230653497]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 
-[node name="Count" type="Label" parent="."]
+[node name="Count" type="Label" parent="." unique_id=1095584960]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "20"
 
-[node name="CoinSmall" type="TextureRect" parent="."]
+[node name="CoinSmall" type="TextureRect" parent="." unique_id=1428197489]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_jbgge")

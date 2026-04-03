@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqo7kuss0a7js"]
+[gd_scene format=3 uid="uid://dqo7kuss0a7js"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_ufrjk"]
 [ext_resource type="Script" uid="uid://crgutyugo7q0u" path="res://game/weapons/grenades/poison_grenade/projectile/poison_grenade_projectile.gd" id="2_5l6o6"]
@@ -237,47 +237,45 @@ _data = {
 resource_local_to_scene = true
 radius = 16.0
 
-[node name="PoisonGrenadeProjectile" instance=ExtResource("1_ufrjk")]
+[node name="PoisonGrenadeProjectile" unique_id=512249999 instance=ExtResource("1_ufrjk")]
 script = ExtResource("2_5l6o6")
 speed = 1400.0
 damping = 500.0
 
-[node name="Grenade" parent="." index="0"]
+[node name="Grenade" parent="." index="0" unique_id=1624174126]
 texture = ExtResource("2_11r5e")
 
-[node name="ExplosionTimer" parent="." index="2"]
+[node name="ExplosionTimer" parent="." index="2" unique_id=1830172877]
 wait_time = 2.0
 
-[node name="Explosion" type="Node2D" parent="." index="4"]
+[node name="Explosion" type="Node2D" parent="." index="4" unique_id=1694553549]
 physics_interpolation_mode = 2
 visible = false
 z_index = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Explosion" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Explosion" index="0" unique_id=984163933]
 material = SubResource("ShaderMaterial_4k78p")
 instance_shader_parameters/outline_color = Color(0, 0, 0, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_5l6o6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_a5tqx")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="1" unique_id=349474973]
+libraries/ = SubResource("AnimationLibrary_a5tqx")
 
-[node name="Attack" type="Node2D" parent="Explosion" index="2"]
+[node name="Attack" type="Node2D" parent="Explosion" index="2" unique_id=1313123336]
 script = ExtResource("5_a5tqx")
 damage = 10
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0" unique_id=1120955142]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("5_qap35")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0" unique_id=1761994178]
 visible = false
 shape = SubResource("CircleShape2D_ptys2")
 disabled = true

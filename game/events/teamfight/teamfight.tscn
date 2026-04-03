@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2iraf4bc27ee"]
+[gd_scene format=3 uid="uid://d2iraf4bc27ee"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_6uxmc"]
 [ext_resource type="Script" uid="uid://d1wsojr0xd0ip" path="res://game/events/teamfight/teamfight.gd" id="2_btc68"]
@@ -278,7 +278,7 @@ _data = {
 &"victory": SubResource("Animation_gvqew")
 }
 
-[node name="Event" instance=ExtResource("1_6uxmc")]
+[node name="Event" unique_id=1258676499 instance=ExtResource("1_6uxmc")]
 script = ExtResource("2_btc68")
 match_time = 180
 comeback_time = 3
@@ -289,10 +289,10 @@ coins_for_kill = 5
 damage_for_coin = 25
 entity_scenes = Array[PackedScene]([ExtResource("3_xyyla")])
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_m4tqf")
 
-[node name="Timer" type="Label" parent="UI/Main" index="5"]
+[node name="Timer" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=1920991792]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -305,7 +305,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderLargeOutlined"
 text = "3:00"
 
-[node name="Comeback" type="Label" parent="UI/Main" index="6"]
+[node name="Comeback" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=1811269593]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -324,7 +324,7 @@ text = "Возвращение через 3..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RedCount" type="Label" parent="UI/Main" index="7"]
+[node name="RedCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=263549564]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -341,7 +341,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlueCount" type="Label" parent="UI/Main" index="8"]
+[node name="BlueCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=730690546]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -358,7 +358,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="9"]
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="9" unique_id=1878648761]
 visible = false
 modulate = Color(1, 0, 0, 0)
 layout_mode = 1
@@ -377,12 +377,10 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(400, 60)
 alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_fraxw")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0" unique_id=1821558147]
+libraries/ = SubResource("AnimationLibrary_fraxw")
 
-[node name="Winner" type="Label" parent="UI/Main/GameEnd" index="1"]
+[node name="Winner" type="Label" parent="UI/Main/GameEnd" index="1" unique_id=1050363583]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -394,7 +392,7 @@ text = "ПОБЕДИТЕЛЬ:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Draw" type="Label" parent="UI/Main/GameEnd" index="2"]
+[node name="Draw" type="Label" parent="UI/Main/GameEnd" index="2" unique_id=1848045783]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -406,7 +404,7 @@ text = "НИЧЬЯ!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Team" type="Label" parent="UI/Main/GameEnd" index="3"]
+[node name="Team" type="Label" parent="UI/Main/GameEnd" index="3" unique_id=1558724252]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -418,7 +416,7 @@ text = "Синяя"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="End" type="Label" parent="UI/Main/GameEnd" index="4"]
+[node name="End" type="Label" parent="UI/Main/GameEnd" index="4" unique_id=644727095]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -430,18 +428,18 @@ text = "команда!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title" parent="UI/Intro" index="1"]
+[node name="Title" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="1" unique_id=360426741]
 text = "КОМАНДНЫЙ БОЙ"
 
-[node name="Description" parent="UI/Intro/Title" index="0"]
+[node name="Description" parent="UI/Intro/Title" index="0" unique_id=1561217676]
 text = "Побеждай противников на счёт!"
 
-[node name="Text" parent="UI/Intro" index="2"]
+[node name="Text" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="2" unique_id=1913610560]
 text = "Побеждает команда
 с наибольшим счётом!"
 
-[node name="ComebackTimer" type="Timer" parent="UI" index="3"]
+[node name="ComebackTimer" type="Timer" parent="UI" index="3" unique_id=2032286187]
 
-[node name="MatchTimer" type="Timer" parent="." index="15"]
+[node name="MatchTimer" type="Timer" parent="." index="15" unique_id=969053103]
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_match_timer_timeout"]

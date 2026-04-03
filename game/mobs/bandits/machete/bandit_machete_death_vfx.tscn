@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://de46wnkbixfrs"]
+[gd_scene format=3 uid="uid://de46wnkbixfrs"]
 
 [ext_resource type="Texture2D" uid="uid://dj413n3nf0jj8" path="res://game/mobs/bandits/machete/bandit_machete_dead.png" id="1_66qkd"]
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_cqgwm"]
@@ -97,15 +97,15 @@ _data = {
 &"death": SubResource("Animation_76ygj")
 }
 
-[node name="BanditMacheteDeathVfx" type="Node2D"]
+[node name="BanditMacheteDeathVfx" type="Node2D" unique_id=846830523]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122800562]
 z_index = -2
 position = Vector2(0, 58)
 texture = ExtResource("1_66qkd")
 offset = Vector2(0, -58)
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=253070253]
 z_index = 1
 emitting = false
 texture = ExtResource("2_cqgwm")
@@ -120,8 +120,6 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ehlpc")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=390517680]
+libraries/ = SubResource("AnimationLibrary_ehlpc")
+autoplay = &"death"

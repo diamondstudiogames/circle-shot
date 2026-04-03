@@ -1,56 +1,56 @@
 [gd_scene format=3 uid="uid://eybqhu8u4udd"]
 
-[node name="Promocode" type="VBoxContainer"]
+[node name="Promocode" type="VBoxContainer" unique_id=1391849947]
 offset_right = 354.0
 offset_bottom = 134.0
 
-[node name="Promocode" type="Label" parent="."]
+[node name="Promocode" type="Label" parent="." unique_id=1292591366]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "промокод"
 
-[node name="Comment" type="HBoxContainer" parent="."]
+[node name="Comment" type="HBoxContainer" parent="." unique_id=1237228295]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Comment"]
+[node name="Label" type="Label" parent="Comment" unique_id=1155924329]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Комментарий"
 
-[node name="LineEdit" type="LineEdit" parent="Comment"]
+[node name="LineEdit" type="LineEdit" parent="Comment" unique_id=953366260]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Появляется после использования"
 
-[node name="OnlyForIds" type="HBoxContainer" parent="."]
+[node name="OnlyForIds" type="HBoxContainer" parent="." unique_id=1247521380]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OnlyForIds"]
+[node name="Label" type="Label" parent="OnlyForIds" unique_id=17826275]
 layout_mode = 2
 text = "Ограничения по ID сохранения,
 через запятую"
 
-[node name="LineEdit" type="LineEdit" parent="OnlyForIds"]
+[node name="LineEdit" type="LineEdit" parent="OnlyForIds" unique_id=413952029]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 placeholder_text = "Нет ограничений"
 
-[node name="Rewards" type="VBoxContainer" parent="."]
+[node name="Rewards" type="VBoxContainer" parent="." unique_id=472548746]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="."]
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=195134475]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="AddReward" type="Button" parent="Buttons"]
+[node name="AddReward" type="Button" parent="Buttons" unique_id=295396127]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Добавить награду"
 
-[node name="Delete" type="Button" parent="Buttons"]
+[node name="Delete" type="Button" parent="Buttons" unique_id=14487210]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Удалить промокод"

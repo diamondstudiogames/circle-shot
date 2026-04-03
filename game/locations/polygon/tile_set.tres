@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://uybikecgv65"]
+[gd_resource type="TileSet" format=3 uid="uid://uybikecgv65"]
 
 [ext_resource type="Texture2D" uid="uid://cbdwtbdsjt3mp" path="res://game/locations/polygon/hole_tiles.png" id="1_c51o8"]
 [ext_resource type="Texture2D" uid="uid://4cr2njwdotxw" path="res://game/locations/polygon/tiles.png" id="2_bi733"]

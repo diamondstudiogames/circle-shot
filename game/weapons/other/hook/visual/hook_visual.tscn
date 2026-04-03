@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5yuhtxk1cqyw"]
+[gd_scene format=3 uid="uid://b5yuhtxk1cqyw"]
 
 [ext_resource type="Texture2D" uid="uid://d0o4mn81kpopk" path="res://game/weapons/other/hook/visual/chain.png" id="1_651yd"]
 [ext_resource type="Texture2D" uid="uid://dqqohrw8x4ie4" path="res://game/weapons/other/hook/visual/hook_attract_user.png" id="2_qdtlk"]
@@ -6,9 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_651yd"]
 radius = 24.0
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1704981013]
 
-[node name="Chain" type="Line2D" parent="."]
+[node name="Chain" type="Line2D" parent="." unique_id=1963973483]
 z_index = -1
 texture_repeat = 2
 points = PackedVector2Array(0, 0, 0, 0)
@@ -16,18 +16,18 @@ width = 24.0
 texture = ExtResource("1_651yd")
 texture_mode = 1
 
-[node name="Hook" type="Sprite2D" parent="."]
+[node name="Hook" type="Sprite2D" parent="." unique_id=30183063]
 physics_interpolation_mode = 1
 position = Vector2(32, 32)
 texture = ExtResource("2_qdtlk")
 offset = Vector2(38, 0)
 
-[node name="ShapeCast2D" type="ShapeCast2D" parent="Hook"]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="Hook" unique_id=2064116275]
 enabled = false
 shape = SubResource("CircleShape2D_651yd")
 target_position = Vector2(48, 0)
 max_results = 1
 collision_mask = 11
 
-[node name="ResetPoint" type="Marker2D" parent="."]
+[node name="ResetPoint" type="Marker2D" parent="." unique_id=2027694617]
 position = Vector2(32, 32)

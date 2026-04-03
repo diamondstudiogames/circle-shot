@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd74gwm1uh6tt"]
+[gd_scene format=3 uid="uid://dd74gwm1uh6tt"]
 
 [ext_resource type="Texture2D" uid="uid://bljgtf3rk3jag" path="res://game/skins/standard/clown/clown.png" id="1_jjg48"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_us8v6"]
 
-[node name="Clown" type="Sprite2D"]
+[node name="Clown" type="Sprite2D" unique_id=779953581]
 texture = ExtResource("1_jjg48")
 offset = Vector2(4, -4)
 script = ExtResource("1_us8v6")

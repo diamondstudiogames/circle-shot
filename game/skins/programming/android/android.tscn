@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://crm68n863viai"]
+[gd_scene format=3 uid="uid://crm68n863viai"]
 
 [ext_resource type="Texture2D" uid="uid://b8o7jvurl4hsb" path="res://game/skins/programming/android/android.png" id="1_bwwa0"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_oeuuy"]
 [ext_resource type="PackedScene" uid="uid://civ5krpprc0le" path="res://game/skins/programming/android/bean_hurt_vfx.tscn" id="3_4padw"]
 [ext_resource type="PackedScene" uid="uid://cdl30g16twg5o" path="res://game/skins/programming/android/recovery_death_vfx.tscn" id="4_10bfp"]
 
-[node name="Android" type="Sprite2D"]
+[node name="Android" type="Sprite2D" unique_id=1066567891]
 texture = ExtResource("1_bwwa0")
 script = ExtResource("2_oeuuy")
 custom_hurt_vfx_scene = ExtResource("3_4padw")

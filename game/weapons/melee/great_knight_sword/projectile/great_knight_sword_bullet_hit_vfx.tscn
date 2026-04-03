@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk4phfkeek287"]
+[gd_scene format=3 uid="uid://dk4phfkeek287"]
 
 [ext_resource type="Texture2D" uid="uid://muyaxaxgyhjj" path="res://game/weapons/melee/great_knight_sword/projectile/great_knight_sword_bullet_shard.png" id="1_cv3tl"]
 
@@ -6,11 +6,10 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="GreatKnightSwordBulletHitVfx" type="Node2D"]
+[node name="GreatKnightSwordBulletHitVfx" type="Node2D" unique_id=728448]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=2000731282]
 z_index = 1
-emitting = false
 amount = 3
 texture = ExtResource("1_cv3tl")
 lifetime = 0.4
@@ -23,7 +22,7 @@ initial_velocity_min = 32.0
 initial_velocity_max = 64.0
 scale_amount_curve = SubResource("Curve_uixak")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=646746354]
 wait_time = 0.5
 one_shot = true
 autostart = true

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://x8k2crtj28bk"]
+[gd_scene format=3 uid="uid://x8k2crtj28bk"]
 
 [ext_resource type="Texture2D" uid="uid://bmklwfpi44e2o" path="res://game/skins/standard/astronaut/astronaut.png" id="1_6bd8e"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_c41r1"]
 
-[node name="Astronaut" type="Sprite2D"]
+[node name="Astronaut" type="Sprite2D" unique_id=1348320949]
 texture = ExtResource("1_6bd8e")
 script = ExtResource("1_c41r1")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

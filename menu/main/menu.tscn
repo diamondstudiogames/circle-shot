@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4wb77emq8t5p"]
+[gd_scene format=3 uid="uid://4wb77emq8t5p"]
 
 [ext_resource type="Script" uid="uid://6mjcp2pfoqs6" path="res://menu/main/menu.gd" id="1_6hvox"]
 [ext_resource type="Texture2D" uid="uid://drssc5o2ehjq" path="res://main/logo.png" id="1_m6h1l"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="12_k1ro1"]
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="14_u3jdf"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=818075894]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_vertical = 2
 script = ExtResource("1_6hvox")
 metadata/_custom_type_script = "uid://6mjcp2pfoqs6"
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="." unique_id=991259059]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ grow_vertical = 2
 texture = ExtResource("2_f1en6")
 stretch_mode = 6
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="." unique_id=1191186289]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -48,7 +48,7 @@ grow_horizontal = 2
 texture = ExtResource("1_m6h1l")
 expand_mode = 1
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+[node name="ButtonsContainer" type="VBoxContainer" parent="." unique_id=1905459307]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,10 +62,10 @@ offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayButtonsContainer" type="HBoxContainer" parent="ButtonsContainer"]
+[node name="PlayButtonsContainer" type="HBoxContainer" parent="ButtonsContainer" unique_id=92049495]
 layout_mode = 2
 
-[node name="PlaySolo" type="Button" parent="ButtonsContainer/PlayButtonsContainer"]
+[node name="PlaySolo" type="Button" parent="ButtonsContainer/PlayButtonsContainer" unique_id=1049673029]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 theme_override_constants/icon_max_width = 160
@@ -75,11 +75,11 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Autofocus" type="Node" parent="ButtonsContainer/PlayButtonsContainer/PlaySolo"]
+[node name="Autofocus" type="Node" parent="ButtonsContainer/PlayButtonsContainer/PlaySolo" unique_id=1865196129]
 script = ExtResource("5_wm4e1")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="PlayNetwork" type="Button" parent="ButtonsContainer/PlayButtonsContainer"]
+[node name="PlayNetwork" type="Button" parent="ButtonsContainer/PlayButtonsContainer" unique_id=673906301]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 theme_override_constants/icon_max_width = 160
@@ -89,11 +89,11 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="GameButtonsContainer" type="HBoxContainer" parent="ButtonsContainer"]
+[node name="GameButtonsContainer" type="HBoxContainer" parent="ButtonsContainer" unique_id=1686982251]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Inventory" type="Button" parent="ButtonsContainer/GameButtonsContainer"]
+[node name="Inventory" type="Button" parent="ButtonsContainer/GameButtonsContainer" unique_id=338792423]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_constants/icon_max_width = 80
@@ -103,7 +103,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Shop" type="Button" parent="ButtonsContainer/GameButtonsContainer"]
+[node name="Shop" type="Button" parent="ButtonsContainer/GameButtonsContainer" unique_id=1988053503]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_constants/icon_max_width = 80
@@ -113,7 +113,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Achievements" type="Button" parent="ButtonsContainer/GameButtonsContainer"]
+[node name="Achievements" type="Button" parent="ButtonsContainer/GameButtonsContainer" unique_id=446477808]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_constants/icon_max_width = 80
@@ -124,22 +124,22 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="MiscButtonsContainer" type="HBoxContainer" parent="ButtonsContainer"]
+[node name="MiscButtonsContainer" type="HBoxContainer" parent="ButtonsContainer" unique_id=255890144]
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="ButtonsContainer/MiscButtonsContainer"]
+[node name="Settings" type="Button" parent="ButtonsContainer/MiscButtonsContainer" unique_id=1838959105]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Настройки"
 icon = ExtResource("6_0pcoh")
 
-[node name="About" type="Button" parent="ButtonsContainer/MiscButtonsContainer"]
+[node name="About" type="Button" parent="ButtonsContainer/MiscButtonsContainer" unique_id=1389355482]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Об игре"
 icon = ExtResource("7_aw44p")
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="." unique_id=1446437686]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -151,10 +151,10 @@ offset_bottom = 72.0
 grow_horizontal = 0
 icon = ExtResource("12_k1ro1")
 
-[node name="NameDialog" parent="." instance=ExtResource("10_yw6bl")]
+[node name="NameDialog" parent="." unique_id=97502169 instance=ExtResource("10_yw6bl")]
 visible = false
 
-[node name="About" type="Window" parent="."]
+[node name="About" type="Window" parent="." unique_id=1619024866]
 title = "Об игре"
 position = Vector2i(0, 28)
 size = Vector2i(720, 428)
@@ -163,14 +163,14 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="About"]
+[node name="Background" type="ColorRect" parent="About" unique_id=1914009738]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="About"]
+[node name="MarginContainer" type="MarginContainer" parent="About" unique_id=180197039]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -180,10 +180,10 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="About/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="About/MarginContainer" unique_id=54885343]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="About/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="About/MarginContainer/VBoxContainer" unique_id=1928109733]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -214,24 +214,24 @@ LohDebil228, ATINY, YanniKss
 Всё будет хорошо!"
 autowrap_mode = 2
 
-[node name="Close" type="Button" parent="About/MarginContainer/VBoxContainer"]
+[node name="Close" type="Button" parent="About/MarginContainer/VBoxContainer" unique_id=1082940555]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "ОК"
 
-[node name="AutofocusWindow" type="Node" parent="About"]
+[node name="AutofocusWindow" type="Node" parent="About" unique_id=2053034032]
 script = ExtResource("14_u3jdf")
 focus_target = NodePath("../MarginContainer/VBoxContainer/Close")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[node name="UpdateDialog" type="ConfirmationDialog" parent="."]
+[node name="UpdateDialog" type="ConfirmationDialog" parent="." unique_id=1487871380]
 title = "Доступно обновление!"
 size = Vector2i(246, 112)
 unresizable = true
 ok_button_text = "Скачать"
 cancel_button_text = "Позже"
 
-[node name="TutorialDialog" type="ConfirmationDialog" parent="."]
+[node name="TutorialDialog" type="ConfirmationDialog" parent="." unique_id=1361520192]
 oversampling_override = 1.0
 title = "Обучение"
 size = Vector2i(391, 135)

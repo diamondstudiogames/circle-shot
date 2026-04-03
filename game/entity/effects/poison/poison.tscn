@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ujm5kn81ax1c"]
+[gd_scene format=3 uid="uid://ujm5kn81ax1c"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_0yrno"]
 [ext_resource type="Script" uid="uid://cs15jll5j4ur2" path="res://game/entity/effects/poison/poison.gd" id="2_1xpay"]
@@ -14,14 +14,14 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="Poison" instance=ExtResource("1_0yrno")]
+[node name="Poison" unique_id=796246551 instance=ExtResource("1_0yrno")]
 script = ExtResource("2_1xpay")
 negative = true
 
-[node name="IntervalTimer" type="Timer" parent="." index="0"]
+[node name="IntervalTimer" type="Timer" parent="." index="0" unique_id=1101753237]
 process_callback = 0
 
-[node name="Skulls" type="CPUParticles2D" parent="." index="2"]
+[node name="Skulls" type="CPUParticles2D" parent="." index="2" unique_id=277618947]
 amount = 4
 texture = ExtResource("3_vgnbt")
 lifetime = 2.5

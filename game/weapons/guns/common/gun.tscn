@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckvaaln275hfv"]
+[gd_scene format=3 uid="uid://ckvaaln275hfv"]
 
 [ext_resource type="Script" uid="uid://dbmve8krfurnb" path="res://game/weapons/guns/common/gun.gd" id="1_in83w"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_8tfw4"]
 
-[node name="Gun" type="Node2D"]
+[node name="Gun" type="Node2D" unique_id=1561694242]
 script = ExtResource("1_in83w")
 metadata/_custom_type_script = "uid://dbmve8krfurnb"
 
-[node name="ShootPoint" type="Marker2D" parent="."]
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=642103981]
 
-[node name="Aim" type="Line2D" parent="ShootPoint"]
+[node name="Aim" type="Line2D" parent="ShootPoint" unique_id=1210121671]
 visible = false
 z_index = 10
 material = ExtResource("2_8tfw4")
@@ -17,37 +17,37 @@ points = PackedVector2Array(0, 0, 2048, 0)
 width = 8.0
 default_color = Color(1, 1, 1, 0.376471)
 
-[node name="SpreadLeft" type="Line2D" parent="ShootPoint/Aim"]
+[node name="SpreadLeft" type="Line2D" parent="ShootPoint/Aim" unique_id=1319216196]
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 4.0
 default_color = Color(1, 1, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="ShootPoint/Aim/SpreadLeft"]
+[node name="Outline" type="Line2D" parent="ShootPoint/Aim/SpreadLeft" unique_id=275439095]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 8.0
 default_color = Color(0, 0, 0, 0.156863)
 
-[node name="SpreadRight" type="Line2D" parent="ShootPoint/Aim"]
+[node name="SpreadRight" type="Line2D" parent="ShootPoint/Aim" unique_id=1224240498]
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 4.0
 default_color = Color(1, 1, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="ShootPoint/Aim/SpreadRight"]
+[node name="Outline" type="Line2D" parent="ShootPoint/Aim/SpreadRight" unique_id=593521218]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(128, 0, 192, 0)
 width = 8.0
 default_color = Color(0, 0, 0, 0.156863)
 
-[node name="Outline" type="Line2D" parent="ShootPoint/Aim"]
+[node name="Outline" type="Line2D" parent="ShootPoint/Aim" unique_id=1564062309]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(0, 0, 2048, 0)
 width = 12.0
 default_color = Color(0, 0, 0, 0.188235)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=313151340]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://f6bay2nx1wy3"]
+[gd_scene format=3 uid="uid://f6bay2nx1wy3"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6jugc"]
 [ext_resource type="Script" uid="uid://cq53u6g7rseun" path="res://game/solo/training/training.gd" id="2_lrvjq"]
@@ -854,7 +854,7 @@ _data = {
 &"ritual_done": SubResource("Animation_vkyk8")
 }
 
-[node name="Training" instance=ExtResource("1_6jugc")]
+[node name="Training" unique_id=960363963 instance=ExtResource("1_6jugc")]
 script = ExtResource("2_lrvjq")
 enemies_icons = Dictionary[int, Texture2D]({
 0: ExtResource("28_4ik32"),
@@ -864,10 +864,10 @@ enemies_icons = Dictionary[int, Texture2D]({
 })
 entity_scenes = Array[PackedScene]([ExtResource("7_ew6j5"), ExtResource("3_wkoo5"), ExtResource("7_1jf6s"), ExtResource("10_5ylsm"), ExtResource("11_ew6j5")])
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("3_34tim")
 
-[node name="Menu" type="Button" parent="UI/Main" index="2"]
+[node name="Menu" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=1852386833]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -879,7 +879,7 @@ offset_bottom = -16.0
 grow_vertical = 0
 icon = ExtResource("6_511bm")
 
-[node name="Quit" type="Button" parent="UI/Main" index="3"]
+[node name="Quit" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1572068922]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -893,7 +893,7 @@ shortcut = ExtResource("14_idd4e")
 shortcut_in_tooltip = false
 icon = ExtResource("4_wkoo5")
 
-[node name="Stats" type="Label" parent="UI/Main" index="4"]
+[node name="Stats" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=634847159]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -909,7 +909,7 @@ text = "Нанесённый урон: 0
 Смертей: 0"
 horizontal_alignment = 1
 
-[node name="Menu" type="Control" parent="UI" index="1"]
+[node name="Menu" type="Control" parent="UI" index="1" unique_id=981097831]
 process_mode = 2
 visible = false
 layout_mode = 3
@@ -919,7 +919,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="UI/Menu" index="0"]
+[node name="Background" type="ColorRect" parent="UI/Menu" index="0" unique_id=1990248319]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -928,7 +928,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/Menu" index="1"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/Menu" index="1" unique_id=316967333]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -942,204 +942,204 @@ offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" type="VBoxContainer" parent="UI/Menu/PanelContainer" index="0"]
+[node name="MainMenu" type="VBoxContainer" parent="UI/Menu/PanelContainer" index="0" unique_id=782754051]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu" index="0"]
+[node name="Header" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu" index="0" unique_id=1888853423]
 layout_mode = 2
 
-[node name="ResetStats" type="Button" parent="UI/Menu/PanelContainer/MainMenu/Header" index="0"]
+[node name="ResetStats" type="Button" parent="UI/Menu/PanelContainer/MainMenu/Header" index="0" unique_id=1410200056]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Сбросить счётчики"
 icon = ExtResource("21_o5c37")
 
-[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MainMenu/Header" index="1"]
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MainMenu/Header" index="1" unique_id=782157973]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderLarge"
 text = "Меню тренировки"
 
-[node name="Close" type="Button" parent="UI/Menu/PanelContainer/MainMenu/Header" index="2"]
+[node name="Close" type="Button" parent="UI/Menu/PanelContainer/MainMenu/Header" index="2" unique_id=780140233]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu" index="1" unique_id=404647582]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Player" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer" index="0"]
+[node name="Player" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer" index="0" unique_id=441815273]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player" index="0" unique_id=463806686]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="0"]
+[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="0" unique_id=154221402]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
 text = "Игрок"
 
-[node name="Player" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="1"]
+[node name="Player" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="1" unique_id=742122382]
 layout_mode = 2
 alignment = 1
 
-[node name="Heal" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player" index="0"]
+[node name="Heal" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player" index="0" unique_id=1298202315]
 layout_mode = 2
 text = "Восстановить ОЗ"
 icon = ExtResource("7_gu8e4")
 
-[node name="Autofocus" type="Node" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player/Heal" index="0"]
+[node name="Autofocus" type="Node" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player/Heal" index="0" unique_id=1109002732]
 script = ExtResource("18_ucqos")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Ammo" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player" index="1"]
+[node name="Ammo" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player" index="1" unique_id=129291072]
 layout_mode = 2
 text = "Восстановить боеприпасы"
 icon = ExtResource("8_511bm")
 
-[node name="Player2" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="2"]
+[node name="Player2" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="2" unique_id=1431515477]
 layout_mode = 2
 alignment = 1
 
-[node name="Skill" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player2" index="0"]
+[node name="Skill" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player2" index="0" unique_id=307780081]
 layout_mode = 2
 text = "Восстановить навык"
 icon = ExtResource("9_olgru")
 
-[node name="TeleportToSpawn" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="3"]
+[node name="TeleportToSpawn" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="3" unique_id=1898460675]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Вернуться в точку появления"
 icon = ExtResource("10_1j3gj")
 
-[node name="EquipSelector" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="4" instance=ExtResource("12_olgru")]
+[node name="EquipSelector" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="4" unique_id=436632163 instance=ExtResource("12_olgru")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Presets" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="5"]
+[node name="Presets" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer" index="5" unique_id=1935094777]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Предустановки экипировки"
 icon = ExtResource("13_1grle")
 
-[node name="Environment" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer" index="1"]
+[node name="Environment" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer" index="1" unique_id=1796314910]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment" index="0" unique_id=277975704]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="0"]
+[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="0" unique_id=2038610672]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Окружение"
 
-[node name="Map" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="1"]
+[node name="Map" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="1" unique_id=1269771686]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/Map" index="0"]
+[node name="Title" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/Map" index="0" unique_id=1658620771]
 layout_mode = 2
 text = "Текущая карта:"
 
-[node name="CurrentMap" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/Map" index="1"]
+[node name="CurrentMap" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/Map" index="1" unique_id=1334451705]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Тренировка"
 
-[node name="ChangeMap" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="2"]
+[node name="ChangeMap" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="2" unique_id=1242444155]
 layout_mode = 2
 alignment = 1
 
-[node name="SelectMap" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap" index="0"]
+[node name="SelectMap" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap" index="0" unique_id=498682041]
 layout_mode = 2
 text = "Выбрать карту"
 icon = ExtResource("16_fhj3u")
 
-[node name="ReturnToTraining" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap" index="1"]
+[node name="ReturnToTraining" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/ChangeMap" index="1" unique_id=1927416383]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Вернуться на тренировку"
 icon = ExtResource("17_oiyxk")
 
-[node name="TrainingMap" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="3"]
+[node name="TrainingMap" type="PanelContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer" index="3" unique_id=294906263]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Manage" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap" index="0"]
+[node name="Manage" type="VBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap" index="0" unique_id=1872886306]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="0"]
+[node name="Header" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="0" unique_id=131692914]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Карта тренировки"
 
-[node name="Enemies" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="1"]
+[node name="Enemies" type="HBoxContainer" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="1" unique_id=1754962630]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="DestroyEnemies" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies" index="0"]
+[node name="DestroyEnemies" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies" index="0" unique_id=20640608]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Уничтожить врагов"
 icon = ExtResource("16_oiyxk")
 
-[node name="RespawnEnemies" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies" index="1"]
+[node name="RespawnEnemies" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage/Enemies" index="1" unique_id=321142134]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Пересоздать врагов"
 icon = ExtResource("17_g0cma")
 
-[node name="MapPreview" type="TextureRect" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="2"]
+[node name="MapPreview" type="TextureRect" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="2" unique_id=711356778]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 stretch_mode = 5
 
-[node name="EditMap" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="3"]
+[node name="EditMap" type="Button" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap/Manage" index="3" unique_id=1890801539]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Редактировать карту"
 icon = ExtResource("16_8bquf")
 
-[node name="CantEdit" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap" index="1"]
+[node name="CantEdit" type="Label" parent="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Environment/VBoxContainer/TrainingMap" index="1" unique_id=818921631]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Управлять можно только картой тренировки."
 
-[node name="MapEditor" type="VBoxContainer" parent="UI/Menu/PanelContainer" index="1"]
+[node name="MapEditor" type="VBoxContainer" parent="UI/Menu/PanelContainer" index="1" unique_id=1112115021]
 visible = false
 layout_mode = 2
 script = ExtResource("19_g0cma")
 
-[node name="Header" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor" index="0"]
+[node name="Header" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor" index="0" unique_id=2040931415]
 layout_mode = 2
 
-[node name="Save" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="0"]
+[node name="Save" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="0" unique_id=1313084526]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Сохранить"
 icon = ExtResource("20_j183o")
 
-[node name="Reset" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="1"]
+[node name="Reset" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="1" unique_id=809665036]
 layout_mode = 2
 text = "По умолчанию"
 icon = ExtResource("21_o5c37")
 
-[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/Header" index="2"]
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/Header" index="2" unique_id=527895388]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.3
@@ -1147,19 +1147,19 @@ theme_type_variation = &"HeaderLarge"
 text = "Редактор карты"
 horizontal_alignment = 1
 
-[node name="CloseMapEditor" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="3"]
+[node name="CloseMapEditor" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Header" index="3" unique_id=5951532]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
-[node name="Main" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor" index="1"]
+[node name="Main" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor" index="1" unique_id=1707394901]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="0"]
+[node name="Buttons" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="0" unique_id=1603141848]
 layout_mode = 2
 
-[node name="Modes" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons" index="0"]
+[node name="Modes" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons" index="0" unique_id=1685900107]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -1167,51 +1167,51 @@ size_flags_vertical = 10
 size_flags_stretch_ratio = 1.5
 alignment = 1
 
-[node name="MoveCamera" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="0"]
+[node name="MoveCamera" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="0" unique_id=69459249]
 layout_mode = 2
 toggle_mode = true
 button_pressed = true
 button_group = SubResource("ButtonGroup_5ylsm")
 icon = ExtResource("22_2o4wa")
 
-[node name="Draw" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="1"]
+[node name="Draw" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="1" unique_id=691721962]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_5ylsm")
 icon = ExtResource("23_m5td1")
 
-[node name="Line" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="2"]
+[node name="Line" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="2" unique_id=892823407]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_5ylsm")
 icon = ExtResource("24_cr0rr")
 
-[node name="Rect" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="3"]
+[node name="Rect" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Modes" index="3" unique_id=1331798530]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_5ylsm")
 icon = ExtResource("24_joqhr")
 
-[node name="Zoom" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons" index="1"]
+[node name="Zoom" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons" index="1" unique_id=225485824]
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="ZoomIn" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Zoom" index="0"]
+[node name="ZoomIn" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Zoom" index="0" unique_id=974349733]
 layout_mode = 2
 icon = ExtResource("25_joqhr")
 
-[node name="ZoomOut" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Zoom" index="1"]
+[node name="ZoomOut" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Buttons/Zoom" index="1" unique_id=1176795164]
 layout_mode = 2
 icon = ExtResource("26_cr0rr")
 
-[node name="MainView" type="ScrollContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="1"]
+[node name="MainView" type="ScrollContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="1" unique_id=2053061058]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 4
 vertical_scroll_mode = 4
 scroll_deadzone = 1024
 
-[node name="MapHolder" type="ReferenceRect" parent="UI/Menu/PanelContainer/MapEditor/Main/MainView" index="0"]
+[node name="MapHolder" type="ReferenceRect" parent="UI/Menu/PanelContainer/MapEditor/Main/MainView" index="0" unique_id=177089426]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -1220,7 +1220,7 @@ border_color = Color(0.50390625, 0.50390625, 0.50390625, 1)
 border_width = 16.0
 editor_only = false
 
-[node name="Map" type="TextureRect" parent="UI/Menu/PanelContainer/MapEditor/Main/MainView/MapHolder" index="0"]
+[node name="Map" type="TextureRect" parent="UI/Menu/PanelContainer/MapEditor/Main/MainView/MapHolder" index="0" unique_id=1731224478]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -1235,13 +1235,13 @@ pivot_offset = Vector2(25, 25)
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Placeables" type="ScrollContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="2"]
+[node name="Placeables" type="ScrollContainer" parent="UI/Menu/PanelContainer/MapEditor/Main" index="2" unique_id=1288173341]
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables" index="0" unique_id=1957224409]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/margin_left = 8
@@ -1249,10 +1249,10 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer" index="0" unique_id=1823488048]
 layout_mode = 2
 
-[node name="Grass" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="0"]
+[node name="Grass" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="0" unique_id=1429985755]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1260,7 +1260,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("25_cr0rr")
 
-[node name="Block" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="1"]
+[node name="Block" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="1" unique_id=835314922]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1268,7 +1268,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("26_xt344")
 
-[node name="Hole" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="2"]
+[node name="Hole" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="2" unique_id=666038629]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1276,7 +1276,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("27_1jf6s")
 
-[node name="Spikes" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="3"]
+[node name="Spikes" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="3" unique_id=581488521]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1284,7 +1284,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("38_4j2vv")
 
-[node name="Dummy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="4"]
+[node name="Dummy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="4" unique_id=847385731]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1292,7 +1292,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("28_4ik32")
 
-[node name="RobotP350" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="5"]
+[node name="RobotP350" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="5" unique_id=1558922303]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1300,7 +1300,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("29_8ojcx")
 
-[node name="RobotAK74" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="6"]
+[node name="RobotAK74" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="6" unique_id=1657462854]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1308,7 +1308,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("5_8ojcx")
 
-[node name="RobotKnife" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="7"]
+[node name="RobotKnife" type="Button" parent="UI/Menu/PanelContainer/MapEditor/Main/Placeables/MarginContainer/VBoxContainer" index="7" unique_id=853331616]
 layout_mode = 2
 mouse_filter = 1
 theme_override_constants/icon_max_width = 64
@@ -1316,12 +1316,12 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_ew6j5")
 icon = ExtResource("6_5ylsm")
 
-[node name="EditorStatus" type="Label" parent="UI/Menu/PanelContainer/MapEditor" index="2"]
+[node name="EditorStatus" type="Label" parent="UI/Menu/PanelContainer/MapEditor" index="2" unique_id=882984034]
 layout_mode = 2
 text = "Перемещение камеры"
 horizontal_alignment = 1
 
-[node name="ResetDialog" type="ConfirmationDialog" parent="UI/Menu/PanelContainer/MapEditor" index="3"]
+[node name="ResetDialog" type="ConfirmationDialog" parent="UI/Menu/PanelContainer/MapEditor" index="3" unique_id=531627620]
 oversampling_override = 1.0
 title = "Сброс карты"
 size = Vector2i(855, 112)
@@ -1330,7 +1330,7 @@ ok_button_text = "Сбросить"
 dialog_text = "Ты действительно хочешь сбросить все изменения и вернуть карту к состоянию по умолчанию?"
 cancel_button_text = "Отмена"
 
-[node name="EditEnemy" type="Window" parent="UI/Menu/PanelContainer/MapEditor" index="4"]
+[node name="EditEnemy" type="Window" parent="UI/Menu/PanelContainer/MapEditor" index="4" unique_id=258206713]
 oversampling_override = 1.0
 title = "Редактирование врага"
 size = Vector2i(560, 272)
@@ -1339,14 +1339,14 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy" index="0"]
+[node name="Background" type="ColorRect" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy" index="0" unique_id=1624524681]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy" index="1" unique_id=1872041658]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1354,22 +1354,22 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Health" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="0"]
+[node name="Health" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="0" unique_id=365328441]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health" index="0"]
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health" index="0" unique_id=209506563]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Здоровье"
 
-[node name="HealthSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health" index="1"]
+[node name="HealthSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health" index="1" unique_id=906991724]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
-[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health/HealthSlider" index="0"]
+[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health/HealthSlider" index="0" unique_id=1160816520]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 25.0
@@ -1377,29 +1377,29 @@ max_value = 1000.0
 step = 25.0
 value = 100.0
 
-[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health/HealthSlider" index="1"]
+[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Health/HealthSlider" index="1" unique_id=895614738]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "100"
 horizontal_alignment = 1
 
-[node name="DamageMultiplier" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="1"]
+[node name="DamageMultiplier" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="1" unique_id=1832222934]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier" index="0"]
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier" index="0" unique_id=1837203502]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Множитель урона"
 
-[node name="DamageSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier" index="1"]
+[node name="DamageSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier" index="1" unique_id=302329767]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
-[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier/DamageSlider" index="0"]
+[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier/DamageSlider" index="0" unique_id=1420167992]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.1999999999970896
@@ -1407,29 +1407,29 @@ max_value = 3.0
 step = 0.1999999999970896
 value = 0.9999999999854496
 
-[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier/DamageSlider" index="1"]
+[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/DamageMultiplier/DamageSlider" index="1" unique_id=1816619978]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "x1.0"
 horizontal_alignment = 1
 
-[node name="SpeedMultiplier" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="2"]
+[node name="SpeedMultiplier" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="2" unique_id=121355155]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="0"]
+[node name="Label" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="0" unique_id=2103913302]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Множитель скорости"
 
-[node name="SpeedSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="1"]
+[node name="SpeedSlider" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier" index="1" unique_id=2080969699]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 
-[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="0"]
+[node name="Slider" type="HSlider" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="0" unique_id=1660897412]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.09999999999126884
@@ -1437,40 +1437,40 @@ max_value = 2.0
 step = 0.09999999999126884
 value = 0.9999999999126881
 
-[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="1"]
+[node name="Value" type="Label" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/SpeedMultiplier/SpeedSlider" index="1" unique_id=1947837441]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "x1.0"
 horizontal_alignment = 1
 
-[node name="SaveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="3"]
+[node name="SaveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="3" unique_id=121845833]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Сохранить"
 icon = ExtResource("20_j183o")
 
-[node name="Buttons" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="4"]
+[node name="Buttons" type="HBoxContainer" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer" index="4" unique_id=1745566723]
 layout_mode = 2
 alignment = 1
 
-[node name="MoveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons" index="0"]
+[node name="MoveEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons" index="0" unique_id=1902936481]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Переместить врага"
 icon = ExtResource("22_2o4wa")
 
-[node name="DeleteEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons" index="1"]
+[node name="DeleteEnemy" type="Button" parent="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons" index="1" unique_id=2044146839]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Удалить врага"
 icon = ExtResource("33_xt344")
 
-[node name="PresetManager" parent="UI/Menu" index="2" instance=ExtResource("14_clwqa")]
+[node name="PresetManager" parent="UI/Menu" index="2" unique_id=1239926276 instance=ExtResource("14_clwqa")]
 visible = false
 equip_selector_path = NodePath("../PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/EquipSelector")
 
-[node name="Guide" type="Control" parent="UI" index="2"]
+[node name="Guide" type="Control" parent="UI" index="2" unique_id=568174038]
 process_mode = 2
 visible = false
 layout_mode = 3
@@ -1480,7 +1480,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="UI/Guide" index="0"]
+[node name="Background" type="ColorRect" parent="UI/Guide" index="0" unique_id=429161799]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1489,7 +1489,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/Guide" index="1"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/Guide" index="1" unique_id=1386901262]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1503,37 +1503,37 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Normal" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="0"]
+[node name="Normal" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="0" unique_id=1853238803]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Normal" index="0"]
+[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Normal" index="0" unique_id=325838069]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Normal/Header" index="0"]
+[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Normal/Header" index="0" unique_id=1985293186]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal/Header" index="1"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal/Header" index="1" unique_id=417107494]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Руководство"
 
-[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Normal/Header" index="2"]
+[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Normal/Header" index="2" unique_id=426061770]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
-[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Normal/Header/Close" index="0"]
+[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Normal/Header/Close" index="0" unique_id=831795370]
 script = ExtResource("18_ucqos")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Welcome" type="Label" parent="UI/Guide/PanelContainer/Normal" index="1"]
+[node name="Welcome" type="Label" parent="UI/Guide/PanelContainer/Normal" index="1" unique_id=158000714]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Добро пожаловать в Тренировку!"
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal" index="2"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Normal" index="2" unique_id=1807878537]
 custom_minimum_size = Vector2(768, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -1546,38 +1546,38 @@ text = "Здесь ты можешь сражаться в любом окруж
 Однако помни, что в 3 часа ночи тренироваться не рекомендуется!"
 autowrap_mode = 2
 
-[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Normal" index="3"]
+[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Normal" index="3" unique_id=983609733]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "Хорошего времяпрепровождения!"
 
-[node name="Quest" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="1"]
+[node name="Quest" type="VBoxContainer" parent="UI/Guide/PanelContainer" index="1" unique_id=1771254436]
 visible = false
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Quest" index="0"]
+[node name="Header" type="HBoxContainer" parent="UI/Guide/PanelContainer/Quest" index="0" unique_id=1287163759]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Quest/Header" index="0"]
+[node name="Spacer" type="Control" parent="UI/Guide/PanelContainer/Quest/Header" index="0" unique_id=1103575029]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest/Header" index="1"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest/Header" index="1" unique_id=2084194405]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Записка"
 
-[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Quest/Header" index="2"]
+[node name="Close" type="Button" parent="UI/Guide/PanelContainer/Quest/Header" index="2" unique_id=142442044]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_wkoo5")
 
-[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Quest/Header/Close" index="0"]
+[node name="Autofocus" type="Node" parent="UI/Guide/PanelContainer/Quest/Header/Close" index="0" unique_id=95591111]
 script = ExtResource("18_ucqos")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest" index="1"]
+[node name="Label" type="Label" parent="UI/Guide/PanelContainer/Quest" index="1" unique_id=920606112]
 custom_minimum_size = Vector2(768, 0)
 layout_mode = 2
 size_flags_vertical = 6
@@ -1587,14 +1587,14 @@ text = "Не знаю, попадёт в руки к кому-нибудь эт�
 То что я увидел не описать словами, будто все кошмары мира собрались в этом месте... ПОЖАЛУЙСТА, НИКОГДА, НИКОГДА НЕ ПРОВОДИ ЭТОТ РИТУАЛ И НЕ ЗАХОДИ В ПОРТАЛ!!! Прямо сейчас я истекаю последней кровью, моё тело еле-еле продолжает жить... Мне удалось спрятаться, но меня не хватит надолго... С последних сил пишу эту записку... Пожалуйста, уничтожь все использованные мной предметы... Никто больше не должен пройти через мои страдания... ОНИ жаждят лишь твоей крови, плоти и ДУШИ!.."
 autowrap_mode = 2
 
-[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Quest" index="2"]
+[node name="GoodLuck" type="Label" parent="UI/Guide/PanelContainer/Quest" index="2" unique_id=573169411]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Береги себя."
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="3"]
+[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="3" unique_id=695493816]
 oversampling_override = 1.0
 title = "Выход"
 size = Vector2i(470, 112)
@@ -1603,7 +1603,7 @@ ok_button_text = "Выйти"
 dialog_text = "Ты действительно хочешь выйти из тренировки?"
 cancel_button_text = "Отмена"
 
-[node name="SelectMap" type="Window" parent="UI" index="4"]
+[node name="SelectMap" type="Window" parent="UI" index="4" unique_id=777493857]
 process_mode = 2
 oversampling_override = 1.0
 title = "Выбрать карту из..."
@@ -1613,14 +1613,14 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="UI/SelectMap" index="0"]
+[node name="Background" type="ColorRect" parent="UI/SelectMap" index="0" unique_id=1940991897]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SelectMap" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/SelectMap" index="1" unique_id=2062618417]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1629,31 +1629,31 @@ grow_vertical = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="MapFromEvent" type="Button" parent="UI/SelectMap/HBoxContainer" index="0"]
+[node name="MapFromEvent" type="Button" parent="UI/SelectMap/HBoxContainer" index="0" unique_id=1570085766]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "События"
 
-[node name="MapFromChallenge" type="Button" parent="UI/SelectMap/HBoxContainer" index="1"]
+[node name="MapFromChallenge" type="Button" parent="UI/SelectMap/HBoxContainer" index="1" unique_id=1837149468]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "Испытания"
 
-[node name="AutofocusWindow" type="Node" parent="UI/SelectMap" index="2"]
+[node name="AutofocusWindow" type="Node" parent="UI/SelectMap" index="2" unique_id=1292859767]
 script = ExtResource("43_yo046")
 focus_target = NodePath("../HBoxContainer/MapFromEvent")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12"]
+[node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12" unique_id=2143336524]
 resources = [PackedStringArray("book_animation", "default_map", "spikes"), [ExtResource("41_70jin"), ExtResource("3_36lnl"), ExtResource("42_npibf")]]
 
-[node name="RespawnTimer" type="Timer" parent="." index="13"]
+[node name="RespawnTimer" type="Timer" parent="." index="13" unique_id=1396517344]
 wait_time = 3.0
 one_shot = true
 
-[node name="Quest" type="Node2D" parent="." index="14"]
+[node name="Quest" type="Node2D" parent="." index="14" unique_id=1490228958]
 script = ExtResource("43_auuw0")
 maps_to_items = Dictionary[ExtResource("44_0djgj"), NodePath]({
 ExtResource("46_kli4e"): NodePath("QuestItem2"),
@@ -1662,95 +1662,95 @@ ExtResource("48_70jin"): NodePath("QuestItem"),
 ExtResource("49_idd4e"): NodePath("QuestItem4")
 })
 
-[node name="CanvasModulate" type="CanvasModulate" parent="Quest" index="0"]
+[node name="CanvasModulate" type="CanvasModulate" parent="Quest" index="0" unique_id=1341782625]
 color = Color(0.4351263, 0.42956543, 0.53125, 1)
 
-[node name="Note" type="Sprite2D" parent="Quest" index="1"]
+[node name="Note" type="Sprite2D" parent="Quest" index="1" unique_id=575220531]
 z_index = 4
 position = Vector2(4400, 3040)
 texture = ExtResource("45_qsfa0")
 
-[node name="Light" type="Sprite2D" parent="Quest/Note" index="0"]
+[node name="Light" type="Sprite2D" parent="Quest/Note" index="0" unique_id=2080026511]
 self_modulate = Color(1, 0, 0, 0.5019608)
 material = ExtResource("46_bg35u")
 scale = Vector2(16, 16)
 texture = ExtResource("47_p6gfp")
 
-[node name="Interactible" parent="Quest/Note" index="1" instance=ExtResource("45_8vq0w")]
+[node name="Interactible" parent="Quest/Note" index="1" unique_id=1903356546 instance=ExtResource("45_8vq0w")]
 position = Vector2(0, -56)
 text = "Прочитать"
 hold_interaction_time = 5.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Note/Interactible" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Note/Interactible" index="1" unique_id=307669191]
 position = Vector2(0, 56)
 shape = SubResource("CircleShape2D_7biuy")
 
-[node name="Pentagram" type="Node2D" parent="Quest" index="2"]
+[node name="Pentagram" type="Node2D" parent="Quest" index="2" unique_id=851159305]
 z_index = -4
 
-[node name="Interactible" parent="Quest/Pentagram" index="0" instance=ExtResource("45_8vq0w")]
+[node name="Interactible" parent="Quest/Pentagram" index="0" unique_id=1996282191 instance=ExtResource("45_8vq0w")]
 position = Vector2(0, -80)
 text = "Начать ритуал"
 hold_interaction_time = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Pentagram/Interactible" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Pentagram/Interactible" index="1" unique_id=568429035]
 position = Vector2(0, 80)
 shape = SubResource("CircleShape2D_70jin")
 
-[node name="Pentagram" type="Sprite2D" parent="Quest/Pentagram" index="1"]
+[node name="Pentagram" type="Sprite2D" parent="Quest/Pentagram" index="1" unique_id=1251081227]
 material = ExtResource("48_bg35u")
 instance_shader_parameters/color = Color(1, 1, 1, 1)
 instance_shader_parameters/power = 1.0
 texture = ExtResource("49_p6gfp")
 
-[node name="Portal" type="Sprite2D" parent="Quest/Pentagram/Pentagram" index="0"]
+[node name="Portal" type="Sprite2D" parent="Quest/Pentagram/Pentagram" index="0" unique_id=847979621]
 visible = false
 show_behind_parent = true
 use_parent_material = true
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("50_holad")
 
-[node name="Candles" type="Node2D" parent="Quest/Pentagram" index="2"]
+[node name="Candles" type="Node2D" parent="Quest/Pentagram" index="2" unique_id=630100397]
 material = ExtResource("50_cprrv")
 
-[node name="Candle" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="0"]
+[node name="Candle" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="0" unique_id=576966296]
 position = Vector2(-213, -67)
 sprite_frames = SubResource("SpriteFrames_5vjfw")
 autoplay = "default"
 offset = Vector2(0, -48)
 
-[node name="Candle2" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="1"]
+[node name="Candle2" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="1" unique_id=1710260003]
 position = Vector2(213, -67)
 sprite_frames = SubResource("SpriteFrames_5vjfw")
 autoplay = "default"
 offset = Vector2(0, -48)
 
-[node name="Candle3" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="2"]
+[node name="Candle3" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="2" unique_id=1034984275]
 position = Vector2(0, -227)
 sprite_frames = SubResource("SpriteFrames_5vjfw")
 autoplay = "default"
 offset = Vector2(0, -48)
 
-[node name="Candle4" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="3"]
+[node name="Candle4" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="3" unique_id=891655606]
 position = Vector2(-129, 180)
 sprite_frames = SubResource("SpriteFrames_5vjfw")
 autoplay = "default"
 offset = Vector2(0, -48)
 
-[node name="Candle5" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="4"]
+[node name="Candle5" type="AnimatedSprite2D" parent="Quest/Pentagram/Candles" index="4" unique_id=783651729]
 position = Vector2(129, 180)
 sprite_frames = SubResource("SpriteFrames_5vjfw")
 autoplay = "default"
 offset = Vector2(0, -48)
 
-[node name="Cross" type="Sprite2D" parent="Quest/Pentagram" index="3"]
+[node name="Cross" type="Sprite2D" parent="Quest/Pentagram" index="3" unique_id=1968909913]
 material = ExtResource("48_bg35u")
 instance_shader_parameters/color = Color(2.708, 2.708, 2.708, 1)
 instance_shader_parameters/power = 0.0
 rotation = 0.391028
 texture = ExtResource("52_holad")
 
-[node name="Cross2" type="Sprite2D" parent="Quest/Pentagram/Cross" index="0"]
+[node name="Cross2" type="Sprite2D" parent="Quest/Pentagram/Cross" index="0" unique_id=165967929]
 visible = false
 show_behind_parent = true
 use_parent_material = true
@@ -1758,76 +1758,74 @@ position = Vector2(0, -31)
 texture = ExtResource("52_holad")
 offset = Vector2(0, 30.999908)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Quest/Pentagram" index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_vkyk8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quest/Pentagram" index="4" unique_id=1333481136]
+libraries/ = SubResource("AnimationLibrary_vkyk8")
 
-[node name="QuestItem" parent="Quest" index="3" instance=ExtResource("54_jn28u")]
+[node name="QuestItem" parent="Quest" index="3" unique_id=210713553 instance=ExtResource("54_jn28u")]
 position = Vector2(-1360, -1520)
 item_id = "chalk"
 
-[node name="Chalk" type="Sprite2D" parent="Quest/QuestItem" index="2"]
+[node name="Chalk" type="Sprite2D" parent="Quest/QuestItem" index="2" unique_id=870125581]
 use_parent_material = true
 rotation = -0.46444356
 texture = ExtResource("55_vkyk8")
 
-[node name="QuestItem2" parent="Quest" index="4" instance=ExtResource("54_jn28u")]
+[node name="QuestItem2" parent="Quest" index="4" unique_id=702920595 instance=ExtResource("54_jn28u")]
 position = Vector2(1600, 2240)
 item_id = "cross"
 
-[node name="Cross" type="Sprite2D" parent="Quest/QuestItem2" index="2"]
+[node name="Cross" type="Sprite2D" parent="Quest/QuestItem2" index="2" unique_id=287266320]
 use_parent_material = true
 rotation = 1.0461975
 texture = ExtResource("52_holad")
 
-[node name="QuestItem3" parent="Quest" index="5" instance=ExtResource("54_jn28u")]
+[node name="QuestItem3" parent="Quest" index="5" unique_id=1695318473 instance=ExtResource("54_jn28u")]
 position = Vector2(-3440, 1040)
 item_id = "candles"
 
-[node name="Candles" type="Node2D" parent="Quest/QuestItem3" index="2"]
+[node name="Candles" type="Node2D" parent="Quest/QuestItem3" index="2" unique_id=187407075]
 use_parent_material = true
 
-[node name="Candle5" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="0"]
+[node name="Candle5" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="0" unique_id=568144410]
 use_parent_material = true
 position = Vector2(18, -22)
 texture = ExtResource("50_p6gfp")
 hframes = 3
 frame = 2
 
-[node name="Candle3" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="1"]
+[node name="Candle3" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="1" unique_id=1168532242]
 use_parent_material = true
 position = Vector2(27, -6)
 texture = ExtResource("50_p6gfp")
 hframes = 3
 frame = 2
 
-[node name="Candle4" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="2"]
+[node name="Candle4" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="2" unique_id=1676834648]
 use_parent_material = true
 position = Vector2(-13, -27)
 texture = ExtResource("50_p6gfp")
 hframes = 3
 frame = 2
 
-[node name="Candle2" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="3"]
+[node name="Candle2" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="3" unique_id=1936798008]
 use_parent_material = true
 position = Vector2(-26, -1)
 texture = ExtResource("50_p6gfp")
 hframes = 3
 frame = 2
 
-[node name="Candle" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="4"]
+[node name="Candle" type="Sprite2D" parent="Quest/QuestItem3/Candles" index="4" unique_id=533171580]
 use_parent_material = true
 position = Vector2(3, 9)
 texture = ExtResource("50_p6gfp")
 hframes = 3
 frame = 2
 
-[node name="QuestItem4" parent="Quest" index="6" instance=ExtResource("54_jn28u")]
+[node name="QuestItem4" parent="Quest" index="6" unique_id=1112497598 instance=ExtResource("54_jn28u")]
 position = Vector2(3600, -1520)
 item_id = "book"
 
-[node name="Book" type="Sprite2D" parent="Quest/QuestItem4" index="2"]
+[node name="Book" type="Sprite2D" parent="Quest/QuestItem4" index="2" unique_id=1176261350]
 use_parent_material = true
 rotation = -0.22138059
 texture = ExtResource("61_70jin")

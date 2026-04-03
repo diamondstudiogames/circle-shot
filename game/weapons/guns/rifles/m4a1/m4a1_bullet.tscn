@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://duvq6s4rriwpi"]
+[gd_scene format=3 uid="uid://duvq6s4rriwpi"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_xpwh2"]
 
-[node name="M4A1Bullet" instance=ExtResource("1_xpwh2")]
+[node name="M4A1Bullet" unique_id=883570107 instance=ExtResource("1_xpwh2")]
 speed = 3200.0
 damage = 7
 
-[node name="RayDetector" parent="." index="0"]
+[node name="RayDetector" parent="." index="0" unique_id=1954893045]
 position = Vector2(-160, 0)
 target_position = Vector2(160, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wgln4clkkuuk"]
+[gd_scene format=3 uid="uid://wgln4clkkuuk"]
 
 [ext_resource type="Script" uid="uid://s3v8s1vebdqd" path="res://game/menus/connect_local/connect_local_menu.gd" id="1_f4u3n"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="1_xj6us"]
@@ -47,7 +47,7 @@ _data = {
 &"searching": SubResource("Animation_a8m6p")
 }
 
-[node name="ConnectLocalMenu" type="Control"]
+[node name="ConnectLocalMenu" type="Control" unique_id=513282690]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f4u3n")
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="." unique_id=2025503438]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +66,7 @@ grow_vertical = 2
 texture = ExtResource("2_5kfp0")
 stretch_mode = 6
 
-[node name="Base" type="PanelContainer" parent="."]
+[node name="Base" type="PanelContainer" parent="." unique_id=293570664]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,99 +80,97 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="Base"]
+[node name="Margin" type="MarginContainer" parent="Base" unique_id=1687775307]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="Base/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Base/Margin" unique_id=591897975]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="Base/Margin/VBox"]
+[node name="Title" type="HBoxContainer" parent="Base/Margin/VBox" unique_id=1577599687]
 layout_mode = 2
 
-[node name="Separator" type="Control" parent="Base/Margin/VBox/Title"]
+[node name="Separator" type="Control" parent="Base/Margin/VBox/Title" unique_id=419612042]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TitleLabel" type="Label" parent="Base/Margin/VBox/Title"]
+[node name="TitleLabel" type="Label" parent="Base/Margin/VBox/Title" unique_id=279092145]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Локальная игра"
 horizontal_alignment = 1
 
-[node name="Quit" type="Button" parent="Base/Margin/VBox/Title"]
+[node name="Quit" type="Button" parent="Base/Margin/VBox/Title" unique_id=612492801]
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("1_xj6us")
 
-[node name="Create" type="Button" parent="Base/Margin/VBox"]
+[node name="Create" type="Button" parent="Base/Margin/VBox" unique_id=1538746341]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Создать комнату"
 icon = ExtResource("2_rk7v2")
 
-[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Create"]
+[node name="Autofocus" type="Node" parent="Base/Margin/VBox/Create" unique_id=1358556468]
 script = ExtResource("5_ayod8")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Separator" type="HBoxContainer" parent="Base/Margin/VBox"]
+[node name="Separator" type="HBoxContainer" parent="Base/Margin/VBox" unique_id=1462177644]
 layout_mode = 2
 alignment = 1
 
-[node name="LeftSeparator" type="HSeparator" parent="Base/Margin/VBox/Separator"]
+[node name="LeftSeparator" type="HSeparator" parent="Base/Margin/VBox/Separator" unique_id=1577297564]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Base/Margin/VBox/Separator"]
+[node name="Label" type="Label" parent="Base/Margin/VBox/Separator" unique_id=640196071]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
 text = "или"
 
-[node name="RightSeparator" type="HSeparator" parent="Base/Margin/VBox/Separator"]
+[node name="RightSeparator" type="HSeparator" parent="Base/Margin/VBox/Separator" unique_id=2043708965]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LocalLabel" type="Label" parent="Base/Margin/VBox"]
+[node name="LocalLabel" type="Label" parent="Base/Margin/VBox" unique_id=1161769176]
 layout_mode = 2
 text = "Комнаты в локальной сети:"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Base/Margin/VBox"]
+[node name="PanelContainer" type="PanelContainer" parent="Base/Margin/VBox" unique_id=1468906019]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Base/Margin/VBox/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Base/Margin/VBox/PanelContainer" unique_id=1651048790]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="LobbiesContainer" type="VBoxContainer" parent="Base/Margin/VBox/PanelContainer/ScrollContainer"]
+[node name="LobbiesContainer" type="VBoxContainer" parent="Base/Margin/VBox/PanelContainer/ScrollContainer" unique_id=13934484]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NoLobbiesLabel" type="Label" parent="Base/Margin/VBox/PanelContainer"]
+[node name="NoLobbiesLabel" type="Label" parent="Base/Margin/VBox/PanelContainer" unique_id=729910622]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Поиск комнат..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Base/Margin/VBox/PanelContainer/NoLobbiesLabel"]
-libraries = {
-&"": SubResource("AnimationLibrary_er3ru")
-}
-autoplay = "searching"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Base/Margin/VBox/PanelContainer/NoLobbiesLabel" unique_id=1199604260]
+libraries/ = SubResource("AnimationLibrary_er3ru")
+autoplay = &"searching"
 
-[node name="ConnectAddress" type="HBoxContainer" parent="Base/Margin/VBox"]
+[node name="ConnectAddress" type="HBoxContainer" parent="Base/Margin/VBox" unique_id=1877680501]
 layout_mode = 2
 alignment = 1
 
-[node name="AddressEdit" type="LineEdit" parent="Base/Margin/VBox/ConnectAddress"]
+[node name="AddressEdit" type="LineEdit" parent="Base/Margin/VBox/ConnectAddress" unique_id=118907466]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -180,15 +178,15 @@ placeholder_text = "Введи адрес сервера..."
 alignment = 1
 max_length = 49
 expand_to_text_length = true
-virtual_keyboard_type = 7
 clear_button_enabled = true
+virtual_keyboard_type = 7
 
-[node name="Join" type="Button" parent="Base/Margin/VBox/ConnectAddress"]
+[node name="Join" type="Button" parent="Base/Margin/VBox/ConnectAddress" unique_id=190225912]
 layout_mode = 2
 text = "Подключиться"
 icon = ExtResource("3_ug3n1")
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=2131668557]
 resources = [PackedStringArray("local_lobby_entry"), [ExtResource("6_yc75x")]]
 
 [connection signal="pressed" from="Base/Margin/VBox/Title/Quit" to="." method="_on_quit_pressed"]

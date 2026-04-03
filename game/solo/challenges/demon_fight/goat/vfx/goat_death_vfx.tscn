@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgtjfid2bnpya"]
+[gd_scene format=3 uid="uid://bgtjfid2bnpya"]
 
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_glc1m"]
 [ext_resource type="Material" uid="uid://b8111w5tokcit" path="res://game/shared/shaders/materials/solid_color.tres" id="1_hrjfp"]
@@ -164,11 +164,10 @@ _data = {
 &"death": SubResource("Animation_glc1m")
 }
 
-[node name="GoatDeathVfx" type="Node2D"]
+[node name="GoatDeathVfx" type="Node2D" unique_id=1187254239]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1406197172]
 z_index = 1
-emitting = false
 amount = 16
 texture = ExtResource("1_glc1m")
 lifetime = 0.8
@@ -182,23 +181,21 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_sdxje")
 
-[node name="GoatFull" type="Sprite2D" parent="."]
+[node name="GoatFull" type="Sprite2D" parent="." unique_id=1987932407]
 material = ExtResource("1_hrjfp")
 instance_shader_parameters/color = Color(2.454, 0, 0, 1)
 instance_shader_parameters/power = 0.0
 texture = ExtResource("1_l0lng")
 
-[node name="GoatFullRed" type="Sprite2D" parent="."]
+[node name="GoatFullRed" type="Sprite2D" parent="." unique_id=2071203840]
 visible = false
 modulate = Color(2.454, 2.454, 2.454, 1)
 material = SubResource("ShaderMaterial_hjk04")
 instance_shader_parameters/power = 0.0
 texture = ExtResource("4_sdxje")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hjk04")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=486306180]
+libraries/ = SubResource("AnimationLibrary_hjk04")
+autoplay = &"death"
 
 [connection signal="ready" from="Particles" to="Particles" method="restart"]

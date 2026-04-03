@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=9 format=3 uid="uid://qh0kma6856mb"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://qh0kma6856mb"]
 
 [ext_resource type="AudioStream" uid="uid://jkv8gb60btip" path="res://game/weapons/guns/other/potato_cannon/visual/shoot.wav" id="1_t43uw"]
 

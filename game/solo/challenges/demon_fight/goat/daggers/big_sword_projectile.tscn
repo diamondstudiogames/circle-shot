@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drdwyjli16ebx"]
+[gd_scene format=3 uid="uid://drdwyjli16ebx"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_sefxv"]
 [ext_resource type="Material" uid="uid://v7wu6nntnt6q" path="res://game/shared/shaders/materials/projectile_outline.tres" id="2_noag4"]
@@ -143,26 +143,26 @@ _data = {
 &"attack": SubResource("Animation_sefxv")
 }
 
-[node name="BigSwordProjectile" instance=ExtResource("1_sefxv")]
+[node name="BigSwordProjectile" unique_id=23136736 instance=ExtResource("1_sefxv")]
 script = ExtResource("2_w8fr5")
 speed = 0.0
 hit_vfx_scene = ExtResource("3_5uy8x")
 hit_wall_vfx_scene = ExtResource("4_jwsi7")
 damage = 30
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1360986521]
 self_modulate = Color(1, 1, 1, 0)
 material = ExtResource("2_noag4")
 instance_shader_parameters/outline_color = Color(0, 0, 0, 1)
 texture = ExtResource("3_w8fr5")
 
-[node name="Timer" parent="." index="1"]
+[node name="Timer" parent="." index="1" unique_id=273134143]
 wait_time = 4.0
 
-[node name="MultiplayerSynchronizer" parent="." index="2"]
+[node name="MultiplayerSynchronizer" parent="." index="2" unique_id=467713174]
 replication_config = SubResource("SceneReplicationConfig_noag4")
 
-[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+[node name="RayDetector" type="RayCast2D" parent="." index="3" unique_id=405071262]
 enabled = false
 target_position = Vector2(224, 0)
 collision_mask = 74
@@ -170,10 +170,8 @@ hit_from_inside = true
 script = ExtResource("4_5uy8x")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_w8fr5")
-}
-autoplay = "attack"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=2118005447]
+libraries/ = SubResource("AnimationLibrary_w8fr5")
+autoplay = &"attack"
 
 [connection signal="hit" from="RayDetector" to="." method="_on_detector_hit"]

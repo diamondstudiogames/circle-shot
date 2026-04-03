@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwpkadi5ei534"]
+[gd_scene format=3 uid="uid://cwpkadi5ei534"]
 
 [ext_resource type="Texture2D" uid="uid://bls2slfofnpwc" path="res://game/weapons/guns/rifles/famas/visual/magazine.png" id="1_x76qa"]
 [ext_resource type="Texture2D" uid="uid://duiarvy65wpu1" path="res://game/weapons/guns/rifles/famas/visual/base.png" id="2_lyvuf"]
@@ -10,27 +10,27 @@
 [sub_resource type="Gradient" id="Gradient_eqhs3"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=410480625]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=1446440052]
 visible = false
 texture = ExtResource("1_x76qa")
 offset = Vector2(-24, 16)
 region_enabled = true
 region_rect = Rect2(56, 64, 32, 48)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=473774710]
 texture = ExtResource("2_lyvuf")
 offset = Vector2(32, -8)
 
-[node name="Magazine" type="Sprite2D" parent="Base"]
+[node name="Magazine" type="Sprite2D" parent="Base" unique_id=33763313]
 show_behind_parent = true
 texture = ExtResource("1_x76qa")
 offset = Vector2(-24, 16)
 region_enabled = true
 region_rect = Rect2(56, 64, 32, 48)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=2092962615]
 show_behind_parent = true
 position = Vector2(42, -30)
 emitting = false
@@ -46,14 +46,14 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_eqhs3")
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=1752263529]
 show_behind_parent = true
 texture = ExtResource("4_nt8hn")
 offset = Vector2(60, -36)
 region_enabled = true
 region_rect = Rect2(144, 24, 24, 24)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=2128254518]
 visible = false
 show_behind_parent = true
 material = ExtResource("5_lyvuf")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkj4bv1jfeh82"]
+[gd_scene format=3 uid="uid://dkj4bv1jfeh82"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_t1005"]
 [ext_resource type="Script" uid="uid://crs7e7q0om128" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_projectile.gd" id="2_b0v2s"]
@@ -10,18 +10,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0v2s"]
 size = Vector2(40, 224)
 
-[node name="SoulSwordRangedAttackProjectile" instance=ExtResource("1_t1005")]
+[node name="SoulSwordRangedAttackProjectile" unique_id=53277575 instance=ExtResource("1_t1005")]
 script = ExtResource("2_b0v2s")
 hit_vfx_scene = ExtResource("2_whxs8")
 hit_wall_vfx_scene = ExtResource("2_whxs8")
 damage = 20
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=418752337]
 z_index = -1
 material = ExtResource("4_jtld5")
 texture = ExtResource("2_tsoxk")
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1" unique_id=1735858799]
 position = Vector2(-60, 0)
 shape = SubResource("RectangleShape2D_b0v2s")
 target_position = Vector2(120, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctqgs3w1llfuf"]
+[gd_scene format=3 uid="uid://ctqgs3w1llfuf"]
 
 [ext_resource type="Texture2D" uid="uid://cc561n34ye1tk" path="res://game/entity/vfx/death.png" id="1_oknxm"]
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_ua5r2"]
@@ -96,13 +96,13 @@ _data = {
 &"death": SubResource("Animation_xfvme")
 }
 
-[node name="BloodDeathVfx" type="Node2D"]
+[node name="BloodDeathVfx" type="Node2D" unique_id=1515406266]
 
-[node name="Death" type="Sprite2D" parent="."]
+[node name="Death" type="Sprite2D" parent="." unique_id=391878041]
 z_index = -4
 texture = ExtResource("1_oknxm")
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=986113411]
 z_index = 1
 emitting = false
 amount = 32
@@ -121,8 +121,6 @@ damping_min = 60.0
 damping_max = 60.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_br86y")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1086518459]
+libraries/ = SubResource("AnimationLibrary_br86y")
+autoplay = &"death"

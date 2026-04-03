@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnjgmcyoyd44a"]
+[gd_scene format=3 uid="uid://dnjgmcyoyd44a"]
 
 [ext_resource type="Script" uid="uid://bkophui08a1j" path="res://addons/server_data_configuration/server_data_configuration.gd" id="1_u53uy"]
 
-[node name="ServerDataConfiguration" type="Control"]
+[node name="ServerDataConfiguration" type="Control" unique_id=2137551479]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_u53uy")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1112247564]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,131 +21,133 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2050135675]
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="VersionsTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="VersionsTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=2002026360]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Версии"
 
-[node name="StableVersion" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="StableVersion" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1460234082]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/StableVersion"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/StableVersion" unique_id=1825326926]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Стабильная версия"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="StableVersionEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/StableVersion"]
+[node name="StableVersionEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/StableVersion" unique_id=505850747]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "3.0.0"
 placeholder_text = "1.0.0"
 
-[node name="BetaVersion" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="BetaVersion" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=826048534]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BetaVersion"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BetaVersion" unique_id=2020596595]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Бета-версия"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="BetaVersionEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/BetaVersion"]
+[node name="BetaVersionEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/BetaVersion" unique_id=1954332687]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "3.0.0"
 placeholder_text = "1.0.0.01"
 
-[node name="Note" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="Note" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=325837693]
 layout_mode = 2
 text = "Внимание: если стабильная версия выше нестабильной,
 то установите значение бета-версии равным значению стабильной.
 Это необходимо для правильной проверки обновлений."
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer" unique_id=1431797399]
 layout_mode = 2
 
-[node name="PatchesTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="PatchesTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=580687904]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Патчи"
 
-[node name="PatchesList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="PatchesList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1658430256]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AddPatch" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="AddPatch" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=620666940]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Добавить патч"
 
-[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/VBoxContainer" unique_id=1798017672]
 layout_mode = 2
 
-[node name="PromocodesTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="PromocodesTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=82107183]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Промокоды"
 
-[node name="PromocodesList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="PromocodesList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=919252478]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AddPromocode" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="AddPromocode" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=1688929830]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Добавить промокод"
 
-[node name="HSeparator4" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="ScrollContainer/VBoxContainer" unique_id=339606247]
 layout_mode = 2
 
-[node name="OfferTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="OfferTitle" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1290008435]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Предложения"
 
-[node name="OffersList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="OffersList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1356007372]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AddOffer" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="AddOffer" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=654304694]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Добавить предложение"
 
-[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/VBoxContainer" unique_id=683095712]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=586848065]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Export" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Export" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1292078391]
 layout_mode = 2
 text = "Экспортировать в data.cfg"
 
-[node name="Import" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Import" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1866456429]
 layout_mode = 2
 text = "Импортировать из data.cfg"
 
-[node name="AddPatchDialog" type="ConfirmationDialog" parent="."]
+[node name="AddPatchDialog" type="ConfirmationDialog" parent="." unique_id=902843847]
 oversampling_override = 1.0
 title = "Добавление патча"
 size = Vector2i(244, 136)
 
-[node name="LineEdit" type="LineEdit" parent="AddPatchDialog"]
+[node name="LineEdit" type="LineEdit" parent="AddPatchDialog" unique_id=2000149412]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 212.0
@@ -154,12 +156,12 @@ placeholder_text = "Версия для патчинга..."
 alignment = 1
 max_length = 12
 
-[node name="AddPromocodeDialog" type="ConfirmationDialog" parent="."]
+[node name="AddPromocodeDialog" type="ConfirmationDialog" parent="." unique_id=707696115]
 oversampling_override = 1.0
 title = "Добавление промокода"
 size = Vector2i(244, 136)
 
-[node name="LineEdit" type="LineEdit" parent="AddPromocodeDialog"]
+[node name="LineEdit" type="LineEdit" parent="AddPromocodeDialog" unique_id=381520760]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 212.0

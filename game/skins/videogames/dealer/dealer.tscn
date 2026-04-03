@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://lvofe70e7tx7"]
+[gd_scene format=3 uid="uid://lvofe70e7tx7"]
 
 [ext_resource type="Script" uid="uid://dlvo1u6ih78jy" path="res://game/skins/videogames/dealer/dealer.gd" id="2_1cwjn"]
 [ext_resource type="Texture2D" uid="uid://c8np7n73fe7q3" path="res://game/skins/videogames/dealer/dealer.png" id="2_5s1w2"]
 [ext_resource type="Texture2D" uid="uid://c3adahiuhwb0y" path="res://game/skins/videogames/dealer/dealer_damaged.png" id="4_51db3"]
 
-[node name="Dealer" type="Sprite2D"]
+[node name="Dealer" type="Sprite2D" unique_id=484321244]
 texture = ExtResource("2_5s1w2")
 script = ExtResource("2_1cwjn")
 normal_texture = ExtResource("2_5s1w2")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqb1dkircv0dw"]
+[gd_scene format=3 uid="uid://dqb1dkircv0dw"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_bmjbu"]
 
-[node name="Tec9Bullet" instance=ExtResource("1_bmjbu")]
+[node name="Tec9Bullet" unique_id=1919140744 instance=ExtResource("1_bmjbu")]
 speed = 3200.0
 damage = 12

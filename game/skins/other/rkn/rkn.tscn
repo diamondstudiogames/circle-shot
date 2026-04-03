@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chpvrgitya08l"]
+[gd_scene format=3 uid="uid://chpvrgitya08l"]
 
 [ext_resource type="Texture2D" uid="uid://cjtckq4vtw5v3" path="res://game/skins/other/rkn/rkn.png" id="1_5lv05"]
 [ext_resource type="Script" uid="uid://ca2ntffvxaufe" path="res://game/skins/other/rkn/rkn.gd" id="2_q3vus"]
@@ -43,17 +43,15 @@ _data = {
 &"true_side": SubResource("Animation_s3uvg")
 }
 
-[node name="Rkn" type="Sprite2D"]
+[node name="Rkn" type="Sprite2D" unique_id=1269979175]
 texture = ExtResource("1_5lv05")
 script = ExtResource("2_q3vus")
 custom_death_vfx_scene = ExtResource("3_a4guw")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="TrueRkn" type="Sprite2D" parent="."]
+[node name="TrueRkn" type="Sprite2D" parent="." unique_id=1948655958]
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_508rb")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_c72xr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1826302131]
+libraries/ = SubResource("AnimationLibrary_c72xr")

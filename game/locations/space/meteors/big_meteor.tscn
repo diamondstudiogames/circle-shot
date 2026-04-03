@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0sainuvtbrd1"]
+[gd_scene format=3 uid="uid://b0sainuvtbrd1"]
 
 [ext_resource type="Texture2D" uid="uid://bda4hnn41afgo" path="res://game/locations/space/meteors/meteors.png" id="1_ikdtf"]
 
@@ -43,27 +43,25 @@ _data = {
 &"rotation": SubResource("Animation_lxxie")
 }
 
-[node name="BigMeteor" type="StaticBody2D"]
+[node name="BigMeteor" type="StaticBody2D" unique_id=2040159955]
 disable_mode = 2
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1214363219]
 position = Vector2(80, 80)
 texture = ExtResource("1_ikdtf")
 region_enabled = true
 region_rect = Rect2(0, 0, 320, 320)
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1221898805]
 position = Vector2(80, 80)
 rect = Rect2(-320, -320, 640, 640)
 enable_node_path = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691202707]
 position = Vector2(80, 80)
 shape = SubResource("CircleShape2D_fsg8k")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y61wy")
-}
-autoplay = "rotation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242479145]
+libraries/ = SubResource("AnimationLibrary_y61wy")
+autoplay = &"rotation"

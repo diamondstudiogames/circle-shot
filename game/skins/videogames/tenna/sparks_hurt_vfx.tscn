@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://by07haqsu6iml"]
+[gd_scene format=3 uid="uid://by07haqsu6iml"]
 
 [ext_resource type="Texture2D" uid="uid://nt3015ckqmvm" path="res://game/skins/videogames/tenna/sparks.png" id="1_jx8w5"]
 
@@ -14,9 +14,9 @@ point_count = 3
 metadata/_snap_enabled = true
 metadata/_snap_count = 8
 
-[node name="SparksHurtVfx" type="Node2D"]
+[node name="SparksHurtVfx" type="Node2D" unique_id=1940267740]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=445627248]
 z_index = 1
 material = SubResource("CanvasItemMaterial_ti1ec")
 amount = 5
@@ -36,7 +36,7 @@ scale_amount_curve = SubResource("Curve_jx8w5")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1735427081]
 wait_time = 0.6
 one_shot = true
 autostart = true

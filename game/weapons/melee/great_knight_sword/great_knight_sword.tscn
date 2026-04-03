@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbbcb0o6xemea"]
+[gd_scene format=3 uid="uid://dbbcb0o6xemea"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_mbvxt"]
 [ext_resource type="Script" uid="uid://b8orliv6kas2t" path="res://game/weapons/melee/great_knight_sword/great_knight_sword.gd" id="2_7pd6l"]
 [ext_resource type="PackedScene" uid="uid://kw5w1c0d8qxc" path="res://game/weapons/melee/great_knight_sword/visual/great_knight_sword_visual.tscn" id="2_cxqip"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="3_v5lur"]
 [ext_resource type="PackedScene" uid="uid://cvw03m4br4yl4" path="res://game/weapons/melee/great_knight_sword/projectile/great_knight_sword_bullet.tscn" id="3_xtjbj"]
-[ext_resource type="AnimationLibrary" uid="uid://bhenjaug2mxp6" path="res://game/weapons/melee/great_knight_sword/visual/great_knight_sword_animations.tres" id="5_xtjbj"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="6_8sayp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pd6l"]
@@ -14,7 +13,356 @@ radius = 88.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtjbj"]
 size = Vector2(160, 80)
 
-[node name="GreatKnightSword" instance=ExtResource("1_mbvxt")]
+[sub_resource type="Animation" id="Animation_u60jd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617993877991494]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackPolygon:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(120, -134, 76, -141, 90, -94, 43, -103, 47, -61, 7, -54, 29, 1, 235, -15, 232, -78, 195, -134, 132, -183)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 32)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackPolygon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Attack/ShapeDetector:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Attack/ShapeDetector2:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Attack/ShapeDetector3:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0idnv"]
+resource_name = "attack"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.35, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.261799, -1.27689, -1.27689, 1.25367, 1.25367, -0.261799]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackPolygon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackPolygon:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(112, -150, 60, -164, 69, -114, 22, -109, 40, -69, 7, -54, 29, 1, 227, -15, 217, -87, 177, -149, 105, -210), PackedVector2Array(120, -145, 72, -152, 83, -109, 43, -112, 57, -72, 18, -56, 43, -8, 28, 32, 155, 156, 211, 77, 230, -2, 222, -61, 204, -121, 164, -170, 113, -197), PackedVector2Array(140, -146, 104, -163, 90, -119, 46, -123, 49, -80, 10, -65, 42, -22, 37, 8, 5, 28, 70, 218, 160, 148, 214, 76, 227, 2, 222, -69, 193, -143, 151, -187), PackedVector2Array(139, -21, 98, -50, 77, -18, 38, -38, 39, 9, 5, 33, 60, 218, 170, 156, 214, 78, 230, 2, 213, -57, 189, -19, 158, -54), PackedVector2Array(133, 74, 126, 29, 77, 41, 74, 5, 44, 9, 4, 31, 51, 219, 169, 158, 213, 98, 176, 53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack/ShapeDetector:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Attack/ShapeDetector2:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visual:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.45, 0.6),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(32, 32), Vector2(32, 0), Vector2(32, 0), Vector2(32, 32)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_shoot_bullets"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4qhsi"]
+resource_name = "attack_lunge"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35, 0.6),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(32, 32), Vector2(32, 0), Vector2(32, 0), Vector2(32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.3, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.2617994, 0.0, 0.0, 0.0, 0.0, -0.2617994]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Sprite2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.25, 0.35, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-48, 0), Vector2(-40, 0), Vector2(88, 0), Vector2(88, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attack/ShapeDetector3:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_shoot_bullets"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackPolygon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AttackPolygon:polygon")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.15, 0.19999999, 0.25, 0.29999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(112, -13, 130, -37, -1, -54, 50, -2, 16, 53, 124, 29, 128, 3), PackedVector2Array(235, -12, 247, -30, -1, -54, 107, 1, 16, 53, 237, 31, 232, 12, 252, 2), PackedVector2Array(355, 15, 349, -3, 355, -14, 79, -54, 121, -2, 75, 51), PackedVector2Array(368, 4, 115, -52, 209, 1, 107, 49)]
+}
+
+[sub_resource type="Animation" id="Animation_xtjbj"]
+resource_name = "equip"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.076567, -0.95134735]
+}
+
+[sub_resource type="Animation" id="Animation_8sayp"]
+resource_name = "post_equip"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.95134735, -0.2617993877991494]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtjbj"]
+resource_local_to_scene = true
+_data = {
+&"RESET": SubResource("Animation_u60jd"),
+&"attack": SubResource("Animation_0idnv"),
+&"attack_lunge": SubResource("Animation_4qhsi"),
+&"equip": SubResource("Animation_xtjbj"),
+&"post_equip": SubResource("Animation_8sayp")
+}
+
+[node name="GreatKnightSword" unique_id=893735295 instance=ExtResource("1_mbvxt")]
 script = ExtResource("2_7pd6l")
 projectile_scene = ExtResource("3_xtjbj")
 damage = 20
@@ -22,19 +370,19 @@ to_aim_time = 0.2
 ammo_total = 20
 speed_multiplier_when_current = 1.04
 
-[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=835661068]
 visible = false
 position = Vector2(32, 0)
 color = Color(0.73046875, 0.73046875, 0.73046875, 1)
 polygon = PackedVector2Array(120, -134, 76, -141, 90, -94, 43, -103, 47, -61, 7, -54, 29, 1, 235, -15, 232, -78, 195, -134, 132, -183)
 
-[node name="Visual" parent="." index="1" instance=ExtResource("2_cxqip")]
+[node name="Visual" parent="." index="1" unique_id=940012700 instance=ExtResource("2_cxqip")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="2"]
+[node name="Attack" parent="." index="2" unique_id=336793680]
 visible = false
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0" unique_id=1329756233]
 position = Vector2(120, -112)
 enabled = false
 shape = SubResource("CircleShape2D_7pd6l")
@@ -44,7 +392,7 @@ collision_mask = 75
 script = ExtResource("3_v5lur")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1" unique_id=1772647658]
 position = Vector2(120, 112)
 enabled = false
 shape = SubResource("CircleShape2D_7pd6l")
@@ -54,7 +402,7 @@ collision_mask = 75
 script = ExtResource("3_v5lur")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector3" type="ShapeCast2D" parent="Attack" index="2"]
+[node name="ShapeDetector3" type="ShapeCast2D" parent="Attack" index="2" unique_id=1629152837]
 position = Vector2(128, 0)
 enabled = false
 shape = SubResource("RectangleShape2D_xtjbj")
@@ -64,15 +412,15 @@ collision_mask = 75
 script = ExtResource("3_v5lur")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Aim" parent="." index="3"]
+[node name="Aim" parent="." index="3" unique_id=1063961031]
 visible = false
 position = Vector2(112, 0)
 points = PackedVector2Array(-41, 0, -72, -72, -32, -200, 48, -200, 136, -64, 136, 64, 48, 200, -32, 200, -72, 72)
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(-41, 0, -72, -72, -32, -200, 48, -200, 136, -64, 136, 64, 48, 200, -32, 200, -72, 72)
 
-[node name="AimLunge" type="Line2D" parent="." index="4"]
+[node name="AimLunge" type="Line2D" parent="." index="4" unique_id=1307587087]
 visible = false
 z_index = 10
 material = ExtResource("6_8sayp")
@@ -81,14 +429,12 @@ points = PackedVector2Array(0, 0, 304, 0)
 width = 80.0
 default_color = Color(1, 1, 1, 0.376471)
 
-[node name="Outline" type="Line2D" parent="AimLunge" index="0"]
+[node name="Outline" type="Line2D" parent="AimLunge" index="0" unique_id=1635093609]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(0, 0, 304, 0)
 width = 88.0
 default_color = Color(0, 0, 0, 0.188235)
 
-[node name="AnimationPlayer" parent="." index="5"]
-libraries = {
-&"": ExtResource("5_xtjbj")
-}
+[node name="AnimationPlayer" parent="." index="5" unique_id=1964456697]
+libraries/ = SubResource("AnimationLibrary_xtjbj")

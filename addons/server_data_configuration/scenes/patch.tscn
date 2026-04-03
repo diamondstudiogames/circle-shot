@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://q1jf18fe8nwk"]
 
-[node name="Patch" type="HBoxContainer"]
+[node name="Patch" type="HBoxContainer" unique_id=1087068128]
 
-[node name="Version" type="Label" parent="."]
+[node name="Version" type="Label" parent="." unique_id=226693071]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 2
 
-[node name="PatchVersionSpinBox" type="SpinBox" parent="."]
+[node name="PatchVersionSpinBox" type="SpinBox" parent="." unique_id=1234078310]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
 value = 1.0
 prefix = "Версия патча:"
 
-[node name="Delete" type="Button" parent="."]
+[node name="Delete" type="Button" parent="." unique_id=637298759]
 layout_mode = 2
 text = "Удалить"

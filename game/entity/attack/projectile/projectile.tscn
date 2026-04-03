@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjgdkucrrx5a0"]
+[gd_scene format=3 uid="uid://bjgdkucrrx5a0"]
 
 [ext_resource type="Script" uid="uid://b87glapu60urx" path="res://game/entity/attack/projectile/projectile.gd" id="1_iq3wl"]
 
@@ -16,17 +16,17 @@ properties/3/path = NodePath(".:scale:y")
 properties/3/spawn = true
 properties/3/replication_mode = 0
 
-[node name="Projectile" type="Node2D"]
+[node name="Projectile" type="Node2D" unique_id=1852421067]
 script = ExtResource("1_iq3wl")
 metadata/_custom_type_script = "uid://b87glapu60urx"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=273134143]
 process_callback = 0
 wait_time = 2.5
 one_shot = true
 autostart = true
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=467713174]
 replication_interval = 0.2
 replication_config = SubResource("SceneReplicationConfig_bs5rt")
 

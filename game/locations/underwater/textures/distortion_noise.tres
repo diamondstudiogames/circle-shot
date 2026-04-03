@@ -1,4 +1,4 @@
-[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://jtslo1iqie6k"]
+[gd_resource type="NoiseTexture2D" format=3 uid="uid://jtslo1iqie6k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_egjar"]
 seed = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hqut06bvc2kx"]
+[gd_scene format=3 uid="uid://hqut06bvc2kx"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_1p00a"]
 [ext_resource type="Script" uid="uid://xbghoi55v2qb" path="res://game/weapons/melee/soul_sword/soul_sword.gd" id="2_58eje"]
@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ovse"]
 radius = 96.0
 
-[node name="SoulSword" instance=ExtResource("1_1p00a")]
+[node name="SoulSword" unique_id=1952740605 instance=ExtResource("1_1p00a")]
 script = ExtResource("2_58eje")
 ranged_attack_projectile_scene = ExtResource("3_77mj1")
 damage_in_ranged_mode = 20
@@ -19,19 +19,19 @@ shoot_interval = 0.8000000000029104
 to_aim_time = 0.1999999999970896
 ammo_total = 15
 
-[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=757985560]
 visible = false
 position = Vector2(32, 0)
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 282, -29, 264, -144, 238, -168, 189, -210)
 
-[node name="Visual" parent="." index="1" instance=ExtResource("3_8ieva")]
+[node name="Visual" parent="." index="1" unique_id=23300295 instance=ExtResource("3_8ieva")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="2"]
+[node name="Attack" parent="." index="2" unique_id=336793680]
 position = Vector2(32, 0)
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0" unique_id=1190452050]
 position = Vector2(144, -120)
 enabled = false
 shape = SubResource("CircleShape2D_7ovse")
@@ -41,7 +41,7 @@ collision_mask = 75
 script = ExtResource("6_jnypi")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1" unique_id=1727088442]
 position = Vector2(144, 120)
 enabled = false
 shape = SubResource("CircleShape2D_7ovse")
@@ -51,17 +51,15 @@ collision_mask = 75
 script = ExtResource("6_jnypi")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Aim" parent="." index="3"]
+[node name="Aim" parent="." index="3" unique_id=1063961031]
 position = Vector2(160, 0)
 points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
 
-[node name="ShootPoint" type="Marker2D" parent="." index="4"]
+[node name="ShootPoint" type="Marker2D" parent="." index="4" unique_id=202526555]
 position = Vector2(216, 0)
 
-[node name="AnimationPlayer" parent="." index="5"]
-libraries = {
-&"": ExtResource("7_qualf")
-}
+[node name="AnimationPlayer" parent="." index="5" unique_id=1964456697]
+libraries/ = ExtResource("7_qualf")

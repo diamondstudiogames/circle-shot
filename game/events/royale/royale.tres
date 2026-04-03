@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventData" load_steps=7 format=3 uid="uid://i4s2m4jgbyvc"]
+[gd_resource type="Resource" script_class="EventData" format=3 uid="uid://i4s2m4jgbyvc"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_4pccw"]
 [ext_resource type="Resource" uid="uid://b6lbtimr5h2h4" path="res://game/maps/royale/classic/classic.tres" id="1_j8k4y"]

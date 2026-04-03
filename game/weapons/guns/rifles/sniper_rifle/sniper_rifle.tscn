@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4q0rrm6arbyx"]
+[gd_scene format=3 uid="uid://4q0rrm6arbyx"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_57777"]
 [ext_resource type="Script" uid="uid://demdf41slbc0a" path="res://game/weapons/guns/rifles/sniper_rifle/sniper_rifle.gd" id="2_ir31q"]
@@ -30,7 +30,7 @@ shader = ExtResource("9_8tnl3")
 shader_parameter/unit = Vector2(1, 1)
 shader_parameter/radius = 0.0
 
-[node name="SniperRifle" instance=ExtResource("1_57777")]
+[node name="SniperRifle" unique_id=1861600608 instance=ExtResource("1_57777")]
 script = ExtResource("2_ir31q")
 aim_slowdown = 0.8
 no_aim_spread = 8.0
@@ -52,54 +52,52 @@ speed_multiplier_when_current = 0.9
 aim_camera_distance = 0.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_b0etb")]
+[node name="Visual" parent="." index="0" unique_id=20181581 instance=ExtResource("4_b0etb")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(296, -22)
 
-[node name="Aim" parent="ShootPoint" index="0"]
+[node name="Aim" parent="ShootPoint" index="0" unique_id=1210121671]
 modulate = Color(1, 1, 1, 0)
 
-[node name="AimLine" type="Line2D" parent="ShootPoint" index="1"]
+[node name="AimLine" type="Line2D" parent="ShootPoint" index="1" unique_id=1298590876]
 z_index = 10
 material = ExtResource("5_nrirq")
 points = PackedVector2Array(0, 0, 3200, 0)
 width = 8.0
 default_color = Color(1, 1, 1, 0.376471)
 
-[node name="Outline" type="Line2D" parent="ShootPoint/AimLine" index="0"]
+[node name="Outline" type="Line2D" parent="ShootPoint/AimLine" index="0" unique_id=252290347]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(0, 0, 3200, 0)
 width = 12.0
 default_color = Color(0, 0, 0, 0.376471)
 
-[node name="AimRay" type="RayCast2D" parent="ShootPoint" index="2"]
+[node name="AimRay" type="RayCast2D" parent="ShootPoint" index="2" unique_id=243621454]
 position = Vector2(-160, 0)
 target_position = Vector2(2560, 0)
 collision_mask = 3
 hit_from_inside = true
 collide_with_areas = true
 
-[node name="AimTarget" type="Marker2D" parent="ShootPoint" index="3"]
+[node name="AimTarget" type="Marker2D" parent="ShootPoint" index="3" unique_id=1056327491]
 
-[node name="EndAim" type="Marker2D" parent="ShootPoint" index="4"]
+[node name="EndAim" type="Marker2D" parent="ShootPoint" index="4" unique_id=567720873]
 position = Vector2(960, 0)
 
-[node name="AimPoint" type="Sprite2D" parent="." index="2"]
+[node name="AimPoint" type="Sprite2D" parent="." index="2" unique_id=2040114031]
 z_index = 1
 position = Vector2(296, -22)
 texture = ExtResource("9_guo3n")
 
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": ExtResource("6_nrirq")
-}
+[node name="AnimationPlayer" parent="." index="3" unique_id=313151340]
+libraries/ = ExtResource("6_nrirq")
 
-[node name="Aim" type="CanvasLayer" parent="." index="4"]
+[node name="Aim" type="CanvasLayer" parent="." index="4" unique_id=967384550]
 visible = false
 
-[node name="Base" type="Control" parent="Aim" index="0"]
+[node name="Base" type="Control" parent="Aim" index="0" unique_id=947258288]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,7 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Aim" type="TextureRect" parent="Aim/Base" index="0"]
+[node name="Aim" type="TextureRect" parent="Aim/Base" index="0" unique_id=257959412]
 material = SubResource("ShaderMaterial_e4bfp")
 layout_mode = 1
 anchors_preset = 8

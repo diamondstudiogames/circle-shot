@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dq6lpemfo4iff"]
+[gd_scene format=3 uid="uid://dq6lpemfo4iff"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_vnids"]
 [ext_resource type="Script" uid="uid://d3dtb5f5fe825" path="res://game/weapons/grenades/molotov/projectile/molotov_projectile.gd" id="2_i84gj"]
@@ -697,7 +697,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_78usd"]
 radius = 480.0
 
-[node name="MolotovProjectile" instance=ExtResource("1_vnids")]
+[node name="MolotovProjectile" unique_id=1365489839 instance=ExtResource("1_vnids")]
 script = ExtResource("2_i84gj")
 shake_max_amplitude = 24.0
 shake_max_duration = 0.75
@@ -705,21 +705,21 @@ shake_max_distance = 2400.0
 speed = 1600.0
 damping = 600.0
 
-[node name="Grenade" parent="." index="0"]
+[node name="Grenade" parent="." index="0" unique_id=1624174126]
 texture = ExtResource("3_eo4on")
 
-[node name="Flame" type="Sprite2D" parent="Grenade" index="1"]
+[node name="Flame" type="Sprite2D" parent="Grenade" index="1" unique_id=1359451400]
 material = ExtResource("8_gwkkj")
 position = Vector2(15, -15)
 texture = ExtResource("4_gsgy7")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=475704225]
 shape = SubResource("CircleShape2D_6joc0")
 
-[node name="ExplosionTimer" parent="." index="2"]
+[node name="ExplosionTimer" parent="." index="2" unique_id=1830172877]
 wait_time = 1.5
 
-[node name="Attack" type="Node2D" parent="." index="4"]
+[node name="Attack" type="Node2D" parent="." index="4" unique_id=536963412]
 script = ExtResource("5_l5qjx")
 damage = 7
 damage_interval = 0.25
@@ -727,109 +727,107 @@ metadata/_custom_type_script = "uid://bgvirlnion8wa"
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="AreaDetector" type="Area2D" parent="Attack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Attack" index="0" unique_id=735988025]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("6_lx3vu")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AreaDetector" index="0" unique_id=739566339]
 shape = SubResource("CircleShape2D_vji31")
 disabled = true
 
-[node name="Explosion" type="Node2D" parent="." index="5"]
+[node name="Explosion" type="Node2D" parent="." index="5" unique_id=1668462192]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_cwnr0")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="0" unique_id=214692973]
+libraries/ = SubResource("AnimationLibrary_cwnr0")
 
-[node name="Burned" type="Node2D" parent="Explosion" index="1"]
+[node name="Burned" type="Node2D" parent="Explosion" index="1" unique_id=177277407]
 
-[node name="Burned1" type="Node2D" parent="Explosion/Burned" index="0"]
+[node name="Burned1" type="Node2D" parent="Explosion/Burned" index="0" unique_id=141736341]
 visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="BurnedGround5" type="Sprite2D" parent="Explosion/Burned/Burned1" index="0"]
+[node name="BurnedGround5" type="Sprite2D" parent="Explosion/Burned/Burned1" index="0" unique_id=2088713984]
 position = Vector2(-524, 5)
 rotation = -1.46575
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround6" type="Sprite2D" parent="Explosion/Burned/Burned1" index="1"]
+[node name="BurnedGround6" type="Sprite2D" parent="Explosion/Burned/Burned1" index="1" unique_id=1538391650]
 position = Vector2(-386, -435)
 rotation = 1.58539
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround7" type="Sprite2D" parent="Explosion/Burned/Burned1" index="2"]
+[node name="BurnedGround7" type="Sprite2D" parent="Explosion/Burned/Burned1" index="2" unique_id=957484655]
 position = Vector2(97, -489)
 rotation = -1.95791
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround8" type="Sprite2D" parent="Explosion/Burned/Burned1" index="3"]
+[node name="BurnedGround8" type="Sprite2D" parent="Explosion/Burned/Burned1" index="3" unique_id=1394257635]
 position = Vector2(484, -246)
 rotation = 2.23624
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround9" type="Sprite2D" parent="Explosion/Burned/Burned1" index="4"]
+[node name="BurnedGround9" type="Sprite2D" parent="Explosion/Burned/Burned1" index="4" unique_id=48847533]
 position = Vector2(511, 214)
 rotation = -0.718924
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround10" type="Sprite2D" parent="Explosion/Burned/Burned1" index="5"]
+[node name="BurnedGround10" type="Sprite2D" parent="Explosion/Burned/Burned1" index="5" unique_id=1616548465]
 position = Vector2(234, 514)
 rotation = 2.66276
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround11" type="Sprite2D" parent="Explosion/Burned/Burned1" index="6"]
+[node name="BurnedGround11" type="Sprite2D" parent="Explosion/Burned/Burned1" index="6" unique_id=1984332600]
 position = Vector2(-218, 467)
 rotation = -2.20092
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="Burned0" type="Node2D" parent="Explosion/Burned" index="1"]
+[node name="Burned0" type="Node2D" parent="Explosion/Burned" index="1" unique_id=687305729]
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="BurnedGround" type="Sprite2D" parent="Explosion/Burned/Burned0" index="0"]
+[node name="BurnedGround" type="Sprite2D" parent="Explosion/Burned/Burned0" index="0" unique_id=1687825174]
 position = Vector2(-120, -164)
 rotation = 0.960157
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround2" type="Sprite2D" parent="Explosion/Burned/Burned0" index="1"]
+[node name="BurnedGround2" type="Sprite2D" parent="Explosion/Burned/Burned0" index="1" unique_id=1981437446]
 position = Vector2(200, -93)
 rotation = 0.55909
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround3" type="Sprite2D" parent="Explosion/Burned/Burned0" index="2"]
+[node name="BurnedGround3" type="Sprite2D" parent="Explosion/Burned/Burned0" index="2" unique_id=1836675518]
 position = Vector2(169, 238)
 rotation = -0.510738
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="BurnedGround4" type="Sprite2D" parent="Explosion/Burned/Burned0" index="3"]
+[node name="BurnedGround4" type="Sprite2D" parent="Explosion/Burned/Burned0" index="3" unique_id=1260522717]
 position = Vector2(-137, 214)
 rotation = 0.909684
 scale = Vector2(2, 2)
 texture = ExtResource("7_y3is2")
 
-[node name="Fire" type="Node2D" parent="Explosion" index="2"]
+[node name="Fire" type="Node2D" parent="Explosion" index="2" unique_id=1713185770]
 
-[node name="Fire1" type="Node2D" parent="Explosion/Fire" index="0"]
+[node name="Fire1" type="Node2D" parent="Explosion/Fire" index="0" unique_id=1013336326]
 visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire1" index="0"]
+[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire1" index="0" unique_id=277291434]
 self_modulate = Color(1, 1, 1, 0.792157)
 material = ExtResource("8_gwkkj")
 position = Vector2(-531, 8.99999)
@@ -837,7 +835,7 @@ rotation = 1.23123
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire7" type="Sprite2D" parent="Explosion/Fire/Fire1" index="1"]
+[node name="Fire7" type="Sprite2D" parent="Explosion/Fire/Fire1" index="1" unique_id=1265469787]
 self_modulate = Color(1, 1, 1, 0.901961)
 material = ExtResource("8_gwkkj")
 position = Vector2(514, 221)
@@ -845,7 +843,7 @@ rotation = 2.22661
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire10" type="Sprite2D" parent="Explosion/Fire/Fire1" index="2"]
+[node name="Fire10" type="Sprite2D" parent="Explosion/Fire/Fire1" index="2" unique_id=2068736694]
 self_modulate = Color(1, 1, 1, 0.839216)
 material = ExtResource("8_gwkkj")
 position = Vector2(232, 511)
@@ -853,7 +851,7 @@ rotation = -2.76275
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire1" index="3"]
+[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire1" index="3" unique_id=1255787383]
 self_modulate = Color(1, 1, 1, 0.882353)
 material = ExtResource("8_gwkkj")
 position = Vector2(-391, -430)
@@ -861,7 +859,7 @@ rotation = 0.307988
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire5" type="Sprite2D" parent="Explosion/Fire/Fire1" index="4"]
+[node name="Fire5" type="Sprite2D" parent="Explosion/Fire/Fire1" index="4" unique_id=770884606]
 self_modulate = Color(1, 1, 1, 0.94902)
 material = ExtResource("8_gwkkj")
 position = Vector2(487, -233)
@@ -869,7 +867,7 @@ rotation = 2.63158
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire1" index="5"]
+[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire1" index="5" unique_id=941815428]
 self_modulate = Color(1, 1, 1, 0.905882)
 material = ExtResource("8_gwkkj")
 position = Vector2(92, -512)
@@ -877,7 +875,7 @@ rotation = -2.84862
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire8" type="Sprite2D" parent="Explosion/Fire/Fire1" index="6"]
+[node name="Fire8" type="Sprite2D" parent="Explosion/Fire/Fire1" index="6" unique_id=365104237]
 self_modulate = Color(1, 1, 1, 0.835294)
 material = ExtResource("8_gwkkj")
 position = Vector2(-241, 486)
@@ -885,18 +883,18 @@ rotation = 2.27029
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire0" type="Node2D" parent="Explosion/Fire" index="1"]
+[node name="Fire0" type="Node2D" parent="Explosion/Fire" index="1" unique_id=2085901721]
 modulate = Color(1, 1, 1, 0)
 z_index = -4
 
-[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire0" index="0"]
+[node name="Fire" type="Sprite2D" parent="Explosion/Fire/Fire0" index="0" unique_id=1819415494]
 material = ExtResource("8_gwkkj")
 position = Vector2(-137, -161)
 rotation = -1.43232
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire0" index="1"]
+[node name="Fire2" type="Sprite2D" parent="Explosion/Fire/Fire0" index="1" unique_id=845993067]
 self_modulate = Color(1, 1, 1, 0.729412)
 material = ExtResource("8_gwkkj")
 position = Vector2(202, -74)
@@ -904,7 +902,7 @@ rotation = 2.28808
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire6" type="Sprite2D" parent="Explosion/Fire/Fire0" index="2"]
+[node name="Fire6" type="Sprite2D" parent="Explosion/Fire/Fire0" index="2" unique_id=116427563]
 self_modulate = Color(1, 1, 1, 0.894118)
 material = ExtResource("8_gwkkj")
 position = Vector2(153, 233)
@@ -912,7 +910,7 @@ rotation = -3.12932
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire0" index="3"]
+[node name="Fire3" type="Sprite2D" parent="Explosion/Fire/Fire0" index="3" unique_id=120980399]
 self_modulate = Color(1, 1, 1, 0.819608)
 material = ExtResource("8_gwkkj")
 position = Vector2(-164, 196)
@@ -920,17 +918,17 @@ rotation = -0.320615
 scale = Vector2(2, 2)
 texture = ExtResource("8_wwvx1")
 
-[node name="Explode" type="Sprite2D" parent="Explosion" index="3"]
+[node name="Explode" type="Sprite2D" parent="Explosion" index="3" unique_id=8987483]
 visible = false
 material = ExtResource("8_gwkkj")
 texture = ExtResource("9_py4wg")
 
-[node name="ExtinguishArea" type="Area2D" parent="." index="6"]
+[node name="ExtinguishArea" type="Area2D" parent="." index="6" unique_id=1906243623]
 collision_layer = 0
 collision_mask = 128
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtinguishArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtinguishArea" index="0" unique_id=938155958]
 shape = SubResource("CircleShape2D_78usd")
 disabled = true
 

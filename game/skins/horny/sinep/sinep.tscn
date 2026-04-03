@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd1lphpx3gsyb"]
+[gd_scene format=3 uid="uid://cd1lphpx3gsyb"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_25v7j"]
 [ext_resource type="Texture2D" uid="uid://dpk0u7atpi23s" path="res://game/skins/horny/sinep/sinep.png" id="2_at1jw"]
 
-[node name="Sinep" type="Sprite2D"]
+[node name="Sinep" type="Sprite2D" unique_id=717398797]
 texture = ExtResource("2_at1jw")
 script = ExtResource("2_25v7j")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

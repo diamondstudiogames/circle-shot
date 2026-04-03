@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg27rk21dp4m8"]
+[gd_scene format=3 uid="uid://cg27rk21dp4m8"]
 
 [ext_resource type="Texture2D" uid="uid://cqylwjlp6mm25" path="res://game/skins/videogames/mettaton/mettatons.png" id="1_13d1m"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_ltyhg"]
@@ -42,7 +42,7 @@ _data = {
 &"mettaton": SubResource("Animation_prbkk")
 }
 
-[node name="Mettaton" type="Sprite2D"]
+[node name="Mettaton" type="Sprite2D" unique_id=125421619]
 texture_filter = 1
 texture = ExtResource("1_13d1m")
 offset = Vector2(-6, -4)
@@ -51,8 +51,6 @@ vframes = 3
 script = ExtResource("1_ltyhg")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gfqhr")
-}
-autoplay = "mettaton"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=740569530]
+libraries/ = SubResource("AnimationLibrary_gfqhr")
+autoplay = &"mettaton"

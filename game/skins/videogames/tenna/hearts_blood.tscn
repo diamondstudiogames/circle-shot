@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx6l0rbdhofox"]
+[gd_scene format=3 uid="uid://bx6l0rbdhofox"]
 
 [ext_resource type="Texture2D" uid="uid://cle50d5e6ge01" path="res://game/skins/videogames/tenna/heart.png" id="1_6ejuu"]
 
@@ -8,7 +8,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="HeartsBlood" type="CPUParticles2D"]
+[node name="HeartsBlood" type="CPUParticles2D" unique_id=1806324866]
 position = Vector2(0, -32)
 amount = 6
 texture = ExtResource("1_6ejuu")

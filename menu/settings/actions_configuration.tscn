@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4axjhbd674h8"]
+[gd_scene format=3 uid="uid://c4axjhbd674h8"]
 
 [ext_resource type="Script" uid="uid://bgequl5pvuuq5" path="res://menu/settings/actions_configuration.gd" id="1_h33al"]
 [ext_resource type="Texture2D" uid="uid://qd30cvl2xrw7" path="res://menu/theme/icons/add.png" id="2_h33al"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8cprl60iu2or" path="res://menu/settings/action_event.tscn" id="5_4wuv6"]
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="6_wo6h3"]
 
-[node name="ActionsConfiguration" type="Window"]
+[node name="ActionsConfiguration" type="Window" unique_id=1996620885]
 oversampling_override = 1.0
 title = "Настройка действий"
 position = Vector2i(0, 28)
@@ -18,1089 +18,1089 @@ exclusive = true
 unresizable = true
 script = ExtResource("1_h33al")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1276691139]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1384075336]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1530471308]
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1097782785]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Actions" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="Actions" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=1796022045]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="MoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=352522043]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft" unique_id=1982762494]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container" unique_id=2092478424]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться влево"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container" unique_id=305700654]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container" unique_id=585826774]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="MoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="MoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1442743194]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight" unique_id=1358864474]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container" unique_id=1552652111]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вправо"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container" unique_id=2044881004]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container" unique_id=148966352]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="MoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="MoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=875925598]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp" unique_id=119337802]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container" unique_id=1416089615]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вверх"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container" unique_id=1201416613]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container" unique_id=932524262]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="MoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="MoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=658220892]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown" unique_id=1014222507]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container" unique_id=602343662]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вниз"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container" unique_id=1354288345]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveDown/Container" unique_id=200985849]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Sneak" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Sneak" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1684096730]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak" unique_id=773170330]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container" unique_id=1652518116]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Красться"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container" unique_id=1701415234]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Sneak/Container" unique_id=1381547483]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Shoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Shoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=365085590]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot" unique_id=1468579780]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container" unique_id=1415938467]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Стрелять"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container" unique_id=1048773879]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Shoot/Container" unique_id=1216448046]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="ShowAim" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="ShowAim" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=456452881]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim" unique_id=1708061754]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container" unique_id=830435245]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Показать прицел"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container" unique_id=646511986]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowAim/Container" unique_id=1664713301]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Interact" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Interact" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1328475613]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact" unique_id=1008138076]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container" unique_id=1393824521]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Взаимодействие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container" unique_id=992021033]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Interact/Container" unique_id=364363380]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Reload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Reload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=2118790081]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload" unique_id=765581646]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container" unique_id=139672354]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Перезарядиться"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container" unique_id=1759825018]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Reload/Container" unique_id=1220905706]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="AdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="AdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=690736231]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton" unique_id=278507061]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container" unique_id=163867985]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Доп. кнопка оружия"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container" unique_id=1182006565]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/AdditionalButton/Container" unique_id=1629467300]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="WeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="WeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=337280612]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight" unique_id=699356986]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container" unique_id=467054312]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Лёгкое оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container" unique_id=311840271]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponLight/Container" unique_id=1420391108]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="WeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="WeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1923000487]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy" unique_id=1186077877]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container" unique_id=807742848]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Тяжёлое оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container" unique_id=1751121250]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponHeavy/Container" unique_id=2111678607]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="WeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="WeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1788261159]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport" unique_id=4836289]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container" unique_id=1248959274]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Оружие поддержки"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container" unique_id=710643011]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponSupport/Container" unique_id=1995209179]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="WeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="WeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1990442554]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee" unique_id=449205373]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container" unique_id=134072849]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Ближнее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container" unique_id=1139053606]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponMelee/Container" unique_id=1465611013]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="WeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="WeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1854877226]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional" unique_id=1629120354]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container" unique_id=1775655158]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Дополнительное оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container" unique_id=1491829244]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/WeaponAdditional/Container" unique_id=376439401]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="NextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="NextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=826097533]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon" unique_id=722593358]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container" unique_id=594056805]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Следующее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container" unique_id=316367637]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/NextWeapon/Container" unique_id=672950855]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="PreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="PreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=279892779]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon" unique_id=518925625]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container" unique_id=1904521460]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Предыдущее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container" unique_id=1772920227]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/PreviousWeapon/Container" unique_id=898861787]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="ShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="ShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=512504774]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons" unique_id=377940853]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container" unique_id=1198128245]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Показать оружия"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container" unique_id=1472118180]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/ShowWeapons/Container" unique_id=1274359193]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="UseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="UseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=576287493]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill" unique_id=1636869355]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container" unique_id=1416214950]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Использовать навык"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container" unique_id=1050613493]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container" unique_id=1262874827]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Chat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Chat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1954233982]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat" unique_id=354101781]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container" unique_id=568759032]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Открыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container" unique_id=871347073]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container" unique_id=2024905498]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Pause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Pause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1602280543]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause" unique_id=1369161765]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container" unique_id=73172638]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Пауза/Закрыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container" unique_id=576171747]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container" unique_id=1325035151]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Fullscreen" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="Fullscreen" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1089369604]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen" unique_id=1956084286]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=116531798]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Переключить полный экран"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=1074355955]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=701683633]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CMoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CMoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1268454715]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft" unique_id=1020553366]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container" unique_id=1180025771]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться влево"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container" unique_id=1430584490]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container" unique_id=629179173]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CMoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CMoveRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=203222097]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight" unique_id=23133426]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container" unique_id=689730752]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вправо"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container" unique_id=1383119199]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container" unique_id=481635937]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CMoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CMoveUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=917225123]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp" unique_id=1596941840]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container" unique_id=1758497573]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вверх"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container" unique_id=920284471]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container" unique_id=486915630]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CMoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CMoveDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=992813903]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown" unique_id=98501145]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container" unique_id=1075351758]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Двигаться вниз"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container" unique_id=2057441306]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveDown/Container" unique_id=776013241]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CAimLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CAimLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1936466181]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft" unique_id=2144053856]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container" unique_id=743565381]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Прицеливаться влево"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container" unique_id=389235001]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimLeft/Container" unique_id=812781710]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CAimRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CAimRight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=359819421]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight" unique_id=561170930]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container" unique_id=1288364840]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Прицеливаться вправо"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container" unique_id=1943244380]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimRight/Container" unique_id=1511836950]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CAimUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CAimUp" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1861628960]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp" unique_id=101895157]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container" unique_id=651712411]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Прицеливаться вверх"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container" unique_id=1719112790]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimUp/Container" unique_id=811733320]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CAimDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CAimDown" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=636467097]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown" unique_id=699391808]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container" unique_id=913666867]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Прицеливаться вниз"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container" unique_id=664618779]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAimDown/Container" unique_id=1978378140]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CShoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CShoot" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=2039527373]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot" unique_id=1232784287]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container" unique_id=521410426]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Стрелять"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container" unique_id=1569033908]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShoot/Container" unique_id=156144838]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CInteract" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CInteract" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=583302414]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract" unique_id=1253071634]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container" unique_id=2128165211]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Взаимодействие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container" unique_id=1448512839]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CInteract/Container" unique_id=835105043]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CReload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CReload" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1198331028]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload" unique_id=1823029805]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container" unique_id=1617917707]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Перезарядиться"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container" unique_id=848868487]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CReload/Container" unique_id=1663878738]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CAdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CAdditionalButton" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=583988899]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton" unique_id=760761733]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container" unique_id=1694590690]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Доп. кнопка оружия"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container" unique_id=240758520]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CAdditionalButton/Container" unique_id=1557078756]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CWeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CWeaponLight" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1467593057]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight" unique_id=1075446028]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container" unique_id=1210034876]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Лёгкое оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container" unique_id=798611270]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponLight/Container" unique_id=138863144]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CWeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CWeaponHeavy" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=399248857]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy" unique_id=1063960935]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container" unique_id=668874339]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Тяжёлое оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container" unique_id=657178633]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponHeavy/Container" unique_id=192001821]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CWeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CWeaponSupport" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1407237991]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport" unique_id=1908487422]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container" unique_id=867585895]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Оружие поддержки"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container" unique_id=392469814]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponSupport/Container" unique_id=662281353]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CWeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CWeaponMelee" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=550482500]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee" unique_id=902239728]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container" unique_id=501886697]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Ближнее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container" unique_id=258797649]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponMelee/Container" unique_id=2086957964]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CWeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CWeaponAdditional" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=692713243]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional" unique_id=1986087716]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container" unique_id=1652498988]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Дополнительное оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container" unique_id=1448480441]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CWeaponAdditional/Container" unique_id=1481620784]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CNextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CNextWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=2031707878]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon" unique_id=1195556485]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container" unique_id=380536499]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Следующее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container" unique_id=1127289244]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CNextWeapon/Container" unique_id=1553261555]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CPreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CPreviousWeapon" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=724014098]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon" unique_id=2065058566]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container" unique_id=1832193687]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Предыдущее оружие"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container" unique_id=262486129]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPreviousWeapon/Container" unique_id=978805700]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CShowWeapons" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=164230989]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons" unique_id=1716728825]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container" unique_id=1343803283]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Показать оружия"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container" unique_id=236263300]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CShowWeapons/Container" unique_id=720844131]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CUseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CUseSkill" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=2111250335]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill" unique_id=1563005406]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container" unique_id=851432988]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Использовать навык"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container" unique_id=276331120]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CUseSkill/Container" unique_id=1526231923]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CChat" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=674551849]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat" unique_id=895459000]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container" unique_id=1065046734]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Открыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container" unique_id=1054907071]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CChat/Container" unique_id=43755398]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="CPause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions"]
+[node name="CPause" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=2052532310]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause"]
+[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause" unique_id=663929299]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
+[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container" unique_id=1684570600]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_type_variation = &"HeaderSmall"
 text = "Пауза/Закрыть чат"
 
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
+[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container" unique_id=2074081888]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container"]
+[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/CPause/Container" unique_id=1951583563]
 layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=711912969]
 layout_mode = 2
 alignment = 1
 
-[node name="Discard" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Discard" type="Button" parent="VBoxContainer/Buttons" unique_id=685149865]
 layout_mode = 2
 size_flags_horizontal = 6
 disabled = true
 text = "Сбросить"
 icon = ExtResource("3_cxjse")
 
-[node name="Save" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Save" type="Button" parent="VBoxContainer/Buttons" unique_id=1691560069]
 layout_mode = 2
 size_flags_horizontal = 6
 disabled = true
 text = "Сохранить"
 icon = ExtResource("4_4wuv6")
 
-[node name="EventSelector" type="ConfirmationDialog" parent="."]
+[node name="EventSelector" type="ConfirmationDialog" parent="." unique_id=627070198]
 position = Vector2i(0, 28)
 size = Vector2i(600, 120)
 unresizable = true
@@ -1109,16 +1109,16 @@ dialog_text = "Ожидаю ввод..."
 dialog_close_on_escape = false
 cancel_button_text = "Отмена"
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=232843094]
 resources = [PackedStringArray("action_event"), [ExtResource("5_4wuv6")]]
 
-[node name="AutofocusWindow" type="Node" parent="."]
+[node name="AutofocusWindow" type="Node" parent="." unique_id=786518569]
 script = ExtResource("6_wo6h3")
 focus_target = NodePath("../VBoxContainer/Buttons/Save")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[connection signal="close_requested" from="." to="." method="hide"]
 [connection signal="close_requested" from="." to="." method="_on_discard_pressed"]
+[connection signal="close_requested" from="." to="." method="hide"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveLeft/Container/Add" to="." method="add_action_event" binds= [&"move_left"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveRight/Container/Add" to="." method="add_action_event" binds= [&"move_right"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/MoveUp/Container/Add" to="." method="add_action_event" binds= [&"move_up"]]

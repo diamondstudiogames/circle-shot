@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChallengeData" load_steps=4 format=3 uid="uid://b5jj0i68nm7qf"]
+[gd_resource type="Resource" script_class="ChallengeData" format=3 uid="uid://b5jj0i68nm7qf"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_ibrj3"]
 [ext_resource type="Resource" uid="uid://co5oxb1w8wb2g" path="res://game/solo/challenges/demon_fight/maps/hell/hell.tres" id="2_1fwqp"]

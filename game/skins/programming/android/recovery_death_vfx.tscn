@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdl30g16twg5o"]
+[gd_scene format=3 uid="uid://cdl30g16twg5o"]
 
 [ext_resource type="Texture2D" uid="uid://dkxl8okaxmi5w" path="res://game/skins/programming/android/recovery.png" id="1_na521"]
 [ext_resource type="Texture2D" uid="uid://bfmwla164lais" path="res://game/skins/programming/android/recovery_error.png" id="2_8io1f"]
@@ -79,14 +79,12 @@ _data = {
 &"death": SubResource("Animation_2u4ae")
 }
 
-[node name="RecoveryDeathVfx" type="Node2D"]
+[node name="RecoveryDeathVfx" type="Node2D" unique_id=1458604253]
 
-[node name="Recovery" type="Sprite2D" parent="."]
+[node name="Recovery" type="Sprite2D" parent="." unique_id=441538952]
 z_index = -2
 texture = ExtResource("1_na521")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qjbvu")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2105407664]
+libraries/ = SubResource("AnimationLibrary_qjbvu")
+autoplay = &"death"

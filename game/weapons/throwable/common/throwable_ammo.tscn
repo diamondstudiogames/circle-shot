@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://cgnugiwepctjg"]
 
-[node name="ThrowableAmmo" type="Node2D"]
+[node name="ThrowableAmmo" type="Node2D" unique_id=1673516405]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1165240461]

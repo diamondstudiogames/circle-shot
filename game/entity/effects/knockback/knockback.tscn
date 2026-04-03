@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmd6vxl6v7ri2"]
+[gd_scene format=3 uid="uid://dmd6vxl6v7ri2"]
 
 [ext_resource type="Script" uid="uid://bw821ssrsyyfh" path="res://game/entity/effects/knockback/knockback.gd" id="1_b21c3"]
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_p3066"]
 
-[node name="Knockback" instance=ExtResource("1_p3066")]
+[node name="Knockback" unique_id=950934185 instance=ExtResource("1_p3066")]
 script = ExtResource("1_b21c3")

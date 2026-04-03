@@ -1417,10 +1417,10 @@ cancel_button_text = "Отмена"
 title = "Смена имени"
 visible = false
 
-[node name="LineEdit" parent="NameDialog/MarginContainer/VBoxContainer" index="1"]
+[node name="LineEdit" parent="NameDialog/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(2071928166, 875811584) index="1" unique_id=1778374973]
 placeholder_text = "Новое имя..."
 
-[node name="Confirm" parent="NameDialog/MarginContainer/VBoxContainer" index="2"]
+[node name="Confirm" parent="NameDialog/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(2071928166, 875811584) index="2" unique_id=2129998517]
 text = "Сменить"
 
 [node name="ManageSaveDialog" type="Window" parent="." unique_id=378327502]

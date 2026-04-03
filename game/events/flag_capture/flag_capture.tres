@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventData" load_steps=5 format=3 uid="uid://caqaaclguqbt1"]
+[gd_resource type="Resource" script_class="EventData" format=3 uid="uid://caqaaclguqbt1"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_0vfle"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_070ub"]

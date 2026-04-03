@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://r5y32nuhfqet"]
+[gd_scene format=3 uid="uid://r5y32nuhfqet"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_quru6"]
 [ext_resource type="Script" uid="uid://c50etgc35rqev" path="res://game/entity/effects/bleeding/bleeding.gd" id="2_es233"]
@@ -10,14 +10,14 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="Bleeding" instance=ExtResource("1_quru6")]
+[node name="Bleeding" unique_id=1301099256 instance=ExtResource("1_quru6")]
 script = ExtResource("2_es233")
 negative = true
 
-[node name="IntervalTimer" type="Timer" parent="." index="0"]
+[node name="IntervalTimer" type="Timer" parent="." index="0" unique_id=830077610]
 process_callback = 0
 
-[node name="Blood" type="CPUParticles2D" parent="." index="2"]
+[node name="Blood" type="CPUParticles2D" parent="." index="2" unique_id=902447371]
 position = Vector2(0, -32)
 amount = 5
 texture = ExtResource("3_jnyg8")

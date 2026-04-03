@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bviayhbbcb3go"]
+[gd_scene format=3 uid="uid://bviayhbbcb3go"]
 
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="1_saji1"]
 
-[node name="HealBox" instance=ExtResource("1_saji1")]
+[node name="HealBox" unique_id=285204481 instance=ExtResource("1_saji1")]
 heal_amount = 35
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = &"spawn"
 
 [editable path="MinimapMarker"]

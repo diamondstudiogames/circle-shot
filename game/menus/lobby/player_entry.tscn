@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj0mx5ui2wu4n"]
+[gd_scene format=3 uid="uid://dj0mx5ui2wu4n"]
 
 [ext_resource type="Texture2D" uid="uid://1hk5pve5cp0m" path="res://game/menus/lobby/icons/kick.png" id="1_k7dg0"]
 [ext_resource type="Texture2D" uid="uid://3r5vw7twnql1" path="res://game/menus/lobby/icons/team_actions.png" id="2_gs5xi"]
@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bnpg17ibdubwb" path="res://game/menus/lobby/icons/blue_team.png" id="6_gs5xi"]
 [ext_resource type="Texture2D" uid="uid://dm4f7q678tihs" path="res://game/menus/lobby/icons/remove_from_team.png" id="7_fwt5i"]
 
-[node name="PlayerEntry" type="HBoxContainer"]
+[node name="PlayerEntry" type="HBoxContainer" unique_id=1196304899]
 custom_minimum_size = Vector2(0, 24)
 size_flags_horizontal = 6
 
-[node name="Admin" type="TextureRect" parent="."]
+[node name="Admin" type="TextureRect" parent="." unique_id=2100483829]
 visible = false
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
@@ -21,13 +21,13 @@ texture = ExtResource("4_665gi")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Name" type="Label" parent="."]
+[node name="Name" type="Label" parent="." unique_id=361137218]
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TeamActions" type="MenuButton" parent="."]
+[node name="TeamActions" type="MenuButton" parent="." unique_id=1383377557]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 2
@@ -46,7 +46,7 @@ popup/item_2/text = "Удалить из команды"
 popup/item_2/icon = ExtResource("7_fwt5i")
 popup/item_2/id = 2
 
-[node name="AdminActions" type="MenuButton" parent="."]
+[node name="AdminActions" type="MenuButton" parent="." unique_id=523550356]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 focus_mode = 2

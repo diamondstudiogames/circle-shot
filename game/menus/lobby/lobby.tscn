@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmwb81du1kbtm"]
+[gd_scene format=3 uid="uid://cmwb81du1kbtm"]
 
 [ext_resource type="Script" uid="uid://ce7fr2qft005n" path="res://game/menus/lobby/lobby.gd" id="1_jtfrr"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="2_6xr3g"]
@@ -55,7 +55,7 @@ _data = {
 &"countdown": SubResource("Animation_dja87")
 }
 
-[node name="Lobby" type="Control"]
+[node name="Lobby" type="Control" unique_id=350636739]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +65,7 @@ grow_vertical = 2
 script = ExtResource("1_jtfrr")
 metadata/_custom_type_script = "uid://ce7fr2qft005n"
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="." unique_id=2119304109]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,7 +75,7 @@ grow_vertical = 2
 texture = ExtResource("2_8bvc3")
 stretch_mode = 6
 
-[node name="Main" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="." unique_id=540315448]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,42 +89,42 @@ offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panels" type="HBoxContainer" parent="Main"]
+[node name="Panels" type="HBoxContainer" parent="Main" unique_id=805176355]
 layout_mode = 2
 
-[node name="Lobby" type="PanelContainer" parent="Main/Panels"]
+[node name="Lobby" type="PanelContainer" parent="Main/Panels" unique_id=907366478]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/Panels/Lobby"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Panels/Lobby" unique_id=1472870523]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="Title" type="Label" parent="Main/Panels/Lobby/VBoxContainer" unique_id=1293881266]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Игроки в комнате:"
 
-[node name="Panel" type="PanelContainer" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=1499114399]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="PlayersContainer" type="GridContainer" parent="Main/Panels/Lobby/VBoxContainer/Panel"]
+[node name="PlayersContainer" type="GridContainer" parent="Main/Panels/Lobby/VBoxContainer/Panel" unique_id=1212165864]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="Environment" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="Environment" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=1156769204]
 layout_mode = 2
 alignment = 1
 
-[node name="Event" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment"]
+[node name="Event" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment" unique_id=1589523946]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 
-[node name="Container" type="VBoxContainer" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event"]
+[node name="Container" type="VBoxContainer" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event" unique_id=703121318]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,28 +132,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event/Container"]
+[node name="Name" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event/Container" unique_id=2020887792]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"HeaderMediumOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event/Container"]
+[node name="Description" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Event/Container" unique_id=806512558]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Map" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment"]
+[node name="Map" type="TextureRect" parent="Main/Panels/Lobby/VBoxContainer/Environment" unique_id=1487218148]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(392, 80)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_mode = 1
 
-[node name="Container" type="VBoxContainer" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map"]
+[node name="Container" type="VBoxContainer" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map" unique_id=1113005337]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,119 +161,117 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map/Container"]
+[node name="Name" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map/Container" unique_id=1828701453]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"HeaderMediumOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map/Container"]
+[node name="Description" type="Label" parent="Main/Panels/Lobby/VBoxContainer/Environment/Map/Container" unique_id=1825397308]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="EquipSelector" parent="Main/Panels/Lobby/VBoxContainer" instance=ExtResource("3_es10a")]
+[node name="EquipSelector" parent="Main/Panels/Lobby/VBoxContainer" unique_id=509416473 instance=ExtResource("3_es10a")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ClientHint" type="Label" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="ClientHint" type="Label" parent="Main/Panels/Lobby/VBoxContainer" unique_id=2127371237]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Начать игру может только админ."
 horizontal_alignment = 1
 
-[node name="AdminPanel" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="AdminPanel" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=434986627]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="StartEvent" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel"]
+[node name="StartEvent" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel" unique_id=828969037]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Начать!"
 icon = ExtResource("2_6xr3g")
 
-[node name="ChangeEvent" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel"]
+[node name="ChangeEvent" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel" unique_id=437812257]
 layout_mode = 2
 text = "Сменить событие..."
 icon = ExtResource("3_pddfd")
 
-[node name="ChangeMap" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel"]
+[node name="ChangeMap" type="Button" parent="Main/Panels/Lobby/VBoxContainer/AdminPanel" unique_id=1052751114]
 layout_mode = 2
 focus_neighbor_right = NodePath("../../ControlButtons/Leave")
 focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Сменить карту..."
 icon = ExtResource("4_4kry5")
 
-[node name="Countdown" type="Label" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="Countdown" type="Label" parent="Main/Panels/Lobby/VBoxContainer" unique_id=480680156]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Начало через 3..."
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Panels/Lobby/VBoxContainer/Countdown"]
-libraries = {
-&"": SubResource("AnimationLibrary_8ughs")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Panels/Lobby/VBoxContainer/Countdown" unique_id=767481609]
+libraries/ = SubResource("AnimationLibrary_8ughs")
 
-[node name="ControlButtons" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer"]
+[node name="ControlButtons" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=1705654793]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Chat" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
+[node name="Chat" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=722068350]
 layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 icon = ExtResource("2_wjeu5")
 
-[node name="Presets" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
+[node name="Presets" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=1212778069]
 layout_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource("7_8ughs")
 
-[node name="ConnectedToIP" type="LinkButton" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
+[node name="ConnectedToIP" type="LinkButton" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=1173394096]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "Подключён к "
 underline = 1
 
-[node name="ViewIP" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
+[node name="ViewIP" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=302361919]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Просмотреть IP-адреса..."
 icon = ExtResource("7_f0cv5")
 
-[node name="Leave" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons"]
+[node name="Leave" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=1985016493]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Выйти"
 icon = ExtResource("3_cwg7d")
 
-[node name="Autofocus" type="Node" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave"]
+[node name="Autofocus" type="Node" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave" unique_id=1809544145]
 script = ExtResource("9_mgd0l")
 metadata/_custom_type_script = "uid://bhnfvhb1jy21u"
 
-[node name="Chat" parent="Main/Panels" instance=ExtResource("12_yfygw")]
+[node name="Chat" parent="Main/Panels" unique_id=1898122033 instance=ExtResource("12_yfygw")]
 visible = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 chat_button_path = NodePath("../Lobby/VBoxContainer/ControlButtons/Chat")
 
-[node name="Advices" parent="Main" instance=ExtResource("13_vtxnl")]
+[node name="Advices" parent="Main" unique_id=914286686 instance=ExtResource("13_vtxnl")]
 layout_mode = 2
 
-[node name="PresetManager" parent="." instance=ExtResource("13_jqaxo")]
+[node name="PresetManager" parent="." unique_id=1224988655 instance=ExtResource("13_jqaxo")]
 visible = false
 equip_selector_path = NodePath("../Main/Panels/Lobby/VBoxContainer/EquipSelector")
 
-[node name="ViewIPDialog" type="AcceptDialog" parent="."]
+[node name="ViewIPDialog" type="AcceptDialog" parent="." unique_id=921956000]
 title = "Твои IP-адреса"
 size = Vector2i(640, 160)
 exclusive = false
@@ -282,19 +280,19 @@ popup_window = true
 dialog_autowrap = true
 script = ExtResource("5_jyb4t")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="ViewIPDialog"]
+[node name="HTTPRequest" type="HTTPRequest" parent="ViewIPDialog" unique_id=1414762474]
 timeout = 5.0
 
-[node name="BroadcastTimer" type="Timer" parent="."]
+[node name="BroadcastTimer" type="Timer" parent="." unique_id=1166333176]
 
-[node name="UpdateBroadcastTimer" type="Timer" parent="."]
+[node name="UpdateBroadcastTimer" type="Timer" parent="." unique_id=609285718]
 wait_time = 10.0
 
-[node name="CountdownTimer" type="Timer" parent="."]
+[node name="CountdownTimer" type="Timer" parent="." unique_id=583027872]
 wait_time = 3.0
 one_shot = true
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1425311059]
 resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/StartEvent" to="." method="_on_start_event_pressed"]

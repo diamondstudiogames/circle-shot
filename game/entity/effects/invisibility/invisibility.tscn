@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://66w5ixijgn51"]
+[gd_scene format=3 uid="uid://66w5ixijgn51"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_fevrb"]
 [ext_resource type="Script" uid="uid://cnfhmfdrmscq1" path="res://game/entity/effects/invisibility/invisibility.gd" id="2_3q58r"]
@@ -15,11 +15,11 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="Invisibility" instance=ExtResource("1_fevrb")]
+[node name="Invisibility" unique_id=1192230122 instance=ExtResource("1_fevrb")]
 script = ExtResource("2_3q58r")
 stackable = false
 
-[node name="Smoke" type="CPUParticles2D" parent="." index="1"]
+[node name="Smoke" type="CPUParticles2D" parent="." index="1" unique_id=686272637]
 position = Vector2(0, 80)
 emitting = false
 texture = ExtResource("4_1kqiw")

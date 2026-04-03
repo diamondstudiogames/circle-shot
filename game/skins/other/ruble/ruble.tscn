@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://f0idrttogl6j"]
+[gd_scene format=3 uid="uid://f0idrttogl6j"]
 
 [ext_resource type="Texture2D" uid="uid://co6yd10hdcpqe" path="res://game/skins/other/ruble/ruble.png" id="1_n815s"]
 [ext_resource type="Script" uid="uid://cq0kgeuna072k" path="res://game/skins/other/ruble/ruble.gd" id="2_2cxkh"]
@@ -95,24 +95,22 @@ _data = {
 &"yesyesyes": SubResource("Animation_xhtr6")
 }
 
-[node name="Ruble" type="Sprite2D"]
+[node name="Ruble" type="Sprite2D" unique_id=1978377931]
 texture = ExtResource("1_n815s")
 script = ExtResource("2_2cxkh")
 custom_hurt_vfx_scene = ExtResource("3_dtmsv")
 custom_heal_vfx_scene = ExtResource("4_0142f")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="Nonono" type="Sprite2D" parent="."]
+[node name="Nonono" type="Sprite2D" parent="." unique_id=426614689]
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_c4dhp")
 
-[node name="Yesyesyes" type="Sprite2D" parent="."]
+[node name="Yesyesyes" type="Sprite2D" parent="." unique_id=865367458]
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_dt7l5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_50mhi")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=920163691]
+libraries/ = SubResource("AnimationLibrary_50mhi")

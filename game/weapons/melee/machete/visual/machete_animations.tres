@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://dpfuv00sqw1le"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://dpfuv00sqw1le"]
 
 [sub_resource type="Animation" id="Animation_3glxw"]
 resource_name = "RESET"

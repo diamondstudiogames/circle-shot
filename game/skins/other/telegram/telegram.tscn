@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://x2oithhak41y"]
+[gd_scene format=3 uid="uid://x2oithhak41y"]
 
 [ext_resource type="Texture2D" uid="uid://b3x23ajo3vrs7" path="res://game/skins/other/telegram/telegram.png" id="2_bd058"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_g5inp"]
 
-[node name="Telegram" type="Sprite2D"]
+[node name="Telegram" type="Sprite2D" unique_id=1829268351]
 texture = ExtResource("2_bd058")
 script = ExtResource("2_g5inp")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

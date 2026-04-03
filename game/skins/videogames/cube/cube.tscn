@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb0mu3s5q53oo"]
+[gd_scene format=3 uid="uid://bb0mu3s5q53oo"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_m0r81"]
 [ext_resource type="Texture2D" uid="uid://dewkduqgrrdux" path="res://game/skins/videogames/cube/cube.png" id="1_wvwol"]
 
-[node name="Cube" type="Sprite2D"]
+[node name="Cube" type="Sprite2D" unique_id=828991718]
 texture = ExtResource("1_wvwol")
 script = ExtResource("1_m0r81")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

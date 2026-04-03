@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj2tr5ocunuo7"]
+[gd_scene format=3 uid="uid://bj2tr5ocunuo7"]
 
 [ext_resource type="Script" uid="uid://dxk2heqcph3i6" path="res://game/skills/beartrap/beartrap_trap.gd" id="1_asixq"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="2_vsrj2"]
@@ -196,7 +196,7 @@ properties/1/path = NodePath(".:team")
 properties/1/spawn = true
 properties/1/replication_mode = 0
 
-[node name="BeartrapTrap" type="Node2D"]
+[node name="BeartrapTrap" type="Node2D" unique_id=1377394086]
 physics_interpolation_mode = 2
 script = ExtResource("1_asixq")
 immobility_duration = 3.0
@@ -204,26 +204,24 @@ slowdown_duration = 5.0
 damage = 10
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="."]
+[node name="AreaDetector" type="Area2D" parent="." unique_id=1264650816]
 collision_layer = 4
 collision_mask = 2
 monitorable = false
 script = ExtResource("2_vsrj2")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector" unique_id=163295616]
 shape = SubResource("CircleShape2D_iy7rt")
 disabled = true
 
-[node name="Trap" type="Sprite2D" parent="."]
+[node name="Trap" type="Sprite2D" parent="." unique_id=1906352267]
 texture = ExtResource("3_d0t00")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_unjli")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=808828663]
+libraries/ = SubResource("AnimationLibrary_unjli")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1650552432]
 replication_config = SubResource("SceneReplicationConfig_asixq")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmdho203t43nk"]
+[gd_scene format=3 uid="uid://cmdho203t43nk"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_dshkp"]
 [ext_resource type="Texture2D" uid="uid://px34wg8dfn53" path="res://game/skins/emoji/devil/devil.png" id="1_hvvei"]
 
-[node name="Devil" type="Sprite2D"]
+[node name="Devil" type="Sprite2D" unique_id=879463892]
 texture = ExtResource("1_hvvei")
 offset = Vector2(0, -10)
 script = ExtResource("1_dshkp")

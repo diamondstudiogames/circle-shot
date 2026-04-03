@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cct2g1r8bubi8"]
+[gd_scene format=3 uid="uid://cct2g1r8bubi8"]
 
 [ext_resource type="Texture2D" uid="uid://ddbtmivurfknj" path="res://game/entity/vfx/heal_plus.png" id="1_uopit"]
 
@@ -7,9 +7,9 @@ _data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vecto
 point_count = 3
 metadata/_snap_enabled = true
 
-[node name="HealPlusesVfx" type="Node2D"]
+[node name="HealPlusesVfx" type="Node2D" unique_id=1158143901]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1117414491]
 z_index = 1
 amount = 3
 texture = ExtResource("1_uopit")
@@ -26,7 +26,7 @@ scale_amount_min = 1.5
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1907486285]
 wait_time = 0.9
 one_shot = true
 autostart = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csyhjqdonjsfw"]
+[gd_scene format=3 uid="uid://csyhjqdonjsfw"]
 
 [ext_resource type="Texture2D" uid="uid://cbl0wwxl43mbd" path="res://game/skins/videogames/tenna/tenna.png" id="1_ivvq0"]
 [ext_resource type="Script" uid="uid://devorfy178w8x" path="res://game/skins/videogames/tenna/tenna.gd" id="2_6cwy6"]
@@ -220,7 +220,7 @@ _data = {
 &"hurt": SubResource("Animation_mkmvs")
 }
 
-[node name="Tenna" type="Sprite2D"]
+[node name="Tenna" type="Sprite2D" unique_id=1844712619]
 texture = ExtResource("1_ivvq0")
 offset = Vector2(4, -20)
 hframes = 6
@@ -230,21 +230,19 @@ custom_death_vfx_scene = ExtResource("4_mkmvs")
 custom_blood_scene = ExtResource("5_mhn7i")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="Flashes" type="Sprite2D" parent="."]
+[node name="Flashes" type="Sprite2D" parent="." unique_id=175718938]
 visible = false
 show_behind_parent = true
 texture = ExtResource("4_2h5qr")
 offset = Vector2(0, 16)
 vframes = 4
 
-[node name="Flower" type="Sprite2D" parent="."]
+[node name="Flower" type="Sprite2D" parent="." unique_id=484003841]
 visible = false
 position = Vector2(96, -24)
 texture = ExtResource("6_mkmvs")
 hframes = 4
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t2spc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1233263397]
+libraries/ = SubResource("AnimationLibrary_t2spc")

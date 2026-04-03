@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceigdilgx3wae"]
+[gd_scene format=3 uid="uid://ceigdilgx3wae"]
 
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="1_16gox"]
 [ext_resource type="PackedScene" uid="uid://bx715huw1dsun" path="res://game/player/modifiers/immune_on_respawn_timer.tscn" id="2_jy3s0"]
 
-[node name="Player" instance=ExtResource("1_16gox")]
+[node name="Player" unique_id=476483334 instance=ExtResource("1_16gox")]
 max_health = 75
 
-[node name="ImmuneOnRespawnTimer" parent="." index="10" instance=ExtResource("2_jy3s0")]
+[node name="ImmuneOnRespawnTimer" parent="." index="10" unique_id=742486297 instance=ExtResource("2_jy3s0")]

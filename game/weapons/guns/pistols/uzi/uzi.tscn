@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0tvxeqyoku0o"]
+[gd_scene format=3 uid="uid://0tvxeqyoku0o"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_7w4mw"]
 [ext_resource type="PackedScene" uid="uid://3hn08at7uvth" path="res://game/weapons/guns/pistols/uzi/uzi_bullet.tscn" id="2_dkh6t"]
@@ -20,7 +20,7 @@ _limits = [-7.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -7), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Uzi" instance=ExtResource("1_7w4mw")]
+[node name="Uzi" unique_id=490314808 instance=ExtResource("1_7w4mw")]
 shoot_interval = 0.17
 to_aim_time = 0.25
 projectile_scene = ExtResource("2_dkh6t")
@@ -37,12 +37,10 @@ ammo_per_load = 25
 speed_multiplier_when_current = 0.96
 aim_camera_distance = 128.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_87wtb")]
+[node name="Visual" parent="." index="0" unique_id=957265173 instance=ExtResource("3_87wtb")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(94, -35)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_rgy5v")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_rgy5v")

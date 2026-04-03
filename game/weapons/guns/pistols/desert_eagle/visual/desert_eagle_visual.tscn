@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://comvmvk0q8dbr"]
+[gd_scene format=3 uid="uid://comvmvk0q8dbr"]
 
 [ext_resource type="Texture2D" uid="uid://cnvhq3b7cvpp0" path="res://game/weapons/guns/pistols/desert_eagle/visual/magazine.png" id="1_w1dk6"]
 [ext_resource type="Texture2D" uid="uid://2frquwbosh7u" path="res://game/weapons/guns/pistols/desert_eagle/visual/base.png" id="2_dyb3e"]
@@ -10,9 +10,9 @@
 [sub_resource type="Gradient" id="Gradient_ha5y4"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=980035298]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=1419405084]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_w1dk6")
@@ -20,31 +20,31 @@ offset = Vector2(-6, 7.5)
 region_enabled = true
 region_rect = Rect2(16, 40, 40, 64)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1993145834]
 texture = ExtResource("2_dyb3e")
 offset = Vector2(48, -12)
 
-[node name="Magazine" type="Sprite2D" parent="Base"]
+[node name="Magazine" type="Sprite2D" parent="Base" unique_id=1495857005]
 show_behind_parent = true
 texture = ExtResource("1_w1dk6")
 offset = Vector2(-6, 7.5)
 region_enabled = true
 region_rect = Rect2(16, 40, 40, 64)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1855554710]
 visible = false
 show_behind_parent = true
 material = ExtResource("3_dyb3e")
 position = Vector2(154, -50)
 texture = ExtResource("3_v5h4u")
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=63700345]
 texture = ExtResource("4_do8yp")
 offset = Vector2(42, -44.5)
 region_enabled = true
 region_rect = Rect2(8, 0, 152, 40)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=1807201729]
 position = Vector2(22, -51)
 emitting = false
 amount = 1

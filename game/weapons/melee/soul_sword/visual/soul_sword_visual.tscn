@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxneeow1ptjoj"]
+[gd_scene format=3 uid="uid://bxneeow1ptjoj"]
 
 [ext_resource type="Shader" uid="uid://dbdbshseiu72e" path="res://game/weapons/melee/soul_sword/visual/dissolve_unshaded.gdshader" id="1_lkvvc"]
 [ext_resource type="Texture2D" uid="uid://brraqrcs1210k" path="res://game/weapons/melee/soul_sword/visual/dissolve_noise.tres" id="2_fkalx"]
@@ -10,19 +10,19 @@ shader = ExtResource("1_lkvvc")
 shader_parameter/noise = ExtResource("2_fkalx")
 shader_parameter/down_multiplier = 0.0
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1184264814]
 
-[node name="Base" type="Node2D" parent="."]
+[node name="Base" type="Node2D" parent="." unique_id=1385142174]
 material = SubResource("ShaderMaterial_o503u")
 instance_shader_parameters/power = 0.5
 rotation = -0.261799
 
-[node name="Normal" type="Sprite2D" parent="Base"]
+[node name="Normal" type="Sprite2D" parent="Base" unique_id=1300202198]
 use_parent_material = true
 position = Vector2(140, 0)
 texture = ExtResource("3_otsp1")
 
-[node name="Ranged" type="Sprite2D" parent="Base"]
+[node name="Ranged" type="Sprite2D" parent="Base" unique_id=441644694]
 use_parent_material = true
 position = Vector2(140, 0)
 texture = ExtResource("4_m46yh")

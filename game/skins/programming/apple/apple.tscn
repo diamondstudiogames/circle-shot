@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://hu5r8bfwm35u"]
+[gd_scene format=3 uid="uid://hu5r8bfwm35u"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_a3ger"]
 [ext_resource type="Texture2D" uid="uid://du5ppe5qo0scu" path="res://game/skins/programming/apple/apple.png" id="2_txhno"]
 
-[node name="Apple" type="Sprite2D"]
+[node name="Apple" type="Sprite2D" unique_id=1826909631]
 texture = ExtResource("2_txhno")
 script = ExtResource("2_a3ger")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

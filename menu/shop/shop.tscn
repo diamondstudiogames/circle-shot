@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bj723c8k8la6y"]
+[gd_scene format=3 uid="uid://bj723c8k8la6y"]
 
 [ext_resource type="Script" uid="uid://dfbi48lj1pb8n" path="res://menu/shop/shop.gd" id="1_4yet2"]
 [ext_resource type="Texture2D" uid="uid://c3kh0ourvde3l" path="res://menu/shop/background.png" id="2_cyj7w"]
@@ -147,7 +147,7 @@ _data = {
 &"not_enough": SubResource("Animation_cinaw")
 }
 
-[node name="Shop" type="Control"]
+[node name="Shop" type="Control" unique_id=2024864055]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,7 +172,7 @@ cost_equip_legendary = 1600
 cost_skin_epic = 200
 cost_skin_legendary = 650
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="." unique_id=73386133]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,7 +182,7 @@ grow_vertical = 2
 texture = ExtResource("2_cyj7w")
 stretch_mode = 6
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2108244668]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -195,111 +195,111 @@ offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=87575478]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=806756485]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title" unique_id=1590750722]
 custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
 
-[node name="Coins" type="PanelContainer" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Coins" type="PanelContainer" parent="PanelContainer/VBoxContainer/Title" unique_id=305603735]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Title/Coins"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Title/Coins" unique_id=530924195]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer"]
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer" unique_id=942509114]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Coin" type="Sprite2D" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer/Control"]
+[node name="Coin" type="Sprite2D" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer/Control" unique_id=221313439]
 position = Vector2(0, 16)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_cyj7w")
 
-[node name="CoinsCount" type="Label" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer"]
+[node name="CoinsCount" type="Label" parent="PanelContainer/VBoxContainer/Title/Coins/HBoxContainer" unique_id=1022126465]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_type_variation = &"HeaderSmall"
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title" unique_id=352229884]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Магазин"
 
-[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Title" unique_id=133339526]
 custom_minimum_size = Vector2(12, 0)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title" unique_id=1991062313]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 icon = ExtResource("3_whncf")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=1113523769]
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 4
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=583662787]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="SpecialOffers" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="SpecialOffers" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1646720059]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers" unique_id=517979223]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers/VBoxContainer" unique_id=1334204761]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Особые предложения"
 
-[node name="SpecialOffersContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers/VBoxContainer"]
+[node name="SpecialOffersContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/SpecialOffers/VBoxContainer" unique_id=549030301]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DailyOffers" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="DailyOffers" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1403993779]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers" unique_id=2083348804]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer" unique_id=2098170890]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Ежедневные предложения"
 
-[node name="DailyOffersContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer"]
+[node name="DailyOffersContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer" unique_id=1758981439]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NoDailyOffers" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer"]
+[node name="NoDailyOffers" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/DailyOffers/VBoxContainer" unique_id=951528722]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -307,31 +307,31 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.50390625, 0.50390625, 0.50390625, 1)
 text = "Нет предложений"
 
-[node name="Boxes" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="Boxes" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=725195309]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes" unique_id=938999821]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer" unique_id=546595194]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Ящики"
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer" unique_id=155015704]
 layout_mode = 2
 size_flags_vertical = 6
 columns = 2
 
-[node name="SkinBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer"]
+[node name="SkinBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer" unique_id=1867631579]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_rish6")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox" unique_id=1397246086]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -342,7 +342,7 @@ texture = ExtResource("5_cinaw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox" unique_id=12057204]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -359,7 +359,7 @@ theme_type_variation = &"BigFontButton"
 text = "80"
 icon = ExtResource("9_cinaw")
 
-[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
+[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox" unique_id=2106852561]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -375,7 +375,7 @@ grow_vertical = 0
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("7_i3jto")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinBox" unique_id=1696659625]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -386,13 +386,13 @@ text = "Ящик со скинами"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="EquipBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer"]
+[node name="EquipBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer" unique_id=1979161684]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_200u0")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox" unique_id=386779043]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -403,7 +403,7 @@ texture = ExtResource("7_no6pl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox" unique_id=589281255]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -420,7 +420,7 @@ theme_type_variation = &"BigFontButton"
 text = "200"
 icon = ExtResource("9_cinaw")
 
-[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox"]
+[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox" unique_id=1841563357]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -436,7 +436,7 @@ grow_vertical = 0
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("7_i3jto")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipBox" unique_id=795741220]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -447,13 +447,13 @@ text = "Ящик с экипировкой"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="SkinEliteBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer"]
+[node name="SkinEliteBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer" unique_id=152707559]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_i3jto")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox" unique_id=1843988162]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,7 +464,7 @@ texture = ExtResource("8_6qdfj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox" unique_id=870404708]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -481,7 +481,7 @@ theme_type_variation = &"BigFontButton"
 text = "200"
 icon = ExtResource("9_cinaw")
 
-[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox"]
+[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox" unique_id=1761902349]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -497,7 +497,7 @@ grow_vertical = 0
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("7_i3jto")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/SkinEliteBox" unique_id=232925433]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -508,13 +508,13 @@ text = "Элитный ящик со скинами"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="EquipEliteBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer"]
+[node name="EquipEliteBox" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer" unique_id=120330963]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6dce8")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox" unique_id=2048548014]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -525,7 +525,7 @@ texture = ExtResource("9_xdsol")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox" unique_id=2045552539]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -542,7 +542,7 @@ theme_type_variation = &"BigFontButton"
 text = "500"
 icon = ExtResource("9_cinaw")
 
-[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox"]
+[node name="Info" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox" unique_id=1764408269]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -558,7 +558,7 @@ grow_vertical = 0
 theme_override_constants/icon_max_width = 24
 icon = ExtResource("7_i3jto")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Boxes/VBoxContainer/GridContainer/EquipEliteBox" unique_id=1623724043]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -569,31 +569,31 @@ text = "Элитный ящик с экипировкой"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Coins" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="Coins" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=572366848]
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins" unique_id=1580256322]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer" unique_id=266609252]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Монеты"
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer" unique_id=12566224]
 layout_mode = 2
 size_flags_vertical = 6
 columns = 2
 
-[node name="Coins0" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer"]
+[node name="Coins0" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer" unique_id=1399591390]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6qdfj")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0" unique_id=1336580320]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -604,7 +604,7 @@ texture = ExtResource("5_idaoj")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0" unique_id=2029676154]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -621,7 +621,7 @@ theme_type_variation = &"BigFontButton"
 disabled = true
 text = "Недоступно"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins0" unique_id=539072038]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -632,13 +632,13 @@ text = "1000 монет"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Coins1" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer"]
+[node name="Coins1" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer" unique_id=1945077495]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6qdfj")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1" unique_id=1775498863]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -649,7 +649,7 @@ texture = ExtResource("6_yhc8g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1" unique_id=886887452]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -666,7 +666,7 @@ theme_type_variation = &"BigFontButton"
 disabled = true
 text = "Недоступно"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins1" unique_id=1899145857]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -677,13 +677,13 @@ text = "2000 монет"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Coins2" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer"]
+[node name="Coins2" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer" unique_id=1019678492]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6qdfj")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2" unique_id=1630775703]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -694,7 +694,7 @@ texture = ExtResource("7_ra5ts")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2" unique_id=2108368012]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -711,7 +711,7 @@ theme_type_variation = &"BigFontButton"
 disabled = true
 text = "Недоступно"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins2" unique_id=481083462]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -722,13 +722,13 @@ text = "4000 монет"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Coins3" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer"]
+[node name="Coins3" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer" unique_id=879192295]
 custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_6qdfj")
 expand_mode = 1
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3" unique_id=368254244]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -739,7 +739,7 @@ texture = ExtResource("8_ydjaf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3"]
+[node name="Buy" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3" unique_id=1838343245]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -756,7 +756,7 @@ theme_type_variation = &"BigFontButton"
 disabled = true
 text = "Недоступно"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Coins/VBoxContainer/GridContainer/Coins3" unique_id=1120625131]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -767,21 +767,21 @@ text = "8000 монет"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Promocodes" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+[node name="Promocodes" type="PanelContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1005644789]
 custom_minimum_size = Vector2(288, 0)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes" unique_id=58398286]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes/VBoxContainer" unique_id=1282482444]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 text = "Промокоды"
 
-[node name="EnterPromocode" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes/VBoxContainer"]
+[node name="EnterPromocode" type="Button" parent="PanelContainer/VBoxContainer/ScrollContainer/HBoxContainer/Promocodes/VBoxContainer" unique_id=305161081]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -793,7 +793,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="NoCoins" type="Label" parent="."]
+[node name="NoCoins" type="Label" parent="." unique_id=1901134858]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -812,12 +812,10 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Недостаточно монет!"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NoCoins"]
-libraries = {
-&"": SubResource("AnimationLibrary_6qdfj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NoCoins" unique_id=660922477]
+libraries/ = SubResource("AnimationLibrary_6qdfj")
 
-[node name="Purchase" type="ConfirmationDialog" parent="."]
+[node name="Purchase" type="ConfirmationDialog" parent="." unique_id=765188907]
 oversampling_override = 1.0
 title = "Подтверждение покупки"
 size = Vector2i(540, 112)
@@ -826,10 +824,10 @@ ok_button_text = "Купить"
 dialog_autowrap = true
 cancel_button_text = "Отмена"
 
-[node name="Promocodes" parent="." instance=ExtResource("15_xdsol")]
+[node name="Promocodes" parent="." unique_id=1163772891 instance=ExtResource("15_xdsol")]
 visible = false
 
-[node name="BoxInfo" type="Window" parent="."]
+[node name="BoxInfo" type="Window" parent="." unique_id=773690338]
 oversampling_override = 1.0
 title = "Информация о ящике"
 size = Vector2i(640, 400)
@@ -838,14 +836,14 @@ transient = true
 exclusive = true
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="BoxInfo"]
+[node name="Background" type="ColorRect" parent="BoxInfo" unique_id=2121322619]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxInfo" unique_id=467607313]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -853,12 +851,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="BoxType" type="Label" parent="BoxInfo/VBoxContainer"]
+[node name="BoxType" type="Label" parent="BoxInfo/VBoxContainer" unique_id=1649186138]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BoxInfo/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxInfo/VBoxContainer" unique_id=1586353506]
 layout_mode = 2
 size_flags_vertical = 4
 bbcode_enabled = true
@@ -867,14 +865,14 @@ scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 
-[node name="AutofocusWindow" type="Node" parent="BoxInfo"]
+[node name="AutofocusWindow" type="Node" parent="BoxInfo" unique_id=166526025]
 script = ExtResource("18_ps1v5")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1820898587]
 resources = [PackedStringArray("coins_offer", "equip_box_offer", "equip_elite_box_offer", "offer", "offer_item", "skin_box_offer", "skin_elite_box_offer"), [ExtResource("16_200u0"), ExtResource("17_i3jto"), ExtResource("18_6dce8"), ExtResource("20_1ovia"), ExtResource("21_ix43u"), ExtResource("19_1ovia"), ExtResource("20_ix43u")]]
 
-[node name="UpdateDayTimer" type="Timer" parent="."]
+[node name="UpdateDayTimer" type="Timer" parent="." unique_id=1932139180]
 autostart = true
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Title/Quit" to="." method="_on_quit_pressed"]

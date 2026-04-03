@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://buupfjlqbteex"]
+[gd_scene format=3 uid="uid://buupfjlqbteex"]
 
 [ext_resource type="Texture2D" uid="uid://vcip4ihytck" path="res://game/skins/horny/sunflower/cum_drop.png" id="1_k1l4d"]
 
@@ -8,7 +8,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="CumBlood" type="CPUParticles2D"]
+[node name="CumBlood" type="CPUParticles2D" unique_id=1336757225]
 position = Vector2(0, -32)
 emitting = false
 amount = 6

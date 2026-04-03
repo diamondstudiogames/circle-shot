@@ -1,6 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1fq6k1p6cy0"]
+[gd_scene format=3 uid="uid://d1fq6k1p6cy0"]
 
 [ext_resource type="Texture2D" uid="uid://b72pjg2f7euud" path="res://game/weapons/throwable/shurikens/shuriken.png" id="1_063v3"]
+
+[sub_resource type="Animation" id="Animation_xef55"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_cc7fc"]
 resource_name = "hit"
@@ -45,48 +72,19 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xef55"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8prs"]
 _data = {
 &"RESET": SubResource("Animation_xef55"),
 &"hit": SubResource("Animation_cc7fc")
 }
 
-[node name="ShurikenHitVfx" type="Node2D"]
+[node name="ShurikenHitVfx" type="Node2D" unique_id=1534589752]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=24102303]
 rotation = 0.61086524
 texture = ExtResource("1_063v3")
 offset = Vector2(-11, 7)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y8prs")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1096477860]
+libraries/ = SubResource("AnimationLibrary_y8prs")
+autoplay = &"hit"

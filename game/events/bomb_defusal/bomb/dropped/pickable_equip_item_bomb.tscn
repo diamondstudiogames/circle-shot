@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpugjjonr8i0u"]
+[gd_scene format=3 uid="uid://dpugjjonr8i0u"]
 
 [ext_resource type="PackedScene" uid="uid://dyqg11st1fbal" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.tscn" id="1_603bq"]
 [ext_resource type="Texture2D" uid="uid://b7i52rgb6j8qf" path="res://game/events/bomb_defusal/bomb/weapon/image.png" id="2_c8h2d"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="8_56swa"]
 [ext_resource type="Texture2D" uid="uid://dch2ba6ofr21x" path="res://game/events/bomb_defusal/bomb/screen_marker.png" id="9_kw4j2"]
 
-[node name="PickableEquipItemBomb" instance=ExtResource("1_603bq")]
+[node name="PickableEquipItemBomb" unique_id=660974969 instance=ExtResource("1_603bq")]
 script = ExtResource("2_ofa01")
 equip_type = 2
 visual_size_x = 80.0
@@ -21,14 +21,14 @@ weapon_type = 4
 [node name="Interactible" parent="." index="0"]
 script = ExtResource("3_vhk0a")
 
-[node name="MinimapMarker" parent="." index="3" instance=ExtResource("5_4nyev")]
+[node name="MinimapMarker" parent="." index="3" unique_id=1355415304 instance=ExtResource("5_4nyev")]
 team = 0
 
 [node name="Visual" parent="MinimapMarker" index="2"]
 self_modulate = Color(1, 0.5019608, 0, 1)
 texture = ExtResource("6_ofa01")
 
-[node name="ScreenMarker" parent="." index="4" instance=ExtResource("8_56swa")]
+[node name="ScreenMarker" parent="." index="4" unique_id=1819039098 instance=ExtResource("8_56swa")]
 margin = 32.0
 show_when_on_screen = false
 

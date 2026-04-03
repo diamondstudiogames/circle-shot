@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn1jgldw66ros"]
+[gd_scene format=3 uid="uid://bn1jgldw66ros"]
 
 [ext_resource type="PackedScene" uid="uid://cdo5tqeki3gle" path="res://game/weapons/throwable/common/throwable.tscn" id="1_8ym1a"]
 [ext_resource type="PackedScene" uid="uid://cr2lcuf4nyoxw" path="res://game/weapons/throwable/kunai/kunai_ammo.tscn" id="2_oif0l"]
@@ -90,7 +90,7 @@ _data = {
 &"equip": SubResource("Animation_t587r")
 }
 
-[node name="Kunai" instance=ExtResource("1_8ym1a")]
+[node name="Kunai" unique_id=516066040 instance=ExtResource("1_8ym1a")]
 projectile_scene = ExtResource("2_t587r")
 ammo_scene = ExtResource("2_oif0l")
 to_aim_time = 0.2
@@ -102,23 +102,21 @@ ammo_per_load = 6
 ammo_total = 54
 speed_multiplier_when_current = 0.99
 
-[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+[node name="ThrowPoint" parent="ThrowPivot" parent_id_path=PackedInt32Array(1435792219) index="0" unique_id=235930379]
 position = Vector2(96, 0)
 
-[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0"]
+[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0" unique_id=322959564]
 visible = true
 width = 8.0
 
-[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0"]
+[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0" unique_id=220986809]
 position = Vector2(0, 0)
 
-[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1"]
+[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1" unique_id=1589520150]
 position = Vector2(0, 0)
 
-[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2"]
+[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2" unique_id=1268797650]
 width = 12.0
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_62234")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=607822860]
+libraries/ = SubResource("AnimationLibrary_62234")

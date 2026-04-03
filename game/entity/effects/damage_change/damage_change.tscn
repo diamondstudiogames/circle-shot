@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxgpbuysxjefr"]
+[gd_scene format=3 uid="uid://bxgpbuysxjefr"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_jwunq"]
 [ext_resource type="Script" uid="uid://c4jv6xtpqmuvw" path="res://game/entity/effects/damage_change/damage_change.gd" id="1_xgvqg"]
@@ -11,10 +11,10 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="DamageChange" instance=ExtResource("1_jwunq")]
+[node name="DamageChange" unique_id=1094377481 instance=ExtResource("1_jwunq")]
 script = ExtResource("1_xgvqg")
 
-[node name="Up" type="CPUParticles2D" parent="." index="1"]
+[node name="Up" type="CPUParticles2D" parent="." index="1" unique_id=1006761]
 visible = false
 position = Vector2(0, 32)
 amount = 3
@@ -33,7 +33,7 @@ initial_velocity_max = 20.0
 color = Color(1, 1, 1, 0.752941)
 color_ramp = SubResource("Gradient_nj2y7")
 
-[node name="Down" type="CPUParticles2D" parent="." index="2"]
+[node name="Down" type="CPUParticles2D" parent="." index="2" unique_id=2143834155]
 visible = false
 position = Vector2(0, -32)
 amount = 3

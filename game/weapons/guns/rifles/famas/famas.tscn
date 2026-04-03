@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ktvv2dnbcgp"]
+[gd_scene format=3 uid="uid://b5ktvv2dnbcgp"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_ws6qo"]
 [ext_resource type="PackedScene" uid="uid://byoxdenhuuhfc" path="res://game/weapons/guns/rifles/famas/famas_bullet.tscn" id="2_4hyw8"]
@@ -25,7 +25,7 @@ point_count = 5
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="FAMAS" instance=ExtResource("1_ws6qo")]
+[node name="FAMAS" unique_id=15059565 instance=ExtResource("1_ws6qo")]
 shoot_interval = 0.13
 to_aim_time = 0.2
 projectile_scene = ExtResource("2_4hyw8")
@@ -42,12 +42,10 @@ ammo_total = 150
 speed_multiplier_when_current = 0.95
 aim_camera_distance = 280.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_ciwyh")]
+[node name="Visual" parent="." index="0" unique_id=1257834613 instance=ExtResource("3_ciwyh")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(155, -20)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_gmio7")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_gmio7")

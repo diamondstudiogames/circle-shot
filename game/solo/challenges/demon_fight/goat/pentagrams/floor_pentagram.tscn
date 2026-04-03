@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3qkueb6bersk"]
+[gd_scene format=3 uid="uid://d3qkueb6bersk"]
 
 [ext_resource type="Script" uid="uid://binsahn8527y7" path="res://game/solo/challenges/demon_fight/goat/pentagrams/floor_pentagram.gd" id="1_j5flw"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="2_sk0vx"]
@@ -89,36 +89,34 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
 
-[node name="FloorPentagram" type="Node2D"]
+[node name="FloorPentagram" type="Node2D" unique_id=826543460]
 script = ExtResource("1_j5flw")
 damage = 9
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="."]
+[node name="AreaDetector" type="Area2D" parent="." unique_id=1239222846]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("2_sk0vx")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector" unique_id=1957624036]
 visible = false
 shape = SubResource("CircleShape2D_lokk1")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1602313401]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -4
 material = ExtResource("3_j5flw")
 scale = Vector2(2, 2)
 texture = ExtResource("4_lokk1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_hi0xu")
-}
-autoplay = "attack"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1263178969]
+libraries/ = SubResource("AnimationLibrary_hi0xu")
+autoplay = &"attack"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1937317084]
 replication_config = SubResource("SceneReplicationConfig_j5flw")

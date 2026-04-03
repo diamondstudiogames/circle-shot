@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp4pujbxltqog"]
+[gd_scene format=3 uid="uid://cp4pujbxltqog"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_4aspk"]
 [ext_resource type="Texture2D" uid="uid://b3l2yoog3jjcj" path="res://game/skins/standard/capitalist/capitalist.png" id="1_k17mr"]
 
-[node name="Capitalist" type="Sprite2D"]
+[node name="Capitalist" type="Sprite2D" unique_id=404865717]
 texture = ExtResource("1_k17mr")
 offset = Vector2(0, -6)
 script = ExtResource("1_4aspk")

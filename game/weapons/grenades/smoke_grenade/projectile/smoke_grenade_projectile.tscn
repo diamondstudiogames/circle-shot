@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3cta5u3qtmvj"]
+[gd_scene format=3 uid="uid://3cta5u3qtmvj"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_3kt7o"]
 [ext_resource type="Texture2D" uid="uid://of5a60eh78px" path="res://game/weapons/grenades/smoke_grenade/visual/base.png" id="2_e4wmq"]
@@ -521,67 +521,65 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_i77hk"]
 radius = 1280.0
 
-[node name="SmokeGrenadeProjectile" instance=ExtResource("1_3kt7o")]
+[node name="SmokeGrenadeProjectile" unique_id=1759772400 instance=ExtResource("1_3kt7o")]
 script = ExtResource("2_hk066")
 speed = 1200.0
 damping = 400.0
 
-[node name="Grenade" parent="." index="0"]
+[node name="Grenade" parent="." index="0" unique_id=1624174126]
 texture = ExtResource("2_e4wmq")
 
-[node name="ExplosionTimer" parent="." index="2"]
+[node name="ExplosionTimer" parent="." index="2" unique_id=1830172877]
 wait_time = 2.0
 
-[node name="Explosion" type="Node2D" parent="." index="4"]
+[node name="Explosion" type="Node2D" parent="." index="4" unique_id=830726299]
 physics_interpolation_mode = 2
 
-[node name="Smokes" type="Node2D" parent="Explosion" index="0"]
+[node name="Smokes" type="Node2D" parent="Explosion" index="0" unique_id=1691040377]
 modulate = Color(1, 1, 1, 0)
 z_index = 4
 
-[node name="Smoke0" type="Sprite2D" parent="Explosion/Smokes" index="0"]
+[node name="Smoke0" type="Sprite2D" parent="Explosion/Smokes" index="0" unique_id=596187890]
 rotation = -0.357852
 texture = ExtResource("3_qcdsd")
 
-[node name="Smoke1" type="Sprite2D" parent="Explosion/Smokes" index="1"]
+[node name="Smoke1" type="Sprite2D" parent="Explosion/Smokes" index="1" unique_id=576181711]
 rotation = 1.79954
 texture = ExtResource("3_qcdsd")
 
-[node name="Smoke2" type="Sprite2D" parent="Explosion/Smokes" index="2"]
+[node name="Smoke2" type="Sprite2D" parent="Explosion/Smokes" index="2" unique_id=1583429271]
 rotation = -0.79221
 texture = ExtResource("3_qcdsd")
 
-[node name="Smoke3" type="Sprite2D" parent="Explosion/Smokes" index="3"]
+[node name="Smoke3" type="Sprite2D" parent="Explosion/Smokes" index="3" unique_id=261772431]
 rotation = 0.721578
 texture = ExtResource("3_qcdsd")
 
-[node name="Smoke" type="Sprite2D" parent="Explosion" index="1"]
+[node name="Smoke" type="Sprite2D" parent="Explosion" index="1" unique_id=927837673]
 modulate = Color(1, 1, 1, 0)
 z_index = 4
 scale = Vector2(4, 4)
 texture = ExtResource("5_xbloa")
 
-[node name="InvisibilityArea" type="Area2D" parent="Explosion" index="2"]
+[node name="InvisibilityArea" type="Area2D" parent="Explosion" index="2" unique_id=302095287]
 collision_layer = 4
 collision_mask = 2
 monitorable = false
 script = ExtResource("4_yvr35")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/InvisibilityArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/InvisibilityArea" index="0" unique_id=519826996]
 shape = SubResource("CircleShape2D_0x6f5")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_kply2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="3" unique_id=1802577960]
+libraries/ = SubResource("AnimationLibrary_kply2")
 
-[node name="SmokeZone" type="Area2D" parent="Explosion" index="4" groups=["anti_fire"]]
+[node name="SmokeZone" type="Area2D" parent="Explosion" index="4" unique_id=476916093 groups=["anti_fire"]]
 collision_layer = 129
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/SmokeZone" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/SmokeZone" index="0" unique_id=1396940505]
 shape = SubResource("CircleShape2D_i77hk")
 disabled = true
 

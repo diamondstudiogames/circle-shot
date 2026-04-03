@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kyk1d4l4sa2k"]
+[gd_scene format=3 uid="uid://kyk1d4l4sa2k"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_mioq4"]
 [ext_resource type="Script" uid="uid://bv54vw8sk35a0" path="res://game/weapons/guns/rifles/minigun/minigun.gd" id="2_jp05l"]
@@ -21,7 +21,7 @@ _limits = [-15.0, 15.0, 0.0, 2.0]
 _data = [Vector2(0, -15), 0.0, 0.0, 0, 0, Vector2(1.010101, 15), 0.0, 0.0, 0, 0, Vector2(2, -15), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Minigun" instance=ExtResource("1_mioq4")]
+[node name="Minigun" unique_id=1599480916 instance=ExtResource("1_mioq4")]
 script = ExtResource("2_jp05l")
 charge_time = 1.2
 handle_max_rotation = -40.0
@@ -45,24 +45,22 @@ ammo_total = 450
 speed_multiplier_when_current = 0.7
 aim_camera_distance = 200.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_nhbw1")]
+[node name="Visual" parent="." index="0" unique_id=2042225587 instance=ExtResource("3_nhbw1")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(264, -6)
 
-[node name="Aim" parent="ShootPoint" index="0"]
+[node name="Aim" parent="ShootPoint" index="0" unique_id=1210121671]
 width = 32.0
 
-[node name="SpreadLeft" parent="ShootPoint/Aim" index="0"]
+[node name="SpreadLeft" parent="ShootPoint/Aim" index="0" unique_id=1319216196]
 position = Vector2(0, -16)
 
-[node name="SpreadRight" parent="ShootPoint/Aim" index="1"]
+[node name="SpreadRight" parent="ShootPoint/Aim" index="1" unique_id=1224240498]
 position = Vector2(0, 16)
 
-[node name="Outline" parent="ShootPoint/Aim" index="2"]
+[node name="Outline" parent="ShootPoint/Aim" index="2" unique_id=1564062309]
 width = 36.0
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_iip8x")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_iip8x")

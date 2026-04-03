@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhowipgynlmam"]
+[gd_scene format=3 uid="uid://bhowipgynlmam"]
 
 [ext_resource type="Script" uid="uid://kkomha1tlord" path="res://game/events/bomb_defusal/bomb/weapon/bomb.gd" id="1_w11ds"]
 [ext_resource type="Texture2D" uid="uid://kywf3sb6226j" path="res://game/events/bomb_defusal/bomb/bomb.png" id="2_1vqsf"]
@@ -123,18 +123,18 @@ _data = {
 &"plant": SubResource("Animation_o0wys")
 }
 
-[node name="Bomb" type="Node2D"]
+[node name="Bomb" type="Node2D" unique_id=284341610]
 script = ExtResource("1_w11ds")
 ammo_per_load = 0
 ammo_total = -1
 speed_multiplier_when_current = 0.99
 aim_camera_distance = 0.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1160976709]
 rotation = 0.39330202
 texture = ExtResource("2_1vqsf")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=39039377]
 position = Vector2(-32, -48)
 target_position = Vector2(0, 32)
 collision_mask = 128
@@ -142,7 +142,7 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="State" type="Label" parent="."]
+[node name="State" type="Label" parent="." unique_id=556499208]
 z_index = 10
 anchors_preset = 7
 anchor_left = 0.5
@@ -163,26 +163,24 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dcvvm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2032364469]
+libraries/ = SubResource("AnimationLibrary_dcvvm")
 
-[node name="RemoteTransformMinimapMarker" type="RemoteTransform2D" parent="."]
+[node name="RemoteTransformMinimapMarker" type="RemoteTransform2D" parent="." unique_id=1690292715]
 position = Vector2(-32, -32)
 remote_path = NodePath("../MarkersBase/MinimapMarker")
 update_rotation = false
 update_scale = false
 
-[node name="RemoteTransformScreenMarker" type="RemoteTransform2D" parent="."]
+[node name="RemoteTransformScreenMarker" type="RemoteTransform2D" parent="." unique_id=1175512046]
 position = Vector2(-32, -32)
 remote_path = NodePath("../MarkersBase/ScreenMarker")
 update_rotation = false
 update_scale = false
 
-[node name="MarkersBase" type="Node" parent="."]
+[node name="MarkersBase" type="Node" parent="." unique_id=1945947980]
 
-[node name="MinimapMarker" parent="MarkersBase" instance=ExtResource("3_dw5hw")]
+[node name="MinimapMarker" parent="MarkersBase" unique_id=144721421 instance=ExtResource("3_dw5hw")]
 position = Vector2(-32, -32)
 team = 0
 
@@ -191,7 +189,7 @@ self_modulate = Color(1, 0.5019608, 0, 1)
 position = Vector2(-32, -32)
 texture = ExtResource("4_k60jd")
 
-[node name="ScreenMarker" parent="MarkersBase" instance=ExtResource("5_6fdbn")]
+[node name="ScreenMarker" parent="MarkersBase" unique_id=846707847 instance=ExtResource("5_6fdbn")]
 position = Vector2(-32, -32)
 margin = 32.0
 show_when_on_screen = false

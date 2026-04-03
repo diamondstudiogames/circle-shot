@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5tg4rjorsisy"]
+[gd_scene format=3 uid="uid://5tg4rjorsisy"]
 
 [ext_resource type="Texture2D" uid="uid://ij32vnio3bu3" path="res://game/weapons/guns/rifles/m4a1/visual/magazine.png" id="1_x7nm8"]
 [ext_resource type="Texture2D" uid="uid://c5e2xvyalwhqn" path="res://game/weapons/guns/rifles/m4a1/visual/base.png" id="2_plmw2"]
@@ -10,34 +10,34 @@
 [sub_resource type="Gradient" id="Gradient_1bgpl"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=470642536]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=901025373]
 visible = false
 texture = ExtResource("1_x7nm8")
 offset = Vector2(52, 16)
 region_enabled = true
 region_rect = Rect2(160, 104, 40, 48)
 
-[node name="Weapon" type="Sprite2D" parent="."]
+[node name="Weapon" type="Sprite2D" parent="." unique_id=34085369]
 texture = ExtResource("2_plmw2")
 offset = Vector2(64, -16)
 
-[node name="Shutter" type="Sprite2D" parent="Weapon"]
+[node name="Shutter" type="Sprite2D" parent="Weapon" unique_id=263378981]
 show_behind_parent = true
 texture = ExtResource("3_v1q7b")
 offset = Vector2(0, -44)
 region_enabled = true
 region_rect = Rect2(104, 56, 48, 24)
 
-[node name="Magazine" type="Sprite2D" parent="Weapon"]
+[node name="Magazine" type="Sprite2D" parent="Weapon" unique_id=1527269111]
 show_behind_parent = true
 texture = ExtResource("1_x7nm8")
 offset = Vector2(52, 16)
 region_enabled = true
 region_rect = Rect2(160, 104, 40, 48)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Weapon"]
+[node name="Sleeve" type="CPUParticles2D" parent="Weapon" unique_id=1597260078]
 position = Vector2(5, -36)
 emitting = false
 amount = 1
@@ -52,7 +52,7 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_1bgpl")
 
-[node name="Shoot" type="Sprite2D" parent="Weapon"]
+[node name="Shoot" type="Sprite2D" parent="Weapon" unique_id=1312417280]
 visible = false
 show_behind_parent = true
 material = ExtResource("5_jjtr2")

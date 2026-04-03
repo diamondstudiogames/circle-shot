@@ -1,23 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc2mkoa1fingr"]
+[gd_scene format=3 uid="uid://cc2mkoa1fingr"]
 
 [ext_resource type="PackedScene" uid="uid://bidwr44u84ou5" path="res://game/events/flag_capture/flag/flag.tscn" id="1_uwd6v"]
 [ext_resource type="Texture2D" uid="uid://dqbav2p7upk4b" path="res://game/events/flag_capture/flag/red_flag.png" id="2_4m2ke"]
 
-[node name="RedFlag" instance=ExtResource("1_uwd6v")]
+[node name="RedFlag" unique_id=1356148140 instance=ExtResource("1_uwd6v")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="0" unique_id=109436411]
 texture = ExtResource("2_4m2ke")
 
-[node name="TimerProgress" parent="." index="3"]
+[node name="TimerProgress" parent="." index="3" unique_id=415926195]
 self_modulate = Color(1, 0, 0, 1)
 
-[node name="MinimapMarker" parent="." index="4"]
+[node name="MinimapMarker" parent="." index="4" unique_id=552689450]
 team = 0
 
 [node name="Visual" parent="MinimapMarker" index="2"]
 self_modulate = Color(1, 0, 0, 1)
 
-[node name="Marker" parent="ScreenMarker" index="0"]
+[node name="Marker" parent="ScreenMarker" parent_id_path=PackedInt32Array(245766272) index="0"]
 modulate = Color(1, 0, 0, 1)
 
 [editable path="MinimapMarker"]
