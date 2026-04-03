@@ -1,2 +1,2 @@
-все аргументы в get_cmdline_args
+все аргументы в get_cmdline_args (set_cmdline main_args -> args)
 включить override для main pack
