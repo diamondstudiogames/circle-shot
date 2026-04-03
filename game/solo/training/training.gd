@@ -125,6 +125,7 @@ func load_default_map() -> void:
 		
 		for x: int in MAP_SIZE.x:
 			for y: int in MAP_SIZE.y:
+				@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
 				var map_coords := Vector2i(x, y) - MAP_SIZE / 2
 				match map_data[y * MAP_SIZE.x + x]:
 					BlockType.GRASS:
@@ -170,6 +171,7 @@ func load_default_map() -> void:
 	for enemy_data: EnemyData in enemies_data:
 		var sprite := Sprite2D.new()
 		sprite.texture = enemies_icons[enemy_data.type]
+		@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
 		sprite.position = Vector2(enemy_data.coords - MAP_SIZE / 2) * 160
 		sprite.position += Vector2.ONE * 80
 		sprite.z_index = -4
@@ -193,6 +195,7 @@ func load_default_map() -> void:
 			nav_polygon.source_geometry_group_name = &"navigation_polygon_source"
 			nav_polygon.agent_radius = 77.0
 			
+			@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
 			var chunk_size := Vector2(Training.MAP_SIZE / 5 * 160.0) + Vector2.ONE * 320
 			nav_polygon.add_outline(PackedVector2Array([
 				-chunk_size,
@@ -282,6 +285,7 @@ func get_map_data() -> PackedByteArray:
 	for x: int in MAP_SIZE.x:
 		for y: int in MAP_SIZE.y:
 			# отнимаем полразмера т.к. в карте есть отрицательные координаты
+			@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
 			var atlas_coords: Vector2i = floor_layer.get_cell_atlas_coords(
 						Vector2i(x, y) - MAP_SIZE / 2)
 			data[y * MAP_SIZE.x + x] = BlockType.HOLE \
@@ -290,6 +294,7 @@ func get_map_data() -> PackedByteArray:
 	var walls_layer: TileMapLayer = current_map.get_node(^"TileMapLayers/Walls")
 	for x: int in MAP_SIZE.x:
 		for y: int in MAP_SIZE.y:
+			@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
 			var atlas_coords: Vector2i = walls_layer.get_cell_atlas_coords(
 					Vector2i(x, y) - MAP_SIZE / 2)
 			if atlas_coords == Vector2i(1, 0):
