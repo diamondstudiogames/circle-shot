@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8i427otkde7x"]
+[gd_scene format=3 uid="uid://b8i427otkde7x"]
 
 [ext_resource type="PackedScene" uid="uid://dp6wxqvjukdht" path="res://game/maps/common/map.tscn" id="1_xn3rg"]
 
-[node name="Map" instance=ExtResource("1_xn3rg")]
+[node name="Map" unique_id=1234293970 instance=ExtResource("1_xn3rg")]
 metadata/_edit_vertical_guides_ = [-2400.0, 2400.0]
 metadata/_edit_horizontal_guides_ = [-1600.0, 1600.0]
 
@@ -22,11 +22,11 @@ position = Vector2(0, 1600)
 chunks_per_axis = 4
 map_size = Vector2i(30, 20)
 
-[node name="SpawnPoint0" type="Marker2D" parent="." index="4"]
+[node name="SpawnPoint0" type="Marker2D" parent="." index="4" unique_id=525574657]
 position = Vector2(-227, -17)
 gizmo_extents = 80.0
 
-[node name="SpawnPoint1" type="Marker2D" parent="." index="5"]
+[node name="SpawnPoint1" type="Marker2D" parent="." index="5" unique_id=1279335577]
 position = Vector2(238, 17)
 gizmo_extents = 80.0
 

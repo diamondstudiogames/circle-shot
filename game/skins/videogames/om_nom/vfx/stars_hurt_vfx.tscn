@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ej82niyj2mqe"]
+[gd_scene format=3 uid="uid://ej82niyj2mqe"]
 
 [ext_resource type="Texture2D" uid="uid://croca6t4nd0i7" path="res://game/skins/videogames/om_nom/vfx/star.png" id="1_j4pkx"]
 
@@ -6,9 +6,9 @@
 _data = [Vector2(0, 1), 0.0, 0.109946, 0, 0, Vector2(1, 0), -2.79314, 0.0, 0, 0]
 point_count = 2
 
-[node name="StarsHurtVfx" type="Node2D"]
+[node name="StarsHurtVfx" type="Node2D" unique_id=675807230]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=284496575]
 z_index = 1
 amount = 3
 texture = ExtResource("1_j4pkx")
@@ -24,7 +24,7 @@ initial_velocity_min = 80.0
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1955975618]
 wait_time = 0.6
 one_shot = true
 autostart = true

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2x58lim4381g"]
+[gd_scene format=3 uid="uid://c2x58lim4381g"]
 
 [ext_resource type="Script" uid="uid://b4spqnwo4ppbw" path="res://menu/inventory/inventory.gd" id="1_swjl8"]
 [ext_resource type="Texture2D" uid="uid://hwc7je4q6twm" path="res://menu/inventory/background.png" id="2_1mk84"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="3_76jyk"]
 [ext_resource type="Script" uid="uid://cq43botg0qg0m" path="res://menu/items_grid/items_grid.gd" id="4_76jyk"]
 
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" unique_id=743238519]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_swjl8")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=812160602]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_vertical = 2
 texture = ExtResource("2_1mk84")
 stretch_mode = 6
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1477947988]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,50 +38,50 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1057455223]
 layout_mode = 2
 
-[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Title" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1746086665]
 layout_mode = 2
 alignment = 1
 
-[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Title" unique_id=1859582978]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title" unique_id=1394923958]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Арсенал"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title"]
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/Title" unique_id=175980321]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 icon = ExtResource("3_76jyk")
 
-[node name="Main" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Main" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1543776977]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Selection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Main"]
+[node name="Selection" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Main" unique_id=1909919949]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Main/Selection"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Main/Selection" unique_id=2013824847]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Выбери категорию"
 horizontal_alignment = 1
 
-[node name="Filters" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Main/Selection"]
+[node name="Filters" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Main/Selection" unique_id=1262960631]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="MainFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters"]
+[node name="MainFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters" unique_id=1498938666]
 layout_mode = 2
 selected = 0
 allow_reselect = true
@@ -99,7 +99,7 @@ popup/item_4/id = 4
 popup/item_5/text = "Испытания"
 popup/item_5/id = 5
 
-[node name="WeaponsFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters"]
+[node name="WeaponsFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters" unique_id=1687399377]
 layout_mode = 2
 selected = 0
 item_count = 5
@@ -114,7 +114,7 @@ popup/item_3/id = 3
 popup/item_4/text = "Ближнее"
 popup/item_4/id = 4
 
-[node name="SkinsFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters"]
+[node name="SkinsFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters" unique_id=2055373574]
 visible = false
 layout_mode = 2
 selected = 0
@@ -122,21 +122,21 @@ item_count = 1
 popup/item_0/text = "Все скины"
 popup/item_0/id = 0
 
-[node name="OnlyUnlocked" type="CheckButton" parent="PanelContainer/VBoxContainer/Main/Selection"]
+[node name="OnlyUnlocked" type="CheckButton" parent="PanelContainer/VBoxContainer/Main/Selection" unique_id=1531397946]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 18
 text = "Только разблокированные"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Main/Selection"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Main/Selection" unique_id=1493636509]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 0
 
-[node name="ItemsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/Main/Selection/ScrollContainer"]
+[node name="ItemsGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/Main/Selection/ScrollContainer" unique_id=716467820]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
@@ -144,16 +144,16 @@ size_flags_horizontal = 4
 script = ExtResource("4_76jyk")
 metadata/_custom_type_script = "uid://cq43botg0qg0m"
 
-[node name="DescriptionPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer/Main"]
+[node name="DescriptionPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer/Main" unique_id=592295004]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Description" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel"]
+[node name="Description" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel" unique_id=1992661192]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description"]
+[node name="Name" type="Label" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description" unique_id=735618439]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
@@ -161,11 +161,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="SmallItem" type="ColorRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description"]
+[node name="SmallItem" type="ColorRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description" unique_id=1931336362]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description/SmallItem"]
+[node name="Texture" type="TextureRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description/SmallItem" unique_id=899189401]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,24 +175,24 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="BigItem" type="TextureRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description"]
+[node name="BigItem" type="TextureRect" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description" unique_id=692708191]
 custom_minimum_size = Vector2(384, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Text" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description"]
+[node name="Text" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description" unique_id=895328122]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 shortcut_keys_enabled = false
 
-[node name="ShowItems" type="Button" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description"]
+[node name="ShowItems" type="Button" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel/Description" unique_id=1584118988]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="NothingSelected" type="Label" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel"]
+[node name="NothingSelected" type="Label" parent="PanelContainer/VBoxContainer/Main/DescriptionPanel" unique_id=205175513]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c427i0rt1iube"]
+[gd_scene format=3 uid="uid://c427i0rt1iube"]
 
 [ext_resource type="Texture2D" uid="uid://dmfqy6vstfl1v" path="res://game/weapons/guns/pistols/russian_revolver/visual/base.png" id="1_2nf0p"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_iw4wj"]
@@ -13,28 +13,28 @@
 offsets = PackedFloat32Array(0.76383764, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1222073102]
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1654533768]
 texture = ExtResource("1_2nf0p")
 offset = Vector2(22, -8)
 region_enabled = true
 region_rect = Rect2(0, 0, 80, 72)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1265986181]
 visible = false
 material = ExtResource("2_iw4wj")
 position = Vector2(138, -33)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_3psuj")
 
-[node name="Barrel" type="Sprite2D" parent="Base"]
+[node name="Barrel" type="Sprite2D" parent="Base" unique_id=1449408347]
 texture = ExtResource("4_whb6b")
 offset = Vector2(70, -32)
 region_enabled = true
 region_rect = Rect2(32, 0, 112, 24)
 
-[node name="Sleeves" type="CPUParticles2D" parent="Base"]
+[node name="Sleeves" type="CPUParticles2D" parent="Base" unique_id=1474552671]
 position = Vector2(38, -17)
 emitting = false
 amount = 6
@@ -55,12 +55,12 @@ angular_velocity_min = -180.0
 angular_velocity_max = 180.0
 color_ramp = SubResource("Gradient_41vo5")
 
-[node name="Ammo" type="Sprite2D" parent="Base"]
+[node name="Ammo" type="Sprite2D" parent="Base" unique_id=19217658]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-40, 8)
 texture = ExtResource("6_qe40g")
 
-[node name="Cylinder" type="Sprite2D" parent="Base"]
+[node name="Cylinder" type="Sprite2D" parent="Base" unique_id=1412592673]
 material = ExtResource("7_i4m52")
 instance_shader_parameters/color = Color(1, 0, 0, 1)
 instance_shader_parameters/power = 0.0

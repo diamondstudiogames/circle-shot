@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fr7tkkl2lgw3"]
+[gd_scene format=3 uid="uid://fr7tkkl2lgw3"]
 
 [ext_resource type="Texture2D" uid="uid://do18lr806cpi7" path="res://game/locations/underwater/textures/scat.png" id="1_1ocpe"]
 
@@ -69,26 +69,24 @@ _data = {
 &"scat": SubResource("Animation_kblyk")
 }
 
-[node name="Scat" type="Node2D"]
+[node name="Scat" type="Node2D" unique_id=1808177227]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." unique_id=934932259]
 position = Vector2(-295, 552)
 curve = SubResource("Curve2D_wb6xb")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1513775749]
 position = Vector2(3080, -515)
 rotation = -0.23109148
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D" unique_id=511076205]
 rotation = 1.5708
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6xx52")
 autoplay = "default"
 frame_progress = 0.660206
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1698941691]
 root_node = NodePath("../Path2D")
-libraries = {
-&"": SubResource("AnimationLibrary_6vh21")
-}
-autoplay = "scat"
+libraries/ = SubResource("AnimationLibrary_6vh21")
+autoplay = &"scat"

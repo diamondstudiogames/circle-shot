@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemsDB" load_steps=70 format=3 uid="uid://pwq1e7l2ckos"]
+[gd_resource type="Resource" script_class="ItemsDB" format=3 uid="uid://pwq1e7l2ckos"]
 
 [ext_resource type="Script" uid="uid://btj6q66tc1cd6" path="res://game/solo/challenges/common/challenge_data.gd" id="1_l7qpn"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_yrpvj"]

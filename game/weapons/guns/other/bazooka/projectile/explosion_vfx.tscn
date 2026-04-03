@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csv5dwyvt57x6"]
+[gd_scene format=3 uid="uid://csv5dwyvt57x6"]
 
 [ext_resource type="Script" uid="uid://b2ghun2kqwwnn" path="res://game/weapons/guns/other/bazooka/projectile/explosion_vfx.gd" id="1_57jy1"]
 [ext_resource type="Texture2D" uid="uid://oo1m3cl80hy3" path="res://game/weapons/guns/other/bazooka/projectile/explosion.png" id="1_fn7x4"]
@@ -56,22 +56,20 @@ _data = {
 &"explosion": SubResource("Animation_iks2p")
 }
 
-[node name="ExplosionVfx" type="Node2D"]
+[node name="ExplosionVfx" type="Node2D" unique_id=128629388]
 z_index = 1
 script = ExtResource("1_57jy1")
 shake_max_amplitude = 16.0
 shake_max_duration = 0.6
 shake_max_distance = 1600.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2095109527]
 material = ExtResource("2_l36fo")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_fn7x4")
 hframes = 4
 vframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_fn7x4")
-}
-autoplay = "explosion"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=612870496]
+libraries/ = SubResource("AnimationLibrary_fn7x4")
+autoplay = &"explosion"

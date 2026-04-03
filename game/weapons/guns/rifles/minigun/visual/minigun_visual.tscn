@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://diifqrk7jht1y"]
+[gd_scene format=3 uid="uid://diifqrk7jht1y"]
 
 [ext_resource type="Texture2D" uid="uid://da8ijxylspxeb" path="res://game/weapons/guns/rifles/minigun/visual/magazine.png" id="1_xbqy6"]
 [ext_resource type="Texture2D" uid="uid://ypeqxvv87pwk" path="res://game/weapons/guns/rifles/minigun/visual/base.png" id="2_s7dlt"]
@@ -11,20 +11,20 @@
 [sub_resource type="Gradient" id="Gradient_5vydx"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=1422633490]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=646828634]
 visible = false
 texture = ExtResource("1_xbqy6")
 offset = Vector2(80, 60)
 region_enabled = true
 region_rect = Rect2(48, 96, 168, 112)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=875985540]
 texture = ExtResource("2_s7dlt")
 offset = Vector2(128, 20)
 
-[node name="Pipe" type="Sprite2D" parent="Base"]
+[node name="Pipe" type="Sprite2D" parent="Base" unique_id=1109894373]
 show_behind_parent = true
 position = Vector2(48, 118)
 texture = ExtResource("3_2t2it")
@@ -32,14 +32,14 @@ offset = Vector2(68, -38)
 region_enabled = true
 region_rect = Rect2(88, 120, 160, 104)
 
-[node name="Magazine" type="Sprite2D" parent="Base"]
+[node name="Magazine" type="Sprite2D" parent="Base" unique_id=1810663631]
 show_behind_parent = true
 texture = ExtResource("1_xbqy6")
 offset = Vector2(80, 60)
 region_enabled = true
 region_rect = Rect2(48, 96, 168, 112)
 
-[node name="Handle" type="Sprite2D" parent="Base"]
+[node name="Handle" type="Sprite2D" parent="Base" unique_id=437186720]
 show_behind_parent = true
 position = Vector2(114, -50)
 texture = ExtResource("4_xva6m")
@@ -47,7 +47,7 @@ offset = Vector2(2, -18)
 region_enabled = true
 region_rect = Rect2(152, 0, 32, 48)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1151279402]
 visible = false
 show_behind_parent = true
 material = ExtResource("5_iqb1l")
@@ -55,7 +55,7 @@ position = Vector2(314, -18)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_lo8hg")
 
-[node name="Shoot2" type="Sprite2D" parent="Base"]
+[node name="Shoot2" type="Sprite2D" parent="Base" unique_id=235186760]
 visible = false
 show_behind_parent = true
 material = ExtResource("5_iqb1l")
@@ -63,7 +63,7 @@ position = Vector2(317, -6)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_lo8hg")
 
-[node name="Shoot3" type="Sprite2D" parent="Base"]
+[node name="Shoot3" type="Sprite2D" parent="Base" unique_id=917119746]
 visible = false
 show_behind_parent = true
 material = ExtResource("5_iqb1l")
@@ -71,7 +71,7 @@ position = Vector2(313, 8)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_lo8hg")
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=1894133058]
 position = Vector2(84, 1)
 emitting = false
 amount = 15

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pjhomajigpbi"]
+[gd_scene format=3 uid="uid://pjhomajigpbi"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_spa4n"]
 [ext_resource type="Script" uid="uid://d3jenegyngmbp" path="res://game/weapons/guns/other/flamethrower/projectile/flame_projectile.gd" id="2_bl6oy"]
@@ -172,13 +172,13 @@ _data = {
 &"fire": SubResource("Animation_5h1rg")
 }
 
-[node name="FlameProjectile" instance=ExtResource("1_spa4n")]
+[node name="FlameProjectile" unique_id=467181323 instance=ExtResource("1_spa4n")]
 script = ExtResource("2_bl6oy")
 speed = 1600.0
 damage = 7
 damage_interval = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1817169531]
 self_modulate = Color(1, 1, 0, 1)
 z_index = -1
 material = SubResource("ShaderMaterial_xfegl")
@@ -186,7 +186,7 @@ instance_shader_parameters/outline_color = Color(1, 0, 0, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_ayoey")
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1" unique_id=519547538]
 position = Vector2(-128, 0)
 shape = SubResource("CircleShape2D_dmgbm")
 target_position = Vector2(128, 0)
@@ -195,13 +195,11 @@ collision_mask = 75
 script = ExtResource("6_4pdh8")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 1.25
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_bl6oy")
-}
-autoplay = "fire"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=138550487]
+libraries/ = SubResource("AnimationLibrary_bl6oy")
+autoplay = &"fire"
 
 [connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]

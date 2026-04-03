@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtvo18gjrm7my"]
+[gd_scene format=3 uid="uid://dtvo18gjrm7my"]
 
 [ext_resource type="Script" uid="uid://rhkygnaclmgq" path="res://game/entity/entity.gd" id="1_rxssn"]
 [ext_resource type="Script" uid="uid://ds8wylyjqvikl" path="res://game/entity/entity_input.gd" id="2_1a3pf"]
@@ -35,7 +35,7 @@ properties/4/path = NodePath(".:server_velocity")
 properties/4/spawn = false
 properties/4/replication_mode = 1
 
-[node name="Entity" type="CharacterBody2D" groups=["entity"]]
+[node name="Entity" type="CharacterBody2D" unique_id=1369486729 groups=["entity"]]
 disable_mode = 1
 collision_layer = 2
 collision_mask = 19
@@ -46,30 +46,30 @@ heal_vfx_scene = ExtResource("2_xk3vx")
 numbers_vfx_scene = ExtResource("3_pwmfy")
 metadata/_custom_type_script = "uid://rhkygnaclmgq"
 
-[node name="Input" type="MultiplayerSynchronizer" parent="."]
+[node name="Input" type="MultiplayerSynchronizer" parent="." unique_id=855737893]
 root_path = NodePath(".")
 replication_interval = 0.03
 replication_config = SubResource("SceneReplicationConfig_c2pj3")
 script = ExtResource("2_1a3pf")
 metadata/_custom_type_script = "uid://ds8wylyjqvikl"
 
-[node name="Synchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="Synchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2144121772]
 replication_interval = 0.04
 replication_config = SubResource("SceneReplicationConfig_uh5p1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=117668723]
 
-[node name="Minimap" type="Node2D" parent="."]
+[node name="Minimap" type="Node2D" parent="." unique_id=1373562149]
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minimap"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minimap" unique_id=1346000584]
 rect = Rect2(-100, -100, 200, 200)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Minimap"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Minimap" unique_id=1371570905]
 remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="Visual" type="Sprite2D" parent="Minimap"]
+[node name="Visual" type="Sprite2D" parent="Minimap" unique_id=20939892]
 visible = false
 top_level = true
 visibility_layer = 2
@@ -78,12 +78,12 @@ material = ExtResource("6_0oi3i")
 scale = Vector2(10, 10)
 texture = ExtResource("8_8qsf0")
 
-[node name="Info" type="Node2D" parent="."]
+[node name="Info" type="Node2D" parent="." unique_id=247772461]
 z_index = 14
 material = ExtResource("6_0oi3i")
 position = Vector2(0, -112)
 
-[node name="HealthBar" type="TextureRect" parent="Info"]
+[node name="HealthBar" type="TextureRect" parent="Info" unique_id=443211125]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,7 +99,7 @@ grow_vertical = 2
 texture = ExtResource("5_2rju8")
 script = ExtResource("6_ikluj")
 
-[node name="Health" type="TextureProgressBar" parent="Info/HealthBar"]
+[node name="Health" type="TextureProgressBar" parent="Info/HealthBar" unique_id=411859838]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -109,7 +109,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_progress = ExtResource("7_8qsf0")
 
-[node name="HealthImmediate" type="TextureProgressBar" parent="Info/HealthBar/Health"]
+[node name="HealthImmediate" type="TextureProgressBar" parent="Info/HealthBar/Health" unique_id=294024587]
 show_behind_parent = true
 use_parent_material = true
 layout_mode = 1
@@ -122,10 +122,10 @@ step = 0.0010000000038417
 texture_progress = ExtResource("7_8qsf0")
 tint_progress = Color(0.5019608, 0.5019608, 0.5019608, 1)
 
-[node name="Visual" type="Node2D" parent="."]
+[node name="Visual" type="Node2D" parent="." unique_id=1599520395]
 physics_interpolation_mode = 2
 
-[node name="Effects" type="Node2D" parent="."]
+[node name="Effects" type="Node2D" parent="." unique_id=853338738]
 physics_interpolation_mode = 2
 
 [connection signal="health_changed" from="." to="Info/HealthBar" method="_on_entity_health_changed"]

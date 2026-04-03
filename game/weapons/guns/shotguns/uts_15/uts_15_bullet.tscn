@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://crqwj65hris7n"]
+[gd_scene format=3 uid="uid://crqwj65hris7n"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_dxatg"]
 
-[node name="Uts15Bullet" instance=ExtResource("1_dxatg")]
+[node name="Uts15Bullet" unique_id=2098754434 instance=ExtResource("1_dxatg")]
 speed = 1600.0
 damage = 8
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 0.6

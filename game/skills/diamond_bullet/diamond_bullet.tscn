@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwy62fpecrhen"]
+[gd_scene format=3 uid="uid://dwy62fpecrhen"]
 
 [ext_resource type="Script" uid="uid://fh0cnw0xa7iy" path="res://game/skills/diamond_bullet/diamond_bullet.gd" id="1_vjdej"]
 [ext_resource type="PackedScene" uid="uid://cwbyj0wl0k3ab" path="res://game/skills/diamond_bullet/diamond_bullet_projectile.tscn" id="2_i4kng"]
@@ -67,7 +67,7 @@ _data = {
 &"active": SubResource("Animation_weqfc")
 }
 
-[node name="DiamondBullet" type="Node2D"]
+[node name="DiamondBullet" type="Node2D" unique_id=1229021607]
 script = ExtResource("1_vjdej")
 projectile_scene = ExtResource("2_i4kng")
 spread_walk = 4.0
@@ -75,18 +75,16 @@ use_times = 5
 use_cooldown = 15
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 
-[node name="ActiveMarker" type="Sprite2D" parent="."]
+[node name="ActiveMarker" type="Sprite2D" parent="." unique_id=1585351427]
 visible = false
 position = Vector2(0, -120)
 rotation = 0.523599
 texture = ExtResource("4_i4kng")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ActiveMarker"]
-libraries = {
-&"": SubResource("AnimationLibrary_i4kng")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActiveMarker" unique_id=978749808]
+libraries/ = SubResource("AnimationLibrary_i4kng")
 
-[node name="Aim" type="Line2D" parent="."]
+[node name="Aim" type="Line2D" parent="." unique_id=1824163369]
 visible = false
 z_index = 10
 material = ExtResource("4_weqfc")
@@ -94,35 +92,35 @@ points = PackedVector2Array(64, 0, 4000, 0)
 width = 32.0
 default_color = Color(0, 0.623529, 1, 0.376471)
 
-[node name="SpreadLeft" type="Line2D" parent="Aim"]
+[node name="SpreadLeft" type="Line2D" parent="Aim" unique_id=938565052]
 use_parent_material = true
 position = Vector2(64, -16)
 points = PackedVector2Array(64, 0, 128, 0)
 width = 4.0
 default_color = Color(0, 0.623529, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="Aim/SpreadLeft"]
+[node name="Outline" type="Line2D" parent="Aim/SpreadLeft" unique_id=622269629]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(64, 0, 128, 0)
 width = 8.0
 default_color = Color(0, 0, 1, 0.156863)
 
-[node name="SpreadRight" type="Line2D" parent="Aim"]
+[node name="SpreadRight" type="Line2D" parent="Aim" unique_id=2039269639]
 use_parent_material = true
 position = Vector2(64, 16)
 points = PackedVector2Array(64, 0, 128, 0)
 width = 4.0
 default_color = Color(0, 0.623529, 1, 0.313726)
 
-[node name="Outline" type="Line2D" parent="Aim/SpreadRight"]
+[node name="Outline" type="Line2D" parent="Aim/SpreadRight" unique_id=1368901793]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(64, 0, 128, 0)
 width = 8.0
 default_color = Color(0, 0, 1, 0.156863)
 
-[node name="Outline" type="Line2D" parent="Aim"]
+[node name="Outline" type="Line2D" parent="Aim" unique_id=1611534680]
 show_behind_parent = true
 use_parent_material = true
 points = PackedVector2Array(64, 0, 4000, 0)

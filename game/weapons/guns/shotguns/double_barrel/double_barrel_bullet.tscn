@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dci857ukqhcky"]
+[gd_scene format=3 uid="uid://dci857ukqhcky"]
 
 [ext_resource type="PackedScene" uid="uid://1durulsrwk7o" path="res://game/weapons/guns/common/bullet.tscn" id="1_bau5r"]
 
-[node name="DoubleBarrelBullet" instance=ExtResource("1_bau5r")]
+[node name="DoubleBarrelBullet" unique_id=562016733 instance=ExtResource("1_bau5r")]
 speed = 2400.0
 damage = 11
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 0.7

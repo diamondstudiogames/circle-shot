@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c108o2l7aigvy"]
+[gd_scene format=3 uid="uid://c108o2l7aigvy"]
 
 [ext_resource type="Script" uid="uid://bw1wlw5vj0li2" path="res://game/mobs/bandits/bazooka/bandit_bazooka_death_vfx.gd" id="1_7t5jt"]
 [ext_resource type="Texture2D" uid="uid://dvhmmxmlfylar" path="res://game/mobs/bandits/bazooka/bandit_bazooka_dead.png" id="2_773h1"]
@@ -101,19 +101,19 @@ _data = {
 &"death": SubResource("Animation_76ygj")
 }
 
-[node name="BanditBazookaDeathVfx" type="Node2D"]
+[node name="BanditBazookaDeathVfx" type="Node2D" unique_id=718273566]
 script = ExtResource("1_7t5jt")
 shake_max_amplitude = 12.0
 shake_max_duration = 0.3999999999941792
 shake_max_distance = 1280.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1881018064]
 z_index = -2
 position = Vector2(0, 80)
 texture = ExtResource("2_773h1")
 offset = Vector2(0, -80)
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1428297003]
 z_index = 1
 emitting = false
 amount = 12
@@ -129,8 +129,6 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ehlpc")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=907989565]
+libraries/ = SubResource("AnimationLibrary_ehlpc")
+autoplay = &"death"

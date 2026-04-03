@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3l0k1cn63ahd"]
+[gd_scene format=3 uid="uid://3l0k1cn63ahd"]
 
 [ext_resource type="Script" uid="uid://cukrup6mhkvhw" path="res://game/player/player.gd" id="1_d5iul"]
 [ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_r625f"]
@@ -58,27 +58,27 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="Player" groups=["player"] instance=ExtResource("1_r625f")]
+[node name="Player" unique_id=1612712619 groups=["player"] instance=ExtResource("1_r625f")]
 script = ExtResource("1_d5iul")
 hurt_vfx_scene = ExtResource("3_tk865")
 death_vfx_scene = ExtResource("4_nsvnj")
 
-[node name="Input" parent="." index="0"]
+[node name="Input" parent="." index="0" unique_id=855737893]
 replication_interval = 0.02
 replication_config = SubResource("SceneReplicationConfig_1t0v5")
 script = ExtResource("3_knbu5")
 
-[node name="Synchronizer" parent="." index="1"]
+[node name="Synchronizer" parent="." index="1" unique_id=2144121772]
 replication_config = SubResource("SceneReplicationConfig_r6igu")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_i6vnq")
 
-[node name="HealthBar" parent="Info" index="0"]
+[node name="HealthBar" parent="Info" parent_id_path=PackedInt32Array(247772461) index="0" unique_id=443211125]
 offset_top = 4.0
 offset_bottom = 28.0
 
-[node name="Name" type="Label" parent="Info" index="1"]
+[node name="Name" type="Label" parent="Info" parent_id_path=PackedInt32Array(247772461) index="1" unique_id=1250896015]
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,9 +96,9 @@ text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Skin" type="Node2D" parent="Visual" index="0"]
+[node name="Skin" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=1443610106]
 
-[node name="Blood" type="CPUParticles2D" parent="Visual" index="1"]
+[node name="Blood" type="CPUParticles2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=348564951]
 position = Vector2(0, -32)
 emitting = false
 amount = 6
@@ -110,20 +110,20 @@ emission_sphere_radius = 64.0
 gravity = Vector2(0, 98)
 color_ramp = SubResource("Gradient_bfbq1")
 
-[node name="Weapons" type="Node2D" parent="Visual" index="2"]
+[node name="Weapons" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="2" unique_id=852664185]
 position = Vector2(32, 32)
 
-[node name="Light" type="Node" parent="Visual/Weapons" index="0"]
+[node name="Light" type="Node" parent="Visual/Weapons" index="0" unique_id=1976228680]
 
-[node name="Heavy" type="Node" parent="Visual/Weapons" index="1"]
+[node name="Heavy" type="Node" parent="Visual/Weapons" index="1" unique_id=114008996]
 
-[node name="Support" type="Node" parent="Visual/Weapons" index="2"]
+[node name="Support" type="Node" parent="Visual/Weapons" index="2" unique_id=705064191]
 
-[node name="Melee" type="Node" parent="Visual/Weapons" index="3"]
+[node name="Melee" type="Node" parent="Visual/Weapons" index="3" unique_id=1740239132]
 
-[node name="Additional" type="Node" parent="Visual/Weapons" index="4"]
+[node name="Additional" type="Node" parent="Visual/Weapons" index="4" unique_id=806489004]
 
-[node name="ControlIndicator" type="Sprite2D" parent="." index="7"]
+[node name="ControlIndicator" type="Sprite2D" parent="." index="7" unique_id=14975364]
 visible = false
 z_index = 15
 material = ExtResource("7_epvkq")
@@ -132,7 +132,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_fptox")
 offset = Vector2(0, 32)
 
-[node name="AudioListener2D" type="AudioListener2D" parent="." index="8"]
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="8" unique_id=724451197]
 
-[node name="CameraTarget" type="Marker2D" parent="." index="9"]
+[node name="CameraTarget" type="Marker2D" parent="." index="9" unique_id=2087122338]
 gizmo_extents = 48.0

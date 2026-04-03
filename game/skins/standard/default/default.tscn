@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4mcmkcefammv"]
+[gd_scene format=3 uid="uid://c4mcmkcefammv"]
 
 [ext_resource type="Texture2D" uid="uid://dw1607atagdix" path="res://game/skins/standard/default/default.png" id="2_7jhvr"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_fjrlk"]
 
-[node name="Player" type="Sprite2D"]
+[node name="Player" type="Sprite2D" unique_id=1066281149]
 texture = ExtResource("2_7jhvr")
 script = ExtResource("2_fjrlk")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

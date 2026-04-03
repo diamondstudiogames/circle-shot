@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5wx4yqp027gq"]
+[gd_scene format=3 uid="uid://5wx4yqp027gq"]
 
 [ext_resource type="Script" uid="uid://ctrkbviiei746" path="res://menu/settings/controls.gd" id="1_eiwbe"]
 [ext_resource type="PackedScene" uid="uid://0wc72b0o2o11" path="res://game/player/ui/player_ui.tscn" id="2_mu25c"]
@@ -15,7 +15,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mu25c"]
 bg_color = Color(0.464844, 0, 0, 0.215686)
 
-[node name="Controls" type="Control"]
+[node name="Controls" type="Control" unique_id=1622468921]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eiwbe")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1887609620]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.453125, 0.453125, 0.453125, 1)
 
-[node name="Markup" type="Control" parent="."]
+[node name="Markup" type="Control" parent="." unique_id=452882119]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Line" type="ColorRect" parent="Markup"]
+[node name="Line" type="ColorRect" parent="Markup" unique_id=1553073095]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.25
@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6, 0, 0.8, 1)
 
-[node name="Line2" type="ColorRect" parent="Markup"]
+[node name="Line2" type="ColorRect" parent="Markup" unique_id=2103748011]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.55
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6, 0, 0.8, 1)
 
-[node name="Line3" type="ColorRect" parent="Markup"]
+[node name="Line3" type="ColorRect" parent="Markup" unique_id=313537650]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.35
@@ -74,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6, 0, 0.8, 1)
 
-[node name="Line4" type="ColorRect" parent="Markup"]
+[node name="Line4" type="ColorRect" parent="Markup" unique_id=467542221]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.65
@@ -85,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6, 0, 0.8, 1)
 
-[node name="LeftShootAreaHSplit" type="HSplitContainer" parent="."]
+[node name="LeftShootAreaHSplit" type="HSplitContainer" parent="." unique_id=1132611049]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,19 +93,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_mu25c")
+split_offsets = PackedInt32Array(640)
 split_offset = 640
 
-[node name="ShootAreaVSplit" type="VSplitContainer" parent="LeftShootAreaHSplit"]
+[node name="ShootAreaVSplit" type="VSplitContainer" parent="LeftShootAreaHSplit" unique_id=1935154887]
 layout_mode = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_mu25c")
+split_offsets = PackedInt32Array(256)
 split_offset = 256
 
-[node name="Area" type="ColorRect" parent="LeftShootAreaHSplit/ShootAreaVSplit"]
+[node name="Area" type="ColorRect" parent="LeftShootAreaHSplit/ShootAreaVSplit" unique_id=1362746829]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 color = Color(0.662745, 0, 0, 0.34902)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area" unique_id=1370133671]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,26 +121,26 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer"]
+[node name="Label" type="Label" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer" unique_id=44333828]
 layout_mode = 2
 text = "Зона стрельбы"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShootAreaMoveRight" type="Button" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer"]
+[node name="ShootAreaMoveRight" type="Button" parent="LeftShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer" unique_id=1966040342]
 layout_mode = 2
 text = "Переместить направо"
 icon = ExtResource("2_p6t4g")
 
-[node name="Control" type="Control" parent="LeftShootAreaHSplit/ShootAreaVSplit"]
+[node name="Control" type="Control" parent="LeftShootAreaHSplit/ShootAreaVSplit" unique_id=852145258]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="LeftShootAreaHSplit"]
+[node name="Control" type="Control" parent="LeftShootAreaHSplit" unique_id=1225184738]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="RightShootAreaHSplit" type="HSplitContainer" parent="."]
+[node name="RightShootAreaHSplit" type="HSplitContainer" parent="." unique_id=1877303852]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,23 +148,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_mu25c")
+split_offsets = PackedInt32Array(640)
 split_offset = 640
 
-[node name="Control" type="Control" parent="RightShootAreaHSplit"]
+[node name="Control" type="Control" parent="RightShootAreaHSplit" unique_id=591850211]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 
-[node name="ShootAreaVSplit" type="VSplitContainer" parent="RightShootAreaHSplit"]
+[node name="ShootAreaVSplit" type="VSplitContainer" parent="RightShootAreaHSplit" unique_id=1170729879]
 layout_mode = 2
 theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_mu25c")
+split_offsets = PackedInt32Array(256)
 split_offset = 256
 
-[node name="Area" type="ColorRect" parent="RightShootAreaHSplit/ShootAreaVSplit"]
+[node name="Area" type="ColorRect" parent="RightShootAreaHSplit/ShootAreaVSplit" unique_id=516051708]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 color = Color(0.662745, 0, 0, 0.34902)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RightShootAreaHSplit/ShootAreaVSplit/Area"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RightShootAreaHSplit/ShootAreaVSplit/Area" unique_id=1264548237]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,65 +180,65 @@ offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="RightShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer"]
+[node name="Label" type="Label" parent="RightShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer" unique_id=91116946]
 layout_mode = 2
 text = "Зона стрельбы"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShootAreaMoveLeft" type="Button" parent="RightShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer"]
+[node name="ShootAreaMoveLeft" type="Button" parent="RightShootAreaHSplit/ShootAreaVSplit/Area/VBoxContainer" unique_id=1978354392]
 layout_mode = 2
 text = "Переместить налево"
 icon = ExtResource("3_0kkjk")
 
-[node name="Control" type="Control" parent="RightShootAreaHSplit/ShootAreaVSplit"]
+[node name="Control" type="Control" parent="RightShootAreaHSplit/ShootAreaVSplit" unique_id=696952736]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 
-[node name="PlayerUI" parent="." instance=ExtResource("2_mu25c")]
+[node name="PlayerUI" parent="." unique_id=1908232722 instance=ExtResource("2_mu25c")]
 layout_mode = 1
 script = null
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/HealthBar" index="4"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/HealthBar" parent_id_path=PackedInt32Array(1908232722, 683697452) index="4" unique_id=1348098859]
 script = ExtResource("3_mu25c")
 id = "health_bar"
 
-[node name="MoveVirtualJoystick" parent="PlayerUI/Controller/TouchControls" index="0"]
+[node name="MoveVirtualJoystick" parent="PlayerUI/Controller/TouchControls" parent_id_path=PackedInt32Array(1908232722, 159996159) index="0" unique_id=1716915890]
 process_mode = 4
 
-[node name="AimVirtualJoystick" parent="PlayerUI/Controller/TouchControls" index="1"]
+[node name="AimVirtualJoystick" parent="PlayerUI/Controller/TouchControls" parent_id_path=PackedInt32Array(1908232722, 159996159) index="1" unique_id=961980418]
 process_mode = 4
 
-[node name="ShootArea" parent="PlayerUI/Controller/TouchControls/ShootAreaAnchor" index="0"]
+[node name="ShootArea" parent="PlayerUI/Controller/TouchControls/ShootAreaAnchor" parent_id_path=PackedInt32Array(1908232722, 123361380) index="0" unique_id=412501251]
 visible = false
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/TouchControls/AdditionalButtonAnchor" index="2"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/TouchControls/AdditionalButtonAnchor" parent_id_path=PackedInt32Array(1908232722, 1896243292) index="2" unique_id=1814602303]
 script = ExtResource("3_mu25c")
 id = "additional"
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/TouchControls/InteractButtonAnchor" index="2"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/TouchControls/InteractButtonAnchor" parent_id_path=PackedInt32Array(1908232722, 1509289452) index="2" unique_id=1622263200]
 script = ExtResource("3_mu25c")
 id = "interact"
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/CurrentWeapon" index="3"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/CurrentWeapon" parent_id_path=PackedInt32Array(1908232722, 25905767) index="3" unique_id=1406460373]
 script = ExtResource("3_mu25c")
 id = "weapon"
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/AdditionalWeapon" index="4"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/AdditionalWeapon" parent_id_path=PackedInt32Array(1908232722, 1370018260) index="4" unique_id=1347504804]
 script = ExtResource("3_mu25c")
 id = "spare_weapon"
 
-[node name="Count" parent="PlayerUI/Controller/Skill" index="1"]
+[node name="Count" parent="PlayerUI/Controller/Skill" parent_id_path=PackedInt32Array(1908232722, 807996418) index="1" unique_id=1086968960]
 text = "99"
 
-[node name="TouchScreenButton" parent="PlayerUI/Controller/Skill" index="2"]
+[node name="TouchScreenButton" parent="PlayerUI/Controller/Skill" parent_id_path=PackedInt32Array(1908232722, 807996418) index="2" unique_id=939318125]
 process_mode = 4
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/Skill" index="4"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/Skill" parent_id_path=PackedInt32Array(1908232722, 807996418) index="4" unique_id=2124652448]
 script = ExtResource("3_mu25c")
 id = "skill"
 
-[node name="MoveJoystickEditor" type="Control" parent="PlayerUI/Controller" index="6"]
+[node name="MoveJoystickEditor" type="Control" parent="PlayerUI/Controller" parent_id_path=PackedInt32Array(1908232722, 1433383525) index="6" unique_id=1367744790]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -248,15 +252,15 @@ script = ExtResource("4_f7qr5")
 joystick_path = NodePath("../TouchControls/MoveVirtualJoystick")
 id = "move"
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/MoveJoystickEditor"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/MoveJoystickEditor" unique_id=563698238]
 script = ExtResource("3_mu25c")
 id = "move_js"
 
-[node name="PositionLoader" type="Node" parent="PlayerUI/Controller/MoveJoystickEditor"]
+[node name="PositionLoader" type="Node" parent="PlayerUI/Controller/MoveJoystickEditor" unique_id=97801056]
 script = ExtResource("5_50mix")
 id = "move_js"
 
-[node name="Edit" type="Button" parent="PlayerUI/Controller/MoveJoystickEditor"]
+[node name="Edit" type="Button" parent="PlayerUI/Controller/MoveJoystickEditor" unique_id=641783927]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -268,7 +272,7 @@ grow_horizontal = 2
 toggle_mode = true
 icon = ExtResource("5_hg74u")
 
-[node name="SettingsPanel" type="PanelContainer" parent="PlayerUI/Controller/MoveJoystickEditor"]
+[node name="SettingsPanel" type="PanelContainer" parent="PlayerUI/Controller/MoveJoystickEditor" unique_id=297647120]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -280,35 +284,35 @@ offset_right = 180.0
 offset_bottom = -9.0
 grow_horizontal = 2
 
-[node name="VBox" type="VBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel"]
+[node name="VBox" type="VBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel" unique_id=232948759]
 layout_mode = 2
 
-[node name="Deadzone" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox"]
+[node name="Deadzone" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox" unique_id=1393865332]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Deadzone"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Deadzone" unique_id=462934060]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Мёртвая зона"
 
-[node name="DeadzoneSlider" type="HSlider" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Deadzone"]
+[node name="DeadzoneSlider" type="HSlider" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Deadzone" unique_id=843900528]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 8.0
 max_value = 40.0
 value = 20.0
 
-[node name="Scale" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox"]
+[node name="Scale" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox" unique_id=2051836075]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Scale"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Scale" unique_id=570123135]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Размер"
 
-[node name="ScaleSlider" type="HSlider" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Scale"]
+[node name="ScaleSlider" type="HSlider" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Scale" unique_id=2018930482]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.75
@@ -316,16 +320,16 @@ max_value = 1.25
 step = 0.025
 value = 1.0
 
-[node name="Mode" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox"]
+[node name="Mode" type="HBoxContainer" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox" unique_id=1082941691]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Mode"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Mode" unique_id=569415]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Режим"
 
-[node name="ModeOptions" type="OptionButton" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Mode"]
+[node name="ModeOptions" type="OptionButton" parent="PlayerUI/Controller/MoveJoystickEditor/SettingsPanel/VBox/Mode" unique_id=1410569387]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 3
@@ -336,7 +340,7 @@ popup/item_1/id = 1
 popup/item_2/text = "Плавающий"
 popup/item_2/id = 2
 
-[node name="AimJoystickEditor" type="Control" parent="PlayerUI/Controller" index="7"]
+[node name="AimJoystickEditor" type="Control" parent="PlayerUI/Controller" parent_id_path=PackedInt32Array(1908232722, 1433383525) index="7" unique_id=789323102]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -353,15 +357,15 @@ script = ExtResource("4_f7qr5")
 joystick_path = NodePath("../TouchControls/AimVirtualJoystick")
 id = "aim"
 
-[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/AimJoystickEditor"]
+[node name="PositionEditor" type="Node" parent="PlayerUI/Controller/AimJoystickEditor" unique_id=163005166]
 script = ExtResource("3_mu25c")
 id = "aim_js"
 
-[node name="PositionLoader" type="Node" parent="PlayerUI/Controller/AimJoystickEditor"]
+[node name="PositionLoader" type="Node" parent="PlayerUI/Controller/AimJoystickEditor" unique_id=1598902165]
 script = ExtResource("5_50mix")
 id = "aim_js"
 
-[node name="Edit" type="Button" parent="PlayerUI/Controller/AimJoystickEditor"]
+[node name="Edit" type="Button" parent="PlayerUI/Controller/AimJoystickEditor" unique_id=1229082932]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -373,7 +377,7 @@ grow_horizontal = 2
 toggle_mode = true
 icon = ExtResource("5_hg74u")
 
-[node name="SettingsPanel" type="PanelContainer" parent="PlayerUI/Controller/AimJoystickEditor"]
+[node name="SettingsPanel" type="PanelContainer" parent="PlayerUI/Controller/AimJoystickEditor" unique_id=1447508690]
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -385,35 +389,35 @@ offset_right = 180.0
 offset_bottom = -9.0
 grow_horizontal = 2
 
-[node name="VBox" type="VBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel"]
+[node name="VBox" type="VBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel" unique_id=464727449]
 layout_mode = 2
 
-[node name="Deadzone" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox"]
+[node name="Deadzone" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox" unique_id=1272510407]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Deadzone"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Deadzone" unique_id=1343330221]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Мёртвая зона"
 
-[node name="DeadzoneSlider" type="HSlider" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Deadzone"]
+[node name="DeadzoneSlider" type="HSlider" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Deadzone" unique_id=130334842]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 8.0
 max_value = 40.0
 value = 20.0
 
-[node name="Scale" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox"]
+[node name="Scale" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox" unique_id=1035975739]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Scale"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Scale" unique_id=1177578261]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Размер"
 
-[node name="ScaleSlider" type="HSlider" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Scale"]
+[node name="ScaleSlider" type="HSlider" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Scale" unique_id=740241134]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.75
@@ -421,16 +425,16 @@ max_value = 1.25
 step = 0.025
 value = 1.0
 
-[node name="Mode" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox"]
+[node name="Mode" type="HBoxContainer" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox" unique_id=1422205290]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Mode"]
+[node name="Label" type="Label" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Mode" unique_id=1708650080]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 text = "Режим"
 
-[node name="ModeOptions" type="OptionButton" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Mode"]
+[node name="ModeOptions" type="OptionButton" parent="PlayerUI/Controller/AimJoystickEditor/SettingsPanel/VBox/Mode" unique_id=952567807]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 2
@@ -439,7 +443,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Динамический"
 popup/item_1/id = 1
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=604890485]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -453,7 +457,7 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Настройка управления"
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="." unique_id=1615404678]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -469,7 +473,7 @@ text = "Настрой управление под себя, перетаски�
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="." unique_id=2111368966]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -481,7 +485,7 @@ offset_bottom = 72.0
 grow_horizontal = 0
 icon = ExtResource("3_d1pvs")
 
-[node name="Save" type="Button" parent="."]
+[node name="Save" type="Button" parent="." unique_id=807959558]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -494,7 +498,7 @@ grow_horizontal = 0
 text = "Сохранить"
 icon = ExtResource("8_gk1xf")
 
-[node name="Discard" type="Button" parent="."]
+[node name="Discard" type="Button" parent="." unique_id=864814924]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

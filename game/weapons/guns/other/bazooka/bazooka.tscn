@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn7oblc2lhvef"]
+[gd_scene format=3 uid="uid://dn7oblc2lhvef"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_nkfev"]
 [ext_resource type="Script" uid="uid://bpxt0o6sq23rd" path="res://game/weapons/guns/other/bazooka/bazooka.gd" id="2_s1h1q"]
@@ -18,7 +18,7 @@ point_count = 1
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Bazooka" instance=ExtResource("1_nkfev")]
+[node name="Bazooka" unique_id=1880158518 instance=ExtResource("1_nkfev")]
 script = ExtResource("2_s1h1q")
 to_aim_time = 0.4000000000087311
 projectile_scene = ExtResource("2_wudyk")
@@ -34,24 +34,22 @@ speed_multiplier_when_current = 0.89
 aim_camera_distance = 200.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_wudyk")]
+[node name="Visual" parent="." index="0" unique_id=1953820195 instance=ExtResource("4_wudyk")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(125, -26)
 
-[node name="Aim" parent="ShootPoint" index="0"]
+[node name="Aim" parent="ShootPoint" index="0" unique_id=1210121671]
 width = 32.0
 
-[node name="SpreadLeft" parent="ShootPoint/Aim" index="0"]
+[node name="SpreadLeft" parent="ShootPoint/Aim" index="0" unique_id=1319216196]
 position = Vector2(0, -16)
 
-[node name="SpreadRight" parent="ShootPoint/Aim" index="1"]
+[node name="SpreadRight" parent="ShootPoint/Aim" index="1" unique_id=1224240498]
 position = Vector2(0, 16)
 
-[node name="Outline" parent="ShootPoint/Aim" index="2"]
+[node name="Outline" parent="ShootPoint/Aim" index="2" unique_id=1564062309]
 width = 36.0
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_wcct1")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("5_wcct1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dixl482dlx0y5"]
+[gd_scene format=3 uid="uid://dixl482dlx0y5"]
 
 [ext_resource type="PackedScene" uid="uid://8yrjqan0dqfx" path="res://game/weapons/grenades/common/grenade_projectile.tscn" id="1_kb8wh"]
 [ext_resource type="Script" uid="uid://cdeom7m2elbev" path="res://game/weapons/grenades/he_grenade/projectile/he_grenade_projectile.gd" id="2_7qike"]
@@ -259,7 +259,7 @@ _data = {
 resource_local_to_scene = true
 radius = 16.0
 
-[node name="HEGrenadeProjectile" instance=ExtResource("1_kb8wh")]
+[node name="HEGrenadeProjectile" unique_id=831480999 instance=ExtResource("1_kb8wh")]
 script = ExtResource("2_7qike")
 shake_max_amplitude = 32.0
 shake_max_duration = 1.0
@@ -267,40 +267,38 @@ shake_max_distance = 3200.0
 speed = 1600.0
 damping = 600.0
 
-[node name="Grenade" parent="." index="0"]
+[node name="Grenade" parent="." index="0" unique_id=1624174126]
 texture = ExtResource("2_v6y27")
 
-[node name="Explosion" type="Node2D" parent="." index="2"]
+[node name="Explosion" type="Node2D" parent="." index="2" unique_id=2010054883]
 physics_interpolation_mode = 2
 visible = false
 z_index = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Explosion" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Explosion" index="0" unique_id=2088474038]
 material = SubResource("ShaderMaterial_f8vsv")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_u3kfh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_yppsx")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" index="1" unique_id=1935142800]
+libraries/ = SubResource("AnimationLibrary_yppsx")
 
-[node name="Attack" type="Node2D" parent="Explosion" index="2"]
+[node name="Attack" type="Node2D" parent="Explosion" index="2" unique_id=1850839811]
 script = ExtResource("3_8pq1p")
 damage = 75
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Explosion/Attack" index="0" unique_id=301809298]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("3_k0nfm")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Attack/AreaDetector" index="0" unique_id=56455624]
 shape = SubResource("CircleShape2D_f1hnw")
 disabled = true
 
-[node name="ExplosionTimer" parent="." index="3"]
+[node name="ExplosionTimer" parent="." index="3" unique_id=1830172877]
 wait_time = 1.75

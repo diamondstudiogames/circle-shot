@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkyu57ilvneen"]
+[gd_scene format=3 uid="uid://dkyu57ilvneen"]
 
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_g2k05"]
 [ext_resource type="Script" uid="uid://dbrnwmkm5tjvw" path="res://game/entity/effects/speed_change/speed_change.gd" id="2_unayg"]
@@ -11,10 +11,10 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="SpeedChange" instance=ExtResource("1_g2k05")]
+[node name="SpeedChange" unique_id=1128047694 instance=ExtResource("1_g2k05")]
 script = ExtResource("2_unayg")
 
-[node name="Speedup" type="CPUParticles2D" parent="." index="1"]
+[node name="Speedup" type="CPUParticles2D" parent="." index="1" unique_id=1812262676]
 visible = false
 amount = 4
 texture = ExtResource("4_bowyg")
@@ -31,7 +31,7 @@ initial_velocity_max = 20.0
 color = Color(1, 1, 1, 0.752941)
 color_ramp = SubResource("Gradient_1ilkl")
 
-[node name="Slowdown" type="CPUParticles2D" parent="." index="2"]
+[node name="Slowdown" type="CPUParticles2D" parent="." index="2" unique_id=587719797]
 visible = false
 amount = 4
 texture = ExtResource("5_dxcf3")

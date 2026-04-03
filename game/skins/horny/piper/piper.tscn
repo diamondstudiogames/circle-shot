@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cad2esn66vr66"]
+[gd_scene format=3 uid="uid://cad2esn66vr66"]
 
 [ext_resource type="Texture2D" uid="uid://c6cl60m4btgyq" path="res://game/skins/horny/piper/piper.png" id="2_e0b6q"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_rxuyw"]
 
-[node name="Piper" type="Sprite2D"]
+[node name="Piper" type="Sprite2D" unique_id=2057163467]
 texture = ExtResource("2_e0b6q")
 script = ExtResource("2_rxuyw")

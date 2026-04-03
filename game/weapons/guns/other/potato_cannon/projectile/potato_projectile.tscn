@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://di4m7kkgyhvic"]
+[gd_scene format=3 uid="uid://di4m7kkgyhvic"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_nkaf5"]
 [ext_resource type="Script" uid="uid://b4mh8vsrr5j" path="res://game/entity/attack/projectile/bouncing_projectile.gd" id="2_3d77g"]
@@ -24,27 +24,28 @@ properties/4/path = NodePath(".:direction")
 properties/4/spawn = false
 properties/4/replication_mode = 1
 
-[node name="PotatoProjectile" instance=ExtResource("1_nkaf5")]
+[node name="PotatoProjectile" unique_id=1045294357 instance=ExtResource("1_nkaf5")]
 script = ExtResource("2_3d77g")
 bounce_margin = 8.0
+max_bounces = 999
 speed = 2400.0
 hit_vfx_scene = ExtResource("3_3d77g")
 hit_wall_vfx_scene = ExtResource("3_3d77g")
 damage = 16
 
-[node name="Timer" parent="." index="0"]
+[node name="Timer" parent="." index="0" unique_id=273134143]
 wait_time = 1.6
 
-[node name="MultiplayerSynchronizer" parent="." index="1"]
+[node name="MultiplayerSynchronizer" parent="." index="1" unique_id=467713174]
 replication_interval = 0.15
 replication_config = SubResource("SceneReplicationConfig_gkuv7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=854494024]
 z_index = -1
 material = ExtResource("4_gkuv7")
 texture = ExtResource("2_41yuf")
 
-[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+[node name="RayDetector" type="RayCast2D" parent="." index="3" unique_id=225948110]
 process_physics_priority = 1
 position = Vector2(-44, 0)
 target_position = Vector2(44, 0)

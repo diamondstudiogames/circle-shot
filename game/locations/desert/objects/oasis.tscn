@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://r1b3fdnixxa"]
+[gd_scene format=3 uid="uid://r1b3fdnixxa"]
 
 [ext_resource type="Material" uid="uid://6ou8d8mcdjfn" path="res://game/shared/shaders/materials/water.tres" id="1_kiqka"]
 [ext_resource type="Texture2D" uid="uid://bdr5rw48ejajq" path="res://game/locations/desert/objects/oasis.png" id="1_mhqst"]
@@ -6,24 +6,24 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kiqka"]
 radius = 640.0
 
-[node name="Oasis" type="StaticBody2D"]
+[node name="Oasis" type="StaticBody2D" unique_id=1569407010]
 disable_mode = 1
 collision_layer = 16
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264143129]
 z_index = -5
 material = ExtResource("1_kiqka")
 scale = Vector2(2, 2)
 texture = ExtResource("1_mhqst")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1660663119]
 polygon = PackedVector2Array(-640, 0, -480, -480, 0, -640, 480, -480, 640, 0, 480, 480, 0, 640, -480, 480)
 
-[node name="AntiFire" type="Area2D" parent="." groups=["anti_fire"]]
+[node name="AntiFire" type="Area2D" parent="." unique_id=1296866317 groups=["anti_fire"]]
 collision_layer = 128
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiFire"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiFire" unique_id=2026232716]
 shape = SubResource("CircleShape2D_kiqka")

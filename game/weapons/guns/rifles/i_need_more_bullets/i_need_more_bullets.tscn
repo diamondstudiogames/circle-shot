@@ -50,10 +50,10 @@ aim_camera_distance = 240.0
 
 [node name="Visual" parent="." index="0" unique_id=1722454834 instance=ExtResource("5_fm2ea")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(236, -34)
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
 libraries/ = ExtResource("6_71kn8")
 
 [node name="ShootingTimer" type="Timer" parent="." index="3" unique_id=1100327772]

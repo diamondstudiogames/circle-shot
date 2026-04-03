@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://uhjrp3sgu1op"]
+[gd_scene format=3 uid="uid://uhjrp3sgu1op"]
 
 [ext_resource type="Texture2D" uid="uid://cm58g8o2ab34g" path="res://game/skins/videogames/om_nom/vfx/candy.png" id="1_kidt6"]
 
@@ -11,9 +11,9 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496667, 1), 0.0, 0.0, 0, 0, Vector2(0.766667, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="CandyHealVfx" type="Node2D"]
+[node name="CandyHealVfx" type="Node2D" unique_id=41495213]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=628554508]
 z_index = 1
 amount = 1
 texture = ExtResource("1_kidt6")
@@ -30,7 +30,7 @@ radial_accel_max = 1.0
 radial_accel_curve = SubResource("Curve_r8f3g")
 scale_amount_curve = SubResource("Curve_kidt6")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=908695314]
 wait_time = 1.1
 one_shot = true
 autostart = true

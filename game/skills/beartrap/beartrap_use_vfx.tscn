@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxfkmwyd21cng"]
+[gd_scene format=3 uid="uid://dxfkmwyd21cng"]
 
 [ext_resource type="Texture2D" uid="uid://dn3ou5udy3upn" path="res://game/skills/beartrap/beartrap.png" id="1_gsriy"]
 
@@ -102,14 +102,12 @@ _data = {
 &"place": SubResource("Animation_7g1ey")
 }
 
-[node name="BeartrapUseVfx" type="Node2D"]
+[node name="BeartrapUseVfx" type="Node2D" unique_id=1342779369]
 
-[node name="Trap" type="Sprite2D" parent="."]
+[node name="Trap" type="Sprite2D" parent="." unique_id=2074131574]
 z_index = -1
 texture = ExtResource("1_gsriy")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_po26t")
-}
-autoplay = "place"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1005520409]
+libraries/ = SubResource("AnimationLibrary_po26t")
+autoplay = &"place"

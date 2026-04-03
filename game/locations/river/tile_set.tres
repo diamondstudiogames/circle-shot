@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://cqtubyifhoudw"]
+[gd_resource type="TileSet" format=3 uid="uid://cqtubyifhoudw"]
 
 [ext_resource type="Texture2D" uid="uid://dr3gkvc3kct5j" path="res://game/locations/river/fence.png" id="1_sv5dq"]
 [ext_resource type="Texture2D" uid="uid://b0tjnwaa51lsv" path="res://game/locations/river/floor_tiles.png" id="2_jc3us"]

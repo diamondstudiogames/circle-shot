@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp6wxqvjukdht"]
+[gd_scene format=3 uid="uid://dp6wxqvjukdht"]
 
 [ext_resource type="Script" uid="uid://btu1g3prgu2l8" path="res://game/maps/common/map.gd" id="1_j26c2"]
 [ext_resource type="PackedScene" uid="uid://ba2cw3xgen7yp" path="res://game/shared/ui/minimap/minimap_tiles.tscn" id="2_3vl75"]
 [ext_resource type="PackedScene" uid="uid://l5v4yoke40fq" path="res://game/maps/common/borders.tscn" id="3_3vl75"]
 [ext_resource type="Script" uid="uid://88uadq3srjl6" path="res://addons/navigation_baker/navigation_baker.gd" id="4_get36"]
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" unique_id=1294047214]
 script = ExtResource("1_j26c2")
 metadata/_custom_type_script = "uid://btu1g3prgu2l8"
 
-[node name="MinimapTiles" parent="." instance=ExtResource("2_3vl75")]
+[node name="MinimapTiles" parent="." unique_id=378994076 instance=ExtResource("2_3vl75")]
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Borders" parent="." instance=ExtResource("3_3vl75")]
+[node name="Borders" parent="." unique_id=536555278 instance=ExtResource("3_3vl75")]
 
-[node name="NavigationRegions" type="Node2D" parent="."]
+[node name="NavigationRegions" type="Node2D" parent="." unique_id=1935052457]
 script = ExtResource("4_get36")
 metadata/_custom_type_script = "uid://88uadq3srjl6"
 
-[node name="SoloSpawnPoint" type="Marker2D" parent="."]
+[node name="SoloSpawnPoint" type="Marker2D" parent="." unique_id=304113711]
 gizmo_extents = 80.0
 
-[node name="TileMapLayers" type="Node2D" parent="." groups=["navigation_polygon_source"]]
+[node name="TileMapLayers" type="Node2D" parent="." unique_id=545369039 groups=["navigation_polygon_source"]]
 
 [editable path="Borders"]

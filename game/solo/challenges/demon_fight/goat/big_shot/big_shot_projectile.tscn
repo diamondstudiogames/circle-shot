@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyd2t88bc5c0r"]
+[gd_scene format=3 uid="uid://cyd2t88bc5c0r"]
 
 [ext_resource type="PackedScene" uid="uid://caamstm6bqh7q" path="res://game/entity/attack/projectile/exploding_projectile.tscn" id="1_0p235"]
 [ext_resource type="Material" uid="uid://ycrf3plbb4ca" path="res://game/shared/shaders/materials/fake_light.tres" id="2_svrxi"]
@@ -14,13 +14,13 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0p235"]
 radius = 128.0
 
-[node name="BigShotProjectile" instance=ExtResource("1_0p235")]
+[node name="BigShotProjectile" unique_id=8042274 instance=ExtResource("1_0p235")]
 speed = 2560.0
 hit_vfx_scene = ExtResource("2_t3jb7")
 hit_wall_vfx_scene = ExtResource("2_t3jb7")
 damage = 8
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="0" unique_id=1050718031]
 position = Vector2(-64, 0)
 shape = SubResource("CircleShape2D_tfbbq")
 target_position = Vector2(64, 0)
@@ -29,23 +29,23 @@ collision_mask = 75
 script = ExtResource("3_80a4k")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Light" type="Sprite2D" parent="." index="1"]
+[node name="Light" type="Sprite2D" parent="." index="1" unique_id=877578943]
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 material = ExtResource("2_svrxi")
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_t3jb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1025144699]
 z_index = -1
 material = ExtResource("4_80a4k")
 texture = ExtResource("5_tfbbq")
 
-[node name="Explosion" parent="." index="5"]
+[node name="Explosion" parent="." index="5" unique_id=1451205297]
 damage = 12
 damage_interval = 1.0
 
-[node name="CollisionShape2D" parent="Explosion/AreaDetector" index="0"]
+[node name="CollisionShape2D" parent="Explosion/AreaDetector" parent_id_path=PackedInt32Array(488745748) index="0" unique_id=1522261566]
 shape = SubResource("CircleShape2D_0p235")
 
 [connection signal="hit" from="ShapeDetector" to="." method="_on_detector_hit"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyqg11st1fbal"]
+[gd_scene format=3 uid="uid://dyqg11st1fbal"]
 
 [ext_resource type="Script" uid="uid://b0mxaxk65mlbn" path="res://game/shared/interactible/pickable_equip/pickable_equip_item.gd" id="1_y6mm5"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="2_x6tjd"]
@@ -11,22 +11,22 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
 
-[node name="PickableEquipItem" type="Node2D"]
+[node name="PickableEquipItem" type="Node2D" unique_id=1168883623]
 script = ExtResource("1_y6mm5")
 metadata/_custom_type_script = "uid://b0mxaxk65mlbn"
 
-[node name="Interactible" parent="." instance=ExtResource("2_x6tjd")]
+[node name="Interactible" parent="." unique_id=1645528755 instance=ExtResource("2_x6tjd")]
 position = Vector2(0, -80)
 text = "Подобрать"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible" unique_id=1569316737]
 position = Vector2(0, 80)
 shape = SubResource("CircleShape2D_upxl4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1435625745]
 z_index = -3
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2049696851]
 replication_config = SubResource("SceneReplicationConfig_y6mm5")
 
 [connection signal="interacted" from="Interactible" to="." method="_on_interactible_interacted"]

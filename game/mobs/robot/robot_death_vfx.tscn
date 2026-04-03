@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvsk1nxag682m"]
+[gd_scene format=3 uid="uid://cvsk1nxag682m"]
 
 [ext_resource type="Texture2D" uid="uid://cfqfads1kdhew" path="res://game/mobs/robot/robot.png" id="1_1awmm"]
 [ext_resource type="Texture2D" uid="uid://5eb3keya76lg" path="res://game/mobs/robot/robot_dead.png" id="2_ohqae"]
@@ -234,32 +234,30 @@ _data = {
 &"death": SubResource("Animation_eimkk")
 }
 
-[node name="RobotDeathVfx" type="Node2D"]
+[node name="RobotDeathVfx" type="Node2D" unique_id=1547980748]
 
-[node name="Robot" type="Node2D" parent="."]
+[node name="Robot" type="Node2D" parent="." unique_id=2063391767]
 z_index = -2
 
-[node name="Dead" type="Sprite2D" parent="Robot"]
+[node name="Dead" type="Sprite2D" parent="Robot" unique_id=405381776]
 visible = false
 position = Vector2(0, 48)
 rotation = 0.34906584
 texture = ExtResource("2_ohqae")
 offset = Vector2(0, -48)
 
-[node name="Normal" type="Sprite2D" parent="Robot"]
+[node name="Normal" type="Sprite2D" parent="Robot" unique_id=2081140152]
 position = Vector2(0, 48)
 rotation = 0.34906584
 texture = ExtResource("1_1awmm")
 offset = Vector2(0, -48)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365607331]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ykose")
 autoplay = "default"
 frame_progress = 0.10232589
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5wtyq")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1254818039]
+libraries/ = SubResource("AnimationLibrary_5wtyq")
+autoplay = &"death"

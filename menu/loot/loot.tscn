@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2g0bm0ppnwf7"]
+[gd_scene format=3 uid="uid://d2g0bm0ppnwf7"]
 
 [ext_resource type="Script" uid="uid://dd521e63exdrm" path="res://menu/loot/loot.gd" id="1_wl2mh"]
 [ext_resource type="Texture2D" uid="uid://cwoal04d0fh6v" path="res://menu/loot/vfx/light.png" id="2_d75vf"]
@@ -1103,7 +1103,7 @@ _data = {
 &"light": SubResource("Animation_d0q4r")
 }
 
-[node name="Loot" type="Control"]
+[node name="Loot" type="Control" unique_id=806049927]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1130,7 +1130,7 @@ scroll_anim_start_x_position = -888.0
 metadata/_custom_type_script = "uid://dd521e63exdrm"
 metadata/_edit_vertical_guides_ = [2685.0, 2685.0]
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1126594494]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1139,7 +1139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.04705882, 0.12668505, 0.49019608, 1)
 
-[node name="Coins" type="Control" parent="."]
+[node name="Coins" type="Control" parent="." unique_id=1033558965]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1148,7 +1148,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Glow" type="Control" parent="Coins"]
+[node name="Glow" type="Control" parent="Coins" unique_id=1273660829]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1158,17 +1158,17 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CoinsLight" type="Sprite2D" parent="Coins/Glow"]
+[node name="CoinsLight" type="Sprite2D" parent="Coins/Glow" unique_id=1818418946]
 self_modulate = Color(0.052368157, 0.15519524, 0.55859375, 1)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_d75vf")
 
-[node name="Glow" type="Sprite2D" parent="Coins/Glow"]
+[node name="Glow" type="Sprite2D" parent="Coins/Glow" unique_id=2010043703]
 self_modulate = Color(0, 0.42382813, 0.96875, 1)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_vsfh1")
 
-[node name="Stars" type="CPUParticles2D" parent="Coins/Glow"]
+[node name="Stars" type="CPUParticles2D" parent="Coins/Glow" unique_id=1522183846]
 z_index = 1
 amount = 6
 texture = ExtResource("4_d0q4r")
@@ -1183,7 +1183,7 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_id7gg")
 
-[node name="Visual" type="Control" parent="Coins"]
+[node name="Visual" type="Control" parent="Coins" unique_id=417389063]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1193,7 +1193,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Texture" type="TextureRect" parent="Coins/Visual"]
+[node name="Texture" type="TextureRect" parent="Coins/Visual" unique_id=1255934983]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1210,7 +1210,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(408, 456)
 stretch_mode = 3
 
-[node name="Title" type="Label" parent="Coins/Visual"]
+[node name="Title" type="Label" parent="Coins/Visual" unique_id=886251154]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1228,7 +1228,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 48
 text = "МОНЕТЫ"
 
-[node name="Count" type="Label" parent="Coins/Visual"]
+[node name="Count" type="Label" parent="Coins/Visual" unique_id=1500823599]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1248,7 +1248,7 @@ text = "x100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Control" parent="."]
+[node name="Equip" type="Control" parent="." unique_id=1458651362]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1257,7 +1257,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RollBackground" type="ColorRect" parent="Equip"]
+[node name="RollBackground" type="ColorRect" parent="Equip" unique_id=2094072310]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1266,7 +1266,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.3671875, 1, 1)
 
-[node name="Glow" type="Control" parent="Equip"]
+[node name="Glow" type="Control" parent="Equip" unique_id=1267785555]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1277,15 +1277,15 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EquipLight" type="Sprite2D" parent="Equip/Glow"]
+[node name="EquipLight" type="Sprite2D" parent="Equip/Glow" unique_id=587918151]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_d75vf")
 
-[node name="Glow" type="Sprite2D" parent="Equip/Glow"]
+[node name="Glow" type="Sprite2D" parent="Equip/Glow" unique_id=1769381394]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_id7gg")
 
-[node name="Stars" type="CPUParticles2D" parent="Equip/Glow"]
+[node name="Stars" type="CPUParticles2D" parent="Equip/Glow" unique_id=1255367917]
 z_index = 1
 amount = 6
 texture = ExtResource("4_d0q4r")
@@ -1300,7 +1300,7 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_id7gg")
 
-[node name="Item" type="TextureRect" parent="Equip"]
+[node name="Item" type="TextureRect" parent="Equip" unique_id=750423130]
 material = ExtResource("5_uv2su")
 instance_shader_parameters/color = Color(0, 0.07476807, 0.68359375, 1)
 instance_shader_parameters/power = 1.0
@@ -1320,7 +1320,7 @@ pivot_offset = Vector2(192, 128)
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Info" type="Control" parent="Equip"]
+[node name="Info" type="Control" parent="Equip" unique_id=1728190769]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1330,7 +1330,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Type" type="Label" parent="Equip/Info"]
+[node name="Type" type="Label" parent="Equip/Info" unique_id=62268336]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1349,7 +1349,7 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="Equip/Info"]
+[node name="Name" type="Label" parent="Equip/Info" unique_id=721286726]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1369,7 +1369,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Rarity" type="Label" parent="Equip/Info"]
+[node name="Rarity" type="Label" parent="Equip/Info" unique_id=2079034832]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1386,7 +1386,7 @@ theme_type_variation = &"HeaderLargeOutlined"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Equip/Info"]
+[node name="Description" type="Label" parent="Equip/Info" unique_id=872813366]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1401,7 +1401,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ScreenGlitch" type="ColorRect" parent="Equip"]
+[node name="ScreenGlitch" type="ColorRect" parent="Equip" unique_id=2042712084]
 z_index = 1
 material = ExtResource("8_m3yfk")
 instance_shader_parameters/glitch = 0.0
@@ -1413,7 +1413,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="Control" parent="."]
+[node name="Box" type="Control" parent="." unique_id=1853831312]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1422,7 +1422,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Glow" type="TextureRect" parent="Box"]
+[node name="Glow" type="TextureRect" parent="Box" unique_id=1785905714]
 self_modulate = Color(0, 0.390625, 1, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1440,7 +1440,7 @@ scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(150, 150)
 texture = ExtResource("2_vsfh1")
 
-[node name="Anchor" type="Control" parent="Box"]
+[node name="Anchor" type="Control" parent="Box" unique_id=1767054235]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1450,7 +1450,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="Control" parent="Box/Anchor"]
+[node name="Box" type="Control" parent="Box/Anchor" unique_id=20464110]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1460,7 +1460,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Normal" type="TextureRect" parent="Box/Anchor/Box"]
+[node name="Normal" type="TextureRect" parent="Box/Anchor/Box" unique_id=1790600391]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1475,7 +1475,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_m3yfk")
 
-[node name="Open" type="TextureRect" parent="Box/Anchor/Box"]
+[node name="Open" type="TextureRect" parent="Box/Anchor/Box" unique_id=997329704]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1491,7 +1491,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_ntulc")
 
-[node name="Stars" type="CPUParticles2D" parent="Box/Anchor/Box"]
+[node name="Stars" type="CPUParticles2D" parent="Box/Anchor/Box" unique_id=1153321268]
 visible = false
 amount = 4
 texture = ExtResource("4_d0q4r")
@@ -1506,7 +1506,7 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_id7gg")
 
-[node name="Scroll" type="Control" parent="Box"]
+[node name="Scroll" type="Control" parent="Box" unique_id=1911100479]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1517,7 +1517,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Container" type="HBoxContainer" parent="Box/Scroll"]
+[node name="Container" type="HBoxContainer" parent="Box/Scroll" unique_id=1452448252]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1532,11 +1532,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="Item0" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item0" type="ColorRect" parent="Box/Scroll/Container" unique_id=599164579]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item0"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item0" unique_id=415404731]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1546,7 +1546,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item0"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item0" unique_id=325432231]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1559,11 +1559,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item1" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item1" type="ColorRect" parent="Box/Scroll/Container" unique_id=2117424246]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item1"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item1" unique_id=1371140054]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1573,7 +1573,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item1"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item1" unique_id=1287667530]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1586,11 +1586,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item2" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item2" type="ColorRect" parent="Box/Scroll/Container" unique_id=1490145308]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item2"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item2" unique_id=1945964806]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1600,7 +1600,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item2"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item2" unique_id=1552082063]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1613,11 +1613,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item3" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item3" type="ColorRect" parent="Box/Scroll/Container" unique_id=1570007937]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item3"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item3" unique_id=291088043]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1627,7 +1627,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item3"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item3" unique_id=1733141484]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1640,11 +1640,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item4" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item4" type="ColorRect" parent="Box/Scroll/Container" unique_id=157306677]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item4"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item4" unique_id=2006884297]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1654,7 +1654,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item4"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item4" unique_id=1165430426]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1667,11 +1667,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item5" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item5" type="ColorRect" parent="Box/Scroll/Container" unique_id=1143256122]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item5"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item5" unique_id=838094809]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1681,7 +1681,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item5"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item5" unique_id=297446394]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1694,11 +1694,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item6" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item6" type="ColorRect" parent="Box/Scroll/Container" unique_id=1214345362]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item6"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item6" unique_id=1838863095]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1708,7 +1708,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item6"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item6" unique_id=1237284814]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1721,11 +1721,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item7" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item7" type="ColorRect" parent="Box/Scroll/Container" unique_id=369188601]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item7"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item7" unique_id=1329106660]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1735,7 +1735,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item7"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item7" unique_id=1483691649]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1748,11 +1748,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item8" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item8" type="ColorRect" parent="Box/Scroll/Container" unique_id=1957692791]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item8"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item8" unique_id=2029598458]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1762,7 +1762,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item8"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item8" unique_id=1723032079]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1775,11 +1775,11 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Item9" type="ColorRect" parent="Box/Scroll/Container"]
+[node name="Item9" type="ColorRect" parent="Box/Scroll/Container" unique_id=1444735669]
 custom_minimum_size = Vector2(192, 128)
 layout_mode = 2
 
-[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item9"]
+[node name="Texture" type="TextureRect" parent="Box/Scroll/Container/Item9" unique_id=1678577831]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1789,7 +1789,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Box/Scroll/Container/Item9"]
+[node name="Label" type="Label" parent="Box/Scroll/Container/Item9" unique_id=766283635]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1802,7 +1802,7 @@ theme_type_variation = &"LabelOutlined"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Arrow" type="TextureRect" parent="Box/Scroll"]
+[node name="Arrow" type="TextureRect" parent="Box/Scroll" unique_id=600058]
 layout_mode = 0
 offset_left = -12.0
 offset_top = -72.0
@@ -1811,7 +1811,7 @@ offset_bottom = 8.0
 texture = ExtResource("10_am1fd")
 expand_mode = 1
 
-[node name="OpenGlow" type="TextureRect" parent="Box"]
+[node name="OpenGlow" type="TextureRect" parent="Box" unique_id=613860962]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1829,7 +1829,7 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(150, 150)
 texture = ExtResource("5_id7gg")
 
-[node name="Continue" type="Label" parent="Box"]
+[node name="Continue" type="Label" parent="Box" unique_id=904966259]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -1847,7 +1847,7 @@ theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
 text = "Нажми, чтобы продолжить"
 
-[node name="Tint" type="ColorRect" parent="Box"]
+[node name="Tint" type="ColorRect" parent="Box" unique_id=884720993]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1857,7 +1857,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="ScreenGlitch" type="ColorRect" parent="Box"]
+[node name="ScreenGlitch" type="ColorRect" parent="Box" unique_id=844657236]
 visible = false
 material = ExtResource("8_m3yfk")
 instance_shader_parameters/glitch = 0.0
@@ -1869,7 +1869,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Proceed" type="TextureButton" parent="."]
+[node name="Proceed" type="TextureButton" parent="." unique_id=1249337288]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1879,22 +1879,18 @@ grow_vertical = 2
 action_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="WaitTimer" type="Timer" parent="."]
+[node name="WaitTimer" type="Timer" parent="." unique_id=1535761254]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_wuanc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=948594519]
+libraries/ = SubResource("AnimationLibrary_wuanc")
 next/box = &"box_idle"
 
-[node name="LightAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_id7gg")
-}
-autoplay = "light"
+[node name="LightAnimationPlayer" type="AnimationPlayer" parent="." unique_id=864457574]
+libraries/ = SubResource("AnimationLibrary_id7gg")
+autoplay = &"light"
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=471567411]
 resources = [PackedStringArray("bunch_of_coins0", "bunch_of_coins1", "bunch_of_coins2", "bunch_of_coins3", "chances_up", "coins_compensation0", "coins_compensation1", "coins_compensation2", "equip_box", "equip_box_open", "equip_elite_box", "equip_elite_box_open", "skin_box", "skin_box_open", "skin_elite_box", "skin_elite_box_open"), [ExtResource("3_d75vf"), ExtResource("4_5go18"), ExtResource("5_d0q4r"), ExtResource("6_id7gg"), ExtResource("14_ridr3"), ExtResource("16_x3gh6"), ExtResource("17_thwgp"), ExtResource("18_a1m7p"), ExtResource("12_m3yfk"), ExtResource("8_ntulc"), ExtResource("14_ykg3r"), ExtResource("15_ridr3"), ExtResource("16_am1fd"), ExtResource("17_o7wu8"), ExtResource("18_jpkol"), ExtResource("19_x3gh6")]]
 
 [connection signal="pressed" from="Proceed" to="." method="_on_proceed_pressed"]

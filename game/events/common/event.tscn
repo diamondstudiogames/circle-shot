@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3nsak46hbo2c"]
+[gd_scene format=3 uid="uid://d3nsak46hbo2c"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6dq27"]
 [ext_resource type="Script" uid="uid://ciktx11hqv3ox" path="res://game/events/common/event.gd" id="1_kxt6o"]
@@ -193,14 +193,14 @@ _data = {
 &"intro": SubResource("Animation_4bxhi")
 }
 
-[node name="Event" instance=ExtResource("1_6dq27")]
+[node name="Event" unique_id=1053316142 instance=ExtResource("1_6dq27")]
 script = ExtResource("1_kxt6o")
 spawn_point_randomness = 40.0
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_10cmx")
 
-[node name="Leave" type="Button" parent="UI/Main" index="2"]
+[node name="Leave" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=598807862]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -215,7 +215,7 @@ shortcut = ExtResource("4_t8n0q")
 shortcut_in_tooltip = false
 icon = ExtResource("13_j0bsh")
 
-[node name="Chat" type="Button" parent="UI/Main" index="3"]
+[node name="Chat" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1385782984]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -229,7 +229,7 @@ focus_mode = 0
 toggle_mode = true
 icon = ExtResource("14_05fx8")
 
-[node name="ChatPreview" type="VBoxContainer" parent="UI/Main" index="4"]
+[node name="ChatPreview" type="VBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=2024293957]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -242,7 +242,7 @@ grow_vertical = 0
 mouse_filter = 2
 alignment = 2
 
-[node name="ChatPanel" parent="UI/Main" index="5" instance=ExtResource("7_w1x71")]
+[node name="ChatPanel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=656487336 instance=ExtResource("7_w1x71")]
 visible = false
 self_modulate = Color(1, 1, 1, 0.8784314)
 layout_mode = 1
@@ -252,7 +252,7 @@ offset_right = 496.0
 offset_bottom = -80.0
 chat_button_path = NodePath("../Chat")
 
-[node name="RewardsPanel" type="PanelContainer" parent="UI/Main" index="6"]
+[node name="RewardsPanel" type="PanelContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=1539826680]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -267,43 +267,43 @@ offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Main/RewardsPanel" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main/RewardsPanel" index="0" unique_id=983966850]
 layout_mode = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Rewards" type="VBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer" index="0"]
+[node name="Rewards" type="VBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer" index="0" unique_id=91036388]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="0"]
+[node name="Title" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="0" unique_id=1572634619]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Награды"
 
-[node name="Total" type="HBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="1"]
+[node name="Total" type="HBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="1" unique_id=210882911]
 layout_mode = 2
 alignment = 1
 
-[node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0"]
+[node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0" unique_id=1061603804]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "У тебя:"
 
-[node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1"]
+[node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1" unique_id=1255648539]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "0"
 
-[node name="CoinSmall" type="TextureRect" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="2"]
+[node name="CoinSmall" type="TextureRect" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="2" unique_id=247769348]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("8_nrcab")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Intro" type="Control" parent="UI" index="1"]
+[node name="Intro" type="Control" parent="UI" index="1" unique_id=2077175778]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -313,7 +313,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Tint" type="ColorRect" parent="UI/Intro" index="0"]
+[node name="Tint" type="ColorRect" parent="UI/Intro" index="0" unique_id=912430088]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -322,7 +322,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Title" type="Label" parent="UI/Intro" index="1"]
+[node name="Title" type="Label" parent="UI/Intro" index="1" unique_id=360426741]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -346,7 +346,7 @@ text = "ИГРА"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="UI/Intro/Title" index="0"]
+[node name="Description" type="Label" parent="UI/Intro/Title" index="0" unique_id=1561217676]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -363,7 +363,7 @@ theme_override_constants/shadow_offset_y = 2
 text = "Описание"
 horizontal_alignment = 1
 
-[node name="Text" type="Label" parent="UI/Intro" index="2"]
+[node name="Text" type="Label" parent="UI/Intro" index="2" unique_id=1913610560]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -387,7 +387,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Go" type="Label" parent="UI/Intro" index="3"]
+[node name="Go" type="Label" parent="UI/Intro" index="3" unique_id=123598218]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -411,33 +411,31 @@ text = "ВПЕРЁД!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_ctugk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4" unique_id=1525645592]
+libraries/ = SubResource("AnimationLibrary_ctugk")
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2"]
+[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2" unique_id=2036650317]
 title = "Покинуть игру?"
 size = Vector2i(280, 112)
 unresizable = true
 ok_button_text = "Покинуть"
 cancel_button_text = "Остаться"
 
-[node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10"]
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10" unique_id=837810601]
 bus = &"Music"
 
-[node name="DefeatMusic" type="AudioStreamPlayer" parent="." index="11"]
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." index="11" unique_id=250644271]
 stream = ExtResource("12_jddfk")
 bus = &"Music"
 
-[node name="ResourcePreloaderEvent" type="ResourcePreloader" parent="." index="14"]
+[node name="ResourcePreloaderEvent" type="ResourcePreloader" parent="." index="14" unique_id=1355864117]
 resources = [PackedStringArray("reward"), [ExtResource("10_w1x71")]]
 
-[node name="ShowRewardsTimer" type="Timer" parent="." index="15"]
+[node name="ShowRewardsTimer" type="Timer" parent="." index="15" unique_id=1086220819]
 wait_time = 1.2
 one_shot = true
 
-[node name="EventTimer" type="Timer" parent="." index="16"]
+[node name="EventTimer" type="Timer" parent="." index="16" unique_id=734008063]
 one_shot = true
 
 [connection signal="pressed" from="UI/Main/Leave" to="UI/QuitDialog" method="popup_centered"]

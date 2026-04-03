@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcoer7ynu34mu"]
+[gd_scene format=3 uid="uid://bcoer7ynu34mu"]
 
 [ext_resource type="Texture2D" uid="uid://dsi5shyxok7n3" path="res://game/weapons/throwable/kunai/kunai.png" id="1_i4nxm"]
 
@@ -102,16 +102,14 @@ _data = {
 &"hit": SubResource("Animation_7i04k")
 }
 
-[node name="KunaiHitWallVfx" type="Node2D"]
+[node name="KunaiHitWallVfx" type="Node2D" unique_id=102975669]
 z_index = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t5mw4")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=893583297]
+libraries/ = SubResource("AnimationLibrary_t5mw4")
+autoplay = &"hit"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=676799892]
 z_index = -1
 texture = ExtResource("1_i4nxm")
 offset = Vector2(-16, -1)

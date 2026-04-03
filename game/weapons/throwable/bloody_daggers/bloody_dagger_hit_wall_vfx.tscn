@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2003vg2fitof"]
+[gd_scene format=3 uid="uid://2003vg2fitof"]
 
 [ext_resource type="Texture2D" uid="uid://cqfc6oedfri6n" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger.png" id="1_d3tci"]
 
@@ -102,16 +102,14 @@ _data = {
 &"hit": SubResource("Animation_7i04k")
 }
 
-[node name="BloodyDaggerHitWallVfx" type="Node2D"]
+[node name="BloodyDaggerHitWallVfx" type="Node2D" unique_id=1724744668]
 z_index = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t5mw4")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620471581]
+libraries/ = SubResource("AnimationLibrary_t5mw4")
+autoplay = &"hit"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=202437451]
 z_index = -1
 texture = ExtResource("1_d3tci")
 offset = Vector2(-20, 0)

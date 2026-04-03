@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi0w23hbv2mue"]
+[gd_scene format=3 uid="uid://bi0w23hbv2mue"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_u01ls"]
 [ext_resource type="Script" uid="uid://bemvbnrfvkh0i" path="res://game/events/bomb_defusal/bomb_defusal.gd" id="2_ppebb"]
@@ -233,7 +233,7 @@ _data = {
 &"victory": SubResource("Animation_gvqew")
 }
 
-[node name="Event" instance=ExtResource("1_u01ls")]
+[node name="Event" unique_id=1641684394 instance=ExtResource("1_u01ls")]
 script = ExtResource("2_ppebb")
 round_time = 80
 rounds_to_win = 4
@@ -245,13 +245,13 @@ damage_for_coin = 20
 spawn_point_randomness = 0.0
 entity_scenes = Array[PackedScene]([ExtResource("3_buact")])
 
-[node name="OtherSpawner" parent="." index="6"]
+[node name="OtherSpawner" parent="." index="6" unique_id=1631769039]
 _spawnable_scenes = PackedStringArray("uid://dpugjjonr8i0u", "uid://cb533eb27cteb")
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("3_002nh")
 
-[node name="SpectatorMenu" type="HBoxContainer" parent="UI/Main" index="5"]
+[node name="SpectatorMenu" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=1930056039]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -266,17 +266,17 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Previous" type="Button" parent="UI/Main/SpectatorMenu" index="0"]
+[node name="Previous" type="Button" parent="UI/Main/SpectatorMenu" index="0" unique_id=1668300117]
 layout_mode = 2
 shortcut = SubResource("Shortcut_d77xg")
 shortcut_in_tooltip = false
 icon = ExtResource("5_0kvrl")
 
-[node name="Spectating" type="VBoxContainer" parent="UI/Main/SpectatorMenu" index="1"]
+[node name="Spectating" type="VBoxContainer" parent="UI/Main/SpectatorMenu" index="1" unique_id=749720673]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="0"]
+[node name="Label" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="0" unique_id=1298513074]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -284,7 +284,7 @@ text = "Наблюдение за"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpectatingName" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="1"]
+[node name="SpectatingName" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="1" unique_id=758080476]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
@@ -293,13 +293,13 @@ theme_override_constants/outline_size = 4
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Next" type="Button" parent="UI/Main/SpectatorMenu" index="2"]
+[node name="Next" type="Button" parent="UI/Main/SpectatorMenu" index="2" unique_id=219723719]
 layout_mode = 2
 shortcut = SubResource("Shortcut_s5f1h")
 shortcut_in_tooltip = false
 icon = ExtResource("6_ndkar")
 
-[node name="Timer" type="Label" parent="UI/Main" index="6"]
+[node name="Timer" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=792017764]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -312,7 +312,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderLargeOutlined"
 text = "3:00"
 
-[node name="RedCount" type="Label" parent="UI/Main" index="7"]
+[node name="RedCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=286632722]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -329,7 +329,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlueCount" type="Label" parent="UI/Main" index="8"]
+[node name="BlueCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=1181922312]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -346,7 +346,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BombState" type="Label" parent="UI/Main" index="9"]
+[node name="BombState" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="9" unique_id=916623816]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -371,12 +371,10 @@ text = "Раунд выигран!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/BombState" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_d77xg")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/BombState" index="0" unique_id=1819056572]
+libraries/ = SubResource("AnimationLibrary_d77xg")
 
-[node name="RoundEnd" type="Label" parent="UI/Main" index="10"]
+[node name="RoundEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="10" unique_id=625583812]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -400,12 +398,10 @@ text = "Раунд выигран!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundEnd" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_y57ud")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundEnd" index="0" unique_id=588811939]
+libraries/ = SubResource("AnimationLibrary_y57ud")
 
-[node name="GameEnd" type="HBoxContainer" parent="UI/Main" index="11"]
+[node name="GameEnd" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="11" unique_id=1089115023]
 visible = false
 modulate = Color(1, 0, 0, 0)
 layout_mode = 1
@@ -424,12 +420,10 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(400, 60)
 alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_fraxw")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0" unique_id=317713235]
+libraries/ = SubResource("AnimationLibrary_fraxw")
 
-[node name="Winner" type="Label" parent="UI/Main/GameEnd" index="1"]
+[node name="Winner" type="Label" parent="UI/Main/GameEnd" index="1" unique_id=1494209764]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -441,7 +435,7 @@ text = "ПОБЕДИТЕЛЬ:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Team" type="Label" parent="UI/Main/GameEnd" index="2"]
+[node name="Team" type="Label" parent="UI/Main/GameEnd" index="2" unique_id=844138961]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -453,7 +447,7 @@ text = "Синяя"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="End" type="Label" parent="UI/Main/GameEnd" index="3"]
+[node name="End" type="Label" parent="UI/Main/GameEnd" index="3" unique_id=433800659]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -475,10 +469,10 @@ text = "Заложи бомбу или уничтожь команду прот�
 text = "Побеждает команда,
 выигравшая 4 раунда!"
 
-[node name="ResourcePreloaderBombDefusal" type="ResourcePreloader" parent="." index="15"]
+[node name="ResourcePreloaderBombDefusal" type="ResourcePreloader" parent="." index="15" unique_id=857595363]
 resources = [PackedStringArray("bomb", "bomb_placed", "pickable_equip_item_bomb"), [ExtResource("5_iwtu0"), ExtResource("7_0kvrl"), ExtResource("7_iwtu0")]]
 
-[node name="RoundTimer" type="Timer" parent="." index="18"]
+[node name="RoundTimer" type="Timer" parent="." index="18" unique_id=73217076]
 
 [connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="pressed" from="UI/Main/SpectatorMenu/Previous" to="UI" method="previous_player"]

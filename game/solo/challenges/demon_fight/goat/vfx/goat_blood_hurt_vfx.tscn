@@ -1,11 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://byirv1vrexocl"]
+[gd_scene format=3 uid="uid://byirv1vrexocl"]
 
 [ext_resource type="PackedScene" uid="uid://bp6v2plelkof8" path="res://game/entity/vfx/blood_hurt_vfx.tscn" id="1_cqob0"]
 
-[node name="GoatBloodHurtVfx" instance=ExtResource("1_cqob0")]
+[node name="GoatBloodHurtVfx" unique_id=911044679 instance=ExtResource("1_cqob0")]
 
-[node name="Particles" parent="." index="0"]
-emitting = false
+[node name="Particles" parent="." index="0" unique_id=1155062191]
 amount = 8
 emission_shape = 3
 emission_rect_extents = Vector2(96, 48)

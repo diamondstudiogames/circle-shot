@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bidwr44u84ou5"]
+[gd_scene format=3 uid="uid://bidwr44u84ou5"]
 
 [ext_resource type="Script" uid="uid://bdupyqf5qxbsn" path="res://game/events/flag_capture/flag/flag.gd" id="1_nr771"]
 [ext_resource type="Texture2D" uid="uid://c63ivlmcoucnj" path="res://game/events/flag_capture/flag/minimap_flag.png" id="2_nr771"]
@@ -18,25 +18,25 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
 
-[node name="Flag" type="Area2D"]
+[node name="Flag" type="Area2D" unique_id=400670325]
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_nr771")
 return_time = 10.0
 metadata/_custom_type_script = "uid://bdupyqf5qxbsn"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=109436411]
 z_index = -2
 offset = Vector2(0, -80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=508449405]
 position = Vector2(0, -80)
 shape = SubResource("CircleShape2D_nr771")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1276139866]
 replication_config = SubResource("SceneReplicationConfig_nr771")
 
-[node name="TimerProgress" type="TextureProgressBar" parent="."]
+[node name="TimerProgress" type="TextureProgressBar" parent="." unique_id=415926195]
 visible = false
 z_index = 2
 anchors_preset = 8
@@ -56,12 +56,12 @@ value = 1.0
 fill_mode = 5
 texture_progress = ExtResource("3_jsgb6")
 
-[node name="MinimapMarker" parent="." instance=ExtResource("3_oyuah")]
+[node name="MinimapMarker" parent="." unique_id=552689450 instance=ExtResource("3_oyuah")]
 
 [node name="Visual" parent="MinimapMarker" index="2"]
 texture = ExtResource("2_nr771")
 
-[node name="ScreenMarker" parent="." instance=ExtResource("4_m7w11")]
+[node name="ScreenMarker" parent="." unique_id=245766272 instance=ExtResource("4_m7w11")]
 margin = 32.0
 show_when_on_screen = false
 
@@ -71,23 +71,23 @@ texture = ExtResource("5_uuplo")
 [node name="Icon" parent="ScreenMarker/Marker" index="1"]
 texture = ExtResource("5_uuplo")
 
-[node name="CarryInteractible" parent="." instance=ExtResource("6_x0rae")]
+[node name="CarryInteractible" parent="." unique_id=1661668920 instance=ExtResource("6_x0rae")]
 position = Vector2(0, -80)
 script = ExtResource("7_tpurr")
 text = "Поднять"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarryInteractible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarryInteractible" unique_id=1065850135]
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 
-[node name="DropInteractible" parent="." instance=ExtResource("6_x0rae")]
+[node name="DropInteractible" parent="." unique_id=1999637170 instance=ExtResource("6_x0rae")]
 process_mode = 4
 position = Vector2(0, -80)
 script = ExtResource("8_tpurr")
 text = "Бросить"
 hold_interaction_time = 0.4000000000087311
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropInteractible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropInteractible" unique_id=886496422]
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 

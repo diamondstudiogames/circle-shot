@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs4vk7wdu27eo"]
+[gd_scene format=3 uid="uid://bs4vk7wdu27eo"]
 
 [ext_resource type="Texture2D" uid="uid://o4866y8apitp" path="res://game/menus/connect_local/icons/lobby.png" id="1_3cwtp"]
 
-[node name="LocalLobbyEntry" type="Button"]
+[node name="LocalLobbyEntry" type="Button" unique_id=94064207]
 offset_right = 32.0
 offset_bottom = 32.0
 size_flags_horizontal = 3
@@ -12,7 +12,7 @@ theme_override_constants/icon_max_width = 40
 icon = ExtResource("1_3cwtp")
 flat = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=100674900]
 wait_time = 2.0
 one_shot = true
 autostart = true

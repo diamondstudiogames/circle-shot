@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ist1rsy4ygay"]
+[gd_scene format=3 uid="uid://ist1rsy4ygay"]
 
 [ext_resource type="PackedScene" uid="uid://cgnugiwepctjg" path="res://game/weapons/throwable/common/throwable_ammo.tscn" id="1_khiic"]
 [ext_resource type="Texture2D" uid="uid://78c2fn08moe8" path="res://game/weapons/throwable/snowballs/snowball.png" id="2_k40y5"]
@@ -152,13 +152,11 @@ _data = {
 &"throw": SubResource("Animation_wwysf")
 }
 
-[node name="SnowballAmmo" instance=ExtResource("1_khiic")]
+[node name="SnowballAmmo" unique_id=67005395 instance=ExtResource("1_khiic")]
 
-[node name="Snowball" type="Sprite2D" parent="." index="0"]
+[node name="Snowball" type="Sprite2D" parent="." index="0" unique_id=1895478618]
 position = Vector2(48, 0)
 texture = ExtResource("2_k40y5")
 
-[node name="AnimationPlayer" parent="." index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_ctard")
-}
+[node name="AnimationPlayer" parent="." index="1" unique_id=1165240461]
+libraries/ = SubResource("AnimationLibrary_ctard")

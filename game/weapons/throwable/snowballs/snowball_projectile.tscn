@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4jod4xwjklj3"]
+[gd_scene format=3 uid="uid://4jod4xwjklj3"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_ivj1u"]
 [ext_resource type="Texture2D" uid="uid://78c2fn08moe8" path="res://game/weapons/throwable/snowballs/snowball.png" id="2_fa608"]
@@ -48,7 +48,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_otbqe"]
 radius = 24.0
 
-[node name="SnowballProjectile" instance=ExtResource("1_ivj1u")]
+[node name="SnowballProjectile" unique_id=1456969568 instance=ExtResource("1_ivj1u")]
 script = ExtResource("2_otbqe")
 slowdown_duration = 4.0
 speed_multiplier = 0.65
@@ -57,17 +57,15 @@ hit_vfx_scene = ExtResource("3_ebg44")
 hit_wall_vfx_scene = ExtResource("3_ebg44")
 damage = 15
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=115332747]
 material = ExtResource("4_yr4ee")
 texture = ExtResource("2_fa608")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_ebg44")
-}
-autoplay = "rotation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1507046595]
+libraries/ = SubResource("AnimationLibrary_ebg44")
+autoplay = &"rotation"
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="4"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="4" unique_id=483207077]
 position = Vector2(-80, 0)
 shape = SubResource("CircleShape2D_otbqe")
 target_position = Vector2(80, 0)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ypjgou5v0dqp"]
+[gd_scene format=3 uid="uid://ypjgou5v0dqp"]
 
 [ext_resource type="PackedScene" uid="uid://df4g3enk2qk84" path="res://game/mobs/bandits/bazooka/bandit_bazooka.tscn" id="1_2ux35"]
 
-[node name="BanditBazooka" instance=ExtResource("1_2ux35")]
+[node name="BanditBazooka" unique_id=113634022 instance=ExtResource("1_2ux35")]
 vision_distance = 11520.0
 max_health = 100

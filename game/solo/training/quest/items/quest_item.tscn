@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsw5gvu6qshxu"]
+[gd_scene format=3 uid="uid://bsw5gvu6qshxu"]
 
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_i3p7o"]
 [ext_resource type="Script" uid="uid://bgahuq4plbajo" path="res://game/solo/training/quest/items/quest_item.gd" id="1_qom02"]
@@ -11,27 +11,27 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0djgj"]
 radius = 80.0
 
-[node name="QuestItem" type="Node2D"]
+[node name="QuestItem" type="Node2D" unique_id=1605403721]
 z_index = -4
 material = ExtResource("1_i3p7o")
 script = ExtResource("1_qom02")
 
-[node name="Interactible" parent="." instance=ExtResource("2_h5aw5")]
+[node name="Interactible" parent="." unique_id=2049870867 instance=ExtResource("2_h5aw5")]
 position = Vector2(0, -56)
 text = "Подобрать"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible" unique_id=636937426]
 position = Vector2(0, 56)
 shape = SubResource("CircleShape2D_0djgj")
 
-[node name="Light" type="Sprite2D" parent="."]
+[node name="Light" type="Sprite2D" parent="." unique_id=1851732216]
 self_modulate = Color(1, 0, 0, 0.5019608)
 material = ExtResource("3_h5aw5")
 texture = ExtResource("3_4xo1k")
 
-[node name="MinimapMarker" parent="." instance=ExtResource("5_lff6n")]
+[node name="MinimapMarker" parent="." unique_id=1190241488 instance=ExtResource("5_lff6n")]
 
-[node name="Visual" parent="MinimapMarker" index="1"]
+[node name="Visual" parent="MinimapMarker" index="1" unique_id=775027562]
 self_modulate = Color(0.5019608, 0, 0, 1)
 texture = ExtResource("6_i3p7o")
 

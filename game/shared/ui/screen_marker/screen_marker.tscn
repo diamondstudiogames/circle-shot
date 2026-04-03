@@ -1,28 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bppm7xaf2v7ti"]
+[gd_scene format=3 uid="uid://bppm7xaf2v7ti"]
 
 [ext_resource type="Texture2D" uid="uid://ddlttnxfabmn5" path="res://game/shared/ui/screen_marker/arrow.png" id="1_her2q"]
 [ext_resource type="Script" uid="uid://bu8773an3ub8v" path="res://game/shared/ui/screen_marker/screen_marker.gd" id="1_pse65"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_g4rl3"]
 
-[node name="ScreenMarker" type="Node2D"]
+[node name="ScreenMarker" type="Node2D" unique_id=344783377]
 process_mode = 1
 physics_interpolation_mode = 2
 script = ExtResource("1_pse65")
 
-[node name="Marker" type="Node2D" parent="."]
+[node name="Marker" type="Node2D" parent="." unique_id=808199532]
 z_index = 50
 material = ExtResource("2_g4rl3")
 
-[node name="Arrow" type="Sprite2D" parent="Marker"]
+[node name="Arrow" type="Sprite2D" parent="Marker" unique_id=31669513]
 use_parent_material = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_her2q")
 offset = Vector2(-32, 0)
 
-[node name="Icon" type="Sprite2D" parent="Marker/Arrow"]
+[node name="Icon" type="Sprite2D" parent="Marker/Arrow" unique_id=2020806571]
 use_parent_material = true
 position = Vector2(-160, 0)
 
-[node name="Icon" type="Sprite2D" parent="Marker"]
+[node name="Icon" type="Sprite2D" parent="Marker" unique_id=415947780]
 use_parent_material = true
 scale = Vector2(0.5, 0.5)

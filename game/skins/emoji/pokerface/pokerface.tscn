@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyhp2bxmrqv67"]
+[gd_scene format=3 uid="uid://dyhp2bxmrqv67"]
 
 [ext_resource type="Texture2D" uid="uid://vniw0f0yabce" path="res://game/skins/emoji/pokerface/pokerface.png" id="1_18aio"]
 [ext_resource type="Script" uid="uid://cn3qkwyn401xb" path="res://game/skins/emoji/pokerface/pokerface.gd" id="2_18aio"]
@@ -21,23 +21,6 @@ tracks/0/keys = {
 "values": [ExtResource("1_18aio")]
 }
 
-[sub_resource type="Animation" id="Animation_200xj"]
-resource_name = "hurt"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_2e2tj"), ExtResource("1_18aio")]
-}
-
 [sub_resource type="Animation" id="Animation_mu0si"]
 resource_name = "heal"
 length = 0.5
@@ -55,6 +38,23 @@ tracks/0/keys = {
 "values": [ExtResource("4_nu47f"), ExtResource("1_18aio")]
 }
 
+[sub_resource type="Animation" id="Animation_200xj"]
+resource_name = "hurt"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_2e2tj"), ExtResource("1_18aio")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73axd"]
 _data = {
 &"RESET": SubResource("Animation_aytii"),
@@ -62,13 +62,11 @@ _data = {
 &"hurt": SubResource("Animation_200xj")
 }
 
-[node name="Pokerface" type="Sprite2D"]
+[node name="Pokerface" type="Sprite2D" unique_id=1762150391]
 texture = ExtResource("1_18aio")
 script = ExtResource("2_18aio")
 custom_death_vfx_scene = ExtResource("3_nu47f")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_73axd")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1694931623]
+libraries/ = SubResource("AnimationLibrary_73axd")

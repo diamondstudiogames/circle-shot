@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://se8ioau06ef"]
+[gd_scene format=3 uid="uid://se8ioau06ef"]
 
 [ext_resource type="Script" uid="uid://cc8at2avury8m" path="res://game/shared/ui/minimap/minimap_marker.gd" id="1_47jos"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_hmyv8"]
 
-[node name="MinimapMarker" type="Node2D"]
+[node name="MinimapMarker" type="Node2D" unique_id=2143805857]
 script = ExtResource("1_47jos")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1505761004]
 rect = Rect2(-100, -100, 200, 200)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=9211775]
 remote_path = NodePath("../Visual")
 update_rotation = false
 update_scale = false
 
-[node name="Visual" type="Sprite2D" parent="."]
+[node name="Visual" type="Sprite2D" parent="." unique_id=86601325]
 visible = false
 top_level = true
 visibility_layer = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3h0grpq5ocoo"]
+[gd_scene format=3 uid="uid://c3h0grpq5ocoo"]
 
 [ext_resource type="Texture2D" uid="uid://c464p7ebn7kyl" path="res://game/locations/underwater/textures/octopus.png" id="1_dntnj"]
 
@@ -69,26 +69,24 @@ _data = {
 &"octopus": SubResource("Animation_kblyk")
 }
 
-[node name="Octopus" type="Node2D"]
+[node name="Octopus" type="Node2D" unique_id=1102768756]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." unique_id=971294152]
 position = Vector2(-295, 552)
 curve = SubResource("Curve2D_wb6xb")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1712402617]
 position = Vector2(3128, 694)
 rotation = 0.04106007
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D" unique_id=1827411067]
 rotation = 1.5708
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6xx52")
 autoplay = "default"
 frame_progress = 0.433719
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=733201475]
 root_node = NodePath("../Path2D")
-libraries = {
-&"": SubResource("AnimationLibrary_6vh21")
-}
-autoplay = "octopus"
+libraries/ = SubResource("AnimationLibrary_6vh21")
+autoplay = &"octopus"

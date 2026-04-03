@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bltslbj5qgpco"]
+[gd_scene format=3 uid="uid://bltslbj5qgpco"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_mrfpm"]
 [ext_resource type="PackedScene" uid="uid://dqb1dkircv0dw" path="res://game/weapons/guns/pistols/tec_9/tec_9_bullet.tscn" id="2_ffep1"]
@@ -22,7 +22,7 @@ point_count = 4
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="Tec9" instance=ExtResource("1_mrfpm")]
+[node name="Tec9" unique_id=1950403742 instance=ExtResource("1_mrfpm")]
 shoot_interval = 0.33
 to_aim_time = 0.2
 projectile_scene = ExtResource("2_ffep1")
@@ -39,12 +39,10 @@ ammo_per_load = 18
 ammo_total = 90
 speed_multiplier_when_current = 0.97
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_pdnd7")]
+[node name="Visual" parent="." index="0" unique_id=1547497432 instance=ExtResource("3_pdnd7")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(110, -37)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_els1m")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_els1m")

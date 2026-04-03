@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6sr74a0jyc1d"]
+[gd_scene format=3 uid="uid://6sr74a0jyc1d"]
 
 [ext_resource type="Script" uid="uid://dd6au1sgdvn1y" path="res://game/skills/shield/shield.gd" id="1_608e5"]
 [ext_resource type="Texture2D" uid="uid://cqmd6shr653ev" path="res://game/skills/shield/shield.png" id="2_ow3h2"]
@@ -64,7 +64,7 @@ _data = {
 &"use": SubResource("Animation_b4dkh")
 }
 
-[node name="Shield" type="Node2D"]
+[node name="Shield" type="Node2D" unique_id=1742341743]
 script = ExtResource("1_608e5")
 protection = 0.6
 slowdown = 0.25
@@ -73,16 +73,14 @@ use_times = 5
 use_cooldown = 15
 metadata/_custom_type_script = "uid://c7xh6wcxwv4d4"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766861346]
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_ow3h2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8p3c7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=945156879]
+libraries/ = SubResource("AnimationLibrary_8p3c7")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=383781717]
 process_callback = 0
 one_shot = true

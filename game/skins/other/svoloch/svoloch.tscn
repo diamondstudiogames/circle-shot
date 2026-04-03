@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://mwrpno2aa3e1"]
+[gd_scene format=3 uid="uid://mwrpno2aa3e1"]
 
 [ext_resource type="Script" uid="uid://ck6iv32w1yhr5" path="res://game/skins/other/svoloch/svoloch.gd" id="2_kt3p6"]
 [ext_resource type="PackedScene" uid="uid://72aki6snx1ox" path="res://game/skins/other/svoloch/svoloch_death_vfx.tscn" id="2_yisnh"]
@@ -469,33 +469,33 @@ nodes/Heal/node = SubResource("AnimationNodeAnimation_7qvxn")
 nodes/Heal/position = Vector2(140, 340)
 node_connections = [&"output", 0, &"IdleWalkAdd", &"EyesTransition", 0, &"EyesIdle", &"EyesTransition", 1, &"EyesShooting", &"HurtOneShot", 0, &"EyesTransition", &"HurtOneShot", 1, &"Hurt", &"IdleWalkTransition", 0, &"Idle", &"IdleWalkTransition", 1, &"WalkTimeScale", &"WalkTimeScale", 0, &"Walk", &"IdleWalkAdd", 0, &"HealOneShot", &"IdleWalkAdd", 1, &"IdleWalkTransition", &"HealOneShot", 0, &"HurtOneShot", &"HealOneShot", 1, &"Heal"]
 
-[node name="Svoloch" type="Sprite2D"]
+[node name="Svoloch" type="Sprite2D" unique_id=1904298763]
 position = Vector2(4, -4)
 script = ExtResource("2_kt3p6")
 custom_death_vfx_scene = ExtResource("2_yisnh")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=1753510180]
 texture = ExtResource("3_yisnh")
 
-[node name="LeftEye" type="Line2D" parent="."]
+[node name="LeftEye" type="Line2D" parent="." unique_id=1100858641]
 points = PackedVector2Array(-46, -44, -29, -37, -16, -27, -10, -19, -9, -10, -17, 4, -37, 17, -53, 15, -62, 11, -71, -5, -71, -18, -66, -34, -56, -41)
 closed = true
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="RightEye" type="Line2D" parent="."]
+[node name="RightEye" type="Line2D" parent="." unique_id=50320315]
 points = PackedVector2Array(2, -11, 2, -29, 7, -43, 16, -47, 36, -47, 48, -39, 56, -28, 58, -15, 58, -1, 53, 6, 44, 10, 33, 12, 21, 10, 13, 3, 6, -5)
 closed = true
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Mouth" type="Line2D" parent="."]
+[node name="Mouth" type="Line2D" parent="." unique_id=1170350713]
 points = PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56, -6, 45, 8, 62, 15, 65, 29, 65, 43, 55, 50, 46, 52, 38)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Mouth2" type="Line2D" parent="."]
+[node name="Mouth2" type="Line2D" parent="." unique_id=1306537453]
 visible = false
 position = Vector2(4, 110.00001)
 rotation = -0.09024988
@@ -504,26 +504,24 @@ points = PackedVector2Array(-60, 45, -59, 52, -50, 59, -39, 69, -32, 70, -19, 56
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="LeftPupil" type="Node2D" parent="."]
+[node name="LeftPupil" type="Node2D" parent="." unique_id=462157393]
 position = Vector2(-40, -10)
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftPupil"]
+[node name="Sprite2D" type="Sprite2D" parent="LeftPupil" unique_id=26522490]
 texture = ExtResource("4_yisnh")
 offset = Vector2(12, 0)
 
-[node name="RightPupil" type="Node2D" parent="."]
+[node name="RightPupil" type="Node2D" parent="." unique_id=1880701010]
 position = Vector2(36, -18)
 
-[node name="Sprite2D" type="Sprite2D" parent="RightPupil"]
+[node name="Sprite2D" type="Sprite2D" parent="RightPupil" unique_id=799591241]
 texture = ExtResource("5_y8w3n")
 offset = Vector2(12, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y8w3n")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1915941031]
+libraries/ = SubResource("AnimationLibrary_y8w3n")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1349037430]
 tree_root = SubResource("AnimationNodeBlendTree_exqeb")
 anim_player = NodePath("../AnimationPlayer")
 parameters/EyesTransition/current_state = "idle"

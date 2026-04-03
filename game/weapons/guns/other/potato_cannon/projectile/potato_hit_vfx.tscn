@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkgghno3wrpwo"]
+[gd_scene format=3 uid="uid://bkgghno3wrpwo"]
 
 [ext_resource type="Texture2D" uid="uid://4juvamur5rap" path="res://game/weapons/guns/other/potato_cannon/projectile/potato_part.png" id="1_jqpto"]
 
@@ -6,9 +6,9 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.776667, 0.621786), -1.24605, -1.24605, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="PotatoHitVfx" type="Node2D"]
+[node name="PotatoHitVfx" type="Node2D" unique_id=83160863]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=999614449]
 z_index = 1
 amount = 4
 texture = ExtResource("1_jqpto")
@@ -24,7 +24,7 @@ initial_velocity_min = 48.0
 initial_velocity_max = 96.0
 scale_amount_curve = SubResource("Curve_uixak")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=385199351]
 wait_time = 0.5
 one_shot = true
 autostart = true

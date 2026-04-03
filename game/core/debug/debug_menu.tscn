@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c52l5dk238iag"]
+[gd_scene format=3 uid="uid://c52l5dk238iag"]
 
 [ext_resource type="Script" uid="uid://cqnasgmnex77w" path="res://game/core/debug/debug_menu.gd" id="1_4t3ub"]
 
-[node name="DebugMenu" type="Window"]
+[node name="DebugMenu" type="Window" unique_id=230873748]
 oversampling_override = 1.0
 title = "Меню отладки"
 position = Vector2i(0, 28)
@@ -12,36 +12,36 @@ exclusive = true
 unresizable = true
 script = ExtResource("1_4t3ub")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=333975643]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1496066643]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=678803326]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Get" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Get" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1453852960]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Get"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Get" unique_id=1841864505]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ..."
 clear_button_enabled = true
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Get"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/Get" unique_id=334577377]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -51,44 +51,44 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Get" type="Button" parent="ScrollContainer/VBoxContainer/Get"]
+[node name="Get" type="Button" parent="ScrollContainer/VBoxContainer/Get" unique_id=1142270962]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Получить"
 
-[node name="Set" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Set" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1415443337]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Set"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Set" unique_id=119950660]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ..."
 clear_button_enabled = true
 
-[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Set"]
+[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/Set" unique_id=364042496]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 placeholder_text = "Значение..."
 clear_button_enabled = true
 
-[node name="Set" type="Button" parent="ScrollContainer/VBoxContainer/Set"]
+[node name="Set" type="Button" parent="ScrollContainer/VBoxContainer/Set" unique_id=913126138]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Задать"
 
-[node name="GetSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="GetSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1059176648]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/GetSetting"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/GetSetting" unique_id=1111365149]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ настройки..."
 clear_button_enabled = true
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/GetSetting"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/GetSetting" unique_id=934127635]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,44 +98,44 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="GetSetting" type="Button" parent="ScrollContainer/VBoxContainer/GetSetting"]
+[node name="GetSetting" type="Button" parent="ScrollContainer/VBoxContainer/GetSetting" unique_id=120228696]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Получить"
 
-[node name="SetSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="SetSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1214169599]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetSetting"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetSetting" unique_id=887206130]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ настройки..."
 clear_button_enabled = true
 
-[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetSetting"]
+[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetSetting" unique_id=4186028]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 placeholder_text = "Значение настройки..."
 clear_button_enabled = true
 
-[node name="SetSetting" type="Button" parent="ScrollContainer/VBoxContainer/SetSetting"]
+[node name="SetSetting" type="Button" parent="ScrollContainer/VBoxContainer/SetSetting" unique_id=504978292]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Задать"
 
-[node name="GetControls" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="GetControls" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1268990664]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/GetControls"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/GetControls" unique_id=429160712]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ настройки управления..."
 clear_button_enabled = true
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/GetControls"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/GetControls" unique_id=99016617]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -145,95 +145,95 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="GetControls" type="Button" parent="ScrollContainer/VBoxContainer/GetControls"]
+[node name="GetControls" type="Button" parent="ScrollContainer/VBoxContainer/GetControls" unique_id=267710116]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Получить"
 
-[node name="SetControls" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="SetControls" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=274344027]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetControls"]
+[node name="KeyEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetControls" unique_id=556458135]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Ключ настройки управления..."
 clear_button_enabled = true
 
-[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetControls"]
+[node name="ValueEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/SetControls" unique_id=528210408]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 placeholder_text = "Значение настройки управления..."
 clear_button_enabled = true
 
-[node name="SetControls" type="Button" parent="ScrollContainer/VBoxContainer/SetControls"]
+[node name="SetControls" type="Button" parent="ScrollContainer/VBoxContainer/SetControls" unique_id=1885695043]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Задать"
 
-[node name="ReceiveLoot" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="ReceiveLoot" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=66909184]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LootEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/ReceiveLoot"]
+[node name="LootEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/ReceiveLoot" unique_id=1938005000]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Выдать награды (через запятую)..."
 clear_button_enabled = true
 
-[node name="ReceiveLoot" type="Button" parent="ScrollContainer/VBoxContainer/ReceiveLoot"]
+[node name="ReceiveLoot" type="Button" parent="ScrollContainer/VBoxContainer/ReceiveLoot" unique_id=1068664899]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Выдать"
 
-[node name="TimeScale" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="TimeScale" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=376239636]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale" unique_id=1780483330]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Скорость игры"
 horizontal_alignment = 2
 
-[node name="TimeScaleSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/TimeScale"]
+[node name="TimeScaleSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/TimeScale" unique_id=1668962185]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 min_value = 0.09999999999126884
 max_value = 5.0
 step = 0.09999999999126884
-value = 0.9999999999126988
+value = 0.9999999999126881
 
-[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale"]
+[node name="Value" type="Label" parent="ScrollContainer/VBoxContainer/TimeScale" unique_id=235725395]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "x1.0"
 horizontal_alignment = 1
 
-[node name="Forget" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Forget" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1577840660]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Forget"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Forget" unique_id=2022573550]
 layout_mode = 2
 text = "Забыть"
 
-[node name="ForgetOnlineOffers" type="Button" parent="ScrollContainer/VBoxContainer/Forget"]
+[node name="ForgetOnlineOffers" type="Button" parent="ScrollContainer/VBoxContainer/Forget" unique_id=554691445]
 layout_mode = 2
 text = "Онлайн-предложения"
 
-[node name="ForgetPromocodes" type="Button" parent="ScrollContainer/VBoxContainer/Forget"]
+[node name="ForgetPromocodes" type="Button" parent="ScrollContainer/VBoxContainer/Forget" unique_id=409120790]
 layout_mode = 2
 text = "Промокоды"
 
-[node name="ForgetUnlockedItems" type="Button" parent="ScrollContainer/VBoxContainer/Forget"]
+[node name="ForgetUnlockedItems" type="Button" parent="ScrollContainer/VBoxContainer/Forget" unique_id=377977929]
 layout_mode = 2
 text = "Разблокированные предметы"
 
-[node name="ForgetCurrentDay" type="Button" parent="ScrollContainer/VBoxContainer/Forget"]
+[node name="ForgetCurrentDay" type="Button" parent="ScrollContainer/VBoxContainer/Forget" unique_id=793485799]
 layout_mode = 2
 text = "Текущий день"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu4wtikyguq3i"]
+[gd_scene format=3 uid="uid://cu4wtikyguq3i"]
 
 [ext_resource type="Texture2D" uid="uid://m3qb0hm07hw5" path="res://game/skins/horny/sunflower/cum_shard.png" id="1_csjok"]
 
@@ -6,9 +6,9 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="CumHurtVfx" type="Node2D"]
+[node name="CumHurtVfx" type="Node2D" unique_id=438880614]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=152594459]
 z_index = 1
 amount = 5
 texture = ExtResource("1_csjok")
@@ -23,7 +23,7 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=58413763]
 wait_time = 0.6
 one_shot = true
 autostart = true

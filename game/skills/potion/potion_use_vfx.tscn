@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1jxj44vodfa7"]
+[gd_scene format=3 uid="uid://c1jxj44vodfa7"]
 
 [ext_resource type="Texture2D" uid="uid://b20pigyt02f5b" path="res://game/skills/potion/bottle.png" id="2_f2p0d"]
 [ext_resource type="Texture2D" uid="uid://h6pfea7ifihm" path="res://game/skills/potion/liquid.png" id="3_mdwqu"]
@@ -286,36 +286,34 @@ _data = {
 &"tint": SubResource("Animation_fik3q")
 }
 
-[node name="PotionUseVfx" type="Node2D"]
+[node name="PotionUseVfx" type="Node2D" unique_id=849423423]
 show_behind_parent = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_y0pnw")
-}
-autoplay = "use"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1250022102]
+libraries/ = SubResource("AnimationLibrary_y0pnw")
+autoplay = &"use"
 
-[node name="Bottle" type="Sprite2D" parent="."]
+[node name="Bottle" type="Sprite2D" parent="." unique_id=1337055441]
 position = Vector2(29, 24)
 texture = ExtResource("2_f2p0d")
 
-[node name="Liquid" type="Sprite2D" parent="Bottle"]
+[node name="Liquid" type="Sprite2D" parent="Bottle" unique_id=2145138818]
 show_behind_parent = true
 texture = ExtResource("3_mdwqu")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="Up" type="Sprite2D" parent="Bottle"]
+[node name="Up" type="Sprite2D" parent="Bottle" unique_id=708934694]
 show_behind_parent = true
 texture = ExtResource("4_e10xm")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="Tint" type="CanvasLayer" parent="."]
+[node name="Tint" type="CanvasLayer" parent="." unique_id=1275442600]
 layer = 6
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Tint"]
+[node name="ColorRect" type="ColorRect" parent="Tint" unique_id=250784839]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -324,7 +322,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0.901961, 0.972549, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tint"]
-libraries = {
-&"": SubResource("AnimationLibrary_uogv3")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tint" unique_id=1027743260]
+libraries/ = SubResource("AnimationLibrary_uogv3")

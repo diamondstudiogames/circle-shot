@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3ofi2085v1bn"]
+[gd_scene format=3 uid="uid://b3ofi2085v1bn"]
 
 [ext_resource type="PackedScene" uid="uid://cgyrcxqehcj6h" path="res://game/mobs/bandits/flamethrower/bandit_flamethrower.tscn" id="1_ychy8"]
 
-[node name="BanditFlamethrower" instance=ExtResource("1_ychy8")]
+[node name="BanditFlamethrower" unique_id=197086511 instance=ExtResource("1_ychy8")]
 vision_distance = 11520.0
 max_health = 50

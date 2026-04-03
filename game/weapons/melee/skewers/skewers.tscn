@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://s0jt56dbe0kn"]
+[gd_scene format=3 uid="uid://s0jt56dbe0kn"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_q7ou4"]
 [ext_resource type="Script" uid="uid://t2r6ib02lu28" path="res://game/weapons/melee/skewers/skewers.gd" id="2_1lgvu"]
@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4qhw"]
 radius = 20.0
 
-[node name="Skewers" instance=ExtResource("1_q7ou4")]
+[node name="Skewers" unique_id=904825593 instance=ExtResource("1_q7ou4")]
 position = Vector2(0, 0)
 script = ExtResource("2_1lgvu")
 damage_second = 30
@@ -21,12 +21,12 @@ to_aim_time = 0.25
 speed_multiplier_when_current = 1.11
 shoot_on_joystick_release = false
 
-[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=469322619]
 color = Color(0.597656, 0.597656, 0.597656, 1)
 
-[node name="Visual" parent="." index="1" instance=ExtResource("5_1lgvu")]
+[node name="Visual" parent="." index="1" unique_id=1697517118 instance=ExtResource("5_1lgvu")]
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" parent_id_path=PackedInt32Array(336793680) index="0" unique_id=1413401770]
 enabled = false
 shape = SubResource("CircleShape2D_s4qhw")
 target_position = Vector2(240, 0)
@@ -35,7 +35,7 @@ collision_mask = 75
 script = ExtResource("3_s4qhw")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="RayDetector" type="RayCast2D" parent="Attack" index="1"]
+[node name="RayDetector" type="RayCast2D" parent="Attack" parent_id_path=PackedInt32Array(336793680) index="1" unique_id=1603619784]
 position = Vector2(-16, 16)
 enabled = false
 target_position = Vector2(232, 0)
@@ -44,7 +44,7 @@ hit_from_inside = true
 script = ExtResource("5_erost")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="RayDetector2" type="RayCast2D" parent="Attack" index="2"]
+[node name="RayDetector2" type="RayCast2D" parent="Attack" parent_id_path=PackedInt32Array(336793680) index="2" unique_id=2142935908]
 position = Vector2(16, -16)
 enabled = false
 target_position = Vector2(232, 0)
@@ -53,7 +53,7 @@ hit_from_inside = true
 script = ExtResource("5_erost")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="SparksRayDetector" type="RayCast2D" parent="Attack" index="3"]
+[node name="SparksRayDetector" type="RayCast2D" parent="Attack" parent_id_path=PackedInt32Array(336793680) index="3" unique_id=1257904515]
 enabled = false
 target_position = Vector2(304, 0)
 collision_mask = 75
@@ -61,21 +61,19 @@ hit_from_inside = true
 script = ExtResource("5_erost")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="Aim" parent="." index="3"]
+[node name="Aim" parent="." index="3" unique_id=1063961031]
 visible = false
 points = PackedVector2Array(40, 0, 192, 0)
 width = 40.0
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(40, 0, 192, 0)
 width = 44.0
 
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": ExtResource("6_s4qhw")
-}
+[node name="AnimationPlayer" parent="." index="4" unique_id=1964456697]
+libraries/ = ExtResource("6_s4qhw")
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="5" unique_id=699395794]
 process_callback = 0
 one_shot = true
 

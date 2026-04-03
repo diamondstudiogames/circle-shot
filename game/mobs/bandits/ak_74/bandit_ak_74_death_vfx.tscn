@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://db4n5160rqb1v"]
+[gd_scene format=3 uid="uid://db4n5160rqb1v"]
 
 [ext_resource type="Texture2D" uid="uid://drdmmix0ndmug" path="res://game/mobs/bandits/ak_74/bandit_ak_74_dead.png" id="1_jpf1h"]
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="2_6klks"]
@@ -97,15 +97,15 @@ _data = {
 &"death": SubResource("Animation_76ygj")
 }
 
-[node name="BanditAK74DeathVfx" type="Node2D"]
+[node name="BanditAK74DeathVfx" type="Node2D" unique_id=919651523]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=285162446]
 z_index = -2
 position = Vector2(0, 58)
 texture = ExtResource("1_jpf1h")
 offset = Vector2(-6, -64)
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=393593483]
 z_index = 1
 emitting = false
 texture = ExtResource("2_6klks")
@@ -120,8 +120,6 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ehlpc")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=240275442]
+libraries/ = SubResource("AnimationLibrary_ehlpc")
+autoplay = &"death"

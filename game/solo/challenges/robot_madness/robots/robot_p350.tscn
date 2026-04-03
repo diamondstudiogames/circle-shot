@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c03fti11oe1v0"]
+[gd_scene format=3 uid="uid://c03fti11oe1v0"]
 
 [ext_resource type="PackedScene" uid="uid://bxac6tcgijv2e" path="res://game/mobs/robot/variants/robot_p350.tscn" id="1_aja02"]
 
-[node name="RobotP350" instance=ExtResource("1_aja02")]
+[node name="RobotP350" unique_id=2089922671 instance=ExtResource("1_aja02")]
 shoot_interval = 0.6000000000058208
 vision_distance = 9000.0

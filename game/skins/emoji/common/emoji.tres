@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkinsLineData" load_steps=9 format=3 uid="uid://beunebjuy5bih"]
+[gd_resource type="Resource" script_class="SkinsLineData" format=3 uid="uid://beunebjuy5bih"]
 
 [ext_resource type="Script" uid="uid://d3vgfmq2fcba3" path="res://game/player/equip/skins_line_data.gd" id="1_fdyoa"]
 [ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="2_3vnbd"]

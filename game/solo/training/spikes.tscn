@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://davg83gsduoyq"]
+[gd_scene format=3 uid="uid://davg83gsduoyq"]
 
 [ext_resource type="Texture2D" uid="uid://celtc5nfhir4x" path="res://game/locations/training/spikes.png" id="1_4wloc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgli"]
 size = Vector2(128, 128)
 
-[node name="Spikes" type="CollisionShape2D"]
+[node name="Spikes" type="CollisionShape2D" unique_id=1738177019]
 shape = SubResource("RectangleShape2D_2cgli")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1408943580]
 texture = ExtResource("1_4wloc")

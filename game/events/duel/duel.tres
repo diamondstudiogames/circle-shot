@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventData" load_steps=7 format=3 uid="uid://cjvcw10uo3jyq"]
+[gd_resource type="Resource" script_class="EventData" format=3 uid="uid://cjvcw10uo3jyq"]
 
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_5npr2"]
 [ext_resource type="Resource" uid="uid://de53s62bw2sq" path="res://game/maps/duel/mini_classic/mini_classic.tres" id="2_a3s3w"]

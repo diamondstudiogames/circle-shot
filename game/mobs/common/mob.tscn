@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0jflvvqce1h7"]
+[gd_scene format=3 uid="uid://b0jflvvqce1h7"]
 
 [ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_ahg27"]
 [ext_resource type="Script" uid="uid://5cs2e53nnhqf" path="res://game/mobs/common/mob.gd" id="2_6pkcb"]
 
-[node name="Mob" groups=["mob"] instance=ExtResource("1_ahg27")]
+[node name="Mob" unique_id=363517361 groups=["mob"] instance=ExtResource("1_ahg27")]
 script = ExtResource("2_6pkcb")
 vision_distance = 3200.0
 find_target_min_time = 0.9
@@ -11,21 +11,21 @@ find_target_max_time = 1.1
 update_target_min_time = 0.3
 update_target_max_time = 0.4
 
-[node name="TargetRayCast" type="RayCast2D" parent="." index="7"]
+[node name="TargetRayCast" type="RayCast2D" parent="." index="7" unique_id=1827845097]
 enabled = false
 collision_mask = 9
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8" unique_id=19843340]
 path_desired_distance = 16.0
 target_desired_distance = 240.0
 path_max_distance = 320.0
 path_metadata_flags = 5
 
-[node name="FindTargetTimer" type="Timer" parent="." index="9"]
+[node name="FindTargetTimer" type="Timer" parent="." index="9" unique_id=1777223263]
 process_callback = 0
 one_shot = true
 
-[node name="UpdateTargetTimer" type="Timer" parent="." index="10"]
+[node name="UpdateTargetTimer" type="Timer" parent="." index="10" unique_id=874285730]
 process_callback = 0
 one_shot = true
 

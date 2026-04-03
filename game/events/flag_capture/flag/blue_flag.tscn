@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyudg7uces0wb"]
+[gd_scene format=3 uid="uid://cyudg7uces0wb"]
 
 [ext_resource type="PackedScene" uid="uid://bidwr44u84ou5" path="res://game/events/flag_capture/flag/flag.tscn" id="1_orxp6"]
 [ext_resource type="Texture2D" uid="uid://bgvqr50ujk7i3" path="res://game/events/flag_capture/flag/blue_flag.png" id="2_orxp6"]
 
-[node name="BlueFlag" instance=ExtResource("1_orxp6")]
+[node name="BlueFlag" unique_id=1725724270 instance=ExtResource("1_orxp6")]
 team = 1
 
 [node name="Sprite2D" parent="." index="0"]

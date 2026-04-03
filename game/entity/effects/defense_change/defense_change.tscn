@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf24vsbhb6f8g"]
+[gd_scene format=3 uid="uid://cf24vsbhb6f8g"]
 
 [ext_resource type="Script" uid="uid://bpogn1fwfcytx" path="res://game/entity/effects/defense_change/defense_change.gd" id="1_2wpe2"]
 [ext_resource type="PackedScene" uid="uid://baoklmloqoop3" path="res://game/entity/effects/common/effect.tscn" id="1_3lon1"]
@@ -98,19 +98,17 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[node name="DefenseChange" instance=ExtResource("1_3lon1")]
+[node name="DefenseChange" unique_id=56396016 instance=ExtResource("1_3lon1")]
 script = ExtResource("1_2wpe2")
 
-[node name="Bubble" type="Sprite2D" parent="." index="1"]
+[node name="Bubble" type="Sprite2D" parent="." index="1" unique_id=1738886141]
 visible = false
 texture = ExtResource("3_vnc5c")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_4dol4")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bubble" index="0" unique_id=1008021342]
+libraries/ = SubResource("AnimationLibrary_4dol4")
 
-[node name="Down" type="CPUParticles2D" parent="." index="2"]
+[node name="Down" type="CPUParticles2D" parent="." index="2" unique_id=984348725]
 visible = false
 position = Vector2(0, -8)
 amount = 3

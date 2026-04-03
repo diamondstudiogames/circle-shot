@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://jhqjtl8ewlm5"]
+[gd_scene format=3 uid="uid://jhqjtl8ewlm5"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_4qhkt"]
 [ext_resource type="PackedScene" uid="uid://duvq6s4rriwpi" path="res://game/weapons/guns/rifles/m4a1/m4a1_bullet.tscn" id="2_0lskg"]
@@ -21,7 +21,7 @@ _data = [Vector2(0, -3), 0.0, 0.0, 0, 0, Vector2(0.65, 3), 0.0, 0.0, 0, 0, Vecto
 point_count = 3
 metadata/_snap_enabled = true
 
-[node name="M4A1" instance=ExtResource("1_4qhkt")]
+[node name="M4A1" unique_id=1898177724 instance=ExtResource("1_4qhkt")]
 shoot_interval = 0.14
 to_aim_time = 0.23
 projectile_scene = ExtResource("2_0lskg")
@@ -39,12 +39,10 @@ ammo_total = 125
 speed_multiplier_when_current = 0.95
 aim_camera_distance = 320.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_xlqic")]
+[node name="Visual" parent="." index="0" unique_id=1044668743 instance=ExtResource("3_xlqic")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(251, -35)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("4_d5qmy")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("4_d5qmy")

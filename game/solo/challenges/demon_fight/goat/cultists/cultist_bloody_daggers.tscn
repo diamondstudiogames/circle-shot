@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr4tmpoe2mwoj"]
+[gd_scene format=3 uid="uid://cr4tmpoe2mwoj"]
 
 [ext_resource type="PackedScene" uid="uid://ceq8q6jddunqn" path="res://game/mobs/cultist/cultist_bloody_daggers.tscn" id="1_ljmlc"]
 
-[node name="CultistBloodyDaggers" instance=ExtResource("1_ljmlc")]
+[node name="CultistBloodyDaggers" unique_id=1394652790 instance=ExtResource("1_ljmlc")]
 vision_distance = 4400.0
 speed = 504.0
 max_health = 50

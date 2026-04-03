@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccjhyo0vujx3a"]
+[gd_scene format=3 uid="uid://ccjhyo0vujx3a"]
 
 [ext_resource type="Texture2D" uid="uid://c4s5bq1k8f462" path="res://game/weapons/melee/soul_sword/projectile/soul_sword_ranged_attack_projectile.png" id="1_6qeap"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_nsgop"]
@@ -79,14 +79,12 @@ _data = {
 &"hit": SubResource("Animation_nsgop")
 }
 
-[node name="SoulSwordRangedAttackHitVfx" type="Node2D"]
+[node name="SoulSwordRangedAttackHitVfx" type="Node2D" unique_id=885212408]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1330961363]
 material = ExtResource("1_nsgop")
 texture = ExtResource("1_6qeap")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_l5vy7")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1984216473]
+libraries/ = SubResource("AnimationLibrary_l5vy7")
+autoplay = &"hit"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://di4mro4edml43"]
+[gd_scene format=3 uid="uid://di4mro4edml43"]
 
 [ext_resource type="Texture2D" uid="uid://l7ctxrbdg3mk" path="res://game/skins/other/ruble/arrow_down.png" id="1_2ly3j"]
 
@@ -6,9 +6,9 @@
 offsets = PackedFloat32Array(0, 0.155894, 0.707224, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="DownHurtVfx" type="Node2D"]
+[node name="DownHurtVfx" type="Node2D" unique_id=99188877]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1671178111]
 z_index = 1
 position = Vector2(0, -8)
 texture = ExtResource("1_2ly3j")
@@ -24,7 +24,7 @@ initial_velocity_min = 14.0
 initial_velocity_max = 14.0
 color_ramp = SubResource("Gradient_cm366")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=702559437]
 wait_time = 0.8
 autostart = true
 

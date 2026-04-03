@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4plrvr2trfs3"]
+[gd_scene format=3 uid="uid://b4plrvr2trfs3"]
 
 [ext_resource type="Texture2D" uid="uid://cjq7ia15icoub" path="res://game/skins/emoji/pokerface/pokerface_death.png" id="1_tgsuc"]
 
@@ -54,14 +54,12 @@ _data = {
 &"death": SubResource("Animation_etfxr")
 }
 
-[node name="PokerfaceDeathVfx" type="Node2D"]
+[node name="PokerfaceDeathVfx" type="Node2D" unique_id=1362283626]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=914033434]
 z_index = -2
 texture = ExtResource("1_tgsuc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_745th")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=836856129]
+libraries/ = SubResource("AnimationLibrary_745th")
+autoplay = &"death"

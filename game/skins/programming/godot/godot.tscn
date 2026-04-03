@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds0ff0j1qcmoc"]
+[gd_scene format=3 uid="uid://ds0ff0j1qcmoc"]
 
 [ext_resource type="Texture2D" uid="uid://cyd4ngcmai4cl" path="res://game/skins/programming/godot/godot.png" id="2_661qc"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_c2a2l"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://f3hynmyergkp" path="res://game/skins/programming/godot/errors_death_vfx.tscn" id="4_nfy5b"]
 [ext_resource type="PackedScene" uid="uid://dkyv0lecs1vaf" path="res://game/skins/programming/godot/merge_heal_vfx.tscn" id="4_scuwd"]
 
-[node name="Godot" type="Sprite2D"]
+[node name="Godot" type="Sprite2D" unique_id=956578779]
 texture = ExtResource("2_661qc")
 script = ExtResource("2_c2a2l")
 custom_hurt_vfx_scene = ExtResource("3_qucak")

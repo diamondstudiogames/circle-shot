@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1qhrnuorldh0"]
+[gd_scene format=3 uid="uid://c1qhrnuorldh0"]
 
 [ext_resource type="Texture2D" uid="uid://b7s5b4hl8ct08" path="res://game/skins/other/ruble/arrow_up.png" id="1_vaynw"]
 
@@ -6,9 +6,9 @@
 offsets = PackedFloat32Array(0, 0.155894, 0.695817, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="UpHealVfx" type="Node2D"]
+[node name="UpHealVfx" type="Node2D" unique_id=1892090014]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1661579375]
 z_index = 1
 position = Vector2(0, 8)
 texture = ExtResource("1_vaynw")
@@ -24,7 +24,7 @@ initial_velocity_min = 14.0
 initial_velocity_max = 14.0
 color_ramp = SubResource("Gradient_cm366")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=981519565]
 wait_time = 0.8
 autostart = true
 

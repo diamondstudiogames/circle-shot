@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4h27swncrquh"]
+[gd_scene format=3 uid="uid://b4h27swncrquh"]
 
 [ext_resource type="Script" uid="uid://dk6xb2fo1sicm" path="res://game/events/common/poison_smokes/poison_smokes.gd" id="1_a2moi"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="2_8ot81"]
@@ -118,7 +118,7 @@ _data = {
 &"move": SubResource("Animation_3xxqq")
 }
 
-[node name="PoisonSmokes" type="Node2D"]
+[node name="PoisonSmokes" type="Node2D" unique_id=43461876]
 physics_interpolation_mode = 1
 z_index = 4
 script = ExtResource("1_a2moi")
@@ -126,7 +126,7 @@ damage = 20
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="Bottom" type="Area2D" parent="."]
+[node name="Bottom" type="Area2D" parent="." unique_id=337544990]
 position = Vector2(0, 6400)
 collision_layer = 4
 collision_mask = 66
@@ -134,75 +134,73 @@ monitorable = false
 script = ExtResource("2_8ot81")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1341835379]
 shape = SubResource("WorldBoundaryShape2D_k7uj4")
 
-[node name="Top" type="Sprite2D" parent="Bottom"]
+[node name="Top" type="Sprite2D" parent="Bottom" unique_id=953224764]
 texture_repeat = 2
 position = Vector2(-6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top2" type="Sprite2D" parent="Bottom"]
+[node name="Top2" type="Sprite2D" parent="Bottom" unique_id=1254987154]
 texture_repeat = 2
 position = Vector2(-2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top3" type="Sprite2D" parent="Bottom"]
+[node name="Top3" type="Sprite2D" parent="Bottom" unique_id=386604366]
 texture_repeat = 2
 position = Vector2(2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top4" type="Sprite2D" parent="Bottom"]
+[node name="Top4" type="Sprite2D" parent="Bottom" unique_id=980396103]
 texture_repeat = 2
 position = Vector2(6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Base" type="Sprite2D" parent="Bottom"]
+[node name="Base" type="Sprite2D" parent="Bottom" unique_id=1659715759]
 position = Vector2(-6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base2" type="Sprite2D" parent="Bottom"]
+[node name="Base2" type="Sprite2D" parent="Bottom" unique_id=1791822805]
 position = Vector2(-2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base3" type="Sprite2D" parent="Bottom"]
+[node name="Base3" type="Sprite2D" parent="Bottom" unique_id=2067281248]
 position = Vector2(2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base4" type="Sprite2D" parent="Bottom"]
+[node name="Base4" type="Sprite2D" parent="Bottom" unique_id=1572511617]
 position = Vector2(6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bottom"]
-libraries = {
-&"": SubResource("AnimationLibrary_vpitb")
-}
-autoplay = "move"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bottom" unique_id=1204689065]
+libraries/ = SubResource("AnimationLibrary_vpitb")
+autoplay = &"move"
 
-[node name="MinimapMarker" type="Node" parent="Bottom"]
+[node name="MinimapMarker" type="Node" parent="Bottom" unique_id=2112428470]
 physics_interpolation_mode = 2
 
-[node name="Line" type="Line2D" parent="Bottom/MinimapMarker"]
+[node name="Line" type="Line2D" parent="Bottom/MinimapMarker" unique_id=641690791]
 visibility_layer = 2
 z_index = -9
 position = Vector2(0, 6400)
@@ -210,7 +208,7 @@ points = PackedVector2Array(-6400, 80, 6400, 80)
 width = 160.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Top" type="Area2D" parent="."]
+[node name="Top" type="Area2D" parent="." unique_id=1758858502]
 position = Vector2(0, -6400)
 rotation = 3.14159
 collision_layer = 4
@@ -219,75 +217,73 @@ monitorable = false
 script = ExtResource("2_8ot81")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=255141814]
 shape = SubResource("WorldBoundaryShape2D_k7uj4")
 
-[node name="Top" type="Sprite2D" parent="Top"]
+[node name="Top" type="Sprite2D" parent="Top" unique_id=1282277336]
 texture_repeat = 2
 position = Vector2(-6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top2" type="Sprite2D" parent="Top"]
+[node name="Top2" type="Sprite2D" parent="Top" unique_id=55251666]
 texture_repeat = 2
 position = Vector2(-2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top3" type="Sprite2D" parent="Top"]
+[node name="Top3" type="Sprite2D" parent="Top" unique_id=736592890]
 texture_repeat = 2
 position = Vector2(2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top4" type="Sprite2D" parent="Top"]
+[node name="Top4" type="Sprite2D" parent="Top" unique_id=850526453]
 texture_repeat = 2
 position = Vector2(6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Base" type="Sprite2D" parent="Top"]
+[node name="Base" type="Sprite2D" parent="Top" unique_id=1750785608]
 position = Vector2(-6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base2" type="Sprite2D" parent="Top"]
+[node name="Base2" type="Sprite2D" parent="Top" unique_id=1037561133]
 position = Vector2(-2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base3" type="Sprite2D" parent="Top"]
+[node name="Base3" type="Sprite2D" parent="Top" unique_id=802584508]
 position = Vector2(2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base4" type="Sprite2D" parent="Top"]
+[node name="Base4" type="Sprite2D" parent="Top" unique_id=1632922254]
 position = Vector2(6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Top"]
-libraries = {
-&"": SubResource("AnimationLibrary_vpitb")
-}
-autoplay = "move"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Top" unique_id=1588479896]
+libraries/ = SubResource("AnimationLibrary_vpitb")
+autoplay = &"move"
 
-[node name="MinimapMarker" type="Node" parent="Top"]
+[node name="MinimapMarker" type="Node" parent="Top" unique_id=674866259]
 physics_interpolation_mode = 2
 
-[node name="Line" type="Line2D" parent="Top/MinimapMarker"]
+[node name="Line" type="Line2D" parent="Top/MinimapMarker" unique_id=1153729463]
 visibility_layer = 2
 z_index = -9
 position = Vector2(0, -6400)
@@ -296,7 +292,7 @@ points = PackedVector2Array(-6400, 80, 6400, 80)
 width = 160.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Left" type="Area2D" parent="."]
+[node name="Left" type="Area2D" parent="." unique_id=502755462]
 position = Vector2(-6400, 0)
 rotation = 1.5708
 collision_layer = 4
@@ -305,75 +301,73 @@ monitorable = false
 script = ExtResource("2_8ot81")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1078700086]
 shape = SubResource("WorldBoundaryShape2D_k7uj4")
 
-[node name="Top" type="Sprite2D" parent="Left"]
+[node name="Top" type="Sprite2D" parent="Left" unique_id=1286090785]
 texture_repeat = 2
 position = Vector2(-6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top2" type="Sprite2D" parent="Left"]
+[node name="Top2" type="Sprite2D" parent="Left" unique_id=1881156303]
 texture_repeat = 2
 position = Vector2(-2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top3" type="Sprite2D" parent="Left"]
+[node name="Top3" type="Sprite2D" parent="Left" unique_id=1894959094]
 texture_repeat = 2
 position = Vector2(2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top4" type="Sprite2D" parent="Left"]
+[node name="Top4" type="Sprite2D" parent="Left" unique_id=177474337]
 texture_repeat = 2
 position = Vector2(6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Base" type="Sprite2D" parent="Left"]
+[node name="Base" type="Sprite2D" parent="Left" unique_id=1292083188]
 position = Vector2(-6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base2" type="Sprite2D" parent="Left"]
+[node name="Base2" type="Sprite2D" parent="Left" unique_id=2032763172]
 position = Vector2(-2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base3" type="Sprite2D" parent="Left"]
+[node name="Base3" type="Sprite2D" parent="Left" unique_id=581262960]
 position = Vector2(2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base4" type="Sprite2D" parent="Left"]
+[node name="Base4" type="Sprite2D" parent="Left" unique_id=5642919]
 position = Vector2(6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Left"]
-libraries = {
-&"": SubResource("AnimationLibrary_vpitb")
-}
-autoplay = "move"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Left" unique_id=28125895]
+libraries/ = SubResource("AnimationLibrary_vpitb")
+autoplay = &"move"
 
-[node name="MinimapMarker" type="Node" parent="Left"]
+[node name="MinimapMarker" type="Node" parent="Left" unique_id=520236305]
 physics_interpolation_mode = 2
 
-[node name="Line" type="Line2D" parent="Left/MinimapMarker"]
+[node name="Line" type="Line2D" parent="Left/MinimapMarker" unique_id=819920881]
 visibility_layer = 2
 z_index = -9
 position = Vector2(-6400, 0)
@@ -382,7 +376,7 @@ points = PackedVector2Array(-6400, 80, 6400, 80)
 width = 160.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Right" type="Area2D" parent="."]
+[node name="Right" type="Area2D" parent="." unique_id=462630399]
 position = Vector2(6400, 0)
 rotation = -1.5708
 collision_layer = 4
@@ -391,75 +385,73 @@ monitorable = false
 script = ExtResource("2_8ot81")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1090938889]
 shape = SubResource("WorldBoundaryShape2D_k7uj4")
 
-[node name="Top" type="Sprite2D" parent="Right"]
+[node name="Top" type="Sprite2D" parent="Right" unique_id=1552464599]
 texture_repeat = 2
 position = Vector2(-6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top2" type="Sprite2D" parent="Right"]
+[node name="Top2" type="Sprite2D" parent="Right" unique_id=1276645508]
 texture_repeat = 2
 position = Vector2(-2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top3" type="Sprite2D" parent="Right"]
+[node name="Top3" type="Sprite2D" parent="Right" unique_id=1503721735]
 texture_repeat = 2
 position = Vector2(2048, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Top4" type="Sprite2D" parent="Right"]
+[node name="Top4" type="Sprite2D" parent="Right" unique_id=1131877599]
 texture_repeat = 2
 position = Vector2(6144, 132)
 texture = ExtResource("3_jp17w")
 region_enabled = true
 region_rect = Rect2(0, 2, 4096, 510)
 
-[node name="Base" type="Sprite2D" parent="Right"]
+[node name="Base" type="Sprite2D" parent="Right" unique_id=241409437]
 position = Vector2(-6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base2" type="Sprite2D" parent="Right"]
+[node name="Base2" type="Sprite2D" parent="Right" unique_id=929773600]
 position = Vector2(-2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base3" type="Sprite2D" parent="Right"]
+[node name="Base3" type="Sprite2D" parent="Right" unique_id=593918863]
 position = Vector2(2048, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="Base4" type="Sprite2D" parent="Right"]
+[node name="Base4" type="Sprite2D" parent="Right" unique_id=839848024]
 position = Vector2(6144, 4482)
 scale = Vector2(4, 4)
 texture = ExtResource("4_d8b6i")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 2048)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Right"]
-libraries = {
-&"": SubResource("AnimationLibrary_vpitb")
-}
-autoplay = "move"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Right" unique_id=1558999841]
+libraries/ = SubResource("AnimationLibrary_vpitb")
+autoplay = &"move"
 
-[node name="MinimapMarker" type="Node" parent="Right"]
+[node name="MinimapMarker" type="Node" parent="Right" unique_id=1344551695]
 physics_interpolation_mode = 2
 
-[node name="Line" type="Line2D" parent="Right/MinimapMarker"]
+[node name="Line" type="Line2D" parent="Right/MinimapMarker" unique_id=541870521]
 visibility_layer = 2
 z_index = -9
 position = Vector2(6400, 0)

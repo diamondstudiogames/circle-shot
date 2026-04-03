@@ -1,11 +1,206 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5swv4a3luh8f"]
+[gd_scene format=3 uid="uid://c5swv4a3luh8f"]
 
 [ext_resource type="PackedScene" uid="uid://b5t5tgu043bm" path="res://game/weapons/grenades/common/grenade.tscn" id="1_g2cmw"]
 [ext_resource type="PackedScene" uid="uid://3cta5u3qtmvj" path="res://game/weapons/grenades/smoke_grenade/projectile/smoke_grenade_projectile.tscn" id="2_ukbhw"]
 [ext_resource type="PackedScene" uid="uid://brjl5w288thlv" path="res://game/weapons/grenades/smoke_grenade/visual/smoke_grenade_visual.tscn" id="3_6obdm"]
-[ext_resource type="AnimationLibrary" uid="uid://cplw1nfu3aucm" path="res://game/weapons/grenades/smoke_grenade/visual/smoke_grenade_animations.tres" id="4_2xder"]
 
-[node name="SmokeGrenade" instance=ExtResource("1_g2cmw")]
+[sub_resource type="Animation" id="Animation_tlngu"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Grenade/Tick:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Grenade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Grenade:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Grenade/Tick:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visual/Grenade:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hh5j0"]
+resource_name = "Equip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Grenade:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32, 24), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Grenade:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.769569, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Grenade:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8jvrf"]
+resource_name = "Throw"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Grenade/Tick:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-42, 13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Grenade/Tick:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Grenade:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-32, -32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Grenade:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_7nwjo"]
+resource_local_to_scene = true
+resource_name = "PostThrow"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Grenade:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32, -32), Vector2(64, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Grenade:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.785398, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6obdm"]
+resource_local_to_scene = true
+_data = {
+&"RESET": SubResource("Animation_tlngu"),
+&"equip": SubResource("Animation_hh5j0"),
+&"pre_throw": SubResource("Animation_8jvrf"),
+&"throw": SubResource("Animation_7nwjo")
+}
+
+[node name="SmokeGrenade" unique_id=1945341320 instance=ExtResource("1_g2cmw")]
 projectile_scene = ExtResource("2_ukbhw")
 spread_walk = 4.0
 projectile_speed = 1200.0
@@ -14,17 +209,15 @@ projectile_explosion_time = 2.0
 ammo_total = 2
 speed_multiplier_when_current = 0.99
 
-[node name="Visual" parent="." index="0" instance=ExtResource("3_6obdm")]
+[node name="Visual" parent="." index="0" unique_id=645578540 instance=ExtResource("3_6obdm")]
 
-[node name="Visual" parent="ReloadIndicator/Visual" index="0" instance=ExtResource("3_6obdm")]
+[node name="Visual" parent="ReloadIndicator/Visual" parent_id_path=PackedInt32Array(1667641370) index="0" unique_id=1949230798 instance=ExtResource("3_6obdm")]
 
-[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+[node name="ThrowPoint" parent="ThrowPivot" parent_id_path=PackedInt32Array(517828764) index="0" unique_id=1142839276]
 position = Vector2(104, 0)
 
-[node name="ReloadTimer" parent="." index="3"]
+[node name="ReloadTimer" parent="." index="3" unique_id=1604587709]
 wait_time = 25.0
 
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": ExtResource("4_2xder")
-}
+[node name="AnimationPlayer" parent="." index="4" unique_id=1211961318]
+libraries/ = SubResource("AnimationLibrary_6obdm")

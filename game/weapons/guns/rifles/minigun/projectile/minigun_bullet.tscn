@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2npe1obh3ekr"]
+[gd_scene format=3 uid="uid://c2npe1obh3ekr"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_idodr"]
 [ext_resource type="Script" uid="uid://bnxsaaaegknaa" path="res://game/weapons/guns/common/bullet.gd" id="2_bajna"]
@@ -10,20 +10,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v63l0"]
 size = Vector2(96, 32)
 
-[node name="MinigunBullet" instance=ExtResource("1_idodr")]
+[node name="MinigunBullet" unique_id=763558441 instance=ExtResource("1_idodr")]
 script = ExtResource("2_bajna")
 speed = 3000.0
 hit_vfx_scene = ExtResource("2_vdf6u")
 hit_wall_vfx_scene = ExtResource("2_vdf6u")
 damage = 8
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1648573262]
 z_index = -1
 material = ExtResource("2_q4lvn")
 texture = ExtResource("3_idodr")
 offset = Vector2(-104, 0)
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="1" unique_id=2043266601]
 position = Vector2(-144, 0)
 shape = SubResource("RectangleShape2D_v63l0")
 target_position = Vector2(96, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmk2yaoqx0ots"]
+[gd_scene format=3 uid="uid://cmk2yaoqx0ots"]
 
 [ext_resource type="PackedScene" uid="uid://dl34a52ytjh4n" path="res://game/solo/challenges/demon_fight/goat/lightnings/lightning_bolt.tscn" id="1_0ghvd"]
 
@@ -16,8 +16,8 @@ properties/3/path = NodePath("AnimationPlayer:speed_scale")
 properties/3/spawn = true
 properties/3/replication_mode = 0
 
-[node name="FinalLightningBolt" instance=ExtResource("1_0ghvd")]
+[node name="FinalLightningBolt" unique_id=1596386440 instance=ExtResource("1_0ghvd")]
 stun_duration = 1.0
 
-[node name="MultiplayerSynchronizer" parent="." index="5"]
+[node name="MultiplayerSynchronizer" parent="." index="5" unique_id=1883576911]
 replication_config = SubResource("SceneReplicationConfig_0ghvd")

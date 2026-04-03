@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdtqr6mv231py"]
+[gd_scene format=3 uid="uid://bdtqr6mv231py"]
 
 [ext_resource type="Script" uid="uid://51x4i2i5lwge" path="res://game/shared/interactible/boxes/ammo_box.gd" id="1_4kl7u"]
 [ext_resource type="Texture2D" uid="uid://ddgp6giu670fh" path="res://game/shared/interactible/boxes/ammo_box.png" id="2_equak"]
@@ -183,39 +183,37 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 0
 
-[node name="AmmoBox" type="Node2D"]
+[node name="AmmoBox" type="Node2D" unique_id=69830346]
 script = ExtResource("1_4kl7u")
 
-[node name="Interactible" parent="." instance=ExtResource("2_fkb2o")]
+[node name="Interactible" parent="." unique_id=144675432 instance=ExtResource("2_fkb2o")]
 position = Vector2(0, -80)
 text = "Пополнить боеприпасы
 всех оружий"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible" unique_id=1792898170]
 position = Vector2(0, 80)
 shape = SubResource("CircleShape2D_7nyxe")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1721029344]
 z_index = -2
 texture = ExtResource("2_equak")
 
-[node name="DespawnTimer" type="Timer" parent="."]
+[node name="DespawnTimer" type="Timer" parent="." unique_id=1656022259]
 process_callback = 0
 wait_time = 20.0
 one_shot = true
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ojm35")
-}
-autoplay = "spawn"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1964087997]
+libraries/ = SubResource("AnimationLibrary_ojm35")
+autoplay = &"spawn"
 next/spawn = &"idle"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1913015273]
 replication_config = SubResource("SceneReplicationConfig_mxk3j")
 
-[node name="MinimapMarker" parent="." instance=ExtResource("4_08lu2")]
+[node name="MinimapMarker" parent="." unique_id=2126391824 instance=ExtResource("4_08lu2")]
 
 [node name="Visual" parent="MinimapMarker" index="2"]
 texture = ExtResource("5_dkmff")

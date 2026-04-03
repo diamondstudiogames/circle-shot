@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bd5b1kibfjck6"]
+[gd_scene format=3 uid="uid://bd5b1kibfjck6"]
 
 [ext_resource type="PackedScene" uid="uid://dtvo18gjrm7my" path="res://game/entity/entity.tscn" id="1_w38i3"]
 [ext_resource type="Script" uid="uid://crutl2ia5dv7o" path="res://game/solo/challenges/demon_fight/goat/altar/altar.gd" id="2_djudx"]
@@ -216,7 +216,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bygv"]
 radius = 2400.0
 
-[node name="Altar" groups=["mob"] instance=ExtResource("1_w38i3")]
+[node name="Altar" unique_id=1347834385 groups=["mob"] instance=ExtResource("1_w38i3")]
 script = ExtResource("2_djudx")
 area_damage_multiplier = 1.25
 area_speed_multiplier = 1.2
@@ -228,20 +228,20 @@ max_health = 300
 always_visible_on_minimap = true
 death_vfx_scene = ExtResource("6_lnpai")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("ConvexPolygonShape2D_03hjr")
 disabled = true
 
-[node name="Info" parent="." index="4"]
+[node name="Info" parent="." index="4" unique_id=247772461]
 position = Vector2(0, -392)
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=1262440913]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(0, -544)
 texture = ExtResource("2_i7fki")
 
-[node name="PentagramEffect" type="Sprite2D" parent="Visual" index="1"]
+[node name="PentagramEffect" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=418976703]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 z_index = -4
@@ -250,27 +250,25 @@ position = Vector2(0, 64)
 scale = Vector2(0.5, 0.25)
 texture = ExtResource("5_2ujxk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
-libraries = {
-&"": SubResource("AnimationLibrary_as211")
-}
-autoplay = "spawn"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7" unique_id=1521323918]
+libraries/ = SubResource("AnimationLibrary_as211")
+autoplay = &"spawn"
 
-[node name="ProjectilesTimer" type="Timer" parent="." index="8"]
+[node name="ProjectilesTimer" type="Timer" parent="." index="8" unique_id=98634227]
 process_callback = 0
 wait_time = 5.0
 autostart = true
 
-[node name="ProjectilesSpawnPoint" type="Marker2D" parent="." index="9"]
+[node name="ProjectilesSpawnPoint" type="Marker2D" parent="." index="9" unique_id=598319666]
 position = Vector2(0, -180)
 gizmo_extents = 64.0
 
-[node name="PowerArea" type="Area2D" parent="." index="10"]
+[node name="PowerArea" type="Area2D" parent="." index="10" unique_id=388182172]
 collision_layer = 128
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerArea" index="0" unique_id=413472751]
 visible = false
 shape = SubResource("CircleShape2D_3bygv")
 disabled = true

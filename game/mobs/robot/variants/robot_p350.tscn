@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxac6tcgijv2e"]
+[gd_scene format=3 uid="uid://bxac6tcgijv2e"]
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_kbh7f"]
 [ext_resource type="Script" uid="uid://dmoavhfqpyihd" path="res://game/mobs/robot/variants/robot_p350.gd" id="2_od6ak"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hco5h5lftad6" path="res://game/weapons/guns/pistols/p350/visual/p350_visual.tscn" id="4_xjmb3"]
 [ext_resource type="AnimationLibrary" uid="uid://i3oswnbbu01e" path="res://game/weapons/guns/pistols/p350/visual/p350_animations.tres" id="5_gdewm"]
 
-[node name="RobotP350" instance=ExtResource("1_kbh7f")]
+[node name="RobotP350" unique_id=455329438 instance=ExtResource("1_kbh7f")]
 script = ExtResource("2_od6ak")
 projectile_scene = ExtResource("3_fcvqf")
 spread = 3.0
@@ -16,14 +16,12 @@ min_distance = 320.0
 shoot_distance = 960.0
 speed = 600.0
 
-[node name="P350" type="Node2D" parent="Visual/Weapon" index="0"]
+[node name="P350" type="Node2D" parent="Visual/Weapon" parent_id_path=PackedInt32Array(1441839460) index="0" unique_id=2130206823]
 
-[node name="Visual" parent="Visual/Weapon/P350" index="0" instance=ExtResource("4_xjmb3")]
+[node name="Visual" parent="Visual/Weapon/P350" index="0" unique_id=894572437 instance=ExtResource("4_xjmb3")]
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/P350" index="1"]
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/P350" index="1" unique_id=1235997000]
 position = Vector2(99, -33)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/P350" index="2"]
-libraries = {
-&"": ExtResource("5_gdewm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/P350" index="2" unique_id=319486448]
+libraries/ = ExtResource("5_gdewm")

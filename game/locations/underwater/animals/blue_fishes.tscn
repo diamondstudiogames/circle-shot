@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcftoqwpkkmmq"]
+[gd_scene format=3 uid="uid://dcftoqwpkkmmq"]
 
 [ext_resource type="PackedScene" uid="uid://5plkudhttqhl" path="res://game/locations/underwater/animals/fishes.tscn" id="1_37tfu"]
 [ext_resource type="Texture2D" uid="uid://d0nmyftjjkp1k" path="res://game/locations/underwater/textures/fishes.png" id="2_jl6u1"]
@@ -7,7 +7,10 @@
 atlas = ExtResource("2_jl6u1")
 region = Rect2(0, 0, 26, 16)
 
-[node name="BlueFishes" instance=ExtResource("1_37tfu")]
+[node name="BlueFishes" unique_id=1415285774 instance=ExtResource("1_37tfu")]
 
 [node name="CPUParticles2D" parent="Path2D/PathFollow2D" index="0"]
 texture = SubResource("AtlasTexture_hf0h1")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = &"fishes"

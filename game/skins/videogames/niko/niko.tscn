@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh3n3un5i122b"]
+[gd_scene format=3 uid="uid://dh3n3un5i122b"]
 
 [ext_resource type="Texture2D" uid="uid://bo7tmcmbiwygj" path="res://game/skins/videogames/niko/niko.png" id="1_g7mfa"]
 [ext_resource type="Script" uid="uid://bp7lio17iay5f" path="res://game/skins/videogames/niko/niko.gd" id="2_6vdpt"]
@@ -50,7 +50,7 @@ shader_parameter/time_multiplier = 3.142
 shader_parameter/stretch = 7.5
 shader_parameter/amplitude = 0.1
 
-[node name="Niko" type="Sprite2D"]
+[node name="Niko" type="Sprite2D" unique_id=1280343447]
 texture_filter = 1
 texture = ExtResource("1_g7mfa")
 script = ExtResource("2_6vdpt")
@@ -58,16 +58,14 @@ reach_angle_speed = 3.0
 custom_death_vfx_scene = ExtResource("3_6gprp")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_7kvrj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1153122380]
+libraries/ = SubResource("AnimationLibrary_7kvrj")
 
-[node name="Scarfes" type="Node2D" parent="."]
+[node name="Scarfes" type="Node2D" parent="." unique_id=676533608]
 show_behind_parent = true
 position = Vector2(0, 48)
 
-[node name="Scarf1" type="Sprite2D" parent="Scarfes"]
+[node name="Scarf1" type="Sprite2D" parent="Scarfes" unique_id=577340293]
 self_modulate = Color(0.85098, 0.85098, 0.85098, 1)
 material = SubResource("ShaderMaterial_7kvrj")
 instance_shader_parameters/time_offset = 6.282
@@ -77,7 +75,7 @@ offset = Vector2(-96, 0)
 region_enabled = true
 region_rect = Rect2(0, -16, 192, 80)
 
-[node name="Scarf2" type="Sprite2D" parent="Scarfes"]
+[node name="Scarf2" type="Sprite2D" parent="Scarfes" unique_id=1057785243]
 material = SubResource("ShaderMaterial_7kvrj")
 rotation = -0.10472
 texture = ExtResource("6_ohq70")

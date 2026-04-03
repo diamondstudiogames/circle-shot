@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://yfpyfv6boyao"]
+[gd_scene format=3 uid="uid://yfpyfv6boyao"]
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_5uf7s"]
 [ext_resource type="Script" uid="uid://btgre7bv1b6d3" path="res://game/events/royale/royale.gd" id="2_d2r5a"]
@@ -187,7 +187,7 @@ action = &"ui_right"
 [sub_resource type="Shortcut" id="Shortcut_scmca"]
 events = [SubResource("InputEventAction_og6sw")]
 
-[node name="Event" instance=ExtResource("1_5uf7s")]
+[node name="Event" unique_id=100949135 instance=ExtResource("1_5uf7s")]
 script = ExtResource("2_d2r5a")
 heal_box_spawn_interval_base = 10.0
 heal_box_spawn_interval_per_player = 1.0
@@ -203,22 +203,22 @@ damage_for_coin = 15
 spawn_point_randomness = 0.0
 metadata/_edit_horizontal_guides_ = []
 
-[node name="OtherSpawner" parent="." index="6"]
+[node name="OtherSpawner" parent="." index="6" unique_id=1631769039]
 _spawnable_scenes = PackedStringArray("uid://bdtqr6mv231py", "uid://bysyaaj2r7stt", "uid://d0d83mi7scscc")
 
-[node name="HealBoxSpawnTimer" type="Timer" parent="." index="7"]
+[node name="HealBoxSpawnTimer" type="Timer" parent="." index="7" unique_id=858570491]
 one_shot = true
 
-[node name="AmmoBoxSpawnTimer" type="Timer" parent="." index="8"]
+[node name="AmmoBoxSpawnTimer" type="Timer" parent="." index="8" unique_id=785154060]
 one_shot = true
 
-[node name="WeaponBoxSpawnTimer" type="Timer" parent="." index="9"]
+[node name="WeaponBoxSpawnTimer" type="Timer" parent="." index="9" unique_id=1679735868]
 one_shot = true
 
-[node name="UI" parent="." index="11"]
+[node name="UI" parent="." index="11" unique_id=147986541]
 script = ExtResource("6_q5vxn")
 
-[node name="PlayerCounterTitle" type="Label" parent="UI/Main" index="5"]
+[node name="PlayerCounterTitle" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=1368148337]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -231,7 +231,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderMediumOutlined"
 text = "Осталось игроков: "
 
-[node name="PlayerCounter" type="Label" parent="UI/Main" index="6"]
+[node name="PlayerCounter" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=1951135613]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -248,7 +248,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameEnd" type="Label" parent="UI/Main" index="7"]
+[node name="GameEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=2051832209]
 visible = false
 self_modulate = Color(1, 0, 0, 0)
 layout_mode = 1
@@ -276,12 +276,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_n8n4b")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0" unique_id=2000534369]
+libraries/ = SubResource("AnimationLibrary_n8n4b")
 
-[node name="SpectatorMenu" type="HBoxContainer" parent="UI/Main" index="8"]
+[node name="SpectatorMenu" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=33619645]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -296,17 +294,17 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Previous" type="Button" parent="UI/Main/SpectatorMenu" index="0"]
+[node name="Previous" type="Button" parent="UI/Main/SpectatorMenu" index="0" unique_id=681222460]
 layout_mode = 2
 shortcut = SubResource("Shortcut_0ce5t")
 shortcut_in_tooltip = false
 icon = ExtResource("7_oyafe")
 
-[node name="Spectating" type="VBoxContainer" parent="UI/Main/SpectatorMenu" index="1"]
+[node name="Spectating" type="VBoxContainer" parent="UI/Main/SpectatorMenu" index="1" unique_id=1950223975]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="0"]
+[node name="Label" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="0" unique_id=397485160]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -314,7 +312,7 @@ text = "Наблюдение за"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpectatingName" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="1"]
+[node name="SpectatingName" type="Label" parent="UI/Main/SpectatorMenu/Spectating" index="1" unique_id=75501729]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
@@ -323,23 +321,23 @@ theme_override_constants/outline_size = 4
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Next" type="Button" parent="UI/Main/SpectatorMenu" index="2"]
+[node name="Next" type="Button" parent="UI/Main/SpectatorMenu" index="2" unique_id=1805176396]
 layout_mode = 2
 shortcut = SubResource("Shortcut_scmca")
 shortcut_in_tooltip = false
 icon = ExtResource("8_ub7jk")
 
-[node name="Title" parent="UI/Intro" index="1"]
+[node name="Title" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="1" unique_id=360426741]
 text = "КОРОЛЕВСКАЯ БИТВА"
 
-[node name="Description" parent="UI/Intro/Title" index="0"]
+[node name="Description" parent="UI/Intro/Title" index="0" unique_id=1561217676]
 text = "Побеждает последний выживший!"
 
-[node name="Text" parent="UI/Intro" index="2"]
+[node name="Text" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="2" unique_id=1913610560]
 text = "Каждый сам
 за себя!"
 
-[node name="ResourcePreloaderRoyale" type="ResourcePreloader" parent="." index="16"]
+[node name="ResourcePreloaderRoyale" type="ResourcePreloader" parent="." index="16" unique_id=855872788]
 resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes", "weapon_box_royale"), [ExtResource("7_v5hkh"), ExtResource("3_vu7pc"), ExtResource("9_b3a1j"), ExtResource("10_583pe"), ExtResource("10_scmca")]]
 
 [connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]

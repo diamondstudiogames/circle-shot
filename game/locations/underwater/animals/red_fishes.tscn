@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv223gm15jt2a"]
+[gd_scene format=3 uid="uid://bv223gm15jt2a"]
 
 [ext_resource type="Texture2D" uid="uid://d0nmyftjjkp1k" path="res://game/locations/underwater/textures/fishes.png" id="1_6mks6"]
 [ext_resource type="PackedScene" uid="uid://5plkudhttqhl" path="res://game/locations/underwater/animals/fishes.tscn" id="1_trxi3"]
@@ -7,7 +7,7 @@
 atlas = ExtResource("1_6mks6")
 region = Rect2(0, 16, 26, 16)
 
-[node name="RedFishes" instance=ExtResource("1_trxi3")]
+[node name="RedFishes" unique_id=1256958946 instance=ExtResource("1_trxi3")]
 
-[node name="CPUParticles2D" parent="Path2D/PathFollow2D" index="0"]
+[node name="CPUParticles2D" parent="Path2D/PathFollow2D" parent_id_path=PackedInt32Array(23850069) index="0" unique_id=1531914484]
 texture = SubResource("AtlasTexture_hf0h1")

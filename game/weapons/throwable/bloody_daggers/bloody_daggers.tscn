@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwunk2vqqu6em"]
+[gd_scene format=3 uid="uid://cwunk2vqqu6em"]
 
 [ext_resource type="PackedScene" uid="uid://cdo5tqeki3gle" path="res://game/weapons/throwable/common/throwable.tscn" id="1_ge4u4"]
 [ext_resource type="PackedScene" uid="uid://bmgs501ayehg6" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger_projectile.tscn" id="2_qhmyu"]
@@ -90,7 +90,7 @@ _data = {
 &"equip": SubResource("Animation_t587r")
 }
 
-[node name="BloodyDaggers" instance=ExtResource("1_ge4u4")]
+[node name="BloodyDaggers" unique_id=881363730 instance=ExtResource("1_ge4u4")]
 projectile_scene = ExtResource("2_qhmyu")
 ammo_scene = ExtResource("3_rsm3x")
 to_aim_time = 0.2
@@ -122,6 +122,4 @@ position = Vector2(0, 0)
 width = 12.0
 
 [node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_62234")
-}
+libraries/ = SubResource("AnimationLibrary_62234")

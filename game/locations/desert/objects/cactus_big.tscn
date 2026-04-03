@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnw60700ji12f"]
+[gd_scene format=3 uid="uid://dnw60700ji12f"]
 
 [ext_resource type="Script" uid="uid://bgvirlnion8wa" path="res://game/entity/attack/attack.gd" id="1_83x7u"]
 [ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="2_mf13s"]
@@ -7,27 +7,27 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ovoe5"]
 radius = 136.0
 
-[node name="CactusBig" type="StaticBody2D"]
+[node name="CactusBig" type="StaticBody2D" unique_id=1250935757]
 disable_mode = 1
 collision_mask = 0
 
-[node name="Attack" type="Node2D" parent="."]
+[node name="Attack" type="Node2D" parent="." unique_id=426671440]
 script = ExtResource("1_83x7u")
 damage = 5
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Attack"]
+[node name="AreaDetector" type="Area2D" parent="Attack" unique_id=162388985]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_mf13s")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AreaDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AreaDetector" unique_id=1632583623]
 shape = SubResource("CircleShape2D_ovoe5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=886332186]
 texture = ExtResource("3_83x7u")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=851621407]
 polygon = PackedVector2Array(-112, 0, -104, -40, -80, -80, -40, -104, 0, -112, 40, -104, 80, -80, 104, -40, 112, 0, 104, 40, 80, 80, 40, 104, 0, 112, -40, 104, -80, 80, -104, 40)

@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=9 format=3 uid="uid://drudmqihwd7ay"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://drudmqihwd7ay"]
 
 [ext_resource type="AudioStream" uid="uid://b7h86apen7cxs" path="res://game/weapons/other/teleporter/visual/activation.wav" id="1_rcpeh"]
 

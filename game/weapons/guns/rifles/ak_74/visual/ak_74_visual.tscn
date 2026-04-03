@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byp5ygduynmvg"]
+[gd_scene format=3 uid="uid://byp5ygduynmvg"]
 
 [ext_resource type="Texture2D" uid="uid://c3d0qn8bq5v37" path="res://game/weapons/guns/rifles/ak_74/visual/magazine.png" id="1_ws2p6"]
 [ext_resource type="Texture2D" uid="uid://b43o2h304pj0x" path="res://game/weapons/guns/rifles/ak_74/visual/base.png" id="2_74mcq"]
@@ -10,9 +10,9 @@
 [sub_resource type="Gradient" id="Gradient_t3q31"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=561953191]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=1725554753]
 visible = false
 position = Vector2(85, 9)
 texture = ExtResource("1_ws2p6")
@@ -20,17 +20,17 @@ offset = Vector2(60, 8)
 region_enabled = true
 region_rect = Rect2(128, 48, 56, 64)
 
-[node name="Weapon" type="Sprite2D" parent="."]
+[node name="Weapon" type="Sprite2D" parent="." unique_id=2085018973]
 texture = ExtResource("2_74mcq")
 offset = Vector2(54, -12)
 
-[node name="Shutter" type="Sprite2D" parent="Weapon"]
+[node name="Shutter" type="Sprite2D" parent="Weapon" unique_id=1769341294]
 texture = ExtResource("3_bbg40")
 offset = Vector2(64, -40)
 region_enabled = true
 region_rect = Rect2(152, 24, 16, 16)
 
-[node name="Shoot" type="Sprite2D" parent="Weapon"]
+[node name="Shoot" type="Sprite2D" parent="Weapon" unique_id=1252245116]
 visible = false
 show_behind_parent = true
 material = ExtResource("4_74mcq")
@@ -38,14 +38,14 @@ position = Vector2(214, -31)
 scale = Vector2(1, -1)
 texture = ExtResource("4_hxdut")
 
-[node name="Magazine" type="Sprite2D" parent="Weapon"]
+[node name="Magazine" type="Sprite2D" parent="Weapon" unique_id=973785038]
 show_behind_parent = true
 texture = ExtResource("1_ws2p6")
 offset = Vector2(60, 8)
 region_enabled = true
 region_rect = Rect2(128, 48, 56, 64)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Weapon"]
+[node name="Sleeve" type="CPUParticles2D" parent="Weapon" unique_id=769167346]
 position = Vector2(54, -38)
 emitting = false
 amount = 1

@@ -1,28 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5gj3jyjpfs13"]
+[gd_scene format=3 uid="uid://c5gj3jyjpfs13"]
 
 [ext_resource type="Script" uid="uid://b3qvgvsdwg2c6" path="res://game/shared/interactible/common/interactible.gd" id="1_djvto"]
 [ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="2_7agcr"]
 [ext_resource type="Texture2D" uid="uid://42exluui2v5a" path="res://game/shared/interactible/common/arrow.png" id="2_idtbv"]
 [ext_resource type="Texture2D" uid="uid://8h87oxcw2ldy" path="res://game/shared/interactible/common/hold_timer.png" id="3_ftu30"]
 
-[node name="Interactible" type="Area2D"]
+[node name="Interactible" type="Area2D" unique_id=397376556]
 collision_layer = 32
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_djvto")
 metadata/_custom_type_script = "uid://b3qvgvsdwg2c6"
 
-[node name="Visual" type="Node2D" parent="."]
+[node name="Visual" type="Node2D" parent="." unique_id=115080146]
 z_index = 12
 z_as_relative = false
 material = ExtResource("2_7agcr")
 
-[node name="Arrow" type="Sprite2D" parent="Visual"]
+[node name="Arrow" type="Sprite2D" parent="Visual" unique_id=1112812026]
 use_parent_material = true
 position = Vector2(0, -24)
 texture = ExtResource("2_idtbv")
 
-[node name="Label" type="Label" parent="Visual"]
+[node name="Label" type="Label" parent="Visual" unique_id=1169145909]
 use_parent_material = true
 anchors_preset = 7
 anchor_left = 0.5
@@ -41,7 +41,7 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="HoldTimerProgress" type="TextureProgressBar" parent="Visual/Label"]
+[node name="HoldTimerProgress" type="TextureProgressBar" parent="Visual/Label" unique_id=645113602]
 z_index = 2
 use_parent_material = true
 layout_mode = 1

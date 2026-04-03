@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6vt2to0vrgsf"]
+[gd_scene format=3 uid="uid://6vt2to0vrgsf"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_bkewi"]
 [ext_resource type="PackedScene" uid="uid://1k2lyqd7wxl2" path="res://game/weapons/melee/machete/visual/machete_visual.tscn" id="2_glni7"]
@@ -8,23 +8,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wetr"]
 radius = 96.0
 
-[node name="Machete" instance=ExtResource("1_bkewi")]
+[node name="Machete" unique_id=91539227 instance=ExtResource("1_bkewi")]
 damage = 32
 shoot_interval = 1.1
 speed_multiplier_when_current = 1.07
 
-[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=661048084]
 visible = false
 color = Color(0.67451, 0.67451, 0.67451, 1)
 polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)
 
-[node name="Visual" parent="." index="1" instance=ExtResource("2_glni7")]
+[node name="Visual" parent="." index="1" unique_id=855137880 instance=ExtResource("2_glni7")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="2"]
+[node name="Attack" parent="." index="2" unique_id=336793680]
 visible = false
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0" unique_id=818390484]
 position = Vector2(144, -120)
 enabled = false
 shape = SubResource("CircleShape2D_4wetr")
@@ -34,7 +34,7 @@ collision_mask = 75
 script = ExtResource("3_d0w5l")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1" unique_id=1851131983]
 position = Vector2(144, 120)
 enabled = false
 shape = SubResource("CircleShape2D_4wetr")
@@ -44,15 +44,13 @@ collision_mask = 75
 script = ExtResource("3_d0w5l")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Aim" parent="." index="3"]
+[node name="Aim" parent="." index="3" unique_id=1063961031]
 visible = false
 position = Vector2(128, 0)
 points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(-41, 0, -72, -72, -16, -216, 72, -216, 152, -64, 152, 64, 72, 216, -16, 216, -72, 72)
 
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": ExtResource("4_8nq5n")
-}
+[node name="AnimationPlayer" parent="." index="4" unique_id=1964456697]
+libraries/ = ExtResource("4_8nq5n")

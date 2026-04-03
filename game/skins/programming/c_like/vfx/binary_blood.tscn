@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://s5idjm02x343"]
+[gd_scene format=3 uid="uid://s5idjm02x343"]
 
 [ext_resource type="Texture2D" uid="uid://6yymsoh6bh6f" path="res://game/skins/programming/c_like/vfx/binary.png" id="1_as3w8"]
 
@@ -14,7 +14,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="BinaryBlood" type="CPUParticles2D"]
+[node name="BinaryBlood" type="CPUParticles2D" unique_id=895281439]
 material = SubResource("CanvasItemMaterial_0ip4g")
 position = Vector2(0, -32)
 amount = 10

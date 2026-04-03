@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbmeo164q20gn"]
+[gd_scene format=3 uid="uid://bbmeo164q20gn"]
 
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="1_r85lp"]
 [ext_resource type="Texture2D" uid="uid://dfgk18v3cneri" path="res://game/skins/programming/arch/arch.png" id="1_va53v"]
 
-[node name="Arch" type="Sprite2D"]
+[node name="Arch" type="Sprite2D" unique_id=1307400336]
 texture = ExtResource("1_va53v")
 script = ExtResource("1_r85lp")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

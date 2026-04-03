@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wh6dicp5sp3x"]
+[gd_scene format=3 uid="uid://wh6dicp5sp3x"]
 
 [ext_resource type="Texture2D" uid="uid://bbmvq5vx4h655" path="res://game/weapons/melee/scythe/visual/scythe.png" id="1_jyqr1"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=596438081]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=509567480]
 rotation = -0.2617994
 texture = ExtResource("1_jyqr1")
 offset = Vector2(120, 24)

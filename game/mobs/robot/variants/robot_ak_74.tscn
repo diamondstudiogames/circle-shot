@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hxoxmba176ju"]
+[gd_scene format=3 uid="uid://hxoxmba176ju"]
 
 [ext_resource type="PackedScene" uid="uid://dv1qa8vvk8d7d" path="res://game/mobs/robot/robot.tscn" id="1_76374"]
 [ext_resource type="Script" uid="uid://c23b7s034omw" path="res://game/mobs/robot/variants/robot_ak_74.gd" id="2_76374"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byp5ygduynmvg" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_visual.tscn" id="4_ked2n"]
 [ext_resource type="AnimationLibrary" uid="uid://cl001b8wskbyv" path="res://game/weapons/guns/rifles/ak_74/visual/ak_74_animations.tres" id="5_q1a7n"]
 
-[node name="RobotAK74" instance=ExtResource("1_76374")]
+[node name="RobotAK74" unique_id=206109804 instance=ExtResource("1_76374")]
 script = ExtResource("2_76374")
 projectile_scene = ExtResource("3_o76jr")
 shoot_times = 3
@@ -18,19 +18,17 @@ min_distance = 320.0
 shoot_distance = 1120.0
 speed = 560.0
 
-[node name="AK74" type="Node2D" parent="Visual/Weapon" index="0"]
+[node name="AK74" type="Node2D" parent="Visual/Weapon" parent_id_path=PackedInt32Array(1441839460) index="0" unique_id=67883693]
 
-[node name="Visual" parent="Visual/Weapon/AK74" index="0" instance=ExtResource("4_ked2n")]
+[node name="Visual" parent="Visual/Weapon/AK74" index="0" unique_id=2006313571 instance=ExtResource("4_ked2n")]
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1"]
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1" unique_id=94124104]
 position = Vector2(194, -32)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2"]
-libraries = {
-&"": ExtResource("5_q1a7n")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2" unique_id=95726442]
+libraries/ = ExtResource("5_q1a7n")
 
-[node name="ShootTimesTimer" type="Timer" parent="." index="11"]
+[node name="ShootTimesTimer" type="Timer" parent="." index="11" unique_id=1883312366]
 process_callback = 0
 wait_time = 0.18
 one_shot = true

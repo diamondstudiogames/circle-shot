@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://civ5krpprc0le"]
+[gd_scene format=3 uid="uid://civ5krpprc0le"]
 
 [ext_resource type="Texture2D" uid="uid://cxbckifmcm0jy" path="res://game/skins/programming/android/bean.png" id="1_e2w5r"]
 
@@ -12,9 +12,9 @@ offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.521569, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0.501961, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0.6875, 0, 1, 1, 0.539062, 0.539062, 0.539062, 1, 0.542969, 0.542969, 0.542969, 1)
 metadata/_snap_enabled = true
 
-[node name="BeanHurtVfx" type="Node2D"]
+[node name="BeanHurtVfx" type="Node2D" unique_id=1590971859]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=232789985]
 z_index = 1
 amount = 4
 texture = ExtResource("1_e2w5r")
@@ -34,7 +34,7 @@ angle_max = 180.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 color_initial_ramp = SubResource("Gradient_r140b")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1635920235]
 wait_time = 0.6
 one_shot = true
 autostart = true

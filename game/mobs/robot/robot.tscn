@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv1qa8vvk8d7d"]
+[gd_scene format=3 uid="uid://dv1qa8vvk8d7d"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_t2er7"]
 [ext_resource type="Script" uid="uid://cr4w1ykrnagga" path="res://game/mobs/common/standard_mob.gd" id="2_1jhyj"]
@@ -81,7 +81,7 @@ _data = {
 &"hurt": SubResource("Animation_ts335")
 }
 
-[node name="Robot" instance=ExtResource("1_t2er7")]
+[node name="Robot" unique_id=18169499 instance=ExtResource("1_t2er7")]
 script = ExtResource("2_1jhyj")
 shoot_interval = 0.5
 aim_angle_rotation_weight = 0.1
@@ -91,22 +91,20 @@ shoot_distance = 640.0
 random_walk_area_radius = 1280.0
 death_vfx_scene = ExtResource("3_1jhyj")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_1jhyj")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=1918731238]
 texture = ExtResource("2_4v1c0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" index="1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=571987464]
 visible = false
 sprite_frames = SubResource("SpriteFrames_nr1le")
 autoplay = "default"
 frame_progress = 0.1319008
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" index="2"]
-libraries = {
-&"": SubResource("AnimationLibrary_54sxx")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="2" unique_id=609285657]
+libraries/ = SubResource("AnimationLibrary_54sxx")
 
-[node name="Weapon" type="Node2D" parent="Visual" index="3"]
+[node name="Weapon" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="3" unique_id=1441839460]
 position = Vector2(32, 32)

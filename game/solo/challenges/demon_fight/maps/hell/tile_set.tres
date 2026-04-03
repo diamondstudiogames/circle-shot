@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://e8hnx4a6tmym"]
+[gd_resource type="TileSet" format=3 uid="uid://e8hnx4a6tmym"]
 
 [ext_resource type="Texture2D" uid="uid://ckb0l5smprlro" path="res://game/solo/challenges/demon_fight/maps/hell/tiles.png" id="1_eoene"]
 

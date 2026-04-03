@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6wfdeoshr4r8"]
+[gd_scene format=3 uid="uid://c6wfdeoshr4r8"]
 
 [sub_resource type="Curve" id="Curve_g8dxb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 2.0, -2.00004, 1, 1, Vector2(0.99999, 0), -2.00004, 0.0, 1, 0]
@@ -129,24 +129,22 @@ _data = {
 &"hit": SubResource("Animation_7i04k")
 }
 
-[node name="BloodyDaggerHitVfx" type="Node2D"]
+[node name="BloodyDaggerHitVfx" type="Node2D" unique_id=540636418]
 z_index = 1
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=564034917]
 points = PackedVector2Array(32, -32, 31, -31, 30, -30)
 width = 1.0
 width_curve = SubResource("Curve_g8dxb")
 default_color = Color(1, 0, 0, 1)
 
-[node name="Line2D" type="Line2D" parent="Line2D"]
+[node name="Line2D" type="Line2D" parent="Line2D" unique_id=1180657196]
 show_behind_parent = true
 points = PackedVector2Array(32, -32, 31, -31, 30, -30)
 width = 3.0
 width_curve = SubResource("Curve_g8dxb")
 default_color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t5mw4")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1976560555]
+libraries/ = SubResource("AnimationLibrary_t5mw4")
+autoplay = &"hit"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drs0wo6shfmf8"]
+[gd_scene format=3 uid="uid://drs0wo6shfmf8"]
 
 [ext_resource type="Texture2D" uid="uid://bql8a7y2r76qm" path="res://game/skins/other/eye/eye.png" id="1_xglwn"]
 [ext_resource type="Texture2D" uid="uid://dfpjrnm67m4ut" path="res://game/skins/other/eye/eye_parts.png" id="2_u0htl"]
@@ -291,31 +291,31 @@ _data = {
 &"slash": SubResource("Animation_db2sk")
 }
 
-[node name="EyeDeathVfx" type="Node2D"]
+[node name="EyeDeathVfx" type="Node2D" unique_id=1470889745]
 z_index = -2
 
-[node name="Eye" type="Sprite2D" parent="."]
+[node name="Eye" type="Sprite2D" parent="." unique_id=2137857981]
 texture = ExtResource("1_xglwn")
 
-[node name="EyePart1" type="Sprite2D" parent="."]
+[node name="EyePart1" type="Sprite2D" parent="." unique_id=355987786]
 visible = false
 texture = ExtResource("2_u0htl")
 region_enabled = true
 region_rect = Rect2(0, 0, 160, 160)
 
-[node name="EyePart2" type="Sprite2D" parent="."]
+[node name="EyePart2" type="Sprite2D" parent="." unique_id=67898656]
 visible = false
 texture = ExtResource("2_u0htl")
 region_enabled = true
 region_rect = Rect2(160, 0, 160, 160)
 
-[node name="Slash" type="Sprite2D" parent="."]
+[node name="Slash" type="Sprite2D" parent="." unique_id=373956695]
 position = Vector2(-111.5718, -61.731438)
 rotation = 0.51220083
 scale = Vector2(1.5258789e-05, 1)
 texture = ExtResource("3_dvtpv")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=572430088]
 rotation = 0.51138145
 emitting = false
 amount = 12
@@ -334,8 +334,6 @@ scale_amount_min = 0.5
 scale_amount_max = 0.8
 scale_amount_curve = SubResource("Curve_bvaa4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cagl1")
-}
-autoplay = "slash"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=494321035]
+libraries/ = SubResource("AnimationLibrary_cagl1")
+autoplay = &"slash"

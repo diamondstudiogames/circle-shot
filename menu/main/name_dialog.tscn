@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuewsvjjnyl40"]
+[gd_scene format=3 uid="uid://cuewsvjjnyl40"]
 
 [ext_resource type="Script" uid="uid://bfpn363fvr513" path="res://menu/main/name_dialog.gd" id="1_n2mo3"]
 
@@ -41,7 +41,7 @@ _data = {
 &"developer": SubResource("Animation_1632y")
 }
 
-[node name="NameDialog" type="Window"]
+[node name="NameDialog" type="Window" unique_id=1017837162]
 oversampling_override = 1.0
 title = "Как тебя зовут, игрок?"
 position = Vector2i(0, 28)
@@ -79,31 +79,31 @@ easter_eggs = Dictionary[String, String]({
 "ххх": "Не уверен, что тебе 18!"
 })
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=376636871]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2107512838]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=875811584]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=48041272]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=1778374973]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -115,18 +115,16 @@ max_length = 24
 expand_to_text_length = true
 context_menu_enabled = false
 
-[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2129998517]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "Вперёд!"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8igud")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011725887]
+libraries/ = SubResource("AnimationLibrary_8igud")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1910845160]
 visible = false
 color = Color(0.574219, 0, 0, 1)
 

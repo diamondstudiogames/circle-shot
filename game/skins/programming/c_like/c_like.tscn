@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cw5ms0gp35p0b"]
+[gd_scene format=3 uid="uid://cw5ms0gp35p0b"]
 
 [ext_resource type="Shader" uid="uid://bkumhb22olqgy" path="res://game/skins/programming/c_like/vfx/glitch.gdshader" id="1_icbet"]
 [ext_resource type="Texture2D" uid="uid://bljt8bxcqypuu" path="res://game/skins/programming/c_like/textures/c.png" id="2_a4era"]
@@ -79,7 +79,7 @@ _data = {
 &"hurt": SubResource("Animation_hqfjw")
 }
 
-[node name="CLike" type="Sprite2D"]
+[node name="CLike" type="Sprite2D" unique_id=1742604040]
 material = SubResource("ShaderMaterial_wsgo3")
 texture = ExtResource("2_a4era")
 script = ExtResource("3_ijpx6")
@@ -90,7 +90,5 @@ custom_heal_vfx_scene = ExtResource("10_8kk3g")
 custom_blood_scene = ExtResource("9_wsgo3")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_sh8jf")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=944679652]
+libraries/ = SubResource("AnimationLibrary_sh8jf")

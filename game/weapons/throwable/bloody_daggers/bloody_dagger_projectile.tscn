@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmgs501ayehg6"]
+[gd_scene format=3 uid="uid://bmgs501ayehg6"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_gxk2i"]
 [ext_resource type="PackedScene" uid="uid://c6wfdeoshr4r8" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger_hit_vfx.tscn" id="2_f4ury"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="6_3cwwp"]
 [ext_resource type="Texture2D" uid="uid://cqfc6oedfri6n" path="res://game/weapons/throwable/bloody_daggers/bloody_dagger.png" id="6_eoaw4"]
 
-[node name="BloodyDaggerProjectile" instance=ExtResource("1_gxk2i")]
+[node name="BloodyDaggerProjectile" unique_id=717792949 instance=ExtResource("1_gxk2i")]
 script = ExtResource("2_w0y16")
 bleeding_duration = 2.3999999999941792
 bleeding_damage_per_interval = 4
@@ -17,12 +17,12 @@ hit_vfx_scene = ExtResource("2_f4ury")
 hit_wall_vfx_scene = ExtResource("3_jcol6")
 damage = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1708647766]
 material = ExtResource("4_vnglj")
 texture = ExtResource("6_eoaw4")
 offset = Vector2(40, 0)
 
-[node name="RayDetector" type="RayCast2D" parent="." index="3"]
+[node name="RayDetector" type="RayCast2D" parent="." index="3" unique_id=514114722]
 target_position = Vector2(96, 0)
 collision_mask = 75
 hit_from_inside = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djnl6yscswq2o"]
+[gd_scene format=3 uid="uid://djnl6yscswq2o"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_3unqc"]
 [ext_resource type="PackedScene" uid="uid://bug6umkxagpar" path="res://game/solo/challenges/demon_fight/goat/fireballs/fireball_hit_vfx.tscn" id="2_gmxhr"]
@@ -8,13 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://0ytrvot6ntix" path="res://game/shared/shaders/textures/light.tres" id="4_gmxhr"]
 [ext_resource type="Material" uid="uid://7ixms0xbcpbw" path="res://game/shared/shaders/materials/projectile_outline_unshaded.tres" id="5_bc7ih"]
 
-[node name="FireballProjectile" instance=ExtResource("1_3unqc")]
+[node name="FireballProjectile" unique_id=127174466 instance=ExtResource("1_3unqc")]
 speed = 800.0
 hit_vfx_scene = ExtResource("2_gmxhr")
 hit_wall_vfx_scene = ExtResource("2_gmxhr")
 damage = 8
 
-[node name="Light" type="Sprite2D" parent="." index="0"]
+[node name="Light" type="Sprite2D" parent="." index="0" unique_id=1079697993]
 self_modulate = Color(1, 0, 0, 0.7529412)
 z_index = -1
 material = ExtResource("3_npe8n")
@@ -22,17 +22,17 @@ position = Vector2(-12, 0)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_gmxhr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=290534351]
 z_index = -1
 material = ExtResource("5_bc7ih")
 instance_shader_parameters/outline_color = Color(0, 0, 0, 1)
 position = Vector2(-12, 0)
 texture = ExtResource("2_yi4ew")
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 3.0
 
-[node name="RayDetector" type="RayCast2D" parent="." index="4"]
+[node name="RayDetector" type="RayCast2D" parent="." index="4" unique_id=815299765]
 position = Vector2(-48, 0)
 target_position = Vector2(48, 0)
 collision_mask = 75
@@ -40,7 +40,7 @@ hit_from_inside = true
 script = ExtResource("3_gmxhr")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5" unique_id=2022936037]
 color = Color(0.2109375, 0.2109375, 0.2109375, 1)
 
 [connection signal="hit" from="RayDetector" to="." method="_on_detector_hit"]

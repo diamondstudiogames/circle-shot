@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi2ah3air18dv"]
+[gd_scene format=3 uid="uid://bi2ah3air18dv"]
 
 [ext_resource type="Texture2D" uid="uid://b42u3dgpp056h" path="res://game/weapons/guns/pistols/glock/visual/magazine.png" id="1_fiv57"]
 [ext_resource type="Texture2D" uid="uid://b8g7akyws1krl" path="res://game/weapons/guns/pistols/glock/visual/base.png" id="2_6qmj4"]
@@ -10,20 +10,20 @@
 [sub_resource type="Gradient" id="Gradient_2pamt"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=750827794]
 
-[node name="Magazine" type="Sprite2D" parent="."]
+[node name="Magazine" type="Sprite2D" parent="." unique_id=1057831654]
 visible = false
 texture = ExtResource("1_fiv57")
 offset = Vector2(0, 8)
 region_enabled = true
 region_rect = Rect2(0, 32, 56, 56)
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=937440211]
 texture = ExtResource("2_6qmj4")
 offset = Vector2(36, -8)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1932486414]
 visible = false
 show_behind_parent = true
 material = ExtResource("3_vfiqp")
@@ -31,20 +31,20 @@ position = Vector2(112, -40)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_nbace")
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=1188354411]
 texture = ExtResource("5_0emfk")
 offset = Vector2(36, -40)
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 24)
 
-[node name="Magazine" type="Sprite2D" parent="Base"]
+[node name="Magazine" type="Sprite2D" parent="Base" unique_id=815017553]
 show_behind_parent = true
 texture = ExtResource("1_fiv57")
 offset = Vector2(0, 8)
 region_enabled = true
 region_rect = Rect2(0, 32, 56, 56)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=1119209037]
 show_behind_parent = true
 position = Vector2(20, -41)
 emitting = false

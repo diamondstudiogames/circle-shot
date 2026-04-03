@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1mt2q646tmyh"]
+[gd_scene format=3 uid="uid://c1mt2q646tmyh"]
 
 [ext_resource type="Texture2D" uid="uid://bcv5d3lvchbv8" path="res://game/skins/programming/c_like/vfx/patch.png" id="1_y60um"]
 
@@ -11,9 +11,9 @@ point_count = 2
 offsets = PackedFloat32Array(0.247148, 0.760456)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="PatchHealVfx" type="Node2D"]
+[node name="PatchHealVfx" type="Node2D" unique_id=581171284]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=898765919]
 z_index = 1
 amount = 3
 texture = ExtResource("1_y60um")
@@ -29,7 +29,7 @@ radial_accel_max = 1.0
 radial_accel_curve = SubResource("Curve_r8f3g")
 color_ramp = SubResource("Gradient_tvjfb")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1648155376]
 wait_time = 1.1
 one_shot = true
 autostart = true

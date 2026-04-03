@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://5plkudhttqhl"]
+[gd_scene format=3 uid="uid://5plkudhttqhl"]
 
 [sub_resource type="Curve2D" id="Curve2D_wb6xb"]
 _data = {
@@ -52,17 +52,17 @@ _data = {
 &"fishes": SubResource("Animation_kblyk")
 }
 
-[node name="Fishes" type="Node2D"]
+[node name="Fishes" type="Node2D" unique_id=1207900859]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." unique_id=315587564]
 position = Vector2(-295, 552)
 curve = SubResource("Curve2D_wb6xb")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=23850069]
 position = Vector2(2616, -139)
 rotation = -0.29720834
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Path2D/PathFollow2D"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Path2D/PathFollow2D" unique_id=1531914484]
 scale = Vector2(2, 2)
 amount = 32
 lifetime = 2.0
@@ -78,14 +78,12 @@ angle_min = 1.0
 angle_max = 1.0
 angle_curve = SubResource("Curve_6mks6")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Path2D/PathFollow2D/CPUParticles2D"]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Path2D/PathFollow2D/CPUParticles2D" unique_id=178090101]
 rect = Rect2(-160, -160, 320, 320)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288307035]
 root_node = NodePath("../Path2D")
-libraries = {
-&"": SubResource("AnimationLibrary_6vh21")
-}
-autoplay = "fishes"
+libraries/ = SubResource("AnimationLibrary_6vh21")
+autoplay = &"fishes"
 
 [connection signal="finished" from="Path2D/PathFollow2D/CPUParticles2D" to="Path2D/PathFollow2D/CPUParticles2D" method="restart" binds= [true]]

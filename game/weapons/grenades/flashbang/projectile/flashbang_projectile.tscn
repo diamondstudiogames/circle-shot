@@ -313,7 +313,7 @@ metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 shape = SubResource("CircleShape2D_8b4pb")
 disabled = true
 
-[node name="Grenade" parent="." index="2"]
+[node name="Grenade" parent="." index="2" unique_id=1624174126]
 texture = ExtResource("2_nfc8c")
 
 [node name="Stun" type="CanvasLayer" parent="." index="6" unique_id=1910528877]

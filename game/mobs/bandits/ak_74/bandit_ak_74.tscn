@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlghpmw10r6ee"]
+[gd_scene format=3 uid="uid://dlghpmw10r6ee"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_jhv3f"]
 [ext_resource type="Script" uid="uid://dw227fbxby0w3" path="res://game/mobs/bandits/ak_74/bandit_ak_74.gd" id="2_54hhr"]
@@ -12,7 +12,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpxwc"]
 radius = 76.0
 
-[node name="BanditAK74" instance=ExtResource("1_jhv3f")]
+[node name="BanditAK74" unique_id=990988323 instance=ExtResource("1_jhv3f")]
 script = ExtResource("2_54hhr")
 projectile_scene = ExtResource("3_wpxwc")
 shoot_times = 3
@@ -27,29 +27,27 @@ speed = 560.0
 hurt_vfx_scene = ExtResource("2_sdrlc")
 death_vfx_scene = ExtResource("5_fiqpf")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_wpxwc")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=1004496723]
 texture = ExtResource("3_54hhr")
 offset = Vector2(-6, -6)
 
-[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+[node name="Weapon" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=1605129329]
 position = Vector2(32, 32)
 
-[node name="AK74" type="Node2D" parent="Visual/Weapon" index="0"]
+[node name="AK74" type="Node2D" parent="Visual/Weapon" index="0" unique_id=144304018]
 
-[node name="Visual" parent="Visual/Weapon/AK74" index="0" instance=ExtResource("3_sdrlc")]
+[node name="Visual" parent="Visual/Weapon/AK74" index="0" unique_id=456707275 instance=ExtResource("3_sdrlc")]
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1"]
+[node name="ShootPoint" type="Marker2D" parent="Visual/Weapon/AK74" index="1" unique_id=416659840]
 position = Vector2(194, -32)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2"]
-libraries = {
-&"": ExtResource("4_54hhr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/AK74" index="2" unique_id=1566325484]
+libraries/ = ExtResource("4_54hhr")
 
-[node name="ShootTimesTimer" type="Timer" parent="." index="11"]
+[node name="ShootTimesTimer" type="Timer" parent="." index="11" unique_id=468004509]
 process_callback = 0
 wait_time = 0.16999999999999998
 one_shot = true

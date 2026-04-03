@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://brjl5w288thlv"]
+[gd_scene format=3 uid="uid://brjl5w288thlv"]
 
 [ext_resource type="Texture2D" uid="uid://of5a60eh78px" path="res://game/weapons/grenades/smoke_grenade/visual/base.png" id="1_7eopk"]
 [ext_resource type="Texture2D" uid="uid://cnjyolxija5eh" path="res://game/weapons/grenades/smoke_grenade/visual/tick.png" id="2_h24dr"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=935851566]
 
-[node name="Grenade" type="Sprite2D" parent="."]
+[node name="Grenade" type="Sprite2D" parent="." unique_id=804754952]
 texture = ExtResource("1_7eopk")
 
-[node name="Tick" type="Sprite2D" parent="Grenade"]
+[node name="Tick" type="Sprite2D" parent="Grenade" unique_id=1302433809]
 texture = ExtResource("2_h24dr")

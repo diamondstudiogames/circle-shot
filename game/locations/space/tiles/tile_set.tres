@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://bbtp28pgym4wy"]
+[gd_resource type="TileSet" format=3 uid="uid://bbtp28pgym4wy"]
 
 [ext_resource type="Texture2D" uid="uid://7tskr6h21yco" path="res://game/locations/space/tiles/floor_tiles.png" id="1_b1big"]
 [ext_resource type="PackedScene" uid="uid://bmclwg28n5ptv" path="res://game/locations/space/meteors/another_meteor.tscn" id="2_lpgbc"]

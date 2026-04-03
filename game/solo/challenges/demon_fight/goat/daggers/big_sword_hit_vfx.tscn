@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://brxhqwrtu5qq6"]
+[gd_scene format=3 uid="uid://brxhqwrtu5qq6"]
 
 [sub_resource type="Curve" id="Curve_g8dxb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 2.0, -2.00004, 1, 1, Vector2(0.99999, 0), -2.00004, 0.0, 1, 0]
@@ -117,23 +117,21 @@ _data = {
 &"hit": SubResource("Animation_7i04k")
 }
 
-[node name="BigSwordHitVfx" type="Node2D"]
+[node name="BigSwordHitVfx" type="Node2D" unique_id=1827660044]
 z_index = 1
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=1338268774]
 points = PackedVector2Array(32, -32, 0, 0, -32, 32)
 width_curve = SubResource("Curve_g8dxb")
 default_color = Color(1, 0, 0, 1)
 
-[node name="Line2D" type="Line2D" parent="Line2D"]
+[node name="Line2D" type="Line2D" parent="Line2D" unique_id=301385910]
 show_behind_parent = true
 points = PackedVector2Array(32, -32, 0, 0, -32, 32)
 width = 3.0
 width_curve = SubResource("Curve_g8dxb")
 default_color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t5mw4")
-}
-autoplay = "hit"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=431172867]
+libraries/ = SubResource("AnimationLibrary_t5mw4")
+autoplay = &"hit"

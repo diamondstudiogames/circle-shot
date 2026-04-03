@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0wfi12hhw7bt"]
+[gd_scene format=3 uid="uid://b0wfi12hhw7bt"]
 
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="1_xvlxj"]
 
-[node name="AmmoBox" instance=ExtResource("1_xvlxj")]
+[node name="AmmoBox" unique_id=1610135155 instance=ExtResource("1_xvlxj")]
 ammo_restore_ratio = 0.3
 
 [editable path="MinimapMarker"]

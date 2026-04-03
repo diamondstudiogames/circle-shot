@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vaggbadprpmu"]
+[gd_scene format=3 uid="uid://vaggbadprpmu"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_hu422"]
 [ext_resource type="Script" uid="uid://dsk1jrhebi2n" path="res://game/weapons/guns/shotguns/common/shotgun.gd" id="2_bxqwq"]
@@ -21,7 +21,7 @@ _limits = [-8.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -8), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Shotgun" instance=ExtResource("1_hu422")]
+[node name="Shotgun" unique_id=1434721195 instance=ExtResource("1_hu422")]
 script = ExtResource("2_bxqwq")
 bullets_in_shot = 6
 shoot_interval = 0.8
@@ -39,12 +39,10 @@ ammo_total = 28
 speed_multiplier_when_current = 0.95
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_hht4k")]
+[node name="Visual" parent="." index="0" unique_id=141730782 instance=ExtResource("4_hht4k")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(195, -16)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_m782v")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("5_m782v")

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://bfuvtcsfh7tn8"]
+[gd_resource type="TileSet" format=3 uid="uid://bfuvtcsfh7tn8"]
 
 [ext_resource type="Texture2D" uid="uid://cyj5tfmgj6n4s" path="res://game/locations/abandoned_town/main_tiles.png" id="1_nrq2h"]
 [ext_resource type="Texture2D" uid="uid://bvobau1ynrbgp" path="res://game/locations/abandoned_town/decorations_tiles.png" id="2_2fyxi"]

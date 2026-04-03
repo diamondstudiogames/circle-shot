@@ -1,33 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn1f63651tgy0"]
+[gd_scene format=3 uid="uid://dn1f63651tgy0"]
 
 [ext_resource type="Texture2D" uid="uid://ddusjrxo4wc32" path="res://menu/shop/coins/coin_icon.png" id="1_22agf"]
 [ext_resource type="Texture2D" uid="uid://bkr5l32njxe52" path="res://menu/shop/sale.png" id="2_q33nn"]
 
-[node name="Offer" type="PanelContainer"]
+[node name="Offer" type="PanelContainer" unique_id=2058463994]
 custom_minimum_size = Vector2(240, 0)
 mouse_filter = 1
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="." unique_id=2115489914]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBox"]
+[node name="Name" type="Label" parent="VBox" unique_id=1017866103]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderSmall"
 
-[node name="Items" type="GridContainer" parent="VBox"]
+[node name="Items" type="GridContainer" parent="VBox" unique_id=1812418463]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Buy" type="Button" parent="VBox" groups=["buy_button"]]
+[node name="Buy" type="Button" parent="VBox" unique_id=454163935 groups=["buy_button"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"BigFontButton"
 text = "999"
 icon = ExtResource("1_22agf")
 
-[node name="Sale" type="TextureRect" parent="VBox/Buy"]
+[node name="Sale" type="TextureRect" parent="VBox/Buy" unique_id=1675374647]
 visible = false
 layout_mode = 1
 anchors_preset = 1
@@ -43,7 +43,7 @@ texture = ExtResource("2_q33nn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Amount" type="Label" parent="VBox/Buy/Sale"]
+[node name="Amount" type="Label" parent="VBox/Buy/Sale" unique_id=1120346280]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkvfj405l2gvw"]
+[gd_scene format=3 uid="uid://bkvfj405l2gvw"]
 
 [ext_resource type="Script" uid="uid://cd58yrb8vkc1v" path="res://game/core/world.gd" id="1_3j1bh"]
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="2_87d4e"]
@@ -9,36 +9,36 @@
 [ext_resource type="PackedScene" uid="uid://c2f0n1b5sfpdh" path="res://game/shared/ui/screen_marker/hit_marker.tscn" id="13_ka3gv"]
 [ext_resource type="PackedScene" uid="uid://blhm6uka1p287" path="res://game/shared/ui/screen_marker/kill_marker.tscn" id="14_e8smu"]
 
-[node name="World" type="Node" groups=["world"]]
+[node name="World" type="Node" unique_id=1372825435 groups=["world"]]
 script = ExtResource("1_3j1bh")
 entity_scenes = Array[PackedScene]([ExtResource("2_87d4e")])
 tracks = Array[AudioStream]([ExtResource("3_3j1bh"), ExtResource("4_j8p54")])
 metadata/_custom_type_script = "uid://cd58yrb8vkc1v"
 
-[node name="Entities" type="Node2D" parent="." groups=["entities_parent"]]
+[node name="Entities" type="Node2D" parent="." unique_id=804757752 groups=["entities_parent"]]
 physics_interpolation_mode = 1
 
-[node name="Projectiles" type="Node2D" parent="." groups=["projectiles_parent"]]
+[node name="Projectiles" type="Node2D" parent="." unique_id=1433116068 groups=["projectiles_parent"]]
 physics_interpolation_mode = 1
 
-[node name="Other" type="Node2D" parent="." groups=["other_parent"]]
+[node name="Other" type="Node2D" parent="." unique_id=356408715 groups=["other_parent"]]
 physics_interpolation_mode = 1
 
-[node name="Vfx" type="Node2D" parent="." groups=["vfx_parent"]]
+[node name="Vfx" type="Node2D" parent="." unique_id=971046412 groups=["vfx_parent"]]
 
-[node name="EntitiesSpawner" type="MultiplayerSpawner" parent="."]
+[node name="EntitiesSpawner" type="MultiplayerSpawner" parent="." unique_id=280905422]
 spawn_path = NodePath("../Entities")
 spawn_limit = 10
 
-[node name="ProjectilesSpawner" type="MultiplayerSpawner" parent="."]
+[node name="ProjectilesSpawner" type="MultiplayerSpawner" parent="." unique_id=1842510411]
 spawn_path = NodePath("../Projectiles")
 spawn_limit = 200
 
-[node name="OtherSpawner" type="MultiplayerSpawner" parent="."]
+[node name="OtherSpawner" type="MultiplayerSpawner" parent="." unique_id=1631769039]
 spawn_path = NodePath("../Other")
 spawn_limit = 100
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=388143561]
 process_physics_priority = -1
 physics_interpolation_mode = 2
 zoom = Vector2(0.5, 0.5)
@@ -47,15 +47,15 @@ position_smoothing_speed = 8.0
 script = ExtResource("5_jk2iw")
 metadata/_custom_type_script = "uid://pwgsdrt5sfqe"
 
-[node name="MinimapRemote" type="RemoteTransform2D" parent="Camera"]
+[node name="MinimapRemote" type="RemoteTransform2D" parent="Camera" unique_id=1023822918]
 remote_path = NodePath("../../MinimapViewport/Camera")
 update_rotation = false
 update_scale = false
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=147986541]
 layer = 5
 
-[node name="Main" type="Control" parent="UI"]
+[node name="Main" type="Control" parent="UI" unique_id=523003197]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,10 +64,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PlayerUI" parent="UI/Main" instance=ExtResource("7_0tx30")]
+[node name="PlayerUI" parent="UI/Main" unique_id=1400882550 instance=ExtResource("7_0tx30")]
 layout_mode = 1
 
-[node name="Minimap" type="TextureRect" parent="UI/Main"]
+[node name="Minimap" type="TextureRect" parent="UI/Main" unique_id=1739385535]
 self_modulate = Color(1, 1, 1, 0.564706)
 texture_filter = 1
 layout_mode = 0
@@ -76,7 +76,7 @@ offset_top = 16.0
 offset_right = 272.0
 offset_bottom = 272.0
 
-[node name="MinimapViewport" type="SubViewport" parent="."]
+[node name="MinimapViewport" type="SubViewport" parent="." unique_id=1592930040]
 physics_interpolation_mode = 2
 disable_3d = true
 transparent_bg = true
@@ -84,14 +84,14 @@ gui_disable_input = true
 canvas_cull_mask = 4293918722
 size = Vector2i(256, 256)
 
-[node name="Camera" type="Camera2D" parent="MinimapViewport"]
+[node name="Camera" type="Camera2D" parent="MinimapViewport" unique_id=1609421300]
 zoom = Vector2(0.05, 0.05)
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=275099089]
 volume_db = -2.0
 bus = &"Music"
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1123373961]
 resources = [PackedStringArray("hit_marker", "kill_marker"), [ExtResource("13_ka3gv"), ExtResource("14_e8smu")]]
 
 [connection signal="cutscene_ended" from="." to="UI/Main/PlayerUI" method="_on_cutscene_ended"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd77mloov7sbg"]
+[gd_scene format=3 uid="uid://cd77mloov7sbg"]
 
 [ext_resource type="Texture2D" uid="uid://b6wotapi4n2qg" path="res://game/skins/programming/kabakova/numbers.png" id="1_8gxxn"]
 
@@ -14,7 +14,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 metadata/_snap_count = 40
 
-[node name="NumbersBlood" type="CPUParticles2D"]
+[node name="NumbersBlood" type="CPUParticles2D" unique_id=1458231108]
 material = SubResource("CanvasItemMaterial_0ip4g")
 position = Vector2(0, -32)
 texture = ExtResource("1_8gxxn")

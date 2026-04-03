@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwbyj0wl0k3ab"]
+[gd_scene format=3 uid="uid://cwbyj0wl0k3ab"]
 
 [ext_resource type="PackedScene" uid="uid://bjgdkucrrx5a0" path="res://game/entity/attack/projectile/projectile.tscn" id="1_0vosb"]
 [ext_resource type="Script" uid="uid://dfhhd4es3t3i" path="res://game/entity/attack/shape_detector.gd" id="2_6mcm8"]
@@ -16,7 +16,7 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_axsq5"]
 colors = PackedColorArray(0, 0.362305, 0.828125, 1, 0, 0.360784, 0.827451, 0)
 
-[node name="DiamondBulletProjectile" instance=ExtResource("1_0vosb")]
+[node name="DiamondBulletProjectile" unique_id=896156301 instance=ExtResource("1_0vosb")]
 z_index = -1
 script = ExtResource("2_axsq5")
 knockback_power = 1280.0
@@ -26,7 +26,7 @@ hit_vfx_scene = ExtResource("3_la80t")
 hit_wall_vfx_scene = ExtResource("3_la80t")
 damage = 25
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="." index="2"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="." index="2" unique_id=1552077555]
 position = Vector2(-128, 0)
 shape = SubResource("CircleShape2D_la80t")
 target_position = Vector2(128, 0)
@@ -35,7 +35,7 @@ collision_mask = 75
 script = ExtResource("2_6mcm8")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Trail" type="Line2D" parent="." index="3"]
+[node name="Trail" type="Line2D" parent="." index="3" unique_id=1465689258]
 position = Vector2(-32, 1)
 points = PackedVector2Array(0, 0, -384, 0)
 width = 32.0
@@ -43,7 +43,7 @@ width_curve = SubResource("Curve_6mcm8")
 default_color = Color(0, 0.362305, 0.828125, 1)
 gradient = SubResource("Gradient_axsq5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1456106022]
 position = Vector2(-16, 0)
 rotation = 1.5708
 texture = ExtResource("3_axsq5")

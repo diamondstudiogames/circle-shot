@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxeqejyos1t0e"]
+[gd_scene format=3 uid="uid://bxeqejyos1t0e"]
 
 [ext_resource type="Texture2D" uid="uid://bicdinbuldwod" path="res://game/skins/other/covid/covid.png" id="1_fgl8y"]
 [ext_resource type="Script" uid="uid://nr21pnmv3b1n" path="res://game/player/equip/player_skin.gd" id="2_vpfae"]
 
-[node name="Covid" type="Sprite2D"]
+[node name="Covid" type="Sprite2D" unique_id=244680510]
 texture = ExtResource("1_fgl8y")
 script = ExtResource("2_vpfae")
 metadata/_custom_type_script = "uid://nr21pnmv3b1n"

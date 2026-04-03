@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjunrr6nv2rhr"]
+[gd_scene format=3 uid="uid://cjunrr6nv2rhr"]
 
 [ext_resource type="Script" uid="uid://dca2v3ej3y82n" path="res://game/weapons/other/teleporter/teleporter.gd" id="1_cvmrr"]
 [ext_resource type="PackedScene" uid="uid://c4fixd76g5fv8" path="res://game/weapons/other/teleporter/visual/teleporter_visual.tscn" id="2_y710c"]
@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pom7"]
 radius = 76.0
 
-[node name="Teleporter" type="Node2D"]
+[node name="Teleporter" type="Node2D" unique_id=1900509530]
 script = ExtResource("1_cvmrr")
 teleport_distance = 880.0
 ammo_per_load = 0
@@ -19,14 +19,12 @@ aim_camera_distance = 240.0
 shoot_on_joystick_release = true
 metadata/_custom_type_script = "uid://btu7i28e5iysh"
 
-[node name="Visual" parent="." instance=ExtResource("2_y710c")]
+[node name="Visual" parent="." unique_id=1094936624 instance=ExtResource("2_y710c")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": ExtResource("3_skiv7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2013547108]
+libraries/ = ExtResource("3_skiv7")
 
-[node name="CollisionCheck" type="ShapeCast2D" parent="."]
+[node name="CollisionCheck" type="ShapeCast2D" parent="." unique_id=539989213]
 position = Vector2(480, 0)
 enabled = false
 shape = SubResource("CircleShape2D_1pom7")
@@ -34,24 +32,24 @@ target_position = Vector2(0, 0)
 max_results = 1
 collision_mask = 19
 
-[node name="BorderCheck" type="RayCast2D" parent="."]
+[node name="BorderCheck" type="RayCast2D" parent="." unique_id=1182364608]
 top_level = true
 target_position = Vector2(0, 0)
 collision_mask = 8
 hit_from_inside = true
 
-[node name="ReloadTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="." unique_id=422982749]
 process_callback = 0
 wait_time = 15.0
 one_shot = true
 
-[node name="Aim" type="Sprite2D" parent="."]
+[node name="Aim" type="Sprite2D" parent="." unique_id=198265626]
 visible = false
 top_level = true
 z_index = 10
 texture = ExtResource("8_6ye5t")
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1232289918]
 resources = [PackedStringArray("teleport_vfx"), [ExtResource("5_skiv7")]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1e31sp51n2is"]
+[gd_scene format=3 uid="uid://1e31sp51n2is"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_2esms"]
 [ext_resource type="Script" uid="uid://dsk1jrhebi2n" path="res://game/weapons/guns/shotguns/common/shotgun.gd" id="2_osqyu"]
@@ -21,7 +21,7 @@ _limits = [-6.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -6), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Spas" instance=ExtResource("1_2esms")]
+[node name="Spas" unique_id=500571627 instance=ExtResource("1_2esms")]
 script = ExtResource("2_osqyu")
 bullets_in_shot = 5
 shoot_interval = 0.55
@@ -41,12 +41,10 @@ ammo_total = 40
 speed_multiplier_when_current = 0.95
 aim_camera_distance = 200.0
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_pyj37")]
+[node name="Visual" parent="." index="0" unique_id=1812332610 instance=ExtResource("4_pyj37")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(206, -31)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_fgg20")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("5_fgg20")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbue2vn1da0il"]
+[gd_scene format=3 uid="uid://cbue2vn1da0il"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_qe1hl"]
 [ext_resource type="Script" uid="uid://cw4k527bms1xc" path="res://game/solo/tutorial/tutorial.gd" id="2_ct7or"]
@@ -75,7 +75,7 @@ _data = {
 &"end": SubResource("Animation_xeb43")
 }
 
-[node name="Tutorial" instance=ExtResource("1_qe1hl")]
+[node name="Tutorial" unique_id=1274783083 instance=ExtResource("1_qe1hl")]
 script = ExtResource("2_ct7or")
 texts = Array[String](["Добро пожаловать в Circle Shot!
 Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size] для передвижения.
@@ -109,10 +109,10 @@ texts = Array[String](["Добро пожаловать в Circle Shot!
 Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size] для передвижения.", "Используй [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size], [font_size=20][color=orange]%s[/color][/font_size] и [font_size=20][color=orange]%s[/color][/font_size], чтобы прицеливаться, и [font_size=20][color=orange]%s[/color][/font_size], чтобы стрелять. Уничтожь манекен!"])
 entity_scenes = Array[PackedScene]([ExtResource("3_tsy3l"), ExtResource("4_xeb43")])
 
-[node name="AimVirtualJoystick" parent="UI/Main/PlayerUI/Controller/TouchControls" index="1"]
+[node name="AimVirtualJoystick" parent="UI/Main/PlayerUI/Controller/TouchControls" parent_id_path=PackedInt32Array(1400882550, 159996159) index="1" unique_id=961980418]
 visible = false
 
-[node name="ShootAreaHint" type="ColorRect" parent="UI/Main/PlayerUI/Controller/TouchControls/ShootAreaAnchor/ShootArea" index="0"]
+[node name="ShootAreaHint" type="ColorRect" parent="UI/Main/PlayerUI/Controller/TouchControls/ShootAreaAnchor/ShootArea" parent_id_path=PackedInt32Array(1400882550, 412501251) index="0" unique_id=1389156782]
 unique_name_in_owner = true
 visible = false
 offset_left = -320.0
@@ -122,12 +122,12 @@ offset_bottom = 128.0
 mouse_filter = 2
 color = Color(1, 0, 0, 0.2509804)
 
-[node name="PlayerUIJF" parent="UI/Main" index="1" instance=ExtResource("5_xeb43")]
+[node name="PlayerUIJF" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="1" unique_id=1458009196 instance=ExtResource("5_xeb43")]
 process_mode = 4
 visible = false
 layout_mode = 1
 
-[node name="Quit" type="Button" parent="UI/Main" index="3"]
+[node name="Quit" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1957361577]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -141,7 +141,7 @@ shortcut = ExtResource("6_8hor2")
 shortcut_in_tooltip = false
 icon = ExtResource("3_t5re1")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" index="4"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=1580493384]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,7 +164,7 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="End" type="ColorRect" parent="UI" index="1"]
+[node name="End" type="ColorRect" parent="UI" parent_id_path=PackedInt32Array(147986541) index="1" unique_id=843317494]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -173,19 +173,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/End" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_5e5fo")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/End" index="0" unique_id=268423905]
+libraries/ = SubResource("AnimationLibrary_5e5fo")
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2"]
+[node name="QuitDialog" type="ConfirmationDialog" parent="UI" parent_id_path=PackedInt32Array(147986541) index="2" unique_id=1132056576]
 title = "Выход"
 ok_button_text = "Выйти"
 dialog_text = "Ты действительно хочешь выйти из обучения?
 Его можно перепройти в меню одиночной игры."
 cancel_button_text = "Отмена"
 
-[node name="ShootDialog" type="ConfirmationDialog" parent="UI" index="3"]
+[node name="ShootDialog" type="ConfirmationDialog" parent="UI" parent_id_path=PackedInt32Array(147986541) index="3" unique_id=1875902073]
 process_mode = 2
 oversampling_override = 1.0
 title = "Способ стрельбы"
@@ -196,10 +194,10 @@ dialog_text = "Какой способ стрельбы тебе больше п
 dialog_close_on_escape = false
 cancel_button_text = "Джойстиком прицеливания"
 
-[node name="ResourcePreloaderTutorial" type="ResourcePreloader" parent="." index="12"]
+[node name="ResourcePreloaderTutorial" type="ResourcePreloader" parent="." index="12" unique_id=723490345]
 resources = [PackedStringArray("ak_74", "he_grenade", "knife", "p350", "potion"), [ExtResource("8_2xrf8"), ExtResource("9_8hor2"), ExtResource("10_q32ry"), ExtResource("11_8k8es"), ExtResource("12_e2f2t")]]
 
-[node name="Map" parent="." index="13" instance=ExtResource("4_t5re1")]
+[node name="Map" parent="." index="13" unique_id=383706978 instance=ExtResource("4_t5re1")]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 

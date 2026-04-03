@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp5ag64gc1s3k"]
+[gd_scene format=3 uid="uid://cp5ag64gc1s3k"]
 
 [ext_resource type="PackedScene" uid="uid://b4h27swncrquh" path="res://game/events/common/poison_smokes/poison_smokes.tscn" id="1_aw3j5"]
 
-[node name="PoisonSmokes" instance=ExtResource("1_aw3j5")]
+[node name="PoisonSmokes" unique_id=576531698 instance=ExtResource("1_aw3j5")]
 duration = 90.0
 start_distance = 3200.0

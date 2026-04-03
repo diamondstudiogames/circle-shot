@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://da324c6cjnhfc"]
+[gd_scene format=3 uid="uid://da324c6cjnhfc"]
 
 [ext_resource type="Texture2D" uid="uid://c6hbriu7of77e" path="res://game/weapons/melee/knife/visual/knife.png" id="1_0bj46"]
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=2112159854]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1742608721]
 texture = ExtResource("1_0bj46")
 offset = Vector2(44, 0)

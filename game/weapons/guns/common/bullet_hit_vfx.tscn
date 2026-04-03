@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d5ag68upkkaq"]
+[gd_scene format=3 uid="uid://d5ag68upkkaq"]
 
 [ext_resource type="Texture2D" uid="uid://dicbq6m7yirsq" path="res://game/weapons/guns/common/bullet_shard.png" id="1_p1da2"]
 
@@ -6,9 +6,9 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BulletHitVfx" type="Node2D"]
+[node name="BulletHitVfx" type="Node2D" unique_id=1073413642]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=152913829]
 z_index = 1
 amount = 3
 texture = ExtResource("1_p1da2")
@@ -22,7 +22,7 @@ initial_velocity_min = 32.0
 initial_velocity_max = 64.0
 scale_amount_curve = SubResource("Curve_uixak")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=206756524]
 wait_time = 0.5
 one_shot = true
 autostart = true

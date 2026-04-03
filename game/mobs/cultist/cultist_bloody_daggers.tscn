@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceq8q6jddunqn"]
+[gd_scene format=3 uid="uid://ceq8q6jddunqn"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_o8om4"]
 [ext_resource type="Script" uid="uid://wgcxomlfje41" path="res://game/mobs/cultist/cultist_bloody_daggers.gd" id="2_o8om4"]
@@ -11,7 +11,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dl3v0"]
 radius = 76.0
 
-[node name="CultistBloodyDaggers" instance=ExtResource("1_o8om4")]
+[node name="CultistBloodyDaggers" unique_id=44320941 instance=ExtResource("1_o8om4")]
 script = ExtResource("2_o8om4")
 projectile_scene = ExtResource("3_m0r45")
 spread = 4.0
@@ -25,37 +25,37 @@ speed = 560.0
 hurt_vfx_scene = ExtResource("3_xppy1")
 death_vfx_scene = ExtResource("4_a2nrt")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_dl3v0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=478533156]
 position = Vector2(-36, -16)
 texture = ExtResource("5_4bykx")
 
-[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+[node name="Weapon" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=2032137165]
 position = Vector2(32, 32)
 
-[node name="BloodyDaggers" type="Node2D" parent="Visual/Weapon" index="0"]
+[node name="BloodyDaggers" type="Node2D" parent="Visual/Weapon" index="0" unique_id=1275936496]
 
-[node name="ToThrow" parent="Visual/Weapon/BloodyDaggers" index="0" instance=ExtResource("7_kwixw")]
+[node name="ToThrow" parent="Visual/Weapon/BloodyDaggers" index="0" unique_id=1741227921 instance=ExtResource("7_kwixw")]
 visible = false
 rotation = -0.1308997
 
-[node name="BloodyDaggerAmmo4" parent="Visual/Weapon/BloodyDaggers" index="1" instance=ExtResource("7_kwixw")]
+[node name="BloodyDaggerAmmo4" parent="Visual/Weapon/BloodyDaggers" index="1" unique_id=229819878 instance=ExtResource("7_kwixw")]
 rotation = 0.65449846
 
-[node name="BloodyDaggerAmmo3" parent="Visual/Weapon/BloodyDaggers" index="2" instance=ExtResource("7_kwixw")]
+[node name="BloodyDaggerAmmo3" parent="Visual/Weapon/BloodyDaggers" index="2" unique_id=1502837117 instance=ExtResource("7_kwixw")]
 rotation = 0.39269912
 
-[node name="BloodyDaggerAmmo2" parent="Visual/Weapon/BloodyDaggers" index="3" instance=ExtResource("7_kwixw")]
+[node name="BloodyDaggerAmmo2" parent="Visual/Weapon/BloodyDaggers" index="3" unique_id=2105330255 instance=ExtResource("7_kwixw")]
 rotation = 0.1308997
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="BloodyDaggerAmmo" parent="Visual/Weapon/BloodyDaggers" index="4" instance=ExtResource("7_kwixw")]
+[node name="BloodyDaggerAmmo" parent="Visual/Weapon/BloodyDaggers" index="4" unique_id=205203416 instance=ExtResource("7_kwixw")]
 rotation = -0.1308997
 
-[node name="ThrowPivot" type="Marker2D" parent="Visual/Weapon" index="1"]
+[node name="ThrowPivot" type="Marker2D" parent="Visual/Weapon" index="1" unique_id=1191060319]
 position = Vector2(-32, -32)
 
-[node name="ThrowPoint" type="Marker2D" parent="Visual/Weapon/ThrowPivot" index="0"]
+[node name="ThrowPoint" type="Marker2D" parent="Visual/Weapon/ThrowPivot" index="0" unique_id=58177521]
 position = Vector2(96, 0)

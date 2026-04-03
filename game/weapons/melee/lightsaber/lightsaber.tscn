@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm8ppjrpqe84c"]
+[gd_scene format=3 uid="uid://bm8ppjrpqe84c"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_lf8ps"]
 [ext_resource type="Script" uid="uid://tt81xgnn1gh4" path="res://game/weapons/melee/lightsaber/lightsaber.gd" id="2_1b7xu"]
@@ -9,25 +9,25 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vqjv"]
 radius = 104.0
 
-[node name="Lightsaber" instance=ExtResource("1_lf8ps")]
+[node name="Lightsaber" unique_id=154137210 instance=ExtResource("1_lf8ps")]
 script = ExtResource("2_1b7xu")
 damage = 42
 shoot_interval = 0.8
 to_aim_time = 0.2
 speed_multiplier_when_current = 1.08
 
-[node name="AttackPolygon" type="Polygon2D" parent="." index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=923750984]
 visible = false
 position = Vector2(12, 0)
 polygon = PackedVector2Array(113, -219, 118, -162, 86, -148, 110, -117, 74, -99, 61, -65, 84, -8, 259, -90, 264, -144, 238, -168, 189, -210)
 
-[node name="Visual" parent="." index="1" instance=ExtResource("3_xa745")]
+[node name="Visual" parent="." index="1" unique_id=1175127065 instance=ExtResource("3_xa745")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="2"]
+[node name="Attack" parent="." index="2" unique_id=336793680]
 position = Vector2(32, 0)
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Attack" index="0" unique_id=1562708502]
 position = Vector2(124, -144)
 enabled = false
 shape = SubResource("CircleShape2D_5vqjv")
@@ -37,7 +37,7 @@ collision_mask = 75
 script = ExtResource("5_0d2ml")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Attack" index="1" unique_id=1961292867]
 position = Vector2(124, 144)
 enabled = false
 shape = SubResource("CircleShape2D_5vqjv")
@@ -47,14 +47,12 @@ collision_mask = 75
 script = ExtResource("5_0d2ml")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="Aim" parent="." index="3"]
+[node name="Aim" parent="." index="3" unique_id=1063961031]
 position = Vector2(140, 0)
 points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(-41, 0, -72, -72, -8, -248, 72, -248, 192, -48, 192, 48, 72, 248, -8, 248, -72, 72)
 
-[node name="AnimationPlayer" parent="." index="4"]
-libraries = {
-&"": ExtResource("5_1b7xu")
-}
+[node name="AnimationPlayer" parent="." index="4" unique_id=1964456697]
+libraries/ = ExtResource("5_1b7xu")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx2gsf65qv7ou"]
+[gd_scene format=3 uid="uid://cx2gsf65qv7ou"]
 
 [ext_resource type="PackedScene" uid="uid://ckvaaln275hfv" path="res://game/weapons/guns/common/gun.tscn" id="1_ii548"]
 [ext_resource type="PackedScene" uid="uid://crqwj65hris7n" path="res://game/weapons/guns/shotguns/uts_15/uts_15_bullet.tscn" id="2_1rw2f"]
@@ -22,7 +22,7 @@ _limits = [-8.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -8), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Uts15" instance=ExtResource("1_ii548")]
+[node name="Uts15" unique_id=848540039 instance=ExtResource("1_ii548")]
 script = ExtResource("2_w6qi1")
 bullets_in_shot_far = 4
 projectile_far_scene = ExtResource("3_tyyry")
@@ -46,12 +46,10 @@ speed_multiplier_when_current = 0.94
 aim_camera_distance = 180.0
 shoot_on_joystick_release = true
 
-[node name="Visual" parent="." index="0" instance=ExtResource("4_w6qi1")]
+[node name="Visual" parent="." index="0" unique_id=1757996741 instance=ExtResource("4_w6qi1")]
 
-[node name="ShootPoint" parent="." index="1"]
+[node name="ShootPoint" parent="." index="1" unique_id=642103981]
 position = Vector2(156, -28)
 
-[node name="AnimationPlayer" parent="." index="2"]
-libraries = {
-&"": ExtResource("5_061iv")
-}
+[node name="AnimationPlayer" parent="." index="2" unique_id=313151340]
+libraries/ = ExtResource("5_061iv")

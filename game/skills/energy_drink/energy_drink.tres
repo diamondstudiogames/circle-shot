@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkillData" load_steps=2 format=3 uid="uid://cfid5aoydu81s"]
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cfid5aoydu81s"]
 
 [ext_resource type="Script" uid="uid://iwsanxyoxs5s" path="res://game/player/equip/skill_data.gd" id="1_213rr"]
 

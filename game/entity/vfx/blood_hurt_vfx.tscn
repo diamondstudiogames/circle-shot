@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp6v2plelkof8"]
+[gd_scene format=3 uid="uid://bp6v2plelkof8"]
 
 [ext_resource type="Texture2D" uid="uid://vdagnimwlvoy" path="res://game/entity/vfx/shard.png" id="1_j2ndp"]
 
@@ -6,9 +6,9 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="BloodHurtVfx" type="Node2D"]
+[node name="BloodHurtVfx" type="Node2D" unique_id=285666652]
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1155062191]
 z_index = 1
 amount = 5
 texture = ExtResource("1_j2ndp")
@@ -23,7 +23,7 @@ gravity = Vector2(0, 0)
 initial_velocity_max = 320.0
 scale_amount_curve = SubResource("Curve_e1ai4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=2128140332]
 wait_time = 0.6
 one_shot = true
 autostart = true

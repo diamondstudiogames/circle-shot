@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw483364uyeyn"]
+[gd_scene format=3 uid="uid://dw483364uyeyn"]
 
 [ext_resource type="PackedScene" uid="uid://bydh8wq8j224r" path="res://game/weapons/melee/common/melee.tscn" id="1_n4krj"]
 [ext_resource type="PackedScene" uid="uid://da324c6cjnhfc" path="res://game/weapons/melee/knife/visual/knife_visual.tscn" id="2_ei8cw"]
 [ext_resource type="Script" uid="uid://bc7ffmlfu6nm7" path="res://game/entity/attack/ray_detector.gd" id="4_2ry8l"]
 [ext_resource type="AnimationLibrary" uid="uid://d33bsb3qmkra5" path="res://game/weapons/melee/knife/visual/knife_animations.tres" id="4_hhcf2"]
 
-[node name="Knife" instance=ExtResource("1_n4krj")]
+[node name="Knife" unique_id=1456786191 instance=ExtResource("1_n4krj")]
 damage = 55
 shoot_interval = 0.7
 to_aim_time = 0.2
 speed_multiplier_when_current = 1.15
 shoot_on_joystick_release = false
 
-[node name="Visual" parent="." index="0" instance=ExtResource("2_ei8cw")]
+[node name="Visual" parent="." index="0" unique_id=1642625240 instance=ExtResource("2_ei8cw")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="1"]
+[node name="Attack" parent="." index="1" unique_id=336793680]
 position = Vector2(116, 0)
 
-[node name="RayDetector" type="RayCast2D" parent="Attack" index="0"]
+[node name="RayDetector" type="RayCast2D" parent="Attack" index="0" unique_id=1847452112]
 position = Vector2(32, 0)
 enabled = false
 target_position = Vector2(120, 0)
@@ -27,17 +27,15 @@ hit_from_inside = true
 script = ExtResource("4_2ry8l")
 metadata/_custom_type_script = "uid://bc7ffmlfu6nm7"
 
-[node name="Aim" parent="." index="2"]
+[node name="Aim" parent="." index="2" unique_id=1063961031]
 visible = false
 position = Vector2(148, 0)
 points = PackedVector2Array(0, 0, 120, 0)
 width = 24.0
 
-[node name="Outline" parent="Aim" index="0"]
+[node name="Outline" parent="Aim" index="0" unique_id=1988625608]
 points = PackedVector2Array(0, 0, 120, 0)
 width = 28.0
 
-[node name="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": ExtResource("4_hhcf2")
-}
+[node name="AnimationPlayer" parent="." index="3" unique_id=1964456697]
+libraries/ = ExtResource("4_hhcf2")

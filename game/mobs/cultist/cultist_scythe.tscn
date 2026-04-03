@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnd3cvcpaofdf"]
+[gd_scene format=3 uid="uid://cnd3cvcpaofdf"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_k2a8i"]
 [ext_resource type="Texture2D" uid="uid://dwlo6dfxrjnh2" path="res://game/mobs/cultist/cultist.png" id="2_02i2a"]
@@ -17,7 +17,7 @@ radius = 76.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_p8sfc"]
 radius = 96.0
 
-[node name="CultistScythe" instance=ExtResource("1_k2a8i")]
+[node name="CultistScythe" unique_id=727284095 instance=ExtResource("1_k2a8i")]
 script = ExtResource("2_v4a7l")
 shoot_interval = 1.1999999999970896
 aim_angle_rotation_weight = 0.06
@@ -29,38 +29,38 @@ speed = 600.0
 hurt_vfx_scene = ExtResource("3_p8sfc")
 death_vfx_scene = ExtResource("4_adh2n")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_dl3v0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=174052865]
 position = Vector2(-36, -16)
 texture = ExtResource("2_02i2a")
 
-[node name="Weapon" type="Node2D" parent="Visual" index="1"]
+[node name="Weapon" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=226016394]
 position = Vector2(32, 32)
 
-[node name="Scythe" type="Node2D" parent="Visual/Weapon" index="0"]
+[node name="Scythe" type="Node2D" parent="Visual/Weapon" index="0" unique_id=816963586]
 position = Vector2(-32, -32)
 
-[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon/Scythe" index="0"]
+[node name="AttackPolygon" type="Polygon2D" parent="Visual/Weapon/Scythe" index="0" unique_id=1372831392]
 visible = false
 color = Color(0.50390625, 0.50390625, 0.50390625, 1)
 polygon = PackedVector2Array(67, -1, 30, -58, 30, -106, 56, -100, 52, -153, 92, -152, 102, -197, 149, -168, 176, -216, 251, -119, 271, -53)
 
-[node name="Visual" parent="Visual/Weapon/Scythe" index="1" instance=ExtResource("3_0wvw2")]
+[node name="Visual" parent="Visual/Weapon/Scythe" index="1" unique_id=850705363 instance=ExtResource("3_0wvw2")]
 position = Vector2(32, 32)
 
 [node name="Sprite2D" parent="Visual/Weapon/Scythe/Visual" index="0"]
 texture = ExtResource("7_p8sfc")
 
-[node name="Attack" type="Node2D" parent="Visual/Weapon/Scythe" index="2"]
+[node name="Attack" type="Node2D" parent="Visual/Weapon/Scythe" index="2" unique_id=581503650]
 visible = false
 script = ExtResource("4_6hbna")
 damage = 40
 damage_interval = 0.7
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="0"]
+[node name="ShapeDetector" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="0" unique_id=919120367]
 position = Vector2(128, -128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -70,7 +70,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="1"]
+[node name="ShapeDetector2" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="1" unique_id=128398708]
 position = Vector2(128, 128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -80,7 +80,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector3" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="2"]
+[node name="ShapeDetector3" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="2" unique_id=379985091]
 position = Vector2(128, 128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -90,7 +90,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector4" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="3"]
+[node name="ShapeDetector4" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="3" unique_id=646559379]
 position = Vector2(-128, 128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -100,7 +100,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector5" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="4"]
+[node name="ShapeDetector5" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="4" unique_id=302922310]
 position = Vector2(-128, 128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -110,7 +110,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector6" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="5"]
+[node name="ShapeDetector6" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="5" unique_id=542083419]
 position = Vector2(-128, -128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -120,7 +120,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector7" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="6"]
+[node name="ShapeDetector7" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="6" unique_id=1674393306]
 position = Vector2(-128, -128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -130,7 +130,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="ShapeDetector8" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="7"]
+[node name="ShapeDetector8" type="ShapeCast2D" parent="Visual/Weapon/Scythe/Attack" index="7" unique_id=99921577]
 position = Vector2(128, -128)
 enabled = false
 shape = SubResource("CircleShape2D_p8sfc")
@@ -140,9 +140,7 @@ collision_mask = 75
 script = ExtResource("5_s1w2s")
 metadata/_custom_type_script = "uid://dfhhd4es3t3i"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Scythe" index="3"]
-libraries = {
-&"": ExtResource("6_v4a7l")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/Weapon/Scythe" index="3" unique_id=1168224974]
+libraries/ = ExtResource("6_v4a7l")
 
 [editable path="Visual/Weapon/Scythe/Visual"]

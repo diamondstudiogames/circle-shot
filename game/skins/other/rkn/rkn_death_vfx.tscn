@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj1ubr1twmg8w"]
+[gd_scene format=3 uid="uid://bj1ubr1twmg8w"]
 
 [ext_resource type="Texture2D" uid="uid://bh108cwpsaaa5" path="res://game/skins/other/rkn/discord.png" id="1_bnnr3"]
 [ext_resource type="Shader" uid="uid://b6fqw6usud13b" path="res://game/shared/shaders/dissolve.gdshader" id="1_n87c3"]
@@ -134,19 +134,17 @@ _data = {
 &"death": SubResource("Animation_7og40")
 }
 
-[node name="RknDeathVfx" type="Node2D"]
+[node name="RknDeathVfx" type="Node2D" unique_id=1052111754]
 z_index = -2
 
-[node name="Discord" type="Sprite2D" parent="."]
+[node name="Discord" type="Sprite2D" parent="." unique_id=481469377]
 texture = ExtResource("1_bnnr3")
 
-[node name="Rkn" type="Sprite2D" parent="."]
+[node name="Rkn" type="Sprite2D" parent="." unique_id=48449253]
 material = SubResource("ShaderMaterial_bnnr3")
 instance_shader_parameters/power = 0.0
 texture = ExtResource("4_ebtal")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_a2p0y")
-}
-autoplay = "death"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1392566978]
+libraries/ = SubResource("AnimationLibrary_a2p0y")
+autoplay = &"death"

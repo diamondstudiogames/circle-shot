@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bv5flcglplthg"]
+[gd_scene format=3 uid="uid://bv5flcglplthg"]
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_f45ha"]
 [ext_resource type="Script" uid="uid://dgpiu5wuwkfms" path="res://game/solo/challenges/common/challenge.gd" id="2_kh7n0"]
@@ -322,13 +322,13 @@ _data = {
 &"intro": SubResource("Animation_4bxhi")
 }
 
-[node name="Challenge" instance=ExtResource("1_f45ha")]
+[node name="Challenge" unique_id=2032792461 instance=ExtResource("1_f45ha")]
 script = ExtResource("2_kh7n0")
 
-[node name="UI" parent="." index="8"]
+[node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("3_kh7n0")
 
-[node name="Pause" type="Button" parent="UI/Main" index="2"]
+[node name="Pause" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=1105717618]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -343,7 +343,7 @@ shortcut = ExtResource("4_70jvh")
 shortcut_in_tooltip = false
 icon = ExtResource("4_iuf22")
 
-[node name="RewardsPanel" type="PanelContainer" parent="UI/Main" index="3"]
+[node name="RewardsPanel" type="PanelContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1692799223]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -358,43 +358,43 @@ offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Main/RewardsPanel" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Main/RewardsPanel" index="0" unique_id=1596816410]
 layout_mode = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Rewards" type="VBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer" index="0"]
+[node name="Rewards" type="VBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer" index="0" unique_id=854094524]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="0"]
+[node name="Title" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="0" unique_id=519047232]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"HeaderMedium"
 text = "Награды"
 
-[node name="Total" type="HBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="1"]
+[node name="Total" type="HBoxContainer" parent="UI/Main/RewardsPanel/MarginContainer/Rewards" index="1" unique_id=514449798]
 layout_mode = 2
 alignment = 1
 
-[node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0"]
+[node name="Total" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="0" unique_id=212673743]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "У тебя:"
 
-[node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1"]
+[node name="Count" type="Label" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="1" unique_id=1600928896]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "0"
 
-[node name="CoinSmall" type="TextureRect" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="2"]
+[node name="CoinSmall" type="TextureRect" parent="UI/Main/RewardsPanel/MarginContainer/Rewards/Total" index="2" unique_id=130500029]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("5_54rqx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GameEnd" type="Label" parent="UI/Main" index="4"]
+[node name="GameEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=501210128]
 self_modulate = Color(1, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -421,12 +421,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_n8n4b")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/GameEnd" index="0" unique_id=733071078]
+libraries/ = SubResource("AnimationLibrary_n8n4b")
 
-[node name="Intro" type="Control" parent="UI" index="1"]
+[node name="Intro" type="Control" parent="UI" index="1" unique_id=1500228535]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -436,7 +434,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Tint" type="ColorRect" parent="UI/Intro" index="0"]
+[node name="Tint" type="ColorRect" parent="UI/Intro" index="0" unique_id=99345345]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -445,7 +443,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Title" type="Label" parent="UI/Intro" index="1"]
+[node name="Title" type="Label" parent="UI/Intro" index="1" unique_id=775046344]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -469,7 +467,7 @@ text = "ИГРА"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="UI/Intro/Title" index="0"]
+[node name="Description" type="Label" parent="UI/Intro/Title" index="0" unique_id=180706186]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -486,7 +484,7 @@ theme_override_constants/shadow_offset_y = 2
 text = "Описание"
 horizontal_alignment = 1
 
-[node name="Text" type="Label" parent="UI/Intro" index="2"]
+[node name="Text" type="Label" parent="UI/Intro" index="2" unique_id=1844969481]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -510,7 +508,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Go" type="Label" parent="UI/Intro" index="3"]
+[node name="Go" type="Label" parent="UI/Intro" index="3" unique_id=526356852]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -534,12 +532,10 @@ text = "ВПЕРЁД!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4"]
-libraries = {
-&"": SubResource("AnimationLibrary_ctugk")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4" unique_id=752477731]
+libraries/ = SubResource("AnimationLibrary_ctugk")
 
-[node name="PauseDialog" type="Window" parent="UI" index="2"]
+[node name="PauseDialog" type="Window" parent="UI" index="2" unique_id=801272262]
 process_mode = 2
 oversampling_override = 1.0
 title = "Игра приостановлена"
@@ -547,14 +543,14 @@ size = Vector2i(320, 160)
 visible = false
 unresizable = true
 
-[node name="Background" type="ColorRect" parent="UI/PauseDialog" index="0"]
+[node name="Background" type="ColorRect" parent="UI/PauseDialog" index="0" unique_id=148518649]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseDialog" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseDialog" index="1" unique_id=1394919746]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -563,40 +559,40 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="UI/PauseDialog/VBoxContainer" index="0"]
+[node name="Resume" type="Button" parent="UI/PauseDialog/VBoxContainer" index="0" unique_id=834816982]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Продолжить испытание"
 icon = ExtResource("6_v85pp")
 
-[node name="Quit" type="Button" parent="UI/PauseDialog/VBoxContainer" index="1"]
+[node name="Quit" type="Button" parent="UI/PauseDialog/VBoxContainer" index="1" unique_id=929339546]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = " Выйти из испытания"
 icon = ExtResource("4_uf786")
 
-[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" index="2"]
+[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" index="2" unique_id=942470741]
 script = ExtResource("9_xxoyb")
 focus_target = NodePath("../VBoxContainer/Resume")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
-[node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10"]
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10" unique_id=378673656]
 bus = &"Music"
 
-[node name="DefeatMusic" type="AudioStreamPlayer" parent="." index="11"]
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." index="11" unique_id=1982169338]
 stream = ExtResource("6_iuf22")
 bus = &"Music"
 
-[node name="ResourcePreloaderChallenge" type="ResourcePreloader" parent="." index="14"]
+[node name="ResourcePreloaderChallenge" type="ResourcePreloader" parent="." index="14" unique_id=1254331308]
 resources = [PackedStringArray("reward"), [ExtResource("9_v85pp")]]
 
-[node name="ShowRewardsTimer" type="Timer" parent="." index="15"]
+[node name="ShowRewardsTimer" type="Timer" parent="." index="15" unique_id=968756047]
 wait_time = 1.2
 one_shot = true
 
-[node name="ChallengeTimer" type="Timer" parent="." index="16"]
+[node name="ChallengeTimer" type="Timer" parent="." index="16" unique_id=304659747]
 one_shot = true
 
 [connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]

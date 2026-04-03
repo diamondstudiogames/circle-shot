@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://crqa4y5qrwe16"]
+[gd_scene format=3 uid="uid://crqa4y5qrwe16"]
 
 [ext_resource type="PackedScene" uid="uid://b0jflvvqce1h7" path="res://game/mobs/common/mob.tscn" id="1_k3o16"]
 [ext_resource type="Script" uid="uid://eqrn58t8o13j" path="res://game/solo/challenges/demon_fight/goat/goat.gd" id="2_i1c5v"]
@@ -927,7 +927,7 @@ node_connections = [&"output", 0, &"FloorOneShot", &"IdleWalkTransition", 0, &"I
 [sub_resource type="CircleShape2D" id="CircleShape2D_wr4d6"]
 radius = 116.0
 
-[node name="Goat" instance=ExtResource("1_k3o16")]
+[node name="Goat" unique_id=1990255468 instance=ExtResource("1_k3o16")]
 script = ExtResource("2_i1c5v")
 min_distance = 500.0
 random_point_from_target_distance = 1600.0
@@ -999,75 +999,75 @@ always_visible_on_minimap = true
 hurt_vfx_scene = ExtResource("17_iuwl3")
 death_vfx_scene = ExtResource("18_07pyh")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 position = Vector2(0, 16)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_b5mrw")
 
-[node name="VisibleOnScreenNotifier2D" parent="Minimap" index="0"]
+[node name="VisibleOnScreenNotifier2D" parent="Minimap" parent_id_path=PackedInt32Array(1373562149) index="0" unique_id=1346000584]
 rect = Rect2(-160, -160, 320, 320)
 
-[node name="Visual" parent="Minimap" index="2"]
+[node name="Visual" parent="Minimap" parent_id_path=PackedInt32Array(1373562149) index="2" unique_id=20939892]
 texture = ExtResource("3_c8w87")
 
-[node name="Info" parent="." index="4"]
+[node name="Info" parent="." index="4" unique_id=247772461]
 visible = false
 
-[node name="Goat" type="Node2D" parent="Visual" index="0"]
+[node name="Goat" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="0" unique_id=1997308327]
 position = Vector2(6, 0)
 
-[node name="LeftRightLeg" type="Sprite2D" parent="Visual/Goat" index="0"]
+[node name="LeftRightLeg" type="Sprite2D" parent="Visual/Goat" index="0" unique_id=334906158]
 position = Vector2(-69, 77)
 texture = ExtResource("2_rxp3c")
 offset = Vector2(6, 13)
 region_enabled = true
 region_rect = Rect2(56, 248, 40, 48)
 
-[node name="LeftLeftLeg" type="Sprite2D" parent="Visual/Goat" index="1"]
+[node name="LeftLeftLeg" type="Sprite2D" parent="Visual/Goat" index="1" unique_id=1292364914]
 position = Vector2(-86, 76)
 texture = ExtResource("2_rxp3c")
 offset = Vector2(5, 15)
 region_enabled = true
 region_rect = Rect2(16, 248, 32, 48)
 
-[node name="RightRightLeg" type="Sprite2D" parent="Visual/Goat" index="2"]
+[node name="RightRightLeg" type="Sprite2D" parent="Visual/Goat" index="2" unique_id=265506636]
 position = Vector2(41, 69)
 texture = ExtResource("2_rxp3c")
 offset = Vector2(7, 12)
 region_enabled = true
 region_rect = Rect2(152, 240, 32, 48)
 
-[node name="RightLeftLeg" type="Sprite2D" parent="Visual/Goat" index="3"]
+[node name="RightLeftLeg" type="Sprite2D" parent="Visual/Goat" index="3" unique_id=966889460]
 position = Vector2(25, 70)
 texture = ExtResource("2_rxp3c")
 offset = Vector2(4, 15)
 region_enabled = true
 region_rect = Rect2(112, 240, 24, 56)
 
-[node name="Base" type="Sprite2D" parent="Visual/Goat" index="4"]
+[node name="Base" type="Sprite2D" parent="Visual/Goat" index="4" unique_id=2084287873]
 position = Vector2(11, -26)
 texture = ExtResource("2_rxp3c")
 region_enabled = true
 region_rect = Rect2(8, 8, 264, 224)
 
-[node name="Mouth" type="Sprite2D" parent="Visual/Goat/Base" index="0"]
+[node name="Mouth" type="Sprite2D" parent="Visual/Goat/Base" index="0" unique_id=9218119]
 show_behind_parent = true
 position = Vector2(101, -9)
 texture = ExtResource("2_rxp3c")
 region_enabled = true
 region_rect = Rect2(208, 232, 56, 88)
 
-[node name="Eye" type="Sprite2D" parent="Visual/Goat/Base" index="1"]
+[node name="Eye" type="Sprite2D" parent="Visual/Goat/Base" index="1" unique_id=471667595]
 material = ExtResource("3_b5mrw")
 position = Vector2(84, -63)
 texture = ExtResource("2_rxp3c")
 region_enabled = true
 region_rect = Rect2(8, 296, 24, 16)
 
-[node name="ShootPoint" type="Marker2D" parent="Visual/Goat/Base" index="2"]
+[node name="ShootPoint" type="Marker2D" parent="Visual/Goat/Base" index="2" unique_id=704828946]
 position = Vector2(99, -19)
 
-[node name="BigShot" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint" index="0"]
+[node name="BigShot" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint" index="0" unique_id=1042579381]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 z_index = -1
@@ -1075,19 +1075,19 @@ material = ExtResource("3_b5mrw")
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("17_nu1v0")
 
-[node name="Light" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint/BigShot" index="0"]
+[node name="Light" type="Sprite2D" parent="Visual/Goat/Base/ShootPoint/BigShot" index="0" unique_id=7584859]
 modulate = Color(1, 0, 0, 1)
 z_index = -1
 material = ExtResource("19_bb3ax")
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("20_jrieu")
 
-[node name="DashEffect" type="Sprite2D" parent="Visual" index="1"]
+[node name="DashEffect" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="1" unique_id=1247185390]
 visible = false
 position = Vector2(112, -20)
 texture = ExtResource("6_0xsrn")
 
-[node name="PentagramEffect" type="Sprite2D" parent="Visual" index="2"]
+[node name="PentagramEffect" type="Sprite2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="2" unique_id=658089407]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
@@ -1096,12 +1096,10 @@ position = Vector2(0, 110)
 scale = Vector2(0.5, 0.25)
 texture = ExtResource("12_mbgp5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_c8w87")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="3" unique_id=415381594]
+libraries/ = SubResource("AnimationLibrary_c8w87")
 
-[node name="AnimationTree" type="AnimationTree" parent="Visual" index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="4" unique_id=1614226963]
 tree_root = SubResource("AnimationNodeBlendTree_wr4d6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IdleWalkTransition/current_state = "idle"
@@ -1139,12 +1137,12 @@ parameters/FloorOneShot/internal_active = false
 parameters/FloorOneShot/request = 0
 parameters/FloorTimeScale/scale = 1.0
 
-[node name="DashAttacks" type="Node2D" parent="Visual" index="5"]
+[node name="DashAttacks" type="Node2D" parent="Visual" parent_id_path=PackedInt32Array(1599520395) index="5" unique_id=1763870510]
 process_mode = 4
 visible = false
 position = Vector2(44, -16)
 
-[node name="KnockbackAttack" type="Node2D" parent="Visual/DashAttacks" index="0"]
+[node name="KnockbackAttack" type="Node2D" parent="Visual/DashAttacks" index="0" unique_id=1312445248]
 process_mode = 4
 script = ExtResource("6_hhrq3")
 knockback_power = 1440.0
@@ -1152,18 +1150,18 @@ knockback_duration = 0.2
 damage = 20
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/KnockbackAttack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/KnockbackAttack" index="0" unique_id=1906172665]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("7_0xsrn")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/KnockbackAttack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/KnockbackAttack/AreaDetector" index="0" unique_id=895194761]
 rotation = 1.5707941
 shape = SubResource("CircleShape2D_wr4d6")
 
-[node name="StunAttack" type="Node2D" parent="Visual/DashAttacks" index="1"]
+[node name="StunAttack" type="Node2D" parent="Visual/DashAttacks" index="1" unique_id=1648493089]
 process_mode = 4
 script = ExtResource("8_hhrq3")
 stun_duration = 2.0
@@ -1171,25 +1169,25 @@ damage = 25
 damage_interval = 2.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
 
-[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/StunAttack" index="0"]
+[node name="AreaDetector" type="Area2D" parent="Visual/DashAttacks/StunAttack" index="0" unique_id=449499472]
 collision_layer = 4
 collision_mask = 66
 monitorable = false
 script = ExtResource("7_0xsrn")
 metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/StunAttack/AreaDetector" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/DashAttacks/StunAttack/AreaDetector" index="0" unique_id=866528005]
 shape = SubResource("CircleShape2D_wr4d6")
 
-[node name="ChangeMoveDirectionTimer" type="Timer" parent="." index="11"]
+[node name="ChangeMoveDirectionTimer" type="Timer" parent="." index="11" unique_id=1164553925]
 process_callback = 0
 wait_time = 2.9999999999999996
 autostart = true
 
-[node name="AnimationTimer" type="Timer" parent="." index="12"]
+[node name="AnimationTimer" type="Timer" parent="." index="12" unique_id=1385290962]
 one_shot = true
 
-[node name="Timer" type="Timer" parent="." index="13"]
+[node name="Timer" type="Timer" parent="." index="13" unique_id=1852559807]
 process_callback = 0
 one_shot = true
 

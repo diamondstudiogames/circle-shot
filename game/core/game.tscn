@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://scqgxynxowrb"]
+[gd_scene format=3 uid="uid://scqgxynxowrb"]
 
 [ext_resource type="Script" uid="uid://iq1642q07wum" path="res://game/core/game.gd" id="1_j8au2"]
 [ext_resource type="Script" uid="uid://cv3kjc76k7c58" path="res://game/core/loader.gd" id="2_p5b8s"]
@@ -97,18 +97,18 @@ _data = {
 &"start_load": SubResource("Animation_xk7kp")
 }
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=1547276928]
 process_physics_priority = -50
 script = ExtResource("1_j8au2")
 metadata/_custom_type_script = "uid://iq1642q07wum"
 
-[node name="Loader" type="CanvasLayer" parent="."]
+[node name="Loader" type="CanvasLayer" parent="." unique_id=1581607020]
 layer = 10
 visible = false
 script = ExtResource("2_p5b8s")
 metadata/_custom_type_script = "uid://cv3kjc76k7c58"
 
-[node name="Screen" type="Control" parent="Loader"]
+[node name="Screen" type="Control" parent="Loader" unique_id=809215846]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
@@ -118,10 +118,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LoadingSplash" parent="Loader/Screen" instance=ExtResource("3_hdtff")]
+[node name="LoadingSplash" parent="Loader/Screen" unique_id=1349862713 instance=ExtResource("3_hdtff")]
 layout_mode = 1
 
-[node name="Logo" type="TextureRect" parent="Loader/Screen"]
+[node name="Logo" type="TextureRect" parent="Loader/Screen" unique_id=2129879249]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -133,7 +133,7 @@ grow_horizontal = 2
 texture = ExtResource("4_yi0ok")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Loader/Screen"]
+[node name="ProgressBar" type="ProgressBar" parent="Loader/Screen" unique_id=1431650214]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,7 +147,7 @@ offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Loader/Screen/ProgressBar"]
+[node name="Label" type="Label" parent="Loader/Screen/ProgressBar" unique_id=1688594722]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -161,17 +161,15 @@ theme_type_variation = &"LabelOutlined"
 text = "Загрузка..."
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Loader"]
-libraries = {
-&"": SubResource("AnimationLibrary_a1c02")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Loader" unique_id=1987499441]
+libraries/ = SubResource("AnimationLibrary_a1c02")
 
-[node name="DebugInfo" type="CanvasLayer" parent="."]
+[node name="DebugInfo" type="CanvasLayer" parent="." unique_id=1946742866]
 process_mode = 3
 layer = 20
 script = ExtResource("3_0xkxq")
 
-[node name="FPSLabel" type="Label" parent="DebugInfo"]
+[node name="FPSLabel" type="Label" parent="DebugInfo" unique_id=1339696074]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -184,7 +182,7 @@ theme_type_variation = &"LabelOutlined"
 text = "FPS: 60"
 horizontal_alignment = 1
 
-[node name="PingLabel" type="Label" parent="DebugInfo"]
+[node name="PingLabel" type="Label" parent="DebugInfo" unique_id=619511489]
 visible = false
 anchors_preset = 1
 anchor_left = 1.0
@@ -198,21 +196,21 @@ theme_type_variation = &"LabelOutlined"
 text = "Пинг: 999 мс"
 horizontal_alignment = 1
 
-[node name="PingTimer" type="Timer" parent="DebugInfo/PingLabel"]
+[node name="PingTimer" type="Timer" parent="DebugInfo/PingLabel" unique_id=1486320653]
 one_shot = true
 
-[node name="ErrorDialog" type="AcceptDialog" parent="."]
+[node name="ErrorDialog" type="AcceptDialog" parent="." unique_id=900234576]
 title = "Ошибка!"
 size = Vector2i(400, 112)
 unresizable = true
 
-[node name="ConnectingDialog" type="AcceptDialog" parent="."]
+[node name="ConnectingDialog" type="AcceptDialog" parent="." unique_id=393787411]
 title = "Подключение"
 size = Vector2i(400, 112)
 unresizable = true
 ok_button_text = "Отмена"
 
-[node name="WaitPlayersTimer" type="Timer" parent="."]
+[node name="WaitPlayersTimer" type="Timer" parent="." unique_id=2143721251]
 wait_time = 10.0
 one_shot = true
 

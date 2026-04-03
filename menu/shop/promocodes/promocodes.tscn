@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr6d6ux533fuy"]
+[gd_scene format=3 uid="uid://dr6d6ux533fuy"]
 
 [ext_resource type="Script" uid="uid://bdbn8caqtw781" path="res://menu/shop/promocodes/promocodes.gd" id="1_01myu"]
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="2_ircxu"]
 
-[node name="Promocodes" type="Window"]
+[node name="Promocodes" type="Window" unique_id=430942742]
 oversampling_override = 1.0
 title = "Активировать промокод"
 position = Vector2i(0, 28)
@@ -31,24 +31,24 @@ promocodes = Dictionary[String, String]({
 "ященко": "coins:18,equip_box:1;Гроб с параметром в подарок!"
 })
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=153622190]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1450845779]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1802868282]
 layout_mode = 2
 
-[node name="Comment" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Comment" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1476776329]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_vertical = 1
@@ -56,7 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=1711588871]
 custom_minimum_size = Vector2(448, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -66,13 +66,13 @@ alignment = 1
 max_length = 32
 expand_to_text_length = true
 
-[node name="Activate" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Activate" type="Button" parent="MarginContainer/VBoxContainer" unique_id=26283690]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "Активировать"
 
-[node name="AutofocusWindow" type="Node" parent="."]
+[node name="AutofocusWindow" type="Node" parent="." unique_id=199026179]
 script = ExtResource("2_ircxu")
 focus_target = NodePath("../MarginContainer/VBoxContainer/LineEdit")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"

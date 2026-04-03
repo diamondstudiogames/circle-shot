@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwxna5j2edqk1"]
+[gd_scene format=3 uid="uid://bwxna5j2edqk1"]
 
 [ext_resource type="Texture2D" uid="uid://c8m6hi83grn52" path="res://game/weapons/guns/shotguns/uts_15/visual/base.png" id="1_pf3mg"]
 [ext_resource type="Texture2D" uid="uid://diyhfvdklmpv" path="res://game/weapons/guns/shotguns/uts_15/visual/shutter.png" id="2_nh3ua"]
@@ -10,26 +10,26 @@
 [sub_resource type="Gradient" id="Gradient_omotg"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Visual" type="Node2D"]
+[node name="Visual" type="Node2D" unique_id=29561160]
 
-[node name="Base" type="Sprite2D" parent="."]
+[node name="Base" type="Sprite2D" parent="." unique_id=2020162253]
 texture = ExtResource("1_pf3mg")
 offset = Vector2(40, -20)
 
-[node name="Shutter" type="Sprite2D" parent="Base"]
+[node name="Shutter" type="Sprite2D" parent="Base" unique_id=371778680]
 texture = ExtResource("2_nh3ua")
 offset = Vector2(96, -18)
 region_enabled = true
 region_rect = Rect2(128, 32, 96, 24)
 
-[node name="Aim" type="Sprite2D" parent="Base"]
+[node name="Aim" type="Sprite2D" parent="Base" unique_id=1058575621]
 visible = false
 texture = ExtResource("3_shsba")
 offset = Vector2(4, -54)
 region_enabled = true
 region_rect = Rect2(72, 0, 24, 16)
 
-[node name="Shoot" type="Sprite2D" parent="Base"]
+[node name="Shoot" type="Sprite2D" parent="Base" unique_id=1764528484]
 visible = false
 show_behind_parent = true
 material = ExtResource("4_qxc10")
@@ -38,7 +38,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_q4wp0")
 offset = Vector2(20, 0)
 
-[node name="Sleeve" type="CPUParticles2D" parent="Base"]
+[node name="Sleeve" type="CPUParticles2D" parent="Base" unique_id=398548767]
 position = Vector2(5, -37)
 emitting = false
 amount = 1
@@ -53,7 +53,7 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_omotg")
 
-[node name="Ammo" type="Sprite2D" parent="."]
+[node name="Ammo" type="Sprite2D" parent="." unique_id=1861818065]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-56, 0)

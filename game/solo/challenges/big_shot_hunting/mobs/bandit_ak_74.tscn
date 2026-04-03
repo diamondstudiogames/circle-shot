@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbxnyv21d1nd6"]
+[gd_scene format=3 uid="uid://cbxnyv21d1nd6"]
 
 [ext_resource type="PackedScene" uid="uid://dlghpmw10r6ee" path="res://game/mobs/bandits/ak_74/bandit_ak_74.tscn" id="1_x3yx6"]
 
-[node name="BanditAK74" instance=ExtResource("1_x3yx6")]
+[node name="BanditAK74" unique_id=770348266 instance=ExtResource("1_x3yx6")]
 vision_distance = 11520.0
 max_health = 50
