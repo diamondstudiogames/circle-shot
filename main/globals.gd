@@ -4,6 +4,14 @@ extends Node
 ##
 ## Этот класс содержит в себе то, что используется по всей игре. Также отвечает за сохранения.
 
+## Издаётся, когда настройки применяются новые настройки ([method apply_settings]).
+signal settings_applied
+## Издаётся, когда настройки применяются новые настройки управления
+## ([method apply_controls_settings]).
+signal controls_settings_applied
+## Издаётся, когда меняется метод ввода ([method Globals.get_current_input_method]).
+signal input_method_changed
+
 ## Перечисление с возможными методами ввода.
 enum InputMethod {
 	## Клавиатура и мышь.
@@ -151,6 +159,21 @@ func initialize_systems() -> void:
 	played_time_timer.ignore_time_scale = true
 	played_time_timer.timeout.connect(_on_played_time_timer_timeout)
 	add_child(played_time_timer)
+	
+	var update_input_method_timer := Timer.new()
+	update_input_method_timer.name = &"UpdateInputMethodTimer"
+	update_input_method_timer.ignore_time_scale = true
+	update_input_method_timer.timeout.connect(_on_update_input_method_timer_timeout)
+	add_child(update_input_method_timer)
+	if get_controls_int("input_method") == InputMethod.AUTO:
+		update_input_method_timer.start()
+	controls_settings_applied.connect(
+			func() -> void:
+				if get_controls_int("input_method") == InputMethod.AUTO:
+					update_input_method_timer.start()
+				else:
+					update_input_method_timer.stop()
+	)
 	
 	if OS.is_debug_build() and "--debug-menu" in OS.get_cmdline_user_args():
 		var debug_menu: Window = (load("uid://c52l5dk238iag") as PackedScene).instantiate()
@@ -444,6 +467,7 @@ func apply_settings() -> void:
 	Engine.max_fps = max_fps if max_fps < 125 else 0
 	get_viewport().set_canvas_cull_mask_bit(2, not get_setting_bool("low_graphics"))
 	get_viewport().set_canvas_cull_mask_bit(3, get_setting_bool("low_graphics"))
+	settings_applied.emit()
 
 
 ## Применяет настройки управления.
@@ -452,6 +476,7 @@ func apply_controls_settings() -> void:
 	Input.emulate_touch_from_mouse = input_method == InputMethod.TOUCH
 	
 	if input_method == InputMethod.TOUCH:
+		controls_settings_applied.emit()
 		return
 	InputMap.load_from_project_settings()
 	for action: StringName in InputMap.get_actions():
@@ -495,11 +520,11 @@ func apply_controls_settings() -> void:
 					event = jm
 			
 			InputMap.action_add_event(action, event)
+	
+	controls_settings_applied.emit()
 
 
-## Возвращает текущий метод ввода. Если [param update_settings] равен [code]true[/code] и текущий
-## метод ввода - автоматический, то этот метод также вызовет [method apply_controls_settings], если
-## автоматически определённый метод ввода поменялся с прошлого вызова этого метода.
+## Возвращает текущий метод ввода.
 func get_current_input_method() -> InputMethod:
 	if _current_input_method == InputMethod.AUTO:
 		update_current_input_method()
@@ -518,6 +543,7 @@ func update_current_input_method(update_settings := true) -> void:
 			input_method = InputMethod.CONTROLLER
 	if _current_input_method != input_method:
 		_current_input_method = input_method
+		input_method_changed.emit()
 		if update_settings:
 			apply_controls_settings()
 #endregion
@@ -694,3 +720,7 @@ func _generate_save_id() -> String:
 
 func _on_played_time_timer_timeout() -> void:
 	set_int("played_time", get_int("played_time") + 1)
+
+
+func _on_update_input_method_timer_timeout() -> void:
+	update_current_input_method()

@@ -9,7 +9,6 @@ var _selecting_challenge: int
 
 var _prev_map_data: PackedByteArray
 var _prev_enemies_data: Array[Dictionary]
-var _input_method: Globals.InputMethod
 
 @onready var _training: Training = get_parent()
 @onready var _stats: Label = $Main/Stats
@@ -20,17 +19,16 @@ var _input_method: Globals.InputMethod
 
 
 func _ready() -> void:
-	_input_method = Globals.get_current_input_method() as Globals.InputMethod
 	_items_grid.item_selected.connect(_on_item_selected)
 
 
 func _unhandled_input(input_event: InputEvent) -> void:
 	if not get_tree().paused:
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE \
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE \
 				and input_event.is_action_pressed(&"chat"):
 			_on_menu_pressed()
 			get_viewport().set_input_as_handled()
-		elif _input_method == Globals.InputMethod.CONTROLLER \
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER \
 				and input_event.is_action_pressed(&"c_chat"):
 			_on_menu_pressed()
 			get_viewport().set_input_as_handled()

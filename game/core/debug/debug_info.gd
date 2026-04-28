@@ -9,6 +9,7 @@ var _last_ping: int
 
 
 func _ready() -> void:
+	Globals.settings_applied.connect(_on_settings_applied)
 	if not Globals.get_setting_bool("debug_info"):
 		hide()
 		if not OS.is_debug_build():
@@ -44,6 +45,13 @@ func _ping_response() -> void:
 func _do_ping() -> void:
 	_sent_ticks_msec = Time.get_ticks_msec()
 	_process_ping.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER)
+
+
+func _on_settings_applied() -> void:
+	visible = Globals.get_setting_bool("debug_info")
+	if not OS.is_debug_build():
+		process_mode = Node.PROCESS_MODE_ALWAYS if Globals.get_setting_bool("debug_info") \
+				else Node.PROCESS_MODE_DISABLED
 
 
 func _on_game_joined() -> void:

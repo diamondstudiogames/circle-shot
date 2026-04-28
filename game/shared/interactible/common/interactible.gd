@@ -27,14 +27,16 @@ var _arrow_tween: Tween
 var _interact_tween: Tween
 
 @onready var _label: Label = $Visual/Label
+@onready var _interact_info: Label = $Visual/Label/InteractInfo
 @onready var _arrow: Sprite2D = $Visual/Arrow
-@onready var _hold_timer_progress: TextureProgressBar = $Visual/Label/HoldTimerProgress
+@onready var _hold_timer_progress: TextureProgressBar = $Visual/Label/InteractInfo/HoldTimerProgress
 @onready var _visual: Node2D = $Visual
 
 
 func _ready() -> void:
 	_visual.hide()
 	set_text(text)
+	Globals.input_method_changed.connect(_update_interact_info)
 
 
 func _process(delta: float) -> void:
@@ -63,6 +65,27 @@ func _process(delta: float) -> void:
 
 ## Задаёт текст над стрелкой взаимодействия.
 func set_text(new_text: String) -> void:
+	_label.text = new_text
+	_update_interact_info()
+
+
+func _interact(player: Player) -> void:
+	interacted.emit(player)
+	if player != _local_player:
+		return
+	
+	if is_instance_valid(_interact_tween):
+		_interact_tween.kill()
+	_interact_tween = create_tween()
+	_interact_tween.tween_property(_arrow, ^":self_modulate", Color.WHITE, 0.5).from(Color.GREEN)
+
+
+func _reset_hold_interaction() -> void:
+	_hold_timer_progress.value = 0.0
+	_hold_timer_progress.self_modulate = Color.WHITE
+
+
+func _update_interact_info() -> void:
 	var action: StringName
 	var events: Array[String]
 	match Globals.get_current_input_method():
@@ -80,31 +103,14 @@ func set_text(new_text: String) -> void:
 	
 	if events.is_empty():
 		if hold_interaction_time > 0.0:
-			_label.text = "(удерживай)\n"
+			_interact_info.text = "(удерживай)\n"
 		else:
-			_label.text = ""
+			_interact_info.text = ""
 	else:
 		if hold_interaction_time > 0.0:
-			_label.text = "(%s - удерживай)\n" % '/'.join(events)
+			_interact_info.text = "(%s - удерживай)\n" % '/'.join(events)
 		else:
-			_label.text = "(%s)\n" % '/'.join(events)
-	_label.text += new_text
-
-
-func _interact(player: Player) -> void:
-	interacted.emit(player)
-	if player != _local_player:
-		return
-	
-	if is_instance_valid(_interact_tween):
-		_interact_tween.kill()
-	_interact_tween = create_tween()
-	_interact_tween.tween_property(_arrow, ^":self_modulate", Color.WHITE, 0.5).from(Color.GREEN)
-
-
-func _reset_hold_interaction() -> void:
-	_hold_timer_progress.value = 0.0
-	_hold_timer_progress.self_modulate = Color.WHITE
+			_interact_info.text = "(%s)\n" % '/'.join(events)
 
 
 ## Метод для переопределения. Если он возвращает [code]false[/code], игрок будет видеть, что можно

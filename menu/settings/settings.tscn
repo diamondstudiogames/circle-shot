@@ -1565,9 +1565,6 @@ metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 [node name="ActionsConfiguration" parent="." unique_id=1479032376 instance_placeholder="res://menu/settings/actions_configuration.tscn"]
 visible = false
 
-[node name="UpdateInputMethodsTimer" type="Timer" parent="." unique_id=394531341]
-autostart = true
-
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Title/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/General" to="." method="show_section" binds= ["General"]]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/Sections/Network" to="." method="show_section" binds= ["Network"]]
@@ -1653,6 +1650,5 @@ autostart = true
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions/Import" to="." method="_on_import_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/CopySaveId" to="." method="_on_copy_save_id_pressed"]
 [connection signal="pressed" from="ManageSaveDialog/VBoxContainer/Actions2/DeleteData" to="ManageSaveDialog/Dialogs/EraseDataDialog" method="popup_centered"]
-[connection signal="timeout" from="UpdateInputMethodsTimer" to="." method="_update_input_methods"]
 
 [editable path="NameDialog"]

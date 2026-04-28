@@ -95,6 +95,7 @@ func _ready() -> void:
 	_on_window_size_changed()
 	get_window().size_changed.connect(_on_window_size_changed)
 	_update_input_methods()
+	Globals.input_method_changed.connect(_update_input_methods)
 	
 	# Инфа о сохранении
 	(%SaveInfo/Name as Label).text = Globals.get_string("player_name")
@@ -230,7 +231,6 @@ func _show_played_time() -> void:
 
 
 func _update_input_methods() -> void:
-	Globals.update_current_input_method()
 	(%InputMethod as Label).text = "Определённый тип управления: %s" \
 			% (%InputOptions as OptionButton).get_item_text(Globals.get_current_input_method())
 	
@@ -540,6 +540,7 @@ func _on_configure_actions_pressed() -> void:
 
 func _on_input_options_item_selected(index: int) -> void:
 	Globals.set_controls_int("input_method", index)
+	Globals.update_current_input_method(false) # сами обновим настройки
 	Globals.apply_controls_settings()
 	_toggle_input_method_settings_visibility(index)
 
@@ -580,6 +581,7 @@ func _on_joysticks_alpha_slider_value_changed(value: float) -> void:
 func _on_deadzone_slider_value_changed(value: float) -> void:
 	Globals.set_controls_float("deadzone", value)
 	(%DeadzoneValue as Label).text = "%.2f" % value
+	# для контроллеров
 	_should_apply_controls_settings = true
 
 

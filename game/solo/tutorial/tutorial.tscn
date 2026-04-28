@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="3_tsy3l"]
 [ext_resource type="PackedScene" uid="uid://b4layvo1ati2x" path="res://game/solo/tutorial/tutorial_map.tscn" id="4_t5re1"]
 [ext_resource type="PackedScene" uid="uid://cdo5q27lch5l8" path="res://game/mobs/dummy/dummy.tscn" id="4_xeb43"]
-[ext_resource type="PackedScene" uid="uid://0wc72b0o2o11" path="res://game/player/ui/player_ui.tscn" id="5_xeb43"]
 [ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="6_8hor2"]
 [ext_resource type="PackedScene" uid="uid://b2v16qvrswdtd" path="res://game/weapons/guns/rifles/ak_74/ak_74.tscn" id="8_2xrf8"]
 [ext_resource type="PackedScene" uid="uid://dkem1fmo3lqym" path="res://game/weapons/grenades/he_grenade/he_grenade.tscn" id="9_8hor2"]
@@ -122,12 +121,7 @@ offset_bottom = 128.0
 mouse_filter = 2
 color = Color(1, 0, 0, 0.2509804)
 
-[node name="PlayerUIJF" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="1" unique_id=1458009196 instance=ExtResource("5_xeb43")]
-process_mode = 4
-visible = false
-layout_mode = 1
-
-[node name="Quit" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1957361577]
+[node name="Quit" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=1957361577]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -141,7 +135,7 @@ shortcut = ExtResource("6_8hor2")
 shortcut_in_tooltip = false
 icon = ExtResource("3_t5re1")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=1580493384]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1580493384]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,7 +178,6 @@ dialog_text = "Ты действительно хочешь выйти из об
 cancel_button_text = "Отмена"
 
 [node name="ShootDialog" type="ConfirmationDialog" parent="UI" parent_id_path=PackedInt32Array(147986541) index="3" unique_id=1875902073]
-process_mode = 2
 oversampling_override = 1.0
 title = "Способ стрельбы"
 size = Vector2i(490, 112)
@@ -201,8 +194,6 @@ resources = [PackedStringArray("ak_74", "he_grenade", "knife", "p350", "potion")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[connection signal="local_player_created" from="." to="UI/Main/PlayerUIJF" method="_on_local_player_created"]
-[connection signal="ready" from="UI/Main/PlayerUI" to="." method="_on_player_ui_ready"]
 [connection signal="pressed" from="UI/Main/Quit" to="UI/QuitDialog" method="popup_centered"]
 [connection signal="confirmed" from="UI/QuitDialog" to="." method="_on_quit_dialog_confirmed"]
 [connection signal="canceled" from="UI/ShootDialog" to="." method="_on_shoot_dialog_canceled"]

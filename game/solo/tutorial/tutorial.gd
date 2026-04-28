@@ -37,8 +37,7 @@ func _initialize() -> void:
 	spawn_player()
 	stats_changed.connect(_on_stats_changed)
 	
-	_input_method = Globals.get_current_input_method() as Globals.InputMethod
-	match _input_method:
+	match Globals.get_current_input_method():
 		Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[0] % [
 				_action_as_string("move_left"),
@@ -117,13 +116,13 @@ func _action_as_string(action: String) -> String:
 func _check_conditions() -> void:
 	if _picked_up_items == 1 and _conditions_met == 0:
 		_conditions_met += 1
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		($UI/Main/PlayerUI/Controller/TouchControls/AimVirtualJoystick as CanvasItem).show()
+		($UI/Main/PlayerUI/%ShootAreaHint as CanvasItem).show()
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[5] % [_action_as_string("show_aim"), _action_as_string("shoot")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[6])
-			($UI/Main/PlayerUI/Controller/TouchControls/AimVirtualJoystick as CanvasItem).show()
-			($UI/Main/PlayerUI/%ShootAreaHint as CanvasItem).show()
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[26] % [
 				_action_as_string("c_aim_left"),
 				_action_as_string("c_aim_right"),
@@ -133,52 +132,49 @@ func _check_conditions() -> void:
 			])
 	if kills == 1 and _conditions_met == 1:
 		_conditions_met += 1
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[7] % [_action_as_string("reload")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[8])
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[7] % [_action_as_string("c_reload")])
 		$Map/Gates/Gate.queue_free()
 	if _picked_up_items == 2 and _conditions_met == 2:
 		_conditions_met += 1
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[11] % [_action_as_string("weapon_heavy")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[12])
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[11] % [_action_as_string("c_weapon_heavy")])
 	if kills == 4 and _conditions_met == 3:
 		_conditions_met += 1
 		$Map/Gates/Gate2.queue_free()
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[13] % [_action_as_string("show_weapons")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[14])
 			($UI/ShootDialog as Window).popup_centered()
-			await get_tree().process_frame
-			await get_tree().process_frame
-			get_tree().paused = true
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[13] % [_action_as_string("c_show_weapons")])
 	if kills == 8 and _picked_up_items == 4 and _conditions_met == 4:
 		_conditions_met += 1
 		$Map/Gates/Gate3.queue_free()
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[18] % [_action_as_string("additional_button")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[19])
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[18] % [_action_as_string("c_additional_button")])
 	if _picked_up_items == 5 and _conditions_met == 5:
 		_conditions_met += 1
 		_player.damage(70)
 		_player.skill.used.connect(_on_skill_used)
-		if _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[21] % [_action_as_string("use_skill")])
-		elif _input_method == Globals.InputMethod.TOUCH:
+		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[22])
-		elif _input_method == Globals.InputMethod.CONTROLLER:
+		elif Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[21] % [_action_as_string("c_use_skill")])
 	if _skill_used == 1 and _conditions_met == 6:
 		_conditions_met += 1
@@ -219,34 +215,33 @@ func _on_trigger_body_entered(body: Node2D, source: Area2D, idx: int) -> void:
 		return
 	source.queue_free()
 	match idx:
-		0 when _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+		0 when Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[2] % _action_as_string("interact"))
-		0 when _input_method == Globals.InputMethod.TOUCH:
+		0 when Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[3])
-		0 when _input_method == Globals.InputMethod.CONTROLLER:
+		0 when Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[2] % _action_as_string("c_interact"))
-		1 when _input_method in [
+		1 when Globals.get_current_input_method() in [
 			Globals.InputMethod.KEYBOARD_AND_MOUSE,
 			Globals.InputMethod.CONTROLLER,
 		]:
 			show_text(texts[9])
-		1 when _input_method == Globals.InputMethod.TOUCH:
+		1 when Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			show_text(texts[10])
-			($UI/Main/PlayerUI as CanvasItem).hide()
-			$UI/Main/PlayerUI.process_mode = Node.PROCESS_MODE_DISABLED
-			($UI/Main/PlayerUIJF as CanvasItem).show()
-			$UI/Main/PlayerUIJF.process_mode = Node.PROCESS_MODE_INHERIT
-		2 when _input_method == Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			($UI/Main/PlayerUI/%ShootAreaHint as CanvasItem).hide()
+			Globals.set_controls_bool("joystick_fire", true)
+			Globals.apply_controls_settings()
+		2 when Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[15] % [
 				_action_as_string("weapon_support"),
 				_action_as_string("weapon_melee"),
 			])
-		2 when _input_method == Globals.InputMethod.TOUCH:
+		2 when Globals.get_current_input_method() == Globals.InputMethod.TOUCH:
 			if _prev_joystick_fire:
 				show_text(texts[16])
 			else:
 				show_text(texts[17])
-		2 when _input_method == Globals.InputMethod.CONTROLLER:
+		2 when Globals.get_current_input_method() == Globals.InputMethod.CONTROLLER:
 			show_text(texts[15] % [
 				_action_as_string("c_weapon_support"),
 				_action_as_string("c_weapon_melee"),
@@ -262,24 +257,14 @@ func _on_pickable_equip_item_picked_up(_by: int) -> void:
 	_check_conditions()
 
 
-func _on_player_ui_ready() -> void:
-	Globals.set_controls_bool("joystick_fire", true)
-
-
 func _on_shoot_dialog_confirmed() -> void:
-	_prev_joystick_fire = false
-	get_tree().paused = false
-	
-	($UI/Main/PlayerUIJF as CanvasItem).hide()
-	$UI/Main/PlayerUIJF.process_mode = Node.PROCESS_MODE_DISABLED
-	($UI/Main/PlayerUI as CanvasItem).show()
-	$UI/Main/PlayerUI.process_mode = Node.PROCESS_MODE_INHERIT
-	($UI/Main/PlayerUI/%ShootAreaHint as CanvasItem).hide()
+	Globals.set_controls_bool("joystick_fire", false)
+	Globals.apply_controls_settings()
 
 
 func _on_shoot_dialog_canceled() -> void:
-	_prev_joystick_fire = true
-	get_tree().paused = false
+	Globals.set_controls_bool("joystick_fire", true)
+	Globals.apply_controls_settings()
 
 
 func _on_finish_interactible_interacted(_who: Player) -> void:

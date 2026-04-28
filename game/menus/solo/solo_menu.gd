@@ -64,7 +64,6 @@ func _update_environment() -> void:
 
 func _on_game_started() -> void:
 	hide()
-	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_game_closed() -> void:
@@ -84,6 +83,7 @@ func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 
 
 func _on_story_pressed() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
 	pass
 
 
@@ -94,6 +94,7 @@ func _on_challenges_pressed() -> void:
 
 func _on_training_pressed() -> void:
 	_game.load_solo_world("uid://f6bay2nx1wy3")
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_quit_pressed() -> void:
@@ -102,6 +103,7 @@ func _on_quit_pressed() -> void:
 
 func _on_tutorial_dialog_confirmed() -> void:
 	_game.load_solo_world("uid://cbue2vn1da0il")
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_quit_challenges_pressed() -> void:
@@ -118,6 +120,7 @@ func _on_start_challenge_pressed() -> void:
 		Globals.items_db.weapons_by_id[_equip_selector.selected_support_weapon].idx_in_db,
 		Globals.items_db.weapons_by_id[_equip_selector.selected_melee_weapon].idx_in_db,
 	])
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_change_challenge_pressed() -> void:

@@ -12,7 +12,7 @@ const MIN_VIBRATION_AMPLITUDE := 0.03
 const MAX_VIBRATION_AMPLITUDE := 0.15
 
 # Настройки
-var input_method: Globals.InputMethod
+var input_method := Globals.InputMethod.AUTO
 
 var _vibration_enabled: bool
 var _aim_deadzone: float
@@ -75,61 +75,9 @@ var _health_bar_tween: Tween
 
 
 func _ready() -> void:
-	input_method = Globals.get_current_input_method()
 	_vibration_enabled = Globals.get_setting_bool("vibration")
-	
-	match input_method:
-		Globals.InputMethod.KEYBOARD_AND_MOUSE:
-			($Controller/TouchControls as CanvasItem).hide()
-			($Controller/Skill/TouchScreenButton as CanvasItem).hide()
-			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).hide()
-			_follow_mouse = Globals.get_controls_bool("follow_mouse")
-			_always_show_aim = Globals.get_controls_bool("always_show_aim")
-			_sneak_multiplier = Globals.get_controls_float("sneak_multiplier")
-			var smallest_side: float = minf(get_viewport_rect().size.x, get_viewport_rect().size.y)
-			_aim_deadzone = Globals.get_controls_float("aim_deadzone") * smallest_side / 2
-			_aim_max_zone = Globals.get_controls_float("aim_zone") * smallest_side / 2
-			_aim_zone = _aim_max_zone - _aim_deadzone
-			
-			_window_focused = get_window().has_focus()
-			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
-			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
-		Globals.InputMethod.TOUCH:
-			_joystick_fire = Globals.get_controls_bool("joystick_fire")
-			if _joystick_fire:
-				_aim_joystick.released.connect(_on_aim_joystick_released)
-			
-			_move_joystick.scale = Vector2.ONE * Globals.get_controls_float("move_joystick_scale")
-			_move_joystick.deadzone_size = Globals.get_controls_float("move_joystick_deadzone")
-			_move_joystick.clampzone_size *= Globals.get_controls_float("move_joystick_scale")
-			_move_joystick.deadzone_size *= Globals.get_controls_float("move_joystick_scale")
-			_move_joystick.joystick_mode = \
-					Globals.get_controls_int("move_joystick_mode") as VirtualJoystick.JoystickMode
-			_move_joystick.modulate.a = Globals.get_controls_float("joysticks_alpha")
-			
-			_aim_joystick.scale = Vector2.ONE * Globals.get_controls_float("aim_joystick_scale")
-			_aim_joystick.deadzone_size = Globals.get_controls_float("aim_joystick_deadzone")
-			_aim_joystick.clampzone_size *= Globals.get_controls_float("aim_joystick_scale")
-			_aim_joystick.deadzone_size *= Globals.get_controls_float("aim_joystick_scale")
-			_aim_joystick.joystick_mode = \
-					Globals.get_controls_int("aim_joystick_mode") as VirtualJoystick.JoystickMode
-			_aim_joystick.modulate.a = Globals.get_controls_float("joysticks_alpha")
-			
-			(_shoot_area.shape as RectangleShape2D).size = \
-					Globals.get_controls_vector2("shoot_area")
-			_shoot_area.position = Globals.get_controls_vector2("shoot_area") / 2
-			if Globals.get_controls_bool("shoot_area_right"):
-				($Controller/TouchControls/ShootAreaAnchor as Control).set_anchors_preset(
-						Control.PRESET_TOP_RIGHT, true)
-				_shoot_area.position.x = -_shoot_area.position.x
-		Globals.InputMethod.CONTROLLER:
-			($Controller/TouchControls as CanvasItem).hide()
-			($Controller/Skill/TouchScreenButton as CanvasItem).hide()
-			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).hide()
-			
-			_window_focused = get_window().has_focus()
-			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
-			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
+	_setup_input_method()
+	Globals.controls_settings_applied.connect(_setup_input_method)
 
 
 func _process(delta: float) -> void:
@@ -221,6 +169,94 @@ func close_weapon_selection() -> void:
 	_weapon_selection_tween = create_tween()
 	_weapon_selection_tween.tween_property(_weapon_selection, ^":modulate", Color.TRANSPARENT, 0.2)
 	_weapon_selection_tween.tween_callback(_weapon_selection.hide)
+
+
+func _setup_input_method() -> void:
+	var old_input_method: Globals.InputMethod = input_method
+	var new_input_method: Globals.InputMethod = Globals.get_current_input_method()
+	
+	# Если old_input_method != AUTO, деинициализируем прошлый
+	match old_input_method:
+		Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			($Controller/TouchControls as CanvasItem).show()
+			($Controller/Skill/TouchScreenButton as CanvasItem).show()
+			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).show()
+			get_window().focus_entered.disconnect(_on_window_focus_changed)
+			get_window().focus_exited.disconnect(_on_window_focus_changed)
+			if old_input_method != new_input_method:
+				_reset_keyboard_and_mouse_inputs()
+		Globals.InputMethod.TOUCH:
+			if _joystick_fire:
+				_aim_joystick.released.disconnect(_on_aim_joystick_released)
+			_move_joystick.clampzone_size /= _move_joystick.scale.x
+			_move_joystick.deadzone_size /= _move_joystick.scale.x
+			_aim_joystick.clampzone_size /= _aim_joystick.scale.x
+			_aim_joystick.deadzone_size /= _aim_joystick.scale.x
+			($Controller/TouchControls/ShootAreaAnchor as Control).set_anchors_preset(
+						Control.PRESET_TOP_LEFT, true)
+		Globals.InputMethod.CONTROLLER:
+			($Controller/TouchControls as CanvasItem).show()
+			($Controller/Skill/TouchScreenButton as CanvasItem).show()
+			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).show()
+			get_window().focus_entered.disconnect(_on_window_focus_changed)
+			get_window().focus_exited.disconnect(_on_window_focus_changed)
+			if old_input_method != new_input_method:
+				_reset_inputs()
+	
+	match new_input_method:
+		Globals.InputMethod.KEYBOARD_AND_MOUSE:
+			($Controller/TouchControls as CanvasItem).hide()
+			($Controller/Skill/TouchScreenButton as CanvasItem).hide()
+			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).hide()
+			_follow_mouse = Globals.get_controls_bool("follow_mouse")
+			_always_show_aim = Globals.get_controls_bool("always_show_aim")
+			_sneak_multiplier = Globals.get_controls_float("sneak_multiplier")
+			var smallest_side: float = minf(get_viewport_rect().size.x, get_viewport_rect().size.y)
+			_aim_deadzone = Globals.get_controls_float("aim_deadzone") * smallest_side / 2
+			_aim_max_zone = Globals.get_controls_float("aim_zone") * smallest_side / 2
+			_aim_zone = _aim_max_zone - _aim_deadzone
+			
+			_window_focused = get_window().has_focus()
+			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
+			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
+		Globals.InputMethod.TOUCH:
+			_joystick_fire = Globals.get_controls_bool("joystick_fire")
+			if _joystick_fire:
+				_aim_joystick.released.connect(_on_aim_joystick_released)
+			
+			_move_joystick.scale = Vector2.ONE * Globals.get_controls_float("move_joystick_scale")
+			_move_joystick.deadzone_size = Globals.get_controls_float("move_joystick_deadzone")
+			_move_joystick.clampzone_size *= Globals.get_controls_float("move_joystick_scale")
+			_move_joystick.deadzone_size *= Globals.get_controls_float("move_joystick_scale")
+			_move_joystick.joystick_mode = \
+					Globals.get_controls_int("move_joystick_mode") as VirtualJoystick.JoystickMode
+			_move_joystick.modulate.a = Globals.get_controls_float("joysticks_alpha")
+			
+			_aim_joystick.scale = Vector2.ONE * Globals.get_controls_float("aim_joystick_scale")
+			_aim_joystick.deadzone_size = Globals.get_controls_float("aim_joystick_deadzone")
+			_aim_joystick.clampzone_size *= Globals.get_controls_float("aim_joystick_scale")
+			_aim_joystick.deadzone_size *= Globals.get_controls_float("aim_joystick_scale")
+			_aim_joystick.joystick_mode = \
+					Globals.get_controls_int("aim_joystick_mode") as VirtualJoystick.JoystickMode
+			_aim_joystick.modulate.a = Globals.get_controls_float("joysticks_alpha")
+			
+			(_shoot_area.shape as RectangleShape2D).size = \
+					Globals.get_controls_vector2("shoot_area")
+			_shoot_area.position = Globals.get_controls_vector2("shoot_area") / 2
+			if Globals.get_controls_bool("shoot_area_right"):
+				($Controller/TouchControls/ShootAreaAnchor as Control).set_anchors_preset(
+						Control.PRESET_TOP_RIGHT, true)
+				_shoot_area.position.x = -_shoot_area.position.x
+		Globals.InputMethod.CONTROLLER:
+			($Controller/TouchControls as CanvasItem).hide()
+			($Controller/Skill/TouchScreenButton as CanvasItem).hide()
+			($Controller/AdditionalWeapon/TouchScreenButton as CanvasItem).hide()
+			
+			_window_focused = get_window().has_focus()
+			get_window().focus_entered.connect(_on_window_focus_changed.bind(true))
+			get_window().focus_exited.connect(_on_window_focus_changed.bind(false))
+	
+	input_method = new_input_method
 
 
 func _touch_input(event: InputEvent) -> void:
