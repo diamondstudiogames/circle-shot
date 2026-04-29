@@ -414,12 +414,16 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" index="4" unique_id=1525645592]
 libraries/ = SubResource("AnimationLibrary_ctugk")
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="2" unique_id=2036650317]
+[node name="PauseDialog" parent="UI" index="2" unique_id=493656399]
+title = "Меню"
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="UI/PauseDialog" index="4" unique_id=2036650317]
 title = "Покинуть игру?"
 size = Vector2i(280, 112)
 unresizable = true
-ok_button_text = "Покинуть"
-cancel_button_text = "Остаться"
+ok_button_text = "Остановить игру и выйти"
+dialog_text = "Ты являешься ХОСТОМ! В случае твоего выхода игра прервётся у ВСЕХ!"
+cancel_button_text = "Отмена"
 
 [node name="VictoryMusic" type="AudioStreamPlayer" parent="." index="10" unique_id=837810601]
 bus = &"Music"
@@ -438,8 +442,9 @@ one_shot = true
 [node name="EventTimer" type="Timer" parent="." index="16" unique_id=734008063]
 one_shot = true
 
-[connection signal="pressed" from="UI/Main/Leave" to="UI/QuitDialog" method="popup_centered"]
+[connection signal="pressed" from="UI/Main/Leave" to="UI/PauseDialog/QuitDialog" method="popup_centered"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI" method="_on_chat_toggled"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI/Main/ChatPanel" method="_on_chat_toggled"]
 [connection signal="message_posted" from="UI/Main/ChatPanel" to="UI" method="_on_message_posted"]
-[connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
+[connection signal="pressed" from="UI/PauseDialog/HBoxContainer/Quit" to="UI" method="_on_quit_pressed"]
+[connection signal="confirmed" from="UI/PauseDialog/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]

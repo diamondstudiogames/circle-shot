@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="12_olgru"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="13_1grle"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_clwqa"]
-[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="14_idd4e"]
 [ext_resource type="Texture2D" uid="uid://ndobp7p586tx" path="res://menu/theme/icons/edit.png" id="16_8bquf"]
 [ext_resource type="Texture2D" uid="uid://2u83h36lsfg3" path="res://game/solo/training/icons/select_map.png" id="16_fhj3u"]
 [ext_resource type="Texture2D" uid="uid://d1vvdmcmvh4m8" path="res://game/solo/training/icons/destroy_enemies.png" id="16_oiyxk"]
@@ -879,21 +878,7 @@ offset_bottom = -16.0
 grow_vertical = 0
 icon = ExtResource("6_511bm")
 
-[node name="Quit" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1572068922]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -72.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = 72.0
-grow_horizontal = 0
-shortcut = ExtResource("14_idd4e")
-shortcut_in_tooltip = false
-icon = ExtResource("4_wkoo5")
-
-[node name="Stats" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=634847159]
+[node name="Stats" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=634847159]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1594,16 +1579,7 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Береги себя."
 
-[node name="QuitDialog" type="ConfirmationDialog" parent="UI" index="3" unique_id=695493816]
-oversampling_override = 1.0
-title = "Выход"
-size = Vector2i(470, 112)
-unresizable = true
-ok_button_text = "Выйти"
-dialog_text = "Ты действительно хочешь выйти из тренировки?"
-cancel_button_text = "Отмена"
-
-[node name="SelectMap" type="Window" parent="UI" index="4" unique_id=777493857]
+[node name="SelectMap" type="Window" parent="UI" index="3" unique_id=777493857]
 process_mode = 2
 oversampling_override = 1.0
 title = "Выбрать карту из..."
@@ -1645,6 +1621,9 @@ text = "Испытания"
 script = ExtResource("43_yo046")
 focus_target = NodePath("../HBoxContainer/MapFromEvent")
 metadata/_custom_type_script = "uid://cexyawmlyqo3w"
+
+[node name="PauseDialog" parent="UI" index="4" unique_id=493656399]
+process_mode = 2
 
 [node name="ResourcePreloaderTraining" type="ResourcePreloader" parent="." index="12" unique_id=2143336524]
 resources = [PackedStringArray("book_animation", "default_map", "spikes"), [ExtResource("41_70jin"), ExtResource("3_36lnl"), ExtResource("42_npibf")]]
@@ -1834,7 +1813,6 @@ texture = ExtResource("61_70jin")
 [connection signal="map_changed" from="." to="Quest" method="_on_training_map_changed"]
 [connection signal="stats_changed" from="." to="UI" method="_on_training_stats_changed"]
 [connection signal="pressed" from="UI/Main/Menu" to="UI" method="_on_menu_pressed"]
-[connection signal="pressed" from="UI/Main/Quit" to="UI/QuitDialog" method="popup_centered"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/Header/ResetStats" to="UI" method="_on_reset_stats_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/Header/Close" to="UI" method="_on_close_pressed"]
 [connection signal="pressed" from="UI/Menu/PanelContainer/MainMenu/HBoxContainer/Player/VBoxContainer/Player/Heal" to="UI" method="_on_heal_pressed"]
@@ -1882,10 +1860,11 @@ texture = ExtResource("61_70jin")
 [connection signal="pressed" from="UI/Menu/PanelContainer/MapEditor/EditEnemy/VBoxContainer/Buttons/DeleteEnemy" to="UI/Menu/PanelContainer/MapEditor/EditEnemy" method="hide"]
 [connection signal="pressed" from="UI/Guide/PanelContainer/Normal/Header/Close" to="UI" method="_on_close_note_pressed"]
 [connection signal="pressed" from="UI/Guide/PanelContainer/Quest/Header/Close" to="UI" method="_on_close_note_pressed"]
-[connection signal="confirmed" from="UI/QuitDialog" to="UI" method="_on_quit_dialog_confirmed"]
 [connection signal="close_requested" from="UI/SelectMap" to="UI/SelectMap" method="hide"]
 [connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromEvent" to="UI" method="_on_map_from_event_pressed"]
 [connection signal="pressed" from="UI/SelectMap/HBoxContainer/MapFromChallenge" to="UI" method="_on_map_from_challenge_pressed"]
+[connection signal="visibility_changed" from="UI/PauseDialog" to="UI" method="_on_pause_dialog_visibility_changed"]
+[connection signal="pressed" from="UI/PauseDialog/HBoxContainer/Quit" to="UI" method="_on_quit_pressed"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="interacted" from="Quest/Note/Interactible" to="Quest" method="_on_note_interactible_interacted"]
 [connection signal="interacted" from="Quest/Pentagram/Interactible" to="Quest" method="_on_pentagram_interactible_interacted"]

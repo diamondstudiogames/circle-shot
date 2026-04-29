@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://c1lrk2boywtet"]
+
+[ext_resource type="Script" uid="uid://cme6h3ecekwj6" path="res://game/shared/ui/quick_settings/quick_settings.gd" id="1_kai7o"]
+[ext_resource type="Texture2D" uid="uid://b0j3g7rkerkdm" path="res://menu/theme/icons/help.png" id="1_qxt82"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="3_k8wpi"]
+
+[node name="QuickSettings" type="Window" unique_id=1247209996]
+oversampling_override = 1.0
+title = "Быстрые настройки"
+position = Vector2i(0, 28)
+size = Vector2i(624, 322)
+wrap_controls = true
+transient = true
+exclusive = true
+unresizable = true
+script = ExtResource("1_kai7o")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2010096398]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1027147989]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=15818463]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1505594650]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=284897391]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/MasterVolume" unique_id=1723000159]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Общая громкость"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MasterVolume" unique_id=1490551692]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MasterVolume/Setting" unique_id=1792026682]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_force_pass_scroll_events = false
+max_value = 1.0
+step = 0.01
+value = 0.78
+
+[node name="Help" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MasterVolume/Setting" unique_id=1775477001]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_qxt82")
+expand_icon = true
+
+[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1797008958]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/MusicVolume" unique_id=1012009466]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Громкость музыки"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MusicVolume" unique_id=1436975874]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MusicVolume/Setting" unique_id=42679865]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_force_pass_scroll_events = false
+max_value = 1.0
+step = 0.01
+value = 0.78
+
+[node name="Help" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MusicVolume/Setting" unique_id=1627587288]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_qxt82")
+expand_icon = true
+
+[node name="SFXVolume" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=581509927]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/SFXVolume" unique_id=638218446]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Громкость звуков"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/SFXVolume" unique_id=151180211]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/SFXVolume/Setting" unique_id=1942572261]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_force_pass_scroll_events = false
+max_value = 1.0
+step = 0.01
+value = 0.78
+
+[node name="Help" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/SFXVolume/Setting" unique_id=895835815]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_qxt82")
+expand_icon = true
+
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=51268294]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/Fullscreen" unique_id=1508410315]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Полный экран"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Fullscreen" unique_id=1089554130]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullscreenCheck" type="CheckButton" parent="VBoxContainer/MarginContainer/VBoxContainer/Fullscreen/Setting" unique_id=297574840]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Help" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/Fullscreen/Setting" unique_id=57183570]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_qxt82")
+expand_icon = true
+
+[node name="ShowDebug" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1864513758]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/ShowDebug" unique_id=1281753811]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Отображать FPS и пинг"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/ShowDebug" unique_id=190955401]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShowDebugCheck" type="CheckButton" parent="VBoxContainer/MarginContainer/VBoxContainer/ShowDebug/Setting" unique_id=303064751]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Help" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/ShowDebug/Setting" unique_id=1059847327]
+visible = false
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+icon = ExtResource("1_qxt82")
+expand_icon = true
+
+[node name="InputMethod" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=1992850396]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/InputMethod" unique_id=543138310]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "Тип управления"
+vertical_alignment = 1
+
+[node name="Setting" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/InputMethod" unique_id=55360432]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputOptions" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/InputMethod/Setting" unique_id=1495757374]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "Клавиатура + Мышь"
+popup/item_0/id = 0
+popup/item_1/text = "Касания"
+popup/item_1/id = 0
+popup/item_2/text = "Контроллер"
+popup/item_2/id = 2
+popup/item_3/text = "Автоматически"
+popup/item_3/id = 3
+
+[node name="InputMethodAuto" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=179771196]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Определённый тип управления: "
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="VBoxContainer" unique_id=107945760]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Закрыть"
+
+[node name="AutofocusWindow" type="Node" parent="." unique_id=168452931]
+script = ExtResource("3_k8wpi")
+focus_target = NodePath("../VBoxContainer/MarginContainer/VBoxContainer/MasterVolume/Setting/MasterVolumeSlider")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
+
+[connection signal="close_requested" from="." to="." method="hide"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MasterVolume/Setting/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MusicVolume/Setting/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer/VBoxContainer/SFXVolume/Setting/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/Fullscreen/Setting/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/ShowDebug/Setting/ShowDebugCheck" to="." method="_on_show_debug_check_toggled"]
+[connection signal="item_selected" from="VBoxContainer/MarginContainer/VBoxContainer/InputMethod/Setting/InputOptions" to="." method="_on_input_options_item_selected"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="hide"]

@@ -3,7 +3,6 @@ extends World
 
 @export_multiline var texts: Array[String]
 
-var _input_method: Globals.InputMethod
 var _prev_joystick_fire: bool
 var _player: Player
 
@@ -206,10 +205,6 @@ func _on_player_weapon_changed(_to: Weapon.Type) -> void:
 		_player.current_weapon.ammo_changed.connect(_on_weapon_ammo_changed)
 
 
-func _on_quit_dialog_confirmed() -> void:
-	Globals.main.game.close()
-
-
 func _on_trigger_body_entered(body: Node2D, source: Area2D, idx: int) -> void:
 	if not body is Player:
 		return
@@ -270,4 +265,13 @@ func _on_shoot_dialog_canceled() -> void:
 func _on_finish_interactible_interacted(_who: Player) -> void:
 	($UI/End/AnimationPlayer as AnimationPlayer).play(&"end")
 	await ($UI/End/AnimationPlayer as AnimationPlayer).animation_finished
+	Globals.main.game.close()
+
+
+func _on_pause_dialog_visibility_changed() -> void:
+	get_tree().paused = ($UI/PauseDialog as Window).visible
+
+
+func _on_quit_pressed() -> void:
+	get_tree().paused = false
 	Globals.main.game.close()

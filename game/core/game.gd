@@ -227,7 +227,6 @@ func close() -> void:
 ## без игрока, [param player_name] и [param equip_data] можно не указывать.
 func load_event(event_idx: int, map_idx: int, player_name := "",
 		equip_data: Array[int] = []) -> void:
-	Globals.update_current_input_method()
 	state = State.LOADING
 	if multiplayer.is_server():
 		_preloading_equip = false

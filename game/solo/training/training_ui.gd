@@ -89,10 +89,6 @@ func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 			_change_map()
 
 
-func _on_quit_dialog_confirmed() -> void:
-	Globals.main.game.close()
-
-
 func _on_heal_pressed() -> void:
 	_training.player_restore_health()
 
@@ -231,3 +227,12 @@ func _on_close_map_editor_pressed() -> void:
 
 func _on_reset_stats_pressed() -> void:
 	_training.reset_stats()
+
+
+func _on_pause_dialog_visibility_changed() -> void:
+	get_tree().paused = ($PauseDialog as Window).visible
+
+
+func _on_quit_pressed() -> void:
+	get_tree().paused = false
+	Globals.main.game.close()

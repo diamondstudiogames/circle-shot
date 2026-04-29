@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="7_8ughs"]
 [ext_resource type="Texture2D" uid="uid://c3r13t5eig25e" path="res://game/menus/lobby/icons/view_ips.png" id="7_f0cv5"]
 [ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="9_mgd0l"]
+[ext_resource type="Texture2D" uid="uid://b4v7vgrq023f1" path="res://game/shared/ui/quick_settings/quick_settings.png" id="9_yfygw"]
 [ext_resource type="PackedScene" uid="uid://dg3dj2mxhusof" path="res://game/shared/ui/chat/chat.tscn" id="12_yfygw"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="13_jqaxo"]
 [ext_resource type="PackedScene" uid="uid://d3ncbc7jsib0p" path="res://game/shared/ui/advices/advices.tscn" id="13_vtxnl"]
+[ext_resource type="PackedScene" uid="uid://c1lrk2boywtet" path="res://game/shared/ui/quick_settings/quick_settings.tscn" id="16_mgd0l"]
 [ext_resource type="PackedScene" uid="uid://dj0mx5ui2wu4n" path="res://game/menus/lobby/player_entry.tscn" id="18_yfygw"]
 
 [sub_resource type="Animation" id="Animation_5k1w6"]
@@ -234,6 +236,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource("7_8ughs")
 
+[node name="Settings" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=615591633]
+layout_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource("9_yfygw")
+
 [node name="ConnectedToIP" type="LinkButton" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=1173394096]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -247,6 +254,10 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Просмотреть IP-адреса..."
 icon = ExtResource("7_f0cv5")
+
+[node name="Spacer" type="Control" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=693663976]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
 
 [node name="Leave" type="Button" parent="Main/Panels/Lobby/VBoxContainer/ControlButtons" unique_id=1985016493]
 layout_mode = 2
@@ -270,6 +281,9 @@ layout_mode = 2
 [node name="PresetManager" parent="." unique_id=1224988655 instance=ExtResource("13_jqaxo")]
 visible = false
 equip_selector_path = NodePath("../Main/Panels/Lobby/VBoxContainer/EquipSelector")
+
+[node name="QuickSettings" parent="." unique_id=1247209996 instance=ExtResource("16_mgd0l")]
+visible = false
 
 [node name="ViewIPDialog" type="AcceptDialog" parent="." unique_id=921956000]
 title = "Твои IP-адреса"
@@ -300,6 +314,7 @@ resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/ChangeMap" to="." method="_on_change_map_pressed"]
 [connection signal="toggled" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Chat" to="Main/Panels/Chat" method="_on_chat_toggled"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Presets" to="PresetManager" method="popup_centered"]
+[connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Settings" to="QuickSettings" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ConnectedToIP" to="." method="_on_connected_to_ip_pressed"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/ViewIP" to="ViewIPDialog" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Leave" to="." method="_on_leave_pressed"]

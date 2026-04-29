@@ -535,6 +535,7 @@ func _start_event(event_idx: int, map_idx: int) -> void:
 			return
 	_item_selector.hide()
 	($PresetManager as Window).hide()
+	($QuickSettings as Window).hide()
 	
 	_game.load_event(event_idx, map_idx, Globals.get_string("player_name"), [
 		Globals.items_db.skins_by_id[equip_selector.selected_skin].idx_in_db,
@@ -879,6 +880,7 @@ func _on_game_closed() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	_item_selector.hide()
 	($PresetManager as Window).hide()
+	($QuickSettings as Window).hide()
 	
 	if not ($BroadcastTimer as Timer).is_stopped():
 		($BroadcastTimer as Timer).stop()

@@ -34,14 +34,8 @@ func show_dialog(text: String) -> void:
 	_time_remainder = 0.0
 
 
-func _on_pause_pressed() -> void:
-	get_tree().paused = true
-	($PauseDialog as Window).popup_centered()
-
-
-func _on_resume_pressed() -> void:
-	get_tree().paused = false
-	($PauseDialog as Window).hide()
+func _on_pause_dialog_visibility_changed() -> void:
+	get_tree().paused = ($PauseDialog as Window).visible
 
 
 func _on_quit_pressed() -> void:

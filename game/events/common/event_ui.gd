@@ -19,11 +19,6 @@ var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 
 
 func _ready() -> void:
-	($QuitDialog as AcceptDialog).dialog_text = "Ты действительно хочешь покинуть игру?"
-	if multiplayer.is_server():
-		($QuitDialog as AcceptDialog).dialog_text += "\nВнимание: ты являешься ХОСТОМ! \
-В случае твоего выхода игра прервётся у ВСЕХ!"
-	
 	if not Globals.get_setting_bool("chat_in_game"):
 		($Main/Chat as CanvasItem).hide()
 
@@ -124,6 +119,13 @@ func _on_chat_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		for rtl: Node in $Main/ChatPreview.get_children():
 			rtl.queue_free()
+
+
+func _on_quit_pressed() -> void:
+	if multiplayer.is_server():
+		($PauseDialog/QuickSettings as Window).popup_centered()
+	else:
+		_on_quit_dialog_confirmed()
 
 
 func _on_quit_dialog_confirmed() -> void:

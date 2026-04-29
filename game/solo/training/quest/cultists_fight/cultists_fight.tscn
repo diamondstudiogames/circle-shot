@@ -6,15 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://drc5s2lcedmty" path="res://game/solo/training/quest/cultists_fight/music.ogg" id="3_rem1v"]
 [ext_resource type="PackedScene" uid="uid://dk73x8ugugedl" path="res://game/solo/training/quest/cultists_fight/cultist_scythe.tscn" id="4_r6c2w"]
 [ext_resource type="Script" uid="uid://gi64gsopohq8" path="res://game/solo/training/quest/cultists_fight/cultists_fight_ui.gd" id="4_sa0r6"]
-[ext_resource type="Texture2D" uid="uid://brk630h1wdh40" path="res://menu/theme/icons/pause.png" id="5_3xgv4"]
 [ext_resource type="PackedScene" uid="uid://rq0ds83fr7a" path="res://game/solo/training/quest/cultists_fight/cultist_bloody_daggers.tscn" id="5_16cp4"]
-[ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="6_8787g"]
-[ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="7_qjxiq"]
-[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="8_8a8sj"]
 [ext_resource type="PackedScene" uid="uid://dpkjtov14f1kh" path="res://game/solo/training/quest/cultists_fight/cultists_fight_map.tscn" id="8_8787g"]
 [ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="10_w2kqy"]
 [ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="11_16cp4"]
-[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="12_kh07j"]
 
 [sub_resource type="Curve" id="Curve_pbgwp"]
 _limits = [0.0, 5.0, 0.0, 120.0]
@@ -39,22 +34,7 @@ script = ExtResource("4_sa0r6")
 character_type_interval = 0.02499999999417923
 grammar_pause = 0.3999999999941792
 
-[node name="Pause" type="Button" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=1801467425]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -72.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = 72.0
-grow_horizontal = 0
-focus_mode = 0
-shortcut = ExtResource("8_8a8sj")
-shortcut_in_tooltip = false
-icon = ExtResource("5_3xgv4")
-
-[node name="Title" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=1677693084]
+[node name="Title" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="2" unique_id=1677693084]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -68,7 +48,7 @@ theme_type_variation = &"LabelOutlined"
 text = "Осталось выжить:"
 horizontal_alignment = 1
 
-[node name="RemainedTime" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=617177608]
+[node name="RemainedTime" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="3" unique_id=617177608]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -81,7 +61,7 @@ grow_horizontal = 2
 theme_type_variation = &"HeaderLargeOutlined"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=529415330]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="4" unique_id=529415330]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,51 +85,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters_behavior = 1
 
-[node name="PauseDialog" type="Window" parent="UI" index="1" unique_id=770309966]
-process_mode = 2
-oversampling_override = 1.0
-title = "Игра приостановлена"
-size = Vector2i(240, 160)
-visible = false
-unresizable = true
-
-[node name="Background" type="ColorRect" parent="UI/PauseDialog" index="0" unique_id=40002195]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseDialog" index="1" unique_id=2011872376]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Resume" type="Button" parent="UI/PauseDialog/VBoxContainer" index="0" unique_id=1589958875]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Продолжить"
-icon = ExtResource("6_8787g")
-
-[node name="Quit" type="Button" parent="UI/PauseDialog/VBoxContainer" index="1" unique_id=1756815091]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Сдаться"
-icon = ExtResource("7_qjxiq")
-
-[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" index="2" unique_id=1865484316]
-script = ExtResource("12_kh07j")
-focus_target = NodePath("../VBoxContainer/Resume")
-metadata/_custom_type_script = "uid://cexyawmlyqo3w"
-
-[node name="DialogTimer" type="Timer" parent="UI" index="2" unique_id=2026580400]
+[node name="DialogTimer" type="Timer" parent="UI" index="1" unique_id=2026580400]
 one_shot = true
+
+[node name="PauseDialog" parent="UI" index="2" unique_id=493656399]
+process_mode = 2
 
 [node name="ResourcePreloaderCultistsFight" type="ResourcePreloader" parent="." index="12" unique_id=579890684]
 resources = [PackedStringArray("ammo_box", "heal_box"), [ExtResource("10_w2kqy"), ExtResource("11_16cp4")]]
@@ -168,9 +108,7 @@ metadata/_edit_lock_ = true
 [connection signal="ended" from="." to="." method="_on_ended"]
 [connection signal="ended" from="." to="UI" method="_on_cultists_fight_ended"]
 [connection signal="time_changed" from="." to="UI" method="_on_time_changed"]
-[connection signal="pressed" from="UI/Main/Pause" to="UI" method="_on_pause_pressed"]
-[connection signal="close_requested" from="UI/PauseDialog" to="UI" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Resume" to="UI" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/PauseDialog/VBoxContainer/Quit" to="UI" method="_on_quit_pressed"]
+[connection signal="visibility_changed" from="UI/PauseDialog" to="UI" method="_on_pause_dialog_visibility_changed"]
+[connection signal="pressed" from="UI/PauseDialog/HBoxContainer/Quit" to="UI" method="_on_quit_pressed"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SurvivedTimer" to="." method="_on_survived_timer_timeout"]

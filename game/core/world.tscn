@@ -6,6 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://cx6cuaaws3vre" path="res://game/music/battle1.ogg" id="4_j8p54"]
 [ext_resource type="Script" uid="uid://pwgsdrt5sfqe" path="res://game/player/smart_camera.gd" id="5_jk2iw"]
 [ext_resource type="PackedScene" uid="uid://0wc72b0o2o11" path="res://game/player/ui/player_ui.tscn" id="7_0tx30"]
+[ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="7_h585l"]
+[ext_resource type="Texture2D" uid="uid://brk630h1wdh40" path="res://menu/theme/icons/pause.png" id="8_3lkl6"]
+[ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="9_v0sfh"]
+[ext_resource type="Texture2D" uid="uid://b4v7vgrq023f1" path="res://game/shared/ui/quick_settings/quick_settings.png" id="10_dmqnc"]
+[ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="11_fn44l"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="12_ub42v"]
+[ext_resource type="PackedScene" uid="uid://c1lrk2boywtet" path="res://game/shared/ui/quick_settings/quick_settings.tscn" id="13_4oksx"]
 [ext_resource type="PackedScene" uid="uid://c2f0n1b5sfpdh" path="res://game/shared/ui/screen_marker/hit_marker.tscn" id="13_ka3gv"]
 [ext_resource type="PackedScene" uid="uid://blhm6uka1p287" path="res://game/shared/ui/screen_marker/kill_marker.tscn" id="14_e8smu"]
 
@@ -76,6 +83,75 @@ offset_top = 16.0
 offset_right = 272.0
 offset_bottom = 272.0
 
+[node name="Pause" type="Button" parent="UI/Main" unique_id=1798570228]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 72.0
+grow_horizontal = 0
+focus_mode = 0
+shortcut = ExtResource("7_h585l")
+shortcut_in_tooltip = false
+icon = ExtResource("8_3lkl6")
+
+[node name="PauseDialog" type="Window" parent="UI" unique_id=493656399]
+oversampling_override = 1.0
+title = "Игра приостановлена"
+position = Vector2i(0, 28)
+size = Vector2i(480, 104)
+visible = false
+transient = true
+exclusive = true
+unresizable = true
+
+[node name="Background" type="ColorRect" parent="UI/PauseDialog" unique_id=1794916392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseDialog" unique_id=579198892]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="UI/PauseDialog/HBoxContainer" unique_id=867532023]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Продолжить"
+icon = ExtResource("9_v0sfh")
+
+[node name="Settings" type="Button" parent="UI/PauseDialog/HBoxContainer" unique_id=348991557]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Настройки"
+icon = ExtResource("10_dmqnc")
+
+[node name="Quit" type="Button" parent="UI/PauseDialog/HBoxContainer" unique_id=1842745574]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = " Выйти"
+icon = ExtResource("11_fn44l")
+
+[node name="AutofocusWindow" type="Node" parent="UI/PauseDialog" unique_id=1181573294]
+script = ExtResource("12_ub42v")
+focus_target = NodePath("../HBoxContainer/Resume")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
+
+[node name="QuickSettings" parent="UI/PauseDialog" unique_id=1247209996 instance=ExtResource("13_4oksx")]
+visible = false
+
 [node name="MinimapViewport" type="SubViewport" parent="." unique_id=1592930040]
 physics_interpolation_mode = 2
 disable_3d = true
@@ -99,3 +175,7 @@ resources = [PackedStringArray("hit_marker", "kill_marker"), [ExtResource("13_ka
 [connection signal="local_player_created" from="." to="UI/Main/PlayerUI" method="_on_local_player_created"]
 [connection signal="child_entered_tree" from="Entities" to="." method="_on_entities_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Entities" to="." method="_on_entities_child_exiting_tree"]
+[connection signal="pressed" from="UI/Main/Pause" to="UI/PauseDialog" method="popup_centered"]
+[connection signal="close_requested" from="UI/PauseDialog" to="UI/PauseDialog" method="hide"]
+[connection signal="pressed" from="UI/PauseDialog/HBoxContainer/Resume" to="UI/PauseDialog" method="hide"]
+[connection signal="pressed" from="UI/PauseDialog/HBoxContainer/Settings" to="UI/PauseDialog/QuickSettings" method="popup_centered"]
