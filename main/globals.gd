@@ -78,16 +78,6 @@ var _current_input_method := InputMethod.AUTO
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	if not OS.has_feature("pc"):
-		set_process_input(false)
-
-
-func _input(event: InputEvent) -> void:
-	if save_file and get_current_input_method() == InputMethod.KEYBOARD_AND_MOUSE \
-			and event.is_action(&"fullscreen") and event.is_pressed():
-		set_setting_bool("fullscreen", not get_setting_bool("fullscreen"))
-		apply_settings()
-		get_viewport().set_input_as_handled()
 
 
 func _notification(what: int) -> void:

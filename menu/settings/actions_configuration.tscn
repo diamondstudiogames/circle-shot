@@ -530,29 +530,6 @@ layout_mode = 2
 size_flags_vertical = 4
 icon = ExtResource("2_h33al")
 
-[node name="Fullscreen" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1089369604]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="Container" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen" unique_id=1956084286]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=116531798]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_type_variation = &"HeaderSmall"
-text = "Переключить полный экран"
-
-[node name="Events" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=1074355955]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Add" type="Button" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container" unique_id=701683633]
-layout_mode = 2
-size_flags_vertical = 4
-icon = ExtResource("2_h33al")
-
 [node name="CMoveLeft" type="PanelContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/Actions" unique_id=1268454715]
 layout_mode = 2
 mouse_filter = 1
@@ -1140,7 +1117,6 @@ metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/UseSkill/Container/Add" to="." method="add_action_event" binds= [&"use_skill"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Chat/Container/Add" to="." method="add_action_event" binds= [&"chat"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Pause/Container/Add" to="." method="add_action_event" binds= [&"close_chat"]]
-[connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/Fullscreen/Container/Add" to="." method="add_action_event" binds= [&"fullscreen"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveLeft/Container/Add" to="." method="add_action_event" binds= [&"c_move_left"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveRight/Container/Add" to="." method="add_action_event" binds= [&"c_move_right"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/MarginContainer/Actions/CMoveUp/Container/Add" to="." method="add_action_event" binds= [&"c_move_up"]]
