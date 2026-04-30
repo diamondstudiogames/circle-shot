@@ -14,7 +14,16 @@
 [ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="12_ub42v"]
 [ext_resource type="PackedScene" uid="uid://c1lrk2boywtet" path="res://game/shared/ui/quick_settings/quick_settings.tscn" id="13_4oksx"]
 [ext_resource type="PackedScene" uid="uid://c2f0n1b5sfpdh" path="res://game/shared/ui/screen_marker/hit_marker.tscn" id="13_ka3gv"]
+[ext_resource type="PackedScene" uid="uid://r5y32nuhfqet" path="res://game/entity/effects/bleeding/bleeding.tscn" id="14_aov6a"]
 [ext_resource type="PackedScene" uid="uid://blhm6uka1p287" path="res://game/shared/ui/screen_marker/kill_marker.tscn" id="14_e8smu"]
+[ext_resource type="PackedScene" uid="uid://bxgpbuysxjefr" path="res://game/entity/effects/damage_change/damage_change.tscn" id="15_i1qqc"]
+[ext_resource type="PackedScene" uid="uid://cf24vsbhb6f8g" path="res://game/entity/effects/defense_change/defense_change.tscn" id="16_3bypa"]
+[ext_resource type="PackedScene" uid="uid://dvb6a8p7615dy" path="res://game/entity/effects/immobility/immobility.tscn" id="18_41j43"]
+[ext_resource type="PackedScene" uid="uid://66w5ixijgn51" path="res://game/entity/effects/invisibility/invisibility.tscn" id="19_xy26c"]
+[ext_resource type="PackedScene" uid="uid://dmd6vxl6v7ri2" path="res://game/entity/effects/knockback/knockback.tscn" id="21_5ok1j"]
+[ext_resource type="PackedScene" uid="uid://ujm5kn81ax1c" path="res://game/entity/effects/poison/poison.tscn" id="22_ei107"]
+[ext_resource type="PackedScene" uid="uid://dkyu57ilvneen" path="res://game/entity/effects/speed_change/speed_change.tscn" id="23_prj4y"]
+[ext_resource type="PackedScene" uid="uid://of54uwtr1ice" path="res://game/entity/effects/stun/stun.tscn" id="24_68psv"]
 
 [node name="World" type="Node" unique_id=1372825435 groups=["world"]]
 script = ExtResource("1_3j1bh")
@@ -168,7 +177,7 @@ volume_db = -2.0
 bus = &"Music"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1123373961]
-resources = [PackedStringArray("hit_marker", "kill_marker"), [ExtResource("13_ka3gv"), ExtResource("14_e8smu")]]
+resources = [PackedStringArray("bleeding", "damage_change", "defense_change", "hit_marker", "immobility", "invisibility", "kill_marker", "knockback", "poison", "speed_change", "stun"), [ExtResource("14_aov6a"), ExtResource("15_i1qqc"), ExtResource("16_3bypa"), ExtResource("13_ka3gv"), ExtResource("18_41j43"), ExtResource("19_xy26c"), ExtResource("14_e8smu"), ExtResource("21_5ok1j"), ExtResource("22_ei107"), ExtResource("23_prj4y"), ExtResource("24_68psv")]]
 
 [connection signal="cutscene_ended" from="." to="UI/Main/PlayerUI" method="_on_cutscene_ended"]
 [connection signal="cutscene_started" from="." to="UI/Main/PlayerUI" method="_on_cutscene_started"]
