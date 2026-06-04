@@ -29,9 +29,9 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	elif new_text in ["dead circle", "666", "die"]:
 		_label.text = "DIEEEEEEEEE"
 		($CanvasModulate as CanvasItem).show()
-	elif new_text in ["блять", "сука"] or new_text.contains("хуй") or new_text.contains("пизд") \
-			or new_text.contains("пидор") or new_text.contains("хуё") or new_text.contains("пидр") \
-			or new_text.contains("хуе") or new_text.begins_with("еб") or new_text.begins_with("ёб"):
+	elif new_text in ["блять", "сука"] or "хуй" in new_text or "пизд" in new_text \
+			or "пидор" in new_text or "хуё" in new_text or "пидр" in new_text or "хуе" in new_text \
+			or new_text.begins_with("еб") or new_text.begins_with("ёб"):
 		_label.text = "Нехорошо материться!"
 	elif new_text == "разраб клоун":
 		(%LineEdit as LineEdit).text = "Сам такой!"

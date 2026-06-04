@@ -8,7 +8,12 @@ const HIDE_IPS: Array[String] = [
 var _preffered_ips: Array[String]
 var _other_ips: Array[String]
 var _global_ip: String
+var _global_ipv4: String
+
+var _lines: Array[String] = []
+
 @onready var _http_request: HTTPRequest = $HTTPRequest
+@onready var _http_request_ipv4: HTTPRequest = $HTTPRequestIPv4
 
 
 func _ready() -> void:
@@ -18,15 +23,11 @@ func _ready() -> void:
 	copy_button.icon = load("uid://cp3wl6wn8h07v")
 
 
-func _on_about_to_popup() -> void:
-	_find_ips()
-	size.y = 0 # Устанавливает минимальную высоту
-
-
 func _find_ips() -> void:
 	_preffered_ips.clear()
 	_other_ips.clear()
 	_global_ip = ""
+	_global_ipv4 = ""
 	
 	var ip_addresses: PackedStringArray = IP.get_local_addresses()
 	for ip: String in ip_addresses:
@@ -40,67 +41,113 @@ func _find_ips() -> void:
 				break
 		if not preffered:
 			_other_ips.append(ip)
-	_preffered_ips.sort()
-	_other_ips.sort()
+	_preffered_ips.sort_custom(_sort_ips)
+	_other_ips.sort_custom(_sort_ips)
 	
-	dialog_text = ""
+	_clear_lines()
 	if not _preffered_ips.is_empty():
-		dialog_text += "Локальные IP-адреса: "
-		var first := true
-		for ip: String in _preffered_ips:
-			if not first:
-				dialog_text += ", "
-			dialog_text += ip
-			first = false
-		dialog_text += '\n'
+		var line: String = "Локальные IP-адреса: "
+		line += ", ".join(_preffered_ips)
+		_add_line(line)
 	
 	if not _other_ips.is_empty():
-		dialog_text += "Остальные локальные IP-адреса: "
-		var first := true
-		for ip: String in _other_ips:
-			if not first:
-				dialog_text += ", "
-			dialog_text += ip
-			first = false
-		dialog_text += '\n'
+		var line: String = "Остальные локальные IP-адреса: "
+		line += ", ".join(_other_ips)
+		_add_line(line)
+	
+	if _preffered_ips.is_empty() and _other_ips.is_empty():
+		_add_line("Нет IP-адресов. Возможно, устройство не подключено к сети.")
+		return
 	
 	if Globals.upnp:
 		if Globals.upnp.status == UPNPManager.Status.INACTIVE:
-			dialog_text += "Статус UPnP: Неактивно."
+			_add_line("Статус UPnP: Неактивно.")
 		else:
-			dialog_text += "Статус UPnP: Активно."
-			dialog_text += '\n'
-			dialog_text += "Глобальный IP-адрес UPnP: %s" % Globals.upnp.get_external_ip()
-		dialog_text += '\n'
+			_add_line("Статус UPnP: Активно.")
+			_add_line("Глобальный IP-адрес UPnP: %s" % Globals.upnp.get_external_ip())
+			_add_line("Этот адрес может использован другими игроками для подключения.")
 	
 	if _http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
-		return
-	
-	var error: Error = _http_request.request("https://ipv4.icanhazip.com/")
+		_http_request.cancel_request()
+	var error: Error = _http_request.request("https://icanhazip.com/")
 	if error != OK:
 		push_warning("Quiry global IP: can't create request. Error: %s." % error_string(error))
-		
-		dialog_text += "Невозможно создать запрос для получения глобального IP-адреса!
-Ошибка: %s." % error_string(error)
+		_add_line("Невозможно создать запрос для получения глобального IP-адреса! Ошибка: %s."
+				% error_string(error))
+
+
+func _add_line(line: String) -> void:
+	_lines.append(line)
+	dialog_text = '\n'.join(_lines)
+
+
+func _clear_lines() -> void:
+	_lines.clear()
+	dialog_text = ""
+
+
+func _sort_ips(first: String, second: String) -> bool:
+	if (':' in first) != (':' in second):
+		return ':' in second
+	return first < second
+
+
+func _on_about_to_popup() -> void:
+	_find_ips()
+	set_deferred(&"size", Vector2i.ONE) # Устанавливает минимальную высоту
 
 
 func _on_request_completed(result: int, response_code: int,
 		_headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		push_warning("Quiry global IP: result is not Success. Result: %d." % result)
-		dialog_text += "Ошибка запроса глобального IP-адреса! Код ошибки: %d." % result
+		_add_line("Ошибка запроса глобального IP-адреса! Код ошибки: %d." % result)
 		return
 	if response_code != HTTPClient.RESPONSE_OK:
 		push_warning("Quiry global IP: response code is not 200. Response code: %d" % response_code)
-		dialog_text += "Ошибка получения глобального IP-адреса! Код ошибки: %d." % response_code
+		_add_line("Ошибка получения глобального IP-адреса! Код ошибки: %d." % response_code)
 		return
 	_global_ip = body.get_string_from_utf8().strip_escapes()
-	dialog_text += "Глобальный IP-адрес: %s" % _global_ip
-	dialog_text += '\n'
-	dialog_text += "Чтобы игроки могли подключиться по глобальному IP-адресу, \
-необходимо открыть порт: %d." % Game.DEFAULT_PORT
+	_add_line("Глобальный IP-адрес: %s" % _global_ip)
+	
+	if ':' in _global_ip:
+		# перед нами ipv6, запустим проверку и на ipv4
+		_add_line("Этот адрес может использован другими игроками для подключения.")
+		
+		if _http_request_ipv4.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+			_http_request_ipv4.cancel_request()
+		var error: Error = _http_request_ipv4.request("https://ipv4.icanhazip.com/")
+		if error != OK:
+			push_warning("Quiry global IPv4: can't create request. Error: %s."
+					% error_string(error))
+			_add_line("Невозможно создать запрос для получения глобального IPv5-адреса! Ошибка: %s."
+					% error_string(error))
+	else:
+		# обычный ipv4
+		_global_ipv4 = _global_ip
+		_add_line("Чтобы игроки могли подключиться по этому адресу, необходимо открыть порт: %d."
+				% Game.DEFAULT_PORT)
+	
 	if Globals.headless or OS.is_stdout_verbose():
 		print("Global IP: %s" % _global_ip)
+
+
+func _on_ipv4_request_completed(result: int, response_code: int,
+		_headers: PackedStringArray, body: PackedByteArray) -> void:
+	if result != HTTPRequest.RESULT_SUCCESS:
+		push_warning("Quiry global IPv4: result is not Success. Result: %d." % result)
+		_add_line("Ошибка запроса глобального IPv4-адреса! Код ошибки: %d." % result)
+		return
+	if response_code != HTTPClient.RESPONSE_OK:
+		push_warning("Quiry global IPv4: response code is not 200. Response code: %d" % response_code)
+		_add_line("Ошибка получения глобального IPv4-адреса! Код ошибки: %d." % response_code)
+		return
+	_global_ipv4 = body.get_string_from_utf8().strip_escapes()
+	_add_line("Глобальный IPv4-адрес: %s" % _global_ipv4)
+	_add_line("Чтобы игроки могли подключиться по этому адресу, необходимо открыть порт: %d."
+			% Game.DEFAULT_PORT)
+	if Globals.headless or OS.is_stdout_verbose():
+		print("Global IPv4: %s" % _global_ipv4)
 
 
 func _on_custom_action(action: StringName) -> void:
@@ -114,19 +161,12 @@ func _on_custom_action(action: StringName) -> void:
 			if not _global_ip.is_empty():
 				to_copy += _global_ip
 				to_copy += '\n'
+				if _global_ip != _global_ipv4 and not _global_ipv4.is_empty():
+					to_copy += _global_ipv4
+					to_copy += '\n'
 			if not _preffered_ips.is_empty():
-				var first := true
-				for ip: String in _preffered_ips:
-					if not first:
-						to_copy += ' '
-					to_copy += ip
-					first = false
+				to_copy += ' '.join(_preffered_ips)
 				to_copy += '\n'
 			if not _other_ips.is_empty():
-				var first := true
-				for ip: String in _other_ips:
-					if not first:
-						to_copy += ' '
-					to_copy += ip
-					first = false
+				to_copy += ' '.join(_other_ips)
 			DisplayServer.clipboard_set(to_copy)

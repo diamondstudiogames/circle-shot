@@ -33,6 +33,30 @@ tracks/0/keys = {
 "update": 1,
 "values": ["Начало через 3..."]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_dja87"]
 resource_name = "Countdown"
@@ -49,6 +73,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["Начало через 3...", "Начало через 3..", "Начало через 3.", "Начало через 2...", "Начало через 2..", "Начало через 2.", "Начало через 1...", "Начало через 1..", "Начало через 1.", "Начинаем!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [20, 22, 24]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, Color(0.3764706, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ughs"]
@@ -214,9 +262,12 @@ icon = ExtResource("4_4kry5")
 [node name="Countdown" type="Label" parent="Main/Panels/Lobby/VBoxContainer" unique_id=480680156]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Начало через 3..."
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Panels/Lobby/VBoxContainer/Countdown" unique_id=767481609]
 libraries/ = SubResource("AnimationLibrary_8ughs")
@@ -297,6 +348,9 @@ script = ExtResource("5_jyb4t")
 [node name="HTTPRequest" type="HTTPRequest" parent="ViewIPDialog" unique_id=1414762474]
 timeout = 5.0
 
+[node name="HTTPRequestIPv4" type="HTTPRequest" parent="ViewIPDialog" unique_id=1949013517]
+timeout = 5.0
+
 [node name="BroadcastTimer" type="Timer" parent="." unique_id=1166333176]
 
 [node name="UpdateBroadcastTimer" type="Timer" parent="." unique_id=609285718]
@@ -321,6 +375,7 @@ resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 [connection signal="about_to_popup" from="ViewIPDialog" to="ViewIPDialog" method="_on_about_to_popup"]
 [connection signal="custom_action" from="ViewIPDialog" to="ViewIPDialog" method="_on_custom_action"]
 [connection signal="request_completed" from="ViewIPDialog/HTTPRequest" to="ViewIPDialog" method="_on_request_completed"]
+[connection signal="request_completed" from="ViewIPDialog/HTTPRequestIPv4" to="ViewIPDialog" method="_on_ipv4_request_completed"]
 [connection signal="timeout" from="BroadcastTimer" to="." method="_do_broadcast"]
 [connection signal="timeout" from="UpdateBroadcastTimer" to="." method="_find_ips_for_broadcast"]
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
