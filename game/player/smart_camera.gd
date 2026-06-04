@@ -92,7 +92,7 @@ func shake(amplitude: float, duration: float, should_decay := true, shake_step :
 		_shake_tween.kill()
 	
 	_shake_tween = create_tween()
-	var steps := int(duration / shake_step)
+	var steps: int = floori(duration / shake_step)
 	for i: int in steps:
 		var random_vector := Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
 		var current_amplitude: float = amplitude / steps * (steps - i)

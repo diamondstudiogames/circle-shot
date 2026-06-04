@@ -45,6 +45,10 @@ Globals="*res://main/globals.gd"
 settings/crash_handler/message="Game crashed. You should restart it, but if crash persist, report it on https://github.com/diamondstudiogames/circle-shot/issues with info below."
 settings/crash_handler/message.editor="Editor crashed. This can be developer mistake (report it on https://github.com/diamondstudiogames/circle-shot/issues with information below) or engine bug (report on https://github.com/godotengine/godot/issues with information below)."
 file_logging/log_path="user://logs/game.log"
+gdscript/warnings/directory_rules={
+"res://addons/resource_path": 0,
+"res://addons/virtual_joystick": 0
+}
 gdscript/warnings/untyped_declaration=2
 gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1

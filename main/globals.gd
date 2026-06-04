@@ -37,6 +37,8 @@ enum EncodedInputEventType {
 }
 ## Путь к файлу сохранения.
 const SAVE_FILE_PATH := "user://save.cfg"
+## Путь к запасному файлу сохранения.
+const BACKUP_SAVE_FILE_PATH := "user://save.cfg~"
 ## Пароль файла сохранения.
 const SAVE_FILE_PASSWORD := "circleshot"
 ## Стандартная секция файла сохранения.
@@ -85,8 +87,7 @@ func _notification(what: int) -> void:
 		NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_PREDELETE, \
 		NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_GO_BACK_REQUEST, \
 		NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-			if save_file:
-				save_file.save_encrypted_pass(SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+			save_to_file()
 		NOTIFICATION_WM_CLOSE_REQUEST:
 			quit()
 
@@ -95,8 +96,7 @@ func _notification(what: int) -> void:
 func initialize() -> void:
 	main = get_tree().current_scene
 	
-	save_file = ConfigFile.new()
-	save_file.load_encrypted_pass(SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+	load_save_from_file()
 	if not save_file.has_section_key(DEFAULT_SAVE_FILE_SECTION, "save_id"):
 		set_string("save_id", _generate_save_id())
 	
@@ -174,11 +174,10 @@ func initialize_systems() -> void:
 ## Выходит из игры. Если [param restart] равен [code]true[/code], перезапускает игру с аргументами,
 ## указанными в [param args].
 func quit(restart := false, args := PackedStringArray()) -> void:
-	if save_file:
-		if get_window().mode == Window.MODE_WINDOWED:
-			set_variant("window_size", get_window().size)
-			set_variant("window_position", get_window().position)
-		save_file.save_encrypted_pass(SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+	if save_file and get_window().mode == Window.MODE_WINDOWED:
+		set_variant("window_size", get_window().size)
+		set_variant("window_position", get_window().position)
+	save_to_file()
 	if upnp:
 		upnp.finalize()
 	
@@ -197,6 +196,47 @@ func quit(restart := false, args := PackedStringArray()) -> void:
 	else:
 		OS.set_restart_on_exit(restart, args)
 		get_tree().quit()
+
+
+## Загружает сохранение из файла в [member save_file].
+func load_save_from_file() -> void:
+	save_file = ConfigFile.new()
+	var err: Error = save_file.load_encrypted_pass(SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+	if err != OK:
+		# пробуем загрузиться из запасного файла
+		var backup_err: Error = save_file.load_encrypted_pass(
+				BACKUP_SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+		if backup_err == ERR_FILE_NOT_FOUND:
+			if err == ERR_FILE_NOT_FOUND:
+				print_verbose("No save found, creating new file.")
+			else:
+				push_error("Can't load save file with error %s, and no backup was found." \
+						% error_string(err))
+		elif backup_err != OK:
+			push_error("Can't load save file, error: %s." % error_string(err))
+			push_error("Can't load backup save file, error: %s." % error_string(backup_err))
+		else:
+			print_verbose("Can't load save file with error %s, backup was loaded." \
+					% error_string(err))
+	else:
+		print_verbose("Save file loaded.")
+
+
+## Сохраняет файл сохранения [member save_file] на диск.
+func save_to_file() -> void:
+	if not save_file:
+		return
+	if FileAccess.file_exists(SAVE_FILE_PATH):
+		# делаем резервную копию на всякий пожарный
+		var backup_err: Error = DirAccess.copy_absolute(SAVE_FILE_PATH, BACKUP_SAVE_FILE_PATH)
+		if backup_err != OK:
+			push_warning("Save file backup failed, error: %s." % error_string(backup_err))
+	
+	var err: Error = save_file.save_encrypted_pass(SAVE_FILE_PATH, SAVE_FILE_PASSWORD)
+	if err != OK:
+		push_error("Failed saving file, error: %s." % err)
+	else:
+		print_verbose("File saved successfully.")
 
 
 ## Экспортирует сохранение в файл [param path].
