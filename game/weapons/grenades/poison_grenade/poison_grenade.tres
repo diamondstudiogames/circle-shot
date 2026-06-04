@@ -9,7 +9,7 @@ rarity = 1
 id = "poison_grenade"
 stats = Dictionary[String, String]({
 "ammo_total": "2",
-"damage": "30",
+"damage": "24",
 "diameter": "12",
 "duration": "2.8",
 "poison_duration": "2",

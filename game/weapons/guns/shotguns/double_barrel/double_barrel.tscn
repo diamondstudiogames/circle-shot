@@ -24,7 +24,7 @@ point_count = 1
 [node name="DoubleBarrel" unique_id=490381823 instance=ExtResource("1_vsa8m")]
 script = ExtResource("2_3ircb")
 bullets_in_shot = 4
-shoot_interval = 0.7
+shoot_interval = 0.72
 to_aim_time = 0.3
 projectile_scene = ExtResource("3_mpo00")
 spread_base = 6.0

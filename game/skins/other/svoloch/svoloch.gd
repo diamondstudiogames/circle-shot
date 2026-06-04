@@ -5,11 +5,12 @@ extends PlayerSkin
 @onready var _right_pupil: Sprite2D = $RightPupil/Sprite2D
 
 func _process(_delta: float) -> void:
-	var aim_direction: Vector2 = player.entity_input.aim_direction
-	aim_direction.x = absf(aim_direction.x)
-	var pupils_rotation: float = aim_direction.angle()
-	_left_pupil.rotation = pupils_rotation
-	_right_pupil.rotation = pupils_rotation
+	if player.can_turn():
+		var aim_direction: Vector2 = player.entity_input.aim_direction
+		aim_direction.x = absf(aim_direction.x)
+		var pupils_rotation: float = aim_direction.angle()
+		_left_pupil.rotation = pupils_rotation
+		_right_pupil.rotation = pupils_rotation
 	
 	if player.get_real_velocity().is_zero_approx():
 		if _anim_tree.get(&"parameters/IdleWalkTransition/current_state") != "idle":

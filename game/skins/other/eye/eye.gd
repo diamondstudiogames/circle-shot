@@ -14,6 +14,8 @@ func _initialize() -> void:
 
 
 func _process(_delta: float) -> void:
+	if not player.can_turn():
+		return
 	var aim_direction: Vector2 = player.entity_input.aim_direction
 	aim_direction.x = absf(aim_direction.x)
 	rotation = aim_direction.angle() + deg_to_rad(_additional_rotation)

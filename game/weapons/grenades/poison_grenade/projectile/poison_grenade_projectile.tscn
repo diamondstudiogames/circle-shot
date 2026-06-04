@@ -264,6 +264,7 @@ libraries/ = SubResource("AnimationLibrary_a5tqx")
 
 [node name="Attack" type="Node2D" parent="Explosion" index="2" unique_id=1313123336]
 script = ExtResource("5_a5tqx")
+poison_damage = 7
 damage = 10
 damage_interval = 1.0
 metadata/_custom_type_script = "uid://bgvirlnion8wa"
