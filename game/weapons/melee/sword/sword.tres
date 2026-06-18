@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Рыцарский меч средней длины и скорости, наносящий много урона за один удар."
+speed_multiplier_when_current = 1.05
 scene_path = "uid://cdcbnw1l0jmi8"
 image_path = "uid://dmd6j30ggojbq"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

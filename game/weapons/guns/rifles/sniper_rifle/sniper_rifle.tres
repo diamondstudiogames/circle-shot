@@ -23,6 +23,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Это оружие благодаря своей точности и функции прицеливания позволяет поражать цели с большого расстояния. Однако точность существенно понижается при стрельбе на ходу."
+speed_multiplier_when_current = 0.9
 scene_path = "uid://4q0rrm6arbyx"
 image_path = "uid://8k4hqd6lxca1"
 spawnable_scenes_paths = Array[String](["uid://cm0sqwulviy72"])

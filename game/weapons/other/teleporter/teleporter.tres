@@ -21,6 +21,7 @@ description = "[color=deep_sky_blue]Телепортирует[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Это устройство, основанное на новейших технологиях, позволяет безопасно телепортироваться на небольшое расстояние."
+speed_multiplier_when_current = 0.97
 scene_path = "uid://cjunrr6nv2rhr"
 image_path = "uid://c7v3ww10d2rps"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

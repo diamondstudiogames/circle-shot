@@ -22,6 +22,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Легендарный пулемёт с восхитительным уроном и неплохой точностью, однако его мобильность оставляет желать лучшего."
+speed_multiplier_when_current = 0.7
 scene_path = "uid://kyk1d4l4sa2k"
 image_path = "uid://db38iv6v8pi53"
 spawnable_scenes_paths = Array[String](["uid://c2npe1obh3ekr"])

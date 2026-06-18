@@ -24,6 +24,7 @@ description = "[color=deep_sky_blue]Ослепляет при взрыве на 
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Светошумовая граната - хороший способ дезориентировать противника, а при взрыве близко к нему он окажется ещё и оглушённым."
+speed_multiplier_when_current = 0.99
 scene_path = "uid://cpojti341yqmd"
 image_path = "uid://dm20ql0m68j1j"
 spawnable_scenes_paths = Array[String](["uid://dwq3twijmmpig"])

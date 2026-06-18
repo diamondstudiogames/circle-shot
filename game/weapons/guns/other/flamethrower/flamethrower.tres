@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Хорошее оружие для контроля из-за большой области атаки, хоть и ограниченной в дальности. Также подходит против оружий ближнего боя из-за огромного урона в секунду вплотную к противнику."
+speed_multiplier_when_current = 0.9299999999999999
 scene_path = "uid://b2nr1cx8txay5"
 image_path = "uid://66rq3cqkdian"
 spawnable_scenes_paths = Array[String](["uid://pjhomajigpbi"])

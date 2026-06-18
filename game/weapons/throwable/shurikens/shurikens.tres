@@ -29,6 +29,7 @@ description = "[color=deep_sky_blue]Имеет два режима стрель�
 Перезарядка: [color=blue]{reload_time} с[/color] за снаряд
 
 Универсальное метательное оружие, позволяющее как и точно поражать цели вдали, так и наносить огромный урон вблизи."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://blbaxcg7pxcid"
 image_path = "uid://cv4bfdwgi7k7"
 spawnable_scenes_paths = Array[String](["uid://gxhkrdq1f0dw", "uid://dwxxqi1vhd44v"])

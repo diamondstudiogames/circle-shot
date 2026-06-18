@@ -19,6 +19,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Мощное ближнее оружие с впечатляющим уроном, однако достаточно громкое."
+speed_multiplier_when_current = 1.12
 scene_path = "uid://dqptp3tatgmn"
 image_path = "uid://t8yuooskcmnw"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

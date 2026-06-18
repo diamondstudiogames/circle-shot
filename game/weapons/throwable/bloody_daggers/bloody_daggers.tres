@@ -25,6 +25,7 @@ description = "[color=deep_sky_blue]Накладывает кровотечен�
 Перезарядка: [color=blue]{reload_time} с[/color] за снаряд
 
 Красивые метательные кинжалы, которые бьют в самые уязвимые места целей, заставляя их истекать кровью."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://cwunk2vqqu6em"
 image_path = "uid://dw46xpcqr6hmj"
 spawnable_scenes_paths = Array[String](["uid://bmgs501ayehg6"])

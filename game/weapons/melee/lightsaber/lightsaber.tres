@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Быстрый и длинный клинок, светящийся в цвет твоей команды."
+speed_multiplier_when_current = 1.08
 scene_path = "uid://bm8ppjrpqe84c"
 image_path = "uid://8ff7tf8ct5pg"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

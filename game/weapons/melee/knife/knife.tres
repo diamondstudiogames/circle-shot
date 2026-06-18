@@ -19,6 +19,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Обычный нож, который может быстро сделать свою работу в нужный момент."
+speed_multiplier_when_current = 1.15
 scene_path = "uid://dw483364uyeyn"
 image_path = "uid://dq8riqdpmm2vy"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

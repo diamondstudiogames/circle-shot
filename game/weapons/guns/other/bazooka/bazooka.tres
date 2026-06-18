@@ -22,6 +22,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Очень мощная ракетная установка, способная нанести огромный урон."
+speed_multiplier_when_current = 0.89
 scene_path = "uid://dn7oblc2lhvef"
 image_path = "uid://iocjsqchyao6"
 spawnable_scenes_paths = Array[String](["uid://cqhttq0m4j1p6"])

@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Неплохой пистолет с хорошей скорострельностью и боезапасом, но средними по величине отдачей и разбросом."
+speed_multiplier_when_current = 0.97
 scene_path = "uid://bltslbj5qgpco"
 image_path = "uid://b5wqktd54bkd3"
 spawnable_scenes_paths = Array[String](["uid://dqb1dkircv0dw"])

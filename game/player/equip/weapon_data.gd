@@ -36,6 +36,8 @@ extends Resource
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Описание"""
+## Множитель скорости игрока, когда это оружие является текущим.
+@export_range(0.5, 2.0, 0.01) var speed_multiplier_when_current := 1.0
 
 @export_group("Paths")
 ## Путь к сцене оружия.

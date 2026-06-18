@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Стандартная и знакомая всем штурмовая винтовка. Хороший урон и посредственная точность."
+speed_multiplier_when_current = 0.94
 scene_path = "uid://b2v16qvrswdtd"
 image_path = "uid://bfak724toabd4"
 spawnable_scenes_paths = Array[String](["uid://tbn6kstqx2sj"])

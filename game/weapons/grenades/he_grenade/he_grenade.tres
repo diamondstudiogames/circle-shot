@@ -21,6 +21,7 @@ description = "Урон: [color=red]{damage}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Обычная осколочная граната. Чем ближе противник к центру взрыва, тем больше урона он получит."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://dkem1fmo3lqym"
 image_path = "uid://ctmye1qbi2nx2"
 spawnable_scenes_paths = Array[String](["uid://dixl482dlx0y5"])

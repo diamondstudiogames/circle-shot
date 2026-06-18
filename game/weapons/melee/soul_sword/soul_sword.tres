@@ -29,6 +29,7 @@ description = "[color=deep_sky_blue]Имеет дальнюю и ближнюю 
 Боеприпасы (ближняя атака): [color=blue]{ammo_total_melee}[/color]
 
 Меч, сделанный из душевной силы игрока."
+speed_multiplier_when_current = 1.0899999999999999
 scene_path = "uid://hqut06bvc2kx"
 image_path = "uid://x1qujhwf8mpo"
 spawnable_scenes_paths = Array[String](["uid://dkj4bv1jfeh82"])

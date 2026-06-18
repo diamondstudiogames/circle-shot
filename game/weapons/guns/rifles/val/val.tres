@@ -24,6 +24,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Стреляющая очередями тихая винтовка с низким боезапасом."
+speed_multiplier_when_current = 0.94
 scene_path = "uid://brwprvy8a0caq"
 image_path = "uid://r671rjq4w81h"
 spawnable_scenes_paths = Array[String](["uid://bm2txvy6i1tmo"])

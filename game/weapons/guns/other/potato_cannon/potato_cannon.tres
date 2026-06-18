@@ -22,6 +22,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Эта сделанная руками пушка стреляет \"резиновыми\" картошками, отскакивающими от стен, позволяя владельцу доминировать в закрытых местностях."
+speed_multiplier_when_current = 0.96
 scene_path = "uid://qgpvrtvjg4dp"
 image_path = "uid://ys0ya1sn7yba"
 spawnable_scenes_paths = Array[String](["uid://di4m7kkgyhvic"])

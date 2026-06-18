@@ -195,6 +195,16 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 				unlocked = false
 			else:
 				description = weapon.description.format(weapon.stats)
+				var speed_change: String
+				if is_equal_approx(weapon.speed_multiplier_when_current, 1.0):
+					speed_change = "[color=blue]0%[/color]"
+				elif weapon.speed_multiplier_when_current > 1.0:
+					speed_change = "[color=lime_green]+%d%%[/color]" \
+							% roundi((weapon.speed_multiplier_when_current - 1.0) * 100)
+				elif weapon.speed_multiplier_when_current < 1.0:
+					speed_change = "[color=red]-%d%%[/color]" \
+							% roundi((1.0 - weapon.speed_multiplier_when_current) * 100)
+				description += "\n\nСкорость игрока, когда в руках: %s" % speed_change
 			
 			description += "\n\nРедкость: [outline_size=2][color=#%s]%s[/color][/outline_size]" % [
 				ItemsDB.RARITY_COLORS[weapon.rarity].to_html(false),

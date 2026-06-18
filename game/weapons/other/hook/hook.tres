@@ -25,6 +25,7 @@ description = "[color=deep_sky_blue]Притягивает владельца к
 Перезарядка при промахе: [color=blue]{failed_reload} с[/color]
 
 Отличный способ сократить расстояние между тобой и врагом. Очень хорошо сочетается с оружием ближнего боя."
+speed_multiplier_when_current = 0.99
 scene_path = "uid://bdyfsrdgx0haa"
 image_path = "uid://ntkl330844fq"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

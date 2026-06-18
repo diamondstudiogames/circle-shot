@@ -27,6 +27,7 @@ description = "[color=deep_sky_blue]Отравляет[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Эта граната позволяет нанести большой, но продолжительный урон. Чем дольше цель находится в облаке яда, тем больше она отравится."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://beadmcds20emq"
 image_path = "uid://pmonx1vv3lyh"
 spawnable_scenes_paths = Array[String](["uid://dqo7kuss0a7js"])

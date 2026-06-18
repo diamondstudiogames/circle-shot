@@ -29,6 +29,7 @@ description = "[color=deep_sky_blue]Имеет режимы стрельбы н�
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Это ПРАВИЛЬНОЕ оружие позволит получить тебе немного BULLETS и успешно посетить GYM."
+speed_multiplier_when_current = 0.96
 scene_path = "uid://tpvpkv3eid7i"
 image_path = "uid://che11gmsosjmk"
 spawnable_scenes_paths = Array[String](["uid://ll80nn6exap3", "uid://bh8r5gsd6ghjm"])

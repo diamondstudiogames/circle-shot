@@ -20,6 +20,7 @@ description = "[color=deep_sky_blue]Атакуют комбо-ударами[/co
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Пара шампуров, на которые можно насаживать не только шашлык, но и противников."
+speed_multiplier_when_current = 1.1099999999999999
 scene_path = "uid://s0jt56dbe0kn"
 image_path = "uid://cn4fb8vl4k33j"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

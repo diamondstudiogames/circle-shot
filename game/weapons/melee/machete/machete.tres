@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Относительно лёгкое ближнее оружие, выполняющее два средних по силе удара за атаку."
+speed_multiplier_when_current = 1.0699999999999998
 scene_path = "uid://6vt2to0vrgsf"
 image_path = "uid://ci5wi73m62tte"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

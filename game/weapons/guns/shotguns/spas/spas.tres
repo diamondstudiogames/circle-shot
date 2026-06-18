@@ -23,6 +23,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color] за патрон
 
 Быстрый дробовик с хорошей точностью и средним уроном."
+speed_multiplier_when_current = 0.95
 scene_path = "uid://1e31sp51n2is"
 image_path = "uid://cx8krxub1reb8"
 spawnable_scenes_paths = Array[String](["uid://dgbrhj6rb1yk0"])

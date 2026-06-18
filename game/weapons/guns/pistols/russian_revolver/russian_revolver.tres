@@ -28,6 +28,7 @@ description = "Базовый урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Этот револьвер стреляет одиночными мощными выстрелами, которые можно усилить ещё больше: за каждый холостой патрон, выпущенный в себя, урон следующего выстрела повышается."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://bx4k2pqgm7ema"
 image_path = "uid://fvyih131vl3m"
 spawnable_scenes_paths = Array[String](["uid://bnow1haoeqnth"])

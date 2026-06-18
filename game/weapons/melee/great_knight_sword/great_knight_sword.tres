@@ -26,6 +26,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы (только ближняя атака): [color=blue]{ammo_total_melee}[/color]
 
 Священный меч Великого Рыцаря, который очень даже неплох в дальнем бою."
+speed_multiplier_when_current = 1.04
 scene_path = "uid://dbbcb0o6xemea"
 image_path = "uid://blavr05xsythu"
 spawnable_scenes_paths = Array[String](["uid://cvw03m4br4yl4"])

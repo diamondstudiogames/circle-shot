@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Простенький пистолет, наносящий неплохой урон. Идеален в моменты, когда основное оружие некогда перезарядить."
+speed_multiplier_when_current = 0.98
 scene_path = "uid://bsgtxdfb2n4u3"
 image_path = "uid://bxroqwsevr022"
 spawnable_scenes_paths = Array[String](["uid://c4cr4b5wn24yt"])

@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Длинная и достаточно точная штурмовая винтовка. Благодаря глушителю уровень шума ниже, чем у похожих оружий."
+speed_multiplier_when_current = 0.95
 scene_path = "uid://jhqjtl8ewlm5"
 image_path = "uid://bxu6w2rhuxcjg"
 spawnable_scenes_paths = Array[String](["uid://duvq6s4rriwpi"])

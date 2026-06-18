@@ -20,6 +20,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Боеприпасы: [color=blue]{ammo_total}[/color]
 
 Атакует по области вокруг владельца, так что целиться не придётся."
+speed_multiplier_when_current = 1.06
 scene_path = "uid://dbij8lrmesyg5"
 image_path = "uid://cxgvphu3na66v"
 metadata/_custom_type_script = "uid://55g8njvkg07g"

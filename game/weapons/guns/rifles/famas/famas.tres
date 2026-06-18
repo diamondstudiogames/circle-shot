@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Хоть урон и относительно низкий, сама винтовка очень лёгкая и мобильная."
+speed_multiplier_when_current = 0.95
 scene_path = "uid://b5ktvv2dnbcgp"
 image_path = "uid://j5skuasygwff"
 spawnable_scenes_paths = Array[String](["uid://byoxdenhuuhfc"])

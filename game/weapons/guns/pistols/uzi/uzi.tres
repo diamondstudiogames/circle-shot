@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Грозный пистолет-пулемёт с большим уроном, но очень низкой точностью."
+speed_multiplier_when_current = 0.96
 scene_path = "uid://0tvxeqyoku0o"
 image_path = "uid://gyv5moa6clfw"
 spawnable_scenes_paths = Array[String](["uid://3hn08at7uvth"])

@@ -23,6 +23,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color] за патрон
 
 Дробовик больше близок к ближнему оружию из-за своей ограниченной дальности и мощного урона вблизи."
+speed_multiplier_when_current = 0.95
 scene_path = "uid://vaggbadprpmu"
 image_path = "uid://c4ivh0k16ylue"
 spawnable_scenes_paths = Array[String](["uid://co7528ytx5rvc"])

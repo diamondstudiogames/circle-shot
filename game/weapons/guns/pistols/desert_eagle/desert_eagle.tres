@@ -21,6 +21,7 @@ description = "Урон/с: [color=red]{dps}[/color]
 Перезарядка: [color=blue]{reload_time} с[/color]
 
 Мощный, но неповоротливый пистолет с очень сильной отдачей."
+speed_multiplier_when_current = 0.96
 scene_path = "uid://bt2uws44q5uk"
 image_path = "uid://0lhrtq1l06h0"
 spawnable_scenes_paths = Array[String](["uid://ddnugomhhv0df"])
