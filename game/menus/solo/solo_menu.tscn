@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="8_7q66i"]
 [ext_resource type="Texture2D" uid="uid://cp68q5xemqd01" path="res://menu/theme/icons/play.png" id="9_be2i2"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="9_y0c3c"]
-[ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_event.png" id="10_muk5r"]
+[ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="10_muk5r"]
 [ext_resource type="Texture2D" uid="uid://eyfsi3j0o04s" path="res://menu/theme/icons/change_map.png" id="11_y0c3c"]
 [ext_resource type="PackedScene" uid="uid://y56j4fgei867" path="res://game/shared/ui/equip_selector/preset_manager.tscn" id="14_07mr3"]
 [ext_resource type="PackedScene" uid="uid://d3ncbc7jsib0p" path="res://game/shared/ui/advices/advices.tscn" id="14_ee8c4"]

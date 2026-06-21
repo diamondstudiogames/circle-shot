@@ -8,7 +8,7 @@ extends Resource
 ## Перечисление типов параметра события.
 enum Type {
 	## Переключатель. Будет использован [CheckButton]. Значения [member range_min],
-	## [member range_max] и [member range_step] будут установлены в [code]0[/code], [code]1[/code]
+	## [member range_max] и [member range_step] будут приняты за [code]0[/code], [code]1[/code]
 	## и [code]1[/code] соответственно.
 	CHECK_BUTTON = 0,
 	## Поле ввода со стрелочками. Будет использован [SpinBox].
@@ -17,10 +17,14 @@ enum Type {
 	SLIDER = 2,
 }
 
+## Название параметра события.
+@export var name: String
 ## Тип параметра события.
 @export var type := Type.CHECK_BUTTON
 ## Значение по умолчанию.
 @export var default_value: int
+## Путь до иконки параметра события.
+@export_file("Texture2D") var icon_path: String
 
 @export_group("Range", "range_")
 ## Минимальное значение области допустимых значений.

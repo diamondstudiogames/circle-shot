@@ -93,7 +93,6 @@ func _ready() -> void:
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
-	selected_event = Globals.get_int("selected_event")
 	selected_maps = Globals.get_variant("selected_maps", [] as Array[int])
 	if selected_maps.size() < Globals.items_db.events.size():
 		selected_maps.resize(Globals.items_db.events.size())
@@ -104,6 +103,12 @@ func _ready() -> void:
 			var parameters: Dictionary[String, int]
 			parameters = Globals.items_db.events[idx].get_default_parameters()
 			selected_events_parameters.append(parameters)
+	
+	# Инициализируем состояние исходя из последнего сохранённого
+	selected_event = Globals.get_int("selected_event")
+	selected_map = selected_maps[selected_event]
+	# во избежание редактирования сохранённого словаря
+	selected_event_parameters = selected_events_parameters[selected_event]
 	
 	_validate_selected_environment()
 	_update_environment()
@@ -396,7 +401,7 @@ func _register_new_player(player_name: String) -> void:
 			"> [outline_size=4][color=green]%s[/color][/outline_size] подключается!" % player_name)
 	_chat.players_names[sender_id] = player_name
 	var new_team: int
-	for i in 10:
+	for i: int in 10:
 		if not i in _chat.players_teams.values():
 			new_team = i
 			break
@@ -426,10 +431,11 @@ func _set_admin(admin: int) -> void:
 				and Globals.items_db.events[selected_event].team_event
 	if is_admin():
 		# Просим сервер установить выбранные ранее НАМИ событие, карту и параметры
+		# дублируем чтобы не изменять локальный словарь
 		request_set_environment.rpc_id(
 				MultiplayerPeer.TARGET_PEER_SERVER, Globals.get_int("selected_event"),
 				selected_maps[Globals.get_int("selected_event")],
-				selected_events_parameters[Globals.get_int("selected_event")]
+				selected_events_parameters[Globals.get_int("selected_event")].duplicate()
 		)
 		_request_set_reject_players.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
 				Globals.get_setting_bool("reject_players"))
@@ -452,7 +458,8 @@ func _set_environment(event_idx: int, map_idx: int,
 	selected_event_parameters = event_parameters
 	if is_admin():
 		selected_maps[event_idx] = map_idx
-		selected_events_parameters[event_idx] = event_parameters
+		# дублируем чтобы отвязать сохранённые от редактируемых
+		selected_events_parameters[event_idx] = event_parameters.duplicate()
 		_save_selected_environment()
 	
 	for entry: Node in _players_container.get_children():
@@ -725,116 +732,168 @@ func _update_environment() -> void:
 
 
 func _process_console_command(command: PackedStringArray) -> bool:
-	# TODO!!!!!!
 	if _game.state != Game.State.LOBBY:
 		return false
 	var recognized := false
-	if command[0] == "list-players" and command.size() == 1:
-		recognized = true
-		if not multiplayer.is_server():
-			printerr("This command only available on server.")
-			return recognized
-		print("Connected players:")
-		for id: int in players:
-			prints(id, players[id])
-		if admin_id in players:
-			print("Current admin: %d (%s)." % [admin_id, players[admin_id]])
-		else:
-			print("Current admin: %d." % admin_id)
-		if Globals.headless:
-			print("Server ID is always 1.")
-	elif command[0] == "set-environment" and command.size() < 4:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		if command.size() == 2:
-			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]), 0)
-		else:
-			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]),
-					int(command[2]))
-	elif command[0] == "start" and command.size() == 1:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		request_start_event.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER)
-	elif (command[0] == "admin" or command[0] == "admin-id") and command.size() < 3:
-		recognized = true
-		if not is_admin() and not multiplayer.is_server():
-			printerr("This command only available for admins.")
-			return recognized
-		if command.size() == 1:
-			request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					MultiplayerPeer.TARGET_PEER_SERVER, AdminAction.TRANSFER_ADMIN_RIGHTS)
-		else:
+	match command[0]:
+		"list-players" when command.size() == 1:
+			recognized = true
+			if not multiplayer.is_server():
+				printerr("This command only available on server.")
+				return recognized
+			print("Connected players:")
+			for id: int in players:
+				prints(id, players[id])
+			if admin_id in players:
+				print("Current admin: %d (%s)." % [admin_id, players[admin_id]])
+			else:
+				print("Current admin: %d." % admin_id)
+			if Globals.headless:
+				print("Server ID is always 1.")
+		"list-environment" when command.size() == 1:
+			recognized = true
+			print("Available events:")
+			for event_idx: int in Globals.items_db.events.size():
+				print("%s%d: %s. Maps:" % [
+					"> " if selected_event == event_idx else "",
+					event_idx,
+					Globals.items_db.events[event_idx].name,
+				])
+				for map_idx: int in Globals.items_db.events[event_idx].maps.size():
+					print("\t%s%d: %s" % [
+						"> " if selected_event == event_idx and selected_map == map_idx else "",
+						map_idx,
+						Globals.items_db.events[event_idx].maps[map_idx].name,
+					])
+		"set-environment" when command.size() in [2, 3]:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			if command.size() == 2:
+				request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+						int(command[1]), 0, selected_events_parameters[int(command[1])])
+			else:
+				request_set_environment.rpc_id(
+						MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]), int(command[2]),
+						selected_events_parameters[int(command[1])]
+				)
+		"list-parameters" when command.size() == 1:
+			recognized = true
+			print("Current event parameters:")
+			for parameter_id: String in selected_event_parameters:
+				var parameter: EventParameter = \
+						Globals.items_db.events[selected_event].parameters[parameter_id]
+				print("{parameter_id}: {name}, range: {min}-{max} with step {step}. \
+Current value: {current}.".format({
+					"parameter_id": parameter_id,
+					"name": parameter.name,
+					"min": parameter.range_min,
+					"max": parameter.range_max,
+					"step": parameter.range_step,
+					"current": selected_event_parameters[parameter_id],
+				}))
+		"set-parameter" when command.size() == 3:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			selected_event_parameters[command[1]] = int(command[2])
+			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					selected_event, selected_map, selected_event_parameters)
+		"reset-parameters" when command.size() == 1:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			request_set_environment.rpc_id(
+					MultiplayerPeer.TARGET_PEER_SERVER, selected_event, selected_map,
+					Globals.items_db.events[selected_event].get_default_parameters()
+			)
+		
+		"start" when command.size() == 1:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			request_start_event.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER)
+		"admin", "admin-id" when command.size() <= 2:
+			recognized = true
+			if not is_admin() and not multiplayer.is_server():
+				printerr("This command only available for admins.")
+				return recognized
+			if command.size() == 1:
+				request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+						MultiplayerPeer.TARGET_PEER_SERVER, AdminAction.TRANSFER_ADMIN_RIGHTS)
+			else:
+				var id: int
+				if command[0] == "admin":
+					id = _get_player_id(command[1])
+				else:
+					id = int(command[1])
+				request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+						id, AdminAction.TRANSFER_ADMIN_RIGHTS)
+		"kick", "kick-id" when command.size() == 2:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
 			var id: int
-			if command[0] == "admin":
+			if command[0] == "kick":
 				id = _get_player_id(command[1])
 			else:
 				id = int(command[1])
 			request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					id, AdminAction.TRANSFER_ADMIN_RIGHTS)
-	elif (command[0] == "kick" or command[0] == "kick-id") and command.size() == 2:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		var id: int
-		if command[0] == "kick":
-			id = _get_player_id(command[1])
-		else:
-			id = int(command[1])
-		request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				id, AdminAction.KICK)
-	elif (command[0] == "ban" or command[0] == "ban-id") and command.size() == 2:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		var id: int
-		if command[0] == "ban":
-			id = _get_player_id(command[1])
-		else:
-			id = int(command[1])
-		request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				id, AdminAction.BAN)
-	elif (command[0] == "red-team" or command[0] == "red-team-id") and command.size() == 2:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		var id: int
-		if command[0] == "red-team":
-			id = _get_player_id(command[1])
-		else:
-			id = int(command[1])
-		request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				id, TeamAction.RED_TEAM)
-	elif (command[0] == "blue-team" or command[0] == "blue-team-id") and command.size() == 2:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		var id: int
-		if command[0] == "blue-team":
-			id = _get_player_id(command[1])
-		else:
-			id = int(command[1])
-		request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				id, TeamAction.BLUE_TEAM)
-	elif (command[0] == "remove-team" or command[0] == "remove-team-id") and command.size() == 2:
-		recognized = true
-		if not is_admin():
-			printerr("This command only available for admins.")
-			return recognized
-		var id: int
-		if command[0] == "remove-team":
-			id = _get_player_id(command[1])
-		else:
-			id = int(command[1])
-		request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				id, TeamAction.REMOVE_TEAM)
+					id, AdminAction.KICK)
+		"ban", "ban-id" when command.size() == 2:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			var id: int
+			if command[0] == "ban":
+				id = _get_player_id(command[1])
+			else:
+				id = int(command[1])
+			request_admin_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					id, AdminAction.BAN)
+		
+		"red-team", "red-team-id" when command.size() == 2:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			var id: int
+			if command[0] == "red-team":
+				id = _get_player_id(command[1])
+			else:
+				id = int(command[1])
+			request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					id, TeamAction.RED_TEAM)
+		"blue-team", "blue-team-id" when command.size() == 2:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			var id: int
+			if command[0] == "blue-team":
+				id = _get_player_id(command[1])
+			else:
+				id = int(command[1])
+			request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					id, TeamAction.BLUE_TEAM)
+		"remove-team", "remove-team-id" when command.size() == 2:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			var id: int
+			if command[0] == "remove-team":
+				id = _get_player_id(command[1])
+			else:
+				id = int(command[1])
+			request_team_action.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					id, TeamAction.REMOVE_TEAM)
 	
 	return recognized
 
@@ -848,7 +907,11 @@ func _print_help() -> void:
 	print("post <message> - Posts message in chat.")
 	print("list-players - List all connected players. Works only on server.")
 	print("These commands only available if you are admin:")
+	print("list-environment - Lists events and maps.")
 	print("set-environment <event-id> [map-id] - Sets event and map to specified values.")
+	print("list-parameters - Lists event parameters.")
+	print("set-parameter <parameter-id> <value> - Sets event parameter to specified value.")
+	print("reset-parameters - Resets event parameters to default values.")
 	print("start - Starts event.")
 	print("admin [player] - Makes specified player admin. Current admin loses his rights. \
 Note: you can always set admin to yourself if you are server.")

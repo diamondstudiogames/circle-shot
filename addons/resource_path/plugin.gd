@@ -79,7 +79,7 @@ class ResourcePathInspectorPlugin extends EditorInspectorPlugin:
 	func _is_class(name_class: String) -> bool:
 		if ClassDB.class_exists(name_class):
 			return true
-		for item in ProjectSettings.get_global_class_list():
+		for item: Dictionary in ProjectSettings.get_global_class_list():
 			if item["class"] == name_class:
 				return true
 		return false

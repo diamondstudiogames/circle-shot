@@ -43,7 +43,7 @@ extends Resource
 ## Возвращает словарь параметров события по умолчанию.
 func get_default_parameters() -> Dictionary[String, int]:
 	var default_parameters: Dictionary[String, int]
-	for parameter_id in parameters:
+	for parameter_id: String in parameters:
 		default_parameters[parameter_id] = parameters[parameter_id].default_value
 	return default_parameters
 
@@ -52,7 +52,7 @@ func get_default_parameters() -> Dictionary[String, int]:
 func is_parameters_valid(parameters_to_check: Dictionary[String, int]) -> bool:
 	if parameters_to_check.size() != parameters.size():
 		return false
-	for parameter_id in parameters:
+	for parameter_id: String in parameters:
 		if not parameter_id in parameters_to_check:
 			return false
 		if not parameters[parameter_id].is_parameter_valid(parameters_to_check[parameter_id]):

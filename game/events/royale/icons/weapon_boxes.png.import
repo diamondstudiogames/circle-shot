@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tckh2tqh4dps"
-path="res://.godot/imported/configure_event.png-a3ddf287c91f72992ae31b8476cdcc91.ctex"
+uid="uid://cw6lasq8udvee"
+path="res://.godot/imported/weapon_boxes.png-558a96ea4ffea0693baa67cbc7967814.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/theme/icons/configure_event.png"
-dest_files=["res://.godot/imported/configure_event.png-a3ddf287c91f72992ae31b8476cdcc91.ctex"]
+source_file="res://game/events/royale/icons/weapon_boxes.png"
+dest_files=["res://.godot/imported/weapon_boxes.png-558a96ea4ffea0693baa67cbc7967814.ctex"]
 
 [params]
 

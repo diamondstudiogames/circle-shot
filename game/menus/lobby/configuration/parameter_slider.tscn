@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bdp88ihuwkaci"]
+
+[ext_resource type="PackedScene" uid="uid://c5orb0omy8mc8" path="res://game/menus/lobby/configuration/parameter.tscn" id="1_6y5fa"]
+
+[node name="ParameterSlider" unique_id=1820638924 instance=ExtResource("1_6y5fa")]
+
+[node name="Slider" type="HSlider" parent="Value" parent_id_path=PackedInt32Array(299817779) index="0" unique_id=801154398]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="Label" parent="Value" parent_id_path=PackedInt32Array(299817779) index="1" unique_id=857524958]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+horizontal_alignment = 1

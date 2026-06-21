@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d14nbphg5o3a" path="res://game/shared/ui/chat/chat.png" id="2_wjeu5"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="3_cwg7d"]
 [ext_resource type="PackedScene" uid="uid://mlbaavhyud5j" path="res://game/shared/ui/equip_selector/equip_selector.tscn" id="3_es10a"]
-[ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_event.png" id="3_pddfd"]
+[ext_resource type="Texture2D" uid="uid://ccyn16fdlha6p" path="res://menu/theme/icons/change_game_mode.png" id="3_pddfd"]
 [ext_resource type="Script" uid="uid://lf4v4xbu425r" path="res://game/menus/lobby/view_ip_dialog.gd" id="5_jyb4t"]
-[ext_resource type="Texture2D" uid="uid://tckh2tqh4dps" path="res://menu/theme/icons/configure_event.png" id="6_yfygw"]
+[ext_resource type="Texture2D" uid="uid://tckh2tqh4dps" path="res://menu/theme/icons/configure_game_mode.png" id="6_yfygw"]
 [ext_resource type="Texture2D" uid="uid://cdlm17je2ol0u" path="res://game/shared/ui/equip_selector/presets.png" id="7_8ughs"]
 [ext_resource type="Texture2D" uid="uid://c3r13t5eig25e" path="res://game/menus/lobby/icons/view_ips.png" id="7_f0cv5"]
 [ext_resource type="Script" uid="uid://bhnfvhb1jy21u" path="res://addons/autofocus/autofocus.gd" id="9_mgd0l"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://blyp5uhjare77" path="res://game/menus/lobby/configuration/event_configuration.gd" id="18_qn2tb"]
 [ext_resource type="PackedScene" uid="uid://dj0mx5ui2wu4n" path="res://game/menus/lobby/player_entry.tscn" id="18_yfygw"]
 [ext_resource type="Texture2D" uid="uid://eyfsi3j0o04s" path="res://menu/theme/icons/change_map.png" id="19_mgd0l"]
+[ext_resource type="Texture2D" uid="uid://brcaom8n83yf2" path="res://menu/theme/icons/reset.png" id="20_3bj1l"]
+[ext_resource type="PackedScene" uid="uid://bj8ovestjfmnq" path="res://game/menus/lobby/configuration/parameter_check_button.tscn" id="20_rgji2"]
+[ext_resource type="PackedScene" uid="uid://bdp88ihuwkaci" path="res://game/menus/lobby/configuration/parameter_slider.tscn" id="21_3bj1l"]
+[ext_resource type="PackedScene" uid="uid://dv76erm78qdtx" path="res://game/menus/lobby/configuration/parameter_spin_box.tscn" id="22_ehlkd"]
 
 [sub_resource type="Animation" id="Animation_5k1w6"]
 length = 0.001
@@ -373,7 +377,8 @@ timeout = 5.0
 oversampling_override = 1.0
 title = "Настройки события"
 position = Vector2i(0, 28)
-size = Vector2i(560, 400)
+size = Vector2i(600, 400)
+visible = false
 transient = true
 exclusive = true
 unresizable = true
@@ -393,6 +398,7 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = -2.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -402,13 +408,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Изменять настройки события может только админ."
 
-[node name="ChangeMap" type="Button" parent="EventConfiguration/Base" unique_id=1714427136]
+[node name="Actions" type="HBoxContainer" parent="EventConfiguration/Base" unique_id=173567000]
+layout_mode = 2
+alignment = 1
+
+[node name="ChangeMap" type="Button" parent="EventConfiguration/Base/Actions" unique_id=1714427136]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_right = NodePath("../../ControlButtons/Leave")
 focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Сменить карту..."
 icon = ExtResource("19_mgd0l")
+
+[node name="ResetParameters" type="Button" parent="EventConfiguration/Base/Actions" unique_id=1798003610]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_right = NodePath("../../ControlButtons/Leave")
+focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
+text = "Сбросить параметры"
+icon = ExtResource("20_3bj1l")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="EventConfiguration/Base" unique_id=1211049123]
 layout_mode = 2
@@ -422,44 +440,6 @@ size_flags_horizontal = 3
 [node name="ParametersContainer" type="VBoxContainer" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer" unique_id=1172546639]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer" unique_id=907623062]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer" unique_id=1417510447]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 1.5
-text = "Время заполнения дымом"
-
-[node name="SpinBox" type="SpinBox" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer" unique_id=2000968899]
-layout_mode = 2
-size_flags_horizontal = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer" unique_id=1705263608]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer2" unique_id=1123989760]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 1.5
-text = "Время заполнения дымом"
-
-[node name="SpinBox" type="CheckButton" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer2" unique_id=868004007]
-layout_mode = 2
-size_flags_horizontal = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer" unique_id=1637246979]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer3" unique_id=681675151]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Время заполнения дымом"
-
-[node name="SpinBox" type="HSlider" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer/ParametersContainer/HBoxContainer3" unique_id=204944163]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Close" type="Button" parent="EventConfiguration/Base" unique_id=1539884861]
 layout_mode = 2
@@ -478,7 +458,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1425311059]
-resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
+resources = [PackedStringArray("parameter_check_button", "parameter_slider", "parameter_spin_box", "player_entry"), [ExtResource("20_rgji2"), ExtResource("21_3bj1l"), ExtResource("22_ehlkd"), ExtResource("18_yfygw")]]
 
 [connection signal="admin_changed" from="." to="EventConfiguration" method="_on_admin_changed"]
 [connection signal="environment_changed" from="." to="EventConfiguration" method="_on_environment_changed"]
@@ -497,7 +477,8 @@ resources = [PackedStringArray("player_entry"), [ExtResource("18_yfygw")]]
 [connection signal="request_completed" from="ViewIPDialog/HTTPRequest" to="ViewIPDialog" method="_on_request_completed"]
 [connection signal="request_completed" from="ViewIPDialog/HTTPRequestIPv4" to="ViewIPDialog" method="_on_ipv4_request_completed"]
 [connection signal="close_requested" from="EventConfiguration" to="EventConfiguration" method="_save_and_close"]
-[connection signal="pressed" from="EventConfiguration/Base/ChangeMap" to="EventConfiguration" method="_on_change_map_pressed"]
+[connection signal="pressed" from="EventConfiguration/Base/Actions/ChangeMap" to="EventConfiguration" method="_on_change_map_pressed"]
+[connection signal="pressed" from="EventConfiguration/Base/Actions/ResetParameters" to="EventConfiguration" method="_on_reset_parameters_pressed"]
 [connection signal="pressed" from="EventConfiguration/Base/Close" to="EventConfiguration" method="_save_and_close"]
 [connection signal="timeout" from="BroadcastTimer" to="." method="_do_broadcast"]
 [connection signal="timeout" from="UpdateBroadcastTimer" to="." method="_find_ips_for_broadcast"]
