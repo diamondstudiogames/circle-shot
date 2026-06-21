@@ -459,13 +459,13 @@ text = "команда!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Title" parent="UI/Intro" index="1"]
+[node name="Title" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="1" unique_id=360426741]
 text = "ЗАКЛАДКА БОМБЫ"
 
-[node name="Description" parent="UI/Intro/Title" index="0"]
+[node name="Description" parent="UI/Intro/Title" index="0" unique_id=1561217676]
 text = "Заложи бомбу или уничтожь команду противника!"
 
-[node name="Text" parent="UI/Intro" index="2"]
+[node name="Text" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="2" unique_id=1913610560]
 text = "Побеждает команда,
 выигравшая 4 раунда!"
 

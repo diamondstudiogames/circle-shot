@@ -224,10 +224,11 @@ func close() -> void:
 	print_verbose("Closed.")
 
 
-## Загружает событие по данным [param event_idx] и [param map_idx]. Если вызвано сервером
-## без игрока, [param player_name] и [param equip_data] можно не указывать.
-func load_event(event_idx: int, map_idx: int, player_name := "",
-		equip_data: Array[int] = []) -> void:
+## Загружает событие по данным [param event_idx] и [param map_idx] с параметрами события
+## [param event_parameters]. Если вызвано сервером без игрока, [param player_name]
+## и [param equip_data] можно не указывать.
+func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[String, int],
+		player_name := "", equip_data: Array[int] = []) -> void:
 	state = State.LOADING
 	if multiplayer.is_server():
 		_preloading_equip = false
@@ -236,7 +237,7 @@ func load_event(event_idx: int, map_idx: int, player_name := "",
 		_players_equip_data.clear()
 		_players_names.clear()
 		($WaitPlayersTimer as Timer).start()
-	world = await _loader.load_event(event_idx, map_idx)
+	world = await _loader.load_event(event_idx, map_idx, event_parameters)
 	if not is_instance_valid(world):
 		show_error("Ошибка при загрузке события! Отключаюсь.")
 		push_error("Loading failed. Disconnecting.")

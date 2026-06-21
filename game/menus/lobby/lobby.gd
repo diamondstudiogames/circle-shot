@@ -8,6 +8,11 @@ extends Control
 ## [b]Внимание[/b]: после изменения свойств [code]selected_*[/code] нужно обновить отображаемые
 ## иконки с помощью [method update_selected].
 
+## Издаётся, когда изменяется админ комнаты.
+signal admin_changed
+## Издаётся, когда меняются параметры окружения (карта, событие, параметры).
+signal environment_changed
+
 ## Причина, по которой запрос на старт игры был отклонён.
 enum StartRejectReason {
 	## Всё ОК.
@@ -46,6 +51,11 @@ var selected_event: int
 var selected_map: int
 ## Массив с выбранными картами для определённых событий, где индекс - ID события.
 var selected_maps: Array[int]
+## Параметры для выбранного события. Не сохраняется, используется только для хранения
+## текущего состояния комнаты.
+var selected_event_parameters: Dictionary[String, int]
+## Массив с выбранными параметрами для определённых событий, где индекс - ID события.
+var selected_events_parameters: Array[Dictionary]
 
 ## Словарь с подключёнными игроками в формате <ID игрока> - <имя игрока>.
 ## Доступно только на сервере.
@@ -87,6 +97,13 @@ func _ready() -> void:
 	selected_maps = Globals.get_variant("selected_maps", [] as Array[int])
 	if selected_maps.size() < Globals.items_db.events.size():
 		selected_maps.resize(Globals.items_db.events.size())
+	selected_events_parameters = Globals.get_variant("selected_events_parameters",
+			[] as Array[Dictionary])
+	if selected_events_parameters.size() < Globals.items_db.events.size():
+		for idx: int in range(selected_events_parameters.size(), Globals.items_db.events.size()):
+			var parameters: Dictionary[String, int]
+			parameters = Globals.items_db.events[idx].get_default_parameters()
+			selected_events_parameters.append(parameters)
 	
 	_validate_selected_environment()
 	_update_environment()
@@ -113,11 +130,12 @@ func _exit_tree() -> void:
 
 
 ## Запрашивает сервер сменить окружение на событие с идентификатором [param event_idx] и на карту
-## с идентификатором [param map_idx].[br]
+## с идентификатором [param map_idx], а также задать параметры события [param event_parameters].[br]
 ## [b]Примечание[/b]: этот метод должен вызываться только как RPC к серверу
 ## ([constant MultiplayerPeer.TARGET_PEER_SERVER]).
 @rpc("any_peer", "reliable", "call_local", 1)
-func request_set_environment(event_idx: int, map_idx: int) -> void:
+func request_set_environment(event_idx: int, map_idx: int,
+		event_parameters: Dictionary[String, int]) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
@@ -143,13 +161,17 @@ func request_set_environment(event_idx: int, map_idx: int) -> void:
 			map_idx,
 		])
 		return
+	if not Globals.items_db.events[event_idx].is_parameters_valid(event_parameters):
+		push_warning("Rejected set environment request from %d. Incorrect event parameters: %s." % [
+			sender_id,
+			str(event_parameters),
+		])
+		return
 	
 	_game.max_players = Globals.items_db.events[event_idx].max_players
-	print_verbose("Accepted set environment request. Event index: %d, map index: %d." % [
-		event_idx,
-		map_idx,
-	])
-	_set_environment.rpc(event_idx, map_idx)
+	print_verbose("Accepted set environment request. \
+Event index: %d, map index: %d, event parameters: %s." % [event_idx, map_idx, event_parameters])
+	_set_environment.rpc(event_idx, map_idx, event_parameters)
 
 
 ## Запрашивает сервер выполнить действие админа [param action] по отношению к игроку с
@@ -280,6 +302,11 @@ func update_selected() -> void:
 	_update_environment()
 
 
+## Возвращает [code]true[/code], если текущий клиент - админ.
+func is_admin() -> bool:
+	return admin_id == multiplayer.get_unique_id()
+
+
 @rpc("reliable", "call_local", "authority", 1)
 func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
@@ -306,11 +333,11 @@ func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> v
 		# Сервер нельзя выгнать/забанить
 		admin_actions.get_popup().set_item_disabled(0, true)
 		admin_actions.get_popup().set_item_disabled(1, true)
-	admin_actions.visible = _is_admin()
+	admin_actions.visible = is_admin()
 	admin_actions.get_popup().id_pressed.connect(_on_admin_actions_menu_id_pressed.bind(id))
 	
 	var team_actions: MenuButton = player_entry.get_node(^"TeamActions")
-	team_actions.visible = _is_admin() and Globals.items_db.events[selected_event].team_event
+	team_actions.visible = is_admin() and Globals.items_db.events[selected_event].team_event
 	team_actions.get_popup().id_pressed.connect(_on_team_actions_menu_id_pressed.bind(id))
 	
 	_players_container.add_child(player_entry)
@@ -359,7 +386,7 @@ func _register_new_player(player_name: String) -> void:
 		_client_timers.erase(sender_id)
 	for id: int in players:
 		_add_player_entry.rpc_id(sender_id, id, players[id], players_teams[id])
-	_set_environment.rpc_id(sender_id, selected_event, selected_map)
+	_set_environment.rpc_id(sender_id, selected_event, selected_map, selected_event_parameters)
 	player_name = Utils.validate_player_name(player_name, sender_id)
 	players[sender_id] = player_name
 	players_teams[sender_id] = -1
@@ -389,47 +416,55 @@ func _set_admin(admin: int) -> void:
 		return
 	
 	admin_id = admin
-	(%AdminPanel as CanvasItem).visible = _is_admin()
-	(%ClientHint as CanvasItem).visible = not _is_admin()
+	(%AdminPanel as CanvasItem).visible = is_admin()
+	(%ClientPanel as CanvasItem).visible = not is_admin()
+	(%WaitingForServer as CanvasItem).hide()
 	for entry: Node in _players_container.get_children():
-		(entry.get_node(^"AdminActions") as CanvasItem).visible = _is_admin()
+		(entry.get_node(^"AdminActions") as CanvasItem).visible = is_admin()
 		(entry.get_node(^"Admin") as CanvasItem).visible = int(entry.name) == admin_id
-		(entry.get_node(^"TeamActions") as CanvasItem).visible = _is_admin() \
+		(entry.get_node(^"TeamActions") as CanvasItem).visible = is_admin() \
 				and Globals.items_db.events[selected_event].team_event
-	if _is_admin():
-		# Просим сервер установить выбранные ранее НАМИ событие и карту
-		request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-				Globals.get_int("selected_event"), selected_maps[Globals.get_int("selected_event")])
+	if is_admin():
+		# Просим сервер установить выбранные ранее НАМИ событие, карту и параметры
+		request_set_environment.rpc_id(
+				MultiplayerPeer.TARGET_PEER_SERVER, Globals.get_int("selected_event"),
+				selected_maps[Globals.get_int("selected_event")],
+				selected_events_parameters[Globals.get_int("selected_event")]
+		)
 		_request_set_reject_players.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
 				Globals.get_setting_bool("reject_players"))
-	else:
-		(%ClientHint as Label).text = "Начать игру может только админ."
 	
 	if multiplayer.is_server():
 		_game.banned_ips.clear()
-	print_verbose("Admin set: %d (this client: %s)." % [admin_id, str(_is_admin())])
+	admin_changed.emit()
+	print_verbose("Admin set: %d (this client: %s)." % [admin_id, str(is_admin())])
 
 
 @rpc("call_local", "reliable", "authority", 1)
-func _set_environment(event_idx: int, map_idx: int) -> void:
+func _set_environment(event_idx: int, map_idx: int,
+		event_parameters: Dictionary[String, int]) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
 	
 	selected_event = event_idx
 	selected_map = map_idx
-	if _is_admin():
+	selected_event_parameters = event_parameters
+	if is_admin():
 		selected_maps[event_idx] = map_idx
+		selected_events_parameters[event_idx] = event_parameters
 		_save_selected_environment()
 	
 	for entry: Node in _players_container.get_children():
 		var team_event: bool = Globals.items_db.events[selected_event].team_event
-		(entry.get_node(^"TeamActions") as CanvasItem).visible = _is_admin() and team_event
+		(entry.get_node(^"TeamActions") as CanvasItem).visible = is_admin() and team_event
 		var name_label: Label = entry.get_node(^"Name")
 		if name_label.has_theme_constant_override(&"outline_size"):
 			name_label.add_theme_constant_override(&"outline_size", 4 if team_event else 0)
 	
-	print_verbose("Environment set: event index - %d, map index - %d." % [event_idx, map_idx])
+	environment_changed.emit()
+	print_verbose("Environment set: event index - %d, map index - %d, event parameters - %s."
+			% [event_idx, map_idx, str(selected_event_parameters)])
 	_update_environment()
 
 
@@ -451,20 +486,20 @@ func _show_countdown() -> void:
 		push_error("This method must be called only by server.")
 		return
 	
-	if _is_admin():
+	if is_admin():
 		(%AdminPanel as CanvasItem).hide()
 	else:
-		(%ClientHint as CanvasItem).hide()
+		(%ClientPanel as CanvasItem).hide()
 	(%Countdown as CanvasItem).show()
 	(%Countdown/AnimationPlayer as AnimationPlayer).play(&"countdown")
 
 
 @rpc("call_local", "reliable", "authority", 1)
 func _hide_countdown() -> void:
-	if _game.state == Game.State.CLOSED or _is_admin():
+	if _game.state == Game.State.CLOSED or is_admin():
 		(%AdminPanel as CanvasItem).show()
-	if _game.state == Game.State.CLOSED or not _is_admin():
-		(%ClientHint as CanvasItem).show()
+	if _game.state == Game.State.CLOSED or not is_admin():
+		(%ClientPanel as CanvasItem).show()
 	(%Countdown as CanvasItem).hide()
 	(%Countdown/AnimationPlayer as AnimationPlayer).stop()
 
@@ -509,7 +544,7 @@ func _reject_start_event(reason: StartRejectReason, players_count: int) -> void:
 
 
 @rpc("call_local", "reliable", "authority", 1)
-func _start_event(event_idx: int, map_idx: int) -> void:
+func _start_event(event_idx: int, map_idx: int, event_parameters: Dictionary[String, int]) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -531,13 +566,14 @@ func _start_event(event_idx: int, map_idx: int) -> void:
 		if Globals.items_db.events[event_idx].team_event:
 			_game.set_players_teams(players_teams)
 		if Globals.headless:
-			_game.load_event(event_idx, map_idx)
+			_game.load_event(event_idx, map_idx, event_parameters)
 			return
 	_item_selector.hide()
 	($PresetManager as Window).hide()
 	($QuickSettings as Window).hide()
+	($EventConfiguration as Window).hide()
 	
-	_game.load_event(event_idx, map_idx, Globals.get_string("player_name"), [
+	_game.load_event(event_idx, map_idx, event_parameters, Globals.get_string("player_name"), [
 		Globals.items_db.skins_by_id[equip_selector.selected_skin].idx_in_db,
 		Globals.items_db.skills_by_id[equip_selector.selected_skill].idx_in_db,
 		Globals.items_db.weapons_by_id[equip_selector.selected_light_weapon].idx_in_db,
@@ -646,12 +682,6 @@ func _validate_selected_environment() -> void:
 		push_warning("Incorrect selected event: %d. Reverting to default." % selected_event)
 		selected_event = 0
 		changed = true
-	if selected_map < 0 or selected_map >= Globals.items_db.events[selected_event].maps.size():
-		push_warning("Incorrect selected map for event %d: %d. Reverting to default." % [
-			selected_event,
-			selected_map,
-		])
-		selected_map = 0
 	for event_idx: int in Globals.items_db.events.size():
 		if selected_maps[event_idx] < 0 \
 				or selected_maps[event_idx] >= Globals.items_db.events[event_idx].maps.size():
@@ -661,6 +691,16 @@ func _validate_selected_environment() -> void:
 			])
 			selected_maps[event_idx] = 0
 			changed = true
+	for event_idx: int in Globals.items_db.events.size():
+		if not Globals.items_db.events[event_idx].is_parameters_valid(
+				selected_events_parameters[event_idx]):
+			push_warning("Incorrect parameters for event %d: %s. Reverting to default." % [
+				selected_event,
+				str(selected_events_parameters[event_idx]),
+			])
+			selected_events_parameters[event_idx] = \
+					Globals.items_db.events[event_idx].get_default_parameters()
+			changed = true
 	
 	if changed:
 		_save_selected_environment()
@@ -669,6 +709,7 @@ func _validate_selected_environment() -> void:
 func _save_selected_environment() -> void:
 	Globals.set_int("selected_event", selected_event)
 	Globals.set_variant("selected_maps", selected_maps)
+	Globals.set_variant("selected_events_parameters", selected_events_parameters)
 
 
 func _update_environment() -> void:
@@ -684,6 +725,7 @@ func _update_environment() -> void:
 
 
 func _process_console_command(command: PackedStringArray) -> bool:
+	# TODO!!!!!!
 	if _game.state != Game.State.LOBBY:
 		return false
 	var recognized := false
@@ -703,7 +745,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 			print("Server ID is always 1.")
 	elif command[0] == "set-environment" and command.size() < 4:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		if command.size() == 2:
@@ -713,13 +755,13 @@ func _process_console_command(command: PackedStringArray) -> bool:
 					int(command[2]))
 	elif command[0] == "start" and command.size() == 1:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		request_start_event.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER)
 	elif (command[0] == "admin" or command[0] == "admin-id") and command.size() < 3:
 		recognized = true
-		if not _is_admin() and not multiplayer.is_server():
+		if not is_admin() and not multiplayer.is_server():
 			printerr("This command only available for admins.")
 			return recognized
 		if command.size() == 1:
@@ -735,7 +777,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 					id, AdminAction.TRANSFER_ADMIN_RIGHTS)
 	elif (command[0] == "kick" or command[0] == "kick-id") and command.size() == 2:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		var id: int
@@ -747,7 +789,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 				id, AdminAction.KICK)
 	elif (command[0] == "ban" or command[0] == "ban-id") and command.size() == 2:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		var id: int
@@ -759,7 +801,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 				id, AdminAction.BAN)
 	elif (command[0] == "red-team" or command[0] == "red-team-id") and command.size() == 2:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		var id: int
@@ -771,7 +813,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 				id, TeamAction.RED_TEAM)
 	elif (command[0] == "blue-team" or command[0] == "blue-team-id") and command.size() == 2:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		var id: int
@@ -783,7 +825,7 @@ func _process_console_command(command: PackedStringArray) -> bool:
 				id, TeamAction.BLUE_TEAM)
 	elif (command[0] == "remove-team" or command[0] == "remove-team-id") and command.size() == 2:
 		recognized = true
-		if not _is_admin():
+		if not is_admin():
 			printerr("This command only available for admins.")
 			return recognized
 		var id: int
@@ -823,10 +865,6 @@ Note: you can always set admin to yourself if you are server.")
 	print("remove-team-id <id> - Same as remove-team, but uses player ID.")
 
 
-func _is_admin() -> bool:
-	return admin_id == multiplayer.get_unique_id()
-
-
 func _get_player_id(player: String) -> int:
 	for id: int in players:
 		if players[id].begins_with(player):
@@ -864,13 +902,13 @@ func _on_game_joined() -> void:
 	show()
 	process_mode = Node.PROCESS_MODE_INHERIT
 	(%AdminPanel as CanvasItem).hide()
-	(%ClientHint as CanvasItem).show()
+	(%ClientPanel as CanvasItem).show()
+	(%WaitingForServer as CanvasItem).show()
 	(%ControlButtons/ConnectedToIP as CanvasItem).show()
 	(%ControlButtons/ConnectedToIP as LinkButton).text = "Подключено к %s" % \
 			(multiplayer.multiplayer_peer as ENetMultiplayerPeer).get_peer(
 			MultiplayerPeer.TARGET_PEER_SERVER).get_remote_address()
 	(%ControlButtons/ViewIP as CanvasItem).hide()
-	(%ClientHint as Label).text = "Ожидание сервера..."
 	_register_new_player.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
 			Globals.get_string("player_name"))
 
@@ -881,6 +919,7 @@ func _on_game_closed() -> void:
 	_item_selector.hide()
 	($PresetManager as Window).hide()
 	($QuickSettings as Window).hide()
+	($EventConfiguration as Window).hide()
 	
 	if not ($BroadcastTimer as Timer).is_stopped():
 		($BroadcastTimer as Timer).stop()
@@ -944,9 +983,10 @@ func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 	match type:
 		ItemsDB.Item.EVENT:
 			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					idx, selected_maps[idx])
+					idx, selected_maps[idx], selected_events_parameters[idx])
 		ItemsDB.Item.MAP:
-			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, selected_event, idx)
+			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
+					selected_event, idx, selected_event_parameters)
 
 
 func _on_countdown_timer_timeout() -> void:
@@ -958,7 +998,7 @@ func _on_countdown_timer_timeout() -> void:
 		return
 	
 	print_verbose("Starting...")
-	_start_event.rpc(selected_event, selected_map)
+	_start_event.rpc(selected_event, selected_map, selected_event_parameters)
 
 
 func _on_start_event_pressed() -> void:
@@ -978,9 +1018,3 @@ func _on_change_event_pressed() -> void:
 	_item_selector.title = "Выбор события"
 	_item_selector.popup_centered()
 	_items_grid.list_items(ItemsDB.Item.EVENT, selected_event)
-
-
-func _on_change_map_pressed() -> void:
-	_item_selector.title = "Выбор карты"
-	_item_selector.popup_centered()
-	_items_grid.list_maps_of_event(selected_event, selected_map)

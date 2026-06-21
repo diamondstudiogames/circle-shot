@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccyn16fdlha6p"
-path="res://.godot/imported/change_game_mode.png-e88da567b0ddcfc888d75c26fe48a1e6.ctex"
+uid="uid://tckh2tqh4dps"
+path="res://.godot/imported/configure_event.png-a3ddf287c91f72992ae31b8476cdcc91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/theme/icons/change_game_mode.png"
-dest_files=["res://.godot/imported/change_game_mode.png-e88da567b0ddcfc888d75c26fe48a1e6.ctex"]
+source_file="res://menu/theme/icons/configure_event.png"
+dest_files=["res://.godot/imported/configure_event.png-a3ddf287c91f72992ae31b8476cdcc91.ctex"]
 
 [params]
 

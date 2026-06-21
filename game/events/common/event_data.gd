@@ -27,6 +27,10 @@ extends Resource
 ## Если равно [code]true[/code], то у админа будет возможность назначать игрокам команды.
 @export var team_event := false
 
+@export_group("Parameters")
+## Словарь параметров события, где ключ - ID параметра.
+@export var parameters: Dictionary[String, EventParameter]
+
 @export_group("Paths")
 ## Путь до сцены с событием.
 @export_file("PackedScene") var scene_path: String
@@ -34,3 +38,23 @@ extends Resource
 @export_file("Texture2D") var image_path: String
 ## Массив карт данного события.
 @export var maps: Array[MapData]
+
+
+## Возвращает словарь параметров события по умолчанию.
+func get_default_parameters() -> Dictionary[String, int]:
+	var default_parameters: Dictionary[String, int]
+	for parameter_id in parameters:
+		default_parameters[parameter_id] = parameters[parameter_id].default_value
+	return default_parameters
+
+
+## Возвращает [code]true[/code], если все предоставленные параметры допустимы.
+func is_parameters_valid(parameters_to_check: Dictionary[String, int]) -> bool:
+	if parameters_to_check.size() != parameters.size():
+		return false
+	for parameter_id in parameters:
+		if not parameter_id in parameters_to_check:
+			return false
+		if not parameters[parameter_id].is_parameter_valid(parameters_to_check[parameter_id]):
+			return false
+	return true

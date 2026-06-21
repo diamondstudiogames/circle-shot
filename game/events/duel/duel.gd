@@ -159,7 +159,7 @@ func _end_round(win_team: int, winner: int, ends := false) -> void:
 	
 	if has_node(^"PoisonSmokes"):
 		var tween: Tween = $PoisonSmokes.create_tween()
-		tween.tween_property($PoisonSmokes, ^":modulate", Color.TRANSPARENT, 0.3)
+		tween.tween_property($PoisonSmokes as CanvasItem, ^":modulate", Color.TRANSPARENT, 0.3)
 		tween.tween_callback($PoisonSmokes.queue_free)
 	
 	get_tree().call_group(&"player", &"block_weapon_usage")

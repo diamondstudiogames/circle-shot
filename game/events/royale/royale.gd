@@ -55,17 +55,21 @@ func _initialize() -> void:
 
 func _finish_start() -> void:
 	var smokes: Node2D = _poison_smokes_scene.instantiate()
+	smokes.set(&"duration", parameters["smoke_fill_time"])
 	add_child(smokes)
 	var tween: Tween = smokes.create_tween()
 	tween.tween_property(smokes, ^":modulate", smokes.modulate, 0.3).from(Color.TRANSPARENT)
 	_places = alive_players.size()
 	if multiplayer.is_server():
-		($HealBoxSpawnTimer as Timer).start(heal_box_spawn_interval_base
-				+ heal_box_spawn_interval_per_player * alive_players.size())
-		($AmmoBoxSpawnTimer as Timer).start(ammo_box_spawn_interval_base
-				+ ammo_box_spawn_interval_per_player * alive_players.size())
-		($WeaponBoxSpawnTimer as Timer).start(weapon_box_spawn_interval_base
-				+ weapon_box_spawn_interval_per_player * alive_players.size())
+		if parameters["heal_boxes"] == 1:
+			($HealBoxSpawnTimer as Timer).start(heal_box_spawn_interval_base
+					+ heal_box_spawn_interval_per_player * alive_players.size())
+		if parameters["ammo_boxes"] == 1:
+			($AmmoBoxSpawnTimer as Timer).start(ammo_box_spawn_interval_base
+					+ ammo_box_spawn_interval_per_player * alive_players.size())
+		if parameters["weapon_boxes"] == 1:
+			($WeaponBoxSpawnTimer as Timer).start(weapon_box_spawn_interval_base
+					+ weapon_box_spawn_interval_per_player * alive_players.size())
 		_check_for_end()
 
 
@@ -144,13 +148,13 @@ func _get_box_spawn_point() -> Vector2:
 		var point := Vector2(value_x * game_zone, value_y * game_zone)
 		point = point.snappedf(160.0) + Vector2.ONE * 80.0
 		
-		var parameters := PhysicsShapeQueryParameters2D.new()
-		parameters.collide_with_areas = true
-		parameters.collision_mask = 49 # World, Fence и Items
-		parameters.shape = test_shape
-		parameters.transform = Transform2D(0.0, point)
+		var params := PhysicsShapeQueryParameters2D.new()
+		params.collide_with_areas = true
+		params.collision_mask = 49 # World, Fence и Items
+		params.shape = test_shape
+		params.transform = Transform2D(0.0, point)
 		var results: Array[Dictionary] = PhysicsServer2D.space_get_direct_state(
-				get_viewport().find_world_2d().space).intersect_shape(parameters, 1)
+				get_viewport().find_world_2d().space).intersect_shape(params, 1)
 		if results.is_empty():
 			return point
 	

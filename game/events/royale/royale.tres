@@ -5,7 +5,33 @@
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="1_x4pw4"]
 [ext_resource type="Resource" uid="uid://bwdhlwdrv1a5w" path="res://game/maps/royale/space/space.tres" id="4_2fwnc"]
 [ext_resource type="Resource" uid="uid://bv8o5y5sy8or2" path="res://game/maps/royale/underwater_world/underwater_world.tres" id="5_7ikd7"]
+[ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="6_0ox73"]
 [ext_resource type="Resource" uid="uid://cq76r0krsilke" path="res://game/maps/royale/thunder/thunder.tres" id="6_racpl"]
+
+[sub_resource type="Resource" id="Resource_racpl"]
+script = ExtResource("6_0ox73")
+default_value = 1
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_0ox73"]
+script = ExtResource("6_0ox73")
+default_value = 1
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_mvlat"]
+script = ExtResource("6_0ox73")
+default_value = 1
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_ct00e"]
+script = ExtResource("6_0ox73")
+type = 2
+default_value = 300
+range_min = 60
+range_max = 600
+range_step = 10
+suffix = " с"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]
 script = ExtResource("1_x4pw4")
@@ -14,6 +40,12 @@ brief_description = "Побеждает последний выживший!"
 description = "Цель проста - оказаться последним выжившим. Со временем арена боя сужается из-за дыма, и становится всё теснее и теснее.
 Также на карте иногда появляются коробки, которые лечат, восполняют боеприпасы или дают бонусное оружие."
 min_players = 3
+parameters = Dictionary[String, ExtResource("6_0ox73")]({
+"ammo_boxes": SubResource("Resource_0ox73"),
+"heal_boxes": SubResource("Resource_racpl"),
+"smoke_fill_time": SubResource("Resource_ct00e"),
+"weapon_boxes": SubResource("Resource_mvlat")
+})
 scene_path = "uid://yfpyfv6boyao"
 image_path = "uid://nk1w1iu0ambu"
 maps = Array[ExtResource("1_4pccw")]([ExtResource("1_j8k4y"), ExtResource("4_2fwnc"), ExtResource("5_7ikd7"), ExtResource("6_racpl")])
