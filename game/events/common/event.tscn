@@ -2,14 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://bkvfj405l2gvw" path="res://game/core/world.tscn" id="1_6dq27"]
 [ext_resource type="Script" uid="uid://ciktx11hqv3ox" path="res://game/events/common/event.gd" id="1_kxt6o"]
+[ext_resource type="Texture2D" uid="uid://b0tfeen53eoyp" path="res://game/events/common/emotions/textures/like.png" id="3_gkooh"]
 [ext_resource type="Script" uid="uid://buk2lt6westdi" path="res://game/events/common/event_ui.gd" id="4_10cmx"]
+[ext_resource type="Texture2D" uid="uid://c8femoe1xjkhy" path="res://game/events/common/emotions/textures/dislike.png" id="4_ss686"]
 [ext_resource type="Shortcut" uid="uid://dqhqklmms38d2" path="res://game/shared/ui/shortcuts/pause_shortcut.tres" id="4_t8n0q"]
+[ext_resource type="Texture2D" uid="uid://bqxdkln2kkibh" path="res://game/events/common/emotions/textures/smile.png" id="5_gfnw7"]
+[ext_resource type="Texture2D" uid="uid://cumnfa4srq18b" path="res://game/events/common/emotions/textures/neutral.png" id="6_n0ugw"]
+[ext_resource type="Texture2D" uid="uid://1htirfok0338" path="res://game/events/common/emotions/textures/angry.png" id="7_iih6h"]
 [ext_resource type="PackedScene" uid="uid://dg3dj2mxhusof" path="res://game/shared/ui/chat/chat.tscn" id="7_w1x71"]
 [ext_resource type="Texture2D" uid="uid://cndb4a0hg0r5l" path="res://menu/shop/coins/coin_small.png" id="8_nrcab"]
+[ext_resource type="Texture2D" uid="uid://celt1ssdnn6g" path="res://game/events/common/emotions/textures/sad.png" id="8_o0cfd"]
+[ext_resource type="Texture2D" uid="uid://t1sph46waasb" path="res://game/events/common/emotions/textures/wow.png" id="9_l5dr1"]
+[ext_resource type="Texture2D" uid="uid://dtfi53vwn6sir" path="res://game/events/common/emotions/textures/skull.png" id="10_n71do"]
 [ext_resource type="PackedScene" uid="uid://b1ipe4g6uueie" path="res://game/events/common/reward.tscn" id="10_w1x71"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="12_jddfk"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="13_j0bsh"]
 [ext_resource type="Texture2D" uid="uid://d14nbphg5o3a" path="res://game/shared/ui/chat/chat.png" id="14_05fx8"]
+[ext_resource type="PackedScene" uid="uid://bkyhxor5s6032" path="res://game/events/common/emotions/emotion_cloud.tscn" id="18_ss686"]
 
 [sub_resource type="Animation" id="Animation_atj0b"]
 length = 0.001
@@ -196,6 +205,7 @@ _data = {
 [node name="Event" unique_id=1053316142 instance=ExtResource("1_6dq27")]
 script = ExtResource("1_kxt6o")
 spawn_point_randomness = 40.0
+emotions = Array[Texture2D]([ExtResource("3_gkooh"), ExtResource("4_ss686"), ExtResource("5_gfnw7"), ExtResource("6_n0ugw"), ExtResource("7_iih6h"), ExtResource("8_o0cfd"), ExtResource("9_l5dr1"), ExtResource("10_n71do")])
 
 [node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_10cmx")
@@ -251,6 +261,22 @@ offset_top = -480.0
 offset_right = 496.0
 offset_bottom = -80.0
 chat_button_path = NodePath("../Chat")
+
+[node name="Emotions" type="Control" parent="UI/Main/ChatPanel" index="1" unique_id=200808374]
+layout_mode = 2
+
+[node name="EmotionsContainer" type="VFlowContainer" parent="UI/Main/ChatPanel/Emotions" index="0" unique_id=2016139220]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = 16.0
+grow_vertical = 2
+alignment = 1
+last_wrap_alignment = 1
 
 [node name="RewardsPanel" type="PanelContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=1539826680]
 visible = false
@@ -433,7 +459,7 @@ stream = ExtResource("12_jddfk")
 bus = &"Music"
 
 [node name="ResourcePreloaderEvent" type="ResourcePreloader" parent="." index="14" unique_id=1355864117]
-resources = [PackedStringArray("reward"), [ExtResource("10_w1x71")]]
+resources = [PackedStringArray("emotion_cloud", "reward"), [ExtResource("18_ss686"), ExtResource("10_w1x71")]]
 
 [node name="ShowRewardsTimer" type="Timer" parent="." index="15" unique_id=1086220819]
 wait_time = 1.2

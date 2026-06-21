@@ -14,6 +14,8 @@ signal ended
 
 ## Определяет максимум случайного расстояния от заданной точки появления.
 @export var spawn_point_randomness := 40.0
+## Массив эмоций, которые может отправить игрок.
+@export var emotions: Array[Texture2D]
 
 ## Данные об этом событии.
 var data: EventData
@@ -29,6 +31,8 @@ var players_names: Dictionary[int, String]
 var players_teams: Dictionary[int, int]
 
 var _players_skill_vars: Dictionary[int, Array]
+
+var _emotion_cloud_scene: PackedScene = load("uid://bkyhxor5s6032")
 
 ## Ссылка на [EventUI].
 @onready var event_ui: EventUI = $UI
@@ -142,6 +146,13 @@ func get_event_info() -> String:
 	return "%s, %s" % [data.name, _get_event_status() if was_started else "начало"]
 
 
+## Отправляет эмоцию в соответствии с данным индексом [param idx].
+func send_emotion(idx: int) -> void:
+	if not is_instance_valid(local_player):
+		return
+	_request_send_emotion.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, idx)
+
+
 @rpc("call_local", "reliable", "authority", 3)
 func _start() -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
@@ -161,6 +172,45 @@ func _start() -> void:
 	started.emit()
 	was_started = true
 	print_verbose("Event started.")
+
+
+@rpc("call_local", "reliable", "any_peer", 3)
+func _request_send_emotion(idx: int) -> void:
+	if not multiplayer.is_server():
+		push_error("Unexpected call on client.")
+		return
+	var sender_id: int = multiplayer.get_remote_sender_id()
+	if not sender_id in players:
+		push_warning("Player %d tried to send emotion while not alive." % sender_id)
+		return
+	if idx < 0 or idx >= emotions.size():
+		push_warning("Player %d tried to send emotion with invalid index %d." % [sender_id, idx])
+		return
+	
+	_show_emotion.rpc(sender_id, idx)
+
+
+@rpc("call_local", "reliable", "authority", 3)
+func _show_emotion(player_id: int, idx: int) -> void:
+	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
+		push_error("This method must be called only by server.")
+		return
+	if not Globals.get_setting_bool("chat_in_game"):
+		return
+	if not player_id in players:
+		push_warning("Can't show emotion on nonexistent player %d." % player_id)
+		return
+	
+	var player: Player = players[player_id]
+	var emotion_cloud: Node2D = _emotion_cloud_scene.instantiate()
+	var old_emotion_cloud: Node2D = player.get_node_or_null(NodePath(emotion_cloud.name))
+	if is_instance_valid(old_emotion_cloud):
+		old_emotion_cloud.name += "Old"
+		old_emotion_cloud.queue_free()
+	(emotion_cloud.get_node(^"%Emotion") as Sprite2D).texture = emotions[idx]
+	player.add_child(emotion_cloud)
+	
+	print_verbose("Showed emotion %d on player %d." % [idx, player_id])
 
 
 func _setup() -> void:

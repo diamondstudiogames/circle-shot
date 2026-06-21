@@ -63,7 +63,7 @@ Forward Mobile - современный метод отрисовки, одна�
  - Неактивен: открытие портов не удалось (на роутере не включён UPnP либо нет его поддержки, ...), для повторной попытки необходим перезапуск.", "Настраивает мёртвую зону прицеливания, в которой направление прицела остаётся неизменным вне зависимости от положения курсора.", "Настраивает зону прицеливания, в которой расстояние курсора от центра определяет дальность прицеливания (например, насколько сильно должна быть брошена граната). Если курсор выходит за пределы этой зоны, дальность прицеливания считается максимальной.", "Отключение мини-карты может повысить производительность на слабых устройствах.", "Если включено, созданная комната может быть найдена другими игроками в локальной сети. Иначе подключение может быть выполнено только по IP-адресу.", "Если включено, убирает некоторые детали для повышения производительности.", "Если отключено, встроенные в игру официальные треки не будут случайно попадаться среди пользовательских.", "Управляет пользовательскими треками в меню.
 Отключено - в меню будет один официальный трек.
 Использовать треки для боя - в меню будут использоваться те же пользовательские треки, что и в бою.
-Использовать отдельные треки - в меню будут использоваться треки, загруженные из отдельной папки. Ограничения по количеству и размеров треков те же, что и у треков для боя."])
+Использовать отдельные треки - в меню будут использоваться треки, загруженные из отдельной папки. Ограничения по количеству и размеров треков те же, что и у треков для боя.", "Если отключено, чат и эмоции будут недоступны в бою."])
 
 [node name="Background" type="TextureRect" parent="." unique_id=877726021]
 layout_mode = 1
@@ -507,7 +507,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
-text = "Чат в бою"
+text = "Общение в бою"
 vertical_alignment = 1
 
 [node name="Setting" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame" unique_id=811622888]
@@ -520,7 +520,6 @@ layout_mode = 2
 size_flags_horizontal = 2
 
 [node name="Help" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting" unique_id=1470209450]
-visible = false
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 icon = ExtResource("1_xh6xh")
@@ -1595,6 +1594,7 @@ visible = false
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowMinimap/Setting/Help" to="." method="show_help" binds= [13]]
 [connection signal="toggled" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ShowDebug/Setting/ShowDebugCheck" to="." method="_on_show_debug_check_toggled"]
 [connection signal="toggled" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting/ChatInGameCheck" to="." method="_on_chat_in_game_check_toggled"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/ChatInGame/Setting/Help" to="." method="show_help" binds= [18]]
 [connection signal="toggled" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting/VibrationCheck" to="." method="_on_vibration_check_toggled"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/Vibration/Setting/Help" to="." method="show_help" binds= [2]]
 [connection signal="item_selected" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/ScrollContainer/Sections/Game/DodgeDirection/Setting/DodgeOptions" to="." method="_on_dodge_options_item_selected"]
