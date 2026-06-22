@@ -5,6 +5,28 @@
 [ext_resource type="Resource" uid="uid://brqjqke8notbq" path="res://game/maps/teamfight/polygon/polygon.tres" id="2_nhpwv"]
 [ext_resource type="Resource" uid="uid://7pom80c82ejy" path="res://game/maps/teamfight/river/river.tres" id="3_ejupg"]
 [ext_resource type="Resource" uid="uid://bnec58kw617d0" path="res://game/maps/teamfight/underwater_ruins/underwater_ruins.tres" id="4_pcem4"]
+[ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="5_72mca"]
+
+[sub_resource type="Resource" id="Resource_5m8aj"]
+script = ExtResource("5_72mca")
+name = "Убийств для победы"
+type = 1
+range_max = 50
+range_step = 5
+icon_path = "uid://psuvsyisygi1"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_b3beq"]
+script = ExtResource("5_72mca")
+name = "Время матча"
+type = 2
+default_value = 180
+range_min = 60
+range_max = 480
+range_step = 10
+icon_path = "uid://bwvkqv21sh7tl"
+suffix = " с"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]
 script = ExtResource("2_066hq")
@@ -15,6 +37,10 @@ default_player_health = 50
 min_players = 4
 players_divider = 2
 team_event = true
+parameters = Dictionary[String, ExtResource("5_72mca")]({
+"kills_to_win": SubResource("Resource_5m8aj"),
+"match_time": SubResource("Resource_b3beq")
+})
 scene_path = "uid://d2iraf4bc27ee"
 image_path = "uid://crqlredjtnixv"
 maps = Array[ExtResource("1_d4e2q")]([ExtResource("2_nhpwv"), ExtResource("3_ejupg"), ExtResource("4_pcem4")])

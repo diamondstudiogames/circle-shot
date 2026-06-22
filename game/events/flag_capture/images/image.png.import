@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmn8kaiaf67qv"
-path="res://.godot/imported/image.png-f4309d25c689be50c77443542056ee00.ctex"
+path="res://.godot/imported/image.png-a11dbd5f2cd46e65bcbe426597800b6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/flag_capture/image.png"
-dest_files=["res://.godot/imported/image.png-f4309d25c689be50c77443542056ee00.ctex"]
+source_file="res://game/events/flag_capture/images/image.png"
+dest_files=["res://.godot/imported/image.png-a11dbd5f2cd46e65bcbe426597800b6a.ctex"]
 
 [params]
 

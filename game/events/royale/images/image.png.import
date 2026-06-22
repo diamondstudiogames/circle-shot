@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cruf4enh5gqvr"
-path="res://.godot/imported/smoke_fill_time.png-0f891f08709a2315b24c968adfd55336.ctex"
+uid="uid://nk1w1iu0ambu"
+path="res://.godot/imported/image.png-303d46aed233f3848bf61a6a8e92b5ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/royale/icons/smoke_fill_time.png"
-dest_files=["res://.godot/imported/smoke_fill_time.png-0f891f08709a2315b24c968adfd55336.ctex"]
+source_file="res://game/events/royale/images/image.png"
+dest_files=["res://.godot/imported/image.png-303d46aed233f3848bf61a6a8e92b5ac.ctex"]
 
 [params]
 

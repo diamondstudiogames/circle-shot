@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgtkku3344kj6"
-path="res://.godot/imported/ammo_boxes.png-2ab1654f9ba1671e07bdea46215ff055.ctex"
+path="res://.godot/imported/parameter_ammo_boxes.png-ffc59486f1417c6bf435c8f375cbdd48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/royale/icons/ammo_boxes.png"
-dest_files=["res://.godot/imported/ammo_boxes.png-2ab1654f9ba1671e07bdea46215ff055.ctex"]
+source_file="res://game/events/royale/images/parameter_ammo_boxes.png"
+dest_files=["res://.godot/imported/parameter_ammo_boxes.png-ffc59486f1417c6bf435c8f375cbdd48.ctex"]
 
 [params]
 

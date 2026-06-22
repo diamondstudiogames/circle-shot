@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nk1w1iu0ambu"
-path="res://.godot/imported/image.png-3a5091447667ec75277614a772f0afeb.ctex"
+uid="uid://ct8qgowbueaa7"
+path="res://.godot/imported/parameter_flags_to_win.png-a6964bb6f89f4e8729627e97a11ccaab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/royale/image.png"
-dest_files=["res://.godot/imported/image.png-3a5091447667ec75277614a772f0afeb.ctex"]
+source_file="res://game/events/flag_capture/images/parameter_flags_to_win.png"
+dest_files=["res://.godot/imported/parameter_flags_to_win.png-a6964bb6f89f4e8729627e97a11ccaab.ctex"]
 
 [params]
 

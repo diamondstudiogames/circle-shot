@@ -23,8 +23,6 @@ enum Type {
 @export var type := Type.CHECK_BUTTON
 ## Значение по умолчанию.
 @export var default_value: int
-## Путь до иконки параметра события.
-@export_file("Texture2D") var icon_path: String
 
 @export_group("Range", "range_")
 ## Минимальное значение области допустимых значений.
@@ -35,6 +33,8 @@ enum Type {
 @export var range_step: int = 1
 
 @export_group("Visuals")
+## Путь до иконки параметра события.
+@export_file("Texture2D") var icon_path: String
 ## Префикс значения этого параметра. Используется для отображения значения при настройке.
 @export var prefix: String
 ## Суффикс значения этого параметра. Используется для отображения значения при настройке.

@@ -11,6 +11,12 @@ func set_score(red: int, blue: int) -> void:
 	($Main/BlueCount as Label).text = str(blue)
 
 
+## Устанавливает количество раундов для победы, отображая его под счётом.
+func set_rounds_to_win(rounds_to_win: int) -> void:
+	($Main/RedCount/ToWin as Label).text = "/%d" % rounds_to_win
+	($Main/BlueCount/ToWin as Label).text = "/%d" % rounds_to_win
+
+
 ## Показывает победившую команду.
 func show_winner(blue_won: bool) -> void:
 	($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"victory")

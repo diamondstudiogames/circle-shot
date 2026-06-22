@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdqjhriesx2i1"
-path="res://.godot/imported/letter_b.png-36403c8ec0abd7515ac4f4c427556e27.ctex"
+uid="uid://co7jr32vxnktn"
+path="res://.godot/imported/parameter_rounds_to_win.png-ca161929f57c42d77b90a9690228df79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/bomb_defusal/letter_b.png"
-dest_files=["res://.godot/imported/letter_b.png-36403c8ec0abd7515ac4f4c427556e27.ctex"]
+source_file="res://game/events/common/images/parameter_rounds_to_win.png"
+dest_files=["res://.godot/imported/parameter_rounds_to_win.png-ca161929f57c42d77b90a9690228df79.ctex"]
 
 [params]
 

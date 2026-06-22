@@ -9,6 +9,12 @@ func set_kills(red: int, blue: int) -> void:
 	($Main/BlueCount as Label).text = str(blue)
 
 
+## Устанавливает количество убийств для победы, отображая его под счётом.
+func set_kills_to_win(kills_to_win: int) -> void:
+	($Main/RedCount/ToWin as Label).text = "/%d" % kills_to_win
+	($Main/BlueCount/ToWin as Label).text = "/%d" % kills_to_win
+
+
 ## Показывает победившую команду. [code]-1[/code] означает ничью.
 func show_winner(team: int) -> void:
 	if team < 0:

@@ -4,6 +4,27 @@
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_070ub"]
 [ext_resource type="Resource" uid="uid://cnpnlnxo5nbl7" path="res://game/maps/flag_capture/forest/forest.tres" id="2_xa7ng"]
 [ext_resource type="Resource" uid="uid://dcn34giesfxix" path="res://game/maps/flag_capture/space_arena/space_arena.tres" id="3_xa7ng"]
+[ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="4_0sk4j"]
+
+[sub_resource type="Resource" id="Resource_qbmqf"]
+script = ExtResource("4_0sk4j")
+name = "Флагов для победы"
+type = 1
+range_max = 10
+icon_path = "uid://ct8qgowbueaa7"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_bnphn"]
+script = ExtResource("4_0sk4j")
+name = "Время матча"
+type = 2
+default_value = 240
+range_min = 120
+range_max = 720
+range_step = 20
+icon_path = "uid://bwvkqv21sh7tl"
+suffix = " с"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]
 script = ExtResource("2_070ub")
@@ -16,6 +37,10 @@ default_player_health = 75
 min_players = 4
 players_divider = 2
 team_event = true
+parameters = Dictionary[String, ExtResource("4_0sk4j")]({
+"flags_to_win": SubResource("Resource_qbmqf"),
+"match_time": SubResource("Resource_bnphn")
+})
 scene_path = "uid://biauwlgys7ce4"
 image_path = "uid://dmn8kaiaf67qv"
 maps = Array[ExtResource("1_0vfle")]([ExtResource("2_xa7ng"), ExtResource("3_xa7ng")])

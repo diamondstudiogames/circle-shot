@@ -372,7 +372,6 @@ radius = 320.0
 
 [node name="Event" unique_id=1388057719 instance=ExtResource("1_geta0")]
 script = ExtResource("2_xtwto")
-match_time = 240
 comeback_time = 5
 coins_for_win = 70
 coins_for_draw = 55
@@ -437,6 +436,24 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ToWin" type="Label" parent="UI/Main/RedCount" index="0" unique_id=2123248439]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HeaderSmallOutlined"
+theme_override_colors/font_color = Color(0.7529412, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="BlueCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=1356426411]
 layout_mode = 1
 anchors_preset = 5
@@ -453,6 +470,24 @@ theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToWin" type="Label" parent="UI/Main/BlueCount" index="0" unique_id=2029734000]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HeaderSmallOutlined"
+theme_override_colors/font_color = Color(0, 0, 0.7529412, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="GameEnd" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="9" unique_id=1705053654]
 visible = false

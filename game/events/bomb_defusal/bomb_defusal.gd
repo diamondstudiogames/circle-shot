@@ -8,11 +8,6 @@ signal round_started
 ## Издаётся, когда раунд заканчивается.
 signal round_ended
 
-## Длительность раунда (если бомба не была заложена).
-@export var round_time: int = 90
-## Сколько раундов нужно выиграть, чтобы победить.
-@export var rounds_to_win: int = 3
-
 @export_group("Rewards")
 ## Количество монет, которое получит игрок при победе.
 @export var coins_for_win: int = 70
@@ -24,6 +19,11 @@ signal round_ended
 @export var coins_for_bomb: int = 10
 ## Сколько нужно нанести урона, чтобы получить монету.
 @export var damage_for_coin: int = 20
+
+## Длительность раунда (если бомба не была заложена).
+var round_time: int = 80
+## Сколько раундов нужно выиграть, чтобы победить.
+var rounds_to_win: int = 4
 
 ## Количество раундов, выигранной красной командой.
 var red_rounds_won: int = 0
@@ -56,7 +56,11 @@ func _initialize() -> void:
 	_spawn_points_blue.shuffle()
 	_spawn_points_red.shuffle()
 	
+	rounds_to_win = parameters["rounds_to_win"]
+	round_time = parameters["round_time"]
+	
 	_bomb_defusal_ui.set_score(red_rounds_won, blue_rounds_won)
+	_bomb_defusal_ui.set_rounds_to_win(rounds_to_win)
 	
 	if multiplayer.is_server():
 		_spawn_counter_red = randi() % 5

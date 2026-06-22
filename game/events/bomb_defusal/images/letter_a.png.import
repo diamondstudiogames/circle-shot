@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://htarcqwm76"
-path="res://.godot/imported/letter_a.png-7b78bae17f989de4d2757b3546a4be9e.ctex"
+path="res://.godot/imported/letter_a.png-c8d96106edfc854d6a191d3c7c275d59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/bomb_defusal/letter_a.png"
-dest_files=["res://.godot/imported/letter_a.png-7b78bae17f989de4d2757b3546a4be9e.ctex"]
+source_file="res://game/events/bomb_defusal/images/letter_a.png"
+dest_files=["res://.godot/imported/letter_a.png-c8d96106edfc854d6a191d3c7c275d59.ctex"]
 
 [params]
 

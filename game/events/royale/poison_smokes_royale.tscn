@@ -4,4 +4,4 @@
 
 [node name="PoisonSmokes" unique_id=622717537 instance=ExtResource("1_t8mqv")]
 duration = 300.0
-start_distance = 6400.0
+start_distance = 7200.0

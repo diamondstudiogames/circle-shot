@@ -9,6 +9,12 @@ func set_flags(red: int, blue: int) -> void:
 	($Main/BlueCount as Label).text = str(blue)
 
 
+## Устанавливает количество флагов для победы, отображая его под счётом.
+func set_flags_to_win(flags_to_win: int) -> void:
+	($Main/RedCount/ToWin as Label).text = "/%d" % flags_to_win
+	($Main/BlueCount/ToWin as Label).text = "/%d" % flags_to_win
+
+
 ## Показывает победившую команду. [code]-1[/code] означает ничью.
 func show_winner(team: int) -> void:
 	if team < 0:

@@ -3,6 +3,29 @@
 [ext_resource type="Script" uid="uid://c2mew3f2rwarc" path="res://game/maps/common/map_data.gd" id="1_xhwgd"]
 [ext_resource type="Resource" uid="uid://dcs7gnmh5psjs" path="res://game/maps/bomb_defusal/desert_debris/desert_debris.tres" id="2_0ehtw"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_1hwfc"]
+[ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="3_0ehtw"]
+
+[sub_resource type="Resource" id="Resource_ugqa5"]
+script = ExtResource("3_0ehtw")
+name = "Время раунда"
+type = 2
+default_value = 80
+icon_path = "uid://bwvkqv21sh7tl"
+range_min = 40
+range_max = 180
+range_step = 5
+suffix = " с"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_rsvdl"]
+script = ExtResource("3_0ehtw")
+name = "Раундов для победы"
+type = 1
+default_value = 4
+icon_path = "uid://co7jr32vxnktn"
+range_min = 1
+range_max = 13
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]
 script = ExtResource("2_1hwfc")
@@ -15,6 +38,10 @@ default_player_health = 75
 min_players = 4
 players_divider = 2
 team_event = true
+parameters = Dictionary[String, ExtResource("3_0ehtw")]({
+"round_time": SubResource("Resource_ugqa5"),
+"rounds_to_win": SubResource("Resource_rsvdl")
+})
 scene_path = "uid://bi0w23hbv2mue"
 image_path = "uid://dajxd38rxv22x"
 maps = Array[ExtResource("1_xhwgd")]([ExtResource("2_0ehtw")])

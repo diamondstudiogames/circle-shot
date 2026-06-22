@@ -3,8 +3,6 @@ extends Event
 
 ## Событие "Захват флага".
 
-## Длительность матча.
-@export var match_time: int = 180
 ## Время, через которое возвращаются павшие игроки.
 @export var comeback_time: int = 3
 
@@ -21,6 +19,11 @@ extends Event
 @export var coins_for_kill: int = 5
 ## Сколько нужно нанести урона, чтобы получить монету.
 @export var damage_for_coin: int = 10
+
+## Длительность матча.
+var match_time: int = 180
+## Количество флагов для победы. Если равно 0, то ограничения нет.
+var flags_to_win: int = 0
 
 ## Количество флагов, захваченных красной командой.
 var red_flags_captured: int = 0
@@ -48,10 +51,15 @@ func _initialize() -> void:
 	_spawn_points_blue.shuffle()
 	_spawn_points_red.shuffle()
 	
+	match_time = parameters["match_time"]
+	flags_to_win = parameters["flags_to_win"]
+	
 	_flag_capture_ui.set_time(match_time)
 	_flag_capture_ui.set_flags(red_flags_captured, blue_flags_captured)
-	_time_remained = match_time
+	if flags_to_win > 0:
+		_flag_capture_ui.set_flags_to_win(flags_to_win)
 	
+	_time_remained = match_time
 	if multiplayer.is_server():
 		_spawn_counter_red = randi() % 5
 		_spawn_counter_blue = randi() % 5
@@ -216,6 +224,11 @@ func _on_flag_zone_red_flag_captured(by: int) -> void:
 	if by > 0:
 		_increment_flags_captured.rpc_id(by)
 	_update_score.rpc(red_flags_captured, blue_flags_captured, false)
+	if flags_to_win > 0:
+		if red_flags_captured >= flags_to_win or blue_flags_captured >= flags_to_win:
+			($MatchTimer as Timer).stop()
+			_end_event()
+			return
 	_spawn_flag.call_deferred(true)
 
 
@@ -224,4 +237,9 @@ func _on_flag_zone_blue_flag_captured(by: int) -> void:
 	if by > 0:
 		_increment_flags_captured.rpc_id(by)
 	_update_score.rpc(red_flags_captured, blue_flags_captured, true)
+	if flags_to_win > 0:
+		if red_flags_captured >= flags_to_win or blue_flags_captured >= flags_to_win:
+			($MatchTimer as Timer).stop()
+			_end_event()
+			return
 	_spawn_flag.call_deferred(false)

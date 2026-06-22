@@ -28,6 +28,7 @@ func _ready() -> void:
 		var button := Button.new()
 		button.name = "Emotion%d" % idx
 		button.icon = event.emotions[idx]
+		button.self_modulate.a = 0.75
 		button.add_theme_constant_override(&"icon_max_width", 64)
 		button.pressed.connect(_on_emotion_button_pressed.bind(idx))
 		_emotions_container.add_child(button)
