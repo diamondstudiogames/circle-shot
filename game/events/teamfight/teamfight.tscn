@@ -281,11 +281,11 @@ _data = {
 [node name="Event" unique_id=1258676499 instance=ExtResource("1_6uxmc")]
 script = ExtResource("2_btc68")
 comeback_time = 3
-coins_for_win = 65
-coins_for_draw = 50
-coins_for_defeat = 30
-coins_for_kill = 5
-damage_for_coin = 25
+match_time_in_coins_divider_win = 3.0
+match_time_in_coins_divider_draw = 4.5
+match_time_in_coins_divider_defeat = 6.0
+coins_for_kill = 6
+damage_for_coin = 24
 entity_scenes = Array[PackedScene]([ExtResource("3_xyyla")])
 
 [node name="UI" parent="." index="8" unique_id=147986541]

@@ -7,12 +7,15 @@ extends Event
 @export var comeback_time: int = 3
 
 @export_group("Rewards")
-## Количество монет, которое получит игрок при победе.
-@export var coins_for_win: int = 70
-## Количество монет, которое получит игрок при ничье.
-@export var coins_for_draw: int = 55
-## Количество монет, которое получит игрок при поражении.
-@export var coins_for_defeat: int = 35
+## Количество монет, которое получит игрок при победе. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_win := 2.75
+## Количество монет, которое получит игрок при ничье. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_draw := 3.6
+## Количество монет, которое получит игрок при поражении. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_defeat := 6.0
 ## Количество монет, которое получит игрок за каждое убийство.
 @export var coins_for_kill: int = 5
 ## Сколько нужно нанести урона, чтобы получить монету.
@@ -110,11 +113,11 @@ func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
 	var result_coins: int
 	if _team_won == local_team:
-		result_coins = coins_for_win
+		result_coins = roundi(match_time / match_time_in_coins_divider_win)
 	elif _team_won < 0:
-		result_coins = coins_for_draw
+		result_coins = roundi(match_time / match_time_in_coins_divider_draw)
 	else:
-		result_coins = coins_for_defeat
+		result_coins = roundi(match_time / match_time_in_coins_divider_defeat)
 	rewards["Результат"] = result_coins
 	rewards["Убийства"] = kills * coins_for_kill
 	rewards["Нанесённый урон"] = roundi(damaged / float(damage_for_coin))

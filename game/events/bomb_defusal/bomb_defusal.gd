@@ -9,10 +9,10 @@ signal round_started
 signal round_ended
 
 @export_group("Rewards")
-## Количество монет, которое получит игрок при победе.
-@export var coins_for_win: int = 70
-## Количество монет, которое получит игрок при поражении.
-@export var coins_for_defeat: int = 35
+## Количество монет, которое получит игрок за выигранный раунд.
+@export var coins_for_won_round: int = 17
+## Количество монет, которое получит игрок за проигранный раунд.
+@export var coins_for_lost_round: int = 5
 ## Количество монет, которое получит игрок за каждое убийство.
 @export var coins_for_kill: int = 5
 ## Количество монет, которое получит игрок за каждую установленную/обезвреженную бомбу.
@@ -35,7 +35,6 @@ var bombs_planted_defused: int = 0
 var _spawn_counter_red: int = 0
 var _spawn_counter_blue: int = 0
 var _time_remained: int
-var _local_won: bool
 var _current_round: int = 0
 var _round_ended := false
 
@@ -118,12 +117,16 @@ func _player_disconnected(id: int) -> void:
 
 func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
-	var result_coins: int
-	if _local_won:
-		result_coins = coins_for_win
+	var rounds_won: int
+	var rounds_lost: int
+	if local_team == 0:
+		rounds_won = red_rounds_won
+		rounds_lost = blue_rounds_won
 	else:
-		result_coins = coins_for_defeat
-	rewards["Результат"] = result_coins
+		rounds_won = blue_rounds_won
+		rounds_lost = red_rounds_won
+	rewards["Результаты раундов"] = rounds_won * coins_for_won_round \
+			+ rounds_lost * coins_for_lost_round
 	if local_team == 0:
 		rewards["Заложенные бомбы"] = bombs_planted_defused * coins_for_bomb
 	else:
@@ -233,9 +236,8 @@ func _show_round_result(blue_won: bool, final: bool) -> void:
 	print_verbose("Score: %d - %d." % [red_rounds_won, blue_rounds_won])
 	_bomb_defusal_ui.set_score(red_rounds_won, blue_rounds_won)
 	if final:
-		_local_won = blue_won and local_team == 1 or not blue_won and local_team == 0
 		_bomb_defusal_ui.show_winner(blue_won)
-		end_event(_local_won)
+		end_event(blue_won and local_team == 1 or not blue_won and local_team == 0)
 	else:
 		_bomb_defusal_ui.show_round_end(blue_won and local_team == 1
 				or not blue_won and local_team == 0)

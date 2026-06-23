@@ -7,12 +7,15 @@ extends Event
 @export var comeback_time: int = 3
 
 @export_group("Rewards")
-## Количество монет, которое получит игрок при победе.
-@export var coins_for_win: int = 80
-## Количество монет, которое получит игрок при ничье.
-@export var coins_for_draw: int = 60
-## Количество монет, которое получит игрок при поражении.
-@export var coins_for_defeat: int = 40
+## Количество монет, которое получит игрок при победе. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_win := 3.0
+## Количество монет, которое получит игрок при ничье. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_draw := 4.5
+## Количество монет, которое получит игрок при поражении. Вычисляется делением [member match_time]
+## на это значение.
+@export var match_time_in_coins_divider_defeat := 6.0
 ## Количество монет, которое получит игрок за каждый захваченный флаг.
 @export var coins_for_flag_captured: int = 12
 ## Количество монет, которое получит игрок за каждое убийство.
@@ -21,7 +24,7 @@ extends Event
 @export var damage_for_coin: int = 10
 
 ## Длительность матча.
-var match_time: int = 180
+var match_time: int = 240
 ## Количество флагов для победы. Если равно 0, то ограничения нет.
 var flags_to_win: int = 0
 
@@ -115,11 +118,11 @@ func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
 	var result_coins: int
 	if _team_won == local_team:
-		result_coins = coins_for_win
+		result_coins = roundi(match_time / match_time_in_coins_divider_win)
 	elif _team_won < 0:
-		result_coins = coins_for_draw
+		result_coins = roundi(match_time / match_time_in_coins_divider_draw)
 	else:
-		result_coins = coins_for_defeat
+		result_coins = roundi(match_time / match_time_in_coins_divider_defeat)
 	rewards["Результат"] = result_coins
 	rewards["Захваченные флаги"] = flags_captured * coins_for_flag_captured
 	rewards["Убийства"] = kills * coins_for_kill

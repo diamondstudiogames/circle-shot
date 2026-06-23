@@ -171,11 +171,11 @@ _data = {
 
 [node name="Event" unique_id=1999655453 instance=ExtResource("1_k4cdx")]
 script = ExtResource("2_e8nkp")
+coins_for_kill = 3
+coins_for_won_round = 14
+coins_for_lost_round = 8
+damage_for_coin = 20
 spawn_point_randomness = 0.0
-coins_for_kill = 5
-coins_for_won_round = 12
-coins_for_lost_round = 6
-damage_for_coin = 25
 
 [node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_jj4yx")

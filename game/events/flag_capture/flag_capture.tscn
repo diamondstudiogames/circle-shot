@@ -373,9 +373,9 @@ radius = 320.0
 [node name="Event" unique_id=1388057719 instance=ExtResource("1_geta0")]
 script = ExtResource("2_xtwto")
 comeback_time = 5
-coins_for_win = 70
-coins_for_draw = 55
-coins_for_defeat = 40
+match_time_in_coins_divider_win = 3.0
+match_time_in_coins_divider_draw = 4.5
+match_time_in_coins_divider_defeat = 6.0
 coins_for_flag_captured = 11
 coins_for_kill = 6
 damage_for_coin = 25
