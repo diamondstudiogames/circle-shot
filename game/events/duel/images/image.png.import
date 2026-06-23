@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvbqf2u7e463"
-path="res://.godot/imported/round_melee.png-0966397f8ae91f6c364dc69f0aed6a0e.ctex"
+uid="uid://l44s4pxkj2mk"
+path="res://.godot/imported/image.png-75227955b2a9b21d3cd1d14855978e49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/duel/round_melee.png"
-dest_files=["res://.godot/imported/round_melee.png-0966397f8ae91f6c364dc69f0aed6a0e.ctex"]
+source_file="res://game/events/duel/images/image.png"
+dest_files=["res://.godot/imported/image.png-75227955b2a9b21d3cd1d14855978e49.ctex"]
 
 [params]
 

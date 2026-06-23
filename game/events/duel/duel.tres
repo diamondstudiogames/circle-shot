@@ -6,17 +6,52 @@
 [ext_resource type="Resource" uid="uid://dbx37xj8qw5sy" path="res://game/maps/duel/snow_forest/snow_forest.tres" id="3_88dxv"]
 [ext_resource type="Resource" uid="uid://bu14882ktmmqp" path="res://game/maps/duel/dance_floor/dance_floor.tres" id="4_1rrf0"]
 [ext_resource type="Resource" uid="uid://xajp8mv4kag7" path="res://game/maps/duel/islands/islands.tres" id="5_dhh65"]
+[ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="6_mjm0x"]
+
+[sub_resource type="Resource" id="Resource_u0ucy"]
+script = ExtResource("6_mjm0x")
+name = "Ограничения по оружию"
+default_value = 1
+icon_path = "uid://bxk304b2wklp6"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_7wsnh"]
+script = ExtResource("6_mjm0x")
+name = "Время заполнения дымом"
+type = 2
+default_value = 90
+range_min = 30
+range_max = 180
+range_step = 10
+icon_path = "uid://cruf4enh5gqvr"
+suffix = " с"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
+
+[sub_resource type="Resource" id="Resource_8cpb8"]
+script = ExtResource("6_mjm0x")
+name = "Раундов для победы"
+type = 1
+default_value = 2
+range_min = 1
+range_max = 5
+icon_path = "uid://co7jr32vxnktn"
+metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]
 script = ExtResource("2_sni41")
 name = "Дуэль"
 brief_description = "Сразись с противником 1 на 1!"
-description = "Два игрока пытаются убить друг друга в течении трёх раундов. Победителем объявляется тот, кто сделает два убийства.
+description = "Два игрока пытаются убить друг друга в течении нескольких раундов. Победителем объявляется тот, кто сделает больше убийств.
 Каждый раунд оружия, которое можно использовать, меняется:
-1-й раунд: лёгкое, поддержка и ближнее
-2-й раунд: тяжёлое, поддержка и ближнее
-3-й раунд: поддержка и ближнее"
+Нечётные раунды: лёгкое, поддержка и ближнее
+Чётные раунды: тяжёлое, поддержка и ближнее
+Последний раунд: поддержка и ближнее"
 max_players = 2
+parameters = Dictionary[String, ExtResource("6_mjm0x")]({
+"rounds_to_win": SubResource("Resource_8cpb8"),
+"smoke_fill_time": SubResource("Resource_7wsnh"),
+"weapon_restrictions": SubResource("Resource_u0ucy")
+})
 scene_path = "uid://u5a0m6y2qb4l"
 image_path = "uid://l44s4pxkj2mk"
 maps = Array[ExtResource("1_5npr2")]([ExtResource("2_a3s3w"), ExtResource("3_88dxv"), ExtResource("4_1rrf0"), ExtResource("5_dhh65")])

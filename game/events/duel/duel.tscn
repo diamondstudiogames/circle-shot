@@ -3,10 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_k4cdx"]
 [ext_resource type="Script" uid="uid://bs0sbptlo8o08" path="res://game/events/duel/duel.gd" id="2_e8nkp"]
 [ext_resource type="Script" uid="uid://d4h2h03h8byl7" path="res://game/events/duel/duel_ui.gd" id="4_jj4yx"]
-[ext_resource type="Texture2D" uid="uid://it2o6dxy7bxm" path="res://game/events/duel/round_light.png" id="6_weffi"]
 [ext_resource type="PackedScene" uid="uid://cp5ag64gc1s3k" path="res://game/events/duel/poison_smokes_duel.tscn" id="7_i2vyj"]
-[ext_resource type="Texture2D" uid="uid://cuddy8wmbcol1" path="res://game/events/duel/round_heavy.png" id="7_leh4n"]
-[ext_resource type="Texture2D" uid="uid://bdvbqf2u7e463" path="res://game/events/duel/round_melee.png" id="8_ompgj"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -174,58 +171,84 @@ _data = {
 
 [node name="Event" unique_id=1999655453 instance=ExtResource("1_k4cdx")]
 script = ExtResource("2_e8nkp")
+spawn_point_randomness = 0.0
 coins_for_kill = 5
 coins_for_won_round = 12
 coins_for_lost_round = 6
 damage_for_coin = 25
-spawn_point_randomness = 0.0
 
 [node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_jj4yx")
 
-[node name="Round0" type="TextureRect" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=654765896]
-modulate = Color(0.566406, 0.566406, 0.566406, 1)
+[node name="RedCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="5" unique_id=582127417]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -112.0
-offset_top = 16.0
-offset_right = -48.0
-offset_bottom = 80.0
+offset_left = -59.5
+offset_right = -4.5
+offset_bottom = 67.0
 grow_horizontal = 2
-texture = ExtResource("6_weffi")
-expand_mode = 1
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Round1" type="TextureRect" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=1218677867]
-modulate = Color(0.566406, 0.566406, 0.566406, 1)
+[node name="ToWin" type="Label" parent="UI/Main/RedCount" index="0" unique_id=120033524]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"HeaderSmallOutlined"
+theme_override_colors/font_color = Color(0.7529412, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BlueCount" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="6" unique_id=844777348]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -32.0
-offset_top = 16.0
-offset_right = 32.0
-offset_bottom = 80.0
+offset_left = 4.5
+offset_right = 59.5
+offset_bottom = 67.0
 grow_horizontal = 2
-texture = ExtResource("7_leh4n")
-expand_mode = 1
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Round2" type="TextureRect" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=804350737]
-modulate = Color(0.566406, 0.566406, 0.566406, 1)
+[node name="ToWin" type="Label" parent="UI/Main/BlueCount" index="0" unique_id=2007451069]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = 48.0
-offset_top = 16.0
-offset_right = 112.0
-offset_bottom = 80.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = 12.0
 grow_horizontal = 2
-texture = ExtResource("8_ompgj")
-expand_mode = 1
+grow_vertical = 0
+theme_type_variation = &"HeaderSmallOutlined"
+theme_override_colors/font_color = Color(0, 0, 0.7529412, 1)
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="RoundEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=557640326]
+[node name="RoundEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=557640326]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -242,7 +265,7 @@ grow_vertical = 2
 theme_type_variation = &"HeaderLargeOutlined"
 horizontal_alignment = 1
 
-[node name="GameEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="9" unique_id=1398096660]
+[node name="GameEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=1398096660]
 visible = false
 self_modulate = Color(1, 0, 0, 0)
 layout_mode = 1

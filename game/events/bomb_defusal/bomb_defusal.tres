@@ -10,10 +10,10 @@ script = ExtResource("3_0ehtw")
 name = "Время раунда"
 type = 2
 default_value = 80
-icon_path = "uid://bwvkqv21sh7tl"
 range_min = 40
 range_max = 180
 range_step = 5
+icon_path = "uid://bwvkqv21sh7tl"
 suffix = " с"
 metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
@@ -22,9 +22,9 @@ script = ExtResource("3_0ehtw")
 name = "Раундов для победы"
 type = 1
 default_value = 4
-icon_path = "uid://co7jr32vxnktn"
 range_min = 1
 range_max = 13
+icon_path = "uid://co7jr32vxnktn"
 metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuddy8wmbcol1"
-path="res://.godot/imported/round_heavy.png-98f6bd7bdcf937c88e7bfe6362ed0f41.ctex"
+uid="uid://bxk304b2wklp6"
+path="res://.godot/imported/parameter_weapon_restrictions.png-2670e2397331e936dee0a419d4ba4d3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/events/duel/round_heavy.png"
-dest_files=["res://.godot/imported/round_heavy.png-98f6bd7bdcf937c88e7bfe6362ed0f41.ctex"]
+source_file="res://game/events/duel/images/parameter_weapon_restrictions.png"
+dest_files=["res://.godot/imported/parameter_weapon_restrictions.png-2670e2397331e936dee0a419d4ba4d3b.ctex"]
 
 [params]
 
