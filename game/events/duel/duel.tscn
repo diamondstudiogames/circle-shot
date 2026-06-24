@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d3nsak46hbo2c" path="res://game/events/common/event.tscn" id="1_k4cdx"]
 [ext_resource type="Script" uid="uid://bs0sbptlo8o08" path="res://game/events/duel/duel.gd" id="2_e8nkp"]
+[ext_resource type="PackedScene" uid="uid://b4h27swncrquh" path="res://game/events/common/poison_smokes/poison_smokes.tscn" id="4_8qyco"]
 [ext_resource type="Script" uid="uid://d4h2h03h8byl7" path="res://game/events/duel/duel_ui.gd" id="4_jj4yx"]
-[ext_resource type="PackedScene" uid="uid://cp5ag64gc1s3k" path="res://game/events/duel/poison_smokes_duel.tscn" id="7_i2vyj"]
 
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
@@ -307,4 +307,4 @@ text = "Каждый раунд
 новое оружие!"
 
 [node name="ResourcePreloaderDuel" type="ResourcePreloader" parent="." index="16" unique_id=390578054]
-resources = [PackedStringArray("poison_smokes_duel"), [ExtResource("7_i2vyj")]]
+resources = [PackedStringArray("poison_smokes"), [ExtResource("4_8qyco")]]

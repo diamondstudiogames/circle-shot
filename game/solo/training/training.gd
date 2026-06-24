@@ -146,7 +146,7 @@ func load_default_map() -> void:
 						minimap_layer.set_cell(map_coords, 0, Vector2i(3, 0))
 						
 						var spikes: CollisionShape2D = _spikes_scene.instantiate()
-						spikes.position = map_coords * 160.0 + Vector2.ONE * 80
+						spikes.position = map_coords * BLOCK_SIZE + Vector2.ONE * BLOCK_SIZE / 2
 						spikes_parent.add_child(spikes)
 	
 	enemies_data.clear()
@@ -172,8 +172,8 @@ func load_default_map() -> void:
 		var sprite := Sprite2D.new()
 		sprite.texture = enemies_icons[enemy_data.type]
 		@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
-		sprite.position = Vector2(enemy_data.coords - MAP_SIZE / 2) * 160
-		sprite.position += Vector2.ONE * 80
+		sprite.position = Vector2(enemy_data.coords - MAP_SIZE / 2) * BLOCK_SIZE
+		sprite.position += Vector2.ONE * BLOCK_SIZE / 2
 		sprite.z_index = -4
 		sprite.modulate = Color(1.0, 1.0, 1.0, 0.5)
 		map.add_child(sprite)
@@ -196,7 +196,8 @@ func load_default_map() -> void:
 			nav_polygon.agent_radius = 77.0
 			
 			@warning_ignore("integer_division") # так и нужно, чтобы целочисленно поделил
-			var chunk_size := Vector2(Training.MAP_SIZE / 5 * 160.0) + Vector2.ONE * 320
+			var chunk_size := Vector2(Training.MAP_SIZE / 5 * BLOCK_SIZE) \
+					+ Vector2.ONE * BLOCK_SIZE * 2
 			nav_polygon.add_outline(PackedVector2Array([
 				-chunk_size,
 				chunk_size * Vector2(1.0, -1.0),
@@ -204,11 +205,12 @@ func load_default_map() -> void:
 				chunk_size * Vector2(-1.0, 1.0),
 			]))
 			nav_polygon.baking_rect = Rect2(-chunk_size / 2, chunk_size)
-			nav_polygon.border_size = 160.0
+			nav_polygon.border_size = BLOCK_SIZE
 			
 			var nav_region := NavigationRegion2D.new()
 			nav_region.name = &"NavigationRegion2D"
-			nav_region.position = Vector2((chunk_size.x - 320.0) * x, (chunk_size.y - 320.0) * y)
+			nav_region.position = Vector2((chunk_size.x - BLOCK_SIZE * 2) * x,
+					(chunk_size.y - BLOCK_SIZE * 2) * y)
 			nav_region.navigation_polygon = nav_polygon
 			nav_region.add_to_group(&"navigation_region")
 			current_map.get_node(^"NavigationRegions").add_child(nav_region, true)
@@ -378,8 +380,8 @@ func enemies_respawn() -> void:
 	enemies_destroy()
 	
 	for enemy_data: EnemyData in enemies_data:
-		var position := Vector2(enemy_data.coords - Vector2i.ONE * 25) * 160
-		position += Vector2.ONE * 80
+		var position := Vector2(enemy_data.coords - Vector2i.ONE * 25) * BLOCK_SIZE
+		position += Vector2.ONE * BLOCK_SIZE / 2
 		spawn_enemy(enemy_data.type, position, enemy_data.health,
 				enemy_data.damage_multiplier, enemy_data.speed_multiplier)
 

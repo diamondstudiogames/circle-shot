@@ -118,13 +118,13 @@ _data = {
 &"move": SubResource("Animation_3xxqq")
 }
 
-[node name="PoisonSmokes" type="Node2D" unique_id=43461876]
+[node name="PoisonSmokes" type="Node2D" unique_id=1405374236]
 physics_interpolation_mode = 1
 z_index = 4
 script = ExtResource("1_a2moi")
 damage = 20
 damage_interval = 1.0
-metadata/_custom_type_script = "uid://bgvirlnion8wa"
+metadata/_custom_type_script = "uid://dk6xb2fo1sicm"
 
 [node name="Bottom" type="Area2D" parent="." unique_id=337544990]
 position = Vector2(0, 6400)

@@ -19,6 +19,8 @@ signal cutscene_started
 ## Издаётся при конце кат-сцены.
 signal cutscene_ended
 
+## Размер блока в пикселях.
+const BLOCK_SIZE := 160.0
 ## Амплитуда вибрации при нанесении урона.
 const HIT_VIBRATION_AMPLITUDE := 0.04
 ## Длительность вибрации при нанесении урона.

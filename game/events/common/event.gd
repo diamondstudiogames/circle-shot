@@ -17,9 +17,11 @@ signal ended
 ## Массив эмоций, которые может отправить игрок.
 @export var emotions: Array[Texture2D]
 
+## Карта этого события.
+var map: Map
 ## Данные об этом событии.
 var data: EventData
-## Слварь параметров этого события.
+## Словарь параметров этого события.
 var parameters: Dictionary[String, int]
 ## Началось ли событие.
 var was_started := false

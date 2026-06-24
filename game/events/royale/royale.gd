@@ -40,7 +40,7 @@ var _place_got: int
 var _heal_box_scene: PackedScene = load("uid://bysyaaj2r7stt")
 var _ammo_box_scene: PackedScene = load("uid://bdtqr6mv231py")
 var _weapon_box_scene: PackedScene = load("uid://d0d83mi7scscc")
-var _poison_smokes_scene: PackedScene = load("uid://cr1m37xm3w88w")
+var _poison_smokes_scene: PackedScene = load("uid://b4h27swncrquh")
 
 @onready var _spawn_points: Array[Node] = $Map/SpawnPoints.get_children()
 @onready var _royale_ui: RoyaleUI = $UI
@@ -54,8 +54,10 @@ func _initialize() -> void:
 
 
 func _finish_start() -> void:
-	var smokes: Node2D = _poison_smokes_scene.instantiate()
-	smokes.set(&"duration", parameters["smoke_fill_time"])
+	var smokes: PoisonSmokes = _poison_smokes_scene.instantiate()
+	smokes.duration = parameters["smoke_fill_time"]
+	smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
+	smokes.start_distance += BLOCK_SIZE * 8 # небольшой запас
 	add_child(smokes)
 	var tween: Tween = smokes.create_tween()
 	tween.tween_property(smokes, ^":modulate", smokes.modulate, 0.3).from(Color.TRANSPARENT)
@@ -135,7 +137,8 @@ func _show_winner(winner: int, winner_name: String) -> void:
 
 
 func _get_box_spawn_point() -> Vector2:
-	var game_zone: float = maxf(320.0, ($PoisonSmokes/Right as Node2D).global_position.x - 240.0)
+	var game_zone: float = maxf(BLOCK_SIZE * 2,
+			($PoisonSmokes as PoisonSmokes).get_remained_distance() - BLOCK_SIZE * 1.5)
 	var test_shape := RectangleShape2D.new()
 	test_shape.size = Vector2.ONE * 76
 	while true:
@@ -146,7 +149,7 @@ func _get_box_spawn_point() -> Vector2:
 		if randi() % 2 == 1:
 			value_y *= -1
 		var point := Vector2(value_x * game_zone, value_y * game_zone)
-		point = point.snappedf(160.0) + Vector2.ONE * 80.0
+		point = point.snappedf(BLOCK_SIZE) + Vector2.ONE * BLOCK_SIZE / 2
 		
 		var params := PhysicsShapeQueryParameters2D.new()
 		params.collide_with_areas = true

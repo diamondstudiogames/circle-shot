@@ -10,6 +10,8 @@ extends World
 ## Издаётся, когда испытание началось (т. е. после вызова [method _start]).
 signal started
 
+## Карта этого испытания.
+var map: Map
 ## Данные об этом испытании.
 var data: ChallengeData
 ## Началось ли испытание.

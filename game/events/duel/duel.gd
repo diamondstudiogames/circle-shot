@@ -27,7 +27,7 @@ var blue_rounds_won: int = 0
 var current_round: int = 0
 
 var _ended := false
-var _poison_smokes_scene: PackedScene = load("uid://cp5ag64gc1s3k")
+var _poison_smokes_scene: PackedScene = load("uid://b4h27swncrquh")
 
 @onready var _duel_ui: DuelUI = $UI
 
@@ -125,8 +125,10 @@ func _start_round() -> void:
 	_duel_ui.start_round()
 	print_verbose("Round %d started." % current_round)
 	
-	var smokes: Node2D = _poison_smokes_scene.instantiate()
-	smokes.set(&"duration", parameters["smoke_fill_time"])
+	var smokes: PoisonSmokes = _poison_smokes_scene.instantiate()
+	smokes.duration = parameters["smoke_fill_time"]
+	smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
+	smokes.start_distance += BLOCK_SIZE * 5 # небольшой запас
 	add_child(smokes)
 	var tween: Tween = smokes.create_tween()
 	tween.tween_property(smokes, ^":modulate", smokes.modulate, 0.3).from(Color.TRANSPARENT)

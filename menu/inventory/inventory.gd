@@ -68,6 +68,9 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 					(["lime_green", "Да"] if event.team_event else ["red", "Нет"])
 			description += "\nБазовое здоровье игрока: [color=red]%d ОЗ[/color]" \
 					% event.default_player_health
+			description += "\nПараметры:"
+			for parameter_id: String in event.parameters:
+				description += "\n [color=blue]%s[/color]" % event.parameters[parameter_id].name
 			description += '\n'
 			description += '\n' + event.description
 			description += '\n'

@@ -98,6 +98,7 @@ func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Strin
 	var map: Map = map_scene.instantiate()
 	event.data = Globals.items_db.events[event_idx]
 	event.parameters = event_parameters
+	event.map = map
 	map.data = Globals.items_db.events[event_idx].maps[map_idx]
 	event.add_child(map)
 	
@@ -157,6 +158,7 @@ func load_challenge(challenge_idx: int, map_idx: int) -> Challenge:
 	var challenge: Challenge = challenge_scene.instantiate()
 	var map: Map = map_scene.instantiate()
 	challenge.data = Globals.items_db.challenges[challenge_idx]
+	challenge.map = map
 	map.data = Globals.items_db.challenges[challenge_idx].maps[map_idx]
 	challenge.add_child(map)
 	

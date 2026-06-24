@@ -56,11 +56,11 @@ func _on_projectiles_timer_timeout() -> void:
 
 func _on_killed(_by: int, _remained_health: int) -> void:
 	var heal_box: Node2D = heal_box_scene.instantiate()
-	heal_box.position = global_position + Vector2.RIGHT * 160
+	heal_box.position = global_position + Vector2.RIGHT * World.BLOCK_SIZE
 	heal_box.name += str(randi())
 	get_tree().get_first_node_in_group(&"other_parent").add_child(heal_box, true)
 	
 	var ammo_box: Node2D = ammo_box_scene.instantiate()
-	ammo_box.position = global_position + Vector2.LEFT * 160
+	ammo_box.position = global_position + Vector2.LEFT * World.BLOCK_SIZE
 	ammo_box.name += str(randi())
 	get_tree().get_first_node_in_group(&"other_parent").add_child(ammo_box, true)
