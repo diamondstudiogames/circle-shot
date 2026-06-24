@@ -45,6 +45,8 @@ func _list_parameters() -> void:
 				spin_box.min_value = parameter.range_min
 				spin_box.max_value = parameter.range_max
 				spin_box.step = parameter.range_step
+				spin_box.prefix = parameter.prefix
+				spin_box.suffix = parameter.suffix
 				spin_box.value = _lobby.selected_event_parameters[parameter_id]
 				spin_box.value_changed.connect(_on_spin_box_value_changed.bind(parameter_id))
 		parameter_node.name = StringName(parameter_id.to_pascal_case())

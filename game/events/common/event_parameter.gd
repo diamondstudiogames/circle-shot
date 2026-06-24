@@ -33,7 +33,7 @@ enum Type {
 @export var range_step: int = 1
 
 @export_group("Visuals")
-## Путь до иконки параметра события.
+## Путь до иконки параметра события, размером 80 на 80.
 @export_file("Texture2D") var icon_path: String
 ## Префикс значения этого параметра. Используется для отображения значения при настройке.
 @export var prefix: String
