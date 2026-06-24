@@ -20,10 +20,6 @@ extends Resource
 @export_range(2, 10, 1) var min_players: int = 2
 ## Максимальное число игроков (от 2 до 10).
 @export_range(2, 10, 1) var max_players: int = 10
-## Допустимый делитель числа игроков.
-## Например, если игроков 3, а делитель - 2, то игру начать будет невозможно,
-## так как 3 не делится нацело на 2.
-@export_range(1, 5, 1) var players_divider: int = 1
 ## Если равно [code]true[/code], то у админа будет возможность назначать игрокам команды.
 @export var team_event := false
 

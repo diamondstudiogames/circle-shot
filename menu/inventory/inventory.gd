@@ -64,7 +64,6 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			description += '\n'
 			description += "\nМинимум игроков: [color=red]%d[/color]" % event.min_players
 			description += "\nМаксимум игроков: [color=red]%d[/color]" % event.max_players
-			description += "\nДелитель игроков: [color=red]%d[/color]" % event.players_divider
 			description += "\nКомандное: [color=%s]%s[/color]" % \
 					(["lime_green", "Да"] if event.team_event else ["red", "Нет"])
 			description += "\nБазовое здоровье игрока: [color=red]%d ОЗ[/color]" \

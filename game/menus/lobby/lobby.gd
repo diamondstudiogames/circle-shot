@@ -534,15 +534,6 @@ func _reject_start_event(reason: StartRejectReason, players_count: int) -> void:
 				players_count,
 				Globals.items_db.events[selected_event].max_players,
 			])
-		StartRejectReason.INDIVISIBLE_NUMBER_OF_PLAYERS:
-			_game.show_error("Невозможно начать игру: количество игроков (%d) не делится на %d!" % [
-				players_count,
-				Globals.items_db.events[selected_event].players_divider,
-			])
-			print_verbose("Start rejected: number of players (%d) doesn't divide on %d." % [
-				players_count,
-				Globals.items_db.events[selected_event].players_divider,
-			])
 		StartRejectReason.BAD_TEAMS:
 			_game.show_error("Невозможно начать игру: игроков в одной команде больше чем в другой.")
 			print_verbose("Start rejected: one team has more players than in other.")
@@ -620,12 +611,6 @@ func _get_start_reject_reason() -> StartRejectReason:
 		print_verbose("Rejecting start: too many players (%d), max %d." % [
 			players.size(),
 			Globals.items_db.events[selected_event].max_players,
-		])
-	elif players.size() % Globals.items_db.events[selected_event].players_divider != 0:
-		start_reject_reason = StartRejectReason.INDIVISIBLE_NUMBER_OF_PLAYERS
-		print_verbose("Rejecting start: indivisible number of players (%d), must divide on %d." % [
-			players.size(),
-			Globals.items_db.events[selected_event].players_divider,
 		])
 	elif Globals.items_db.events[selected_event].team_event:
 		var red_team: int = 0
