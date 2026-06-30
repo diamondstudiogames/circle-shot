@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://b07bjttu6sfjo" path="res://menu/theme/textures/scroll.svg" id="21_mswou"]
 [ext_resource type="StyleBox" uid="uid://daj8xhpskd1dx" path="res://menu/theme/styles/light_focus.tres" id="22_exc8y"]
 [ext_resource type="FontFile" uid="uid://bh1k6rvqnvi0m" path="res://menu/theme/font.woff2" id="27_6prtn"]
+[ext_resource type="Texture2D" uid="uid://1epdghhh02w6" path="res://menu/theme/textures/spin_box_arrow_down.svg" id="27_ddvwi"]
+[ext_resource type="Texture2D" uid="uid://c6cn60a2ko02c" path="res://menu/theme/textures/spin_box_arrow_up.svg" id="28_k7dge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4so7"]
 content_margin_left = 32.0
@@ -348,6 +350,27 @@ ProgressBar/styles/background = SubResource("StyleBoxTexture_w7tci")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_n7jmp")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 Separator/styles/separator = SubResource("StyleBoxLine_7jwu7")
+SpinBox/colors/down_disabled_icon_modulate = Color(0.875, 0.875, 0.875, 0.5)
+SpinBox/colors/down_hover_icon_modulate = Color(0.627451, 0.627451, 0.627451, 1)
+SpinBox/colors/down_icon_modulate = Color(0.37635803, 0.37635803, 0.37635803, 1)
+SpinBox/colors/down_pressed_icon_modulate = Color(0.7529412, 0.7529412, 0.7529412, 1)
+SpinBox/colors/up_disabled_icon_modulate = Color(0.875, 0.875, 0.875, 0.5)
+SpinBox/colors/up_hover_icon_modulate = Color(0.627451, 0.627451, 0.627451, 1)
+SpinBox/colors/up_icon_modulate = Color(0.3764706, 0.3764706, 0.3764706, 1)
+SpinBox/colors/up_pressed_icon_modulate = Color(0.7529412, 0.7529412, 0.7529412, 1)
+SpinBox/icons/down = ExtResource("27_ddvwi")
+SpinBox/icons/down_disabled = ExtResource("27_ddvwi")
+SpinBox/icons/down_hover = ExtResource("27_ddvwi")
+SpinBox/icons/down_pressed = ExtResource("27_ddvwi")
+SpinBox/icons/up = ExtResource("28_k7dge")
+SpinBox/icons/up_disabled = ExtResource("28_k7dge")
+SpinBox/icons/up_hover = ExtResource("28_k7dge")
+SpinBox/icons/up_pressed = ExtResource("28_k7dge")
+SpinBox/icons/updown = null
+SpinBox/styles/down_background_hovered = ExtResource("10_vk2mo")
+SpinBox/styles/down_background_pressed = ExtResource("10_vk2mo")
+SpinBox/styles/up_background_hovered = ExtResource("10_vk2mo")
+SpinBox/styles/up_background_pressed = ExtResource("10_vk2mo")
 SplitContainer/constants/autohide = 0
 SplitContainer/constants/minimum_grab_thickness = 32
 SplitContainer/icons/h_grabber = ExtResource("21_hq4mw")
