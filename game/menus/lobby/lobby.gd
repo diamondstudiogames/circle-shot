@@ -796,19 +796,6 @@ func _process_console_command(command: PackedStringArray) -> bool:
 						map_idx,
 						Globals.items_db.events[event_idx].maps[map_idx].name,
 					])
-		"set-environment" when command.size() in [2, 3]:
-			recognized = true
-			if not is_admin():
-				printerr("This command only available for admins.")
-				return recognized
-			if command.size() == 2:
-				request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-						int(command[1]), 0, selected_events_parameters[int(command[1])])
-			else:
-				request_set_environment.rpc_id(
-						MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]), int(command[2]),
-						selected_events_parameters[int(command[1])]
-				)
 		"list-parameters" when command.size() == 1:
 			recognized = true
 			print("Current event parameters:")
@@ -824,14 +811,42 @@ Current value: {current}.".format({
 					"step": parameter.range_step,
 					"current": selected_event_parameters[parameter_id],
 				}))
+		"list-modifiers" when command.size() == 1:
+			recognized = true
+			print("Current event modifiers: %s." % str(selected_event_modifiers))
+			for modifier: EventModifierData in \
+					Globals.items_db.events[selected_event].get_modifiers():
+				print("%d: %s - %s" % [
+					modifier.idx_in_db,
+					modifier.name,
+					modifier.brief_description,
+				])
+		
+		"set-environment" when command.size() in [2, 3]:
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			if command.size() == 2:
+				request_set_environment.rpc_id(
+						MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]), 0,
+						selected_events_parameters[int(command[1])],
+						selected_events_modifiers[int(command[1])],
+				)
+			else:
+				request_set_environment.rpc_id(
+						MultiplayerPeer.TARGET_PEER_SERVER, int(command[1]), int(command[2]),
+						selected_events_parameters[int(command[1])],
+						selected_events_modifiers[int(command[1])],
+				)
 		"set-parameter" when command.size() == 3:
 			recognized = true
 			if not is_admin():
 				printerr("This command only available for admins.")
 				return recognized
 			selected_event_parameters[command[1]] = int(command[2])
-			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					selected_event, selected_map, selected_event_parameters)
+			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, selected_event,
+					selected_map, selected_event_parameters, selected_event_modifiers)
 		"reset-parameters" when command.size() == 1:
 			recognized = true
 			if not is_admin():
@@ -839,8 +854,20 @@ Current value: {current}.".format({
 				return recognized
 			request_set_environment.rpc_id(
 					MultiplayerPeer.TARGET_PEER_SERVER, selected_event, selected_map,
-					Globals.items_db.events[selected_event].get_default_parameters()
+					Globals.items_db.events[selected_event].get_default_parameters(),
+					selected_event_modifiers
 			)
+		"set-modifiers":
+			recognized = true
+			if not is_admin():
+				printerr("This command only available for admins.")
+				return recognized
+			selected_event_modifiers.clear()
+			for modifier_str: String in command.slice(1):
+				selected_event_modifiers.append(int(modifier_str))
+			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, selected_event,
+					selected_map, selected_event_parameters, selected_event_modifiers)
+		
 		
 		"start" when command.size() == 1:
 			recognized = true
@@ -937,12 +964,16 @@ func _print_help() -> void:
 		return
 	print("post <message> - Posts message in chat.")
 	print("list-players - List all connected players. Works only on server.")
-	print("These commands only available if you are admin:")
 	print("list-environment - Lists events and maps.")
-	print("set-environment <event-id> [map-id] - Sets event and map to specified values.")
 	print("list-parameters - Lists event parameters.")
+	print("list-modifiers - Lists event modifiers.")
+	
+	print("These commands only available if you are admin:")
+	print("set-environment <event-id> [map-id] - Sets event and map to specified values.")
 	print("set-parameter <parameter-id> <value> - Sets event parameter to specified value.")
 	print("reset-parameters - Resets event parameters to default values.")
+	print("set-modifiers [modifier1] [modifier2] ... - Sets events modifiers to specified array.")
+	
 	print("start - Starts event.")
 	print("admin [player] - Makes specified player admin. Current admin loses his rights. \
 Note: you can always set admin to yourself if you are server.")
@@ -951,6 +982,7 @@ Note: you can always set admin to yourself if you are server.")
 	print("kick-id <id> - Same as kick, but uses player ID.")
 	print("ban <player> - Bans specified player.")
 	print("ban-id <id> - Same as ban, but uses player ID.")
+	
 	print("red-team <player> - Adds specified player to red team.")
 	print("red-team-id <id> - Same as red-team, but uses player ID.")
 	print("blue-team <player> - Adds specified player to blue team.")

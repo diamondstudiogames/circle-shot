@@ -51,6 +51,22 @@ func list_items(type: ItemsDB.Item, selected_idx: int = -1, hide_locked := true)
 					(item.get_node(^"Click") as Control).grab_focus()
 					has_selected = true
 				counter += 1
+		ItemsDB.Item.EVENT_MODIFIER:
+			columns = 3
+			for event_modifier: EventModifierData in Globals.items_db.event_modifiers:
+				var item: TextureRect = _item_small_scene.instantiate()
+				item.texture = load(event_modifier.icon_path)
+				(item.get_node(^"Name") as Label).text = event_modifier.name
+				(item.get_node(^"RarityFill") as ColorRect).color = Color.WHITE
+				(item.get_node(^"Click") as BaseButton).pressed.connect(
+						_on_item_pressed.bind(type, event_modifier.idx_in_db))
+				add_child(item)
+				
+				if selected_idx == event_modifier.idx_in_db:
+					(item.get_node(^"Name") as Label).add_theme_color_override(
+							&"font_color", Color.GREEN)
+					(item.get_node(^"Click") as Control).grab_focus()
+					has_selected = true
 		ItemsDB.Item.CHALLENGE:
 			columns = 1
 			var counter: int = 0

@@ -26,7 +26,8 @@ extends Resource
 @export_group("Configuration")
 ## Словарь параметров события, где ключ - ID параметра.
 @export var parameters: Dictionary[String, EventParameter]
-## Список модификаторов, которые можно применить к этому событию.
+## Список модификаторов, которые можно применить к этому событию,
+## в дополнение к [ItemsDB.common_event_modifiers].
 @export var modifiers: Array[EventModifierData]
 
 @export_group("Paths")
@@ -73,11 +74,11 @@ func get_modifiers() -> Array[EventModifierData]:
 ## можно применить к этому событию.
 func is_modifiers_valid(modifiers_to_check: Array[int]) -> bool:
 	for idx: int in modifiers_to_check:
-		if idx < 0 or idx >= Globals.items_db.modifiers.size():
+		if idx < 0 or idx >= Globals.items_db.event_modifiers.size():
 			return false
 		if modifiers_to_check.count(idx) > 1:
 			return false
-		var modifier: EventModifierData = Globals.items_db.modifiers[idx]
+		var modifier: EventModifierData = Globals.items_db.event_modifiers[idx]
 		if not modifier in modifiers and not modifier in Globals.items_db.common_event_modifiers:
 			return false
 	return true

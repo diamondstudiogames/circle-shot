@@ -81,6 +81,21 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			
 			(%Description/ShowItems as CanvasItem).show()
 			(%Description/ShowItems as Button).text = "Просмотреть карты"
+		ItemsDB.Item.EVENT_MODIFIER:
+			var event_modifier: EventModifierData = Globals.items_db.event_modifiers[idx]
+			item_name = event_modifier.name
+			description = "[center]%s[/center]" % event_modifier.brief_description
+			description += '\n'
+			description += "\nПрименим для:"
+			if event_modifier in Globals.items_db.common_event_modifiers:
+				description += "\n [color=lime_green]всех событий[/color]"
+			else:
+				for event: EventData in Globals.items_db.events:
+					if event_modifier in event.modifiers:
+						description += "\n [color=blue]%s[/color]" % event.name
+			
+			(%Description/BigItem as CanvasItem).show()
+			(%Description/BigItem as TextureRect).texture = load(event_modifier.icon_path)
 		ItemsDB.Item.CHALLENGE:
 			var challenge: ChallengeData = Globals.items_db.challenges[idx]
 			item_name = challenge.name
@@ -124,6 +139,7 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 				(%Description/ShowItems as Button).text = "Просмотреть событие"
 			elif _challenge_map_filter >= 0:
 				(%Description/ShowItems as Button).text = "Просмотреть испытание"
+		
 		ItemsDB.Item.SKIN:
 			var skin: SkinData = Globals.items_db.skins[idx]
 			item_name = skin.name
@@ -289,6 +305,8 @@ func _on_main_filter_item_selected(index: int) -> void:
 		4:
 			_type_to_list = ItemsDB.Item.EVENT
 		5:
+			_type_to_list = ItemsDB.Item.EVENT_MODIFIER
+		6:
 			_type_to_list = ItemsDB.Item.CHALLENGE
 	
 	_update_items_grid()

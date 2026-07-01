@@ -21,6 +21,8 @@ enum Item {
 	SKINS_LINE = 5,
 	## Испытание.
 	CHALLENGE = 6,
+	## Модификатор события.
+	EVENT_MODIFIER = 7,
 }
 ## Редкость некоторых предметов.
 enum Rarity {
@@ -102,7 +104,7 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 @export var default_melee_weapon: String
 
 ## Массив всех модификаторов событий.
-var modifiers: Array[EventModifierData]
+var event_modifiers: Array[EventModifierData]
 ## Массив всех скинов. Собирается из скинов всех линеек при инициализации [ItemsDB].
 var skins: Array[SkinData]
 ## Массив всех навыков. Собирается из [member skills_normal] и [member other_skills]
@@ -130,7 +132,7 @@ var spawnable_other_paths: Array[String]
 
 ## Инициализирует базу данных предметов.
 func initialize() -> void:
-	modifiers.clear()
+	event_modifiers.clear()
 	skins.clear()
 	skills.clear()
 	weapons.clear()
@@ -141,11 +143,11 @@ func initialize() -> void:
 	spawnable_projectiles_paths.clear()
 	spawnable_other_paths.clear()
 	
-	modifiers.assign(common_event_modifiers)
+	event_modifiers.assign(common_event_modifiers)
 	for event: EventData in events:
 		for modifier: EventModifierData in event.modifiers:
-			if not modifier in modifiers:
-				modifiers.append(modifier)
+			if not modifier in event_modifiers:
+				event_modifiers.append(modifier)
 	
 	for skins_line: SkinsLineData in skins_lines:
 		skins.append_array(skins_line.skins)
@@ -172,8 +174,8 @@ func initialize() -> void:
 	for weapon: WeaponData in weapons:
 		spawnable_projectiles_paths.append_array(weapon.spawnable_scenes_paths)
 	
-	for i: int in modifiers.size():
-		modifiers[i].idx_in_db = i
+	for i: int in event_modifiers.size():
+		event_modifiers[i].idx_in_db = i
 	for i: int in skins.size():
 		skins[i].idx_in_db = i
 	for i: int in skills.size():

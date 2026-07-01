@@ -85,10 +85,25 @@ func load_event(event_idx: int, map_idx: int,
 		return null
 	_requested_paths.append(map_path)
 	
+	var modifiers_paths: Array[String]
+	for modifier_idx: int in event_modifiers:
+		var path: String = Globals.items_db.event_modifiers[modifier_idx].scene_path
+		modifiers_paths.append(path)
+		print_verbose("Requesting load for event modifier %s." % path)
+		err = ResourceLoader.load_threaded_request(
+				path, "", false, ResourceLoader.CACHE_MODE_REPLACE_DEEP)
+		if err != OK:
+			push_error("Load request for event modifier %s failed with error: %s." % [
+				path,
+				error_string(err),
+			])
+			finish_load(false)
+			return null
+	
 	set_process(true)
 	var success: bool = await loaded
 	if not success:
-		push_error("Failed loading of event and/or map.")
+		push_error("Failed loading of event, map and/or modifier.")
 		finish_load(false)
 		return null
 	
@@ -103,6 +118,10 @@ func load_event(event_idx: int, map_idx: int,
 	event.map = map
 	map.data = Globals.items_db.events[event_idx].maps[map_idx]
 	event.add_child(map)
+	
+	for path: String in modifiers_paths:
+		var resource: Resource = ResourceLoader.load_threaded_get(path)
+		event.cached_resources.append(resource)
 	
 	set_process(false)
 	_bar.value = 100.0

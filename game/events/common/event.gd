@@ -52,8 +52,18 @@ var _emotion_cloud_scene: PackedScene = load("uid://bkyhxor5s6032")
 func _ready() -> void:
 	super()
 	
+	var entities_spawner: MultiplayerSpawner = $EntitiesSpawner
+	var projectiles_spawner: MultiplayerSpawner = $ProjectilesSpawner
+	var other_spawner: MultiplayerSpawner = $OtherSpawner
 	for idx: int in modifiers_idxs:
-		var modifier_data: EventModifierData = Globals.items_db.modifiers[idx]
+		var modifier_data: EventModifierData = Globals.items_db.event_modifiers[idx]
+		for entity_path: String in modifier_data.spawnable_entities_paths:
+			entities_spawner.add_spawnable_scene(entity_path)
+		for projectile_path: String in modifier_data.spawnable_projectiles_paths:
+			projectiles_spawner.add_spawnable_scene(projectile_path)
+		for other_path: String in modifier_data.spawnable_other_paths:
+			other_spawner.add_spawnable_scene(other_path)
+		
 		var modifier: EventModifier = (load(modifier_data.scene_path) as PackedScene).instantiate()
 		add_child(modifier)
 		modifiers.append(modifier)
