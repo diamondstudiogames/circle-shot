@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://brcaom8n83yf2" path="res://menu/theme/icons/reset.png" id="20_3bj1l"]
 [ext_resource type="PackedScene" uid="uid://bj8ovestjfmnq" path="res://game/menus/lobby/configuration/parameter_check_button.tscn" id="20_rgji2"]
 [ext_resource type="PackedScene" uid="uid://bdp88ihuwkaci" path="res://game/menus/lobby/configuration/parameter_slider.tscn" id="21_3bj1l"]
+[ext_resource type="PackedScene" uid="uid://ccs5qwjfxl3ks" path="res://game/menus/lobby/configuration/modifier.tscn" id="21_ehlkd"]
 [ext_resource type="PackedScene" uid="uid://dv76erm78qdtx" path="res://game/menus/lobby/configuration/parameter_spin_box.tscn" id="22_ehlkd"]
 
 [sub_resource type="Animation" id="Animation_5k1w6"]
@@ -377,7 +378,7 @@ timeout = 5.0
 oversampling_override = 1.0
 title = "Настройки события"
 position = Vector2i(0, 28)
-size = Vector2i(600, 400)
+size = Vector2i(600, 540)
 visible = false
 transient = true
 exclusive = true
@@ -415,16 +416,12 @@ alignment = 1
 [node name="ChangeMap" type="Button" parent="EventConfiguration/Base/Actions" unique_id=1714427136]
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_right = NodePath("../../ControlButtons/Leave")
-focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Сменить карту..."
 icon = ExtResource("19_mgd0l")
 
 [node name="ResetParameters" type="Button" parent="EventConfiguration/Base/Actions" unique_id=1798003610]
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_right = NodePath("../../ControlButtons/Leave")
-focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Сбросить параметры"
 icon = ExtResource("20_3bj1l")
 
@@ -441,11 +438,19 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Modifiers" type="Label" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer" unique_id=2118693576]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "Модификаторы"
+
+[node name="ModifiersContainer" type="VBoxContainer" parent="EventConfiguration/Base/ScrollContainer/VBoxContainer" unique_id=486485308]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Close" type="Button" parent="EventConfiguration/Base" unique_id=1539884861]
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_right = NodePath("../../ControlButtons/Leave")
-focus_neighbor_bottom = NodePath("../../ControlButtons/Leave")
 text = "Закрыть"
 
 [node name="BroadcastTimer" type="Timer" parent="." unique_id=1166333176]
@@ -458,7 +463,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1425311059]
-resources = [PackedStringArray("parameter_check_button", "parameter_slider", "parameter_spin_box", "player_entry"), [ExtResource("20_rgji2"), ExtResource("21_3bj1l"), ExtResource("22_ehlkd"), ExtResource("18_yfygw")]]
+resources = [PackedStringArray("modifier", "parameter_check_button", "parameter_slider", "parameter_spin_box", "player_entry"), [ExtResource("21_ehlkd"), ExtResource("20_rgji2"), ExtResource("21_3bj1l"), ExtResource("22_ehlkd"), ExtResource("18_yfygw")]]
 
 [connection signal="admin_changed" from="." to="EventConfiguration" method="_on_admin_changed"]
 [connection signal="environment_changed" from="." to="EventConfiguration" method="_on_environment_changed"]

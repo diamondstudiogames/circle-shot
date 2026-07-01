@@ -34,6 +34,9 @@ properties/3/replication_mode = 0
 properties/4/path = NodePath(".:server_velocity")
 properties/4/spawn = false
 properties/4/replication_mode = 1
+properties/5/path = NodePath(".:max_health")
+properties/5/spawn = true
+properties/5/replication_mode = 0
 
 [node name="Entity" type="CharacterBody2D" unique_id=1369486729 groups=["entity"]]
 disable_mode = 1

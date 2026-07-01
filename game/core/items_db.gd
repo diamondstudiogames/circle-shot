@@ -57,8 +57,11 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 	Rarity.SPECIAL: "Особое",
 }
 
+@export_group("Game Modes")
 ## Массив событий.
 @export var events: Array[EventData]
+## Массив модификаторов, доступных во всех событиях.
+@export var common_event_modifiers: Array[EventModifierData]
 ## Массив испытаний.
 @export var challenges: Array[ChallengeData]
 
@@ -76,7 +79,7 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 ## Массив ближних оружий.
 @export var weapons_melee: Array[WeaponData]
 
-@export_group("Other", "other_")
+@export_subgroup("Other", "other_")
 ## Массив скинов, не доступных для выбора, но используемых где-то в игре.
 @export var other_skins: Array[SkinData]
 ## Массив навыков, не доступных для выбора, но используемых где-то в игре.
@@ -84,7 +87,7 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 ## Массив оружий, не доступных для выбора, но используемых где-то в игре.
 @export var other_weapons: Array[WeaponData]
 
-@export_group("Defaults", "default_")
+@export_subgroup("Default", "default_")
 ## ID скина по умолчанию.
 @export var default_skin: String
 ## ID навыка по умолчанию.
@@ -98,6 +101,8 @@ const RARITY_NAMES: Dictionary[Rarity, String] = {
 ## ID ближнего оружия по умолчанию.
 @export var default_melee_weapon: String
 
+## Массив всех модификаторов событий.
+var modifiers: Array[EventModifierData]
 ## Массив всех скинов. Собирается из скинов всех линеек при инициализации [ItemsDB].
 var skins: Array[SkinData]
 ## Массив всех навыков. Собирается из [member skills_normal] и [member other_skills]
@@ -125,14 +130,22 @@ var spawnable_other_paths: Array[String]
 
 ## Инициализирует базу данных предметов.
 func initialize() -> void:
+	modifiers.clear()
 	skins.clear()
 	skills.clear()
 	weapons.clear()
 	skins_by_id.clear()
 	skills_by_id.clear()
+	weapons_by_id.clear()
 	
 	spawnable_projectiles_paths.clear()
 	spawnable_other_paths.clear()
+	
+	modifiers.assign(common_event_modifiers)
+	for event: EventData in events:
+		for modifier: EventModifierData in event.modifiers:
+			if not modifier in modifiers:
+				modifiers.append(modifier)
 	
 	for skins_line: SkinsLineData in skins_lines:
 		skins.append_array(skins_line.skins)
@@ -159,6 +172,8 @@ func initialize() -> void:
 	for weapon: WeaponData in weapons:
 		spawnable_projectiles_paths.append_array(weapon.spawnable_scenes_paths)
 	
+	for i: int in modifiers.size():
+		modifiers[i].idx_in_db = i
 	for i: int in skins.size():
 		skins[i].idx_in_db = i
 	for i: int in skills.size():

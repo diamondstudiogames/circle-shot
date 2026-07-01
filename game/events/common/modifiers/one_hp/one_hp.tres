@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://b3l3qyijlei04"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_bhn3l"]
+
+[resource]
+script = ExtResource("1_bhn3l")
+name = "1 ОЗ"
+brief_description = "Все игроки умирают от любого урона!"
+scene_path = "uid://iyy3w1er721r"
+icon_path = "uid://ld4qs6r51kvk"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

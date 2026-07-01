@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dcs7gnmh5psjs" path="res://game/maps/bomb_defusal/desert_debris/desert_debris.tres" id="2_0ehtw"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_1hwfc"]
 [ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="3_0ehtw"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="3_ugqa5"]
 
 [sub_resource type="Resource" id="Resource_ugqa5"]
 script = ExtResource("3_0ehtw")
@@ -36,7 +37,6 @@ description = "Две команды - красная и синяя - играю
 Цель красной команды - уничтожить врагов за отведённое время или разместить бомбу и дать ей взорваться."
 default_player_health = 75
 min_players = 4
-players_divider = 2
 team_event = true
 parameters = Dictionary[String, ExtResource("3_0ehtw")]({
 "round_time": SubResource("Resource_ugqa5"),

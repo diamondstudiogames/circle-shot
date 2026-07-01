@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://iyy3w1er721r"]
+
+[ext_resource type="Script" uid="uid://ttk5co4salf0" path="res://game/events/common/modifiers/one_hp/one_hp.gd" id="1_jqdah"]
+
+[node name="OneHp" type="Node" unique_id=1267167680]
+script = ExtResource("1_jqdah")
+metadata/_custom_type_script = "uid://cvryr82g72v34"

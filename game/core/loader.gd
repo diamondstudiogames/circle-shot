@@ -48,11 +48,12 @@ func _process(_delta: float) -> void:
 
 
 ## Загружает события и карту по [param event_idx] и [param map_idx] соответственно, c параметрами
-## события [param event_parameters]. Возвращает [Event], если загрузка прошла удачно,
-## иначе возвращает [code]null[/code].[br]
+## события [param event_parameters] и модификаторами события [param event_modifiers].
+## Возвращает [Event], если загрузка прошла удачно, иначе возвращает [code]null[/code].[br]
 ## [b]Внимание[/b]: этот метод - [b]корутина[/b], так что Вам необходимо подождать его с помощью
 ## [code]await[/code].
-func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[String, int]) -> Event:
+func load_event(event_idx: int, map_idx: int,
+		event_parameters: Dictionary[String, int], event_modifiers: Array[int]) -> Event:
 	_anim.play(&"start_load")
 	_status_text.text = "Загрузка события и карты..."
 	_requested_paths.clear()
@@ -98,6 +99,7 @@ func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Strin
 	var map: Map = map_scene.instantiate()
 	event.data = Globals.items_db.events[event_idx]
 	event.parameters = event_parameters
+	event.modifiers_idxs = event_modifiers
 	event.map = map
 	map.data = Globals.items_db.events[event_idx].maps[map_idx]
 	event.add_child(map)

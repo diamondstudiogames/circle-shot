@@ -56,6 +56,11 @@ var selected_maps: Array[int]
 var selected_event_parameters: Dictionary[String, int]
 ## Массив с выбранными параметрами для определённых событий, где индекс - ID события.
 var selected_events_parameters: Array[Dictionary]
+## Модификаторы для выбранного события. Не сохраняется, используется только для хранения
+## текущего состояния комнаты.
+var selected_event_modifiers: Array[int]
+## Массив с выбранными параметрами для определённых событий, где индекс - ID события.
+var selected_events_modifiers: Array[Array]
 
 ## Словарь с подключёнными игроками в формате <ID игрока> - <имя игрока>.
 ## Доступно только на сервере.
@@ -103,12 +108,18 @@ func _ready() -> void:
 			var parameters: Dictionary[String, int]
 			parameters = Globals.items_db.events[idx].get_default_parameters()
 			selected_events_parameters.append(parameters)
+	selected_events_modifiers = Globals.get_variant("selected_events_modifiers", [] as Array[Array])
+	if selected_events_modifiers.size() < Globals.items_db.events.size():
+		# не resize чтобы были именно Array[int]
+		for idx: int in range(selected_events_modifiers.size(), Globals.items_db.events.size()):
+			selected_events_modifiers.append([] as Array[int])
 	
 	# Инициализируем состояние исходя из последнего сохранённого
 	selected_event = Globals.get_int("selected_event")
 	selected_map = selected_maps[selected_event]
-	# во избежание редактирования сохранённого словаря
+	# во избежание редактирования сохранённых словаря и массива
 	selected_event_parameters = selected_events_parameters[selected_event]
+	selected_event_modifiers = selected_events_modifiers[selected_event]
 	
 	_validate_selected_environment()
 	_update_environment()
@@ -135,12 +146,13 @@ func _exit_tree() -> void:
 
 
 ## Запрашивает сервер сменить окружение на событие с идентификатором [param event_idx] и на карту
-## с идентификатором [param map_idx], а также задать параметры события [param event_parameters].[br]
+## с идентификатором [param map_idx], а также задать параметры события [param event_parameters]
+## и модификаторы события [param event_modifiers].[br]
 ## [b]Примечание[/b]: этот метод должен вызываться только как RPC к серверу
 ## ([constant MultiplayerPeer.TARGET_PEER_SERVER]).
 @rpc("any_peer", "reliable", "call_local", 1)
 func request_set_environment(event_idx: int, map_idx: int,
-		event_parameters: Dictionary[String, int]) -> void:
+		event_parameters: Dictionary[String, int], event_modifiers: Array[int]) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
@@ -169,14 +181,25 @@ func request_set_environment(event_idx: int, map_idx: int,
 	if not Globals.items_db.events[event_idx].is_parameters_valid(event_parameters):
 		push_warning("Rejected set environment request from %d. Incorrect event parameters: %s." % [
 			sender_id,
-			str(event_parameters),
+			event_parameters,
+		])
+		return
+	if not Globals.items_db.events[event_idx].is_modifiers_valid(event_modifiers):
+		push_warning("Rejected set environment request from %d. Incorrect event modifiers: %s." % [
+			sender_id,
+			event_modifiers,
 		])
 		return
 	
 	_game.max_players = Globals.items_db.events[event_idx].max_players
 	print_verbose("Accepted set environment request. \
-Event index: %d, map index: %d, event parameters: %s." % [event_idx, map_idx, event_parameters])
-	_set_environment.rpc(event_idx, map_idx, event_parameters)
+Event index: %d, map index: %d, event parameters: %s, event modifiers: %s." % [
+		event_idx,
+		map_idx,
+		event_parameters,
+		event_modifiers,
+	])
+	_set_environment.rpc(event_idx, map_idx, event_parameters, event_modifiers)
 
 
 ## Запрашивает сервер выполнить действие админа [param action] по отношению к игроку с
@@ -391,7 +414,8 @@ func _register_new_player(player_name: String) -> void:
 		_client_timers.erase(sender_id)
 	for id: int in players:
 		_add_player_entry.rpc_id(sender_id, id, players[id], players_teams[id])
-	_set_environment.rpc_id(sender_id, selected_event, selected_map, selected_event_parameters)
+	_set_environment.rpc_id(sender_id, selected_event, selected_map,
+			selected_event_parameters, selected_event_modifiers)
 	player_name = Utils.validate_player_name(player_name, sender_id)
 	players[sender_id] = player_name
 	players_teams[sender_id] = -1
@@ -435,7 +459,8 @@ func _set_admin(admin: int) -> void:
 		request_set_environment.rpc_id(
 				MultiplayerPeer.TARGET_PEER_SERVER, Globals.get_int("selected_event"),
 				selected_maps[Globals.get_int("selected_event")],
-				selected_events_parameters[Globals.get_int("selected_event")].duplicate()
+				selected_events_parameters[Globals.get_int("selected_event")].duplicate(),
+				selected_events_modifiers[Globals.get_int("selected_event")].duplicate()
 		)
 		_request_set_reject_players.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
 				Globals.get_setting_bool("reject_players"))
@@ -443,12 +468,12 @@ func _set_admin(admin: int) -> void:
 	if multiplayer.is_server():
 		_game.banned_ips.clear()
 	admin_changed.emit()
-	print_verbose("Admin set: %d (this client: %s)." % [admin_id, str(is_admin())])
+	print_verbose("Admin set: %d (this client: %s)." % [admin_id, is_admin()])
 
 
 @rpc("call_local", "reliable", "authority", 1)
 func _set_environment(event_idx: int, map_idx: int,
-		event_parameters: Dictionary[String, int]) -> void:
+		event_parameters: Dictionary[String, int], event_modifiers: Array[int]) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -456,10 +481,12 @@ func _set_environment(event_idx: int, map_idx: int,
 	selected_event = event_idx
 	selected_map = map_idx
 	selected_event_parameters = event_parameters
+	selected_event_modifiers = event_modifiers
 	if is_admin():
 		selected_maps[event_idx] = map_idx
 		# дублируем чтобы отвязать сохранённые от редактируемых
 		selected_events_parameters[event_idx] = event_parameters.duplicate()
+		selected_events_modifiers[event_idx] = event_modifiers.duplicate()
 		_save_selected_environment()
 	
 	for entry: Node in _players_container.get_children():
@@ -470,8 +497,13 @@ func _set_environment(event_idx: int, map_idx: int,
 			name_label.add_theme_constant_override(&"outline_size", 4 if team_event else 0)
 	
 	environment_changed.emit()
-	print_verbose("Environment set: event index - %d, map index - %d, event parameters - %s."
-			% [event_idx, map_idx, str(selected_event_parameters)])
+	print_verbose("Environment set: event index - %d, map index - %d, \
+event parameters - %s, event modifiers - %s." % [
+		event_idx,
+		map_idx,
+		event_parameters,
+		event_modifiers,
+	])
 	_update_environment()
 
 
@@ -542,7 +574,8 @@ func _reject_start_event(reason: StartRejectReason, players_count: int) -> void:
 
 
 @rpc("call_local", "reliable", "authority", 1)
-func _start_event(event_idx: int, map_idx: int, event_parameters: Dictionary[String, int]) -> void:
+func _start_event(event_idx: int, map_idx: int,
+		event_parameters: Dictionary[String, int], event_modifiers: Array[int]) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -564,21 +597,24 @@ func _start_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Str
 		if Globals.items_db.events[event_idx].team_event:
 			_game.set_players_teams(players_teams)
 		if Globals.headless:
-			_game.load_event(event_idx, map_idx, event_parameters)
+			_game.load_event(event_idx, map_idx, event_parameters, event_modifiers)
 			return
 	_item_selector.hide()
 	($PresetManager as Window).hide()
 	($QuickSettings as Window).hide()
 	($EventConfiguration as Window).hide()
 	
-	_game.load_event(event_idx, map_idx, event_parameters, Globals.get_string("player_name"), [
-		Globals.items_db.skins_by_id[equip_selector.selected_skin].idx_in_db,
-		Globals.items_db.skills_by_id[equip_selector.selected_skill].idx_in_db,
-		Globals.items_db.weapons_by_id[equip_selector.selected_light_weapon].idx_in_db,
-		Globals.items_db.weapons_by_id[equip_selector.selected_heavy_weapon].idx_in_db,
-		Globals.items_db.weapons_by_id[equip_selector.selected_support_weapon].idx_in_db,
-		Globals.items_db.weapons_by_id[equip_selector.selected_melee_weapon].idx_in_db,
-	])
+	_game.load_event(
+			event_idx, map_idx, event_parameters, event_modifiers,
+			Globals.get_string("player_name"), [
+				Globals.items_db.skins_by_id[equip_selector.selected_skin].idx_in_db,
+				Globals.items_db.skills_by_id[equip_selector.selected_skill].idx_in_db,
+				Globals.items_db.weapons_by_id[equip_selector.selected_light_weapon].idx_in_db,
+				Globals.items_db.weapons_by_id[equip_selector.selected_heavy_weapon].idx_in_db,
+				Globals.items_db.weapons_by_id[equip_selector.selected_support_weapon].idx_in_db,
+				Globals.items_db.weapons_by_id[equip_selector.selected_melee_weapon].idx_in_db,
+			]
+	)
 
 
 func _unregister_player(id: int) -> void:
@@ -688,10 +724,19 @@ func _validate_selected_environment() -> void:
 				selected_events_parameters[event_idx]):
 			push_warning("Incorrect parameters for event %d: %s. Reverting to default." % [
 				selected_event,
-				str(selected_events_parameters[event_idx]),
+				selected_events_parameters[event_idx],
 			])
 			selected_events_parameters[event_idx] = \
 					Globals.items_db.events[event_idx].get_default_parameters()
+			changed = true
+	for event_idx: int in Globals.items_db.events.size():
+		if not Globals.items_db.events[event_idx].is_modifiers_valid(
+				selected_events_modifiers[event_idx]):
+			push_warning("Incorrect modifiers for event %d: %d. Reverting to default." % [
+				event_idx,
+				selected_events_modifiers[event_idx],
+			])
+			selected_events_modifiers[event_idx].clear()
 			changed = true
 	
 	if changed:
@@ -702,6 +747,7 @@ func _save_selected_environment() -> void:
 	Globals.set_int("selected_event", selected_event)
 	Globals.set_variant("selected_maps", selected_maps)
 	Globals.set_variant("selected_events_parameters", selected_events_parameters)
+	Globals.set_variant("selected_events_modifiers", selected_events_modifiers)
 
 
 func _update_environment() -> void:
@@ -1030,11 +1076,13 @@ func _on_team_actions_menu_id_pressed(action: TeamAction, peer: int) -> void:
 func _on_item_selected(type: ItemsDB.Item, idx: int) -> void:
 	match type:
 		ItemsDB.Item.EVENT:
-			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					idx, selected_maps[idx], selected_events_parameters[idx])
+			request_set_environment.rpc_id(
+					MultiplayerPeer.TARGET_PEER_SERVER, idx, selected_maps[idx],
+					selected_events_parameters[idx], selected_events_modifiers[idx]
+			)
 		ItemsDB.Item.MAP:
 			request_set_environment.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER,
-					selected_event, idx, selected_event_parameters)
+					selected_event, idx, selected_event_parameters, selected_event_modifiers)
 
 
 func _on_countdown_timer_timeout() -> void:
@@ -1046,7 +1094,8 @@ func _on_countdown_timer_timeout() -> void:
 		return
 	
 	print_verbose("Starting...")
-	_start_event.rpc(selected_event, selected_map, selected_event_parameters)
+	_start_event.rpc(selected_event, selected_map,
+			selected_event_parameters, selected_event_modifiers)
 
 
 func _on_start_event_pressed() -> void:

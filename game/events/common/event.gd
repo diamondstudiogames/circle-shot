@@ -23,6 +23,11 @@ var map: Map
 var data: EventData
 ## Словарь параметров этого события.
 var parameters: Dictionary[String, int]
+## Список индексов модификаторов, применённых к данному событию.
+var modifiers_idxs: Array[int]
+## Список узлов-модификаторов, применённых к данному событию.
+var modifiers: Array[EventModifier]
+
 ## Началось ли событие.
 var was_started := false
 ## Количество тиков в момент создания события. Используется для корректировки анимации начала.
@@ -46,6 +51,14 @@ var _emotion_cloud_scene: PackedScene = load("uid://bkyhxor5s6032")
 
 func _ready() -> void:
 	super()
+	
+	for idx: int in modifiers_idxs:
+		var modifier_data: EventModifierData = Globals.items_db.modifiers[idx]
+		var modifier: EventModifier = (load(modifier_data.scene_path) as PackedScene).instantiate()
+		add_child(modifier)
+		modifiers.append(modifier)
+		modifier.initialize()
+	
 	if multiplayer.is_server():
 		multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 		_setup()
@@ -54,7 +67,7 @@ func _ready() -> void:
 
 func _local_player_created(player: Player) -> void:
 	if was_started:
-		($Camera as SmartCamera).pan_to_target(player.camera_target, 0.3)
+		super(player)
 	else:
 		var offset: float = (Time.get_ticks_msec() - created_ticks_msec) / 1000.0
 		($Camera as SmartCamera).pan_to_target(player.camera_target, maxf(4.0 - offset, 1.0))
@@ -118,7 +131,11 @@ func spawn_player(id: int) -> void:
 	if id in _players_skill_vars:
 		player.skill_vars = _players_skill_vars[id].duplicate()
 	player.name = "Player%d" % id
+	
 	_customize_player(player)
+	for modifier: EventModifier in modifiers:
+		modifier.customize_player(player, true)
+	
 	$Entities.add_child(player, true)
 	player.killed.connect(_on_player_killed.bind(player))
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
@@ -335,6 +352,12 @@ func _on_peer_disconnected(id: int) -> void:
 
 func _on_entities_child_entered_tree(node: Node) -> void:
 	super(node)
+	
+	var player := node as Player
+	if player:
+		for modifier: EventModifier in modifiers:
+			modifier.customize_player(player, false)
+	
 	if was_started:
 		return
 	var entity := node as Entity

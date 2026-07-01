@@ -140,10 +140,7 @@ func open_screen(screen_scene: PackedScene) -> Control:
 ## Этот метод - корутина, его можно подождать с помощью [code]await[/code].
 ## Если [param internal] равен [code]true[/code], не издаёт сигнал [signal loot_received].
 func receive_loot(loot: Array[String], internal := false) -> void:
-	print_verbose("%s loot receive requested: %s." % [
-		"Internal" if internal else "Regular",
-		str(loot),
-	])
+	print_verbose("%s loot receive requested: %s." % ["Internal" if internal else "Regular", loot])
 	loot = verify_loot(loot)
 	if loot.is_empty():
 		print_verbose("No loot to show, ignoring.")
@@ -176,7 +173,7 @@ func receive_loot(loot: Array[String], internal := false) -> void:
 	if not internal:
 		menu_music.volume_linear = 0.5
 	
-	print_verbose("Showing %s loot %s." % ["internal" if internal else "regular", str(loot)])
+	print_verbose("Showing %s loot %s." % ["internal" if internal else "regular", loot])
 	var loot_node: Loot = open_screen(load("uid://d2g0bm0ppnwf7") as PackedScene)
 	await loot_node.show_loot(loot)
 	remove_child(loot_node)

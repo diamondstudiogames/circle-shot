@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ccs5qwjfxl3ks"]
+
+[node name="Modifier" type="PanelContainer" unique_id=1887119919]
+
+[node name="Container" type="HBoxContainer" parent="." unique_id=340652565]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Container" unique_id=1366834319]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="Info" type="VBoxContainer" parent="Container" unique_id=1882371727]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Name" type="Label" parent="Container/Info" unique_id=1888558140]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+
+[node name="Description" type="Label" parent="Container/Info" unique_id=1251961391]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Container" unique_id=1146269616]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4

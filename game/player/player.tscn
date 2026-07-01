@@ -48,6 +48,9 @@ properties/6/replication_mode = 0
 properties/7/path = NodePath(".:server_velocity")
 properties/7/spawn = false
 properties/7/replication_mode = 1
+properties/8/path = NodePath(".:max_health")
+properties/8/spawn = true
+properties/8/replication_mode = 0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i6vnq"]
 radius = 76.0

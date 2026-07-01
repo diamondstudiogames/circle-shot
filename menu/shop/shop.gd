@@ -84,7 +84,7 @@ func buy(cost: int, rewards_str: String, offer_id: int = -1) -> void:
 	var rewards: Array[String]
 	rewards.assign(rewards_str.split(','))
 	print_verbose("Purchase of %s with cost %d (offer ID: %d) requested." % [
-		str(rewards),
+		rewards,
 		cost,
 		offer_id,
 	])

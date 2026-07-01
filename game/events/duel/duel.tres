@@ -7,12 +7,16 @@
 [ext_resource type="Resource" uid="uid://bu14882ktmmqp" path="res://game/maps/duel/dance_floor/dance_floor.tres" id="4_1rrf0"]
 [ext_resource type="Resource" uid="uid://xajp8mv4kag7" path="res://game/maps/duel/islands/islands.tres" id="5_dhh65"]
 [ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="6_mjm0x"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="6_u0ucy"]
 
-[sub_resource type="Resource" id="Resource_u0ucy"]
+[sub_resource type="Resource" id="Resource_8cpb8"]
 script = ExtResource("6_mjm0x")
-name = "Ограничения по оружию"
-default_value = 1
-icon_path = "uid://bxk304b2wklp6"
+name = "Раундов для победы"
+type = 1
+default_value = 2
+range_min = 1
+range_max = 5
+icon_path = "uid://co7jr32vxnktn"
 metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [sub_resource type="Resource" id="Resource_7wsnh"]
@@ -27,14 +31,11 @@ icon_path = "uid://cruf4enh5gqvr"
 suffix = " с"
 metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
-[sub_resource type="Resource" id="Resource_8cpb8"]
+[sub_resource type="Resource" id="Resource_u0ucy"]
 script = ExtResource("6_mjm0x")
-name = "Раундов для победы"
-type = 1
-default_value = 2
-range_min = 1
-range_max = 5
-icon_path = "uid://co7jr32vxnktn"
+name = "Ограничения по оружию"
+default_value = 1
+icon_path = "uid://bxk304b2wklp6"
 metadata/_custom_type_script = "uid://m1gdlpfa2iho"
 
 [resource]

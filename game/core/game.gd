@@ -225,10 +225,10 @@ func close() -> void:
 
 
 ## Загружает событие по данным [param event_idx] и [param map_idx] с параметрами события
-## [param event_parameters]. Если вызвано сервером без игрока, [param player_name]
-## и [param equip_data] можно не указывать.
+## [param event_parameters] и модификаторами события [param event_modifiers]. Если вызвано сервером
+## без игрока, [param player_name] и [param equip_data] можно не указывать.
 func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[String, int],
-		player_name := "", equip_data: Array[int] = []) -> void:
+		event_modifiers: Array[int], player_name := "", equip_data: Array[int] = []) -> void:
 	state = State.LOADING
 	if multiplayer.is_server():
 		_preloading_equip = false
@@ -237,7 +237,7 @@ func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Strin
 		_players_equip_data.clear()
 		_players_names.clear()
 		($WaitPlayersTimer as Timer).start()
-	world = await _loader.load_event(event_idx, map_idx, event_parameters)
+	world = await _loader.load_event(event_idx, map_idx, event_parameters, event_modifiers)
 	if not is_instance_valid(world):
 		show_error("Ошибка при загрузке события! Отключаюсь.")
 		push_error("Loading failed. Disconnecting.")
@@ -249,7 +249,7 @@ func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Strin
 		_players_not_ready.erase(MultiplayerPeer.TARGET_PEER_SERVER)
 		_check_players_ready()
 		return
-	print_verbose("Sending data. Name: %s, equip data: %s." % [player_name, str(equip_data)])
+	print_verbose("Sending data. Name: %s, equip data: %s." % [player_name, equip_data])
 	_send_player_data.rpc_id(MultiplayerPeer.TARGET_PEER_SERVER, player_name, equip_data)
 
 
@@ -373,7 +373,7 @@ func _send_player_data(player_name: String, equip_data: Array[int]) -> void:
 	print_verbose("Player %d sent data. Name: %s, equip data: %s." % [
 		sender_id,
 		player_name,
-		str(equip_data),
+		equip_data,
 	])
 	_check_players_ready()
 

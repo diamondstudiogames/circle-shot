@@ -249,7 +249,7 @@ func _update_input_methods() -> void:
 
 
 func _on_request_permissions_result(permission: String, granted: bool, lambda: Callable) -> void:
-	print_verbose("Permission %s granted: %s." % [permission, str(granted)])
+	print_verbose("Permission %s granted: %s." % [permission, granted])
 	lambda.call_deferred(granted)
 
 

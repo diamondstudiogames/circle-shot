@@ -286,11 +286,7 @@ func _open_box(type: String) -> String:
 		)
 		secret_chance = box_chance_secret
 	
-	print_verbose("Opening %s, chances: %s, secret chance: %f." % [
-		type,
-		str(chances),
-		secret_chance,
-	])
+	print_verbose("Opening %s, chances: %s, secret chance: %f." % [type, chances, secret_chance])
 	var reward := ""
 	var reward_rarity := _get_idx_weighted(chances) + 1 as ItemsDB.Rarity
 	var reward_secret: bool = randf_range(0.0, 100.0) < secret_chance

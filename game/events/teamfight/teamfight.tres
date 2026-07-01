@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://brqjqke8notbq" path="res://game/maps/teamfight/polygon/polygon.tres" id="2_nhpwv"]
 [ext_resource type="Resource" uid="uid://7pom80c82ejy" path="res://game/maps/teamfight/river/river.tres" id="3_ejupg"]
 [ext_resource type="Resource" uid="uid://bnec58kw617d0" path="res://game/maps/teamfight/underwater_ruins/underwater_ruins.tres" id="4_pcem4"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="5_5m8aj"]
 [ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="5_72mca"]
 
 [sub_resource type="Resource" id="Resource_5m8aj"]
@@ -35,7 +36,6 @@ brief_description = "Побеждай противников на счёт!"
 description = "Простое, но весёлое событие: побеждает та команда, которая совершила больше убийств за отведённое время."
 default_player_health = 50
 min_players = 4
-players_divider = 2
 team_event = true
 parameters = Dictionary[String, ExtResource("5_72mca")]({
 "kills_to_win": SubResource("Resource_5m8aj"),
