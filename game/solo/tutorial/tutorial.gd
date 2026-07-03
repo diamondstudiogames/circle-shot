@@ -168,7 +168,7 @@ func _check_conditions() -> void:
 	if _picked_up_items == 5 and _conditions_met == 5:
 		_conditions_met += 1
 		_player.damage(70)
-		_player.skill.used.connect(_on_skill_used)
+		_player.skill_used.connect(_on_skill_used)
 		if Globals.get_current_input_method() == Globals.InputMethod.KEYBOARD_AND_MOUSE:
 			show_text(texts[21] % [_action_as_string("use_skill")])
 		elif Globals.get_current_input_method() == Globals.InputMethod.TOUCH:

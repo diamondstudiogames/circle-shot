@@ -3,9 +3,6 @@ extends Node2D
 
 ## Узел навыка.
 
-## Издаётся, когда навык использован.
-signal used
-
 ## Определяет, сколько раз можно использовать навык.
 @export var use_times: int = 2
 ## Задаёт время отката навыка.
@@ -47,7 +44,6 @@ func use(args: Array) -> void:
 	player.skill_vars[0] -= 1
 	player.skill_vars[1] = use_cooldown
 	_cooldown_timer = use_cooldown
-	used.emit()
 	_use.callv(args)
 
 

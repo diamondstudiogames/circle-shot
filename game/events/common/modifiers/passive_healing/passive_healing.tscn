@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d1u88sschcbdf"]
 
 [ext_resource type="Script" uid="uid://cas5iqqo2fgtk" path="res://game/events/common/modifiers/passive_healing/passive_healing.gd" id="1_rhxq8"]
-[ext_resource type="PackedScene" uid="uid://doab10yvwt3ic" path="res://game/player/modifiers/passive_healing.tscn" id="2_8h40w"]
+[ext_resource type="PackedScene" uid="uid://doab10yvwt3ic" path="res://game/player/modifiers/passive_heal.tscn" id="2_8h40w"]
 
 [node name="PassiveHealing" type="Node" unique_id=790857173]
 script = ExtResource("1_rhxq8")
 metadata/_custom_type_script = "uid://cvryr82g72v34"
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=2074847506]
-resources = [PackedStringArray("passive_healing"), [ExtResource("2_8h40w")]]
+resources = [PackedStringArray("passive_heal"), [ExtResource("2_8h40w")]]

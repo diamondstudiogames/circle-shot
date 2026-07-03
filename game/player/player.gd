@@ -5,14 +5,20 @@ extends Entity
 ##
 ## Может иметь оружие, скин и навык.
 
-## Издаётся, когда игрок меняет оружие.
-signal weapon_changed(type: Weapon.Type)
 ## Издаётся, когда игрок экипирует новый навык.
 signal skin_equipped(data: SkinData)
 ## Издаётся, когда игрок экипирует новый навык.
 signal skill_equipped(data: SkillData)
 ## Издаётся, когда игрок экипирует новое оружие.
 signal weapon_equipped(type: Weapon.Type, data: WeaponData)
+## Издаётся, когда навык использован.
+signal skill_used
+## Издаётся, когда игрок меняет оружие.
+signal weapon_changed(type: Weapon.Type)
+## Издаётся, когда игрок начинает перезарядку оружия.
+signal weapon_reload_started
+## Издаётся, когда игрок использует дополнительную кнопку оружия.
+signal weapon_additional_button_used
 ## Издаётся, когда текст с информацией о боеприпасах текущего оружия был обновлён.
 signal ammo_text_updated(text: String)
 
@@ -125,6 +131,7 @@ func reload_weapon(current_ammo: int, current_ammo_in_stock: int, args: Array) -
 	current_weapon.ammo = current_ammo
 	current_weapon.ammo_in_stock = current_ammo_in_stock
 	current_weapon.reload.callv(args)
+	weapon_reload_started.emit()
 	print_verbose("%s started reloading." % name)
 
 
@@ -137,6 +144,7 @@ func additional_button_weapon(args: Array) -> void:
 		return
 	
 	current_weapon.additional_button.callv(args)
+	weapon_additional_button_used.emit()
 	print_verbose("%s used additional button." % name)
 
 
@@ -167,6 +175,7 @@ func use_skill(args: Array) -> void:
 		return
 	
 	skill.use(args)
+	skill_used.emit()
 	print_verbose("%s used skill." % name)
 
 

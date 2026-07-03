@@ -16,6 +16,10 @@ func _ready() -> void:
 		queue_free()
 		return
 	_player.health_changed.connect(_on_player_health_changed)
+	_player.skill_used.connect(_reset_timers)
+	_player.weapon_reload_started.connect(_reset_timers)
+	_player.weapon_additional_button_used.connect(_reset_timers)
+	_player.weapon_changed.connect(_reset_timers.unbind(1))
 
 
 func _physics_process(_delta: float) -> void:
