@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ba8urno8gguo1"]
+
+[ext_resource type="Script" uid="uid://c5bypejic4t8n" path="res://game/events/common/modifiers/no_light_weapons/no_light_weapons.gd" id="1_0cdtn"]
+
+[node name="NoLightWeapons" type="Node" unique_id=1363278819]
+script = ExtResource("1_0cdtn")
+metadata/_custom_type_script = "uid://cvryr82g72v34"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lgdhumsa2irb"]
+
+[ext_resource type="Script" uid="uid://f7bgwiri7co4" path="res://game/events/common/modifiers/no_skills/no_skills.gd" id="1_rh8ol"]
+
+[node name="NoSkills" type="Node" unique_id=556664914]
+script = ExtResource("1_rh8ol")
+metadata/_custom_type_script = "uid://cvryr82g72v34"

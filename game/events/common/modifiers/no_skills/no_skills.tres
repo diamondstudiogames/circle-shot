@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://b4h85exlqvb8k"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_f8xjk"]
+
+[resource]
+script = ExtResource("1_f8xjk")
+name = "Без навыков"
+brief_description = "Навык будет изъят у всех игроков."
+scene_path = "uid://lgdhumsa2irb"
+icon_path = "uid://bs0fg7ebw3nyc"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

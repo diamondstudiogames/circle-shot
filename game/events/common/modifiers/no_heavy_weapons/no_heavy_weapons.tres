@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://dvrv51qhgh4od"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_2v8hq"]
+
+[resource]
+script = ExtResource("1_2v8hq")
+name = "Без тяжёлых оружий"
+brief_description = "Тяжёлое оружие будет изъято у всех игроков."
+scene_path = "uid://c0syrois4itgg"
+icon_path = "uid://cp0eqgc8enps"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

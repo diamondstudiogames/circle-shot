@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://doab10yvwt3ic"]
+
+[ext_resource type="Script" uid="uid://bkplxmlmylub2" path="res://game/player/modifiers/passive_healing.gd" id="1_voqqt"]
+
+[node name="PassiveHealing" type="Node" unique_id=394148124]
+script = ExtResource("1_voqqt")
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=750688424]
+process_callback = 0
+wait_time = 8.5
+one_shot = true
+
+[node name="HealingTimer" type="Timer" parent="." unique_id=1249165398]
+process_callback = 0
+wait_time = 1.5
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://cdf284qfc1rh3"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_5xqfh"]
+
+[resource]
+script = ExtResource("1_5xqfh")
+name = "Пассивное лечение"
+brief_description = "Бездействуя некоторое время, игрок медленно восстанавливает здоровье."
+scene_path = "uid://d1u88sschcbdf"
+icon_path = "uid://cveg4ujobgkmq"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

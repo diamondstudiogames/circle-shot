@@ -86,7 +86,7 @@ func _show_item(type: ItemsDB.Item, idx: int) -> void:
 			item_name = event_modifier.name
 			description = "[center]%s[/center]" % event_modifier.brief_description
 			description += '\n'
-			description += "\nПрименим для:"
+			description += "\nПрименимо для:"
 			if event_modifier in Globals.items_db.common_event_modifiers:
 				description += "\n [color=lime_green]всех событий[/color]"
 			else:

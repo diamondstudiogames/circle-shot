@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c0syrois4itgg"]
+
+[ext_resource type="Script" uid="uid://cdclgt087w36p" path="res://game/events/common/modifiers/no_heavy_weapons/no_heavy_weapons.gd" id="1_i3a4w"]
+
+[node name="NoHeavyWeapons" type="Node" unique_id=91163924]
+script = ExtResource("1_i3a4w")
+metadata/_custom_type_script = "uid://cvryr82g72v34"
