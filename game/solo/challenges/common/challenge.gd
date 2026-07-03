@@ -40,6 +40,10 @@ func _local_player_created(player: Player) -> void:
 		($Camera as SmartCamera).pan_to_target(player.camera_target, 4.0)
 
 
+func get_game_zone() -> Rect2:
+	return Rect2(-map.data.size * BLOCK_SIZE / 2, map.data.size * BLOCK_SIZE)
+
+
 ## Создаёт игрока. Если испытание ещё не началось, то этот игрок будет обезоружен и обездвижен.
 func spawn_player() -> void:
 	var player: Player = entity_scenes[0].instantiate()

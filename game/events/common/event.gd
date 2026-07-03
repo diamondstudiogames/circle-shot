@@ -84,6 +84,10 @@ func _local_player_created(player: Player) -> void:
 		event_ui.seek_intro(offset)
 
 
+func get_game_zone() -> Rect2:
+	return Rect2(-map.data.size * BLOCK_SIZE / 2, map.data.size * BLOCK_SIZE)
+
+
 ## Останавливает, обезоруживает и делает неуязвимыми всех игроков.[br]
 ## [b]Примечание[/b]: этот метод должен вызываться только сервером и только как RPC.
 @rpc("reliable", "call_local", "authority", 3)

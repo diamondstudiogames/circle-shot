@@ -149,6 +149,13 @@ func end_cutscene() -> void:
 	cutscene_ended.emit()
 
 
+## Возвращает [Rect2] с областью игровой зоны, иначе говоря где может находиться игрок. Полезно для
+## создания аптечек в пределах досягаемости игрока. В [Event] и [Challenge] возвращает размер карты,
+## в других [World] нужно переопределить самостоятельно.
+func get_game_zone() -> Rect2:
+	return Rect2()
+
+
 @rpc("unreliable", "call_local", "authority", 6)
 func _register_hit(where: Vector2, amount: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:

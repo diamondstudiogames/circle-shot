@@ -37,6 +37,8 @@ var _ended := false
 var _places: int
 var _place_got: int
 
+var _poison_smokes: PoisonSmokes
+
 var _heal_box_scene: PackedScene = load("uid://bysyaaj2r7stt")
 var _ammo_box_scene: PackedScene = load("uid://bdtqr6mv231py")
 var _weapon_box_scene: PackedScene = load("uid://d0d83mi7scscc")
@@ -54,13 +56,14 @@ func _initialize() -> void:
 
 
 func _finish_start() -> void:
-	var smokes: PoisonSmokes = _poison_smokes_scene.instantiate()
-	smokes.duration = parameters["smoke_fill_time"]
-	smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
-	smokes.start_distance += BLOCK_SIZE * 8 # небольшой запас
-	add_child(smokes)
-	var tween: Tween = smokes.create_tween()
-	tween.tween_property(smokes, ^":modulate", smokes.modulate, 0.3).from(Color.TRANSPARENT)
+	_poison_smokes = _poison_smokes_scene.instantiate()
+	_poison_smokes.duration = parameters["smoke_fill_time"]
+	_poison_smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
+	_poison_smokes.start_distance += BLOCK_SIZE * 8 # небольшой запас
+	add_child(_poison_smokes)
+	var tween: Tween = _poison_smokes.create_tween()
+	tween.tween_property(_poison_smokes, ^":modulate",
+			_poison_smokes.modulate, 0.3).from(Color.TRANSPARENT)
 	_places = alive_players.size()
 	if multiplayer.is_server():
 		if parameters["heal_boxes"] == 1:
@@ -115,6 +118,15 @@ func _get_event_status() -> String:
 	return "живых игроков: %d" % alive_players.size()
 
 
+func get_game_zone() -> Rect2:
+	var map_zone: Rect2 = super()
+	if not is_instance_valid(_poison_smokes):
+		return map_zone
+	var smokes_distance: float = _poison_smokes.get_remained_distance()
+	var smokes_zone := Rect2(-Vector2.ONE * smokes_distance, Vector2.ONE * smokes_distance * 2)
+	return map_zone.intersection(smokes_zone)
+
+
 @rpc("reliable", "call_local", "authority", 3)
 func _kill_player(who: int, killer: int = 0) -> void:
 	alive_players.erase(who)
@@ -137,19 +149,25 @@ func _show_winner(winner: int, winner_name: String) -> void:
 
 
 func _get_box_spawn_point() -> Vector2:
-	var game_zone: float = maxf(BLOCK_SIZE * 2,
-			($PoisonSmokes as PoisonSmokes).get_remained_distance() - BLOCK_SIZE * 1.5)
+	var game_zone: Rect2 = get_game_zone().grow(-BLOCK_SIZE * 1.5)
+	if game_zone.size.x < 0.0 or game_zone.size.y < 0.0:
+		# сузили до отрицательного, возьмём область 4 на 4
+		game_zone = Rect2(-Vector2.ONE * BLOCK_SIZE * 2, Vector2.ONE * BLOCK_SIZE * 4)
 	var test_shape := RectangleShape2D.new()
 	test_shape.size = Vector2.ONE * 76
+	var tested_points: Array[Vector2]
 	while true:
-		var value_x: float = ease(randf(), 1.5)
+		# перевес в центр
+		var value_x: float = ease(randf(), 1.5) * 0.5
 		if randi() % 2 == 1:
 			value_x *= -1
-		var value_y: float = ease(randf(), 1.5)
+		var value_y: float = ease(randf(), 1.5) * 0.5
 		if randi() % 2 == 1:
 			value_y *= -1
-		var point := Vector2(value_x * game_zone, value_y * game_zone)
+		var point: Vector2 = game_zone.get_center() + game_zone.size * Vector2(value_x, value_y)
 		point = point.snappedf(BLOCK_SIZE) + Vector2.ONE * BLOCK_SIZE / 2
+		if point in tested_points:
+			return Vector2.ONE * BLOCK_SIZE * 100 # за карту, нефиг прикалываться
 		
 		var params := PhysicsShapeQueryParameters2D.new()
 		params.collide_with_areas = true
@@ -160,6 +178,7 @@ func _get_box_spawn_point() -> Vector2:
 				get_viewport().find_world_2d().space).intersect_shape(params, 1)
 		if results.is_empty():
 			return point
+		tested_points.append(point)
 	
 	return Vector2()
 

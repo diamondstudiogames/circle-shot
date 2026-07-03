@@ -27,6 +27,7 @@ var blue_rounds_won: int = 0
 var current_round: int = 0
 
 var _ended := false
+var _poison_smokes: PoisonSmokes
 var _poison_smokes_scene: PackedScene = load("uid://b4h27swncrquh")
 
 @onready var _duel_ui: DuelUI = $UI
@@ -105,6 +106,15 @@ func _get_event_status() -> String:
 	return "раунд %d" % current_round
 
 
+func get_game_zone() -> Rect2:
+	var map_zone: Rect2 = super()
+	if not is_instance_valid(_poison_smokes):
+		return map_zone
+	var smokes_distance: float = _poison_smokes.get_remained_distance()
+	var smokes_zone := Rect2(-Vector2.ONE * smokes_distance, Vector2.ONE * smokes_distance * 2)
+	return map_zone.intersection(smokes_zone)
+
+
 @rpc("reliable", "call_local", "authority", 3)
 func _set_rounds_won(red: int, blue: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
@@ -125,13 +135,14 @@ func _start_round() -> void:
 	_duel_ui.start_round()
 	print_verbose("Round %d started." % current_round)
 	
-	var smokes: PoisonSmokes = _poison_smokes_scene.instantiate()
-	smokes.duration = parameters["smoke_fill_time"]
-	smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
-	smokes.start_distance += BLOCK_SIZE * 5 # небольшой запас
-	add_child(smokes)
-	var tween: Tween = smokes.create_tween()
-	tween.tween_property(smokes, ^":modulate", smokes.modulate, 0.3).from(Color.TRANSPARENT)
+	_poison_smokes = _poison_smokes_scene.instantiate()
+	_poison_smokes.duration = parameters["smoke_fill_time"]
+	_poison_smokes.start_distance = maxi(map.data.size.x, map.data.size.y) * BLOCK_SIZE / 2
+	_poison_smokes.start_distance += BLOCK_SIZE * 5 # небольшой запас
+	add_child(_poison_smokes)
+	var tween: Tween = _poison_smokes.create_tween()
+	tween.tween_property(_poison_smokes, ^":modulate",
+			_poison_smokes.modulate, 0.3).from(Color.TRANSPARENT)
 	round_started.emit()
 
 
@@ -148,10 +159,10 @@ func _end_round(win_team: int, winner: int, ends := false) -> void:
 		print_verbose("Winner: %d." % winner)
 		end_event(winner == multiplayer.get_unique_id())
 	
-	if has_node(^"PoisonSmokes"):
-		var tween: Tween = $PoisonSmokes.create_tween()
-		tween.tween_property($PoisonSmokes as CanvasItem, ^":modulate", Color.TRANSPARENT, 0.3)
-		tween.tween_callback($PoisonSmokes.queue_free)
+	if is_instance_valid(_poison_smokes):
+		var tween: Tween = _poison_smokes.create_tween()
+		tween.tween_property(_poison_smokes, ^":modulate", Color.TRANSPARENT, 0.3)
+		tween.tween_callback(_poison_smokes.queue_free)
 	
 	get_tree().call_group(&"player", &"block_weapon_usage")
 	get_tree().call_group(&"player", &"make_immobile")

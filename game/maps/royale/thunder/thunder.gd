@@ -15,11 +15,12 @@ func _summon_ligtning_bolt(where: Vector2) -> void:
 	var lightning: Attack = _lightning_bolt_scene.instantiate()
 	lightning.position = where
 	lightning.name += str(randi())
-	get_tree().get_first_node_in_group(&"projectiles_parent").add_child(lightning, true)
+	get_tree().get_first_node_in_group(&"other_parent").add_child(lightning, true)
 
 
 func _on_lightning_bolt_timer_timeout() -> void:
-	# Зона где нет дыма
-	var game_zone: float = maxf(($"../PoisonSmokes/Right" as Node2D).global_position.x - 240.0, 0.0)
-	_summon_ligtning_bolt.rpc(
-			Vector2(randf_range(-game_zone, game_zone), randf_range(-game_zone, game_zone)))
+	if not is_instance_valid(world):
+		return
+	var game_zone: Rect2 = world.get_game_zone()
+	_summon_ligtning_bolt.rpc(game_zone.get_center()
+			+ game_zone.size * Vector2(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5)))
