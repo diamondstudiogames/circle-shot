@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://bvd4fr6rsh7s1"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_jhpx4"]
+
+[resource]
+script = ExtResource("1_jhpx4")
+name = "Колючий флаг"
+brief_description = "Игрок, подобравший флаг, начинает истекать кровью и медленно терять здоровье."
+scene_path = "uid://dd52elhnqdvd0"
+icon_path = "uid://bc8odixdr4p1r"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

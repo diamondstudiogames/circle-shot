@@ -17,7 +17,8 @@ const INTERACT_ACTION_NAME_CONTROLLER := &"c_interact"
 
 ## Текст, появляющийся над стрелкой взаимодействия.
 @export_multiline var text: String
-## Время, которое должна быть зажата кнопка для взаимодействия.
+## Время, которое должна быть зажата кнопка для взаимодействия. Если меньше нуля, взаимодействие
+## проходит мгновенно.
 @export var hold_interaction_time := -1.0
 
 var _players: Array[Player]

@@ -3,6 +3,10 @@ extends Event
 
 ## Событие "Захват флага".
 
+## Издаётся, когда флаг одной из команд захвачен. [param by_team] содержит команду, которая
+## захватила флаг.
+signal flag_captured(by_team: int)
+
 ## Время, через которое возвращаются павшие игроки.
 @export var comeback_time: int = 3
 
@@ -149,6 +153,7 @@ func _update_score(red: int, blue: int, blue_captured: bool) -> void:
 	blue_flags_captured = blue
 	_flag_capture_ui.set_flags(red_flags_captured, blue_flags_captured)
 	_flag_capture_ui.show_flag_captured(blue_captured)
+	flag_captured.emit(int(blue_captured))
 	print_verbose("Team %d captured flag." % int(blue_captured))
 	print_verbose("Current score: %d - %d." % [red_flags_captured, blue_flags_captured])
 

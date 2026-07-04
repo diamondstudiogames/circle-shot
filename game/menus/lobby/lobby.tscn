@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://brcaom8n83yf2" path="res://menu/theme/icons/reset.png" id="20_3bj1l"]
 [ext_resource type="PackedScene" uid="uid://bj8ovestjfmnq" path="res://game/menus/lobby/configuration/parameter_check_button.tscn" id="20_rgji2"]
 [ext_resource type="PackedScene" uid="uid://bdp88ihuwkaci" path="res://game/menus/lobby/configuration/parameter_slider.tscn" id="21_3bj1l"]
+[ext_resource type="Script" uid="uid://cexyawmlyqo3w" path="res://addons/autofocus/autofocus_window.gd" id="21_arbyr"]
 [ext_resource type="PackedScene" uid="uid://ccs5qwjfxl3ks" path="res://game/menus/lobby/configuration/modifier.tscn" id="21_ehlkd"]
 [ext_resource type="PackedScene" uid="uid://dv76erm78qdtx" path="res://game/menus/lobby/configuration/parameter_spin_box.tscn" id="22_ehlkd"]
 
@@ -428,6 +429,7 @@ icon = ExtResource("20_3bj1l")
 [node name="ScrollContainer" type="ScrollContainer" parent="EventConfiguration/Base" unique_id=1211049123]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EventConfiguration/Base/ScrollContainer" unique_id=1333055606]
@@ -452,6 +454,11 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Закрыть"
+
+[node name="AutofocusWindow" type="Node" parent="EventConfiguration" unique_id=1080000625]
+script = ExtResource("21_arbyr")
+focus_target = NodePath("../Base/Close")
+metadata/_custom_type_script = "uid://cexyawmlyqo3w"
 
 [node name="BroadcastTimer" type="Timer" parent="." unique_id=1166333176]
 

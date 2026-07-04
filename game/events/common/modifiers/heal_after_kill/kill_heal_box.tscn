@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cjqe5n7lmp55s"]
+
+[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="1_mvfrc"]
+
+[node name="HealBox" unique_id=1871512140 instance=ExtResource("1_mvfrc")]
+heal_restore_ratio = 0.25
+
+[editable path="MinimapMarker"]

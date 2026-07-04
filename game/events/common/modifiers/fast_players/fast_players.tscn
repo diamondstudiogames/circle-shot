@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b537ks30meho3"]
+
+[ext_resource type="Script" uid="uid://ct1s1tjrwhffa" path="res://game/events/common/modifiers/fast_players/fast_players.gd" id="1_me3tf"]
+
+[node name="FastPlayers" type="Node" unique_id=938394467]
+script = ExtResource("1_me3tf")
+speed_multiplier = 1.4
+metadata/_custom_type_script = "uid://cvryr82g72v34"

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dd52elhnqdvd0"]
+
+[ext_resource type="Script" uid="uid://cij6e1ka1lmgk" path="res://game/events/flag_capture/modifiers/thorn_flag/thorn_flag.gd" id="1_8eex8"]
+
+[node name="ThornFlag" type="Node" unique_id=1601460608]
+script = ExtResource("1_8eex8")
+metadata/_custom_type_script = "uid://cvryr82g72v34"

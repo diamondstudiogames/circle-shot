@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://duwipb0fmr4uo"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_j1aqh"]
+
+[resource]
+script = ExtResource("1_j1aqh")
+name = "Быстрые игроки"
+brief_description = "Все игроки движутся быстрее обычного."
+scene_path = "uid://b537ks30meho3"
+icon_path = "uid://djy12av4jacf1"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

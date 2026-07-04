@@ -69,8 +69,10 @@ func _find_ips() -> void:
 	
 	if _http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 		_http_request.cancel_request()
+	_add_line("Получение глобального IP-адреса...")
 	var error: Error = _http_request.request("https://icanhazip.com/")
 	if error != OK:
+		_remove_last_line()
 		push_warning("Quiry global IP: can't create request. Error: %s." % error_string(error))
 		_add_line("Невозможно создать запрос для получения глобального IP-адреса! Ошибка: %s."
 				% error_string(error))
@@ -78,6 +80,11 @@ func _find_ips() -> void:
 
 func _add_line(line: String) -> void:
 	_lines.append(line)
+	dialog_text = '\n'.join(_lines)
+
+
+func _remove_last_line() -> void:
+	_lines.pop_back()
 	dialog_text = '\n'.join(_lines)
 
 
@@ -99,6 +106,8 @@ func _on_about_to_popup() -> void:
 
 func _on_request_completed(result: int, response_code: int,
 		_headers: PackedStringArray, body: PackedByteArray) -> void:
+	if _lines[-1].begins_with("Получение"):
+		_remove_last_line()
 	if result != HTTPRequest.RESULT_SUCCESS:
 		push_warning("Quiry global IP: result is not Success. Result: %d." % result)
 		_add_line("Ошибка запроса глобального IP-адреса! Код ошибки: %d." % result)
@@ -116,8 +125,10 @@ func _on_request_completed(result: int, response_code: int,
 		
 		if _http_request_ipv4.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 			_http_request_ipv4.cancel_request()
+		_add_line("Получение глобального IPv4-адреса...")
 		var error: Error = _http_request_ipv4.request("https://ipv4.icanhazip.com/")
 		if error != OK:
+			_remove_last_line()
 			push_warning("Quiry global IPv4: can't create request. Error: %s."
 					% error_string(error))
 			_add_line("Невозможно создать запрос для получения глобального IPv5-адреса! Ошибка: %s."
@@ -134,6 +145,8 @@ func _on_request_completed(result: int, response_code: int,
 
 func _on_ipv4_request_completed(result: int, response_code: int,
 		_headers: PackedStringArray, body: PackedByteArray) -> void:
+	if _lines[-1].begins_with("Получение"):
+		_remove_last_line()
 	if result != HTTPRequest.RESULT_SUCCESS:
 		push_warning("Quiry global IPv4: result is not Success. Result: %d." % result)
 		_add_line("Ошибка запроса глобального IPv4-адреса! Код ошибки: %d." % result)

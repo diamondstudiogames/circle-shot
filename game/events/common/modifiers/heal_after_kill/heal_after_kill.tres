@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://c4eceqenk4uum"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_n2jf0"]
+
+[resource]
+script = ExtResource("1_n2jf0")
+name = "Лечение за убийство"
+brief_description = "На месте убитого игрока появляется коробка, восстанавливающая здоровье."
+spawnable_other_paths = Array[String](["uid://cjqe5n7lmp55s"])
+scene_path = "uid://cgk4pfv582u05"
+icon_path = "uid://bu58ysttxbdcr"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

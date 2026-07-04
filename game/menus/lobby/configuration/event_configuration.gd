@@ -102,6 +102,7 @@ func _list_modifiers() -> void:
 				load(modifier.icon_path)
 		var check_button: CheckButton = modifier_node.get_node(^"Container/CheckButton")
 		check_button.disabled = not _lobby.is_admin()
+		check_button.button_pressed = modifier.idx_in_db in _lobby.selected_event_modifiers
 		check_button.toggled.connect(_on_modifier_check_button_toggled.bind(modifier.idx_in_db))
 		%ModifiersContainer.add_child(modifier_node)
 

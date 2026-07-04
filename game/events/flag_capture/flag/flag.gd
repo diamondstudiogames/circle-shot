@@ -3,6 +3,11 @@ extends Area2D
 
 ## Флаг для события "Захват флага".
 
+## Издаётся, когда флаг подбирает игрок с ID [param by].
+signal picked_up(by: int)
+## Издаётся, когда флаг кладётся на землю игроком с ID [param by].
+signal dropped(by: int)
+
 ## Команда, которой принадлежит этот флаг.
 @export var team: int = 0
 ## Время, за которое флаг возвращается на базу при нахождении на земле.
@@ -42,8 +47,10 @@ func _process(delta: float) -> void:
 				teleport_to_base.rpc()
 
 
+## Даёт флагу игроку с ID [param id].
+## [b]Примечание[/b]: этот метод должен вызываться только сервером и только как RPC.
 @rpc("reliable", "call_local", "authority", 3)
-func carry(id: int) -> void:
+func pick_up(id: int) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -57,7 +64,7 @@ func carry(id: int) -> void:
 	if multiplayer.is_server():
 		player.tree_exiting.connect(_drop)
 	
-	$CarryInteractible.process_mode = Node.PROCESS_MODE_DISABLED
+	$PickUpInteractible.process_mode = Node.PROCESS_MODE_DISABLED
 	$DropInteractible.process_mode = Node.PROCESS_MODE_INHERIT
 	
 	var rt := RemoteTransform2D.new()
@@ -67,19 +74,23 @@ func carry(id: int) -> void:
 	player.add_child(rt)
 	rt.remote_path = get_path()
 	rt.reset_physics_interpolation()
+	picked_up.emit(id)
 	print_verbose("Flag of team %d picked up by %d." % [team, player.id])
 
 
+## Бросает флаг на землю в точку [param where].
+## [b]Примечание[/b]: этот метод может вызываться и как RPC, и как обычный метод.
 @rpc("reliable", "call_local", "authority", 3)
 func drop(where: Vector2 = position) -> void:
 	print_verbose("Flag of team %d dropped." % team)
+	dropped.emit(player.id)
 	_return_timer = return_time
 	_timer_progress.show()
 	position = where
 	reset_physics_interpolation()
 	
 	if not is_queued_for_deletion(): # обход ошибки движка
-		$CarryInteractible.process_mode = Node.PROCESS_MODE_INHERIT
+		$PickUpInteractible.process_mode = Node.PROCESS_MODE_INHERIT
 		$DropInteractible.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	if not is_instance_valid(player):
@@ -93,6 +104,8 @@ func drop(where: Vector2 = position) -> void:
 	player = null
 
 
+## Телепортирует флаг на базу.[br]
+## [b]Примечание[/b]: этот метод должен вызываться только сервером и только как RPC.
 @rpc("reliable", "call_local", "authority", 3)
 func teleport_to_base() -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
@@ -108,9 +121,9 @@ func _drop() -> void:
 	drop.rpc(position)
 
 
-func _on_carry_interactible_interacted(who: Player) -> void:
+func _on_pick_up_interactible_interacted(who: Player) -> void:
 	if multiplayer.is_server():
-		carry.rpc(who.id)
+		pick_up.rpc(who.id)
 
 
 func _on_drop_interactible_interacted(_who: Player) -> void:

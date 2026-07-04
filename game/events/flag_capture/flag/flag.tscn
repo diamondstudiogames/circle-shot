@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bppm7xaf2v7ti" path="res://game/shared/ui/screen_marker/screen_marker.tscn" id="4_m7w11"]
 [ext_resource type="Texture2D" uid="uid://clm45yn1rangi" path="res://game/events/flag_capture/flag/flag_marker.png" id="5_uuplo"]
 [ext_resource type="PackedScene" uid="uid://c5gj3jyjpfs13" path="res://game/shared/interactible/common/interactible.tscn" id="6_x0rae"]
-[ext_resource type="Script" uid="uid://buxfde3ak44cf" path="res://game/events/flag_capture/flag/carry_interactible.gd" id="7_tpurr"]
+[ext_resource type="Script" uid="uid://buxfde3ak44cf" path="res://game/events/flag_capture/flag/pick_up_interactible.gd" id="7_tpurr"]
 [ext_resource type="Script" uid="uid://bfu44xg8268p7" path="res://game/events/flag_capture/flag/drop_interactible.gd" id="8_tpurr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr771"]
@@ -58,25 +58,25 @@ texture_progress = ExtResource("3_jsgb6")
 
 [node name="MinimapMarker" parent="." unique_id=552689450 instance=ExtResource("3_oyuah")]
 
-[node name="Visual" parent="MinimapMarker" index="2"]
+[node name="Visual" parent="MinimapMarker" index="2" unique_id=86601325]
 texture = ExtResource("2_nr771")
 
 [node name="ScreenMarker" parent="." unique_id=245766272 instance=ExtResource("4_m7w11")]
 margin = 32.0
 show_when_on_screen = false
 
-[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
+[node name="Icon" parent="ScreenMarker/Marker/Arrow" parent_id_path=PackedInt32Array(245766272, 31669513) index="0" unique_id=2020806571]
 texture = ExtResource("5_uuplo")
 
-[node name="Icon" parent="ScreenMarker/Marker" index="1"]
+[node name="Icon" parent="ScreenMarker/Marker" parent_id_path=PackedInt32Array(245766272, 808199532) index="1" unique_id=415947780]
 texture = ExtResource("5_uuplo")
 
-[node name="CarryInteractible" parent="." unique_id=1661668920 instance=ExtResource("6_x0rae")]
+[node name="PickUpInteractible" parent="." unique_id=1661668920 instance=ExtResource("6_x0rae")]
 position = Vector2(0, -80)
 script = ExtResource("7_tpurr")
 text = "Поднять"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarryInteractible" unique_id=1065850135]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpInteractible" unique_id=1065850135]
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 
@@ -91,7 +91,7 @@ hold_interaction_time = 0.4000000000087311
 visible = false
 shape = SubResource("CircleShape2D_nr771")
 
-[connection signal="interacted" from="CarryInteractible" to="." method="_on_carry_interactible_interacted"]
+[connection signal="interacted" from="PickUpInteractible" to="." method="_on_pick_up_interactible_interacted"]
 [connection signal="interacted" from="DropInteractible" to="." method="_on_drop_interactible_interacted"]
 
 [editable path="MinimapMarker"]
