@@ -209,7 +209,7 @@ func _end_event() -> void:
 		_show_winner.rpc(1)
 	else:
 		_show_winner.rpc(-1)
-	freeze_players.rpc()
+	freeze_entities.rpc()
 	
 	_event_timer.start(6.5)
 	await _event_timer.timeout

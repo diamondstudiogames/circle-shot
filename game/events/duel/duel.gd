@@ -164,14 +164,10 @@ func _end_round(win_team: int, winner: int, ends := false) -> void:
 		tween.tween_property(_poison_smokes, ^":modulate", Color.TRANSPARENT, 0.3)
 		tween.tween_callback(_poison_smokes.queue_free)
 	
-	get_tree().call_group(&"player", &"block_weapon_usage")
-	get_tree().call_group(&"player", &"make_immobile")
-	get_tree().call_group(&"player", &"make_immune")
-	get_tree().call_group(&"player", &"block_turning")
-	
 	round_ended.emit(win_team)
 	if not multiplayer.is_server():
 		return
+	freeze_entities.rpc()
 	
 	_event_timer.start(3.5)
 	await _event_timer.timeout

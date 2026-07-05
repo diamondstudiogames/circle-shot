@@ -14,9 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://celt1ssdnn6g" path="res://game/events/common/emotions/sad.png" id="8_o0cfd"]
 [ext_resource type="Texture2D" uid="uid://t1sph46waasb" path="res://game/events/common/emotions/wow.png" id="9_l5dr1"]
 [ext_resource type="Texture2D" uid="uid://dtfi53vwn6sir" path="res://game/events/common/emotions/skull.png" id="10_n71do"]
+[ext_resource type="Texture2D" uid="uid://c8xg6wc02uuqx" path="res://game/events/common/emotions/laugh.png" id="10_o0cfd"]
 [ext_resource type="PackedScene" uid="uid://b1ipe4g6uueie" path="res://game/events/common/reward.tscn" id="10_w1x71"]
 [ext_resource type="AudioStream" uid="uid://hs3bh8qllach" path="res://game/music/defeat.ogg" id="12_jddfk"]
+[ext_resource type="Texture2D" uid="uid://c3hj6k51sxsdx" path="res://game/events/common/emotions/heart.png" id="12_l5dr1"]
 [ext_resource type="Texture2D" uid="uid://durmmh0vjl0eg" path="res://menu/theme/icons/exit.png" id="13_j0bsh"]
+[ext_resource type="Texture2D" uid="uid://btouswsnp73n" path="res://game/events/common/emotions/lightning.png" id="13_n71do"]
+[ext_resource type="Texture2D" uid="uid://wmwi5iobjygx" path="res://game/events/common/emotions/clock.png" id="14_3pred"]
 [ext_resource type="Texture2D" uid="uid://d14nbphg5o3a" path="res://game/shared/ui/chat/chat.png" id="14_05fx8"]
 [ext_resource type="PackedScene" uid="uid://bkyhxor5s6032" path="res://game/events/common/emotions/emotion_cloud.tscn" id="18_ss686"]
 
@@ -205,7 +209,7 @@ _data = {
 [node name="Event" unique_id=1053316142 instance=ExtResource("1_6dq27")]
 script = ExtResource("1_kxt6o")
 spawn_point_randomness = 40.0
-emotions = Array[Texture2D]([ExtResource("3_gkooh"), ExtResource("4_ss686"), ExtResource("5_gfnw7"), ExtResource("6_n0ugw"), ExtResource("7_iih6h"), ExtResource("8_o0cfd"), ExtResource("9_l5dr1"), ExtResource("10_n71do")])
+emotions = Array[Texture2D]([ExtResource("3_gkooh"), ExtResource("4_ss686"), ExtResource("5_gfnw7"), ExtResource("6_n0ugw"), ExtResource("7_iih6h"), ExtResource("8_o0cfd"), ExtResource("9_l5dr1"), ExtResource("10_o0cfd"), ExtResource("10_n71do"), ExtResource("12_l5dr1"), ExtResource("13_n71do"), ExtResource("14_3pred")])
 
 [node name="UI" parent="." index="8" unique_id=147986541]
 script = ExtResource("4_10cmx")

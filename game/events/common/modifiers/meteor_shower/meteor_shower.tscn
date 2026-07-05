@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dydf6ubfi3ngr"]
+
+[ext_resource type="Script" uid="uid://7nwstiu4hp0r" path="res://game/events/common/modifiers/meteor_shower/meteor_shower.gd" id="1_4ptul"]
+[ext_resource type="PackedScene" uid="uid://chs2an8qys5vq" path="res://game/events/common/modifiers/meteor_shower/falling_meteor.tscn" id="2_x6yl2"]
+
+[node name="MeteorShower" type="Node" unique_id=1411053246]
+script = ExtResource("1_4ptul")
+meteor_scene = ExtResource("2_x6yl2")
+metadata/_custom_type_script = "uid://cvryr82g72v34"
+
+[node name="Timer" type="Timer" parent="." unique_id=215004862]
+process_callback = 0
+wait_time = 7.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -296,7 +296,7 @@ func _init_round(first := false) -> void:
 func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -> void:
 	_round_ended = true
 	_round_timer.stop()
-	freeze_players.rpc()
+	freeze_entities.rpc()
 	_end_round.rpc(defused_by)
 	if defused_by > 0:
 		_event_timer.start(2.0)

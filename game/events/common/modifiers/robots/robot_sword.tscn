@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dqjwncwbvp6gt"]
+
+[ext_resource type="PackedScene" uid="uid://cae62v5ywqo8a" path="res://game/mobs/robot/variants/robot_sword.tscn" id="1_t61kj"]
+
+[node name="RobotSword" unique_id=2124465477 instance=ExtResource("1_t61kj")]
+speed = 512.0
+max_health = 65

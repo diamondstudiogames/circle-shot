@@ -167,7 +167,7 @@ func _get_box_spawn_point() -> Vector2:
 		var point: Vector2 = game_zone.get_center() + game_zone.size * Vector2(value_x, value_y)
 		point = point.snappedf(BLOCK_SIZE) + Vector2.ONE * BLOCK_SIZE / 2
 		if point in tested_points:
-			return Vector2.ONE * BLOCK_SIZE * 100 # за карту, нефиг прикалываться
+			break
 		
 		var params := PhysicsShapeQueryParameters2D.new()
 		params.collide_with_areas = true
@@ -180,7 +180,7 @@ func _get_box_spawn_point() -> Vector2:
 			return point
 		tested_points.append(point)
 	
-	return Vector2()
+	return Vector2.ONE * BLOCK_SIZE * 100 # за карту, нефиг прикалываться
 
 
 func _spawn_heal_box() -> void:
@@ -214,7 +214,7 @@ func _check_for_end() -> void:
 	var winner_id: int = alive_players[0]
 	var winner_name: String = players_names[winner_id]
 	_show_winner.rpc(winner_id, winner_name)
-	freeze_players.rpc()
+	freeze_entities.rpc()
 	($HealBoxSpawnTimer as Timer).stop()
 	($AmmoBoxSpawnTimer as Timer).stop()
 	($WeaponBoxSpawnTimer as Timer).stop()

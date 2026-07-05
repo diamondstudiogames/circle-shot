@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://chs2an8qys5vq"]
+
+[ext_resource type="Material" uid="uid://dte324d3u12ef" path="res://game/shared/shaders/materials/unshaded.tres" id="1_nhne5"]
+[ext_resource type="Script" uid="uid://bam2qw5l54ms5" path="res://game/events/common/modifiers/meteor_shower/falling_meteor.gd" id="2_nhne5"]
+[ext_resource type="Texture2D" uid="uid://baibw2ydkb7ao" path="res://game/events/common/modifiers/meteor_shower/meteor_explosion.png" id="2_q5dpr"]
+[ext_resource type="Script" uid="uid://ccr5t8s5ui45t" path="res://game/entity/attack/area_detector.gd" id="3_1jjnu"]
+[ext_resource type="Texture2D" uid="uid://nfanipx2t0" path="res://game/events/common/modifiers/meteor_shower/meteor.png" id="5_ej35m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owr6v"]
+radius = 400.0
+
+[sub_resource type="Curve" id="Curve_j7f06"]
+_data = [Vector2(0, 0), 0.0, 1.1407589, 0, 0, Vector2(0.97996306, 0.9834927), 0.9493919, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wap42"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0.28627452, 1)
+
+[sub_resource type="Animation" id="Animation_nhne5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meteor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1280, -2560)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meteor:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meteor/Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meteor:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AreaDetector/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1jjnu"]
+resource_name = "meteor"
+length = 1.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meteor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.65000004, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1280, -2560), Vector2(-1280, -2560), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meteor:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.65000004, 0.75000006),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meteor/Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.65000004, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(0, 0, 0, 0), PackedVector2Array(0, 0, 0, 0), PackedVector2Array(-640, -1280, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meteor:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.65000004, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.15, 1.2, 1.2500001, 1.3000001, 1.35, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.65000004, 1.15, 1.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45000005, 0.75, 1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 0, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.3137255), Color(1, 0, 0, 0.2509804), Color(1, 0, 0, 0.3764706), Color(1, 0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AreaDetector/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.3499999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.15, 1.85),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"shake"
+}, {
+"args": [],
+"method": &"safe_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej35m"]
+_data = {
+&"RESET": SubResource("Animation_nhne5"),
+&"meteor": SubResource("Animation_1jjnu")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_nhne5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
+[node name="FallingMeteor" type="Node2D" unique_id=1442352527]
+self_modulate = Color(1, 0, 0, 0)
+z_index = -4
+material = ExtResource("1_nhne5")
+script = ExtResource("2_nhne5")
+shake_max_amplitude = 24.0
+shake_max_distance = 2400.0
+damage = 30
+metadata/_custom_type_script = "uid://bgvirlnion8wa"
+
+[node name="AreaDetector" type="Area2D" parent="." unique_id=688266850]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_1jjnu")
+metadata/_custom_type_script = "uid://ccr5t8s5ui45t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector" unique_id=709331313]
+shape = SubResource("CircleShape2D_owr6v")
+disabled = true
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=780929184]
+visible = false
+z_index = 5
+material = ExtResource("1_nhne5")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_q5dpr")
+hframes = 3
+vframes = 2
+
+[node name="Meteor" type="Node2D" parent="." unique_id=1625081297]
+modulate = Color(1, 1, 1, 0)
+z_index = 9
+position = Vector2(-1280, -2560)
+
+[node name="Line2D" type="Line2D" parent="Meteor" unique_id=758510322]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 240.0
+width_curve = SubResource("Curve_j7f06")
+gradient = SubResource("Gradient_wap42")
+
+[node name="Sprite2D" type="Sprite2D" parent="Meteor" unique_id=600519821]
+texture = ExtResource("5_ej35m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=91839430]
+libraries/ = SubResource("AnimationLibrary_ej35m")
+autoplay = &"meteor"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1433729349]
+replication_config = SubResource("SceneReplicationConfig_nhne5")

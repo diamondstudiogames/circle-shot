@@ -158,6 +158,8 @@ func add_ammo_to_weapon(type: Weapon.Type, ratio: float) -> void:
 		push_error("This method must be called only by server.")
 		return
 	
+	if equip_data[2 + type] == -1:
+		return # нет оружия в этом слоте
 	var target_weapon: Weapon = weapons.get_child(type)
 	target_weapon.ammo_in_stock = mini(
 			target_weapon.ammo_in_stock + ceili(target_weapon.ammo_total * ratio),

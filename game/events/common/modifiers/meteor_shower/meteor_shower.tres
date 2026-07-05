@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://dr15eg0h7fawp"]
+
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_3srp5"]
+
+[resource]
+script = ExtResource("1_3srp5")
+name = "Метеоритный дождь"
+brief_description = "С неба падают опасные космические камни. Соблюдайте осторожность!"
+spawnable_other_paths = Array[String](["uid://chs2an8qys5vq"])
+scene_path = "uid://dydf6ubfi3ngr"
+icon_path = "uid://c2pkbqdquk0uj"
+metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

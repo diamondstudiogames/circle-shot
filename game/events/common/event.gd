@@ -88,20 +88,6 @@ func get_game_zone() -> Rect2:
 	return Rect2(-map.data.size * BLOCK_SIZE / 2, map.data.size * BLOCK_SIZE)
 
 
-## Останавливает, обезоруживает и делает неуязвимыми всех игроков.[br]
-## [b]Примечание[/b]: этот метод должен вызываться только сервером и только как RPC.
-@rpc("reliable", "call_local", "authority", 3)
-func freeze_players() -> void:
-	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
-		push_error("This method must be called only by server.")
-		return
-	
-	get_tree().call_group(&"player", &"block_weapon_usage")
-	get_tree().call_group(&"player", &"make_immobile")
-	get_tree().call_group(&"player", &"make_immune")
-	get_tree().call_group(&"player", &"block_turning")
-
-
 ## Останавливает, обезоруживает и делает неуязвимыми все сущности.[br]
 ## [b]Примечание[/b]: этот метод должен вызываться только сервером и только как RPC.
 @rpc("reliable", "call_local", "authority", 3)

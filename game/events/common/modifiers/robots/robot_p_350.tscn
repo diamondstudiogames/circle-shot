@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bh0prkw28cqui"]
+
+[ext_resource type="PackedScene" uid="uid://bxac6tcgijv2e" path="res://game/mobs/robot/variants/robot_p350.tscn" id="1_8qq3c"]
+
+[node name="RobotP350" unique_id=455329438 instance=ExtResource("1_8qq3c")]
+speed = 480.0
+max_health = 50

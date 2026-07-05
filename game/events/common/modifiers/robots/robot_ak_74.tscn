@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cqe0emaplyqga"]
+
+[ext_resource type="PackedScene" uid="uid://hxoxmba176ju" path="res://game/mobs/robot/variants/robot_ak_74.tscn" id="1_0j06g"]
+
+[node name="RobotAK74" unique_id=206109804 instance=ExtResource("1_0j06g")]
+speed = 448.0
+max_health = 50

@@ -25,6 +25,8 @@
 [ext_resource type="Script" uid="uid://d6lhqjoo2iuf" path="res://game/player/equip/skin_data.gd" id="9_l7qpn"]
 [ext_resource type="Resource" uid="uid://bmhhgkoyswa8b" path="res://game/events/bomb_defusal/bomb_defusal.tres" id="9_nkeqj"]
 [ext_resource type="Resource" uid="uid://3mhx3odgpqdp" path="res://game/events/common/modifiers/no_support_weapons/no_support_weapons.tres" id="9_ubbir"]
+[ext_resource type="Resource" uid="uid://dr15eg0h7fawp" path="res://game/events/common/modifiers/meteor_shower/meteor_shower.tres" id="9_usgo5"]
+[ext_resource type="Resource" uid="uid://3nbtfnvshcvd" path="res://game/events/common/modifiers/robots/robots.tres" id="10_2a5s6"]
 [ext_resource type="Resource" uid="uid://e73a6p47fqmi" path="res://game/skills/diamond_bullet/diamond_bullet.tres" id="10_fvueb"]
 [ext_resource type="Resource" uid="uid://ccm47j21hpmyx" path="res://game/skills/beartrap/beartrap.tres" id="11_85cop"]
 [ext_resource type="Resource" uid="uid://wx68f4o4qijn" path="res://game/skills/invisibility_bomb/invisibility_bomb.tres" id="12_qhkdj"]
@@ -82,7 +84,7 @@
 [resource]
 script = ExtResource("2_y7sof")
 events = Array[ExtResource("1_yrpvj")]([ExtResource("2_8tgde"), ExtResource("3_2oage"), ExtResource("4_8506t"), ExtResource("5_nkeqj"), ExtResource("9_nkeqj")])
-common_event_modifiers = Array[ExtResource("4_xfcsd")]([ExtResource("5_dw7xr"), ExtResource("6_3w16s"), ExtResource("7_wr5km"), ExtResource("8_ubbir"), ExtResource("6_loaox"), ExtResource("7_3w16s"), ExtResource("8_wr5km"), ExtResource("9_ubbir")])
+common_event_modifiers = Array[ExtResource("4_xfcsd")]([ExtResource("5_dw7xr"), ExtResource("6_3w16s"), ExtResource("7_wr5km"), ExtResource("8_ubbir"), ExtResource("9_usgo5"), ExtResource("10_2a5s6"), ExtResource("6_loaox"), ExtResource("7_3w16s"), ExtResource("8_wr5km"), ExtResource("9_ubbir")])
 challenges = Array[ExtResource("1_l7qpn")]([ExtResource("2_v4b4t"), ExtResource("3_l3v78")])
 skins_lines = Array[ExtResource("18_2b02j")]([ExtResource("19_j2sk8"), ExtResource("20_l7qpn"), ExtResource("21_v4b4t"), ExtResource("22_l3v78"), ExtResource("23_vyn0d"), ExtResource("24_puq8a")])
 skills_normal = Array[ExtResource("3_x8mha")]([ExtResource("4_hfvvw"), ExtResource("8_6c1k5"), ExtResource("6_2wp4d"), ExtResource("10_fvueb"), ExtResource("12_qhkdj"), ExtResource("11_85cop"), ExtResource("16_i6gqg"), ExtResource("20_v4b4t")])
