@@ -36,7 +36,7 @@ func _get_rewards() -> Dictionary[String, int]:
 func spawn_big_shot() -> void:
 	var big_shot: Entity = entity_scenes[1].instantiate()
 	big_shot.position = ($Map/BigShotSpawnPoint as Node2D).global_position
-	big_shot.team = 1
+	big_shot.team = 3
 	big_shot.id = -randi()
 	big_shot.name += str(big_shot.id)
 	$Entities.add_child(big_shot, true)

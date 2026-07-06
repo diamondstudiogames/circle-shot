@@ -92,7 +92,7 @@ func _spawn_robot() -> void:
 			spawn_pos = _spawn_points[_spawn_points_counter].global_position
 	
 	robot.position = spawn_pos
-	robot.team = 1
+	robot.team = 7
 	robot.id = -randi()
 	robot.name += str(robot.id)
 	robot.max_health = roundi(robot.max_health * health_multiplier_curve.sample(time_survived))

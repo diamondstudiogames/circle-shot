@@ -78,7 +78,7 @@ func _spawn_player() -> void:
 func _spawn_cultist(idx: int) -> void:
 	var cultist: Entity = entity_scenes[1 + idx].instantiate()
 	cultist.position = _spawn_points[_spawn_points_counter].global_position
-	cultist.team = 4
+	cultist.team = 10
 	cultist.id = -randi()
 	cultist.name += str(cultist.id)
 	cultist.died.connect(_on_cultist_died.bind(cultist))

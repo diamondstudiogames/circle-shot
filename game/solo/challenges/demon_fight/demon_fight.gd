@@ -54,7 +54,7 @@ func _get_rewards() -> Dictionary[String, int]:
 func spawn_goat() -> void:
 	var goat: Entity = entity_scenes[1].instantiate()
 	goat.position = ($Map/GoatSpawnPoint as Node2D).global_position
-	goat.team = 4
+	goat.team = 10
 	goat.id = -randi()
 	goat.name += str(goat.id)
 	$Entities.add_child(goat, true)
