@@ -9,21 +9,23 @@ process_mode = 1
 physics_interpolation_mode = 2
 script = ExtResource("1_pse65")
 
-[node name="Marker" type="Node2D" parent="." unique_id=808199532]
+[node name="MarkerBase" type="Node2D" parent="." unique_id=2039614537]
 top_level = true
+
+[node name="Marker" type="Node2D" parent="MarkerBase" unique_id=808199532]
 z_index = 50
 material = ExtResource("2_g4rl3")
 
-[node name="Arrow" type="Sprite2D" parent="Marker" unique_id=31669513]
+[node name="Arrow" type="Sprite2D" parent="MarkerBase/Marker" unique_id=31669513]
 use_parent_material = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_her2q")
 offset = Vector2(-32, 0)
 
-[node name="Icon" type="Sprite2D" parent="Marker/Arrow" unique_id=2020806571]
+[node name="Icon" type="Sprite2D" parent="MarkerBase/Marker/Arrow" unique_id=2020806571]
 use_parent_material = true
 position = Vector2(-160, 0)
 
-[node name="Icon" type="Sprite2D" parent="Marker" unique_id=415947780]
+[node name="Icon" type="Sprite2D" parent="MarkerBase/Marker" unique_id=415947780]
 use_parent_material = true
 scale = Vector2(0.5, 0.5)

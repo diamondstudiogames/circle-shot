@@ -21,7 +21,7 @@ shoot_on_joystick_release = false
 [node name="Visual" parent="." index="0" unique_id=1848714098 instance=ExtResource("3_eqtrk")]
 position = Vector2(32, 32)
 
-[node name="Attack" parent="." index="1"]
+[node name="Attack" parent="." index="1" unique_id=336793680]
 position = Vector2(32, 32)
 damage_interval = 0.2
 
@@ -40,7 +40,7 @@ stream = ExtResource("6_wy0b7")
 max_distance = 2880.0
 bus = &"PositionedSFX"
 
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="4" unique_id=1964456697]
 libraries/ = ExtResource("5_wy0b7")
 next/attack = &"idle"
 

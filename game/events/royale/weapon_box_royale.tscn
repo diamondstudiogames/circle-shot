@@ -9,7 +9,4 @@ image = ExtResource("2_3dvv0")
 weapon_data = ExtResource("2_sa1qr")
 weapon_type = 4
 
-[node name="AnimationPlayer" parent="." index="5"]
-autoplay = &"spawn"
-
 [editable path="MinimapMarker"]

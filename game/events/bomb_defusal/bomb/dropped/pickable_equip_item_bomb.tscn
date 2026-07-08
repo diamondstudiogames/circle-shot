@@ -18,13 +18,13 @@ image = ExtResource("2_c8h2d")
 weapon_data = ExtResource("2_vhk0a")
 weapon_type = 4
 
-[node name="Interactible" parent="." index="0"]
+[node name="Interactible" parent="." index="0" unique_id=1645528755]
 script = ExtResource("3_vhk0a")
 
 [node name="MinimapMarker" parent="." index="3" unique_id=1355415304 instance=ExtResource("5_4nyev")]
 team = 0
 
-[node name="Visual" parent="MinimapMarker" index="2"]
+[node name="Visual" parent="MinimapMarker" index="2" unique_id=86601325]
 self_modulate = Color(1, 0.5019608, 0, 1)
 texture = ExtResource("6_ofa01")
 
@@ -32,13 +32,13 @@ texture = ExtResource("6_ofa01")
 margin = 32.0
 show_when_on_screen = false
 
-[node name="Marker" parent="ScreenMarker" index="0"]
+[node name="Marker" parent="ScreenMarker/MarkerBase" parent_id_path=PackedInt32Array(1819039098, 2039614537) index="0" unique_id=808199532]
 modulate = Color(1, 0.5019608, 0, 1)
 
-[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
+[node name="Icon" parent="ScreenMarker/MarkerBase/Marker/Arrow" parent_id_path=PackedInt32Array(1819039098, 31669513) index="0" unique_id=2020806571]
 texture = ExtResource("9_kw4j2")
 
-[node name="Icon" parent="ScreenMarker/Marker" index="1"]
+[node name="Icon" parent="ScreenMarker/MarkerBase/Marker" index="1" unique_id=415947780]
 texture = ExtResource("9_kw4j2")
 
 [editable path="MinimapMarker"]

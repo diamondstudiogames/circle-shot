@@ -7,8 +7,8 @@
 speed = 880.0
 damage = 10
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="1" unique_id=290534351]
 material = ExtResource("2_rw6he")
 
-[node name="RayDetector" parent="." index="4"]
+[node name="RayDetector" parent="." index="4" unique_id=815299765]
 collision_mask = 74

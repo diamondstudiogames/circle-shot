@@ -7,10 +7,10 @@ extends Node2D
 
 var _screen_angle: float
 
-@onready var _marker: Node2D = $Marker
-@onready var _icon: Sprite2D = $Marker/Icon
-@onready var _arrow: Sprite2D = $Marker/Arrow
-@onready var _arrow_icon: Sprite2D = $Marker/Arrow/Icon
+@onready var _marker: Node2D = $MarkerBase
+@onready var _icon: Sprite2D = $MarkerBase/Marker/Icon
+@onready var _arrow: Sprite2D = $MarkerBase/Marker/Arrow
+@onready var _arrow_icon: Sprite2D = $MarkerBase/Marker/Arrow/Icon
 
 
 func _ready() -> void:

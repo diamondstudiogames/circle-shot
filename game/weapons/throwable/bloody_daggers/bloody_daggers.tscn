@@ -102,24 +102,24 @@ ammo_per_load = 4
 ammo_total = 40
 speed_multiplier_when_current = 0.98
 
-[node name="Ammo" parent="." index="0"]
+[node name="Ammo" parent="." index="0" unique_id=471454208]
 rotation = 0.2617994
 
-[node name="ThrowPoint" parent="ThrowPivot" index="0"]
+[node name="ThrowPoint" parent="ThrowPivot" parent_id_path=PackedInt32Array(1435792219) index="0" unique_id=235930379]
 position = Vector2(96, 0)
 
-[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0"]
+[node name="Aim" parent="ThrowPivot/ThrowPoint" index="0" unique_id=322959564]
 visible = true
 width = 8.0
 
-[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0"]
+[node name="SpreadLeft" parent="ThrowPivot/ThrowPoint/Aim" index="0" unique_id=220986809]
 position = Vector2(0, 0)
 
-[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1"]
+[node name="SpreadRight" parent="ThrowPivot/ThrowPoint/Aim" index="1" unique_id=1589520150]
 position = Vector2(0, 0)
 
-[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2"]
+[node name="Outline" parent="ThrowPivot/ThrowPoint/Aim" index="2" unique_id=1268797650]
 width = 12.0
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="2" unique_id=607822860]
 libraries/ = SubResource("AnimationLibrary_62234")

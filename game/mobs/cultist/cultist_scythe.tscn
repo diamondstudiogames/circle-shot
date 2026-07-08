@@ -50,7 +50,7 @@ polygon = PackedVector2Array(67, -1, 30, -58, 30, -106, 56, -100, 52, -153, 92, 
 [node name="Visual" parent="Visual/Weapon/Scythe" index="1" unique_id=850705363 instance=ExtResource("3_0wvw2")]
 position = Vector2(32, 32)
 
-[node name="Sprite2D" parent="Visual/Weapon/Scythe/Visual" index="0"]
+[node name="Sprite2D" parent="Visual/Weapon/Scythe/Visual" index="0" unique_id=509567480]
 texture = ExtResource("7_p8sfc")
 
 [node name="Attack" type="Node2D" parent="Visual/Weapon/Scythe" index="2" unique_id=581503650]

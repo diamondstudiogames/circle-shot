@@ -5,7 +5,4 @@
 [node name="AmmoBox" unique_id=1647146500 instance=ExtResource("1_8biv1")]
 ammo_restore_ratio = 0.35
 
-[node name="AnimationPlayer" parent="." index="3"]
-autoplay = &"spawn"
-
 [editable path="MinimapMarker"]

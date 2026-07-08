@@ -9,8 +9,5 @@ region = Rect2(0, 0, 26, 16)
 
 [node name="BlueFishes" unique_id=1415285774 instance=ExtResource("1_37tfu")]
 
-[node name="CPUParticles2D" parent="Path2D/PathFollow2D" index="0"]
+[node name="CPUParticles2D" parent="Path2D/PathFollow2D" parent_id_path=PackedInt32Array(23850069) index="0" unique_id=1531914484]
 texture = SubResource("AtlasTexture_hf0h1")
-
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = &"fishes"

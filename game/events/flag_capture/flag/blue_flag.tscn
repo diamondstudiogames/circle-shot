@@ -6,19 +6,19 @@
 [node name="BlueFlag" unique_id=1725724270 instance=ExtResource("1_orxp6")]
 team = 1
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="0" unique_id=109436411]
 texture = ExtResource("2_orxp6")
 
-[node name="TimerProgress" parent="." index="3"]
+[node name="TimerProgress" parent="." index="3" unique_id=415926195]
 self_modulate = Color(0, 0, 1, 1)
 
-[node name="MinimapMarker" parent="." index="4"]
+[node name="MinimapMarker" parent="." index="4" unique_id=552689450]
 team = 1
 
-[node name="Visual" parent="MinimapMarker" index="2"]
+[node name="Visual" parent="MinimapMarker" index="2" unique_id=86601325]
 self_modulate = Color(0, 0, 1, 1)
 
-[node name="Marker" parent="ScreenMarker" index="0"]
+[node name="Marker" parent="ScreenMarker" parent_id_path=PackedInt32Array(245766272) index="0" unique_id=808199532]
 modulate = Color(0, 0, 1, 1)
 
 [editable path="MinimapMarker"]

@@ -308,7 +308,7 @@ one_shot = true
 margin = 0.0
 show_when_on_screen = false
 
-[node name="Icon" parent="ScreenMarker/Marker/Arrow" index="0"]
+[node name="Icon" parent="ScreenMarker/MarkerBase/Marker/Arrow" parent_id_path=PackedInt32Array(1858967015, 31669513) index="0" unique_id=2020806571]
 texture = ExtResource("11_cpt06")
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_agent_navigation_finished"]

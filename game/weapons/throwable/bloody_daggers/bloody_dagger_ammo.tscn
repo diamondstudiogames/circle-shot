@@ -178,7 +178,7 @@ _data = {
 
 [node name="BloodyDaggerAmmo" unique_id=41537192 instance=ExtResource("1_onnyp")]
 
-[node name="AnimationPlayer" parent="." index="0"]
+[node name="AnimationPlayer" parent="." index="0" unique_id=1165240461]
 libraries/ = SubResource("AnimationLibrary_0qjlo")
 
 [node name="BloodyDagger" type="Sprite2D" parent="." index="1" unique_id=663093066]

@@ -8,19 +8,19 @@
 metadata/_edit_vertical_guides_ = [-4800.0, 4800.0]
 metadata/_edit_horizontal_guides_ = [-4800.0, 4800.0]
 
-[node name="Left" parent="Borders" index="0"]
+[node name="Left" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="0" unique_id=1273615357]
 position = Vector2(-4800, 0)
 
-[node name="Right" parent="Borders" index="1"]
+[node name="Right" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="1" unique_id=828215416]
 position = Vector2(4800, 0)
 
-[node name="Up" parent="Borders" index="2"]
+[node name="Up" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="2" unique_id=1011974304]
 position = Vector2(0, -4800)
 
-[node name="Down" parent="Borders" index="3"]
+[node name="Down" parent="Borders" parent_id_path=PackedInt32Array(536555278) index="3" unique_id=1832668716]
 position = Vector2(0, 4800)
 
-[node name="NavigationRegions" parent="." index="2"]
+[node name="NavigationRegions" parent="." index="2" unique_id=1935052457]
 chunks_per_axis = 6
 map_size = Vector2i(60, 60)
 

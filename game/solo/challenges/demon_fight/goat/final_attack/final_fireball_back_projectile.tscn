@@ -68,13 +68,13 @@ _data = {
 [node name="FinalFireballBackProjectile" unique_id=616769786 instance=ExtResource("1_0gime")]
 damage = 10
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="1" unique_id=290534351]
 material = ExtResource("2_o2i8s")
 
 [node name="Timer" parent="." index="2" unique_id=273134143]
 wait_time = 6.0
 
-[node name="RayDetector" parent="." index="4"]
+[node name="RayDetector" parent="." index="4" unique_id=815299765]
 collision_mask = 66
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=139721629]

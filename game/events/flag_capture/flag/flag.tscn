@@ -65,10 +65,10 @@ texture = ExtResource("2_nr771")
 margin = 32.0
 show_when_on_screen = false
 
-[node name="Icon" parent="ScreenMarker/Marker/Arrow" parent_id_path=PackedInt32Array(245766272, 31669513) index="0" unique_id=2020806571]
+[node name="Icon" parent="ScreenMarker/MarkerBase/Marker/Arrow" parent_id_path=PackedInt32Array(245766272, 31669513) index="0" unique_id=2020806571]
 texture = ExtResource("5_uuplo")
 
-[node name="Icon" parent="ScreenMarker/Marker" parent_id_path=PackedInt32Array(245766272, 808199532) index="1" unique_id=415947780]
+[node name="Icon" parent="ScreenMarker/MarkerBase/Marker" parent_id_path=PackedInt32Array(245766272, 808199532) index="1" unique_id=415947780]
 texture = ExtResource("5_uuplo")
 
 [node name="PickUpInteractible" parent="." unique_id=1661668920 instance=ExtResource("6_x0rae")]

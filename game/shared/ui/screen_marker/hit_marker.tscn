@@ -62,7 +62,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("..")
+tracks/2/path = NodePath("../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -83,17 +83,17 @@ _data = {
 [node name="HitMarker" unique_id=407049904 instance=ExtResource("1_wakcl")]
 scale = Vector2(1.5, 1.5)
 
-[node name="Icon" parent="Marker/Arrow" index="0"]
+[node name="Icon" parent="MarkerBase/Marker/Arrow" parent_id_path=PackedInt32Array(31669513) index="0" unique_id=2020806571]
 texture = ExtResource("2_us8rh")
 
-[node name="Icon" parent="Marker" index="1"]
+[node name="Icon" parent="MarkerBase/Marker" parent_id_path=PackedInt32Array(808199532) index="1" unique_id=415947780]
 texture = ExtResource("2_us8rh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker" index="2" unique_id=726191382]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarkerBase/Marker" parent_id_path=PackedInt32Array(808199532) index="2" unique_id=726191382]
 libraries/ = SubResource("AnimationLibrary_7d4nk")
 autoplay = &"marker"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Marker" index="3" unique_id=1445293101]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MarkerBase/Marker" parent_id_path=PackedInt32Array(808199532) index="3" unique_id=1445293101]
 stream = ExtResource("3_vve6w")
 autoplay = true
 max_distance = 16000.0

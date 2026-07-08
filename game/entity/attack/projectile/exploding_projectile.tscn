@@ -8,7 +8,7 @@
 [node name="ExplodingProjectile" unique_id=1342912895 instance=ExtResource("1_kcfy8")]
 script = ExtResource("2_3qj5u")
 
-[node name="Timer" parent="." index="0"]
+[node name="Timer" parent="." index="0" unique_id=273134143]
 wait_time = 10.0
 
 [node name="Explosion" type="Node2D" parent="." index="2" unique_id=1451205297]

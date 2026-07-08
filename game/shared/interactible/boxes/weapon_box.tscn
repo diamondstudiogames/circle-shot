@@ -181,13 +181,13 @@ _data = {
 [node name="WeaponBox" unique_id=1876192522 instance=ExtResource("1_ac0ld")]
 equip_type = 2
 
-[node name="Interactible" parent="." index="0"]
+[node name="Interactible" parent="." index="0" unique_id=1645528755]
 text = "Подобрать оружие"
 
-[node name="CollisionShape2D" parent="Interactible" index="1"]
+[node name="CollisionShape2D" parent="Interactible" index="1" unique_id=1569316737]
 shape = SubResource("CircleShape2D_k3lq8")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="1" unique_id=1435625745]
 visible = false
 
 [node name="Box" type="Sprite2D" parent="." index="3" unique_id=735962552]
@@ -208,7 +208,7 @@ next/spawn = &"idle"
 
 [node name="MinimapMarker" parent="." index="6" unique_id=1242402065 instance=ExtResource("4_16dxx")]
 
-[node name="Visual" parent="MinimapMarker" index="2"]
+[node name="Visual" parent="MinimapMarker" index="2" unique_id=86601325]
 texture = ExtResource("5_6m2ea")
 
 [connection signal="timeout" from="DespawnTimer" to="Box" method="_on_despawn_timer_timeout"]

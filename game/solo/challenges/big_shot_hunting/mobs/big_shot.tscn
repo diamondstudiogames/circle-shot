@@ -193,7 +193,7 @@ tracks/1/keys = {
 "values": [-0.785398, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_31nw0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rwgy5"]
 resource_local_to_scene = true
 _data = {
 &"RESET": SubResource("Animation_tlngu"),
@@ -207,6 +207,6 @@ attack_bandits_scenes = Array[PackedScene]([ExtResource("4_3rmjc"), ExtResource(
 vision_distance = 11520.0
 
 [node name="AnimationPlayer" parent="Visual/Weapon/HEGrenade" parent_id_path=PackedInt32Array(681009082) index="2" unique_id=1051536446]
-libraries/ = SubResource("AnimationLibrary_31nw0")
+libraries/ = SubResource("AnimationLibrary_rwgy5")
 
 [editable path="ScreenMarker"]

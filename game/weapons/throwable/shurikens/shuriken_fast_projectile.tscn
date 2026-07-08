@@ -5,6 +5,3 @@
 [node name="ShurikenFastProjectile" unique_id=921594195 instance=ExtResource("1_q57qx")]
 speed = 2500.0
 damage = 8
-
-[node name="AnimationPlayer" parent="." index="4"]
-autoplay = &"rotation"

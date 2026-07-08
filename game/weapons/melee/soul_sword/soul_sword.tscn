@@ -18,7 +18,7 @@ damage = 40
 shoot_interval = 0.8000000000029104
 to_aim_time = 0.1999999999970896
 ammo_total = 15
-speed_multiplier_when_current = 1.0899999999999999
+speed_multiplier_when_current = 1.09
 
 [node name="AttackPolygon" type="Polygon2D" parent="." index="0" unique_id=757985560]
 visible = false
