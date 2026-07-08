@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://yq5b5x3ps3fj"]
+
+[ext_resource type="PackedScene" uid="uid://cgfyroeiay6n3" path="res://game/events/flag_capture/modifiers/weapon_flag/flag_attack.tscn" id="1_woh6y"]
+[ext_resource type="Texture2D" uid="uid://7xmqosegu0bg" path="res://game/events/flag_capture/modifiers/weapon_flag/strike_area_blue.png" id="2_woh6y"]
+
+[node name="FlagAttackBlue" unique_id=1887776607 instance=ExtResource("1_woh6y")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=266187518]
+texture = ExtResource("2_woh6y")

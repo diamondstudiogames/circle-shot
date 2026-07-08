@@ -61,7 +61,7 @@ func set_spectate_visible(visibility: bool) -> void:
 
 
 ## Убивает игрока. Используется для функции наблюдения. [param alive_players] - список живых
-## игроков, за которыми можно вести наблюдение (чаще всего товарищи по команде)
+## игроков, за которыми можно вести наблюдение (чаще всего товарищи по команде),
 ## [param who] - ID убитого.
 func kill_player(who: int, alive_players: Array[int]) -> void:
 	if Globals.headless:
@@ -70,8 +70,11 @@ func kill_player(who: int, alive_players: Array[int]) -> void:
 	_alive_players.clear()
 	for id: int in alive_players:
 		_alive_players.append(event.players[id])
-	if who != _spectating_player.id and _spectating_player.id in alive_players \
-			or _alive_players.is_empty():
+	if (
+			is_instance_valid(_spectating_player) and who != _spectating_player.id \
+			and _spectating_player.id in alive_players
+			or _alive_players.is_empty()
+	):
 		return
 	_set_player_to_spectate(randi() % _alive_players.size())
 

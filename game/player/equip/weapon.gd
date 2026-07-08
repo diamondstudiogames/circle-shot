@@ -172,7 +172,7 @@ func _do_shoot(current_ammo: int, args := []) -> void:
 		push_error("This method must be called only by server.")
 		return
 	ammo = current_ammo
-	await _shoot.callv(args)
+	_shoot.callv(args)
 
 
 func _calculate_aim_angle(aim_direction: Vector2 = player.entity_input.aim_direction) -> float:

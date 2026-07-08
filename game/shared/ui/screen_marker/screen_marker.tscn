@@ -10,6 +10,7 @@ physics_interpolation_mode = 2
 script = ExtResource("1_pse65")
 
 [node name="Marker" type="Node2D" parent="." unique_id=808199532]
+top_level = true
 z_index = 50
 material = ExtResource("2_g4rl3")
 

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cv7sq1r1bhcj4"]
+
+[ext_resource type="Script" uid="uid://cdihj117qk4lu" path="res://game/events/flag_capture/modifiers/weapon_flag/weapon_flag.gd" id="1_yx46k"]
+[ext_resource type="PackedScene" uid="uid://bjc1wc655b6iv" path="res://game/events/flag_capture/modifiers/weapon_flag/flag_attack_red.tscn" id="2_e8dwe"]
+[ext_resource type="PackedScene" uid="uid://yq5b5x3ps3fj" path="res://game/events/flag_capture/modifiers/weapon_flag/flag_attack_blue.tscn" id="3_u2hxi"]
+
+[node name="WeaponFlag" type="Node" unique_id=569426228]
+script = ExtResource("1_yx46k")
+flags_attacks_scenes = Array[PackedScene]([ExtResource("2_e8dwe"), ExtResource("3_u2hxi")])
+metadata/_custom_type_script = "uid://cvryr82g72v34"

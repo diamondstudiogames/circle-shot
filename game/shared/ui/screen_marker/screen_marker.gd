@@ -61,5 +61,5 @@ func _process(_delta: float) -> void:
 				marker_on_screen_position.x -= half_x
 				marker_on_screen_position.y -= tan(angle + PI) * half_x
 	
-	scale = Vector2.ONE / get_canvas_transform().get_scale()
+	_marker.scale = Vector2.ONE / get_canvas_transform().get_scale()
 	_marker.global_position = get_canvas_transform().affine_inverse() * marker_on_screen_position
