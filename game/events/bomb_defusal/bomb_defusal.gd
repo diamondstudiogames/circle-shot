@@ -104,7 +104,7 @@ func _player_killed(_by: int, player: Player) -> void:
 		var pickable: PickableEquipItem = _bomb_dropped_scene.instantiate()
 		pickable.position = player.global_position
 		pickable.picked_up.connect(_on_bomb_picked_up)
-		$Other.add_child(pickable, true)
+		other_parent.add_child(pickable, true)
 	_remove_player(player.id)
 	_check_alive_players()
 
@@ -152,7 +152,7 @@ func bomb_drop(where: Vector2) -> void:
 	var pickable: PickableEquipItem = _bomb_dropped_scene.instantiate()
 	pickable.position = where
 	pickable.picked_up.connect(_on_bomb_picked_up)
-	$Other.add_child(pickable, true)
+	other_parent.add_child(pickable, true)
 
 
 ## Закладывает бомбу в точке [param where]. [param by] должен содержать ID игрока, заложившего
@@ -168,7 +168,7 @@ func bomb_plant(where: Vector2, by: int) -> void:
 	
 	var bomb: Node2D = _bomb_planted_scene.instantiate()
 	bomb.position = where
-	$Other.add_child(bomb, true)
+	other_parent.add_child(bomb, true)
 
 
 ## Устанавливает время до взрыва.

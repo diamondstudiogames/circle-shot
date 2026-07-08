@@ -39,7 +39,7 @@ func spawn_big_shot() -> void:
 	big_shot.team = 3
 	big_shot.id = -randi()
 	big_shot.name += str(big_shot.id)
-	$Entities.add_child(big_shot, true)
+	entities_parent.add_child(big_shot, true)
 	big_shot.died.connect(_on_big_shot_died)
 	_big_shot_hunting_ui.set_boss(big_shot)
 

@@ -131,7 +131,7 @@ func _show_teleport_vfx(where: Vector2, play_sfx := true) -> void:
 	teleport_vfx.position = where
 	if not play_sfx:
 		teleport_vfx.get_node(^"AudioStreamPlayer2D").free()
-	get_tree().get_first_node_in_group(&"vfx_parent").add_child(teleport_vfx)
+	player.world.vfx_parent.add_child(teleport_vfx)
 
 
 func _update_casts() -> void:

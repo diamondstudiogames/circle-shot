@@ -1,13 +1,11 @@
 class_name EventModifier
 extends Node
-
 ## Модификатор события.
 
 ## Данные этого модификатора.
 var data: EventModifierData
 ## Ссылка на [Event].
 @onready var event: Event = get_parent()
-
 
 ## Инициализирует модификтор. Метод предназначен для вызова из [Event].
 func initialize() -> void:

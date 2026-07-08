@@ -14,7 +14,8 @@ extends Attack
 @export var lightnings_speed_scale := 1.0
 
 var _fireballs_circles_angle := 0.0
-@onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
+@onready var _projectiles_parent: Node2D = \
+		(get_tree().get_first_node_in_group(&"world") as World).projectiles_parent
 
 
 func shake_camera(duration: float) -> void:

@@ -78,7 +78,7 @@ func spawn_player() -> void:
 	player.name = "Player%d" % player.id
 	player.weapon_changed.connect(_on_player_weapon_changed)
 	_player = player
-	$Entities.add_child(player, true)
+	entities_parent.add_child(player, true)
 
 
 func spawn_dummy(where: Vector2) -> void:
@@ -87,7 +87,7 @@ func spawn_dummy(where: Vector2) -> void:
 	enemy.team = 1
 	enemy.id = -randi()
 	enemy.name += str(enemy.id)
-	$Entities.add_child(enemy, true)
+	entities_parent.add_child(enemy, true)
 
 
 func _action_as_string(action: String) -> String:

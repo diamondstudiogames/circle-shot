@@ -136,7 +136,7 @@ func spawn_player(id: int) -> void:
 	for modifier: EventModifier in modifiers:
 		modifier.customize_player(player, true)
 	
-	$Entities.add_child(player, true)
+	entities_parent.add_child(player, true)
 	player.killed.connect(_on_player_killed.bind(player))
 	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 

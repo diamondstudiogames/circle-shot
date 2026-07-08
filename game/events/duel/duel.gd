@@ -185,7 +185,7 @@ func _end_round(win_team: int, winner: int, ends := false) -> void:
 
 func _setup_round() -> void:
 	if not multiplayer.is_server():
-		push_error("This method must be called only on server.")
+		push_error("Unexpected call on client.")
 		return
 	if _ended:
 		# мб игра уже кончилась
@@ -199,7 +199,7 @@ func _setup_round() -> void:
 
 func _finish_round(winner: int, ends := false) -> void:
 	if not multiplayer.is_server():
-		push_error("This method must be called only on server.")
+		push_error("Unexpected call on client.")
 		return
 	
 	var team_won: int = players_teams[winner]

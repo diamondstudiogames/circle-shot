@@ -13,7 +13,7 @@ func _spawn_meteor() -> void:
 	meteor.position = game_zone.get_center() \
 			+ game_zone.size * Vector2(randf_range(-0.5, 0.5), randf_range(-0.5, 0.5))
 	meteor.name += str(randi())
-	get_tree().get_first_node_in_group(&"other_parent").add_child(meteor, true)
+	event.other_parent.add_child(meteor, true)
 
 
 func _on_timer_timeout() -> void:

@@ -195,7 +195,7 @@ func _spawn_flag(blue: bool) -> void:
 	var flag: Flag = (_blue_flag_scene if blue else _red_flag_scene).instantiate()
 	flag.name += str(randi())
 	flag.position = (_blue_flag_spawn_point if blue else _red_flag_spawn_point).global_position
-	$Other.add_child(flag, true)
+	other_parent.add_child(flag, true)
 
 
 func _end_event() -> void:

@@ -12,7 +12,6 @@ var _entities: Array[Entity]
 
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _projectiles_spawn_point: Marker2D = $ProjectilesSpawnPoint
-@onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
 
 
 func _health_changed(_old_value: int, _new_value: int) -> void:
@@ -51,16 +50,16 @@ func _on_projectiles_timer_timeout() -> void:
 		fireball.who = id
 		fireball.damage_multiplier = damage_multiplier
 		fireball.name += str(randi())
-		_projectiles_parent.add_child(fireball)
+		world.projectiles_parent.add_child(fireball)
 
 
 func _on_killed(_by: int, _remained_health: int) -> void:
 	var heal_box: Node2D = heal_box_scene.instantiate()
 	heal_box.position = global_position + Vector2.RIGHT * World.BLOCK_SIZE
 	heal_box.name += str(randi())
-	get_tree().get_first_node_in_group(&"other_parent").add_child(heal_box, true)
+	world.other_parent.add_child(heal_box, true)
 	
 	var ammo_box: Node2D = ammo_box_scene.instantiate()
 	ammo_box.position = global_position + Vector2.LEFT * World.BLOCK_SIZE
 	ammo_box.name += str(randi())
-	get_tree().get_first_node_in_group(&"other_parent").add_child(ammo_box, true)
+	world.other_parent.add_child(ammo_box, true)

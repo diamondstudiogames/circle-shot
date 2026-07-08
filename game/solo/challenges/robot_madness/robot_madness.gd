@@ -99,7 +99,7 @@ func _spawn_robot() -> void:
 	robot.damage_multiplier = damage_multiplier_curve.sample(time_survived)
 	robot.speed_multiplier = speed_multiplier_curve.sample(time_survived)
 	robot.died.connect(_on_robot_died.bind(robot))
-	$Entities.add_child(robot, true)
+	entities_parent.add_child(robot, true)
 	
 	_spawn_points_counter += 1
 	if _spawn_points_counter == _spawn_points.size():
@@ -114,14 +114,14 @@ func _spawn_heal_box(where: Vector2) -> void:
 	var heal_box: Node2D = _heal_box_scene.instantiate()
 	heal_box.position = where
 	heal_box.name += str(randi())
-	$Other.add_child(heal_box, true)
+	other_parent.add_child(heal_box, true)
 
 
 func _spawn_ammo_box(where: Vector2) -> void:
 	var ammo_box: Node2D = _ammo_box_scene.instantiate()
 	ammo_box.position = where
 	ammo_box.name += str(randi())
-	$Other.add_child(ammo_box, true)
+	other_parent.add_child(ammo_box, true)
 
 
 func _on_robot_died(robot: Entity) -> void:

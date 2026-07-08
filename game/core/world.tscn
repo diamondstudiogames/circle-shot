@@ -31,16 +31,16 @@ entity_scenes = Array[PackedScene]([ExtResource("2_87d4e")])
 tracks = Array[AudioStream]([ExtResource("3_3j1bh"), ExtResource("4_j8p54")])
 metadata/_custom_type_script = "uid://cd58yrb8vkc1v"
 
-[node name="Entities" type="Node2D" parent="." unique_id=804757752 groups=["entities_parent"]]
+[node name="Entities" type="Node2D" parent="." unique_id=804757752]
 physics_interpolation_mode = 1
 
-[node name="Projectiles" type="Node2D" parent="." unique_id=1433116068 groups=["projectiles_parent"]]
+[node name="Projectiles" type="Node2D" parent="." unique_id=1433116068]
 physics_interpolation_mode = 1
 
-[node name="Other" type="Node2D" parent="." unique_id=356408715 groups=["other_parent"]]
+[node name="Other" type="Node2D" parent="." unique_id=356408715]
 physics_interpolation_mode = 1
 
-[node name="Vfx" type="Node2D" parent="." unique_id=971046412 groups=["vfx_parent"]]
+[node name="Vfx" type="Node2D" parent="." unique_id=971046412]
 
 [node name="EntitiesSpawner" type="MultiplayerSpawner" parent="." unique_id=280905422]
 spawn_path = NodePath("../Entities")

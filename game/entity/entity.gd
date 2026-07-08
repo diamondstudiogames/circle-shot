@@ -118,7 +118,6 @@ var _blocked_turning_counter: int = 0
 @onready var world: World = get_tree().get_first_node_in_group(&"world")
 
 @onready var _effects: Node2D = $Effects
-@onready var _vfx_parent: Node2D = get_tree().get_first_node_in_group(&"vfx_parent")
 
 
 func _ready() -> void:
@@ -293,7 +292,7 @@ func set_health(health: int) -> void:
 		if death_vfx_scene:
 			var death_vfx: Node2D = death_vfx_scene.instantiate()
 			death_vfx.position = global_position
-			_vfx_parent.add_child(death_vfx)
+			world.vfx_parent.add_child(death_vfx)
 		if numbers_vfx_scene:
 			var numbers_vfx: Node2D = numbers_vfx_scene.instantiate()
 			numbers_vfx.position = global_position
@@ -301,7 +300,7 @@ func set_health(health: int) -> void:
 			if team == world.local_team:
 				(numbers_vfx.get_node(^"Label") as Label).add_theme_color_override(
 						&"font_color", Color.RED)
-			_vfx_parent.add_child(numbers_vfx)
+			world.vfx_parent.add_child(numbers_vfx)
 		
 		died.emit()
 		current_health = 0
@@ -316,7 +315,7 @@ func set_health(health: int) -> void:
 		if hurt_vfx_scene:
 			var hurt_vfx: Node2D = hurt_vfx_scene.instantiate()
 			hurt_vfx.position = global_position
-			_vfx_parent.add_child(hurt_vfx)
+			world.vfx_parent.add_child(hurt_vfx)
 		if numbers_vfx_scene:
 			var numbers_vfx: Node2D = numbers_vfx_scene.instantiate()
 			numbers_vfx.position = global_position
@@ -324,19 +323,19 @@ func set_health(health: int) -> void:
 			if team == world.local_team:
 				(numbers_vfx.get_node(^"Label") as Label).add_theme_color_override(
 						&"font_color", Color.RED)
-			_vfx_parent.add_child(numbers_vfx)
+			world.vfx_parent.add_child(numbers_vfx)
 	else: 
 		if heal_vfx_scene:
 			var heal_vfx: Node2D = heal_vfx_scene.instantiate()
 			heal_vfx.position = global_position
-			_vfx_parent.add_child(heal_vfx)
+			world.vfx_parent.add_child(heal_vfx)
 		if numbers_vfx_scene:
 			var numbers_vfx: Node2D = numbers_vfx_scene.instantiate()
 			numbers_vfx.position = global_position
 			(numbers_vfx.get_node(^"Label") as Label).text = str(health - current_health)
 			(numbers_vfx.get_node(^"Label") as Label).add_theme_color_override(
 					&"font_color", Color.GREEN)
-			_vfx_parent.add_child(numbers_vfx)
+			world.vfx_parent.add_child(numbers_vfx)
 	
 	current_health = health
 	if current_health > max_health:

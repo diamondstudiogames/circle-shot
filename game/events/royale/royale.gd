@@ -188,7 +188,7 @@ func _spawn_heal_box() -> void:
 	var heal_box: Node2D = _heal_box_scene.instantiate()
 	heal_box.position = spawn_position
 	heal_box.name += str(randi())
-	$Other.add_child(heal_box, true)
+	other_parent.add_child(heal_box, true)
 
 
 func _spawn_ammo_box() -> void:
@@ -196,7 +196,7 @@ func _spawn_ammo_box() -> void:
 	var ammo_box: Node2D = _ammo_box_scene.instantiate()
 	ammo_box.position = spawn_position
 	ammo_box.name += str(randi())
-	$Other.add_child(ammo_box, true)
+	other_parent.add_child(ammo_box, true)
 
 
 func _spawn_weapon_box() -> void:
@@ -204,7 +204,7 @@ func _spawn_weapon_box() -> void:
 	var weapon_box: Node2D = _weapon_box_scene.instantiate()
 	weapon_box.position = spawn_position
 	weapon_box.name += str(randi())
-	$Other.add_child(weapon_box, true)
+	other_parent.add_child(weapon_box, true)
 
 
 func _check_for_end() -> void:

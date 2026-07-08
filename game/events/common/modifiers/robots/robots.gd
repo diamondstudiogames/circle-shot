@@ -21,7 +21,7 @@ func _spawn_robot() -> void:
 	robot.id = -randi()
 	robot.name += str(robot.id)
 	robot.died.connect(_on_robot_died, CONNECT_APPEND_SOURCE_OBJECT)
-	get_tree().get_first_node_in_group(&"entities_parent").add_child(robot, true)
+	event.entities_parent.add_child(robot, true)
 
 
 func _get_robot_spawn_position() -> Vector2:
@@ -54,7 +54,7 @@ func _on_robot_died(robot: Mob) -> void:
 	var box: Node2D = boxes_scenes[_box_idx].instantiate()
 	box.position = robot.global_position
 	box.name += str(randi())
-	get_tree().get_first_node_in_group(&"other_parent").add_child(box, true)
+	event.other_parent.add_child(box, true)
 	
 	_box_idx += 1
 	if _box_idx == boxes_scenes.size():

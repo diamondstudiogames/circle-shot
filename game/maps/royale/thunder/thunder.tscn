@@ -809,6 +809,7 @@ animations = [{
 
 [node name="Map" unique_id=1941342380 instance=ExtResource("1_febxg")]
 script = ExtResource("2_t3884")
+lightning_bolt_scene = ExtResource("8_t7x5y")
 custom_tracks = Array[AudioStream]([ExtResource("2_avvsy")])
 
 [node name="MinimapTiles" parent="." index="0" unique_id=378994076]
@@ -1143,10 +1144,7 @@ autoplay = "default"
 frame_progress = 0.288022
 centered = false
 
-[node name="ResourcePreloader" type="ResourcePreloader" parent="." index="8" unique_id=1931707917]
-resources = [PackedStringArray("lightning_bolt"), [ExtResource("8_t7x5y")]]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="9" unique_id=1521397794]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="8" unique_id=1521397794]
 color = Color(0.87890625, 0.87890625, 0.87890625, 1)
 
 [connection signal="timeout" from="LightningBoltTimer" to="." method="_on_lightning_bolt_timer_timeout"]

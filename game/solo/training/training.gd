@@ -83,7 +83,7 @@ func spawn_player(teleport := true) -> void:
 	
 	if teleport:
 		($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
-	$Entities.add_child(player, true)
+	entities_parent.add_child(player, true)
 
 
 ## Создаёт врага с типом [param type] в позиции [param position] с максимальным здоровьем в
@@ -101,7 +101,7 @@ func spawn_enemy(type: EnemyType, position: Vector2, health: int,
 	enemy.speed_multiplier = speed_multiplier
 	enemy.damaged.connect(_on_enemy_damaged)
 	enemy.killed.connect(_on_enemy_killed)
-	$Entities.add_child(enemy, true)
+	entities_parent.add_child(enemy, true)
 
 
 ## Загружает карту по умолчанию, то есть карту тренировки.

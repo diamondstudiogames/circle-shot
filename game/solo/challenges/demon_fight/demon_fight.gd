@@ -57,7 +57,7 @@ func spawn_goat() -> void:
 	goat.team = 10
 	goat.id = -randi()
 	goat.name += str(goat.id)
-	$Entities.add_child(goat, true)
+	entities_parent.add_child(goat, true)
 	goat.died.connect(_on_goat_died.bind(goat))
 	_demon_fight_ui.set_boss(goat)
 	goat.make_immobile()

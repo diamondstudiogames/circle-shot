@@ -61,6 +61,15 @@ var _cutscene_tween: Tween
 var _hit_marker_scene: PackedScene = load("uid://c2f0n1b5sfpdh")
 var _kill_marker_scene: PackedScene = load("uid://blhm6uka1p287")
 
+## Ссылка на родителя всех сущностей.
+@onready var entities_parent: Node2D = $Entities
+## Ссылка на родителя всех снарядов и прочих узлов, создаваемых оружием, что требуют синхронизации.
+@onready var projectiles_parent: Node2D = $Projectiles
+## Ссылка на родителя всех прочих объектов, что требуют синхронизации.
+@onready var other_parent: Node2D = $Other
+## Ссылка на родителя всех визуальных эффектов.
+@onready var vfx_parent: Node2D = $Vfx
+
 
 func _ready() -> void:
 	Globals.main.menu_music.process_mode = Node.PROCESS_MODE_DISABLED
@@ -119,11 +128,11 @@ func cleanup() -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
-	for entity: Node in $Entities.get_children():
+	for entity: Node in entities_parent.get_children():
 		entity.queue_free()
-	for projectile: Node in $Projectiles.get_children():
+	for projectile: Node in projectiles_parent.get_children():
 		projectile.queue_free()
-	for other: Node in $Other.get_children():
+	for other: Node in other_parent.get_children():
 		other.queue_free()
 
 
@@ -166,7 +175,7 @@ func _register_hit(where: Vector2, amount: int) -> void:
 	
 	var marker: Node2D = _hit_marker_scene.instantiate()
 	marker.position = where
-	$Vfx.add_child(marker)
+	vfx_parent.add_child(marker)
 	
 	if _vibration_enabled:
 		Input.vibrate_handheld(HIT_VIBRATION_DURATION_MS, HIT_VIBRATION_AMPLITUDE)
@@ -187,7 +196,7 @@ func _register_kill(where: Vector2, damaged_amount: int) -> void:
 	
 	var marker: Node2D = _kill_marker_scene.instantiate()
 	marker.position = where
-	$Vfx.add_child(marker)
+	vfx_parent.add_child(marker)
 	
 	if _vibration_enabled:
 		Input.vibrate_handheld(KILL_VIBRATION_DURATION_MS, KILL_VIBRATION_AMPLITUDE)

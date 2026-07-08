@@ -57,7 +57,8 @@ var player: Player
 
 var _blocked_shooting_counter: int = 0
 @warning_ignore("unused_private_class_variable") # Для дочерних классов
-@onready var _projectiles_parent: Node2D = get_tree().get_first_node_in_group(&"projectiles_parent")
+@onready var _projectiles_parent: Node2D = \
+		(get_tree().get_first_node_in_group(&"world") as World).projectiles_parent
 
 
 func _ready() -> void:

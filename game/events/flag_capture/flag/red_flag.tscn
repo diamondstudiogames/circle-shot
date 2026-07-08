@@ -17,7 +17,7 @@ team = 0
 [node name="Visual" parent="MinimapMarker" index="2" unique_id=86601325]
 self_modulate = Color(1, 0, 0, 1)
 
-[node name="Marker" parent="ScreenMarker" parent_id_path=PackedInt32Array(245766272) index="0" unique_id=808199532]
+[node name="Marker" parent="ScreenMarker/MarkerBase" parent_id_path=PackedInt32Array(245766272, 2039614537) index="0" unique_id=808199532]
 modulate = Color(1, 0, 0, 1)
 
 [editable path="MinimapMarker"]

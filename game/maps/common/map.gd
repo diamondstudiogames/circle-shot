@@ -4,14 +4,13 @@ extends Node2D
 
 ## Список треков для этой карты. Если не пуст, переопределяет заданные в [World].
 @export var custom_tracks: Array[AudioStream]
-## Ссылка на [World] этой карты.
-var world: World
 ## Данные об этой карте.
 var data: MapData
+## Ссылка на [World] этой карты.
+@onready var world: World = get_parent()
 
 func _ready() -> void:
-	world = get_parent() as World
-	if world and not custom_tracks.is_empty():
+	if not custom_tracks.is_empty():
 		world.tracks = custom_tracks
 	_initialize()
 

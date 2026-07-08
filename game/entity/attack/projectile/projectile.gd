@@ -26,6 +26,9 @@ signal destroyed(where: Vector2)
 var direction: Vector2
 var _destroyed := false
 
+@onready var _vfx_parent: Node2D = \
+		(get_tree().get_first_node_in_group(&"world") as World).vfx_parent
+
 
 func _ready() -> void:
 	reset_physics_interpolation()
@@ -78,13 +81,11 @@ func _process_hit(where: Vector2, what: Entity) -> void:
 func _create_vfx(where: Vector2, wall: bool) -> void:
 	var vfx_scene: PackedScene = hit_wall_vfx_scene if wall else hit_vfx_scene
 	if vfx_scene:
-		var vfx_parent: Node = get_tree().get_first_node_in_group(&"vfx_parent")
-		if is_instance_valid(vfx_parent):
-			var vfx: Node2D = vfx_scene.instantiate()
-			vfx.position = where
-			vfx.rotation = rotation
-			vfx.scale.y = sign(scale.y)
-			vfx_parent.add_child(vfx)
+		var vfx: Node2D = vfx_scene.instantiate()
+		vfx.position = where
+		vfx.rotation = rotation
+		vfx.scale.y = sign(scale.y)
+		_vfx_parent.add_child(vfx)
 
 
 func _on_detector_hit(where: Vector2, what: Entity) -> void:

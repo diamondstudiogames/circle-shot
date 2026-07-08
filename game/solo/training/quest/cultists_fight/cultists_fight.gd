@@ -72,7 +72,7 @@ func _spawn_player() -> void:
 	]
 	player.equip_data.append(-1)
 	player.name = "Player%d" % player.id
-	$Entities.add_child(player, true)
+	entities_parent.add_child(player, true)
 
 
 func _spawn_cultist(idx: int) -> void:
@@ -82,7 +82,7 @@ func _spawn_cultist(idx: int) -> void:
 	cultist.id = -randi()
 	cultist.name += str(cultist.id)
 	cultist.died.connect(_on_cultist_died.bind(cultist))
-	$Entities.add_child(cultist, true)
+	entities_parent.add_child(cultist, true)
 	
 	_spawn_points_counter += 1
 	if _spawn_points_counter == _spawn_points.size():
@@ -94,14 +94,14 @@ func _spawn_heal_box(where: Vector2) -> void:
 	var heal_box: Node2D = _heal_box_scene.instantiate()
 	heal_box.position = where
 	heal_box.name += str(randi())
-	$Other.add_child(heal_box, true)
+	other_parent.add_child(heal_box, true)
 
 
 func _spawn_ammo_box(where: Vector2) -> void:
 	var ammo_box: Node2D = _ammo_box_scene.instantiate()
 	ammo_box.position = where
 	ammo_box.name += str(randi())
-	$Other.add_child(ammo_box, true)
+	other_parent.add_child(ammo_box, true)
 
 
 func _on_cultist_died(cultist: Entity) -> void:

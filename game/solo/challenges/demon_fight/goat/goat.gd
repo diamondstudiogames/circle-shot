@@ -634,7 +634,7 @@ func _on_cultist_died(cultist: Entity) -> void:
 	var box: Node2D = attack_cultists_boxes_scenes[_box_idx].instantiate()
 	box.position = cultist.global_position
 	box.name += str(randi())
-	get_tree().get_first_node_in_group(&"other_parent").add_child(box, true)
+	world.other_parent.add_child(box, true)
 	_box_idx += 1
 	if _box_idx == attack_cultists_boxes_scenes.size():
 		_box_idx = 0
