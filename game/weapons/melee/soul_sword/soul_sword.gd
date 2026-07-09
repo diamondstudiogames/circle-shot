@@ -3,14 +3,26 @@ extends Melee
 
 @export var ranged_attack_projectile_scene: PackedScene
 @export var damage_in_ranged_mode: int
+
 var _ranged_mode := false
 var _damage_normal: int
+var _persistent_data_ranged_mode: String
+
 @onready var _shoot_point: Marker2D = $ShootPoint
+
+
+func _exit_tree() -> void:
+	player.persistent_data[_persistent_data_ranged_mode] = int(_ranged_mode)
 
 
 func _initialize() -> void:
 	_damage_normal = damage
 	($Visual/Base/Ranged as CanvasItem).hide()
+	
+	_persistent_data_ranged_mode = data.id + "_ranged_mode"
+	if _persistent_data_ranged_mode in player.persistent_data:
+		if player.persistent_data[_persistent_data_ranged_mode] == 1:
+			additional_button()
 
 
 func additional_button() -> void:

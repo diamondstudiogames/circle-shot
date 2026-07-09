@@ -669,7 +669,7 @@ func _find_ips_for_broadcast() -> void:
 	# Отсылаем пакеты по всем локальным адресам
 	for ip: String in IP.get_local_addresses():
 		for prefix: String in Game.LOCAL_IP_PREFIXES:
-			if ip.begins_with(prefix):
+			if ip.begins_with(prefix) and not ':' in ip: # игнорим ipv6
 				var udp := PacketPeerUDP.new()
 				udp.set_broadcast_enabled(true)
 				# Меняем конец IP на 255 для получения широковещательного адреса

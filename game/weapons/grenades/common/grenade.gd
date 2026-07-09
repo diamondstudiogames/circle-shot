@@ -12,6 +12,8 @@ extends Weapon
 ## Множитель для определения максимальной скорости, при которой разброс
 ## при движении не будет добавляться.
 @export_range(0.0, 1.0) var spread_walk_ratio := 0.5
+## Время перезарядки гранаты.
+@export var reload_time := 10.0
 ## Скорость снаряда гранаты. Используется для линии прицела.
 @export var projectile_speed := 800.0
 ## Замедление снаряда гранаты. Используется для линии прицела.
@@ -21,6 +23,8 @@ extends Weapon
 
 var _reloading := false
 var _no_ammo := false
+
+var _persistent_data_reload_timer: String
 
 @onready var _anim: AnimationPlayer = $AnimationPlayer
 @onready var _visual: Node2D = $Visual
@@ -57,7 +61,7 @@ func _process(_delta: float) -> void:
 		_aim_outline.points[1].x = distance
 	
 	if _reload_indicator.visible:
-		_reload_indicator_progress.value = 1.0 - _reload_timer.time_left / _reload_timer.wait_time
+		_reload_indicator_progress.value = 1.0 - _reload_timer.time_left / reload_time
 
 
 func _physics_process(_delta: float) -> void:
@@ -68,12 +72,24 @@ func _physics_process(_delta: float) -> void:
 
 func _exit_tree() -> void:
 	_reload_timer.queue_free()
+	player.persistent_data[_persistent_data_reload_timer] = ceili(_reload_timer.time_left)
 
 
 func _initialize() -> void:
 	_reload_indicator_progress.visible = player.is_local()
 	_reload_timer.name += name
 	_reload_timer.reparent(player)
+	
+	_persistent_data_reload_timer = data.id + "_reload_timer"
+	if _persistent_data_reload_timer in player.persistent_data:
+		var remained_reload: int = player.persistent_data[_persistent_data_reload_timer]
+		if remained_reload > 0:
+			_reloading = true
+			_reload_indicator.show()
+			_reload_indicator_progress.value = 1.0 - remained_reload / reload_time
+			_reload_timer.start(remained_reload)
+			_unmake_current()
+			block_shooting()
 
 
 func _make_current() -> void:
@@ -114,7 +130,7 @@ func _shoot(throw_direction := Vector2.ZERO) -> void:
 	
 	_reloading = true
 	ammo_in_stock -= 1
-	_reload_timer.start()
+	_reload_timer.start(reload_time)
 	
 	if multiplayer.is_server():
 		var projectile: GrenadeProjectile = projectile_scene.instantiate()

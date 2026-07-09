@@ -87,7 +87,6 @@ default_color = Color(0, 0, 0, 0.188235)
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=1604587709]
 process_callback = 0
-wait_time = 8.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1211961318]

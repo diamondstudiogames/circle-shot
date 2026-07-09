@@ -53,6 +53,9 @@ var players: Dictionary[int, Player]
 var entities: Dictionary[int, Entity]
 ## Список кэшированных ресурсов.
 var cached_resources: Array[Resource]
+## Словарь с информацией, сохраяемой между смертями игроков. Для подробностей см.
+## [member Player.persistent_data]. Хранится только на сервере.
+var players_persistent_data: Dictionary[int, Dictionary]
 
 var _vibration_enabled: bool
 var _queued_hits: Array[Hit]
@@ -278,6 +281,9 @@ func _on_entities_child_entered_tree(node: Node) -> void:
 			id -= 1
 		entity.id = id
 	entities[entity.id] = entity
+	var player := node as Player
+	if not player:
+		return
 	if entity is Player:
 		players[entity.id] = entity
 
@@ -287,8 +293,12 @@ func _on_entities_child_exiting_tree(node: Node) -> void:
 	if not entity:
 		return
 	entities.erase(entity.id)
-	if entity is Player:
-		players.erase(entity.id)
+	var player := node as Player
+	if not player:
+		return
+	players.erase(player.id)
+	if multiplayer.has_multiplayer_peer() and multiplayer.is_server():
+		players_persistent_data[player.id] = player.persistent_data
 
 
 func _on_local_player_died() -> void:

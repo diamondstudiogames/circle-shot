@@ -9,10 +9,12 @@
 
 [node name="Hook" type="Node2D" unique_id=32487809]
 script = ExtResource("1_3uidi")
-hook_speed = 2400.0
-attract_speed = 1760.0
+hook_speed = 2720.0
+attract_speed = 1920.0
 min_distance = 192.0
+reset_speed = 3840.0
 min_reset_time = 0.3
+reload_time = 8.0
 ammo_per_load = 0
 ammo_total = 4
 speed_multiplier_when_current = 0.99
@@ -43,12 +45,6 @@ libraries/ = ExtResource("4_edkhm")
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=1462378929]
 process_callback = 0
-wait_time = 8.0
-one_shot = true
-
-[node name="FailedReloadTimer" type="Timer" parent="." unique_id=219212199]
-process_callback = 0
-wait_time = 0.4
 one_shot = true
 
 [node name="AttractTimer" type="Timer" parent="." unique_id=238192586]
@@ -69,7 +65,6 @@ wait_time = 0.1
 resources = [PackedStringArray("hook_attract_enemy", "hook_attract_user"), [ExtResource("5_xj4w6"), ExtResource("6_uqyeu")]]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
-[connection signal="timeout" from="FailedReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="AttractTimer" to="." method="_on_attract_timer_timeout"]
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
 [connection signal="timeout" from="SyncPositionTimer" to="." method="_on_sync_position_timer_timeout"]

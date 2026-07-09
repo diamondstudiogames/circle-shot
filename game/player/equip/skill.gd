@@ -12,7 +12,13 @@ var data: SkillData
 ## Ссылка на игрока.
 var player: Player
 
-var _cooldown_timer := 0.0
+## Таймер отката навыка. Если меньше или равно нулю, навык можно использовать.
+var cooldown_timer := 0.0
+## Оставшиеся использования навыка.
+var remaining_uses: int
+
+var _persistent_data_cooldown_timer: String
+var _persistent_data_remaining_uses: String
 var _blocked_cooldown_counter: int = 0
 @warning_ignore("unused_private_class_variable") # Для дочерних классов
 @onready var _other_parent: Node2D = \
@@ -21,30 +27,42 @@ var _blocked_cooldown_counter: int = 0
 
 func _physics_process(delta: float) -> void:
 	if not is_cooldown_blocked() and player.can_use_weapon():
-		if _cooldown_timer > player.skill_vars[1]:
-			_cooldown_timer = player.skill_vars[1]
-		_cooldown_timer -= delta
-	player.skill_vars[1] = ceili(_cooldown_timer)
+		cooldown_timer -= delta
 
 
-## Инициализирует навык игроком [param to_player] и данными [param skill_data].
-func initialize(to_player: Player, skill_data: SkillData) -> void:
+func _exit_tree() -> void:
+	# сохраняем в persistent_data
+	player.persistent_data[_persistent_data_cooldown_timer] = ceili(cooldown_timer)
+	player.persistent_data[_persistent_data_remaining_uses] = remaining_uses
+
+
+## Инициализирует навык игроком [param to_player] и данными [param skill_data]. Если 
+## [param reset_state] равен [code]true[/code], то сохранённое состояние навыка будет сброшено.
+func initialize(to_player: Player, skill_data: SkillData, reset_state := false) -> void:
 	data = skill_data
 	player = to_player
-	if player.skill_vars.is_empty():
-		player.skill_vars = [use_times, 0]
-	_cooldown_timer = player.skill_vars[1]
 	player.disarmed.connect(_player_disarmed)
 	player.armed.connect(_player_armed)
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	
+	_persistent_data_cooldown_timer = data.id + "_cooldown_timer"
+	if _persistent_data_cooldown_timer in player.persistent_data and not reset_state:
+		cooldown_timer = player.persistent_data[_persistent_data_cooldown_timer]
+	else:
+		cooldown_timer = 0.0
+	_persistent_data_remaining_uses = data.id + "_remaining_uses"
+	if _persistent_data_remaining_uses in player.persistent_data and not reset_state:
+		remaining_uses = player.persistent_data[_persistent_data_remaining_uses]
+	else:
+		remaining_uses = use_times
+	
 	_initialize()
 
 
 ## Использует навык.
 func use(args: Array) -> void:
-	player.skill_vars[0] -= 1
-	player.skill_vars[1] = use_cooldown
-	_cooldown_timer = use_cooldown
+	cooldown_timer = use_cooldown
+	remaining_uses -= 1
 	_use.callv(args)
 
 
@@ -65,8 +83,8 @@ func is_cooldown_blocked() -> bool:
 
 ## Возвращает [code]true[/code], если навык можно использовать.
 func can_use() -> bool:
-	return player.can_use_weapon() and player.skill_vars[0] > 0 \
-			and player.skill_vars[1] <= 0 and _can_use()
+	return player.can_use_weapon() and remaining_uses > 0 \
+			and cooldown_timer <= 0 and _can_use()
 
 
 ## Метод для переопределения. При получении запроса на использование навыка сервер вызовет

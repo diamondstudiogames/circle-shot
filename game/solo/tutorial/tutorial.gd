@@ -76,6 +76,8 @@ func spawn_player() -> void:
 		-1,
 	]
 	player.name = "Player%d" % player.id
+	if player.id in players_persistent_data:
+		player.persistent_data = players_persistent_data[player.id]
 	player.weapon_changed.connect(_on_player_weapon_changed)
 	_player = player
 	entities_parent.add_child(player, true)

@@ -12,6 +12,7 @@ radius = 76.0
 [node name="Teleporter" type="Node2D" unique_id=1900509530]
 script = ExtResource("1_cvmrr")
 teleport_distance = 880.0
+reload_time = 15.0
 ammo_per_load = 0
 ammo_total = 2
 speed_multiplier_when_current = 0.97
@@ -40,7 +41,6 @@ hit_from_inside = true
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=422982749]
 process_callback = 0
-wait_time = 15.0
 one_shot = true
 
 [node name="Aim" type="Sprite2D" parent="." unique_id=198265626]
@@ -52,4 +52,4 @@ texture = ExtResource("8_6ye5t")
 [node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=1232289918]
 resources = [PackedStringArray("teleport_vfx"), [ExtResource("5_skiv7")]]
 
-[connection signal="timeout" from="ReloadTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

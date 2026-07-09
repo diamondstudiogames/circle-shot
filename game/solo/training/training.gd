@@ -80,6 +80,8 @@ func spawn_player(teleport := true) -> void:
 	]
 	player.equip_data.append(-1)
 	player.name = "Player%d" % player.id
+	if player.id in players_persistent_data:
+		player.persistent_data = players_persistent_data[player.id]
 	
 	if teleport:
 		($Camera as SmartCamera).teleport_to(_spawn_point.global_position)
@@ -332,10 +334,9 @@ func player_restore_skill() -> void:
 	if not is_instance_valid(player):
 		return
 	
-	if player.skill.is_cooldown_blocked(): # чтобы нельзя было использовать, пока действует эффект
-		player.skill_vars[0] = player.skill.use_times
-	else:
-		player.skill_vars = [player.skill.use_times, 0]
+	if not player.skill.is_cooldown_blocked(): # нельзя использовать, пока действует эффект
+		player.skill.cooldown_timer = 0.0
+	player.skill.remaining_uses = player.skill.use_times
 
 
 ## Возвращает игрока на точку появления.

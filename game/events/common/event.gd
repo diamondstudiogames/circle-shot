@@ -39,8 +39,6 @@ var players_names: Dictionary[int, String]
 ## Словарь формата <ID игрока> - <команда игрока>. Доступно только на сервере.
 var players_teams: Dictionary[int, int]
 
-var _players_skill_vars: Dictionary[int, Array]
-
 var _emotion_cloud_scene: PackedScene = load("uid://bkyhxor5s6032")
 
 ## Ссылка на [EventUI].
@@ -128,9 +126,9 @@ func spawn_player(id: int) -> void:
 	player.player_name = players_names[id]
 	player.equip_data = players_equip_data[id].duplicate()
 	player.equip_data.append(-1)
-	if id in _players_skill_vars:
-		player.skill_vars = _players_skill_vars[id].duplicate()
 	player.name = "Player%d" % id
+	if player.id in players_persistent_data:
+		player.persistent_data = players_persistent_data[player.id]
 	
 	_customize_player(player)
 	for modifier: EventModifier in modifiers:
@@ -138,7 +136,6 @@ func spawn_player(id: int) -> void:
 	
 	entities_parent.add_child(player, true)
 	player.killed.connect(_on_player_killed.bind(player))
-	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 
 
 ## Заканчивает событие победой или поражением.
@@ -327,12 +324,6 @@ func _on_player_killed(by: int, _remained_health: int, player: Player) -> void:
 	_player_killed(by, player)
 
 
-func _on_player_tree_exiting(player: Player) -> void:
-	if not player.id in players_names:
-		return
-	_players_skill_vars[player.id] = player.skill_vars
-
-
 func _on_peer_disconnected(id: int) -> void:
 	var message_text: String = "[outline_size=4][color=#%s]%s[/color][/outline_size] отключается!" \
 			% [Entity.TEAM_COLORS[players_teams[id]].to_html(false), players_names[id]]
@@ -343,7 +334,6 @@ func _on_peer_disconnected(id: int) -> void:
 	players_names.erase(id)
 	players_equip_data.erase(id)
 	players_teams.erase(id)
-	_players_skill_vars.erase(id)
 	if players_names.is_empty():
 		end.rpc()
 		return

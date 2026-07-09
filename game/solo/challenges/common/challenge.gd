@@ -17,7 +17,6 @@ var data: ChallengeData
 ## Началось ли испытание.
 var was_started := false
 
-var _player_skill_vars: Array[int]
 ## Ссылка на [ChallengeUI].
 @onready var challenge_ui: ChallengeUI = $UI
 @onready var _challenge_timer: Timer = $ChallengeTimer
@@ -60,12 +59,11 @@ func spawn_player() -> void:
 		Globals.items_db.weapons_by_id[Globals.get_string("selected_melee_weapon")].idx_in_db,
 	]
 	player.equip_data.append(-1)
-	if not _player_skill_vars.is_empty():
-		player.skill_vars = _player_skill_vars.duplicate()
 	player.name = "Player%d" % player.id
+	if player.id in players_persistent_data:
+		player.persistent_data = players_persistent_data[player.id]
 	_customize_player(player)
 	entities_parent.add_child(player, true)
-	player.tree_exiting.connect(_on_player_tree_exiting.bind(player))
 	if not was_started:
 		player.block_weapon_usage()
 		player.make_immobile()
@@ -141,7 +139,3 @@ func _customize_player(_player: Player) -> void:
 ## где ключи - строки с причиной награды, а значения - размер награды в монетах.
 func _get_rewards() -> Dictionary[String, int]:
 	return {}
-
-
-func _on_player_tree_exiting(player: Player) -> void:
-	_player_skill_vars = player.skill_vars

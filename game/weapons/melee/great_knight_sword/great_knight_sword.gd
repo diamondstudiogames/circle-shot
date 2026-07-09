@@ -2,11 +2,25 @@ extends Melee
 
 
 @export var projectile_scene: PackedScene
+
 var _lunge_attack := false
+var _persistent_data_lunge_attack: String
+
 @onready var _bullets_points_swing: Node2D = $Visual/BulletsSpawnPointsSwing
 @onready var _bullets_points_lunge: Node2D = $Visual/BulletsSpawnPointsLunge
 @onready var _aim_swing: Line2D = $Aim
 @onready var _aim_lunge: Line2D = $AimLunge
+
+
+func _exit_tree() -> void:
+	player.persistent_data[_persistent_data_lunge_attack] = int(_lunge_attack)
+
+
+func _initialize() -> void:
+	_persistent_data_lunge_attack = data.id + "_lunge_attack"
+	if _persistent_data_lunge_attack in player.persistent_data:
+		if player.persistent_data[_persistent_data_lunge_attack] == 1:
+			additional_button()
 
 
 func _shoot_bullets() -> void:

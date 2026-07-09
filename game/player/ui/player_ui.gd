@@ -481,9 +481,9 @@ func _update_skill() -> void:
 		_skill.modulate = Color.DARK_GRAY
 		return
 	
-	if _player.skill_vars[0] > 0:
-		if _player.skill_vars[1] > 0:
-			_skill.value = 1.0 - _player.skill_vars[1] * 1.0 / _player.skill.use_cooldown
+	if _player.skill.remaining_uses > 0:
+		if _player.skill.cooldown_timer > 0:
+			_skill.value = 1.0 - _player.skill.cooldown_timer / _player.skill.use_cooldown
 			_skill.modulate = Color.DARK_GRAY
 		else:
 			_skill.value = 1.0
@@ -491,7 +491,7 @@ func _update_skill() -> void:
 	else:
 		_skill.value = 0.0
 		_skill.modulate = Color.DARK_GRAY
-	_skill_count.text = str(_player.skill_vars[0])
+	_skill_count.text = str(_player.skill.remaining_uses)
 
 
 func _is_point_inside_of_control(point: Vector2, control: Control) -> bool:

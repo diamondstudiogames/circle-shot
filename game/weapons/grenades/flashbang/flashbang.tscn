@@ -204,6 +204,7 @@ _data = {
 script = ExtResource("2_wl7xt")
 projectile_scene = ExtResource("2_wf1n2")
 spread_walk = 3.0
+reload_time = 17.0
 projectile_speed = 1800.0
 projectile_damping = 600.0
 speed_multiplier_when_current = 0.99
@@ -215,9 +216,6 @@ aim_camera_distance = 256.0
 
 [node name="ThrowPoint" parent="ThrowPivot" parent_id_path=PackedInt32Array(517828764) index="0" unique_id=1142839276]
 position = Vector2(104, 0)
-
-[node name="ReloadTimer" parent="." index="3" unique_id=1604587709]
-wait_time = 17.0
 
 [node name="AnimationPlayer" parent="." index="4" unique_id=1211961318]
 libraries/ = SubResource("AnimationLibrary_68h2c")

@@ -28,8 +28,8 @@ var player_name: String
 ## оружие поддержки, ближнее оружие, дополнительное оружие. Если ID равен -1, то оружие/навык не
 ## экипирован. Если же равен -2, то оружие/навык экипирован, но он отсутствует в [ItemsDB].
 var equip_data: Array[int]
-## Массив из двух элементов. Первый - количество оставшихся использований, второй - откат.
-var skill_vars: Array[int]
+## Словарь переменных типа [int], сохраняемый в [World] между смертями игрока.
+var persistent_data: Dictionary[String, int]
 ## Ссылка на скин.
 var skin: PlayerSkin
 ## Ссылка на текущее оружие. Может быть равной [code]null[/code].
@@ -54,6 +54,8 @@ var _blocked_weapon_usage_counter: int = 0
 
 func _ready() -> void:
 	super()
+	
+	print_verbose("%s persistent data: %s" % [name, persistent_data])
 	
 	($Info/Name as Label).text = player_name
 	($Info/Name as CanvasItem).self_modulate = TEAM_COLORS[team]
@@ -259,12 +261,9 @@ func set_weapon(type: Weapon.Type, data: WeaponData) -> void:
 		_set_current_weapon(type)
 
 
-## Устанавливает навык из [param data]. Если [param reset_skill_vars] равен [code]true[/code],
-## то [member skill_vars] будет сброшен.
-func set_skill(data: SkillData, reset_skill_vars := false) -> void:
-	if reset_skill_vars:
-		skill_vars.clear()
-	
+## Устанавливает навык из [param data]. Если [param reset_state] равен [code]true[/code],
+## то сохранённое состояние навыка будет сброшено.
+func set_skill(data: SkillData, reset_state := false) -> void:
 	if is_instance_valid(skill):
 		remove_child(skill)
 		skill.queue_free()
@@ -278,7 +277,7 @@ func set_skill(data: SkillData, reset_skill_vars := false) -> void:
 	var skill_scene: PackedScene = load(data.scene_path)
 	skill = skill_scene.instantiate()
 	add_child(skill)
-	skill.initialize(self, data)
+	skill.initialize(self, data, reset_state)
 	equip_data[1] = data.idx_in_db if data.idx_in_db >= 0 else -2 # если нет в БД
 	skill_equipped.emit(data)
 	print_verbose("Set skill %s with index %d on %s." % [data.id, data.idx_in_db, name])

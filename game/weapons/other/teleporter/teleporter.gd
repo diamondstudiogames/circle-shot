@@ -2,9 +2,12 @@ extends Weapon
 
 
 @export var teleport_distance := 800.0
+@export var reload_time := 10.0
 
 var _reloading := false
 var _no_ammo := false
+var _persistent_data_reload_timer: String
+
 var _teleport_vfx_scene: PackedScene = load("uid://2p44r4a1hf7")
 
 @onready var _buttons: Node2D = $Visual/Base/Buttons
@@ -27,7 +30,7 @@ func _process(_delta: float) -> void:
 	
 	if _reload_indicator.visible:
 		if player.is_local():
-			_reload_indicator.value = 1.0 - _reload_timer.time_left / _reload_timer.wait_time
+			_reload_indicator.value = 1.0 - _reload_timer.time_left / reload_time
 		else:
 			_reload_indicator.value = 0.0
 
@@ -41,12 +44,24 @@ func _physics_process(_delta: float) -> void:
 
 func _exit_tree() -> void:
 	_reload_timer.queue_free()
+	player.persistent_data[_persistent_data_reload_timer] = ceili(_reload_timer.time_left)
 
 
 func _initialize() -> void:
 	_collision_check.add_exception(player)
 	_reload_timer.name += name
 	_reload_timer.reparent(player)
+	
+	_persistent_data_reload_timer = data.id + "_reload_timer"
+	if _persistent_data_reload_timer in player.persistent_data:
+		var remained_reload: int = player.persistent_data[_persistent_data_reload_timer]
+		if remained_reload > 0:
+			block_shooting()
+			_buttons.modulate = Color.WEB_GRAY
+			_reloading = true
+			_reload_timer.start(remained_reload)
+			_reload_indicator.show()
+			_reload_indicator.value = 1.0 - remained_reload / reload_time
 
 
 func _shoot(success := false) -> void:
@@ -78,7 +93,7 @@ func _shoot(success := false) -> void:
 	_buttons.modulate = Color.WEB_GRAY
 	ammo_in_stock -= 1
 	_reloading = true
-	_reload_timer.start()
+	_reload_timer.start(reload_time)
 	_reload_indicator.show()
 	_reload_indicator.value = 0.0
 
@@ -144,7 +159,7 @@ func _update_casts() -> void:
 	_border_check.force_raycast_update()
 
 
-func _on_cooldown_timer_timeout() -> void:
+func _on_reload_timer_timeout() -> void:
 	_reloading = false
 	_reload_indicator.hide()
 	if ammo_in_stock > 0:

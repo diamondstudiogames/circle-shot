@@ -17,6 +17,8 @@ enum State {
 @export var min_reset_time := 0.2
 @export var additional_stun_time := 1.0
 @export var aim_time := 0.15
+@export var reload_time := 10.0
+@export var failed_reload_time := 0.4
 
 var _state := State.IDLE
 var _attracting_enemy := false
@@ -28,6 +30,8 @@ var _previous_knockback := Vector2.ZERO
 
 var _previous_physics_hook_position: Vector2
 var _reset_tween: Tween
+var _persistent_data_reload_timer: String
+
 var _attract_user_texture: Texture2D = load("uid://dqqohrw8x4ie4")
 var _attract_enemy_texture: Texture2D = load("uid://drf8asi0s3yc1")
 
@@ -40,7 +44,6 @@ var _attract_enemy_texture: Texture2D = load("uid://drf8asi0s3yc1")
 @onready var _shape_cast: ShapeCast2D = $Visual/Hook/ShapeCast2D
 @onready var _reset_point: Marker2D = $Visual/ResetPoint
 @onready var _reload_timer: Timer = $ReloadTimer
-@onready var _failed_reload_timer: Timer = $FailedReloadTimer
 @onready var _throw_timer: Timer = $ThrowTimer
 @onready var _attract_timer: Timer = $AttractTimer
 @onready var _sync_position_timer: Timer = $SyncPositionTimer
@@ -143,15 +146,25 @@ func _exit_tree() -> void:
 	if _state == State.ATTRACT:
 		_reset_attraction(true)
 	_reload_timer.queue_free()
-	_failed_reload_timer.queue_free()
+	if not _reload_timer.is_stopped():
+		player.persistent_data[_persistent_data_reload_timer] = ceili(_reload_timer.time_left)
+	elif _state == State.ATTRACT:
+		player.persistent_data[_persistent_data_reload_timer] = ceili(reload_time)
 
 
 func _initialize() -> void:
 	_previous_physics_hook_position = _hook.global_position
 	_reload_timer.name += name
 	_reload_timer.reparent(player)
-	_failed_reload_timer.name += name
-	_failed_reload_timer.reparent(player)
+	
+	_persistent_data_reload_timer = data.id + "_reload_timer"
+	if _persistent_data_reload_timer in player.persistent_data:
+		var remained_reload: int = player.persistent_data[_persistent_data_reload_timer]
+		if remained_reload > 0:
+			block_shooting()
+			_state = State.RELOAD
+			_hook.self_modulate = Color.GRAY
+			_reload_timer.start(remained_reload)
 
 
 func _shoot(direction := Vector2.RIGHT) -> void:
@@ -269,7 +282,7 @@ func _reset_throwing(skip_animation := false) -> void:
 	await _reset_common(skip_animation)
 	_state = State.RELOAD
 	_hook.self_modulate = Color.GRAY
-	_failed_reload_timer.start()
+	_reload_timer.start(failed_reload_time)
 
 
 func _reset_attraction(skip_animation := false) -> void:
@@ -290,8 +303,8 @@ func _reset_attraction(skip_animation := false) -> void:
 	await _reset_common(skip_animation)
 	_state = State.RELOAD
 	_hook.self_modulate = Color.GRAY
-	if _failed_reload_timer.is_inside_tree():
-		_reload_timer.start()
+	if _reload_timer.is_inside_tree(): # освобождаются раньше чем сам hook
+		_reload_timer.start(reload_time)
 
 
 func _reset_common(skip_animation: bool) -> void:
