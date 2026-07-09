@@ -41,7 +41,7 @@ func remove_action_event(action: StringName, event_idx: int) -> void:
 	var events_container: VBoxContainer = %Actions.get_node(
 				action.to_pascal_case()).get_node(^"Container/Events")
 	var event: Control = events_container.get_child(event_idx)
-	if get_viewport().gui_get_focus_owner().is_ancestor_of(event):
+	if event.is_ancestor_of(get_viewport().gui_get_focus_owner()):
 		($VBoxContainer/Buttons/Save as Control).grab_focus()
 	event.queue_free()
 	events_container.remove_child(event)
@@ -112,6 +112,7 @@ func _set_event_candidate(encoded_event: EncodedInputEvent) -> void:
 	_event_candidate = encoded_event
 	($EventSelector as AcceptDialog).dialog_text = _encoded_input_event_as_text(encoded_event)
 	($EventSelector as AcceptDialog).get_ok_button().show()
+	($EventSelector as AcceptDialog).get_ok_button().grab_focus()
 	($EventSelector as ConfirmationDialog).get_cancel_button().show()
 
 
@@ -209,7 +210,7 @@ func _on_save_pressed() -> void:
 func _on_discard_pressed() -> void:
 	_pending_actions.clear()
 	_load_keys_from_map()
-	($VBoxContainer/Buttons/Discard as BaseButton).disabled = true
+	($VBoxContainer/Buttons/Save as BaseButton).disabled = true
 	($VBoxContainer/Buttons/Discard as BaseButton).disabled = true
 
 

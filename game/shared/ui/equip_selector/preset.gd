@@ -24,7 +24,7 @@ func _show_data() -> void:
 	(%Melee as TextureRect).texture = load(Globals.items_db.weapons_by_id[data[4]].image_path)
 	(%PresetName as Label).text = Globals.get_string("preset_%d_name" % idx)
 	if is_node_ready():
-		($Main/Buttons/Save as Control).grab_focus()
+		($Main/Buttons/Rename as Control).grab_focus()
 
 
 func _show_empty() -> void:
