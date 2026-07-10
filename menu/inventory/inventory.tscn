@@ -82,8 +82,10 @@ layout_mode = 2
 alignment = 1
 
 [node name="MainFilter" type="OptionButton" parent="PanelContainer/VBoxContainer/Main/Selection/Filters" unique_id=1498938666]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 selected = 0
+fit_to_longest_item = false
 allow_reselect = true
 item_count = 7
 popup/item_0/text = "Оружия"

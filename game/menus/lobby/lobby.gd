@@ -1060,6 +1060,8 @@ func _on_game_closed() -> void:
 	admin_id = -1
 	
 	_chat.clear_chat()
+	_chat.players_names.clear()
+	_chat.players_teams.clear()
 	(%ControlButtons/Chat as BaseButton).button_pressed = false
 
 

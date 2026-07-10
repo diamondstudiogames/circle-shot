@@ -65,7 +65,7 @@ func _unhandled_input(input_event: InputEvent) -> void:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST:
-			($QuitDialog as Window).popup_centered()
+			($PauseDialog as Window).popup_centered()
 
 
 ## Показывает заставку события.

@@ -24,7 +24,7 @@ func _exit_tree() -> void:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST:
-			($UI/QuitDialog as Window).popup_centered()
+			($UI/PauseDialog as Window).popup_centered()
 
 
 func _initialize() -> void:

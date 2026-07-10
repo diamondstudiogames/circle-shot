@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccs5qwjfxl3ks"]
 
 [node name="Modifier" type="PanelContainer" unique_id=1887119919]
+mouse_filter = 2
 
 [node name="Container" type="HBoxContainer" parent="." unique_id=340652565]
 layout_mode = 2

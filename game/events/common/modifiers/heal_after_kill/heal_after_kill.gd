@@ -9,4 +9,5 @@ func _customize_player_server(player: Player) -> void:
 func _on_player_died(player: Player) -> void:
 	var heal_box: Node2D = heal_box_scene.instantiate()
 	heal_box.position = player.global_position
-	event.other_parent.add_child(heal_box)
+	heal_box.name += str(randi())
+	event.other_parent.add_child(heal_box, true)

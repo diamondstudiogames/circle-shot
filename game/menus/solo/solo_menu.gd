@@ -24,6 +24,16 @@ func _ready() -> void:
 	_items_grid.item_selected.connect(_on_item_selected)
 
 
+func _notification(what: int) -> void:
+	if _game.state != Game.State.CLOSED:
+		return
+	match what:
+		NOTIFICATION_WM_GO_BACK_REQUEST when ($Challenges as CanvasItem).visible:
+			_on_quit_challenges_pressed()
+		NOTIFICATION_WM_GO_BACK_REQUEST when ($Base as CanvasItem).visible:
+			_on_quit_pressed.call_deferred()
+
+
 func _validate_selected_environment() -> void:
 	var changed := false
 	if selected_challenge < 0 or selected_challenge >= Globals.items_db.challenges.size():

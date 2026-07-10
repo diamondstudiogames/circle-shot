@@ -10,7 +10,7 @@ var _reward_scene: PackedScene = load("uid://cghfpr0gbxb2e")
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST:
-			($QuitDialog as Window).popup_centered()
+			($PauseDialog as Window).popup_centered()
 
 
 ## Показывает вступительную анимацию.
