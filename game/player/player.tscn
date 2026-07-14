@@ -77,9 +77,8 @@ replication_config = SubResource("SceneReplicationConfig_r6igu")
 [node name="CollisionShape2D" parent="." index="2" unique_id=117668723]
 shape = SubResource("CircleShape2D_i6vnq")
 
-[node name="HealthBar" parent="Info" parent_id_path=PackedInt32Array(247772461) index="0" unique_id=443211125]
-offset_top = 4.0
-offset_bottom = 28.0
+[node name="Amount" parent="Info/HealthBar" parent_id_path=PackedInt32Array(443211125) index="1" unique_id=1455842477]
+visible = false
 
 [node name="Name" type="Label" parent="Info" parent_id_path=PackedInt32Array(247772461) index="1" unique_id=1250896015]
 use_parent_material = true
@@ -95,7 +94,6 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"HeaderMediumOutlined"
-text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 

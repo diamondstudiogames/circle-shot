@@ -377,8 +377,8 @@ match_time_in_coins_divider_win = 3.0
 match_time_in_coins_divider_draw = 4.5
 match_time_in_coins_divider_defeat = 6.0
 coins_for_flag_captured = 11
-coins_for_kill = 6
-damage_for_coin = 25
+coins_for_kill = 4
+damage_for_coin = 15
 entity_scenes = Array[PackedScene]([ExtResource("3_ae5hp")])
 
 [node name="OtherSpawner" parent="." index="6" unique_id=1631769039]

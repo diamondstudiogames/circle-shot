@@ -94,9 +94,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -80.0
-offset_top = -12.0
+offset_top = 4.0
 offset_right = 80.0
-offset_bottom = 12.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2rju8")
@@ -124,6 +124,23 @@ grow_vertical = 2
 step = 0.0010000000038417
 texture_progress = ExtResource("7_8qsf0")
 tint_progress = Color(0.5019608, 0.5019608, 0.5019608, 1)
+
+[node name="Amount" type="Label" parent="Info/HealthBar" unique_id=1455842477]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -41.0
+offset_right = 0.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderMediumOutlined"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Visual" type="Node2D" parent="." unique_id=1599520395]
 physics_interpolation_mode = 2

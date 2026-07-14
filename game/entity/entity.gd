@@ -461,7 +461,8 @@ func is_local() -> bool:
 	return entity_input.is_multiplayer_authority()
 
 
-## Виртуальный метод. Вызывается, когда у сущности меняется здоровье.
+## Виртуальный метод. Вызывается, когда у сущности меняется здоровье. Не используйте здесь
+## [member current_health], он содержит старое значение. Используйте [param new_value].
 func _health_changed(_old_value: int, _new_value: int) -> void:
 	pass
 

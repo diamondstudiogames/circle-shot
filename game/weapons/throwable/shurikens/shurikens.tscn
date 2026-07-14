@@ -197,7 +197,7 @@ _data = {
 [node name="Shurikens" unique_id=953692702 instance=ExtResource("1_cljil")]
 script = ExtResource("2_3pe6m")
 throw_interval_fast = 0.12
-spread_fast = 17.0
+spread_fast = 12.0
 projectile_fast_scene = ExtResource("3_ngjk4")
 projectile_scene = ExtResource("2_weobi")
 ammo_scene = ExtResource("3_3pe6m")
@@ -206,7 +206,7 @@ throw_interval = 0.4
 spread_base = 3.0
 spread_walk = 7.0
 ammo_per_load = 8
-ammo_total = 48
+ammo_total = 64
 speed_multiplier_when_current = 0.98
 aim_camera_distance = 180.0
 

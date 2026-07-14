@@ -51,14 +51,17 @@ var _blocked_weapon_usage_counter: int = 0
 ## качестве параметра, чтобы получить оружие нужного типа.
 @onready var weapons: Node2D = $Visual/Weapons
 
+@onready var _name_label: Label = $Info/Name
+@onready var _health_bar: TextureRect = $Info/HealthBar
+
 
 func _ready() -> void:
 	super()
 	
 	print_verbose("%s persistent data: %s" % [name, persistent_data])
 	
-	($Info/Name as Label).text = player_name
-	($Info/Name as CanvasItem).self_modulate = TEAM_COLORS[team]
+	_name_label.add_theme_color_override(&"font_color", TEAM_COLORS[team])
+	_update_name_label(current_health)
 	if is_local():
 		world.set_local_player(self)
 		world.set_local_team(team)
@@ -97,6 +100,7 @@ func _process(_delta: float) -> void:
 
 func _health_changed(_old_value: int, new_value: int) -> void:
 	blood.emitting = new_value < max_health / 3.0
+	_update_name_label(new_value)
 
 
 func _disarmed() -> void:
@@ -380,7 +384,15 @@ func _set_current_weapon(to: Weapon.Type) -> void:
 
 
 func _update_health_bar_visibility(local_team: int) -> void:
-	($Info/HealthBar as CanvasItem).visible = team == local_team and not is_local()
+	_health_bar.visible = team == local_team and not is_local()
+	_update_name_label(current_health)
+
+
+func _update_name_label(health: int) -> void:
+	if _health_bar.visible:
+		_name_label.text = "%s (%d/%d)" % [player_name, health, max_health]
+	else:
+		_name_label.text = player_name
 
 
 func _on_current_weapon_ammo_changed(_in_stock: bool) -> void:

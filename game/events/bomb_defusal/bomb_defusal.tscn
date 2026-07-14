@@ -236,10 +236,10 @@ _data = {
 [node name="Event" unique_id=1641684394 instance=ExtResource("1_u01ls")]
 script = ExtResource("2_ppebb")
 coins_for_won_round = 17
-coins_for_lost_round = 5
-coins_for_kill = 5
+coins_for_lost_round = 8
+coins_for_kill = 3
 coins_for_bomb = 10
-damage_for_coin = 20
+damage_for_coin = 12
 spawn_point_randomness = 0.0
 entity_scenes = Array[PackedScene]([ExtResource("3_buact")])
 

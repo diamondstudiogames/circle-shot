@@ -121,12 +121,13 @@ func _player_disconnected(_id: int) -> void:
 func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
 	var result_coins: int
+	var time_to_reward: float = match_time - _time_remained / 1.5
 	if _team_won == local_team:
-		result_coins = roundi(match_time / match_time_in_coins_divider_win)
+		result_coins = roundi(time_to_reward / match_time_in_coins_divider_win)
 	elif _team_won < 0:
-		result_coins = roundi(match_time / match_time_in_coins_divider_draw)
+		result_coins = roundi(time_to_reward / match_time_in_coins_divider_draw)
 	else:
-		result_coins = roundi(match_time / match_time_in_coins_divider_defeat)
+		result_coins = roundi(time_to_reward / match_time_in_coins_divider_defeat)
 	rewards["Результат"] = result_coins
 	rewards["Захваченные флаги"] = flags_captured * coins_for_flag_captured
 	rewards["Убийства"] = kills * coins_for_kill

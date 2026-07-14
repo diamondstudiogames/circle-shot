@@ -25,12 +25,12 @@ func _ready() -> void:
 
 
 func _notification(what: int) -> void:
-	if _game.state != Game.State.CLOSED:
-		return
 	match what:
-		NOTIFICATION_WM_GO_BACK_REQUEST when ($Challenges as CanvasItem).visible:
+		NOTIFICATION_WM_GO_BACK_REQUEST \
+				when ($Challenges as CanvasItem).visible and _game.state == Game.State.CLOSED:
 			_on_quit_challenges_pressed()
-		NOTIFICATION_WM_GO_BACK_REQUEST when ($Base as CanvasItem).visible:
+		NOTIFICATION_WM_GO_BACK_REQUEST \
+				when ($Base as CanvasItem).visible and _game.state == Game.State.CLOSED:
 			_on_quit_pressed.call_deferred()
 
 

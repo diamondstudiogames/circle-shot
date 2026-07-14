@@ -129,7 +129,7 @@ func _unmake_current() -> void:
 
 
 func _can_reload() -> bool:
-	return _throw_timer <= 0.0
+	return _throw_timer <= 0.0 and _throwing_count == 0
 
 
 func _player_disarmed() -> void:
@@ -155,6 +155,10 @@ func reload() -> void:
 	_reloading = true
 	_interrupt_reload_margin_timer.start()
 	block_shooting()
+	
+	for ammo_node: Node in _ammo_parent.get_children():
+		(ammo_node.get_node(^"AnimationPlayer") as AnimationPlayer).play(&"RESET")
+		(ammo_node.get_node(^"AnimationPlayer") as AnimationPlayer).advance(0.01)
 	
 	while ammo != ammo_per_load and ammo_in_stock > 0:
 		var current_ammo: Node2D = _ammo_parent.get_child(ammo)
