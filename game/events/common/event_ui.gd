@@ -9,6 +9,7 @@ extends CanvasLayer
 @export var messages_visible_time := 3.0
 
 var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
+var _modifier_icon_scene: PackedScene = load("uid://ch2p0gsk8jdv0")
 
 ## Чат.
 @onready var chat: Chat = $Main/ChatPanel
@@ -21,6 +22,15 @@ var _reward_scene: PackedScene = load("uid://b1ipe4g6uueie")
 
 
 func _ready() -> void:
+	if event.modifiers_idxs.is_empty():
+		($Intro/Title/Modifiers as CanvasItem).hide()
+	else:
+		for idx: int in event.modifiers_idxs:
+			var modifier: EventModifierData = Globals.items_db.event_modifiers[idx]
+			var modifier_icon: PanelContainer = _modifier_icon_scene.instantiate()
+			(modifier_icon.get_node(^"Icon") as TextureRect).texture = load(modifier.icon_path)
+			$Intro/Title/ModifiersContainer.add_child(modifier_icon)
+	
 	if not Globals.get_setting_bool("chat_in_game"):
 		($Main/Chat as CanvasItem).hide()
 		return

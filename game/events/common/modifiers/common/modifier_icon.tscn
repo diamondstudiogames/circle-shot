@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch2p0gsk8jdv0"]
+
+[node name="ModifierIcon" type="PanelContainer" unique_id=1956442572]
+
+[node name="Icon" type="TextureRect" parent="." unique_id=261195801]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

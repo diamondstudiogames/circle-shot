@@ -32,7 +32,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
+tracks/0/path = NodePath("Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,7 +44,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,7 +56,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -73,7 +73,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
+tracks/0/path = NodePath("Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/path = NodePath("Label:theme_override_colors/font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -283,17 +283,27 @@ layout_mode = 2
 text = "Настройки события..."
 icon = ExtResource("6_yfygw")
 
-[node name="Countdown" type="Label" parent="Main/Panels/Lobby/VBoxContainer" unique_id=480680156]
+[node name="CountdownPanel" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=2097802003]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Main/Panels/Lobby/VBoxContainer/CountdownPanel" unique_id=1821782126]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main/Panels/Lobby/VBoxContainer/CountdownPanel" unique_id=480680156]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 20
 text = "Начало через 3..."
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Panels/Lobby/VBoxContainer/Countdown" unique_id=767481609]
+[node name="EventConfiguration" type="Button" parent="Main/Panels/Lobby/VBoxContainer/CountdownPanel" unique_id=1234854549]
+layout_mode = 2
+icon = ExtResource("6_yfygw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Panels/Lobby/VBoxContainer/CountdownPanel" unique_id=767481609]
 libraries/ = SubResource("AnimationLibrary_8ughs")
 
 [node name="ControlButtons" type="HBoxContainer" parent="Main/Panels/Lobby/VBoxContainer" unique_id=1705654793]
@@ -478,6 +488,7 @@ resources = [PackedStringArray("modifier", "parameter_check_button", "parameter_
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/ChangeEvent" to="." method="_on_change_event_pressed"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/AdminPanel/ConfigureEvent" to="EventConfiguration" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ClientPanel/EventConfiguration" to="EventConfiguration" method="popup_centered"]
+[connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/CountdownPanel/EventConfiguration" to="EventConfiguration" method="popup_centered"]
 [connection signal="toggled" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Chat" to="Main/Panels/Chat" method="_on_chat_toggled"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Presets" to="PresetManager" method="popup_centered"]
 [connection signal="pressed" from="Main/Panels/Lobby/VBoxContainer/ControlButtons/Settings" to="QuickSettings" method="popup_centered"]

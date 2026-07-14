@@ -447,6 +447,7 @@ func _set_admin(admin: int) -> void:
 	admin_id = admin
 	(%AdminPanel as CanvasItem).visible = is_admin()
 	(%ClientPanel as CanvasItem).visible = not is_admin()
+	(%CountdownPanel/EventConfiguration as BaseButton).disabled = is_admin()
 	(%WaitingForServer as CanvasItem).hide()
 	for entry: Node in _players_container.get_children():
 		(entry.get_node(^"AdminActions") as CanvasItem).visible = is_admin()
@@ -529,8 +530,8 @@ func _show_countdown() -> void:
 		(%AdminPanel as CanvasItem).hide()
 	else:
 		(%ClientPanel as CanvasItem).hide()
-	(%Countdown as CanvasItem).show()
-	(%Countdown/AnimationPlayer as AnimationPlayer).play(&"countdown")
+	(%CountdownPanel as CanvasItem).show()
+	(%CountdownPanel/AnimationPlayer as AnimationPlayer).play(&"countdown")
 
 
 @rpc("call_local", "reliable", "authority", 1)
@@ -539,8 +540,8 @@ func _hide_countdown() -> void:
 		(%AdminPanel as CanvasItem).show()
 	if _game.state == Game.State.CLOSED or not is_admin():
 		(%ClientPanel as CanvasItem).show()
-	(%Countdown as CanvasItem).hide()
-	(%Countdown/AnimationPlayer as AnimationPlayer).stop()
+	(%CountdownPanel as CanvasItem).hide()
+	(%CountdownPanel/AnimationPlayer as AnimationPlayer).stop()
 
 
 @rpc("reliable", "call_local", "authority", 1)
