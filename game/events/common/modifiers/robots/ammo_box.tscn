@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bbwlrdognenhp"]
+
+[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="1_a3qqh"]
+
+[node name="AmmoBox" unique_id=69830346 instance=ExtResource("1_a3qqh")]
+ammo_restore_ratio = 0.35
+
+[editable path="MinimapMarker"]

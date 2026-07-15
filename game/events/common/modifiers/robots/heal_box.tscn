@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://detk24asav0dd"]
+
+[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="1_wwiwm"]
+
+[node name="HealBox" unique_id=1871512140 instance=ExtResource("1_wwiwm")]
+heal_amount = 30
+
+[editable path="MinimapMarker"]

@@ -300,11 +300,11 @@ libraries/ = SubResource("AnimationLibrary_n8n4b")
 text = "ДУЭЛЬ"
 
 [node name="Description" parent="UI/Intro/Title" index="0" unique_id=1561217676]
-text = "Победи противника 2 раза!"
+text = "Сразись с противником 1 на 1!"
 
 [node name="Text" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="2" unique_id=1913610560]
 text = "Каждый раунд
-новое оружие!"
+разные оружия!"
 
 [node name="ResourcePreloaderDuel" type="ResourcePreloader" parent="." index="16" unique_id=390578054]
 resources = [PackedStringArray("poison_smokes"), [ExtResource("4_8qyco")]]

@@ -334,8 +334,8 @@ text = "КОРОЛЕВСКАЯ БИТВА"
 text = "Побеждает последний выживший!"
 
 [node name="Text" parent="UI/Intro" parent_id_path=PackedInt32Array(2077175778) index="2" unique_id=1913610560]
-text = "Каждый сам
-за себя!"
+text = "Протяни как
+можно дольше!"
 
 [node name="ResourcePreloaderRoyale" type="ResourcePreloader" parent="." index="16" unique_id=855872788]
 resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes", "weapon_box_royale"), [ExtResource("7_v5hkh"), ExtResource("3_vu7pc"), ExtResource("9_b3a1j"), ExtResource("10_583pe"), ExtResource("10_scmca")]]

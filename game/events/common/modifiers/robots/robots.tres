@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://3nbtfnvshcvd"]
 
-[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_mkq2a"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/modifiers/common/event_modifier_data.gd" id="1_mkq2a"]
 
 [resource]
 script = ExtResource("1_mkq2a")
 name = "Роботы"
 brief_description = "На карте появляются роботы. За их убийство можно получить лечение или боеприпасы."
 spawnable_entities_paths = Array[String](["uid://cqe0emaplyqga", "uid://bh0prkw28cqui", "uid://dqjwncwbvp6gt"])
-spawnable_other_paths = Array[String](["uid://bysyaaj2r7stt", "uid://bdtqr6mv231py"])
+spawnable_other_paths = Array[String](["uid://bbwlrdognenhp", "uid://detk24asav0dd"])
 scene_path = "uid://t3uqn5m7cwg8"
 icon_path = "uid://b0m8uol1stusp"
 metadata/_custom_type_script = "uid://b53ce1u8ebdvm"

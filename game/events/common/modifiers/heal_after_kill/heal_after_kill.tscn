@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgk4pfv582u05"]
 
 [ext_resource type="Script" uid="uid://ciulxajrdlilx" path="res://game/events/common/modifiers/heal_after_kill/heal_after_kill.gd" id="1_ay6t3"]
-[ext_resource type="PackedScene" uid="uid://cjqe5n7lmp55s" path="res://game/events/common/modifiers/heal_after_kill/kill_heal_box.tscn" id="2_wuqx1"]
+[ext_resource type="PackedScene" uid="uid://cjqe5n7lmp55s" path="res://game/events/common/modifiers/heal_after_kill/heal_box.tscn" id="2_wuqx1"]
 
 [node name="HealAfterKill" type="Node" unique_id=879304116]
 script = ExtResource("1_ay6t3")

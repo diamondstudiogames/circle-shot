@@ -7,6 +7,7 @@ var _parameter_check_button_scene: PackedScene = load("uid://bj8ovestjfmnq")
 var _parameter_slider_scene: PackedScene = load("uid://bdp88ihuwkaci")
 var _parameter_spin_box_scene: PackedScene = load("uid://dv76erm78qdtx")
 var _modifier_scene: PackedScene = load("uid://ccs5qwjfxl3ks")
+var _modifier_icon_scene: PackedScene = load("uid://ch2p0gsk8jdv0")
 
 @onready var _lobby: Lobby = get_parent()
 
@@ -22,19 +23,15 @@ func _list_parameters() -> void:
 		match parameter.type:
 			EventParameter.Type.CHECK_BUTTON:
 				parameter_node = _parameter_check_button_scene.instantiate()
-				var check_button: CheckButton = parameter_node.get_node(^"Value/CheckButton")
-				check_button.disabled = not _lobby.is_admin()
-				check_button.button_pressed = _lobby.selected_event_parameters[parameter_id] == 1
-				check_button.toggled.connect(_on_param_check_button_toggled.bind(parameter_id))
+				(parameter_node.get_node(^"Value/CheckButton") as BaseButton).toggled.connect(
+						_on_param_check_button_toggled.bind(parameter_id))
 			EventParameter.Type.SLIDER:
 				parameter_node = _parameter_slider_scene.instantiate()
 				var slider: HSlider = parameter_node.get_node(^"Value/Slider")
 				var value_label: Label = parameter_node.get_node(^"Value/Value")
-				slider.editable = _lobby.is_admin()
 				slider.min_value = parameter.range_min
 				slider.max_value = parameter.range_max
 				slider.step = parameter.range_step
-				slider.value = _lobby.selected_event_parameters[parameter_id]
 				value_label.text = parameter.get_parameter_as_string(
 						_lobby.selected_event_parameters[parameter_id])
 				slider.value_changed.connect(
@@ -42,18 +39,19 @@ func _list_parameters() -> void:
 			EventParameter.Type.SPIN_BOX:
 				parameter_node = _parameter_spin_box_scene.instantiate()
 				var spin_box: SpinBox = parameter_node.get_node(^"Value/SpinBox")
-				spin_box.editable = _lobby.is_admin()
 				spin_box.min_value = parameter.range_min
 				spin_box.max_value = parameter.range_max
 				spin_box.step = parameter.range_step
 				spin_box.prefix = parameter.prefix
 				spin_box.suffix = parameter.suffix
-				spin_box.value = _lobby.selected_event_parameters[parameter_id]
 				spin_box.value_changed.connect(_on_param_spin_box_value_changed.bind(parameter_id))
 		parameter_node.name = StringName(parameter_id.to_pascal_case())
 		(parameter_node.get_node(^"Info/Name") as Label).text = parameter.name
 		(parameter_node.get_node(^"Info/Icon") as TextureRect).texture = load(parameter.icon_path)
 		%ParametersContainer.add_child(parameter_node)
+	
+	_update_parameters()
+	_update_parameters_read_only_state()
 
 
 func _update_parameters() -> void:
@@ -100,20 +98,34 @@ func _list_modifiers() -> void:
 				modifier.brief_description
 		(modifier_node.get_node(^"Container/Icon") as TextureRect).texture = \
 				load(modifier.icon_path)
-		var check_button: CheckButton = modifier_node.get_node(^"Container/CheckButton")
-		check_button.disabled = not _lobby.is_admin()
-		check_button.button_pressed = modifier.idx_in_db in _lobby.selected_event_modifiers
-		check_button.toggled.connect(_on_modifier_check_button_toggled.bind(modifier.idx_in_db))
+		(modifier_node.get_node(^"Container/CheckButton") as BaseButton).toggled.connect(
+				_on_modifier_check_button_toggled.bind(modifier.idx_in_db))
 		%ModifiersContainer.add_child(modifier_node)
+	
+	_update_modifiers()
+	_update_modifiers_read_only_state()
 
 
 func _update_modifiers() -> void:
+	var has_enabled := false
 	for modifier: EventModifierData in \
 			Globals.items_db.events[_lobby.selected_event].get_modifiers():
-		var modifier_node: PanelContainer = \
-				%ModifiersContainer.get_node("Modifier%d" % modifier.idx_in_db)
-		(modifier_node.get_node(^"Container/CheckButton") as BaseButton).button_pressed = \
-				modifier.idx_in_db in _lobby.selected_event_modifiers
+		var modifier_path := NodePath("Modifier%d" % modifier.idx_in_db)
+		var modifier_node: PanelContainer = %ModifiersContainer.get_node(modifier_path)
+		var enabled: bool = modifier.idx_in_db in _lobby.selected_event_modifiers
+		(modifier_node.get_node(^"Container/CheckButton") as BaseButton).button_pressed = enabled
+		has_enabled = enabled or has_enabled
+		if enabled:
+			if not %ActiveModifiers/Container.has_node(modifier_path):
+				var modifier_icon: PanelContainer = _modifier_icon_scene.instantiate()
+				modifier_icon.name = StringName(modifier_path)
+				(modifier_icon.get_node(^"Icon") as TextureRect).texture = load(modifier.icon_path)
+				%ActiveModifiers/Container.add_child(modifier_icon)
+			else:
+				(%ActiveModifiers/Container.get_node(modifier_path) as CanvasItem).move_to_front()
+		elif %ActiveModifiers/Container.has_node(modifier_path):
+			%ActiveModifiers/Container.get_node(modifier_path).queue_free()
+	(%ActiveModifiers as CanvasItem).visible = has_enabled and not _lobby.is_admin()
 
 
 func _update_modifiers_read_only_state() -> void:

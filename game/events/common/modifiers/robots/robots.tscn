@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cqe0emaplyqga" path="res://game/events/common/modifiers/robots/robot_ak_74.tscn" id="2_j3fdw"]
 [ext_resource type="PackedScene" uid="uid://bh0prkw28cqui" path="res://game/events/common/modifiers/robots/robot_p_350.tscn" id="3_2vr7l"]
 [ext_resource type="PackedScene" uid="uid://dqjwncwbvp6gt" path="res://game/events/common/modifiers/robots/robot_sword.tscn" id="4_jal7m"]
-[ext_resource type="PackedScene" uid="uid://bysyaaj2r7stt" path="res://game/shared/interactible/boxes/heal_box.tscn" id="5_jal7m"]
-[ext_resource type="PackedScene" uid="uid://bdtqr6mv231py" path="res://game/shared/interactible/boxes/ammo_box.tscn" id="6_v32qn"]
+[ext_resource type="PackedScene" uid="uid://detk24asav0dd" path="res://game/events/common/modifiers/robots/heal_box.tscn" id="5_jal7m"]
+[ext_resource type="PackedScene" uid="uid://bbwlrdognenhp" path="res://game/events/common/modifiers/robots/ammo_box.tscn" id="6_v32qn"]
 
 [node name="Robots" type="Node" unique_id=644620224]
 script = ExtResource("1_nxsfa")
 robots_scenes = Array[PackedScene]([ExtResource("2_j3fdw"), ExtResource("3_2vr7l"), ExtResource("4_jal7m")])
-boxes_scenes = Array[PackedScene]([ExtResource("5_jal7m"), ExtResource("6_v32qn")])
+boxes_scenes = Array[PackedScene]([ExtResource("5_jal7m"), ExtResource("6_v32qn"), ExtResource("5_jal7m")])
 metadata/_custom_type_script = "uid://cvryr82g72v34"
 
 [node name="Timer" type="Timer" parent="." unique_id=1778654599]

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cnpnlnxo5nbl7" path="res://game/maps/flag_capture/forest/forest.tres" id="2_xa7ng"]
 [ext_resource type="Resource" uid="uid://dcn34giesfxix" path="res://game/maps/flag_capture/space_arena/space_arena.tres" id="3_xa7ng"]
 [ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="4_0sk4j"]
-[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="4_qbmqf"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/modifiers/common/event_modifier_data.gd" id="4_qbmqf"]
 [ext_resource type="Resource" uid="uid://bvd4fr6rsh7s1" path="res://game/events/flag_capture/modifiers/thorn_flag/thorn_flag.tres" id="5_bnphn"]
 [ext_resource type="Resource" uid="uid://cccraniq5167w" path="res://game/events/flag_capture/modifiers/weapon_flag/weapon_flag.tres" id="6_4qm6d"]
 
@@ -34,9 +34,9 @@ script = ExtResource("2_070ub")
 name = "Захват флага"
 brief_description = "Принеси флаг противника на свою базу!"
 description = "У каждой команды есть база с флагом. Цель события - приносить вражеские флаги на свою базу.
-Если флаг окажется брошенным на земле, он вернётся на базу через некоторое время.
+Если флаг окажется брошенным на земле, то он вернётся на базу через некоторое время.
 Побеждает та команда, которая захватит больше флагов."
-default_player_health = 75
+default_player_health = 90
 min_players = 4
 team_event = true
 parameters = Dictionary[String, ExtResource("4_0sk4j")]({
