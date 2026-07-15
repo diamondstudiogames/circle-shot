@@ -319,7 +319,7 @@ theme_type_variation = &"LightFlatButton"
 [node name="ItemSelector" type="Window" parent="." unique_id=879479038]
 auto_translate_mode = 1
 oversampling_override = 1.0
-size = Vector2i(408, 440)
+size = Vector2i(408, 448)
 visible = false
 transient = true
 exclusive = true

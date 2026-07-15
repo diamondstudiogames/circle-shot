@@ -3,7 +3,7 @@ extends Map
 @export var lightning_bolt_scene: PackedScene
 
 func _initialize() -> void:
-	if multiplayer.is_server():
+	if world and multiplayer.is_server():
 		($LightningBoltTimer as Timer).start()
 
 

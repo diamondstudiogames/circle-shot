@@ -2,7 +2,6 @@ extends Map
 
 @export var background_color: Color
 var _previous_color: Color
-
 @onready var _anim: AnimationPlayer = $TileMapLayers/WallsColored/AnimationPlayer
 
 func _initialize() -> void:

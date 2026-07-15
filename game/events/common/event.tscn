@@ -272,6 +272,7 @@ mouse_filter = 2
 
 [node name="EmotionsContainer" type="VFlowContainer" parent="UI/Main/ChatPanel/Emotions" index="0" unique_id=2016139220]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -504,6 +505,7 @@ one_shot = true
 [node name="EventTimer" type="Timer" parent="." index="16" unique_id=734008063]
 one_shot = true
 
+[connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="pressed" from="UI/Main/Leave" to="UI/PauseDialog/QuitDialog" method="popup_centered"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI" method="_on_chat_toggled"]
 [connection signal="toggled" from="UI/Main/Chat" to="UI/Main/ChatPanel" method="_on_chat_toggled"]

@@ -99,4 +99,5 @@ func _set_player_to_spectate(idx: int) -> void:
 
 
 func _on_local_player_created(player: Player) -> void:
+	super(player)
 	_spectating_player = player

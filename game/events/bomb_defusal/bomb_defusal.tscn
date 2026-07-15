@@ -508,7 +508,6 @@ resources = [PackedStringArray("bomb", "bomb_placed", "pickable_equip_item_bomb"
 
 [node name="RoundTimer" type="Timer" parent="." index="18" unique_id=73217076]
 
-[connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="pressed" from="UI/Main/SpectatorMenu/Previous" to="UI" method="previous_player"]
 [connection signal="pressed" from="UI/Main/SpectatorMenu/Next" to="UI" method="next_player"]
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

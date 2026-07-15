@@ -156,3 +156,8 @@ func _on_quit_pressed() -> void:
 
 func _on_quit_dialog_confirmed() -> void:
 	Globals.main.game.close()
+
+
+func _on_local_player_created(player: Player) -> void:
+	(%EmotionsContainer as CanvasItem).show()
+	player.tree_exiting.connect((%EmotionsContainer as CanvasItem).hide)

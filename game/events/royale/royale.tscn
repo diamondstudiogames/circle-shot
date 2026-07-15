@@ -340,7 +340,6 @@ text = "Протяни как
 [node name="ResourcePreloaderRoyale" type="ResourcePreloader" parent="." index="16" unique_id=855872788]
 resources = [PackedStringArray("ammo_box", "bazooka", "heal_box", "poison_smokes", "weapon_box_royale"), [ExtResource("7_v5hkh"), ExtResource("3_vu7pc"), ExtResource("9_b3a1j"), ExtResource("10_583pe"), ExtResource("10_scmca")]]
 
-[connection signal="local_player_created" from="." to="UI" method="_on_local_player_created"]
 [connection signal="timeout" from="HealBoxSpawnTimer" to="." method="_on_heal_box_spawn_timer_timeout"]
 [connection signal="timeout" from="AmmoBoxSpawnTimer" to="." method="_on_ammo_box_spawn_timer_timeout"]
 [connection signal="timeout" from="WeaponBoxSpawnTimer" to="." method="_on_weapon_box_spawn_timer_timeout"]
