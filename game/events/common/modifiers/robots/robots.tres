@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EventModifierData" format=3 uid="uid://3nbtfnvshcvd"]
 
-[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/modifiers/common/event_modifier_data.gd" id="1_mkq2a"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="1_mkq2a"]
 
 [resource]
 script = ExtResource("1_mkq2a")
