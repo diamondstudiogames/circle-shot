@@ -4,7 +4,8 @@
 [ext_resource type="Resource" uid="uid://dcs7gnmh5psjs" path="res://game/maps/bomb_defusal/desert_debris/desert_debris.tres" id="2_0ehtw"]
 [ext_resource type="Script" uid="uid://df3h1g4gqr0xh" path="res://game/events/common/event_data.gd" id="2_1hwfc"]
 [ext_resource type="Script" uid="uid://m1gdlpfa2iho" path="res://game/events/common/event_parameter.gd" id="3_0ehtw"]
-[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/event_modifier_data.gd" id="3_ugqa5"]
+[ext_resource type="Resource" uid="uid://duumnh6wvqm2j" path="res://game/maps/bomb_defusal/abandoned_town/abandoned_town.tres" id="3_rsvdl"]
+[ext_resource type="Script" uid="uid://b53ce1u8ebdvm" path="res://game/events/common/modifiers/common/event_modifier_data.gd" id="3_ugqa5"]
 
 [sub_resource type="Resource" id="Resource_ugqa5"]
 script = ExtResource("3_0ehtw")
@@ -44,5 +45,5 @@ parameters = Dictionary[String, ExtResource("3_0ehtw")]({
 })
 scene_path = "uid://bi0w23hbv2mue"
 image_path = "uid://dajxd38rxv22x"
-maps = Array[ExtResource("1_xhwgd")]([ExtResource("2_0ehtw")])
+maps = Array[ExtResource("1_xhwgd")]([ExtResource("2_0ehtw"), ExtResource("3_rsvdl")])
 metadata/_custom_type_script = "uid://df3h1g4gqr0xh"
