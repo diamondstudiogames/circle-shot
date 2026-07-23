@@ -370,8 +370,9 @@ file, otherwise it will NOT function.")
 	_update_window_stretch_aspect()
 	get_window().size_changed.connect(_on_window_size_changed)
 	if not "--reset-window" in OS.get_cmdline_user_args():
-		get_window().position = Globals.get_variant("window_position", get_window().position)
-		get_window().size = Globals.get_variant("window_size", get_window().size)
+		get_window().position = \
+				Globals.get_setting_variant("window_position", get_window().position)
+		get_window().size = Globals.get_setting_variant("window_size", get_window().size)
 	
 	multiplayer.multiplayer_peer = null # Чтобы убрать OfflineMultiplayerPeer
 	get_viewport().set_canvas_cull_mask_bit(1, false)
@@ -431,7 +432,7 @@ func _loading_check_patches() -> void:
 	await get_tree().process_frame
 	
 	var patches: Dictionary[String, int] = \
-			Globals.get_variant("patches", {} as Dictionary[String, int])
+			Globals.get_setting_variant("patches", {} as Dictionary[String, int])
 	var remote_patch_code: int = Globals.remote_data_file.get_value("patches", Globals.version, 0)
 	var local_patch_code: int = patches.get(Globals.version, 0)
 	print_verbose("Local patch version: %d, remote: %d." % [local_patch_code, remote_patch_code])
@@ -471,7 +472,7 @@ func _loading_apply_patch() -> void:
 	await get_tree().process_frame
 	
 	var patches: Dictionary[String, int] = \
-			Globals.get_variant("patches", {} as Dictionary[String, int])
+			Globals.get_setting_variant("patches", {} as Dictionary[String, int])
 	if Globals.version in patches:
 		var patch_path := Globals.PATCHES_PATH.path_join("%s.pck" % Globals.version)
 		if FileAccess.file_exists(patch_path):
@@ -484,7 +485,7 @@ func _loading_apply_patch() -> void:
 		else:
 			push_warning("Patch entry exists, but file not found.")
 			patches.erase(Globals.version)
-			Globals.set_variant("patches", patches)
+			Globals.set_setting_variant("patches", patches)
 	else:
 		print_verbose("No patch to apply.")
 	loading_stage_finished.emit(true)
@@ -720,8 +721,9 @@ func _loading_open_menu() -> void:
 
 func _on_window_size_changed() -> void:
 	if get_window().mode == Window.MODE_WINDOWED:
-		Globals.set_variant("window_size", get_window().size)
-		Globals.set_variant("window_position", get_window().position)
+		# сохраняем и здесь для случая, когда окно развёрнуто или на полный экран
+		Globals.set_setting_variant("window_size", get_window().size)
+		Globals.set_setting_variant("window_position", get_window().position)
 	_update_window_stretch_aspect()
 
 
@@ -800,7 +802,7 @@ func _on_patch_http_request_completed(result: HTTPRequest.Result,
 	file.store_buffer(body)
 	file.close()
 	var patches: Dictionary[String, int] = \
-			Globals.get_variant("patches", {} as Dictionary[String, int])
+			Globals.get_setting_variant("patches", {} as Dictionary[String, int])
 	patches[Globals.version] = new_patch_code
-	Globals.set_variant("patches", patches)
+	Globals.set_setting_variant("patches", patches)
 	loading_stage_finished.emit(true)

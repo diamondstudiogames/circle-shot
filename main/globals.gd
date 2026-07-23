@@ -100,9 +100,6 @@ func initialize() -> void:
 	if not save_file.has_section_key(DEFAULT_SAVE_FILE_SECTION, "save_id"):
 		set_string("save_id", _generate_save_id())
 	
-	if OS.is_debug_build():
-		version += "-debug"
-	
 	var set_setting_next := false
 	for arg: String in OS.get_cmdline_user_args():
 		if set_setting_next:
@@ -123,7 +120,7 @@ func initialize() -> void:
 	setup_settings()
 	apply_settings()
 	setup_controls_settings()
-	update_current_input_method(false)
+	update_current_input_method(false) # если метод ввода автоматический, то сначала его определяем
 	apply_controls_settings()
 
 
@@ -165,18 +162,20 @@ func initialize_systems() -> void:
 					update_input_method_timer.stop()
 	)
 	
-	if OS.is_debug_build() and "--debug-menu" in OS.get_cmdline_user_args():
-		var debug_menu: Window = (load("uid://c52l5dk238iag") as PackedScene).instantiate()
-		debug_menu.hide()
-		add_child(debug_menu)
+	if OS.is_debug_build():
+		version += "-debug" # задаём здесь чтобы патчи работали корректно
+		if "--debug-menu" in OS.get_cmdline_user_args():
+			var debug_menu: Window = (load("uid://c52l5dk238iag") as PackedScene).instantiate()
+			debug_menu.hide()
+			add_child(debug_menu)
 
 
 ## Выходит из игры. Если [param restart] равен [code]true[/code], перезапускает игру с аргументами,
 ## указанными в [param args].
 func quit(restart := false, args := PackedStringArray()) -> void:
 	if save_file and get_window().mode == Window.MODE_WINDOWED:
-		set_variant("window_size", get_window().size)
-		set_variant("window_position", get_window().position)
+		set_setting_variant("window_size", get_window().size)
+		set_setting_variant("window_position", get_window().position)
 	save_to_file()
 	if upnp:
 		upnp.finalize()
@@ -239,7 +238,8 @@ func save_to_file() -> void:
 		print_verbose("File saved successfully.")
 
 
-## Экспортирует сохранение в файл [param path].
+## Экспортирует сохранение в файл [param path]. Настройки (в том числе управление)
+## не будут сохранены.
 func export_save(path: String) -> Error:
 	var fa := FileAccess.open_compressed(path, FileAccess.WRITE, FileAccess.COMPRESSION_GZIP)
 	if not fa:
@@ -294,7 +294,6 @@ func import_save(path: String) -> Error:
 				new_save_file.get_value(DEFAULT_SAVE_FILE_SECTION, key))
 	
 	set_string("save_id", _generate_save_id())
-	set_variant("patches", {} as Dictionary[String, int])
 	print_verbose("Save imported from file %s. Restarting...")
 	quit(true)
 	return OK

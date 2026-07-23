@@ -286,7 +286,7 @@ func _on_patches_check_toggled(toggled_on: bool) -> void:
 
 func _on_clear_patches_pressed() -> void:
 	remove_recursive(Globals.PATCHES_PATH)
-	Globals.set_variant("patches", {} as Dictionary[String, int])
+	Globals.set_setting_variant("patches", {} as Dictionary[String, int])
 	Globals.quit(true)
 
 
