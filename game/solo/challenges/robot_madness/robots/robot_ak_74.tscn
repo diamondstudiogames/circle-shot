@@ -5,3 +5,4 @@
 [node name="RobotAK74" unique_id=252354981 instance=ExtResource("1_ks30b")]
 shoot_interval = 0.9000000000087311
 vision_distance = 9000.0
+max_health = 120

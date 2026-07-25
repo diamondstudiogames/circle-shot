@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://by4n81q3s4tbk"]
+
+[ext_resource type="PackedScene" uid="uid://3l0k1cn63ahd" path="res://game/player/player.tscn" id="1_e5wk7"]
+[ext_resource type="PackedScene" uid="uid://c6p8bweayouoj" path="res://game/player/modifiers/defense.tscn" id="2_2vhmd"]
+
+[node name="Player" unique_id=1612712619 instance=ExtResource("1_e5wk7")]
+max_health = 150
+
+[node name="Defense" parent="." index="10" unique_id=812436656 instance=ExtResource("2_2vhmd")]
