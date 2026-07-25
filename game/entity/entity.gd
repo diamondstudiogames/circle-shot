@@ -23,20 +23,35 @@ signal disarmed
 ## Издаётся, когда сущность вновь может пользоваться оружием.
 signal armed
 
+enum Team {
+	ENVIRONMENT = -1,
+	RED = 0,
+	BLUE = 1,
+	GREEN = 2,
+	YELLOW = 3,
+	ORANGE = 4,
+	CYAN = 5,
+	VIOLET = 6,
+	GRAY = 7,
+	BROWN = 8,
+	PINK = 9,
+	SALAD = 10,
+}
+
 ## Цвета команд.
-const TEAM_COLORS: Array[Color] = [
-	Color(0.953, 0.067, 0.0), # Красный
-	Color(0.113, 0.231, 1.0), # Синий
-	Color(0.0, 0.871, 0.0), # Зелёный
-	Color(0.973, 0.866, 0.0), # Жёлтый
-	Color(1.0, 0.592, 0.0), # Оранжевый
-	Color(0.0, 0.789, 1.0), # Голубой
-	Color(0.57, 0.0, 1.0), # Фиолетовый
-	Color(0.598, 0.598, 0.598), # Серый
-	Color(0.477, 0.292, 0.03), # Коричневый
-	Color(0.965, 0.426, 0.805), # Розовый
-	Color(0.659, 0.799, 0.391, 1.0), # Салатовый
-]
+const TEAM_COLORS: Dictionary[Entity.Team, Color] = {
+	Entity.Team.RED: Color(0.953, 0.067, 0.0), # Красный
+	Entity.Team.BLUE: Color(0.113, 0.231, 1.0), # Синий
+	Entity.Team.GREEN: Color(0.0, 0.871, 0.0), # Зелёный
+	Entity.Team.YELLOW: Color(0.973, 0.866, 0.0), # Жёлтый
+	Entity.Team.ORANGE: Color(1.0, 0.592, 0.0), # Оранжевый
+	Entity.Team.CYAN: Color(0.0, 0.789, 1.0), # Голубой
+	Entity.Team.VIOLET: Color(0.57, 0.0, 1.0), # Фиолетовый
+	Entity.Team.GRAY: Color(0.598, 0.598, 0.598), # Серый
+	Entity.Team.BROWN: Color(0.477, 0.292, 0.03), # Коричневый
+	Entity.Team.PINK: Color(0.965, 0.426, 0.805), # Розовый
+	Entity.Team.SALAD: Color(0.659, 0.799, 0.391, 1.0), # Салатовый
+}
 
 ## Множитель локальной скорости сущности при переводе в безопасную дистанцию.
 ## Используется при корректировке движения сущности на клиентах.
@@ -80,7 +95,7 @@ var id: int = -1:
 		id = value
 		$Input.set_multiplayer_authority(value if id > 0 else MultiplayerPeer.TARGET_PEER_SERVER)
 ## Команда сущности. Сущности из одной команды не могут наносить урон друг другу.
-var team: int = 0
+var team: Entity.Team
 ## Текущее здоровье сущности.
 var current_health: int
 ## Позиция сущности на сервере. Используется при корректировке движения сущности на клиентах.
@@ -99,9 +114,9 @@ var defense_multiplier := 1.0
 ## Вектор отбрасывания. Всегда добавляется к результируещему движению сущности.
 var knockback := Vector2.ZERO
 ## Массив из функций-модификаторов, вызываемых при получении урона/лечении. Должны принимать
-## один параметр типа [int], обозначающий изменение здоровья (отрицательный, если получил урон,
-## иначе положительный). Возвращаемое значение типа [int] должно содержать итоговое изменение
-## здоровья.[br]
+## два параметра: первый - ссылка на эту [Entity], второй - [int], обозначающий изменение здоровья
+## (отрицательный, если получил урон, иначе положительный). Возвращаемое значение типа [int]
+## должно содержать итоговое изменение здоровья.[br]
 ## [b]Примечание[/b]: эти функции вызываются только на сервере.
 var change_health_modifiers: Array[Callable]
 
@@ -354,7 +369,7 @@ func damage(amount: int, by: int = 0) -> void:
 		return
 	
 	for modifier: Callable in change_health_modifiers:
-		amount = -modifier.call(-amount)
+		amount = -modifier.call(self, -amount)
 		if amount <= 0:
 			return
 	
@@ -377,7 +392,7 @@ func heal(amount: int) -> void:
 		return
 	
 	for modifier: Callable in change_health_modifiers:
-		amount = modifier.call(amount)
+		amount = modifier.call(self, amount)
 		if amount <= 0:
 			return
 	
@@ -394,7 +409,7 @@ func make_immune() -> void:
 
 ## Убирает невосприимчивость сущности к урону.
 func unmake_immune() -> void:
-	_immune_counter -= 1
+	_immune_counter = maxi(_immune_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если сущность в данный момент имеет иммунитет к урону.
@@ -409,7 +424,7 @@ func make_immobile() -> void:
 
 ## Возвращает сущности возможность контролировать своё движение.
 func unmake_immobile() -> void:
-	_immobile_counter -= 1
+	_immobile_counter = maxi(_immobile_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если сущность в данный момент
@@ -432,6 +447,7 @@ func unmake_disarmed() -> void:
 	if _disarmed_counter == 0:
 		armed.emit()
 		_armed()
+	_disarmed_counter = maxi(_disarmed_counter, 0)
 
 
 ## Возвращает [code]true[/code], если сущность в данный момент обезоружена.
@@ -446,7 +462,7 @@ func block_turning() -> void:
 
 ## Возвращает сущности возможность поворачиваться.
 func unblock_turning() -> void:
-	_blocked_turning_counter -= 1
+	_blocked_turning_counter = maxi(_blocked_turning_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если сущность в данный момент не может поворачиваться.

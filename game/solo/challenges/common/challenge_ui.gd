@@ -3,8 +3,6 @@ extends CanvasLayer
 ## Интерфейс испытания.
 
 var _reward_scene: PackedScene = load("uid://cghfpr0gbxb2e")
-## Ссылка на [Challenge].
-@onready var challenge: Challenge = get_parent()
 @onready var _rewards_total: Label = %Rewards/Total/Count
 
 func _notification(what: int) -> void:

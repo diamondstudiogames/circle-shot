@@ -44,7 +44,7 @@ physics_interpolation_mode = 1
 
 [node name="EntitiesSpawner" type="MultiplayerSpawner" parent="." unique_id=280905422]
 spawn_path = NodePath("../Entities")
-spawn_limit = 10
+spawn_limit = 20
 
 [node name="ProjectilesSpawner" type="MultiplayerSpawner" parent="." unique_id=1842510411]
 spawn_path = NodePath("../Projectiles")

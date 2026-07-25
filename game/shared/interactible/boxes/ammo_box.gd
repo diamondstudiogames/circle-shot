@@ -19,5 +19,5 @@ func _on_interactible_interacted(who: Player) -> void:
 func _on_despawn_timer_timeout() -> void:
 	($AnimationPlayer as AnimationPlayer).play(&"despawn")
 	if multiplayer.is_server():
-		await ($AnimationPlayer as AnimationPlayer).animation_finished
+		await ($AnimationPlayer as AnimationMixer).animation_finished
 		queue_free()

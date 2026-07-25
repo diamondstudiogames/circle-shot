@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2u83h36lsfg3"
-path="res://.godot/imported/select_map.png-37762fa175bb12b3a00a0d8984567d1f.ctex"
+uid="uid://eyfsi3j0o04s"
+path="res://.godot/imported/change_map.png-7ad72d0a57d6c54ce6d667ba84848347.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/solo/training/icons/select_map.png"
-dest_files=["res://.godot/imported/select_map.png-37762fa175bb12b3a00a0d8984567d1f.ctex"]
+source_file="res://menu/theme/icons/game/change_map.png"
+dest_files=["res://.godot/imported/change_map.png-7ad72d0a57d6c54ce6d667ba84848347.ctex"]
 
 [params]
 

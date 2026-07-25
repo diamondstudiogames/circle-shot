@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccyn16fdlha6p"
-path="res://.godot/imported/change_game_mode.png-e88da567b0ddcfc888d75c26fe48a1e6.ctex"
+uid="uid://bpvihk8gnpi4n"
+path="res://.godot/imported/ammo.png-be88d5b3af7592c7a03dea8f1a00ed2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/theme/icons/change_game_mode.png"
-dest_files=["res://.godot/imported/change_game_mode.png-e88da567b0ddcfc888d75c26fe48a1e6.ctex"]
+source_file="res://menu/theme/icons/game/ammo.png"
+dest_files=["res://.godot/imported/ammo.png-be88d5b3af7592c7a03dea8f1a00ed2a.ctex"]
 
 [params]
 

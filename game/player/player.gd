@@ -292,9 +292,9 @@ func block_weapon_usage() -> void:
 	_blocked_weapon_usage_counter += 1
 
 
-## Возвращает возможность использовать любую экипировки и переключаться между оружиями.
+## Возвращает возможность использовать любую экипировку и переключаться между оружиями.
 func unblock_weapon_usage() -> void:
-	_blocked_weapon_usage_counter -= 1
+	_blocked_weapon_usage_counter = maxi(_blocked_weapon_usage_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если экипировку можно использовать.

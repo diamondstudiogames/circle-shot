@@ -55,7 +55,7 @@ func _on_player_shooting_started() -> void:
 		projectile.team = player.team
 		projectile.who = player.id
 		projectile.name += str(randi())
-		_other_parent.add_child(projectile, true)
+		player.world.projectiles_parent.add_child(projectile, true)
 	
 	if player.is_local():
 		_aim.hide()

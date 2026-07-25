@@ -24,7 +24,7 @@ enum Type {
 
 ## Количество боеприпасов в одном магазине.
 @export var ammo_per_load: int = 10
-## Общее количество боеприпасов.
+## Общее количество боеприпасов. Установите в [code]0[/code], если у оружия нет боеприпасов.
 @export var ammo_total: int = 100
 ## Множитель скорости игрока, когда это оружие является текущим.
 @export_range(0.5, 2.0, 0.01) var speed_multiplier_when_current := 1.0
@@ -113,7 +113,7 @@ func block_shooting() -> void:
 
 ## Разблокирует стрельбу.
 func unblock_shooting() -> void:
-	_blocked_shooting_counter -= 1
+	_blocked_shooting_counter = maxi(_blocked_shooting_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если оружие может стрелять.

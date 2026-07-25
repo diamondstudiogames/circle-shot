@@ -56,8 +56,7 @@ func find_target() -> void:
 	
 	var entities: Array[Entity]
 	entities.assign(get_tree().get_nodes_in_group(&"entity"))
-	entities = entities.filter(func(entity: Entity) -> bool:
-		return entity.team != team and not entity.has_effect(Effect.INVISIBILITY))
+	entities = entities.filter(_filter_entities)
 	if entities.is_empty():
 		return
 	
@@ -80,7 +79,7 @@ func _calculate_aim_angle(aim_direction: Vector2 = entity_input.aim_direction) -
 
 
 func _filter_entities(entity: Entity) -> bool:
-	return entity.team == team or entity.has_effect(Effect.INVISIBILITY)
+	return entity.team != team and not entity.has_effect(Effect.INVISIBILITY)
 
 
 ## Виртуальный метод для логики данного моба. Вызывается только на сервере.

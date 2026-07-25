@@ -47,7 +47,7 @@ func get_game_zone() -> Rect2:
 func spawn_player() -> void:
 	var player: Player = entity_scenes[0].instantiate()
 	player.position = ($Map/SoloSpawnPoint as Node2D).global_position
-	player.team = 0
+	player.team = Entity.Team.RED
 	player.id = multiplayer.get_unique_id()
 	player.player_name = Globals.get_string("player_name")
 	player.equip_data = [
@@ -76,6 +76,14 @@ func freeze_entities() -> void:
 	get_tree().call_group(&"entity", &"make_immobile")
 	get_tree().call_group(&"entity", &"make_immune")
 	get_tree().call_group(&"entity", &"block_turning")
+
+
+## Отменяет действие [method freeze_entities].
+func unfreeze_entities() -> void:
+	get_tree().call_group(&"entity", &"unmake_disarmed")
+	get_tree().call_group(&"entity", &"unmake_immobile")
+	get_tree().call_group(&"entity", &"unmake_immune")
+	get_tree().call_group(&"entity", &"unblock_turning")
 
 
 ## Заканчивает событие победой или поражением.

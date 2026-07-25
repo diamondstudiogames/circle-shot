@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6p8bweayouoj"]
+
+[ext_resource type="Script" uid="uid://b4dge18oolc1c" path="res://game/player/modifiers/defense.gd" id="1_iuhgg"]
+
+[node name="Defense" type="Node" unique_id=812436656]
+script = ExtResource("1_iuhgg")
+thresholds = Array[float]([0.125, 0.25])
+reduce_per_defense = Array[int]([1, 2, 3])

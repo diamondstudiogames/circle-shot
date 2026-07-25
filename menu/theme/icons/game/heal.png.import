@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7bg8652w4cta"
-path="res://.godot/imported/restore_skill.png-de4b5bddce0432e19d5afdf47018ec79.ctex"
+uid="uid://bkrw8p2edcj1r"
+path="res://.godot/imported/heal.png-2427abeb9ccfdb150b22e7571fd13039.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/solo/training/icons/restore_skill.png"
-dest_files=["res://.godot/imported/restore_skill.png-de4b5bddce0432e19d5afdf47018ec79.ctex"]
+source_file="res://menu/theme/icons/game/heal.png"
+dest_files=["res://.godot/imported/heal.png-2427abeb9ccfdb150b22e7571fd13039.ctex"]
 
 [params]
 

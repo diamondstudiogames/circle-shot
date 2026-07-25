@@ -73,7 +73,7 @@ func block_cooldown() -> void:
 
 ## Продолжает откат навыка.
 func unblock_cooldown() -> void:
-	_blocked_cooldown_counter -= 1
+	_blocked_cooldown_counter = maxi(_blocked_cooldown_counter - 1, 0)
 
 
 ## Возвращает [code]true[/code], если навык может откатываться.

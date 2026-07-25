@@ -303,7 +303,7 @@ func _start_load() -> void:
 	($LoadingScreen/AnimationPlayer as AnimationPlayer).play(&"begin")
 	
 	_loading_init()
-	await ($LoadingScreen/AnimationPlayer as AnimationPlayer).animation_finished
+	await ($LoadingScreen/AnimationPlayer as AnimationMixer).animation_finished
 	
 	_loading_check_server()
 	if await loading_stage_finished:
@@ -713,9 +713,9 @@ func _loading_open_menu() -> void:
 	
 	open_menu()
 	# Чтобы меню было под загр. экраном
-	move_child($LoadingScreen, -1)
+	($LoadingScreen as CanvasItem).move_to_front()
 	($LoadingScreen/AnimationPlayer as AnimationPlayer).play(&"end")
-	await ($LoadingScreen/AnimationPlayer as AnimationPlayer).animation_finished
+	await ($LoadingScreen/AnimationPlayer as AnimationMixer).animation_finished
 	loading_stage_finished.emit(true)
 
 

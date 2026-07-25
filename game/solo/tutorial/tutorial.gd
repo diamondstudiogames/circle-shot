@@ -266,7 +266,7 @@ func _on_shoot_dialog_canceled() -> void:
 
 func _on_finish_interactible_interacted(_who: Player) -> void:
 	($UI/End/AnimationPlayer as AnimationPlayer).play(&"end")
-	await ($UI/End/AnimationPlayer as AnimationPlayer).animation_finished
+	await ($UI/End/AnimationPlayer as AnimationMixer).animation_finished
 	Globals.main.game.close()
 
 
