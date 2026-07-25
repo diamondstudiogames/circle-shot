@@ -80,7 +80,7 @@ func _finish_start() -> void:
 
 func _make_teams() -> void:
 	var counter: int = 0
-	var teams: Array = range(0, 10)
+	var teams: Array = range(0, 10) # от красной по розовой
 	teams.shuffle()
 	for player: int in players_names:
 		players_teams[player] = teams[counter]

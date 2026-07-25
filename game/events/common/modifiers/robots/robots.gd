@@ -16,7 +16,7 @@ func _spawn_robot() -> void:
 	
 	var robot_scene: PackedScene = robots_scenes.pick_random()
 	var robot: Mob = robot_scene.instantiate()
-	robot.team = 10
+	robot.team = Entity.Team.SALAD
 	robot.position = spawn_pos
 	robot.id = -randi()
 	robot.name += str(robot.id)

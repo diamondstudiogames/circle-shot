@@ -9,7 +9,7 @@ signal picked_up(by: int)
 signal dropped(by: int)
 
 ## Команда, которой принадлежит этот флаг.
-@export var team: int = 0
+@export var team := Entity.Team.ENVIRONMENT
 ## Время, за которое флаг возвращается на базу при нахождении на земле.
 @export_range(1.0, 20.0, 0.01) var return_time := 5.0
 

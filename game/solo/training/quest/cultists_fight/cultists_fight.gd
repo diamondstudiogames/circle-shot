@@ -59,7 +59,7 @@ func _freeze_entities() -> void:
 func _spawn_player() -> void:
 	var player: Player = entity_scenes[0].instantiate()
 	player.position = ($Map/SpawnPoint as Node2D).global_position
-	player.team = 0
+	player.team = Entity.Team.RED
 	player.id = multiplayer.get_unique_id()
 	player.player_name = Globals.get_string("player_name")
 	player.equip_data = [
@@ -78,7 +78,7 @@ func _spawn_player() -> void:
 func _spawn_cultist(idx: int) -> void:
 	var cultist: Entity = entity_scenes[1 + idx].instantiate()
 	cultist.position = _spawn_points[_spawn_points_counter].global_position
-	cultist.team = 10
+	cultist.team = Entity.Team.ORANGE
 	cultist.id = -randi()
 	cultist.name += str(cultist.id)
 	cultist.died.connect(_on_cultist_died.bind(cultist))

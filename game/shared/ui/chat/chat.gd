@@ -15,7 +15,7 @@ const MAX_MESSAGE_LENGTH: int = 80
 ## Словарь имён игроков, в формате <ID> - <имя>.
 var players_names: Dictionary[int, String]
 ## Словарь команд игроков, в формате <ID> - <команда>. Используется для раскраски ников.
-var players_teams: Dictionary[int, int]
+var players_teams: Dictionary[int, Entity.Team]
 @onready var _chat_button: Button = get_node(chat_button_path)
 @onready var _messages: RichTextLabel = $VBoxContainer/Messages
 @onready var _chat_edit: LineEdit = $VBoxContainer/HBoxContainer/LineEdit

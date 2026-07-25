@@ -383,7 +383,7 @@ func _set_current_weapon(to: Weapon.Type) -> void:
 	print_verbose("%s changed current weapon to type %d." % [name, to])
 
 
-func _update_health_bar_visibility(local_team: int) -> void:
+func _update_health_bar_visibility(local_team: Entity.Team) -> void:
 	_health_bar.visible = team == local_team and not is_local()
 	_update_name_label(current_health)
 

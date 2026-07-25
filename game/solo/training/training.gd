@@ -67,7 +67,7 @@ func _local_player_died() -> void:
 func spawn_player(teleport := true) -> void:
 	player = entity_scenes[0].instantiate()
 	player.position = _spawn_point.global_position
-	player.team = 0
+	player.team = Entity.Team.RED
 	player.id = multiplayer.get_unique_id()
 	player.player_name = Globals.get_string("player_name")
 	player.equip_data = [
@@ -95,7 +95,7 @@ func spawn_enemy(type: EnemyType, position: Vector2, health: int,
 		damage_multiplier: float, speed_multiplier: float) -> void:
 	var enemy: Entity = entity_scenes[1 + type].instantiate()
 	enemy.position = position
-	enemy.team = 1
+	enemy.team = Entity.Team.BLUE
 	enemy.id = -randi()
 	enemy.name += str(enemy.id)
 	enemy.max_health = health

@@ -16,12 +16,12 @@ func set_flags_to_win(flags_to_win: int) -> void:
 
 
 ## Показывает победившую команду. [code]-1[/code] означает ничью.
-func show_winner(team: int) -> void:
-	if team < 0:
+func show_winner(team: Entity.Team) -> void:
+	if team == Entity.Team.ENVIRONMENT:
 		($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"draw")
 		return
 	($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"victory")
-	($Main/GameEnd/Team as Label).text = "Красная" if team == 0 else "Синяя"
+	($Main/GameEnd/Team as Label).text = "Красная" if team == Entity.Team.RED else "Синяя"
 	($Main/GameEnd/Team as Control).add_theme_color_override(&"font_color",
 			Entity.TEAM_COLORS[team])
 

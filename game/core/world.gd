@@ -10,7 +10,7 @@ extends Node
 ## Издаётся, когда был установлен локальный игрок через [method set_local_player].
 signal local_player_created(player: Player)
 ## Издаётся, когда была установлена команда локального игрока через [method set_local_team].
-signal local_team_set(team: int)
+signal local_team_set(team: Entity.Team)
 ## Издаётся, когда какая-либо статистика (нанесённый урон и/или убийства) меняется.
 signal stats_changed
 
@@ -38,7 +38,7 @@ const KILL_VIBRATION_DURATION_MS: int = 300
 ## Локальный игрок. Может быть [code]null[/code].
 var local_player: Player
 ## Команда локального игрока.
-var local_team: int = -1
+var local_team := Entity.Team.ENVIRONMENT
 
 ## Сколько игрок нанёс урона за эту сессию.
 var damaged: int = 0
@@ -120,7 +120,7 @@ func set_local_player(player: Player) -> void:
 
 
 ## Задаёт команду локального игрока.
-func set_local_team(team: int) -> void:
+func set_local_team(team: Entity.Team) -> void:
 	local_team = team
 	local_team_set.emit(team)
 

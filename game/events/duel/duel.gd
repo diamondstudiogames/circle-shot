@@ -5,8 +5,8 @@ extends Event
 
 ## Издаётся когда раунд начался.
 signal round_started
-## Издаётся когда раунд закончился. [param team_won] - ID победившей команды.
-signal round_ended(team_won: int)
+## Издаётся когда раунд закончился. [param team_won] - [enum Entity.Team] победившей команды.
+signal round_ended(team_won: Entity.Team)
 
 ## Сколько монет получает игрок за убийство противника.
 @export var coins_for_kill: int = 10
@@ -39,13 +39,13 @@ func _initialize() -> void:
 
 
 func _make_teams() -> void:
-	var prev_team: int = -1
+	var prev_team := Entity.Team.ENVIRONMENT
 	for player: int in players_names:
-		if prev_team < 0:
-			players_teams[player] = randi() % 2
+		if prev_team == Entity.Team.ENVIRONMENT:
+			players_teams[player] = randi() % 2 as Entity.Team
 			prev_team = players_teams[player]
 		else:
-			players_teams[player] = 1 - prev_team
+			players_teams[player] = 1 - prev_team as Entity.Team
 
 
 func _finish_start() -> void:
@@ -56,7 +56,7 @@ func _finish_start() -> void:
 
 
 func _get_spawn_point(id: int) -> Vector2:
-	if players_teams[id] == 0:
+	if players_teams[id] == Entity.Team.RED:
 		return ($Map/SpawnPoint0 as Node2D).global_position
 	else:
 		return ($Map/SpawnPoint1 as Node2D).global_position
@@ -92,8 +92,8 @@ func _player_disconnected(_id: int) -> void:
 
 func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
-	var won_rounds: int = red_rounds_won if local_team == 0 else blue_rounds_won
-	var lost_rounds: int = blue_rounds_won if local_team == 0 else red_rounds_won
+	var won_rounds: int = red_rounds_won if local_team == Entity.Team.RED else blue_rounds_won
+	var lost_rounds: int = blue_rounds_won if local_team == Entity.Team.RED else red_rounds_won
 	
 	rewards["Результаты раундов"] = won_rounds * coins_for_won_round \
 			+ lost_rounds * coins_for_lost_round
@@ -147,7 +147,7 @@ func _start_round() -> void:
 
 
 @rpc("reliable", "call_local", "authority", 3)
-func _end_round(win_team: int, winner: int, ends := false) -> void:
+func _end_round(win_team: Entity.Team, winner: int, ends := false) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -202,8 +202,8 @@ func _finish_round(winner: int, ends := false) -> void:
 		push_error("Unexpected call on client.")
 		return
 	
-	var team_won: int = players_teams[winner]
-	if team_won == 0:
+	var team_won: Entity.Team = players_teams[winner]
+	if team_won == Entity.Team.RED:
 		red_rounds_won += 1
 	else:
 		blue_rounds_won += 1

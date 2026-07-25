@@ -67,7 +67,7 @@ var selected_events_modifiers: Array[Array]
 var players: Dictionary[int, String]
 ## Словарь с подключёнными игроками в формате <ID игрока> - <команда игрока>.
 ## Доступно только на сервере.
-var players_teams: Dictionary[int, int]
+var players_teams: Dictionary[int, Entity.Team]
 ## Идентификатор админа.
 var admin_id: int = -1
 
@@ -278,16 +278,16 @@ func request_team_action(id: int, action: TeamAction) -> void:
 	
 	match action:
 		TeamAction.RED_TEAM:
-			players_teams[id] = 0
-			_update_player_entry_team.rpc(id, 0)
+			players_teams[id] = Entity.Team.RED
+			_update_player_entry_team.rpc(id, Entity.Team.RED)
 			print_verbose("Added player %d to red team." % id)
 		TeamAction.BLUE_TEAM:
-			players_teams[id] = 1
-			_update_player_entry_team.rpc(id, 1)
+			players_teams[id] = Entity.Team.BLUE
+			_update_player_entry_team.rpc(id, Entity.Team.BLUE)
 			print_verbose("Added player %d to blue team." % id)
 		TeamAction.REMOVE_TEAM:
-			players_teams[id] = -1
-			_update_player_entry_team.rpc(id, -1)
+			players_teams[id] = Entity.Team.ENVIRONMENT
+			_update_player_entry_team.rpc(id, Entity.Team.ENVIRONMENT)
 			print_verbose("Removed player %d from team." % id)
 		_:
 			push_warning("Invalid team action requested.")
@@ -336,7 +336,8 @@ func is_admin() -> bool:
 
 
 @rpc("reliable", "call_local", "authority", 1)
-func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> void:
+func _add_player_entry(id: int, player_name: String,
+		player_team := Entity.Team.ENVIRONMENT) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -346,7 +347,7 @@ func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> v
 	
 	var name_label: Label = player_entry.get_node(^"Name")
 	name_label.text = player_name
-	if player_team >= 0:
+	if player_team != Entity.Team.ENVIRONMENT:
 		name_label.add_theme_constant_override(&"outline_size", 4)
 		name_label.add_theme_color_override(&"font_outline_color", Entity.TEAM_COLORS[player_team])
 	
@@ -373,13 +374,13 @@ func _add_player_entry(id: int, player_name: String, player_team: int = -1) -> v
 
 
 @rpc("reliable", "call_local", "authority", 1)
-func _update_player_entry_team(id: int, player_team: int = -1) -> void:
+func _update_player_entry_team(id: int, player_team := Entity.Team.ENVIRONMENT) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
 	
 	var name_label: Label = _players_container.get_node(str(id)).get_node(^"Name")
-	if player_team >= 0:
+	if player_team != Entity.Team.ENVIRONMENT:
 		name_label.add_theme_constant_override(&"outline_size", 4)
 		name_label.add_theme_color_override(&"font_outline_color", Entity.TEAM_COLORS[player_team])
 	else:
@@ -418,16 +419,16 @@ func _register_new_player(player_name: String) -> void:
 			selected_event_parameters, selected_event_modifiers)
 	player_name = Utils.validate_player_name(player_name, sender_id)
 	players[sender_id] = player_name
-	players_teams[sender_id] = -1
+	players_teams[sender_id] = Entity.Team.ENVIRONMENT
 	_add_player_entry.rpc(sender_id, player_name, -1)
 	
 	_chat.post_message.rpc(
 			"> [outline_size=4][color=green]%s[/color][/outline_size] подключается!" % player_name)
 	_chat.players_names[sender_id] = player_name
-	var new_team: int
+	var new_team: Entity.Team
 	for i: int in 10:
 		if not i in _chat.players_teams.values():
-			new_team = i
+			new_team = i as Entity.Team
 			break
 	_chat.players_teams[sender_id] = new_team
 	
@@ -653,9 +654,9 @@ func _get_start_reject_reason() -> StartRejectReason:
 		var red_team: int = 0
 		var blue_team: int = 0
 		for id: int in players_teams:
-			if players_teams[id] == 0:
+			if players_teams[id] == Entity.Team.RED:
 				red_team += 1
-			elif players_teams[id] == 1:
+			elif players_teams[id] == Entity.Team.BLUE:
 				blue_team += 1
 		if roundi(players.size() / 2.0) < maxi(red_team, blue_team):
 			start_reject_reason = StartRejectReason.BAD_TEAMS

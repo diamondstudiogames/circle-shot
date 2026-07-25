@@ -6,7 +6,9 @@ extends Event
 ## Издаётся, когда раунд начинается.
 signal round_started
 ## Издаётся, когда раунд заканчивается.
-signal round_ended
+signal round_ended()
+## Издаётся, когда показывается результат раунда.
+signal round_result_shown(team_won: Entity.Team)
 
 @export_group("Rewards")
 ## Количество монет, которое получит игрок за выигранный раунд.
@@ -84,7 +86,7 @@ func _finish_start() -> void:
 
 func _get_spawn_point(id: int) -> Vector2:
 	var pos: Vector2
-	if players_teams[id] == 0:
+	if players_teams[id] == Entity.Team.RED:
 		pos = (_spawn_points_red[_spawn_counter_red % 5] as Node2D).global_position
 		_spawn_counter_red += 1
 	else:
@@ -120,7 +122,7 @@ func _get_rewards() -> Dictionary[String, int]:
 	var rewards: Dictionary[String, int]
 	var rounds_won: int
 	var rounds_lost: int
-	if local_team == 0:
+	if local_team == Entity.Team.RED:
 		rounds_won = red_rounds_won
 		rounds_lost = blue_rounds_won
 	else:
@@ -128,7 +130,7 @@ func _get_rewards() -> Dictionary[String, int]:
 		rounds_lost = red_rounds_won
 	rewards["Результаты раундов"] = rounds_won * coins_for_won_round \
 			+ rounds_lost * coins_for_lost_round
-	if local_team == 0:
+	if local_team == Entity.Team.RED:
 		rewards["Заложенные бомбы"] = bombs_planted_defused * coins_for_bomb
 	else:
 		rewards["Обезвреженные бомбы"] = bombs_planted_defused * coins_for_bomb
@@ -213,8 +215,9 @@ func _end_round(defused_by: int = -1) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
-	_bomb_defusal_ui.set_spectate_visible(false)
+	
 	round_ended.emit()
+	_bomb_defusal_ui.set_spectate_visible(false)
 	if defused_by > 0:
 		_bomb_defusal_ui.show_bomb_state(true)
 		if defused_by == multiplayer.get_unique_id():
@@ -229,6 +232,7 @@ func _show_round_result(blue_won: bool, final: bool) -> void:
 		push_error("This method must be called only by server.")
 		return
 	
+	round_result_shown.emit(Entity.Team.BLUE if blue_won else Entity.Team.RED)
 	if blue_won:
 		print_verbose("Blue team won round.")
 		blue_rounds_won += 1
@@ -239,10 +243,11 @@ func _show_round_result(blue_won: bool, final: bool) -> void:
 	_bomb_defusal_ui.set_score(red_rounds_won, blue_rounds_won)
 	if final:
 		_bomb_defusal_ui.show_winner(blue_won)
-		end_event(blue_won and local_team == 1 or not blue_won and local_team == 0)
+		end_event(blue_won and local_team == Entity.Team.BLUE
+				or not blue_won and local_team == Entity.Team.RED)
 	else:
-		_bomb_defusal_ui.show_round_end(blue_won and local_team == 1
-				or not blue_won and local_team == 0)
+		_bomb_defusal_ui.show_round_end(blue_won and local_team == Entity.Team.BLUE
+				or not blue_won and local_team == Entity.Team.RED)
 
 
 @rpc("reliable", "authority", "call_local", 3)
@@ -265,7 +270,7 @@ func _update_time(remained: int, bomb: bool) -> void:
 @rpc("reliable", "call_local", "authority", 3)
 func _kill_player(who: int, alive_red_players: Array[int], alive_blue_players: Array[int]) -> void:
 	var alive_players: Array[int]
-	if local_team == 1 or alive_red_players.is_empty():
+	if local_team == Entity.Team.BLUE or alive_red_players.is_empty():
 		alive_players = alive_blue_players
 	else:
 		alive_players = alive_red_players
@@ -325,16 +330,16 @@ func _finalize_round(blue_won: bool, force_end := false, defused_by: int = -1) -
 
 func _pick_bomb_carrier() -> void:
 	var red_players_ids: Array = players_names.keys().filter(
-			func(id: int) -> bool: return players_teams[id] == 0)
+			func(id: int) -> bool: return players_teams[id] == Entity.Team.RED)
 	if not red_players_ids.is_empty():
 		_bomb_carrier = red_players_ids.pick_random()
 
 
 func _check_remained_players() -> bool:
-	if not players_teams.find_key(0): # Нет красных больше
+	if not players_teams.find_key(Entity.Team.RED): # Нет красных больше
 		_finalize_round(true, true)
 		return true
-	elif not players_teams.find_key(1): # Нет синих больше
+	elif not players_teams.find_key(Entity.Team.BLUE): # Нет синих больше
 		_finalize_round(false, true)
 		return true
 	return false
@@ -343,12 +348,15 @@ func _check_remained_players() -> bool:
 func _check_alive_players() -> void:
 	if _check_remained_players():
 		return
-	var alive_players_by_team: Array[int] = [0, 0]
+	var alive_players_by_team: Dictionary[Entity.Team, int] = {
+		Entity.Team.RED: 0,
+		Entity.Team.BLUE: 0,
+	}
 	for player: Player in players.values():
 		alive_players_by_team[player.team] += 1
-	if alive_players_by_team[0] == 0 and not _bomb_planted:
+	if alive_players_by_team[Entity.Team.RED] == 0 and not _bomb_planted:
 		_finalize_round(true)
-	elif alive_players_by_team[1] == 0:
+	elif alive_players_by_team[Entity.Team.BLUE] == 0:
 		_finalize_round(false)
 
 
@@ -360,7 +368,7 @@ func _remove_player(who: int) -> void:
 			continue
 		if not id in players or players[id].is_queued_for_deletion():
 			continue
-		if players_teams[id] == 0:
+		if players_teams[id] == Entity.Team.RED:
 			alive_red_players.append(id)
 		else:
 			alive_blue_players.append(id)

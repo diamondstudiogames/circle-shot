@@ -37,7 +37,7 @@ var players_equip_data: Dictionary[int, Array]
 ## Словарь формата <ID игрока> - <имя игрока>.
 var players_names: Dictionary[int, String]
 ## Словарь формата <ID игрока> - <команда игрока>. Доступно только на сервере.
-var players_teams: Dictionary[int, int]
+var players_teams: Dictionary[int, Entity.Team]
 
 var _emotion_cloud_scene: PackedScene = load("uid://bkyhxor5s6032")
 

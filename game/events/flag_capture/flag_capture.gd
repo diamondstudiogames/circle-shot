@@ -5,7 +5,7 @@ extends Event
 
 ## Издаётся, когда флаг одной из команд захвачен. [param by_team] содержит команду, которая
 ## захватила флаг.
-signal flag_captured(by_team: int)
+signal flag_captured(by_team: Entity.Team)
 
 ## Время, через которое возвращаются павшие игроки.
 @export var comeback_time: int = 3
@@ -42,7 +42,7 @@ var flags_captured: int = 0
 var _spawn_counter_red: int = 0
 var _spawn_counter_blue: int = 0
 var _time_remained: int
-var _team_won: int
+var _team_won: Entity.Team
 
 var _red_flag_scene: PackedScene = load("uid://cc2mkoa1fingr")
 var _blue_flag_scene: PackedScene = load("uid://cyudg7uces0wb")
@@ -85,15 +85,15 @@ func _finish_setup() -> void:
 
 
 func _finish_start() -> void:
-	if multiplayer.is_server():
-		if not (players_teams.find_key(0) and players_teams.find_key(1)):
-			_time_remained = 1
-		($MatchTimer as Timer).start()
+	if not multiplayer.is_server():
+		return
+	_check_remained_players()
+	($MatchTimer as Timer).start()
 
 
 func _get_spawn_point(id: int) -> Vector2:
 	var pos: Vector2
-	if players_teams[id] == 0:
+	if players_teams[id] == Entity.Team.RED:
 		pos = (_spawn_points_red[_spawn_counter_red % 5] as Node2D).global_position
 		_spawn_counter_red += 1
 	else:
@@ -113,9 +113,7 @@ func _player_killed(_by: int, player: Player) -> void:
 func _player_disconnected(_id: int) -> void:
 	if _time_remained <= 0:
 		return
-	# Недостаточно участников команд
-	if not (players_teams.find_key(0) and players_teams.find_key(1)):
-		_time_remained = 1
+	_check_remained_players()
 
 
 func _get_rewards() -> Dictionary[String, int]:
@@ -124,7 +122,7 @@ func _get_rewards() -> Dictionary[String, int]:
 	var time_to_reward: float = match_time - _time_remained / 1.5
 	if _team_won == local_team:
 		result_coins = roundi(time_to_reward / match_time_in_coins_divider_win)
-	elif _team_won < 0:
+	elif _team_won == Entity.Team.ENVIRONMENT:
 		result_coins = roundi(time_to_reward / match_time_in_coins_divider_draw)
 	else:
 		result_coins = roundi(time_to_reward / match_time_in_coins_divider_defeat)
@@ -160,7 +158,7 @@ func _update_score(red: int, blue: int, blue_captured: bool) -> void:
 
 
 @rpc("reliable", "call_local", "authority", 3)
-func _show_winner(team: int) -> void:
+func _show_winner(team: Entity.Team) -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
@@ -200,16 +198,16 @@ func _spawn_flag(blue: bool) -> void:
 
 
 func _end_event() -> void:
-	if not players_teams.find_key(0): # Нет красных больше
-		_show_winner.rpc(1)
-	elif not players_teams.find_key(1): # Нет синих больше
-		_show_winner.rpc(0)
+	if not players_teams.find_key(Entity.Team.RED): # Нет красных больше
+		_show_winner.rpc(Entity.Team.BLUE)
+	elif not players_teams.find_key(Entity.Team.BLUE): # Нет синих больше
+		_show_winner.rpc(Entity.Team.RED)
 	elif red_flags_captured > blue_flags_captured:
-		_show_winner.rpc(0)
+		_show_winner.rpc(Entity.Team.RED)
 	elif blue_flags_captured > red_flags_captured:
-		_show_winner.rpc(1)
+		_show_winner.rpc(Entity.Team.BLUE)
 	else:
-		_show_winner.rpc(-1)
+		_show_winner.rpc(Entity.Team.ENVIRONMENT)
 	freeze_entities.rpc()
 	
 	_event_timer.start(6.5)
@@ -218,6 +216,11 @@ func _end_event() -> void:
 	_event_timer.start(0.5)
 	await _event_timer.timeout
 	end.rpc()
+
+
+func _check_remained_players() -> void:
+	if not players_teams.find_key(Entity.Team.RED) or not players_teams.find_key(Entity.Team.BLUE):
+		_time_remained = 1
 
 
 func _on_match_timer_timeout() -> void:

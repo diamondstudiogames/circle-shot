@@ -23,7 +23,7 @@ func _ready() -> void:
 	_bomb_defusal.round_ended.connect(_on_round_ended)
 	_time_remained = explosion_time
 	_countdown_timer.start(max_countdown_interval)
-	if _bomb_defusal.local_team != 0:
+	if _bomb_defusal.local_team != Entity.Team.RED:
 		($ScreenMarker as CanvasItem).hide()
 		$ScreenMarker.queue_free()
 	if multiplayer.is_server():

@@ -63,7 +63,7 @@ func show_text(text: String) -> void:
 func spawn_player() -> void:
 	var player: Player = entity_scenes[0].instantiate()
 	player.position = ($Map/SpawnPoint as Node2D).global_position
-	player.team = 0
+	player.team = Entity.Team.RED
 	player.id = multiplayer.get_unique_id()
 	player.player_name = Globals.get_string("player_name")
 	player.equip_data = [
@@ -86,7 +86,7 @@ func spawn_player() -> void:
 func spawn_dummy(where: Vector2) -> void:
 	var enemy: Entity = entity_scenes[1].instantiate()
 	enemy.position = where
-	enemy.team = 1
+	enemy.team = Entity.Team.BLUE
 	enemy.id = -randi()
 	enemy.name += str(enemy.id)
 	entities_parent.add_child(enemy, true)

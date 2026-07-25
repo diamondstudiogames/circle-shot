@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var team: int = -1
+@export var team := Entity.Team.ENVIRONMENT
 
 func _ready() -> void:
 	await get_tree().process_frame # Ждём пока заработает VisibleOnScreenNotifier2D
@@ -9,7 +9,7 @@ func _ready() -> void:
 	world.local_team_set.connect(_update_minimap_marker)
 
 
-func _update_minimap_marker(local_team: int) -> void:
+func _update_minimap_marker(local_team: Entity.Team) -> void:
 	if team == local_team:
 		$VisibleOnScreenNotifier2D.set_block_signals(true)
 		($Visual as CanvasItem).show()

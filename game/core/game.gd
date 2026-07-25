@@ -79,7 +79,7 @@ var reject_players := false
 var _scene_multiplayer: SceneMultiplayer
 
 var _players_names: Dictionary[int, String]
-var _players_teams: Dictionary[int, int]
+var _players_teams: Dictionary[int, Entity.Team]
 var _players_equip_data: Dictionary[int, Array]
 
 var _preloading_equip := false
@@ -254,13 +254,13 @@ func load_event(event_idx: int, map_idx: int, event_parameters: Dictionary[Strin
 
 
 ## Устанавливает команды игроков. Должно вызываться только на сервере.
-func set_players_teams(players_teams: Dictionary[int, int]) -> void:
+func set_players_teams(players_teams: Dictionary[int, Entity.Team]) -> void:
 	if not multiplayer.is_server():
 		push_error("Unexpected call on client.")
 		return
 	_players_teams.clear()
 	for id: int in players_teams:
-		if players_teams[id] >= 0:
+		if players_teams[id] != Entity.Team.ENVIRONMENT:
 			_players_teams[id] = players_teams[id]
 
 

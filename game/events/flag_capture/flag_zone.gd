@@ -3,7 +3,7 @@ extends Area2D
 
 signal flag_captured(by: int)
 
-@export var team: int
+@export var team := Entity.Team.RED
 @export var area_color := Color(1.0, 1.0, 1.0, 0.25)
 @export var area_size := 480.0
 

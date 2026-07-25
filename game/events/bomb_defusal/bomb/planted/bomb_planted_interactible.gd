@@ -2,7 +2,7 @@ extends Interactible
 
 
 func _should_ignore_player(player: Player) -> bool:
-	return player.team != 1
+	return player.team != Entity.Team.BLUE
 
 
 func _can_player_interact(player: Player) -> bool:

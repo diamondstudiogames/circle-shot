@@ -13,7 +13,7 @@ signal exploded
 ## Направление снаряда.
 var direction: Vector2
 ## Команда игрока, бросившего гранату.
-var team: int
+var team := Entity.Team.ENVIRONMENT
 
 var _current_speed: float
 var _exploded := false

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqbav2p7upk4b" path="res://game/events/flag_capture/flag/red_flag.png" id="2_4m2ke"]
 
 [node name="RedFlag" unique_id=1356148140 instance=ExtResource("1_uwd6v")]
+team = 0
 
 [node name="Sprite2D" parent="." index="0" unique_id=109436411]
 texture = ExtResource("2_4m2ke")

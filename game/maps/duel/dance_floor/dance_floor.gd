@@ -26,8 +26,8 @@ func _on_round_started() -> void:
 	_anim.play(&"dance")
 
 
-func _on_round_ended(team_won: int) -> void:
-	if team_won == 0:
+func _on_round_ended(team_won: Entity.Team) -> void:
+	if team_won == Entity.Team.RED:
 		_anim.play(&"red_won")
 	else:
 		_anim.play(&"blue_won")
