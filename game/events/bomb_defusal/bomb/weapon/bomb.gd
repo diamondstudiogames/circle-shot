@@ -29,10 +29,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _initialize() -> void:
-	if (get_tree().get_first_node_in_group(&"world") as World).local_team != 0:
-		$RemoteTransformScreenMarker.queue_free()
-		($MarkersBase/ScreenMarker as CanvasItem).hide()
-		$MarkersBase/ScreenMarker.queue_free()
+	_update_screen_marker_visibility()
+	player.world.local_team_set.connect(_update_screen_marker_visibility.unbind(1))
 
 
 func _make_current() -> void:
@@ -101,6 +99,10 @@ func _remove_weapon() -> void:
 func _can_plant() -> bool:
 	return _ray_cast.is_colliding() and can_shoot() and \
 			(_ray_cast.get_collider() as Node).is_in_group(&"plant_zone")
+
+
+func _update_screen_marker_visibility() -> void:
+	($MarkersBase/ScreenMarker as CanvasItem).visible = player.world.local_team == Entity.Team.RED
 
 
 func _on_player_shooting_started() -> void:

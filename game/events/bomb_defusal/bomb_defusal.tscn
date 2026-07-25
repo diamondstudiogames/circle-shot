@@ -140,10 +140,52 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_d77xg"]
+resource_name = "round_start"
+length = 2.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 2, 2.3),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 2, 2.3),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.3, 0.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y57ud"]
 _data = {
 &"RESET": SubResource("Animation_y57ud"),
-&"round_end": SubResource("Animation_iwtu0")
+&"round_end": SubResource("Animation_iwtu0"),
+&"round_start": SubResource("Animation_d77xg")
 }
 
 [sub_resource type="Animation" id="Animation_0668s"]
@@ -408,7 +450,7 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/BombState" index="0" unique_id=1819056572]
 libraries/ = SubResource("AnimationLibrary_d77xg")
 
-[node name="RoundEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="10" unique_id=625583812]
+[node name="RoundInfo" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="10" unique_id=625583812]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -418,11 +460,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -240.0
-offset_top = -107.5
+offset_top = -139.5
 offset_right = 240.0
-offset_bottom = -52.5
+offset_bottom = -84.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 pivot_offset = Vector2(240, 27.5)
 theme_type_variation = &"HeaderLargeOutlined"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -432,7 +475,7 @@ text = "Раунд выигран!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundEnd" index="0" unique_id=588811939]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundInfo" index="0" unique_id=588811939]
 libraries/ = SubResource("AnimationLibrary_y57ud")
 
 [node name="GameEnd" type="HBoxContainer" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="11" unique_id=1089115023]

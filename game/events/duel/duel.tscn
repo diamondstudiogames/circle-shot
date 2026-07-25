@@ -5,6 +5,110 @@
 [ext_resource type="PackedScene" uid="uid://b4h27swncrquh" path="res://game/events/common/poison_smokes/poison_smokes.tscn" id="4_8qyco"]
 [ext_resource type="Script" uid="uid://d4h2h03h8byl7" path="res://game/events/duel/duel_ui.gd" id="4_jj4yx"]
 
+[sub_resource type="Animation" id="Animation_y57ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_iwtu0"]
+resource_name = "round_end"
+length = 3.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.8, 3.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_8qyco"]
+resource_name = "round_start"
+length = 2.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 2, 2.3),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 2, 2.3),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.3, 0.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vj6gh"]
+_data = {
+&"RESET": SubResource("Animation_y57ud"),
+&"round_end": SubResource("Animation_iwtu0"),
+&"round_start": SubResource("Animation_8qyco")
+}
+
 [sub_resource type="Animation" id="Animation_ki4so"]
 length = 0.001
 tracks/0/type = "value"
@@ -248,22 +352,33 @@ theme_override_colors/font_color = Color(0, 0, 0.7529412, 1)
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="RoundEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=557640326]
+[node name="RoundInfo" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="7" unique_id=1865004879]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -147.5
-offset_right = 116.0
-offset_bottom = -108.5
+offset_left = -240.0
+offset_top = -139.5
+offset_right = 240.0
+offset_bottom = -84.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(240, 27.5)
 theme_type_variation = &"HeaderLargeOutlined"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+text = "Раунд выигран!"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Main/RoundInfo" index="0" unique_id=1890103096]
+libraries/ = SubResource("AnimationLibrary_vj6gh")
 
 [node name="GameEnd" type="Label" parent="UI/Main" parent_id_path=PackedInt32Array(523003197) index="8" unique_id=1398096660]
 visible = false

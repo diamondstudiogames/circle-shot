@@ -16,9 +16,10 @@ func set_rounds_won(red: int, blue: int) -> void:
 	($Main/BlueCount as Label).text = str(blue)
 
 
-## Начинает раунд.
-func start_round() -> void:
-	($Main/RoundEnd as CanvasItem).hide()
+## Начинает раунд с номером [param round_num].
+func start_round(round_num: int) -> void:
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).play(&"round_start")
+	($Main/RoundInfo as Label).text = "Раунд %d начался!" % round_num
 
 
 ## Заканчивает раунд. [param winner] - ID победителя, [param end] означает конец события.
@@ -31,8 +32,8 @@ func end_round(winner: int, end := false) -> void:
 			($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"defeat")
 			($Main/GameEnd as Label).text = "ПОРАЖЕНИЕ!"
 		return
-	($Main/RoundEnd as CanvasItem).show()
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).play(&"round_end")
 	if winner == multiplayer.get_unique_id():
-		($Main/RoundEnd as Label).text = "Раунд выигран!"
+		($Main/RoundInfo as Label).text = "Раунд выигран!"
 	else:
-		($Main/RoundEnd as Label).text = "Раунд проигран!"
+		($Main/RoundInfo as Label).text = "Раунд проигран!"

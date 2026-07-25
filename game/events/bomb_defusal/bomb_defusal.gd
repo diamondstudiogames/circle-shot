@@ -25,6 +25,8 @@ var round_time: int = 80
 ## Сколько раундов нужно выиграть, чтобы победить.
 var rounds_to_win: int = 4
 
+## Текущий раунд.
+var current_round: int = 0
 ## Количество раундов, выигранной красной командой.
 var red_rounds_won: int = 0
 ## Количество раундов, выигранной синей командой.
@@ -35,7 +37,6 @@ var bombs_planted_defused: int = 0
 var _spawn_counter_red: int = 0
 var _spawn_counter_blue: int = 0
 var _time_remained: int
-var _current_round: int = 0
 var _round_ended := false
 
 var _bomb_carrier: int
@@ -138,9 +139,9 @@ func _get_rewards() -> Dictionary[String, int]:
 
 func _get_event_status() -> String:
 	if _round_ended:
-		return "конец раунда %d" % _current_round
+		return "конец раунда %d" % current_round
 	return "раунд %d, осталось времени: %d:%02d" % [
-		_current_round,
+		current_round,
 		floori(_time_remained / 60.0),
 		_time_remained % 60,
 	]
@@ -201,9 +202,10 @@ func _start_round() -> void:
 	if multiplayer.get_remote_sender_id() != MultiplayerPeer.TARGET_PEER_SERVER:
 		push_error("This method must be called only by server.")
 		return
-	_current_round += 1
+	current_round += 1
 	round_started.emit()
-	print_verbose("Round %d started." % _current_round)
+	_bomb_defusal_ui.start_round(current_round)
+	print_verbose("Round %d started." % current_round)
 
 
 @rpc("reliable", "authority", "call_local", 3)
@@ -218,7 +220,7 @@ func _end_round(defused_by: int = -1) -> void:
 		if defused_by == multiplayer.get_unique_id():
 			bombs_planted_defused += 1
 		print_verbose("Bomb has been defused by %d." % defused_by)
-	print_verbose("Round %d ended." % _current_round)
+	print_verbose("Round %d ended." % current_round)
 
 
 @rpc("reliable", "authority", "call_local", 3)

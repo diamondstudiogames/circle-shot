@@ -17,6 +17,13 @@ func set_rounds_to_win(rounds_to_win: int) -> void:
 	($Main/BlueCount/ToWin as Label).text = "/%d" % rounds_to_win
 
 
+## Начинает раунд с номером [param round_num].
+func start_round(round_num: int) -> void:
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).play(&"round_start")
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).seek(0.0)
+	($Main/RoundInfo as Label).text = "Раунд %d начался!" % round_num
+
+
 ## Показывает победившую команду.
 func show_winner(blue_won: bool) -> void:
 	($Main/GameEnd/AnimationPlayer as AnimationPlayer).play(&"victory")
@@ -27,9 +34,9 @@ func show_winner(blue_won: bool) -> void:
 
 ## Показывает результат раунда ("Раунд выигран/проигран!").
 func show_round_end(won: bool) -> void:
-	($Main/RoundEnd/AnimationPlayer as AnimationPlayer).play(&"round_end")
-	($Main/RoundEnd/AnimationPlayer as AnimationPlayer).seek(0.0)
-	($Main/RoundEnd as Label).text = "Раунд выигран!" if won else "Раунд проигран!"
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).play(&"round_end")
+	($Main/RoundInfo/AnimationPlayer as AnimationPlayer).seek(0.0)
+	($Main/RoundInfo as Label).text = "Раунд выигран!" if won else "Раунд проигран!"
 
 
 ## Показывает состояние бомбы: "Бомба была заложена!", если [param defused] равен

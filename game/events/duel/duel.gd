@@ -132,7 +132,7 @@ func _start_round() -> void:
 		return
 	
 	current_round += 1
-	_duel_ui.start_round()
+	_duel_ui.start_round(current_round)
 	print_verbose("Round %d started." % current_round)
 	
 	_poison_smokes = _poison_smokes_scene.instantiate()
